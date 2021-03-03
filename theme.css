@@ -78,7 +78,7 @@
         0px 1px 5px 0px rgba(0, 0, 0, 0.12);
     --b3-dialog-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14),
         0px 9px 46px 8px rgba(0, 0, 0, 0.12);
-    --b3-toolbar-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    --b3-toolbar-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
     --b3-card-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
     /* diff */
     --b3-diff-add: #dfd;
@@ -190,7 +190,6 @@ blockquote {
     padding-left: 15px !important;
     /* box-shadow: var(--b3-card-shadow); */
     color: #0a6e9ecc;
-
 }
 .vditor-reset .hljs,
 .vditor-reset blockquote,
@@ -304,7 +303,7 @@ blockquote {
     background-size: 20px 20px;
     white-space: pre-wrap;
     color: #038296 !important;
-    background-color: #e6f1f3;
+    background-color: #e0ecf3;
     /* box-shadow: rgb(69,213,232)  1px 0px 5px 1px inset; */
 }
 /* 代码块样式 */
@@ -312,7 +311,7 @@ blockquote {
     line-height: 24px;
     background-color: #f0f3f5 !important;
     /* box-shadow: 0px 0px 10px rgb(204, 214, 212); */
-    color:#353739 !important;
+    color: #353739 !important;
 }
 
 /* 复选框Start */
@@ -432,31 +431,36 @@ blockquote {
 .ft__primary:hover,
 .block__icon.b3-tooltips.b3-tooltips__sw:hover {
     color: #e34f8c;
-    background-color: #e7e7e7 !important;
+    background-color: #ebebeb !important;
 }
 
 div[data-type='navigation'] .b3-list-item--focus,
 .vditor-reset .b3-list-item--focus {
-    background-color: #e7e7e7 !important;
+    background-color: #ebebeb !important;
 }
 
 /* focus高亮样式 */
-/* 文件树选中的部分 */
+/* 文件树选中中间的部分 */
 .b3-list-item.b3-list-item--hide-action.b3-list-item--focus span:nth-child(2) {
     font-weight: 800;
     font-size: 15px;
-    background-color: #e7e7e7 !important;
+    background-color: #ebebeb !important;
 }
-
 
 /* 选中的标签页 */
 .item--focus {
-    /* background-color: #e7e7e7 !important; */
+    /* background-color: #ebebeb !important; */
     color: #e34f8c;
     font-weight: 800;
     font-size: 16px;
 }
-
+/* 按斜杆弹出的菜单 */
+.b3-list--background .b3-list-item--focus {
+    background-color: #ebebeb !important;
+}
+.b3-list--background .b3-list-item--focus .b3-list-item__text {
+    color: #e34f8c;
+}
 /* end */
 
 /* 选中项的圆角 */
