@@ -57,9 +57,9 @@
     --b3-text-border-color: rgb(170, 178, 180);
     /* 表格 */
     --b3-table-border-color: rgba(26, 26, 26, 0.1);
-    --b3-table-th-color: #5ec9e7;
+    --b3-table-th-color: #5ec9e75b;
     --b3-table-trn-color: #ffffff;
-    --b3-table-tr2n-color: #b7dee8;
+    --b3-table-tr2n-color: #dbf6fd73;
     /* 卡片背景 */
     --b3-card-error-color: rgb(97, 26, 21);
     --b3-card-error-background: rgb(253, 236, 234);
@@ -277,9 +277,9 @@ blockquote {
 }
 
 /* 超链接hover鼠标样式改变 */
-.vditor-ir__link:hover {
-    cursor: pointer;
-    color: rgb(184, 93, 57);
+.vditor-ir__node:hover .vditor-ir__link {
+      cursor: pointer;
+    color: rgb(184, 57, 135);
     text-decoration: underline;
 }
 /* 超链接样式 */
@@ -391,12 +391,13 @@ blockquote {
 
 .vditor-reset h3 {
     font-size: 20px;
-    color: #15aabf;
+    color: rgb(21, 170, 191);
     line-height: 20px;
-    border-left: 6px solid #15aabf;
-    /* border-bottom: 1px solid var(--b3-text-border-color) !important; */
+    border-left: 6px solid rgb(21, 170, 191);
     text-align: justify;
-    padding: 5px 0 5px 7px;
+    padding: 5px 0px 5px 7px;
+    margin-top: 23px;
+    margin-bottom: 5px;
 }
 
 .vditor-reset h4 {
@@ -547,7 +548,7 @@ div[data-type='navigation'] .b3-list-item--focus,
 .vditor-reset img {
     max-width: 100%;
     cursor: pointer;
-    box-shadow: 0px 3px 10px 3px rgb(6 6 6 / 30%);
+    box-shadow: 0px 2px 5px 2px rgb(6 6 6 / 30%);
     border-radius: 5px;
 }
 /* 文件树页签工具栏样式 */
@@ -556,8 +557,8 @@ div[data-type='navigation'] .b3-list-item--focus,
     background-color: var(--b3-theme-surface);
 }
 /* 设置的关闭按钮 */
-.fn__a {
-    color: #d3efec;
+.b3-dialog__container .b3-dialog__close  {
+    color: #ffffff;
     cursor: pointer;
 }
 .b3-dialog__container svg:hover {
