@@ -32,17 +32,21 @@
     --b3-theme-on-error: #fff;
 
     /* 字体 */
-    --b3-font-family: 'Alibaba puhuiti',"Helvetica Neue", "Luxi Sans", "DejaVu Sans", "Hiragino Sans GB", "Microsoft Yahei", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols";
-    --b3-font-family-code: 'FiraCode',mononoki, Consolas, "Liberation Mono", Menlo, Courier, monospace, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols";
+    --b3-font-family: 'Alibaba puhuiti', 'Helvetica Neue', 'Luxi Sans', 'DejaVu Sans',
+        'Hiragino Sans GB', 'Microsoft Yahei', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Noto Color Emoji', 'Segoe UI Symbol', 'Android Emoji', 'EmojiSymbols';
+    --b3-font-family-code: 'FiraCode', mononoki, Consolas, 'Liberation Mono', Menlo, Courier,
+        monospace, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Segoe UI Symbol',
+        'Android Emoji', 'EmojiSymbols';
 
     /* 线条 */
-    --b3-border-color: rgba(0, 0, 0, .1);
+    --b3-border-color: rgba(0, 0, 0, 0.1);
 
     /* 滚动条 */
     --b3-scroll-color: rgba(5, 50, 80, 0.2);
 
     /* 列表 */
-    --b3-list-hover: rgba(0, 0, 0, .05);
+    --b3-list-hover: rgba(0, 0, 0, 0.05);
 
     /* 页签 */
     --b3-tab-background: #f8f9fa;
@@ -53,7 +57,7 @@
     --b3-text-border-color: rgb(170, 178, 180);
     /* 表格 */
     --b3-table-border-color: rgba(26, 26, 26, 0.1);
-    --b3-table-th-color: #4bacc6;
+    --b3-table-th-color: #5ec9e7;
     --b3-table-trn-color: #ffffff;
     --b3-table-tr2n-color: #b7dee8;
     /* 卡片背景 */
@@ -67,11 +71,13 @@
     --b3-card-success-background: rgb(237, 247, 237);
 
     /* 动画效果 */
-    --b3-transition: all .15s cubic-bezier(0, 0, .2, 1) 0ms;
+    --b3-transition: all 0.15s cubic-bezier(0, 0, 0.2, 1) 0ms;
 
     /* 阴影 */
-    --b3-point-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-    --b3-dialog-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+    --b3-point-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+        0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+    --b3-dialog-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14),
+        0px 9px 46px 8px rgba(0, 0, 0, 0.12);
     --b3-toolbar-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
     --b3-card-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
     /* diff */
@@ -83,11 +89,11 @@
     /* 图表颜色 */
     --b3-graph-p-point: #076f7e;
     --b3-graph-heading-point: #660e7a;
-    --b3-graph-math-point: #80FFA5;
-    --b3-graph-code-point: #00DDFF;
-    --b3-graph-table-point: #37A2FF;
-    --b3-graph-list-point: #FF0087;
-    --b3-graph-todo-point: #FFBF00;
+    --b3-graph-math-point: #80ffa5;
+    --b3-graph-code-point: #00ddff;
+    --b3-graph-table-point: #37a2ff;
+    --b3-graph-list-point: #ff0087;
+    --b3-graph-todo-point: #ffbf00;
     --b3-graph-olist-point: #b3005f;
     --b3-graph-listitem-point: #f65b00;
     --b3-graph-bq-point: #8d48e3;
@@ -113,7 +119,7 @@
     --b3-vditor-search-current-background: #a5d3fe;
 
     /* 代码片段背景 */
-    --b3-vditor-code-background: rgba(27, 31, 35, .05);
+    --b3-vditor-code-background: rgba(27, 31, 35, 0.05);
 
     /* 即时渲染标记符颜色 */
     --b3-vditor-mark-heading-color: #660e7a;
@@ -143,7 +149,6 @@
 .language-graphviz polygon {
     fill: transparent;
 }
-
 
 .vditor-toolbar {
     background-color: var(--b3-theme-background) !important;
@@ -179,11 +184,13 @@
 }
 /* 引用块修改 */
 blockquote {
-    border-left: 0.25em solid rgb(36, 126, 138) !important;
+    border-left: 0.25em solid rgb(46, 160, 175) !important;
     border-radius: 5px;
-    background-color: rgba(66, 185, 185, 0.1)!important;
+    background-color: rgba(66, 185, 185, 0.05) !important;
     padding-left: 15px !important;
-    box-shadow: var(--b3-card-shadow);
+    /* box-shadow: var(--b3-card-shadow); */
+    color: #0a6e9ecc;
+
 }
 .vditor-reset .hljs,
 .vditor-reset blockquote,
@@ -296,15 +303,15 @@ blockquote {
     word-break: break-word;
     background-size: 20px 20px;
     white-space: pre-wrap;
-    color:#038296 !important;
-    background-color: rgb(187, 237, 245);
+    color: #038296 !important;
+    background-color: #e6f1f3;
     /* box-shadow: rgb(69,213,232)  1px 0px 5px 1px inset; */
 }
 /* 代码块样式 */
 .hljs {
     line-height: 24px;
-    background-color: #f8f8f8 !important;
-    box-shadow: 0px 0px 10px rgb(204, 214, 212);
+    background-color: #f0f3f5 !important;
+    /* box-shadow: 0px 0px 10px rgb(204, 214, 212); */
 }
 
 /* 复选框Start */
@@ -324,7 +331,7 @@ blockquote {
     text-align: center;
     border: 0px;
     border-radius: 3px;
-    background-color: hsl(197deg,9%, 80%);
+    background-color: hsl(197deg, 9%, 80%);
     margin-top: -0.3rem;
     margin-left: -0.1rem;
 }
@@ -407,8 +414,6 @@ blockquote {
 
 /* 标题样式End */
 
-
-
 /* 高亮部分 */
 .b3-list-item.b3-list-item--big:hover,
 .b3-list-item.b3-list-item--big.b3-list-item--focus,
@@ -420,14 +425,13 @@ blockquote {
 .b3-list-item.b3-list-item--focus span:nth-child(2),
 .vditor-counter.b3-tooltips.b3-tooltips__w,
 .b3-list__header span:hover,
-.b3-dialog__container svg:hover,
 .b3-snackbar__close.fn__a:hover,
 .vditor-toolbar .vditor-toolbar__item button:hover svg,
 #toolbar div:hover,
 .ft__primary:hover,
 .block__icon.b3-tooltips.b3-tooltips__sw:hover {
     color: #e34f8c;
-    background-color: #e7e7e7!important;
+    background-color: #e7e7e7 !important;
 }
 
 div[data-type='navigation'] .b3-list-item--focus,
@@ -439,23 +443,42 @@ div[data-type='navigation'] .b3-list-item--focus,
 /* 文件树选中的部分 */
 .b3-list-item.b3-list-item--hide-action.b3-list-item--focus span:nth-child(2) {
     font-weight: 800;
-    font-size: 16px;
+    font-size: 15px;
     background-color: #e7e7e7 !important;
 }
 
+
 /* 选中的标签页 */
-.b3-list-item.b3-list-item--focus span:nth-child(2) {
-    font-weight: 800;
-    font-size: 16px;
-}
 .item--focus {
-    background-color: #e7e7e7 !important;
+    /* background-color: #e7e7e7 !important; */
     color: #e34f8c;
     font-weight: 800;
     font-size: 16px;
 }
 
 /* end */
+
+/* 选中项的圆角 */
+.b3-list-item {
+    line-height: 30px;
+    padding: 4px 16px;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    position: relative;
+    background-color: transparent;
+    text-align: left;
+    border: 0px;
+    border-radius: 0 15px 15px 0;
+}
+
+.b3-list-item--two {
+    display: block;
+}
+
+.b3-list--background .b3-list-item--focus {
+    border-radius: 0 15px 15px 0;
+}
 
 /* 去掉标题栏的文件图标 */
 .layout-tab-bar .item__graphic {
@@ -483,7 +506,7 @@ div[data-type='navigation'] .b3-list-item--focus,
     display: inline-block;
     font-size: 0.8em;
     line-height: 1em;
-    background-color: #e34f8c;
+    background-color: #dd7aa3;
     border-radius: 4px;
     padding: 4px 6px;
     margin: 0 4px;
@@ -492,7 +515,7 @@ div[data-type='navigation'] .b3-list-item--focus,
 }
 .vditor-ir__tag {
     text-decoration: none;
-    background-color: #e34f8c;
+    background-color: #dd7aa3;
     color: #fff;
 }
 
@@ -524,7 +547,29 @@ div[data-type='navigation'] .b3-list-item--focus,
 }
 /* 文件树页签工具栏样式 */
 .block__icons {
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);   
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
     background-color: var(--b3-theme-surface);
+}
+/* 设置的关闭按钮 */
+.fn__a {
+    color: #d3efec;
+    cursor: pointer;
+}
+.b3-dialog__container svg:hover {
+    color: #e34f8c;
+}
 
+/* 仿照Lavender设置界面动效 */
+body {
+    perspective: 500px;
+}
+.b3-dialog__container {
+    animation: show 0.5s ease;
+    animation-fill-mode: forwards;
+    transform-style: preserve-3d;
+}
+@keyframes show {
+    0% {
+        transform: translateZ(-100px) rotateX(120deg) translateY(-100px);
+    }
 }
