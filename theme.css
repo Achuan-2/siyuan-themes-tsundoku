@@ -312,6 +312,7 @@ blockquote {
     line-height: 24px;
     background-color: #f0f3f5 !important;
     /* box-shadow: 0px 0px 10px rgb(204, 214, 212); */
+    color:#353739 !important;
 }
 
 /* 复选框Start */
