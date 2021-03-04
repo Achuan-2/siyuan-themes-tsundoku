@@ -58,7 +58,7 @@
     /* 表格 */
     --b3-table-border-color: rgba(26, 26, 26, 0.1);
     --b3-table-th-color: #5ec9e75b;
-    --b3-table-trn-color: #ffffff;
+    --b3-table-trn-color: #f8f9fa;
     --b3-table-tr2n-color: #dbf6fd73;
     /* 卡片背景 */
     --b3-card-error-color: rgb(97, 26, 21);
@@ -194,12 +194,12 @@ blockquote {
 .vditor-reset .hljs,
 .vditor-reset blockquote,
 .vditor-reset table {
-    margin-top: 20px !important;
-    margin-bottom: 20px !important;
+    margin-top: 12px !important;
+    margin-bottom: 12px !important;
 }
 /* 表格 */
 .vditor-reset table {
-    box-shadow: var(--b3-card-shadow);
+    /* box-shadow: var(--b3-card-shadow); */
 }
 .vditor-reset table thead tr {
     background-color: var(--b3-table-th-color) !important;
@@ -275,7 +275,10 @@ blockquote {
     border: 1px;
     border-bottom: 1px dashed #f58484 !important;
 }
-
+.vditor-ir__blockref:hover {
+    color: #ff398b;
+    border-bottom: 1px dashed #ff398b !important;
+}
 /* 超链接hover鼠标样式改变 */
 .vditor-ir__node:hover .vditor-ir__link {
     cursor: pointer;
@@ -295,7 +298,7 @@ blockquote {
 /* 行内代码块 */
 .vditor-reset code:not(.hljs):not([data-type='math-inline']) {
     padding: 0.2em 0.5em;
-    margin: 6px;
+    margin: 0px 6px;
     font-size: 85%;
     border-radius: 8px;
     font-family: var(--b3-font-family-code);
@@ -303,18 +306,32 @@ blockquote {
     background-size: 20px 20px;
     white-space: pre-wrap;
     color: #038296 !important;
-    background-color: #e0ecf3;
-    /* box-shadow: rgb(69,213,232)  1px 0px 5px 1px inset; */
+    background-color: #e0ecf3a6;
 }
-
+/* 行内公式块样式*/
+.vditor-reset code[data-type='math-inline'] {
+    color: rgb(44, 23, 23);
+    background-color: #edf0f2;
+}
 /* 代码块样式 */
+/* 代码编辑区 */
+.vditor-ir__marker--pre code {
+    background-color: #f0f3f5a8 !important;
+}
 .hljs {
     line-height: 24px;
     background-color: #f0f3f5 !important;
     /* box-shadow: 0px 0px 10px rgb(204, 214, 212); */
     color: #353739 !important;
 }
+=
 
+/* 代码块样式 */
+.hljs {
+    line-height: 24px;
+    background-color: #1a1e1f !important;
+    box-shadow: 0px 0px 10px rgb(0, 0, 0);
+}
 /* ❗复选框（待办事项）Start */
 /* 复选框与文字的距离 */
 .vditor-task input[type='checkbox'] {
@@ -364,7 +381,7 @@ blockquote {
 /*  完成的代办事项下划线 */
 .vditor-task--done {
     /* text-decoration: line-through; */
-    color: #9ec9cf;
+    color: #9ec9cfbd;
 }
 .vditor-task--done strong {
     /* 加粗样式调整 */
