@@ -278,7 +278,7 @@ blockquote {
 
 /* 超链接hover鼠标样式改变 */
 .vditor-ir__node:hover .vditor-ir__link {
-      cursor: pointer;
+    cursor: pointer;
     color: rgb(184, 57, 135);
     text-decoration: underline;
 }
@@ -293,7 +293,7 @@ blockquote {
     background-color: #abb2bf;
 }
 /* 行内代码块 */
-.vditor-reset code:not(.hljs) {
+.vditor-reset code:not(.hljs):not([data-type='math-inline']) {
     padding: 0.2em 0.5em;
     margin: 6px;
     font-size: 85%;
@@ -306,6 +306,7 @@ blockquote {
     background-color: #e0ecf3;
     /* box-shadow: rgb(69,213,232)  1px 0px 5px 1px inset; */
 }
+
 /* 代码块样式 */
 .hljs {
     line-height: 24px;
@@ -314,7 +315,7 @@ blockquote {
     color: #353739 !important;
 }
 
-/* 复选框Start */
+/* ❗复选框（待办事项）Start */
 /* 复选框与文字的距离 */
 .vditor-task input[type='checkbox'] {
     margin-right: 0.5em;
@@ -360,14 +361,40 @@ blockquote {
     color: rgb(243, 237, 237);
     background-color: hsl(198, 55%, 58%);
 }
-/* 完成事项下划线 */
+/*  完成的代办事项下划线 */
 .vditor-task--done {
-    text-decoration: line-through;
-    color: #80bcc5;
+    /* text-decoration: line-through; */
+    color: #9ec9cf;
 }
-/* 复选框 End */
+.vditor-task--done strong {
+    /* 加粗样式调整 */
+    color: #7fbdc7 !important;
+}
+.vditor-task--done .vditor-ir__node em {
+    /* 斜体调整 */
+    color: #9ec9cf !important;
+}
+.vditor-task--done .vditor-ir__node s {
+    /* 删除线调整 */
+    color: #9ec9cf !important;
+}
+.vditor-task--done .vditor-ir__node .vditor-ir__link {
+    /* 超链接调整 */
+    color: #8cb5bb !important;
+    text-decoration: underline;
+}
+.vditor-task--done .vditor-ir__node .vditor-ir__link:hover {
+    /* 超链接调整 */
+    color: rgb(184, 57, 135) !important;
+    text-decoration: underline;
+}
+.vditor-task--done .vditor-ir__node img {
+    background-color: rgba(236, 0, 0, 0.6);
+    filter: opacity(60%);
+}
+/* 复选框 End  */
 
-/* 标题样式 */
+/* ❗标题样式 */
 .vditor-reset h1 {
     text-align: center;
     border-bottom: 0px solid #fff !important;
@@ -415,7 +442,7 @@ blockquote {
 
 /* 标题样式End */
 
-/* 高亮部分 */
+/* ❗focus高亮部分 */
 .b3-list-item.b3-list-item--big:hover,
 .b3-list-item.b3-list-item--big.b3-list-item--focus,
 .b3-list-item.b3-list-item--hide-action:hover span:nth-child(2),
@@ -462,8 +489,6 @@ div[data-type='navigation'] .b3-list-item--focus,
 .b3-list--background .b3-list-item--focus .b3-list-item__text {
     color: #e34f8c;
 }
-/* end */
-
 /* 选中项的圆角 */
 .b3-list-item {
     line-height: 30px;
@@ -485,15 +510,9 @@ div[data-type='navigation'] .b3-list-item--focus,
 .b3-list--background .b3-list-item--focus {
     border-radius: 0 15px 15px 0;
 }
+/* end */
 
-/* 去掉标题栏的文件图标 */
-.layout-tab-bar .item__graphic {
-    margin-right: 8px;
-    height: 14px;
-    width: 14px;
-    display: none;
-}
-/* 标签页样式 */
+/* ❗标签页样式 */
 .layout-tab-bar .item {
     padding: 5px 4px 5px 14px;
     border: 0px;
@@ -502,12 +521,20 @@ div[data-type='navigation'] .b3-list-item--focus,
     border-left: 1px solid #dfe0e1;
     border-radius: 7px 7px 0px 0px;
 }
+
+/* 去掉标题栏的文件图标 */
+.layout-tab-bar .item__graphic {
+    margin-right: 8px;
+    height: 14px;
+    width: 14px;
+    display: none;
+}
 /* 去掉foucs的标签页下边框 */
 .layout__wnd--active .layout-tab-bar .item--focus {
     border-color: #dfe0e1;
 }
 
-/* 标签样式 */
+/* ❗标签样式 */
 .vditor-reset span[data-type='tag'] {
     display: inline-block;
     font-size: 0.8em;
@@ -530,7 +557,7 @@ div[data-type='navigation'] .b3-list-item--focus,
 }
 /* 标签样式end */
 
-/* Markdown图表样式 */
+/* ❗Markdown图表样式 */
 .vditor-reset .language-flowchart {
     text-align: center;
     background-color: #a5b3c7;
@@ -556,8 +583,8 @@ div[data-type='navigation'] .b3-list-item--focus,
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
     background-color: var(--b3-theme-surface);
 }
-/* 设置的关闭按钮 */
-.b3-dialog__container .b3-dialog__close  {
+/* 设置/搜索弹窗的关闭按钮 */
+.b3-dialog__container .b3-dialog__close {
     color: #ffffff;
     cursor: pointer;
 }
@@ -565,7 +592,7 @@ div[data-type='navigation'] .b3-list-item--focus,
     color: #e34f8c;
 }
 
-/* 仿照Lavender设置界面动效 */
+/* 仿照Lavender设置/搜索界面启动动效 */
 body {
     perspective: 500px;
 }
