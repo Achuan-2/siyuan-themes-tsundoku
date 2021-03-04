@@ -57,7 +57,7 @@
     --b3-text-border-color: rgb(170, 178, 180);
     /* 表格 */
     --b3-table-border-color: rgba(26, 26, 26, 0.1);
-    --b3-table-th-color: #8ee1f85b;
+    --b3-table-th-color: #9fe4f75b;
     --b3-table-trn-color: #f8f9fa;
     --b3-table-tr2n-color: #ecf6f8;
     /* 卡片背景 */
@@ -265,10 +265,7 @@ blockquote {
     background-color: var(--b3-text-emphasize-color);
 }
 
-.block__icons {
-    box-shadow: var(--b3-toolbar-shadow);
-    background-color: var(--b3-theme-surface);
-}
+
 /* 块引用 */
 .vditor-ir__blockref {
     color: #f58484;
@@ -558,6 +555,8 @@ div[data-type='navigation'] .b3-list-item--focus,
     border-right: 1px solid #dfe0e1;
     border-left: 1px solid #dfe0e1;
     border-radius: 7px 7px 0px 0px;
+    margin: 2px;
+    background-color: #eff3f5;
 }
 
 /* 去掉标题栏的文件图标 */
@@ -618,7 +617,7 @@ div[data-type='navigation'] .b3-list-item--focus,
 }
 /* 文件树页签工具栏样式 */
 .block__icons {
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     background-color: var(--b3-theme-surface);
 }
 /* 设置/搜索弹窗的关闭按钮 */
