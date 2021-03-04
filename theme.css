@@ -57,9 +57,9 @@
     --b3-text-border-color: rgb(170, 178, 180);
     /* 表格 */
     --b3-table-border-color: rgba(26, 26, 26, 0.1);
-    --b3-table-th-color: #5ec9e75b;
+    --b3-table-th-color: #8ee1f85b;
     --b3-table-trn-color: #f8f9fa;
-    --b3-table-tr2n-color: #dbf6fd73;
+    --b3-table-tr2n-color: #ecf6f8;
     /* 卡片背景 */
     --b3-card-error-color: rgb(97, 26, 21);
     --b3-card-error-background: rgb(253, 236, 234);
@@ -308,30 +308,51 @@ blockquote {
     color: #038296 !important;
     background-color: #e0ecf3a6;
 }
+
 /* 行内公式块样式*/
 .vditor-reset code[data-type='math-inline'] {
     color: rgb(44, 23, 23);
     background-color: #edf0f2;
 }
-/* 代码块样式 */
-/* 代码编辑区 */
+/* 行内公式字体大小 */
+[data-type="inline-math"] .katex{
+    font: normal 17px KaTeX_Main,Times New Roman,serif !important;
+}
+/* 公式块字体大小 */
+[data-type="math-block"] .katex {
+    font: normal 20px KaTeX_Main,Times New Roman,serif !important;
+}
+/* ❗代码块样式 */
+/* 代码编辑区样式 */
 .vditor-ir__marker--pre code {
     background-color: #f0f3f5a8 !important;
 }
+/* 代码内容块 */
 .hljs {
     line-height: 24px;
     background-color: #f0f3f5 !important;
     /* box-shadow: 0px 0px 10px rgb(204, 214, 212); */
     color: #353739 !important;
-}
-=
+    /* 缩进两个单位 */
+    padding-left: 2em !important; 
 
-/* 代码块样式 */
-.hljs {
-    line-height: 24px;
-    background-color: #1a1e1f !important;
-    box-shadow: 0px 0px 10px rgb(0, 0, 0);
 }
+/* 缩进代码编辑区和公式块 */
+.vditor-reset code:not(.hljs):not([data-type='math-inline']):not([data-newline='1']):not([class='b3-label__text'])  { 
+    padding-left: 2em ;
+}
+
+/* 考虑显示行号时的缩进 */
+.vditor-linenumber {
+    padding-left: 4em !important;
+    position: relative;
+}
+
+/* 考虑到设置里的行内代码 */
+.b3-label__text code {
+    padding: 0.2em 0.5em !important;
+}
+
 /* ❗复选框（待办事项）Start */
 /* 复选框与文字的距离 */
 .vditor-task input[type='checkbox'] {
@@ -556,7 +577,7 @@ div[data-type='navigation'] .b3-list-item--focus,
     display: inline-block;
     font-size: 0.8em;
     line-height: 1em;
-    background-color: #dd7aa3;
+    background-color: #e34f8c;
     border-radius: 4px;
     padding: 4px 6px;
     margin: 0 4px;
@@ -565,7 +586,7 @@ div[data-type='navigation'] .b3-list-item--focus,
 }
 .vditor-ir__tag {
     text-decoration: none;
-    background-color: #dd7aa3;
+    background-color: #e34f8c;
     color: #fff;
 }
 
@@ -592,7 +613,7 @@ div[data-type='navigation'] .b3-list-item--focus,
 .vditor-reset img {
     max-width: 100%;
     cursor: pointer;
-    box-shadow: 0px 2px 5px 2px rgb(6 6 6 / 30%);
+    box-shadow: 0px 1px 5px 1px rgb(6 6 6 / 30%);
     border-radius: 5px;
 }
 /* 文件树页签工具栏样式 */
