@@ -28,7 +28,7 @@
     --b3-theme-on-error: #fff;
 
     /* 字体 */
-    --b3-font-family: 'SourceHan','Helvetica Neue', 'Luxi Sans', 'DejaVu Sans', 'Hiragino Sans GB',
+    --b3-font-family: 'SourceHan', 'Helvetica Neue', 'Luxi Sans', 'DejaVu Sans', 'Hiragino Sans GB',
         'Microsoft Yahei', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji',
         'Segoe UI Symbol', 'Android Emoji', 'EmojiSymbols';
     --b3-font-family-code: 'FiraCode', mononoki, Consolas, 'Liberation Mono', Menlo, Courier,
@@ -313,7 +313,7 @@ blockquote {
 [data-type='math-block'] .katex {
     font: normal 1.25em KaTeX_Main, Times New Roman, serif !important;
 }
-[data-type='math-block'] .MathJax  {
+[data-type='math-block'] .MathJax {
     font-size: 1.5em !important;
 }
 /* ❗代码块样式 */
@@ -323,7 +323,7 @@ blockquote {
 }
 /* 代码内容块 */
 .hljs {
-    position:relative;
+    position: relative;
     line-height: 1.56em;
     background-color: #f0f3f5 !important;
     /* box-shadow: 0px 0px 10px rgb(204, 214, 212); */
@@ -355,11 +355,11 @@ blockquote {
     position: relative;
     text-align: center;
     vertical-align: middle;
-    top:-0.1em;
-    right:0.5em;
-    font-size:1em;
-    width: 1.0em;
-    height: 1.0em;
+    top: -0.1em;
+    right: 0.5em;
+    font-size: 1em;
+    width: 1em;
+    height: 1em;
     border-radius: 0.17em;
 }
 
@@ -437,7 +437,7 @@ blockquote {
 .vditor-task--done .vditor-ir__node mark {
     /* 高亮调整 */
     background-color: rgba(201, 228, 233, 53%);
-    color:#8cb5bb;
+    color: #8cb5bb;
 }
 .vditor-task--done .vditor-ir__node .hljs {
     /* 代码样式调整透明度 */
@@ -463,9 +463,9 @@ blockquote {
     margin: 0.2em auto 0;
     width: 4em;
     height: 2px;
-    border-bottom: 2px solid #04393f
+    border-bottom: 2px solid #04393f;
 }
-.vditor-ir  h2 {
+.vditor-ir h2 {
     /* text-align: center; */
     border-bottom: 1px solid var(--b3-text-border-color) !important;
     font-size: 1.55em !important;
@@ -538,7 +538,7 @@ div[data-type='navigation'] .b3-list-item--focus,
     border-right: 1px solid #dfe0e1;
     border-left: 1px solid #dfe0e1;
     border-radius: 7px 7px 0px 0px;
-    margin-left: 2px;
+    margin-right: 2px;
     background-color: #eff3f5;
 }
 
@@ -641,7 +641,7 @@ div[data-type='navigation'] .b3-list-item--focus,
 .vditor-reset img {
     max-width: 100%;
     cursor: pointer;
-    box-shadow: 0px 1px 5px 1px rgba(6,6,6,10%);
+    box-shadow: 0px 1px 5px 1px rgba(6, 6, 6, 10%);
     border-radius: 5px;
 }
 /* 文件树页签工具栏样式 */
@@ -682,29 +682,28 @@ div[data-type='navigation'] .b3-list-item--focus,
     background-color: #e2e9f1;
 }
 /* sql查找不到字体颜色*/
-div[data-type="block-render"] .ft__secondary {
+div[data-type='block-render'] .ft__secondary {
     color: #f33c3c;
     font-weight: 800;
     /* background: #929275; */
 }
 
-.b3-list .ft__secondary{
+.b3-list .ft__secondary {
     /* 模板和assets为红  */
     color: #f33c3c;
 }
 /*代码语言显示*/
 /* 仿照Blue_Topaz主题 */
+
 code:before {
-    /* display: block; */
     position: absolute;
-    color: #008080 !important;
+    color: #b8bec2 !important;
     display: inline-block;
     cursor: pointer;
-    /* line-height: 0%; */
-    right:40px;
-    top:0.45em;
-    z-index:0;
-    font-weight:600;
+    right: 40px;
+    top: 0.45em;
+    z-index: 0;
+    font-weight: 600;
     padding: 1px 0px;
 }
 code[class~='language-js']:before {
