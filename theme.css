@@ -1,17 +1,13 @@
 @font-face {
-    font-family: 'Alibaba puhuiti';
+    /* 思源黑体 */
+    font-family: 'SourceHan';
     font-style: normal;
-    src: url('fonts/alibaba-puhuiti-regular.ttf');
+    src: url('fonts/SourceHanSansCN-Regular.otf');
 }
 @font-face {
     font-family: 'FiraCode';
     font-style: normal;
     src: url('fonts/FiraCode-Regular.ttf');
-}
-@font-face {
-    font-family: 'GlowSansSC';
-    font-style: normal;
-    src: url('fonts/GlowSansSC-Normal-Regular.otf');
 }
 :root {
     /* 主色 */
@@ -32,9 +28,9 @@
     --b3-theme-on-error: #fff;
 
     /* 字体 */
-    --b3-font-family: 'Alibaba puhuiti', 'Helvetica Neue', 'Luxi Sans', 'DejaVu Sans',
-        'Hiragino Sans GB', 'Microsoft Yahei', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Noto Color Emoji', 'Segoe UI Symbol', 'Android Emoji', 'EmojiSymbols';
+    --b3-font-family: 'SourceHan','Helvetica Neue', 'Luxi Sans', 'DejaVu Sans', 'Hiragino Sans GB',
+        'Microsoft Yahei', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji',
+        'Segoe UI Symbol', 'Android Emoji', 'EmojiSymbols';
     --b3-font-family-code: 'FiraCode', mononoki, Consolas, 'Liberation Mono', Menlo, Courier,
         monospace, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Segoe UI Symbol',
         'Android Emoji', 'EmojiSymbols';
@@ -57,9 +53,9 @@
     --b3-text-border-color: rgb(170, 178, 180);
     /* 表格 */
     --b3-table-border-color: rgba(26, 26, 26, 0.1);
-    --b3-table-th-color: #9fe4f75b;
+    --b3-table-th-color: #d0d6d85b;
     --b3-table-trn-color: #f8f9fa;
-    --b3-table-tr2n-color: #ecf6f8;
+    --b3-table-tr2n-color: #f0f4f5;
     /* 卡片背景 */
     --b3-card-error-color: rgb(97, 26, 21);
     --b3-card-error-background: rgb(253, 236, 234);
@@ -78,8 +74,8 @@
         0px 1px 5px 0px rgba(0, 0, 0, 0.12);
     --b3-dialog-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14),
         0px 9px 46px 8px rgba(0, 0, 0, 0.12);
-    --b3-toolbar-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
-    --b3-card-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    --b3-toolbar-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    --b3-card-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
     /* diff */
     --b3-diff-add: #dfd;
     --b3-diff-add-surface: #97f295;
@@ -119,7 +115,7 @@
     --b3-vditor-search-current-background: #a5d3fe;
 
     /* 代码片段背景 */
-    --b3-vditor-code-background: rgba(27, 31, 35, 0.05);
+    --b3-vditor-code-background: #f0f3f5;
 
     /* 即时渲染标记符颜色 */
     --b3-vditor-mark-heading-color: #660e7a;
@@ -140,10 +136,12 @@
     --b3-vditor-inline-em-color: #202124;
     --b3-vditor-inline-s-color: #202124;
     --b3-vditor-inline-link-color: #4285f4;
-    --b3-vditor-inline-mark-background: #ffe955;
+    --b3-vditor-inline-link-hover-color: #fa60a0;
+    --b3-vditor-inline-mark-background: #fff6bc;
     --b3-vditor-inline-mark-color: #202124;
-    --b3-vditor-inline-tag-color: #5f6368;
-    --b3-vditor-inline-blockref-color: #660e7a;
+    --b3-vditor-inline-tag-color: #eb84ae;
+    --b3-vditor-inline-blockref-color: #f58484;
+    --b3-vditor-inline-blockref-hover-color: #ff398b;
 }
 
 .language-graphviz polygon {
@@ -160,9 +158,7 @@
 .vditor-ir__marker--info {
     color: var(--b3-vditor-inline-blockref-color) !important;
 }
-.MathJax svg {
-    font-size: 0.8em !important;
-}
+
 .vditor ul ol,
 .vditor ol ol,
 .vditor ul ul,
@@ -175,19 +171,15 @@
     font-style: normal !important;
     font-family: var(--b3-font-family-code);
 }
-.vditor-ir__marker--pre code {
-    color: rgb(171, 178, 165);
-    background-color: var(--b3-text-emphasize-color) !important;
-}
 .vditor-ir__marker--script {
     font-family: var(--b3-font-family-code);
 }
 /* 引用块修改 */
 blockquote {
     border-left: 0.25em solid rgb(46, 160, 175) !important;
-    border-radius: 5px;
+    border-radius: 0.31em;
     background-color: rgba(66, 185, 185, 0.05) !important;
-    padding-left: 15px !important;
+    padding-left: 1em !important;
     /* box-shadow: var(--b3-card-shadow); */
     color: #0a6e9ecc;
 }
@@ -265,21 +257,20 @@ blockquote {
     background-color: var(--b3-text-emphasize-color);
 }
 
-
 /* 块引用 */
 .vditor-ir__blockref {
-    color: #f58484;
-    border: 1px;
-    border-bottom: 1px dashed #f58484 !important;
+    color: var(--b3-vditor-inline-blockref-color);
+    padding-bottom: 0.2em;
+    border-bottom: 1px dashed var(--b3-vditor-inline-blockref-color) !important;
 }
 .vditor-ir__blockref:hover {
-    color: #ff398b;
-    border-bottom: 1px dashed #ff398b !important;
+    color: var(--b3-vditor-inline-blockref-hover-color);
+    border-bottom: 1px dashed var(--b3-vditor-inline-blockref-hover-color) !important;
 }
 /* 超链接hover鼠标样式改变 */
 .vditor-ir__node:hover .vditor-ir__link {
     cursor: pointer;
-    color: rgb(184, 57, 135);
+    color: var(--b3-vditor-inline-link-hover-color);
     text-decoration: underline;
 }
 /* 超链接样式 */
@@ -297,7 +288,7 @@ blockquote {
     padding: 0.2em 0.5em;
     margin: 0px 6px;
     font-size: 85%;
-    border-radius: 8px;
+    border-radius: 0.5em;
     font-family: var(--b3-font-family-code);
     word-break: break-word;
     background-size: 20px 20px;
@@ -312,12 +303,18 @@ blockquote {
     background-color: #edf0f2;
 }
 /* 行内公式字体大小 */
-[data-type="inline-math"] .katex{
-    font: normal 17px KaTeX_Main,Times New Roman,serif !important;
+[data-type='inline-math'] .katex {
+    font: normal 1.06em KaTeX_Main, Times New Roman, serif !important;
+}
+[data-type='inline-math'] .MathJax {
+    font: normal 1.25em KaTeX_Main, Times New Roman, serif !important;
 }
 /* 公式块字体大小 */
-[data-type="math-block"] .katex {
-    font: normal 20px KaTeX_Main,Times New Roman,serif !important;
+[data-type='math-block'] .katex {
+    font: normal 1.25em KaTeX_Main, Times New Roman, serif !important;
+}
+[data-type='math-block'] .MathJax  {
+    font-size: 1.5em !important;
 }
 /* ❗代码块样式 */
 /* 代码编辑区样式 */
@@ -326,17 +323,18 @@ blockquote {
 }
 /* 代码内容块 */
 .hljs {
-    line-height: 24px;
+    position:relative;
+    line-height: 1.56em;
     background-color: #f0f3f5 !important;
     /* box-shadow: 0px 0px 10px rgb(204, 214, 212); */
     color: #353739 !important;
     /* 缩进两个单位 */
-    padding-left: 2em !important; 
-
+    padding-left: 2em !important;
 }
 /* 缩进代码编辑区和公式块 */
-.vditor-reset code:not(.hljs):not([data-type='math-inline']):not([data-newline='1']):not([class='b3-label__text'])  { 
-    padding-left: 2em ;
+.vditor-reset
+    code:not(.hljs):not([data-type='math-inline']):not([data-newline='1']):not([class='b3-label__text']) {
+    padding-left: 2em;
 }
 
 /* 考虑显示行号时的缩进 */
@@ -351,59 +349,67 @@ blockquote {
 }
 
 /* ❗复选框（待办事项）Start */
-/* 复选框与文字的距离 */
-.vditor-task input[type='checkbox'] {
-    margin-right: 0.5em;
-}
 
 /* 复选框样式 */
+.vditor-task input[type='checkbox'] {
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    top:-0.1em;
+    right:0.5em;
+    font-size:1em;
+    width: 1.0em;
+    height: 1.0em;
+    border-radius: 0.17em;
+}
+
 .vditor-task input[type='checkbox']:before {
     content: '';
+    position: absolute;
     display: inline-block;
     cursor: pointer;
-    width: 1.1rem;
-    height: 1.1rem;
+    width: 1.1em;
+    height: 1.1em;
     vertical-align: middle;
     text-align: center;
     border: 0px;
-    border-radius: 3px;
-    background-color: hsl(197deg, 9%, 80%);
-    margin-top: -0.3rem;
-    margin-left: -0.1rem;
+    border-radius: 0.17em;
+    background-color: #c7ced1;
+    top: -0.1em;
+    left: -0.1em;
+    font-size: 1.1em;
 }
-
 /* 复选框未选中，鼠标悬停 */
 .vditor-task input[type='checkbox']:not([disabled]):not(:checked):hover:before {
     content: '\2713';
-    font-size: 1.1rem;
-    line-height: 1.2rem;
-    color: hsl(0, 3%, 70%);
+    font-size: 1.1em;
+    line-height: 1.1em;
+    color: #a6aaab;
 }
-
 /* 复选框选中 */
 .vditor-task input[type='checkbox']:checked:before {
     content: '\2713';
-    font-size: 0.9rem;
-    line-height: 1.2rem;
-    color: rgb(255, 255, 255);
-    background-color: hsl(198, 55%, 58%);
+    font-size: 1.1em;
+    line-height: 1.1em;
+    color: #f8f9fa;
+    background-color: #a0d1e7;
 }
-/* 复选框选中 ，鼠标悬停*/
+/* 复选框选中 ，鼠标悬停 */
 .vditor-task input[type='checkbox']:checked:hover:before {
     content: '\2713';
-    font-size: 1.1rem;
-    line-height: 1.2rem;
-    color: rgb(243, 237, 237);
-    background-color: hsl(198, 55%, 58%);
+    font-size: 1.2em;
+    line-height: 1.2em;
+    color: #f8f9fa;
+    background-color: #a0d1e7;
 }
-/*  完成的代办事项下划线 */
+/* 完成的待办事项删除线 */
 .vditor-task--done {
     /* text-decoration: line-through; */
     color: #9ec9cfbd;
 }
 .vditor-task--done strong {
     /* 加粗样式调整 */
-    color: #7fbdc7 !important;
+    color: #98bdc2bd !important;
 }
 .vditor-task--done .vditor-ir__node em {
     /* 斜体调整 */
@@ -419,42 +425,57 @@ blockquote {
     text-decoration: underline;
 }
 .vditor-task--done .vditor-ir__node .vditor-ir__link:hover {
-    /* 超链接调整 */
+    /* 超链接悬浮调整 */
     color: rgb(184, 57, 135) !important;
     text-decoration: underline;
 }
 .vditor-task--done .vditor-ir__node img {
+    /* 图片调整 */
     background-color: rgba(236, 0, 0, 0.6);
-    filter: opacity(60%);
+    filter: opacity(70%);
 }
+.vditor-task--done .vditor-ir__node mark {
+    /* 高亮调整 */
+    background-color: rgba(201, 228, 233, 53%);
+    color:#8cb5bb;
+}
+.vditor-task--done .vditor-ir__node .hljs {
+    /* 代码样式调整透明度 */
+    opacity: 0.5;
+}
+.vditor-task--done .vditor-ir__marker--pre code {
+    /* 代码编辑区调整透明度 */
+    opacity: 0.5;
+}
+
 /* 复选框 End  */
 
 /* ❗标题样式 */
 .vditor-reset h1 {
     text-align: center;
     border-bottom: 0px solid #fff !important;
-    font-size: 26px;
+    font-size: 1.64em;
     color: #04393f;
 }
 .vditor-reset h1:after {
     content: '';
     display: block;
     margin: 0.2em auto 0;
-    width: 100px;
+    width: 4em;
     height: 2px;
-    border-bottom: 2px solid #c9cbcf;
+    border-bottom: 2px solid #04393f
 }
-.vditor-reset h2 {
+.vditor-ir  h2 {
     /* text-align: center; */
     border-bottom: 1px solid var(--b3-text-border-color) !important;
-    font-size: 24.8px;
+    font-size: 1.55em !important;
     color: #34495e;
 }
 
 .vditor-reset h3 {
-    font-size: 20px;
+    font-size: 1.25em;
     color: rgb(21, 170, 191);
-    line-height: 20px;
+    line-height: 1.25em;
     border-left: 6px solid rgb(21, 170, 191);
     text-align: justify;
     padding: 5px 0px 5px 7px;
@@ -463,15 +484,15 @@ blockquote {
 }
 
 .vditor-reset h4 {
-    font-size: 18px;
+    font-size: 1.125em;
     color: #03a1b9cc;
 }
 .vditor-reset h5 {
-    font-size: 16px;
+    font-size: 1em;
     color: #03a1b9cc;
 }
 .vditor-reset h6 {
-    font-size: 16px;
+    font-size: 1em;
     color: #03a1b9cc;
 }
 
@@ -509,53 +530,15 @@ div[data-type='navigation'] .b3-list-item--focus,
     font-size: 15px;
     background-color: #ebebeb !important;
 }
-
-/* 选中的标签页 */
-.item--focus {
-    /* background-color: #ebebeb !important; */
-    color: #e34f8c;
-    font-weight: 800;
-    font-size: 16px;
-}
-/* 按斜杆弹出的菜单 */
-.b3-list--background .b3-list-item--focus {
-    background-color: #ebebeb !important;
-}
-.b3-list--background .b3-list-item--focus .b3-list-item__text {
-    color: #e34f8c;
-}
-/* 选中项的圆角 */
-.b3-list-item {
-    line-height: 30px;
-    padding: 4px 16px;
-    display: flex;
-    cursor: pointer;
-    align-items: center;
-    position: relative;
-    background-color: transparent;
-    text-align: left;
-    border: 0px;
-    border-radius: 0 15px 15px 0;
-}
-
-.b3-list-item--two {
-    display: block;
-}
-
-.b3-list--background .b3-list-item--focus {
-    border-radius: 0 15px 15px 0;
-}
-/* end */
-
 /* ❗标签页样式 */
 .layout-tab-bar .item {
     padding: 5px 4px 5px 14px;
     border: 0px;
-    border-top: 1px solid #dfe0e1;
+    /* border-top: 1px solid #dfe0e1; */
     border-right: 1px solid #dfe0e1;
     border-left: 1px solid #dfe0e1;
     border-radius: 7px 7px 0px 0px;
-    margin: 2px;
+    margin-left: 2px;
     background-color: #eff3f5;
 }
 
@@ -571,21 +554,67 @@ div[data-type='navigation'] .b3-list-item--focus,
     border-color: #dfe0e1;
 }
 
+/* 选中的标签页 */
+.item--focus {
+    color: #e34f8c;
+    font-weight: 800;
+    font-size: 15px;
+}
+/* 调整选中标签页文字最大宽度 */
+.item--focus .item__text {
+    max-width: 300px;
+}
+/* 文字超出范围的模糊效果 */
+.layout-tab-bar .item--focus .item__text::after {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.001), var(--b3-theme-surface));
+    left: 294px;
+}
+/* 按斜杆弹出的菜单 */
+.b3-list--background .b3-list-item--focus {
+    background-color: #ebebeb !important;
+}
+.b3-list--background .b3-list-item--focus .b3-list-item__text {
+    color: #e34f8c;
+}
+
+/* 文件树列表样式 */
+.b3-list-item {
+    line-height: 30px;
+    padding: 0px 16px;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    position: relative;
+    background-color: transparent;
+    text-align: left;
+    border: 0px;
+    /* 选中项的圆角 */
+    border-radius: 10px 10px 10px 10px;
+}
+
+.b3-list--background .b3-list-item--focus {
+    border-radius: 0 15px 15px 0;
+    border: 1px solid #f8f8f8;
+}
+/* end */
+
 /* ❗标签样式 */
+
 .vditor-reset span[data-type='tag'] {
     display: inline-block;
     font-size: 0.8em;
     line-height: 1em;
-    background-color: #e34f8c;
-    border-radius: 4px;
-    padding: 4px 6px;
-    margin: 0 4px;
+    background-color: var(--b3-vditor-inline-tag-color);
+    border-radius: 0.625em;
+    padding: 0.25em 0.375em;
+    margin: 0px 0.25em;
     cursor: pointer;
     white-space: nowrap;
 }
+
 .vditor-ir__tag {
     text-decoration: none;
-    background-color: #e34f8c;
+    background-color: var(--b3-vditor-inline-tag-color);
     color: #fff;
 }
 
@@ -597,7 +626,7 @@ div[data-type='navigation'] .b3-list-item--focus,
 /* ❗Markdown图表样式 */
 .vditor-reset .language-flowchart {
     text-align: center;
-    background-color: #a5b3c7;
+    /* background-color: #a5b3c7; */
 }
 .vditor-reset .language-plantuml {
     text-align: center;
@@ -605,14 +634,14 @@ div[data-type='navigation'] .b3-list-item--focus,
 .vditor-reset .language-mermaid,
 .vditor-reset .language-graphviz {
     text-align: center;
-    background-color: #282c34;
+    /* background-color: #282c34; */
 }
 
 /* 图片样式 */
 .vditor-reset img {
     max-width: 100%;
     cursor: pointer;
-    box-shadow: 0px 1px 5px 1px rgb(6 6 6 / 30%);
+    box-shadow: 0px 1px 5px 1px rgba(6,6,6,10%);
     border-radius: 5px;
 }
 /* 文件树页签工具栏样式 */
@@ -622,7 +651,7 @@ div[data-type='navigation'] .b3-list-item--focus,
 }
 /* 设置/搜索弹窗的关闭按钮 */
 .b3-dialog__container .b3-dialog__close {
-    color: #ffffff;
+    color: #f8f8f8;
     cursor: pointer;
 }
 .b3-dialog__container svg:hover {
@@ -630,16 +659,129 @@ div[data-type='navigation'] .b3-list-item--focus,
 }
 
 /* 仿照Lavender设置/搜索界面启动动效 */
-body {
-    perspective: 500px;
-}
+/* .b3-dialog {
+    perspective: 3000px;
+} */
+
 .b3-dialog__container {
-    animation: show 0.5s ease;
-    animation-fill-mode: forwards;
-    transform-style: preserve-3d;
+    /* transform-style: preserve-3d; */
+    animation: show 0.5s ease forwards;
 }
 @keyframes show {
     0% {
-        transform: translateZ(-100px) rotateX(120deg) translateY(-100px);
+        /* 左右展开效果 */
+        transform: rotateY(80deg);
     }
+    100% {
+        transform: rotateY(0deg);
+    }
+}
+
+/*分窗口的边框  */
+.layout__resize::after {
+    background-color: #e2e9f1;
+}
+/* sql查找不到字体颜色*/
+div[data-type="block-render"] .ft__secondary {
+    color: #f33c3c;
+    font-weight: 800;
+    /* background: #929275; */
+}
+
+.b3-list .ft__secondary{
+    /* 模板和assets为红  */
+    color: #f33c3c;
+}
+/*代码语言显示*/
+/* 仿照Blue_Topaz主题 */
+code:before {
+    /* display: block; */
+    position: absolute;
+    color: #008080 !important;
+    display: inline-block;
+    cursor: pointer;
+    /* line-height: 0%; */
+    right:40px;
+    top:0.45em;
+    z-index:0;
+    font-weight:600;
+    padding: 1px 0px;
+}
+code[class~='language-js']:before {
+    content: 'JS';
+}
+
+code[class~='language-javascript']:before {
+    content: 'JS';
+}
+code[class~='language-c']:before {
+    content: 'C';
+}
+code[class~='language-cpp']::before {
+    content: 'C++';
+}
+
+code[class~='language-java']::before {
+    content: 'JAVA';
+}
+
+code[class~='language-python']:before {
+    content: 'PYTHON';
+}
+
+code[class~='language-nginx']:before {
+    content: 'NGINX';
+}
+code[class~='language-html']::before {
+    content: 'HTML';
+}
+code[class~='language-css']:before {
+    content: 'CSS';
+}
+code[class~='language-json']:before {
+    content: 'JSON';
+}
+code[class~='language-go']:before {
+    content: 'GO';
+}
+code[class~='language-php']:before {
+    content: 'PHP';
+}
+code[class~='language-shell']:before {
+    content: 'SHELL';
+}
+code[class~='language-bash']:before {
+    content: 'BASH';
+}
+
+code[class~='language-flow']:before {
+    content: 'FLOW';
+}
+
+code[class~='language-sequence']:before {
+    content: 'SEQUENCE';
+}
+
+code[class~='language-sql']:before {
+    content: 'SQL';
+}
+
+code[class~='language-yaml']::before {
+    content: 'YAML';
+}
+
+code[class~='language-ini']::before {
+    content: 'INI';
+}
+
+code[class~='language-xml']::before {
+    content: 'XML';
+}
+
+code[class~='language-git']::before {
+    content: 'GIT';
+}
+
+code[class~='language-txt']::before {
+    content: 'TXT';
 }
