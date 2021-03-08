@@ -142,6 +142,7 @@
     --b3-vditor-inline-mark-background: #fff6bc;
     --b3-vditor-inline-mark-color: #202124;
     --b3-vditor-inline-tag-color: #eb84ae;
+    /* 块引用 */
     --b3-vditor-inline-blockref-color: #f58484;
     --b3-vditor-inline-blockref-hover-color: #ff398b;
 }
@@ -154,8 +155,13 @@
 .item--focus {
     background-color: var(--b3-theme-background) !important;
 }
+/* 代码编辑区的代码语言 */
 .vditor-ir__marker--info {
-    color: var(--b3-vditor-inline-blockref-color) !important;
+    color: #7f8181 !important;
+}
+/* sql查询块 */
+span[data-type="block-query-embed-script"] {
+    color: #7f8181 !important;
 }
 
 .vditor ul ol,
@@ -285,7 +291,7 @@ blockquote {
 /* 行内代码块 */
 .vditor-reset code:not(.hljs):not([data-type='math-inline']) {
     padding: 0.2em 0.5em;
-    margin: 0px 6px;
+    margin: 0px 2px;
     font-size: 85%;
     border-radius: 0.5em;
     font-family: var(--b3-font-family-code);
@@ -313,7 +319,7 @@ blockquote {
     font: normal 1.15em KaTeX_Main, Times New Roman, serif !important;
 }
 [data-type='math-block'] .MathJax {
-    font-size: 1.15em !important;
+    font-size: 1.11em !important;
 }
 /* ❗代码块样式 */
 /* 代码编辑区样式 */
@@ -352,6 +358,16 @@ blockquote {
     padding: 0.2em 0.5em !important;
 }
 
+/* 列表加框线 */
+.vditor ul ol,
+.vditor ol ol,
+.vditor ul ul,
+.vditor ol ul {
+    border-left: 1px solid rgba(19, 18, 18, 0.2);
+    margin-left: -0.85em !important;
+    padding-left: 2.5em !important;
+}
+
 /* ❗复选框（待办事项）Start */
 
 /* 复选框样式 */
@@ -360,7 +376,8 @@ blockquote {
     text-align: center;
     vertical-align: middle;
     top: 0em;
-    right: 0.1em;
+    right: -0.1em;
+    margin-right:0.6em;
     font-size: 1em;
     width: 1em;
     height: 1em;
@@ -495,8 +512,11 @@ blockquote {
 }
 
 /* 标题样式End */
+/* ------------------------------------------------------------------ */
 
+/* ------------------------------------------------------------------ */
 /* ❗focus高亮部分 */
+
 .b3-list-item.b3-list-item--big:hover,
 .b3-list-item.b3-list-item--big.b3-list-item--focus,
 .b3-list-item.b3-list-item--hide-action:hover span:nth-child(2),
@@ -513,25 +533,82 @@ blockquote {
 .ft__primary:hover,
 .block__icon.b3-tooltips.b3-tooltips__sw:hover {
     color: #e34f8c;
+    background-color: var(--b3-menu-hover);
+}
+/* .b3-list-item:hover悬浮的样式 */
+.b3-list-item:hover {
+    color: #e34f8c;
+    background-color: var(--b3-menu-hover);
+}
+/* 文件树选中,图标也改变 */
+.b3-list-item--focus {
+    color: #e34f8c;
     background-color: var(--b3-menu-hover) !important;
 }
-
 /* 文件树选中的外围 */
 div[data-type='navigation'] .b3-list-item--focus,
 .vditor-reset .b3-list-item--focus {
     background-color: var(--b3-menu-hover) !important;
 }
-
-/* focus高亮样式 */
 /* 文件树选中的中间文字的部分 */
 .b3-list-item.b3-list-item--hide-action.b3-list-item--focus span:nth-child(2) {
     font-weight: 800;
     font-size: 15px;
-    background-color: var(--b3-menu-hover) !important;
+    background-color: var(--b3-menu-hover);
 }
 .b3-list-item.b3-list-item--hide-action.b3-list-item--focus span:hover {
+    background-color: var(--b3-menu-hover);
+}
+
+/* 设置列表选中取消背景色 */
+.b3-dialog__container .b3-list--background .b3-list-item--focus {
+    background-color: transparent !important;
+}
+/* 设置列表悬空去掉背景色 */
+.b3-dialog__container .b3-list-item:hover{
+    background-color: transparent;
+}
+/* 设置界面的选中增强 */
+.b3-list-item.b3-list-item--big:hover,
+.b3-list-item.b3-list-item--big.b3-list-item--focus {
+    font-size: 1.05em;
+    font-weight: bold;
+    
+}
+/* 面板列表项 选中状态*/
+.b3-dialog__container  .b3-list-item.b3-list-item--focus span:nth-child(2){
+    /* color: var(--b3-theme-primary);     */
+    background-color: transparent;
+}
+.b3-dialog__container .b3-list--background .b3-list-item--focus[data-type="search-item"] {
     background-color: var(--b3-menu-hover) !important;
 }
+/* 面板列表项 悬浮文字项 */
+.b3-dialog__container .b3-list-item:hover .b3-list-item__text {
+    background-color: transparent;
+}
+/* 按斜杆弹出的菜单 */
+.b3-list--background .b3-list-item--focus {
+    background-color: var(--b3-menu-hover) !important;
+}
+.b3-list--background .b3-list-item--focus .b3-list-item__text {
+    color: #e34f8c;
+}
+/* hover取消背景 */
+.layout-tab-container .b3-list--background button:hover    {
+    background-color: transparent;
+}
+/* hover文字取消背景 */
+.layout-tab-container .b3-list--background .b3-list-item:hover span[class="b3-list-item__text"]{
+    background-color: transparent;
+}
+/* 弹出菜单后面的符号 */
+.layout-tab-container .b3-list--background .b3-list-item:hover span[class="b3-list-item__meta"]{
+    color: #e34f8c;
+}
+/* ------------------------------------------------------------------ */
+
+/* ------------------------------------------------------------------ */
 /* ❗标签页样式 */
 .layout-tab-bar .item {
     padding: 5px 4px 5px 14px;
@@ -545,7 +622,17 @@ div[data-type='navigation'] .b3-list-item--focus,
     margin-right: 2px;
     background-color: #eff3f5;
 }
-
+/* 标签页按钮 */
+.layout-tab-bar .item__close {
+    margin-left: 8px;
+    height: 8px;
+    width: 8px;
+    padding: 4px;
+    border-radius: 10px;
+    color: var(--b3-theme-on-surface);
+    transition: var(--b3-transition);
+    background-color: #eef4f7;
+}
 /* 去掉标题栏的文件图标 */
 .layout-tab-bar .item__graphic {
     margin-right: 8px;
@@ -577,14 +664,14 @@ div[data-type='navigation'] .b3-list-item--focus,
 }
 /* 按斜杆弹出的菜单 */
 .b3-list--background .b3-list-item--focus {
-    background-color: #ebebeb !important;
+    background-color: #ebebeb;
 }
 .b3-list--background .b3-list-item--focus .b3-list-item__text {
     color: #e34f8c;
 }
 
 /* 文件树列表样式 */
-.b3-list-item {
+.layout-tab-container .b3-list-item {
     line-height: 30px;
     padding: 0px 16px;
     display: flex;
@@ -657,12 +744,21 @@ div[data-type='navigation'] .b3-list-item--focus,
     background-color: var(--b3-theme-surface);
 }
 /* 设置/搜索弹窗的关闭按钮 */
+
 .b3-dialog__container .b3-dialog__close {
-    color: #f8f8f8;
+    color: #505964;
+    font-size: 50%;
     cursor: pointer;
+    background: #e0e6e9;
+    border-radius: 16px;
+    padding: 4px;
+    margin-left: 22px;
+    height: 13px;
+    width: 13px;
 }
 .b3-dialog__container svg:hover {
     color: #e34f8c;
+    background: #fff;
 }
 
 /* 仿照Lavender设置/搜索界面启动动效 */
@@ -816,4 +912,12 @@ code[class~='language-txt']::before {
     100% {
         border-radius: 0;
     }
+}
+div[data-type="block-render"]{
+    margin-top: 5px;
+}
+
+/* 标题过长后尾部的白色阴影去除 */
+.layout-tab-bar .item__text::after {
+    background: transparent !important;
 }
