@@ -14,6 +14,7 @@
     --b3-theme-primary: #4285f4;
     --b3-theme-primary-light: rgba(66, 133, 244, 0.54);
     --b3-theme-primary-lighter: rgba(66, 133, 244, 0.38);
+    /* 多窗口为点到的标签页 */
     --b3-theme-primary-lightest: rgba(66, 133, 244, 0.12);
     --b3-theme-secondary: #f3a92f;
     --b3-theme-background: #f8f9fa;
@@ -355,8 +356,8 @@ blockquote {
     position: relative;
     text-align: center;
     vertical-align: middle;
-    top: -0.1em;
-    right: 0.5em;
+    top: 0em;
+    right: 0.1em;
     font-size: 1em;
     width: 1em;
     height: 1em;
@@ -402,11 +403,13 @@ blockquote {
     color: #f8f9fa;
     background-color: #a0d1e7;
 }
-/* 完成的待办事项删除线 */
+/* 完成的待办事项 */
 .vditor-task--done {
+    /* 完成的待办事项删除线 */
     /* text-decoration: line-through; */
     color: #9ec9cfbd;
 }
+
 .vditor-task--done strong {
     /* 加粗样式调整 */
     color: #98bdc2bd !important;
@@ -429,25 +432,15 @@ blockquote {
     color: rgb(184, 57, 135) !important;
     text-decoration: underline;
 }
-.vditor-task--done .vditor-ir__node img {
-    /* 图片调整 */
-    background-color: rgba(236, 0, 0, 0.6);
-    filter: opacity(70%);
-}
 .vditor-task--done .vditor-ir__node mark {
     /* 高亮调整 */
     background-color: rgba(201, 228, 233, 53%);
     color: #8cb5bb;
 }
-.vditor-task--done .vditor-ir__node .hljs {
-    /* 代码样式调整透明度 */
+/* 对完成的待办事项内容全部调整透明度 */
+.vditor-task--done{
     opacity: 0.5;
 }
-.vditor-task--done .vditor-ir__marker--pre code {
-    /* 代码编辑区调整透明度 */
-    opacity: 0.5;
-}
-
 /* 复选框 End  */
 
 /* ❗标题样式 */
@@ -535,6 +528,8 @@ div[data-type='navigation'] .b3-list-item--focus,
     padding: 5px 4px 5px 14px;
     border: 0px;
     /* border-top: 1px solid #dfe0e1; */
+    border-bottom: 2px solid transparent;
+    /* border-bottom: 2px solid #dfe0e1; */
     border-right: 1px solid #dfe0e1;
     border-left: 1px solid #dfe0e1;
     border-radius: 7px 7px 0px 0px;
@@ -549,9 +544,11 @@ div[data-type='navigation'] .b3-list-item--focus,
     width: 14px;
     display: none;
 }
-/* 去掉foucs的标签页下边框 */
+/* 多窗口foucs的标签页 */
 .layout__wnd--active .layout-tab-bar .item--focus {
     border-color: #dfe0e1;
+    /* 更改多窗口标签页当前页面底框高亮颜色 */
+    /* border-bottom:2px solid #e34f8c; */
 }
 
 /* 选中的标签页 */
@@ -600,27 +597,43 @@ div[data-type='navigation'] .b3-list-item--focus,
 
 /* ❗标签样式 */
 
-.vditor-reset span[data-type='tag'] {
+/* .vditor-reset span[data-type='tag'] {
     display: inline-block;
     font-size: 0.8em;
     line-height: 1em;
     background-color: var(--b3-vditor-inline-tag-color);
     border-radius: 0.625em;
     padding: 0.25em 0.375em;
-    margin: 0px 0.25em;
+    margin: 0em 0.25em 0.2em;
     cursor: pointer;
     white-space: nowrap;
 }
-
 .vditor-ir__tag {
     text-decoration: none;
     background-color: var(--b3-vditor-inline-tag-color);
+    color: rgb(219, 54, 54);
+} */
+
+.vditor-ir span[data-type='tag'] {
+    display: inline-block;
+    font-size: 85%;
+    background-color: var(--b3-vditor-inline-tag-color);
+    border-radius: 0.625em;
+    cursor: pointer;
+    padding: 0em 0.375em;
+    margin: 0em 0.25em;
+    white-space: nowrap;
+    transform: translateY(-2px);
+}
+.vditor-ir__tag {
+    text-decoration: none;
     color: #fff;
 }
-
+/* 标签出现的#字 */
 .vditor-ir__node .vditor-ir__marker--tag {
     color: #fff;
 }
+
 /* 标签样式end */
 
 /* ❗Markdown图表样式 */
