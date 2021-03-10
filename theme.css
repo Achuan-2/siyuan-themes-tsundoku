@@ -292,6 +292,8 @@ div[data-type='block-render'] {
 /* 块嵌入颜色与块引用区分 */
 div[data-type="block-ref-embed"] .vditor-ir__blockref {
     color: var(--b3-vditor-inline-blockref-hover-color);
+    border-bottom: 1px dashed var(--b3-vditor-inline-blockref-hover-color) !important;
+    cursor:auto;
 }
 /* 超链接hover鼠标样式改变 */
 .vditor-ir__node .vditor-ir__link:hover {
@@ -945,16 +947,17 @@ iframe {
 }
 .vditor-toolbar:not(.vditor-toolbar--hide):hover .vditor-toolbar__item,
 .vditor-toolbar:not(.vditor-toolbar--hide):hover .vditor-toolbar__divider {
-    animation: showToolbar 0.1s ease-in-out;
-    transition: opacity 400ms ease 1s;
+    animation: showToolbar 0.5s ease-in-out;
     opacity: 1;
+    transition: opacity 0.5s ease 0s;
 }
 @keyframes showToolbar {
     0% {
-        transform: rotateY(80deg);
+        /* transform: translateY(5px); */
     }
     100% {
-        opacity: 1;
+        /* opacity: 1; */
+        transform: translateY(0px);
     }
 }
 
