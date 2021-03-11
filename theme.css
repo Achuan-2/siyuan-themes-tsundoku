@@ -495,6 +495,15 @@ div[data-type="block-ref-embed"] .vditor-ir__blockref {
     font-size: 1.75em;
     color: #04393f;
 }
+/* h1短下划线 */
+/* .vditor-reset h1:after {
+    content: '';
+    display: block;
+    margin: 0.2em auto 0;
+    width: 4em;
+    height: 2px;
+    border-bottom: 2px solid #c9cbcf;
+} */
 .vditor-ir h2 {
     /* text-align: center; */
     border-bottom: 1px solid #dfe0e1 !important;
@@ -502,23 +511,18 @@ div[data-type="block-ref-embed"] .vditor-ir__blockref {
     color: #34495e;
 }
 
+
 .vditor-reset h3 {
     position: relative;
     font-size: 1.25em;
     color: rgb(21, 170, 191);
     line-height: 1.25em;
-
+    border-left: 4px solid rgb(21, 170, 191);
     text-align: justify;
+    padding: 5px 0px 0px 7px;
+    margin-top: 19px;
+    /* margin-bottom: 16px; */
     padding-left: 7px;
-}
-.vditor-reset h3:after {
-    content: '';
-    display: block;
-    position: absolute;
-    left:-4px;
-    bottom:0px;
-    height: 1.5em;
-    border-left: 4px solid rgb(21, 170, 191);;
 }
 
 
@@ -971,15 +975,42 @@ iframe {
     border-radius: 4px;
 }
 /* 对标题的块命名单独调整 */
-.vditor-reset h1::before,.vditor-reset h2::before,.vditor-reset h3::before,.vditor-reset h4::before,.vditor-reset h5::before,.vditor-reset h6::before{
+.vditor-reset h1::before,.vditor-reset h2::before,.vditor-reset h4::before,.vditor-reset h5::before,.vditor-reset h6::before{
     margin: -2.9em 1em 0 0 !important;
 }
+/* .vditor-reset h3::before {
 
+} */
 /* 文件树中区别文件数和引用数 */
 li[data-type="navigation-file"] .counter {
     color: #d747478c;
     background-color: #dfdfdf9e;
     font-weight: 800;
+}
 
+/* 隐藏br */
+.vditor-ir__br {
+    transition: opacity 0.5s ease 1s;
+    opacity: 0;
+}
+.vditor-ir__br:hover {
+    transition: opacity 400ms ease 0s;
+    opacity: 1;
+}
 
+/* 对表格的块命名单独处理 */
+table:before {
+    content: none !important;
+}
+
+table:after{
+    content: attr(tip);
+    font-size: 12px;
+    float: left;
+    font-weight: normal;
+    /* background-color: #e4efef!important; */
+    padding: 4px 5px 4px 5px !important;
+    font-style: italic;
+    margin: 0em 0em 0 0;
+    border-radius: 4px;
 }
