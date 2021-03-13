@@ -146,9 +146,9 @@
     --b3-vditor-inline-blockref-color: #f58484;
     --b3-vditor-inline-blockref-hover-color: #ff398b;
     /* 高亮 */
-    --b3-menu-highlight-color:#408dda;
+    --b3-menu-highlight-color:#068eb8;
     --b3-menu-highlight-focus-color:#34495e;
-    /* 文件树高亮颜色 */
+    /* 文件树背景高亮颜色 */
     --b3-menu-hover: #e5eced9c;
 }
 
@@ -595,9 +595,13 @@ li[data-type='navigation-file'] .counter {
     background-color: transparent;
     
 }
+.b3-list-item.b3-list-item--hide-action.b3-list-item--focus span:nth-child(3) {
+    color: var(--b3-menu-highlight-focus-color) !important;
+}
 /* 文件树选中,图标也改变 */
 .b3-list-item--focus {
     color: var(--b3-menu-highlight-focus-color);
+    font-weight: bold;
     background-color: var(--b3-menu-hover) !important;
     
 }
@@ -632,6 +636,7 @@ div[data-type='navigation'] .b3-list-item--focus,
 .b3-list-item.b3-list-item--big.b3-list-item--focus {
     font-size: 1.05em;
     font-weight: bold;
+    color: var(--b3-menu-highlight-focus-color);
     
 }
 /* 调整设置的select按钮 */
