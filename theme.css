@@ -44,7 +44,7 @@
 
     /* 列表 */
     --b3-list-hover: rgba(0, 0, 0, 0.05);
-    
+
     /* 页签 */
     --b3-tab-background: #f8f9fa;
     --b3-tab-background-hover: #e9eaeb;
@@ -146,8 +146,8 @@
     --b3-vditor-inline-blockref-color: #f58484;
     --b3-vditor-inline-blockref-hover-color: #ff398b;
     /* 高亮 */
-    --b3-menu-highlight-color:#068eb8;
-    --b3-menu-highlight-focus-color:#34495e;
+    --b3-menu-highlight-color: #068eb8;
+    --b3-menu-highlight-focus-color: #34495e;
     /* 文件树背景高亮颜色 */
     --b3-menu-hover: #e5eced9c;
 }
@@ -155,7 +155,6 @@
 .language-graphviz polygon {
     fill: transparent;
 }
-
 
 /* 代码编辑区的代码语言 */
 .vditor-ir__marker--info {
@@ -365,6 +364,10 @@ li[data-type='navigation-file'] .counter {
 }
 [data-type='math-block'] .MathJax {
     font-size: 1.11em !important;
+}
+/* 公式换行调大距离 */
+.katex .katex-html > .newline {
+    padding-bottom: 0.5em;
 }
 /* ❗代码块样式 */
 /* 代码编辑区样式 */
@@ -583,17 +586,15 @@ li[data-type='navigation-file'] .counter {
     /* color: #e34f8c; */
     color: var(--b3-menu-highlight-color);
     /* background-color: var(--b3-menu-hover); */
-    
 }
 .b3-list-item.b3-list-item--hide-action.b3-list-item--focus span:nth-child(2) {
-    transition: all .2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 /* .b3-list-item:hover悬浮的样式 */
 .file-tree .b3-list .b3-list-item:hover {
     color: var(--b3-menu-highlight-color);
     /* background-color: var(--b3-menu-hover); */
     background-color: transparent;
-    
 }
 .b3-list-item.b3-list-item--hide-action.b3-list-item--focus span:nth-child(3) {
     color: var(--b3-menu-highlight-focus-color) !important;
@@ -603,7 +604,6 @@ li[data-type='navigation-file'] .counter {
     color: var(--b3-menu-highlight-focus-color);
     font-weight: bold;
     background-color: var(--b3-menu-hover) !important;
-    
 }
 /* 文件树选中的外围 */
 div[data-type='navigation'] .b3-list-item--focus,
@@ -637,7 +637,6 @@ div[data-type='navigation'] .b3-list-item--focus,
     font-size: 1.05em;
     font-weight: bold;
     color: var(--b3-menu-highlight-focus-color);
-    
 }
 /* 调整设置的select按钮 */
 .b3-tab-container .b3-select {
@@ -694,7 +693,7 @@ div[data-type='navigation'] .b3-list-item--focus,
     border-radius: 7px 7px 0px 0px;
     margin-right: 2px;
     background-color: #eef5f69a;
-    transition: all .2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 
 /* 选中的标签页 */
@@ -702,18 +701,17 @@ div[data-type='navigation'] .b3-list-item--focus,
     color: #34495e7c;
     font-weight: 800;
     font-size: 15px;
-    border-bottom:2px solid #c7d1d8c5;
+    border-bottom: 2px solid #c7d1d8c5;
     background-color: #e4f0f7a8;
     border-right: 1px solid #b7b8b9;
     border-left: 1px solid #b7b8b9;
-    
 }
 /* 多窗口foucs的标签页 */
 .layout__wnd--active .layout-tab-bar .item--focus {
     color: var(--b3-menu-highlight-focus-color);
     border-color: #e9f1f5;
     /* 更改多窗口标签页当前页面底框高亮颜色 */
-    border-bottom:2px solid #34495e7c;
+    border-bottom: 2px solid #34495e7c;
     /* background-color: #00aaff; */
 }
 
@@ -880,7 +878,6 @@ div[data-type='navigation'] .b3-list-item--focus,
     }
 }
 
-
 /* sql查找不到字体颜色*/
 div[data-type='block-render'] .ft__secondary {
     color: #f33c3c;
@@ -993,7 +990,6 @@ code[class~='language-markdown']::before {
     margin-bottom: 2px;
 }
 
-
 /* 标题过长后尾部的白色阴影去除 */
 /* .layout-tab-bar .item__text::after {
     background: transparent !important;
@@ -1082,7 +1078,6 @@ table:after {
     margin: 0em 0em 0 0;
     border-radius: 4px;
 }
-
 
 /* --------------------------------------------------------------------- */
 /* 隐藏br */
@@ -1174,7 +1169,6 @@ table:after {
 
 /* 侧边栏更改 */
 .dock {
-
     background-color: #c3cfd6a9;
 }
 .toolbar {
@@ -1190,5 +1184,4 @@ table:after {
 /* 工具栏 */
 .vditor-toolbar {
     background-color: #eef5f69a;
-
 }
