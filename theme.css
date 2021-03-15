@@ -381,11 +381,12 @@ li[data-type='navigation-file'] .counter {
 .vditor-ir__preview .hljs {
     position: relative;
     line-height: 1.56em;
-    background-color: #f0f3f5 !important;
+    background-color: #edf0f2 !important;
     /* box-shadow: 0px 0px 10px rgb(204, 214, 212); */
     color: #353739 !important;
     /* 缩进两个单位 */
     padding-left: 2em !important;
+    background-image: none;
 }
 /* 缩进代码编辑区和公式块 */
 /* 暂时取消 */
