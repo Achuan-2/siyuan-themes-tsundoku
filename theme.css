@@ -150,16 +150,15 @@
     --b3-menu-highlight-focus-color: #34495e;
     /* 文件树背景高亮颜色 */
     --b3-menu-hover: #e5eced9c;
+    /* 代码语言 */
+    --code-language:"";
 }
 
 .language-graphviz polygon {
     fill: transparent;
 }
 
-/* 代码编辑区的代码语言 */
-.vditor-ir__marker--info {
-    color: #7f8181 !important;
-}
+
 /* sql查询块 */
 span[data-type='block-query-embed-script'] {
     color: #7f8181 !important;
@@ -310,7 +309,7 @@ li[data-type='navigation-file'] .counter {
     border-radius: 4px;
     height: 15px;
     min-width: 15px;
-    background-color: #f3f3f3;
+    background-color: #e1e1e1ad;
     color: #d747475d;
     font-weight: 800;
     font-size: 12px;
@@ -365,6 +364,10 @@ li[data-type='navigation-file'] .counter {
 [data-type='math-block'] .MathJax {
     font-size: 1.11em !important;
 }
+[data-type='language-math'] .MathJax svg {
+    height:1em;
+}
+
 /* 公式换行调大距离 */
 .katex .katex-html > .newline {
     padding-bottom: 0.5em;
@@ -375,7 +378,7 @@ li[data-type='navigation-file'] .counter {
     background-color: #f0f3f5a8 !important;
 }
 /* 代码内容块 */
-.hljs {
+.vditor-ir__preview .hljs {
     position: relative;
     line-height: 1.56em;
     background-color: #f0f3f5 !important;
@@ -891,9 +894,14 @@ div[data-type='block-render'] .ft__secondary {
 }
 /*代码语言显示*/
 /* 仿照Blue_Topaz主题 */
+/* 代码编辑区的代码语言 */
+.vditor-ir__marker--info {
+    color: #7f8181 !important;
+}
 
 code:before {
     position: absolute;
+    /* position: sticky; */
     color: #b8bec2 !important;
     display: inline-block;
     cursor: pointer;
@@ -903,6 +911,7 @@ code:before {
     font-weight: 600;
     padding: 1px 0px;
 }
+
 code[class~='language-js']:before {
     content: 'JS';
 }
@@ -983,6 +992,12 @@ code[class~='language-plaintext']::before {
 }
 code[class~='language-markdown']::before {
     content: 'MARKDOWN';
+}
+code[class~='language-matlab']::before {
+    content: 'MATLAB';
+}
+code[class~='language-r']::before {
+    content: 'R';
 }
 /* --------------------------------------------------------------------- */
 /* 调整列表间距 */
@@ -1183,5 +1198,5 @@ table:after {
 }
 /* 工具栏 */
 .vditor-toolbar {
-    background-color: #eef5f69a;
+    background-color: #eff4f6;
 }
