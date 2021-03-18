@@ -728,11 +728,9 @@ div[data-type='navigation'] .b3-list-item--focus,
 /* ------------------------------------------------------------------ */
 /* ❗标签页样式 */
 .layout-tab-bar .item {
-    padding: 5px 4px 5px 14px;
+    padding: 4px 4px 4px 14px;
     border: 0px;
-    /* border-top: 1px solid #dfe0e1; */
     border-bottom: 2px solid transparent;
-    /* border-bottom: 2px solid #dfe0e1; */
     border-right: 2px solid #b7b8b97c;
     border-left: 2px solid #b7b8b97c;
     border-radius: 7px 7px 0px 0px;
