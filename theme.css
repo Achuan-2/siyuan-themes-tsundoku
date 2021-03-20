@@ -401,6 +401,7 @@ span[data-type='a']:hover .vditor-ir__link {
 [data-type='language-math'] .MathJax svg {
     height: 1em;
 }
+
 /* 修复1.1.3后公式块与正文间距变大的问题 */
 .vditor-reset mjx-container[jax="SVG"][display="true"], .vditor-reset .katex-display {
     padding: 0em 0;
@@ -410,6 +411,17 @@ span[data-type='a']:hover .vditor-ir__link {
 .katex .katex-html > .newline {
     padding-bottom: 0.5em;
 }
+
+/* 略微修复公式分式较小的问题 */
+[data-type='inline-math'] .mfrac {
+    /* 行内分式公式 */
+    font-size: 1.4em;
+}
+.minner .mfrac {
+    /* 公式块分式字体调整 */
+    font-size: 1.1em;
+}
+
 /* ❗代码块样式 */
 /* 代码编辑区样式 */
 .vditor-ir__marker--pre code {
