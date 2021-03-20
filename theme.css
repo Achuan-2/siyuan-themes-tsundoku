@@ -27,7 +27,17 @@
     --b3-theme-on-background: #202124;
     --b3-theme-on-surface: #5f6368;
     --b3-theme-on-error: #fff;
-
+    /* 自定义文字 */
+    --b3-font-color1: #f5539e;
+    --b3-font-color2: #944194;
+    --b3-font-color3: #65b84d;
+    --b3-font-color4: #f5822e;
+    --b3-font-background1: rgba(217, 211, 215, 0.5);
+    --b3-font-background2: rgba(255, 193, 153, 0.5);
+    --b3-font-background3: rgba(189, 201, 255, 0.5);
+    --b3-font-background4: rgba(239, 218, 251, 0.5);
+    --b3-font-background5: rgba(234, 202, 220, 0.5);
+    --b3-font-background6: rgba(253, 198, 200, 0.5);
     /* 字体 */
     --b3-font-family: 'SourceHan', 'Helvetica Neue', 'Luxi Sans', 'DejaVu Sans', 'Hiragino Sans GB',
         'Microsoft Yahei', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji',
@@ -66,6 +76,7 @@
     --b3-card-info-background: rgb(232, 244, 253);
     --b3-card-success-color: rgb(30, 70, 32);
     --b3-card-success-background: rgb(237, 247, 237);
+
 
     /* 动画效果 */
     --b3-transition: all 0.15s cubic-bezier(0, 0, 0.2, 1) 0ms;
@@ -390,7 +401,11 @@ span[data-type='a']:hover .vditor-ir__link {
 [data-type='language-math'] .MathJax svg {
     height: 1em;
 }
-
+/* 修复1.1.3后公式块与正文间距变大的问题 */
+.vditor-reset mjx-container[jax="SVG"][display="true"], .vditor-reset .katex-display {
+    padding: 0em 0;
+    margin: 0;
+}
 /* 公式换行调大距离 */
 .katex .katex-html > .newline {
     padding-bottom: 0.5em;
@@ -1218,9 +1233,10 @@ table:after {
 .layout__resize::after {
     background-color: #e2e9f1;
 }
+/* 主要背景色 */
 
-/* 侧边栏更改 */
 .dock {
+    /* 侧边栏更改 */
     background-color: #c3cfd6a9;
 }
 .toolbar {
