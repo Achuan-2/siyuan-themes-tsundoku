@@ -2,8 +2,7 @@
 ![preview](preview.png)
 
 这可能不会是最符合你审美的主题，但这或许会是一个最追求极致的主题（之一）🏹  
-本主题基于[Atom One Dark](https://github.com/zqhjl/Siyuan-Atom-OneDark)修改，并借鉴了Pure Dark和Lavender等其他主题。
-主题主颜色为青色，主字体为**思源黑体**，代码字体为**Fira Code**，亮色主题见[Mixture Light](https://github.com/Achuan-2/siyuan-themes-mixture-light)
+主题主颜色为青色，主字体为思源黑体，代码字体为Fira Code，深色主题见[Mixture Dark](https://github.com/Achuan-2/siyuan-themes-mixture)
 
 
 ❤特色
