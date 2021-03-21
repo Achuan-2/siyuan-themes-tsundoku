@@ -530,7 +530,8 @@ span[data-type='a']:hover .vditor-ir__link {
 .vditor-task--done {
     /* 完成的待办事项删除线 */
     /* text-decoration: line-through; */
-    color: #8bb2b8bd;
+    /* 字体颜色 */
+    color: #6791a396;
 }
 
 .vditor-task--done strong {
@@ -942,10 +943,13 @@ div[data-type='navigation'] .b3-list-item--focus,
     margin-left: 22px;
     height: 13px;
     width: 13px;
+    transition: all 0.3s linear;
 }
 .b3-dialog__container svg:hover {
-    color: var(--b3-menu-highlight-focus-color);
+    color: var(--b3-menu-highlight-color);
     background: #fff;
+    transform: rotate(180deg);
+    
 }
 
 /* 仿照Lavender设置/搜索界面启动动效 */
