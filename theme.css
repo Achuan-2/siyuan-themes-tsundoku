@@ -28,16 +28,32 @@
     --b3-theme-on-surface: #5f6368;
     --b3-theme-on-error: #fff;
     /* 自定义文字 */
-    --b3-font-color1: #f5539e;
-    --b3-font-color2: #944194;
-    --b3-font-color3: #65b84d;
-    --b3-font-color4: #f5822e;
-    --b3-font-background1: rgba(217, 211, 215, 0.5);
-    --b3-font-background2: rgba(255, 193, 153, 0.5);
-    --b3-font-background3: rgba(189, 201, 255, 0.5);
-    --b3-font-background4: rgba(239, 218, 251, 0.5);
-    --b3-font-background5: rgba(234, 202, 220, 0.5);
-    --b3-font-background6: rgba(253, 198, 200, 0.5);
+    --b3-font-color1: var(--b3-card-error-color);
+    --b3-font-color2: var(--b3-card-warning-color);
+    --b3-font-color3: var(--b3-card-info-color);
+    --b3-font-color4: var(--b3-card-success-color);
+    --b3-font-color5: var(--b3-theme-on-surface);
+    --b3-font-color6: var(--b3-theme-primary);
+    --b3-font-color7: var(--b3-theme-secondary);
+    --b3-font-color8: var(--b3-theme-error);
+    --b3-font-color9: #f5539e;
+    --b3-font-color10: #944194;
+    --b3-font-color11: #65b84d;
+    --b3-font-color12: #f5822e;
+    --b3-font-color13: var(--b3-theme-background);
+    --b3-font-background1: var(--b3-card-error-background);
+    --b3-font-background2: var(--b3-card-warning-background);
+    --b3-font-background3: var(--b3-card-info-background);
+    --b3-font-background4: var(--b3-card-success-background);
+    --b3-font-background5: var(--b3-theme-surface);
+    --b3-font-background6: var(--b3-theme-primary-light);
+    --b3-font-background7: rgba(217, 211, 215, 0.5);
+    --b3-font-background8: rgba(255, 193, 153, 0.5);
+    --b3-font-background9: rgba(189, 201, 255, 0.5);
+    --b3-font-background10: rgba(239, 218, 251, 0.5);
+    --b3-font-background11: rgba(234, 202, 220, 0.5);
+    --b3-font-background12: rgba(253, 198, 200, 0.5);
+    --b3-font-background13: var(--b3-theme-on-background);
     /* 字体 */
     --b3-font-family: 'SourceHan', 'Helvetica Neue', 'Luxi Sans', 'DejaVu Sans', 'Hiragino Sans GB',
         'Microsoft Yahei', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji',
@@ -76,7 +92,6 @@
     --b3-card-info-background: rgb(232, 244, 253);
     --b3-card-success-color: rgb(30, 70, 32);
     --b3-card-success-background: rgb(237, 247, 237);
-
 
     /* 动画效果 */
     --b3-transition: all 0.15s cubic-bezier(0, 0, 0.2, 1) 0ms;
@@ -163,21 +178,34 @@
     --b3-menu-hover: #e5eced9c;
 }
 
+/* ❗Markdown图表样式 */
+
 .language-graphviz polygon {
     fill: transparent;
 }
 
+.vditor-reset .language-flowchart {
+    text-align: center;
+    /* background-color: #a5b3c7; */
+}
+.vditor-reset .language-plantuml {
+    text-align: center;
+}
+.vditor-reset .language-mermaid,
+.vditor-reset .language-graphviz {
+    text-align: center;
+}
 /* sql查询块 */
 span[data-type='block-query-embed-script'] {
     color: #7f8181 !important;
 }
-
+/* 列表加框线 */
 .vditor ul ol,
 .vditor ol ol,
 .vditor ul ul,
 .vditor ol ul {
-    border-left: 1px solid rgba(255, 255, 255, 0.2);
-    margin-left: -0.9em !important;
+    border-left: 1px solid rgba(19, 18, 18, 0.2);
+    margin-left: -0.85em !important;
     padding-left: 2.5em !important;
 }
 .hljs-comment {
@@ -254,18 +282,7 @@ blockquote {
     font-size: 10px;
     line-height: 15px;
 }
-.vditor-reset > h1,
-.vditor-reset > h2,
-.vditor-reset > h3,
-.vditor-reset > h4,
-.vditor-reset > h5,
-.vditor-reset > h6,
-.vditor-reset > p,
-.vditor-reset > blockquote,
-.vditor-reset > .hjls,
-.vditor-reset > table {
-    margin-left: 5px;
-}
+
 .vditor-counter {
     background-color: var(--b3-text-emphasize-color);
 }
@@ -276,7 +293,9 @@ blockquote {
     padding-bottom: 0.1em;
     border-bottom: 1px dashed var(--b3-vditor-inline-blockref-color); /*下划线可以去掉*/
 }
-.vditor-ir__blockref:hover,div[data-type='block-ref-embed'] .vditor-ir__blockref[data-type="ref-text-tpl-render-result"],div[data-type="block-render"] .vditor-ir__blockref[data-type="ref-text-tpl-render-result"]:hover {
+.vditor-ir__blockref:hover,
+div[data-type='block-ref-embed'] .vditor-ir__blockref[data-type='ref-text-tpl-render-result'],
+div[data-type='block-render'] .vditor-ir__blockref[data-type='ref-text-tpl-render-result']:hover {
     color: var(--b3-vditor-inline-blockref-hover-color); /*更改鼠标悬浮的颜色*/
     border-bottom: 1px dashed var(--b3-vditor-inline-blockref-hover-color); /*下划线可以去掉*/
 }
@@ -301,7 +320,7 @@ div[data-type='block-render'] {
     margin-top: 5px;
 }
 /* 块嵌入颜色与块引用区分 */
-div[data-type="block-render"] .vditor-ir__blockref[data-type="ref-text-tpl-render-result"]{
+div[data-type='block-render'] .vditor-ir__blockref[data-type='ref-text-tpl-render-result'] {
     color: var(--b3-vditor-inline-blockref-color); /*更改颜色*/
     padding-bottom: 0.1em;
     border-bottom: 1px dashed var(--b3-vditor-inline-blockref-color); /*下划线可以去掉*/
@@ -312,7 +331,7 @@ div[data-type="block-render"] .vditor-ir__blockref[data-type="ref-text-tpl-rende
     > div[data-render]
     > .fn__flex-column:not(:last-child)
     > .fn__flex-1 {
-    border-bottom: 2px solid #d5dde2!important;
+    border-bottom: 2px solid #d5dde2 !important;
 }
 /* 块嵌入背景颜色 */
 /* div[data-type='block-ref-embed'] div[data-type="block-render"] .vditor-ir {
@@ -403,7 +422,8 @@ span[data-type='a']:hover .vditor-ir__link {
 }
 
 /* 修复1.1.3后公式块与正文间距变大的问题 */
-.vditor-reset mjx-container[jax="SVG"][display="true"], .vditor-reset .katex-display {
+.vditor-reset mjx-container[jax='SVG'][display='true'],
+.vditor-reset .katex-display {
     padding: 0em 0;
     margin: 0;
 }
@@ -422,27 +442,21 @@ span[data-type='a']:hover .vditor-ir__link {
     font-size: 1.1em;
 }
 
-/* ❗代码块样式 */
+/* --------------------------代码块样式------------------------------------------- */
 /* 代码编辑区样式 */
 .vditor-ir__marker--pre code {
     background-color: #f0f3f5a8 !important;
 }
-/* 代码内容块 */
-.vditor-ir__preview .hljs {
+.hljs {
+    /* 代码块样式 */
     position: relative;
     line-height: 1.56em;
     background-color: #e7ecef !important;
-    /* box-shadow: 0px 0px 10px rgb(204, 214, 212); */
     color: #353739 !important;
-    /* 缩进两个单位 */
     padding-left: 2em !important;
-    background-image: none;
+    background-image: none !important;
 }
-/* 缩进代码编辑区和公式块 */
-/* 暂时取消 */
-/* .vditor-reset code:not(.hljs):not([data-type='math-inline']):not([data-newline='1']):not([class='b3-label__text']) {
-    padding-left: 2em;
-} */
+
 /* 暂时先把预览模式的code都去掉，发现v1.1的预览模式都没有加类 */
 .vditor-preview .vditor-reset code {
     padding-left: 0.5em;
@@ -453,27 +467,124 @@ span[data-type='a']:hover .vditor-ir__link {
 /* 考虑显示行号时的缩进 */
 .vditor-linenumber {
     padding-left: 4em !important;
-    position: relative;
 }
 
-/* 考虑到设置里的行内代码 */
-.b3-label__text code {
-    padding: 0.2em 0.5em !important;
+/* 代码编辑区的代码语言字体颜色 */
+.vditor-ir__marker--info {
+    color: #7f8181 !important;
+}
+/*仿照Blue_Topaz主题，渲染块显示所用代码语言*/
+.hljs:before {
+    position: absolute;
+    display: inline-block;
+    right: 40px;
+    top: 0.45em;
+    color: #b8bec2 !important;
+    cursor: pointer;
+    z-index: 0;
+    font-weight: 600;
+    padding: 1px 0px;
 }
 
-/* 列表加框线 */
-.vditor ul ol,
-.vditor ol ol,
-.vditor ul ul,
-.vditor ol ul {
-    border-left: 1px solid rgba(19, 18, 18, 0.2);
-    margin-left: -0.85em !important;
-    padding-left: 2.5em !important;
+code[class~='language-js']:before {
+    content: 'JS';
 }
 
-/* ❗复选框（待办事项）Start */
+code[class~='language-javascript']:before {
+    content: 'JS';
+}
+code[class~='language-c']:before {
+    content: 'C';
+}
+code[class~='language-cpp']::before {
+    content: 'C++';
+}
 
-/* 复选框样式 */
+code[class~='language-java']::before {
+    content: 'JAVA';
+}
+
+code[class~='language-python']:before {
+    content: 'PYTHON';
+}
+code[class~='language-Python']:before {
+    content: 'PYTHON';
+}
+
+code[class~='language-nginx']:before {
+    content: 'NGINX';
+}
+code[class~='language-html']::before {
+    content: 'HTML';
+}
+code[class~='language-css']:before {
+    content: 'CSS';
+}
+code[class~='language-json']:before {
+    content: 'JSON';
+}
+code[class~='language-go']:before {
+    content: 'GO';
+}
+code[class~='language-php']:before {
+    content: 'PHP';
+}
+code[class~='language-shell']:before {
+    content: 'SHELL';
+}
+code[class~='language-bash']:before {
+    content: 'BASH';
+}
+
+code[class~='language-flow']:before {
+    content: 'FLOW';
+}
+
+code[class~='language-sequence']:before {
+    content: 'SEQUENCE';
+}
+
+code[class~='language-sql']:before {
+    content: 'SQL';
+}
+
+code[class~='language-yaml']::before {
+    content: 'YAML';
+}
+
+code[class~='language-ini']::before {
+    content: 'INI';
+}
+
+code[class~='language-xml']::before {
+    content: 'XML';
+}
+
+code[class~='language-git']::before {
+    content: 'GIT';
+}
+
+code[class~='language-plaintext']::before {
+    content: 'TEXT';
+}
+code[class~='language-markdown']::before {
+    content: 'MARKDOWN';
+}
+code[class~='language-matlab']::before {
+    content: 'MATLAB';
+}
+code[class~='language-r']::before {
+    content: 'R';
+}
+/* --------------------------------------------------------------------- */
+/* --------------------------------------------------------------------- */
+
+
+
+
+/* ---------------------复选框（待办事项）Start------------------------------------------------ */
+
+/* 默认复选框样式 */
 .vditor-task input[type='checkbox'] {
     position: relative;
     text-align: center;
@@ -487,6 +598,7 @@ span[data-type='a']:hover .vditor-ir__link {
     border-radius: 0.17em;
 }
 
+/* 自定义样式 */
 .vditor-task input[type='checkbox']:before {
     content: '';
     position: absolute;
@@ -567,6 +679,7 @@ span[data-type='a']:hover .vditor-ir__link {
 /* ---------------------------复选框 End ------------------------------------------ */
 
 /* -------------------------------标题样式-------------------------------------- */
+
 .vditor-reset h1 {
     /* 如果需要左侧对齐，直接把下面一行注释*/
     text-align: center;
@@ -588,6 +701,7 @@ span[data-type='a']:hover .vditor-ir__link {
     border-bottom: 1px solid #dfe0e1 !important;
     font-size: 1.55em !important;
     color: #34495e;
+    padding: 0.3em 0px !important;
 }
 
 .vditor-reset h3 {
@@ -703,30 +817,29 @@ div[data-type='navigation'] .b3-list-item--focus,
 }
 /* 面板列表项 选中状态*/
 .b3-dialog__container .b3-list-item.b3-list-item--focus span:nth-child(2) {
-    color: var(--b3-menu-highlight-focus-color);    
+    color: var(--b3-menu-highlight-focus-color);
     background-color: transparent;
 }
 .b3-dialog__container .b3-list--background .b3-list-item--focus[data-type='search-item'] {
     background-color: var(--b3-menu-hover) !important;
 }
 /* 面板列表项 悬浮文字项 */
-.b3-dialog__container .b3-list-item:hover{
+.b3-dialog__container .b3-list-item:hover {
     background-color: transparent;
     color: var(--b3-menu-highlight-color);
 }
-.b3-dialog__container .b3-list-item:hover mark{
+.b3-dialog__container .b3-list-item:hover mark {
     color: var(--b3-menu-highlight-color);
 }
-.b3-dialog__container .b3-list-item--focus mark{
+.b3-dialog__container .b3-list-item--focus mark {
     color: var(--b3-menu-highlight-focus-color);
 }
-.b3-dialog__container .b3-list-item--focus:hover mark{
+.b3-dialog__container .b3-list-item--focus:hover mark {
     color: var(--b3-menu-highlight-focus-color);
 }
 /* 按斜杆弹出的菜单 */
 .b3-list--background .b3-list-item--focus {
     background-color: var(--b3-menu-hover) !important;
-    
 }
 .b3-list--background .b3-list-item--focus .b3-list-item__text {
     color: var(--b3-menu-highlight-focus-color);
@@ -749,7 +862,6 @@ div[data-type='navigation'] .b3-list-item--focus,
 .layout-tab-container .b3-list--background .b3-list-item:hover span[class='b3-list-item__meta'] {
     color: var(--b3-menu-highlight-color);
 }
-
 
 /* ------------------------------------------------------------------ */
 
@@ -818,7 +930,8 @@ div[data-type='navigation'] .b3-list-item--focus,
     display: none;
 }
 /* 工具栏高亮 */
-.vditor-toolbar__item.b3-menu__item--current, .vditor-toolbar__item:hover:not(.b3-menu__item--disabled) {
+.vditor-toolbar__item.b3-menu__item--current,
+.vditor-toolbar__item:hover:not(.b3-menu__item--disabled) {
     color: var(--b3-theme-on-primary);
     background-color: #7ca3af;
 }
@@ -861,17 +974,6 @@ div[data-type='navigation'] .b3-list-item--focus,
 /* ------------------------------------------------------------------ */
 /* ❗标签样式 */
 
-/* .vditor-ir span[data-type='tag'] {
-    display: inline-block;
-    font-size: 85%;
-    background-color: var(--b3-vditor-inline-tag-color);
-    border-radius: 0.625em;
-    cursor: pointer;
-    padding: 0em 0.375em 0.08em;
-    margin: 0em 0.25em;
-    white-space: nowrap;
-    transform: translateY(-2px);
-} */
 .vditor-ir span[data-type='tag'] {
     display: inline-flex;
     font-size: 85%;
@@ -904,19 +1006,6 @@ div[data-type='navigation'] .b3-list-item--focus,
 /* 标签样式end */
 /* ------------------------------------------------------------------ */
 
-/* ❗Markdown图表样式 */
-.vditor-reset .language-flowchart {
-    text-align: center;
-    /* background-color: #a5b3c7; */
-}
-.vditor-reset .language-plantuml {
-    text-align: center;
-}
-.vditor-reset .language-mermaid,
-.vditor-reset .language-graphviz {
-    text-align: center;
-    /* background-color: #282c34; */
-}
 
 /* 图片样式 */
 .vditor-reset img {
@@ -949,16 +1038,10 @@ div[data-type='navigation'] .b3-list-item--focus,
     color: var(--b3-menu-highlight-color);
     background: #fff;
     transform: rotate(180deg);
-    
 }
 
-/* 仿照Lavender设置/搜索界面启动动效 */
-/* .b3-dialog {
-    perspective: 3000px;
-} */
 
 .b3-dialog__container {
-    /* transform-style: preserve-3d; */
     animation: show 0.5s ease forwards;
 }
 @keyframes show {
@@ -982,117 +1065,7 @@ div[data-type='block-render'] .ft__secondary {
     /* 模板和assets为红  */
     color: #f33c3c;
 }
-/*代码语言显示*/
-/* 仿照Blue_Topaz主题 */
-/* 代码编辑区的代码语言 */
-.vditor-ir__marker--info {
-    color: #7f8181 !important;
-}
 
-code:before {
-    position: absolute;
-    /* position: sticky; */
-    color: #b8bec2 !important;
-    display: inline-block;
-    cursor: pointer;
-    right: 40px;
-    top: 0.45em;
-    z-index: 0;
-    font-weight: 600;
-    padding: 1px 0px;
-}
-
-code[class~='language-js']:before {
-    content: 'JS';
-}
-
-code[class~='language-javascript']:before {
-    content: 'JS';
-}
-code[class~='language-c']:before {
-    content: 'C';
-}
-code[class~='language-cpp']::before {
-    content: 'C++';
-}
-
-code[class~='language-java']::before {
-    content: 'JAVA';
-}
-
-code[class~='language-python']:before {
-    content: 'PYTHON';
-}
-code[class~='language-Python']:before {
-    content: 'PYTHON';
-}
-
-code[class~='language-nginx']:before {
-    content: 'NGINX';
-}
-code[class~='language-html']::before {
-    content: 'HTML';
-}
-code[class~='language-css']:before {
-    content: 'CSS';
-}
-code[class~='language-json']:before {
-    content: 'JSON';
-}
-code[class~='language-go']:before {
-    content: 'GO';
-}
-code[class~='language-php']:before {
-    content: 'PHP';
-}
-code[class~='language-shell']:before {
-    content: 'SHELL';
-}
-code[class~='language-bash']:before {
-    content: 'BASH';
-}
-
-code[class~='language-flow']:before {
-    content: 'FLOW';
-}
-
-code[class~='language-sequence']:before {
-    content: 'SEQUENCE';
-}
-
-code[class~='language-sql']:before {
-    content: 'SQL';
-}
-
-code[class~='language-yaml']::before {
-    content: 'YAML';
-}
-
-code[class~='language-ini']::before {
-    content: 'INI';
-}
-
-code[class~='language-xml']::before {
-    content: 'XML';
-}
-
-code[class~='language-git']::before {
-    content: 'GIT';
-}
-
-code[class~='language-plaintext']::before {
-    content: 'TEXT';
-}
-code[class~='language-markdown']::before {
-    content: 'MARKDOWN';
-}
-code[class~='language-matlab']::before {
-    content: 'MATLAB';
-}
-code[class~='language-r']::before {
-    content: 'R';
-}
-/* --------------------------------------------------------------------- */
 /* 调整列表间距 */
 .vditor-reset li p {
     margin-bottom: 2px;
@@ -1138,7 +1111,7 @@ iframe {
         -4px 1px 0px 0px rgba(0, 0, 0, 0.062), 4px -1px 0px 0px rgba(0, 0, 0, 0.062);
 }
 
-.vditor-ir--tip *[tip]:not([fold="1"]):not(.vditor-ir__node--expand):before {
+.vditor-ir--tip *[tip]:not([fold='1']):not(.vditor-ir__node--expand):before {
     font-weight: normal;
     background-color: #e9eded8a;
     padding: 4px 5px 4px 5px !important;
@@ -1146,7 +1119,6 @@ iframe {
     margin: -1em 1em 0 0;
     border-radius: 4px;
 }
-
 
 /* 对标题的块命名单独调整 */
 .vditor-reset h1::before,
@@ -1176,13 +1148,13 @@ table:after {
     border-radius: 4px;
 }
 /*对代码块的命名单独处理 */
-.vditor-ir--tip table[tip]:not([fold="1"]):before, .vditor-ir--tip [data-type="code-block"][tip]:not([fold="1"]):before {
+.vditor-ir--tip table[tip]:not([fold='1']):before,
+.vditor-ir--tip [data-type='code-block'][tip]:not([fold='1']):before {
     position: absolute;
     right: 0;
     z-index: 1;
     top: -8px;
-    background-color: #e7ecef; 
-
+    background-color: #e7ecef;
 }
 /* --------------------------------------------------------------------- */
 /* 隐藏br */
@@ -1219,31 +1191,6 @@ table:after {
     box-shadow: 7px 7px 12px #929191;
     transition: all 0.2s ease-in-out;
 }
-/* quiet的添加的横线效果 */
-/* .b3-dialog__container div[data-name="bazaar"] .b3-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    width: 20%;
-    height: 100%;
-    background: transparent;
-    transform: skew(-45deg);
-    z-index: 2;
-}
-.b3-dialog__container div[data-name="bazaar"] .b3-card:hover::after {
-    animation: focusCard .5s ease-in-out;
-    animation-fill-mode: forwards;
-}
-@keyframes focusCard {
-    0% {
-        box-shadow: 0 0 20px #ffffff20;
-        background-color: #ffffff20;
-        filter: blur(20px)
-    }
-    100% {
-        transform: skew(-45deg) translateX(400px);
-    }
-} */
 
 /*分窗口的边框（线）  */
 .layout__resize::after {
@@ -1335,5 +1282,7 @@ div[data-type='wnd'] .layout-tab-container:hover .file-tree .fn__flex-1::before 
     transition: z-index 0.5s linear;
 }
 
-
 /* ----------------------------------End----------------------------------- */
+audio {
+    width: 800px !important;
+}
