@@ -452,43 +452,86 @@ span[data-type='a']:hover .vditor-ir__link {
 .vditor-ir__marker--pre code {
     background-color: #f0f3f5a8 !important;
 }
-.hljs {
+.vditor-reset pre>code {
     /* 代码块样式 */
     position: relative;
+    display: block;
     background-color: #e7ecef !important;
     color: #353739 !important;
-    font-size: 0.8em !important;
-    padding-left: 2em !important;
+    padding-left: 2em;
+    padding-top: 32px !important;
     background-image: none !important;
+    
+}
+.vditor-ir div[data-type="code-block"] pre::before {
+    content: '';
+    background: #fc625d;
+    box-shadow: 23px 0 #fdbc40, 45px 0 #35cd4b;
+    border-radius: 50%;
+    margin-top: 10px;
+    position: absolute;
+    margin-left: 15px;
+    height: 12px;
+    width: 12px;
+    z-index: 1;
+}
+.vditor-copy {
+    display: block !important;
+
+}
+.vditor-copy span{
+    opacity: 0;
+}
+.vditor-copy span:hover{
+    opacity: 1;
+    transition: all 0.3s linear;
+}
+.vditor-copy::before {
+    content: ' ';
+    background: #fc625d;
+    box-shadow: 23px 0 #fdbc40, 45px 0 #35cd4b;
+    border-radius: 50%;
+    margin-top: 10px;
+    position: absolute;
+    left: 15px;
+    height: 12px;
+    width: 12px;
+    z-index: 1;
 }
 
-/* 暂时先把预览模式的code都去掉，发现v1.1的预览模式都没有加类 */
-.vditor-preview .vditor-reset code {
-    padding-left: 0.5em;
-}
-.vditor-preview .vditor-preview .hljs {
-    padding-left: 2em;
-}
 /* 考虑显示行号时的缩进 */
 .vditor-linenumber {
     padding-left: 4em !important;
 }
-
+.vditor-linenumber__rows{
+    padding-top: 25.3px !important;
+}
 /* 代码编辑区的代码语言字体颜色 */
 .vditor-ir__marker--info {
     color: #7f8181 !important;
 }
 /*仿照Blue_Topaz主题，渲染块显示所用代码语言*/
-.hljs:before {
+
+/* .hljs:before {
     position: absolute;
     display: inline-block;
     right: 40px;
     top: 0.45em;
     color: #b8bec2 !important;
     cursor: pointer;
-    z-index: 0;
     font-weight: 600;
-    padding: 1px 0px;
+    z-index: 1;
+} */
+.hljs:before {
+    float:right;
+    position: sticky;
+    left:622px;
+    margin-right:50px;
+    margin-top: -2em;
+    color: #b8bec2 !important;
+    cursor: pointer;
+    font-weight: 600;
+    z-index: 1;
 }
 
 code[class~='language-js']:before {
@@ -509,7 +552,7 @@ code[class~='language-java']::before {
     content: 'JAVA';
 }
 
-code[class~='language-python']:before {
+code[class~='language-python']:before  {
     content: 'PYTHON';
 }
 code[class~='language-Python']:before {
@@ -1228,7 +1271,7 @@ table:after {
 } */
 .fn__flex-column .vditor-ir {
     /* 多窗口非活动窗口变暗 */
-    background-color: #eff6f6;
+    background-color: #f3f7f8;
     transition: background-color 0.5s linear;
 }
 .layout__wnd--active .vditor-ir {
@@ -1245,7 +1288,7 @@ table:after {
     right: 0;
     top: 0;
     bottom: 0;
-    background-color: #eff6f6;
+    background-color: #f3f7f8;
     transition: background-color 0.5s linear;
 }
 .layout__wnd--active .vditor-content::after {
