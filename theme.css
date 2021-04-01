@@ -9,6 +9,11 @@
     font-style: normal;
     src: url('fonts/FiraCode-Regular.ttf');
 }
+@font-face {
+    font-family: 'Segoe UI Emoji' !important; 
+    font-style: normal;
+    src: url('fonts/seguiemj.ttf');
+}
 :root {
     /* 主色 */
     --b3-theme-primary: #4285f4;
@@ -56,7 +61,7 @@
     --b3-font-background13: var(--b3-theme-on-background);
     /* 字体 */
     --b3-font-family: 'SourceHan', 'Helvetica Neue', 'Luxi Sans', 'DejaVu Sans', 'Hiragino Sans GB',
-        'Microsoft Yahei', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji',
+        'Microsoft Yahei', sans-serif,'Apple Color Emoji','Segoe UI Emoji', 'Noto Color Emoji',
         'Segoe UI Symbol', 'Android Emoji', 'EmojiSymbols';
     --b3-font-family-code: 'FiraCode', mononoki, Consolas, 'Liberation Mono', Menlo, Courier,
         monospace, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Segoe UI Symbol',
@@ -450,9 +455,9 @@ span[data-type='a']:hover .vditor-ir__link {
 .hljs {
     /* 代码块样式 */
     position: relative;
-    line-height: 1.56em;
     background-color: #e7ecef !important;
     color: #353739 !important;
+    font-size: 0.8em !important;
     padding-left: 2em !important;
     background-image: none !important;
 }
@@ -576,11 +581,11 @@ code[class~='language-matlab']::before {
 code[class~='language-r']::before {
     content: 'R';
 }
+code[class~='language-R']::before {
+    content: 'R';
+}
 /* --------------------------------------------------------------------- */
 /* --------------------------------------------------------------------- */
-
-
-
 
 /* ---------------------复选框（待办事项）Start------------------------------------------------ */
 
@@ -1006,7 +1011,6 @@ div[data-type='navigation'] .b3-list-item--focus,
 /* 标签样式end */
 /* ------------------------------------------------------------------ */
 
-
 /* 图片样式 */
 .vditor-reset img {
     max-width: 100%;
@@ -1039,7 +1043,6 @@ div[data-type='navigation'] .b3-list-item--focus,
     background: #fff;
     transform: rotate(180deg);
 }
-
 
 .b3-dialog__container {
     animation: show 0.5s ease forwards;
@@ -1123,15 +1126,12 @@ iframe {
 /* 对标题的块命名单独调整 */
 .vditor-reset h1::before,
 .vditor-reset h2::before,
+.vditor-reset h3::before,
 .vditor-reset h4::before,
 .vditor-reset h5::before,
 .vditor-reset h6::before {
-    margin: -2.9em 1em 0 0 !important;
+    margin: -1.5em 1em 0 0 !important;
 }
-.vditor-reset h3::before {
-    margin: -1.3em 1em 0 0 !important;
-}
-
 /* 对表格的块命名单独处理 */
 table:before {
     content: none !important;
@@ -1283,6 +1283,12 @@ div[data-type='wnd'] .layout-tab-container:hover .file-tree .fn__flex-1::before 
 }
 
 /* ----------------------------------End----------------------------------- */
+/* 音频长度增加 */
 audio {
     width: 800px !important;
+}
+
+/* 调整引用中的加粗样式 */
+.vditor-reset blockquote strong {
+    color: inherit !important;
 }
