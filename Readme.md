@@ -23,6 +23,30 @@
 
 ---
 
+## v0.3.7/2021-4-3
+
+* 表格框线在十字交叉处会叠加颜色，框线颜色透明度的锅
+* 鉴于手机端点击工具栏不方便，干脆取消工具栏隐藏效果
+* 调整黑色主题工具栏颜色
+  ![image.png](https://b3logfile.com/siyuan/1610205759005/assets/image-20210403202610-swoo8t3.png)
+* 修复由于重设代码块样式造成的 html code 块也出现 padding-top 的问题
+* 保证 light 主题手机端和平板端的窗口背景不为电脑端非活动背景
+* 发现自己的字体虽然是思源黑体 SourceHan 但是和 notion 主题的字体 NotoSansSC 有差别，于是我的列表样式就显得格外的小……这次干脆 copy 了 notion 的字体，light 主题的无序列表颜色调整为灰色, 统一无序列表样式为小圆点![image.png](https://b3logfile.com/siyuan/1610205759005/assets/image-20210403204713-opwzwz7.png)
+
+```css
+.vditor-ir ul > li:not(.vditor-task) {
+    list-style-type: disc;
+}
+.vditor-ir ul > li:not(.vditor-task) p{
+    color:var(--b3-theme-on-background);
+}
+.vditor-ir ul{
+    color:grey;
+}
+
+```
+
+
 ## v0.3.6/2021-4-2
 
 尝试修复手机端 emoji 设置失效问题

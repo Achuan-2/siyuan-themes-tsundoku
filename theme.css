@@ -2,7 +2,7 @@
     /* 思源黑体 */
     font-family: 'SourceHan';
     font-style: normal;
-    src: url('fonts/SourceHanSansCN-Regular.otf');
+    src: url('fonts/NotoSansSC-Regular.otf');
 }
 @font-face {
     font-family: 'FiraCode';
@@ -84,7 +84,7 @@
     --b3-tooltips-color: rgba(0, 0, 0, 0.54);
     --b3-text-border-color: rgb(170, 178, 180);
     /* 表格 */
-    --b3-table-border-color: rgba(26, 26, 26, 0.1);
+    --b3-table-border-color: #dfe0e1;
     --b3-table-th-color: #d0d6d85b;
     --b3-table-trn-color: #f8f9fa;
     --b3-table-tr2n-color: #f0f4f5;
@@ -204,15 +204,31 @@
 span[data-type='block-query-embed-script'] {
     color: #7f8181 !important;
 }
-/* 列表加框线 */
+
+/* 列表样式 */
+.vditor-ir ul > li:not(.vditor-task) {
+    list-style-type: disc;
+}
+.vditor-ir ul > li:not(.vditor-task) p{
+    color:var(--b3-theme-on-background);
+}
+.vditor-ir ul{
+    color:grey;
+}
+
 .vditor ul ol,
 .vditor ol ol,
 .vditor ul ul,
 .vditor ol ul {
     border-left: 1px solid rgba(19, 18, 18, 0.2);
-    margin-left: -0.85em !important;
+    margin-left: -0.93em !important;
     padding-left: 2.5em !important;
 }
+/* 调整列表间距 */
+.vditor-reset li p {
+    margin-bottom: 2px;
+}
+
 .hljs-comment {
     font-style: normal !important;
     font-family: var(--b3-font-family-code);
@@ -236,9 +252,6 @@ blockquote {
     margin-bottom: 12px !important;
 }
 /* 表格 */
-.vditor-reset table {
-    /* box-shadow: var(--b3-card-shadow); */
-}
 .vditor-reset table thead tr {
     background-color: var(--b3-table-th-color) !important;
 }
@@ -452,7 +465,7 @@ span[data-type='a']:hover .vditor-ir__link {
 .vditor-ir__marker--pre code {
     background-color: #f0f3f5a8 !important;
 }
-.vditor-reset pre>code {
+.vditor-reset pre>.hljs {
     /* 代码块样式 */
     position: relative;
     display: block;
@@ -924,7 +937,7 @@ div[data-type='navigation'] .b3-list-item--focus,
     border-radius: 7px 7px 0px 0px;
     margin-right: 2px;
     background-color: #f0f3f5;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.1s ease;
 }
 
 /* 选中的标签页 */
@@ -1112,10 +1125,7 @@ div[data-type='block-render'] .ft__secondary {
     color: #f33c3c;
 }
 
-/* 调整列表间距 */
-.vditor-reset li p {
-    margin-bottom: 2px;
-}
+
 
 /* 标题过长后尾部的白色阴影去除 */
 /* .layout-tab-bar .item__text::after {
@@ -1125,31 +1135,20 @@ div[data-type='block-render'] .ft__secondary {
 span[data-type='html-inline'] code {
     padding-left: 0em !important;
 }
-iframe {
-    height: 500px;
-}
+
 
 /* 工具栏隐藏动画效果 */
-.vditor-toolbar__item,
+/* 工具栏隐藏动画效果 */
+/* .vditor-toolbar__item,
 .vditor-toolbar__divider {
     transition: opacity 1s ease 10s;
     opacity: 0;
 }
 .vditor-toolbar:not(.vditor-toolbar--hide):hover .vditor-toolbar__item,
 .vditor-toolbar:not(.vditor-toolbar--hide):hover .vditor-toolbar__divider {
-    animation: showToolbar 0.5s ease-in-out;
     opacity: 1;
     transition: opacity 0.5s ease 0s;
-}
-@keyframes showToolbar {
-    0% {
-        /* transform: translateY(5px); */
-    }
-    100% {
-        /* opacity: 1; */
-        transform: translateY(0px);
-    }
-}
+} */
 /* -------------------------------块命名-------------------------------------- */
 /* 调整块命名的边框 */
 .vditor-ir--tip *[tip]:not([fold='1']) {
@@ -1274,11 +1273,18 @@ table:after {
     background-color: #f3f7f8;
     transition: background-color 0.5s linear;
 }
+
 .layout__wnd--active .vditor-ir {
     /* 当前编辑窗口保持主背景色 */
     background-color: var(--b3-theme-background);
 }
-
+@media screen and (max-width: 1023px) {
+    /* 保证手机端和平板端的窗口背景不为电脑端非活动背景 */
+    .fn__flex-column .vditor-ir {
+        /* 多窗口非活动窗口变暗 */
+        background-color: var(--b3-theme-background);
+    }
+}
 /* 滚动条隐藏效果 */
 .vditor-content::after {
     /* 非当前编辑窗口滑块用另一种颜色用伪元素遮住 */
@@ -1327,6 +1333,9 @@ div[data-type='wnd'] .layout-tab-container:hover .file-tree .fn__flex-1::before 
 
 /* ----------------------------------End----------------------------------- */
 /* 音频长度增加 */
+iframe {
+    height: 450px;
+}
 audio {
     width: 800px !important;
 }
@@ -1335,3 +1344,7 @@ audio {
 .vditor-reset blockquote strong {
     color: inherit !important;
 }
+
+/* 调整大纲样式 */
+
+
