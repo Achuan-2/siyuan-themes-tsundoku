@@ -206,14 +206,21 @@ span[data-type='block-query-embed-script'] {
 }
 
 /* 列表样式 */
-.vditor-ir ul > li:not(.vditor-task) {
-    list-style-type: disc;
+.vditor-ir ul>li {
+    list-style: none;
+
 }
-.vditor-ir ul{
-    color:grey;
-}
-.vditor-ir ul > li:not(.vditor-task)>p{
-    color:var(--b3-theme-on-background);
+.vditor-ir ul>li:before {
+    content: "";
+    position: relative;
+    float:left;
+    width: 0.40em;
+    height: 0.40em;
+    background-color: #999999;
+    border-radius: 50%;
+    right:1.125em;
+    top: 0.8em;
+    margin-right:-7px;
 }
 
 .vditor ul ol,
