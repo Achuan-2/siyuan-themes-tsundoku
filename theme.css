@@ -209,11 +209,11 @@ span[data-type='block-query-embed-script'] {
 .vditor-ir ul > li:not(.vditor-task) {
     list-style-type: disc;
 }
-.vditor-ir ul > li:not(.vditor-task) p{
-    color:var(--b3-theme-on-background);
-}
 .vditor-ir ul{
     color:grey;
+}
+.vditor-ir ul > li:not(.vditor-task) p{
+    color:var(--b3-theme-on-background);
 }
 
 .vditor ul ol,
@@ -700,11 +700,14 @@ code[class~='language-R']::before {
     background-color: #a0d1e7;
 }
 /* 完成的待办事项 */
-.vditor-task--done {
+.vditor-ir .vditor-task {
+    color:var(--b3-theme-on-background);
+}
+.vditor-ir  .vditor-task--done {
     /* 完成的待办事项删除线 */
     /* text-decoration: line-through; */
     /* 字体颜色 */
-    color: #6791a396;
+    color: #6791a396 !important;
 }
 
 .vditor-task--done strong {
@@ -1278,13 +1281,7 @@ table:after {
     /* 当前编辑窗口保持主背景色 */
     background-color: var(--b3-theme-background);
 }
-@media screen and (max-width: 1023px) {
-    /* 保证手机端和平板端的窗口背景不为电脑端非活动背景 */
-    .fn__flex-column .vditor-ir {
-        /* 多窗口非活动窗口变暗 */
-        background-color: var(--b3-theme-background);
-    }
-}
+
 /* 滚动条隐藏效果 */
 .vditor-content::after {
     /* 非当前编辑窗口滑块用另一种颜色用伪元素遮住 */
@@ -1336,10 +1333,29 @@ div[data-type='wnd'] .layout-tab-container:hover .file-tree .fn__flex-1::before 
 iframe {
     height: 450px;
 }
+
 audio {
     width: 800px !important;
 }
-
+/* 手机端平板端适配 */
+@media screen and (min-width: 320px) and (max-width: 420px){
+    iframe {
+    height: 150px;
+    }
+    .fn__flex-column .vditor-ir {
+        /* 多窗口非活动窗口变暗 */
+        background-color: var(--b3-theme-background);
+    }
+}
+@media screen and (min-width: 421px)and (max-width: 1023px) {
+    /* 保证手机端和平板端的窗口背景不为电脑端非活动背景 */
+    .fn__flex-column .vditor-ir {
+        background-color: var(--b3-theme-background);
+    }
+    iframe {
+    height: 320px;
+    }
+}
 /* 调整引用中的加粗样式 */
 .vditor-reset blockquote strong {
     color: inherit !important;

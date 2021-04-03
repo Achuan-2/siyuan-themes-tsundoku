@@ -23,6 +23,34 @@
 
 ---
 
+## v0.3.8/2021-4-3
+
+- 修复 light 主题无序列表变灰导致任务列表也变灰的问题
+- 对手机和平板针对 iframe 中的视频进行样式调整（只针对我的手机哈）
+iplay 40平板![Screenshot_20210404000403.png](https://b3logfile.com/siyuan/1610205759005/assets/Screenshot_20210404000403-20210404000801-92lxlpa.png )
+Redmi手机![Screenshot_2021-04-04-00-04-53-557_org.b3log.siyuan.jpg](https://b3logfile.com/siyuan/1610205759005/assets/Screenshot_2021-04-04-00-04-53-557_org.b3log.siyuan-20210404000811-k561d4c.jpg)
+
+```css
+@media screen and (min-width: 320px) and (max-width: 420px){
+    iframe {
+    height: 150px;
+    }
+    .fn__flex-column .vditor-ir {
+        /* 多窗口非活动窗口变暗 */
+        background-color: var(--b3-theme-background);
+    }
+}
+@media screen and (min-width: 421px)and (max-width: 1023px) {
+    /* 保证手机端和平板端的窗口背景不为电脑端非活动背景 */
+    .fn__flex-column .vditor-ir {
+        background-color: var(--b3-theme-background);
+    }
+    iframe {
+    height: 320px;
+    }
+}
+```
+
 ## v0.3.7/2021-4-3
 
 * 表格框线在十字交叉处会叠加颜色，框线颜色透明度的锅
