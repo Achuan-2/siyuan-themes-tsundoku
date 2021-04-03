@@ -25,8 +25,8 @@
 
 ## v0.3.8/2021-4-3
 
-- 修复 light 主题无序列表变灰导致任务列表也变灰的问题
-- 对手机和平板针对 iframe 中的视频进行样式调整（只针对我的手机哈）
+- 修复 light 主题无序列表变灰导致任务列表也变灰、引用样式字体变黑的问题
+- 对手机和平板针对 iframe 中的视频进行样式调整（其实只是针对我的设备哈）
 iplay 40平板![Screenshot_20210404000403.png](https://b3logfile.com/siyuan/1610205759005/assets/Screenshot_20210404000403-20210404000801-92lxlpa.png )
 Redmi手机![Screenshot_2021-04-04-00-04-53-557_org.b3log.siyuan.jpg](https://b3logfile.com/siyuan/1610205759005/assets/Screenshot_2021-04-04-00-04-53-557_org.b3log.siyuan-20210404000811-k561d4c.jpg)
 

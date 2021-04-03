@@ -212,7 +212,7 @@ span[data-type='block-query-embed-script'] {
 .vditor-ir ul{
     color:grey;
 }
-.vditor-ir ul > li:not(.vditor-task) p{
+.vditor-ir ul > li:not(.vditor-task)>p{
     color:var(--b3-theme-on-background);
 }
 
@@ -242,8 +242,6 @@ blockquote {
     border-radius: 0.31em;
     background-color: rgba(66, 185, 185, 0.05) !important;
     padding-left: 1em !important;
-    /* box-shadow: var(--b3-card-shadow); */
-    color: #0a6e9ecc;
 }
 .vditor-reset .hljs,
 .vditor-reset blockquote,
