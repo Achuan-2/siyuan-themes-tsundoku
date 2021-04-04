@@ -1375,9 +1375,12 @@ audio {
 }
 .b3-tooltips__s::before,
 .b3-tooltips__se::before,
-.b3-tooltips__sw::before {
+.b3-tooltips__sw::before{
     border-bottom-color: #81afbdd8;
 }
 .b3-tooltips::after {
     background: #81afbdd8;
+}
+.b3-tooltips__w:before{
+    border-left-color: #81afbdd8;
 }
