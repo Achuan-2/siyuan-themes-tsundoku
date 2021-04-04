@@ -10,7 +10,7 @@
     src: url('fonts/FiraCode-Regular.ttf');
 }
 @font-face {
-    font-family: 'Win10 Emoji'; 
+    font-family: 'Win10 Emoji';
     font-style: normal;
     src: url('fonts/seguiemj.ttf');
 }
@@ -24,7 +24,7 @@
     --b3-theme-secondary: #f3a92f;
     --b3-theme-background: #f8f9fa;
     --b3-theme-surface: #f8f8f8;
-    --b3-theme-error: #d23f31;
+    --b3-theme-error: #eba7a0;
 
     /* 文字颜色 */
     --b3-theme-on-primary: #fff;
@@ -61,8 +61,8 @@
     --b3-font-background13: var(--b3-theme-on-background);
     /* 字体 */
     --b3-font-family: 'SourceHan', 'Helvetica Neue', 'Luxi Sans', 'DejaVu Sans', 'Hiragino Sans GB',
-        'Microsoft Yahei', sans-serif,'Apple Color Emoji','Segoe UI Emoji', 'Noto Color Emoji','Win10 Emoji',
-        'Segoe UI Symbol', 'Android Emoji', 'EmojiSymbols';
+        'Microsoft Yahei', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji',
+        'Win10 Emoji', 'Segoe UI Symbol', 'Android Emoji', 'EmojiSymbols';
     --b3-font-family-code: 'FiraCode', mononoki, Consolas, 'Liberation Mono', Menlo, Courier,
         monospace, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Segoe UI Symbol',
         'Android Emoji', 'EmojiSymbols';
@@ -206,23 +206,23 @@ span[data-type='block-query-embed-script'] {
 }
 
 /* 列表样式 */
-.vditor-ir ul>li {
-    list-style: none;
-
+.vditor-reset ul {
+    color: grey;
 }
-.vditor-ir ul>li:before {
-    content: "";
-    position: relative;
-    float:left;
-    width: 0.40em;
-    height: 0.40em;
-    background-color: #999999;
-    border-radius: 50%;
-    right:1.125em;
-    top: 0.8em;
-    margin-right:-7px;
+.vditor-reset ul > li:not(.vditor-task) {
+    list-style-type: disc;
+}
+.vditor-preview li {
+    color: var(--b3-theme-on-background); 
+}
+.vditor-reset ul li p {
+    color: var(--b3-theme-on-background); 
+}
+.vditor-reset table {
+    color: var(--b3-theme-on-background);
 }
 
+/* 列表框线 */
 .vditor ul ol,
 .vditor ol ol,
 .vditor ul ul,
@@ -232,7 +232,7 @@ span[data-type='block-query-embed-script'] {
     padding-left: 2.5em !important;
 }
 /* 调整列表间距 */
-.vditor-reset li p {
+.vditor-reset li p{
     margin-bottom: 2px;
 }
 
@@ -287,7 +287,7 @@ blockquote {
 .vditor-ir div[data-type='block-query-embed'] > div[data-render] {
     box-shadow: var(--b3-card-shadow);
 }
-.vditor-ir
+.vditor-reset
     div[data-type='block-query-embed']
     > div[data-render]
     > .fn__flex-column:not(:last-child)
@@ -430,18 +430,22 @@ span[data-type='a']:hover .vditor-ir__link {
 [data-type='inline-math'] .katex {
     font: normal 1em KaTeX_Main, Times New Roman, serif !important;
 }
-[data-type='inline-math'] .MathJax {
+.vditor-preview .language-math .katex {
     font: normal 1em KaTeX_Main, Times New Roman, serif !important;
 }
+[data-type='inline-math'] .MathJax {
+    font-size: 1em !important;
+}
+
 /* 公式块字体大小 */
 [data-type='math-block'] .katex {
-    font: normal 1.15em KaTeX_Main, Times New Roman, serif !important;
+    font: normal 1em KaTeX_Main, Times New Roman, serif !important;
+}
+.vditor-preview .language-math > .katex-display {
+    font: normal 1em KaTeX_Main, Times New Roman, serif !important;
 }
 [data-type='math-block'] .MathJax {
     font-size: 1.11em !important;
-}
-[data-type='language-math'] .MathJax svg {
-    height: 1em;
 }
 
 /* 修复1.1.3后公式块与正文间距变大的问题 */
@@ -462,7 +466,7 @@ span[data-type='a']:hover .vditor-ir__link {
 }
 .minner .mfrac {
     /* 公式块分式字体调整 */
-    font-size: 1.1em;
+    font-size: 1.1em !important;
 }
 
 /* --------------------------代码块样式------------------------------------------- */
@@ -470,8 +474,8 @@ span[data-type='a']:hover .vditor-ir__link {
 .vditor-ir__marker--pre code {
     background-color: #f0f3f5a8 !important;
 }
-.vditor-reset pre>.hljs {
-    /* 代码块样式 */
+/* 代码块样式 */
+.vditor-reset pre > .hljs {
     position: relative;
     display: block;
     background-color: #e7ecef !important;
@@ -479,7 +483,37 @@ span[data-type='a']:hover .vditor-ir__link {
     padding-left: 2em;
     padding-top: 32px !important;
     background-image: none !important;
-    
+}
+
+.vditor-copy {
+    display: block !important;
+}
+.vditor-copy span {
+    opacity: 0;
+}
+pre:hover .vditor-copy span {
+    opacity: 1;
+    transition: all 0.3s linear;
+}
+.vditor-copy span:hover::before {
+    transform: rotate(90deg) translateX(-11.5px) translateY(-4px);
+    border-left-color: #93bac6;
+}
+.vditor-copy span:hover::after {
+    transform: translateX(27px) translateY(-16px);
+    background-color: #93bac6;
+}
+.vditor-preview .vditor-copy::before {
+    content: ' ';
+    background: #fc625d;
+    box-shadow: 23px 0 #fdbc40, 45px 0 #35cd4b;
+    border-radius: 50%;
+    margin-top: 10px;
+    position: absolute;
+    left: 15px;
+    height: 12px;
+    width: 12px;
+    z-index: 1;
 }
 .vditor-ir div[data-type="code-block"] pre::before {
     content: '';
@@ -493,35 +527,12 @@ span[data-type='a']:hover .vditor-ir__link {
     width: 12px;
     z-index: 1;
 }
-.vditor-copy {
-    display: block !important;
-
-}
-.vditor-copy span{
-    opacity: 0;
-}
-.vditor-copy span:hover{
-    opacity: 1;
-    transition: all 0.3s linear;
-}
-.vditor-copy::before {
-    content: ' ';
-    background: #fc625d;
-    box-shadow: 23px 0 #fdbc40, 45px 0 #35cd4b;
-    border-radius: 50%;
-    margin-top: 10px;
-    position: absolute;
-    left: 15px;
-    height: 12px;
-    width: 12px;
-    z-index: 1;
-}
 
 /* 考虑显示行号时的缩进 */
 .vditor-linenumber {
     padding-left: 4em !important;
 }
-.vditor-linenumber__rows{
+.vditor-linenumber__rows {
     padding-top: 25.3px !important;
 }
 /* 代码编辑区的代码语言字体颜色 */
@@ -541,10 +552,10 @@ span[data-type='a']:hover .vditor-ir__link {
     z-index: 1;
 } */
 .hljs:before {
-    float:right;
+    float: right;
     position: sticky;
-    left:622px;
-    margin-right:50px;
+    left: 622px;
+    margin-right: 50px;
     margin-top: -2em;
     color: #b8bec2 !important;
     cursor: pointer;
@@ -570,7 +581,7 @@ code[class~='language-java']::before {
     content: 'JAVA';
 }
 
-code[class~='language-python']:before  {
+code[class~='language-python']:before {
     content: 'PYTHON';
 }
 code[class~='language-Python']:before {
@@ -705,10 +716,10 @@ code[class~='language-R']::before {
     background-color: #a0d1e7;
 }
 /* 完成的待办事项 */
-.vditor-ir .vditor-task {
-    color:var(--b3-theme-on-background);
+.vditor-reset .vditor-task {
+    color: var(--b3-theme-on-background);
 }
-.vditor-ir  .vditor-task--done {
+.vditor-reset .vditor-task--done {
     /* 完成的待办事项删除线 */
     /* text-decoration: line-through; */
     /* 字体颜色 */
@@ -765,7 +776,7 @@ code[class~='language-R']::before {
     height: 2px;
     border-bottom: 2px solid #dfe0e1;
 } */
-.vditor-ir h2 {
+.vditor-reset h2 {
     /* text-align: center; */
     border-bottom: 1px solid #dfe0e1 !important;
     font-size: 1.55em !important;
@@ -1043,7 +1054,7 @@ div[data-type='navigation'] .b3-list-item--focus,
 /* ------------------------------------------------------------------ */
 /* ❗标签样式 */
 
-.vditor-ir span[data-type='tag'] {
+.vditor-reset span[data-type='tag'] {
     display: inline-flex;
     font-size: 85%;
     text-decoration: none !important;
@@ -1058,7 +1069,7 @@ div[data-type='navigation'] .b3-list-item--focus,
     transition: all 0.2s ease-in-out;
     z-index: 20;
 }
-.vditor-ir span[data-type='tag']:hover {
+.vditor-reset span[data-type='tag']:hover {
     transform: scale(1.15);
 }
 .vditor-ir__tag {
@@ -1133,8 +1144,6 @@ div[data-type='block-render'] .ft__secondary {
     color: #f33c3c;
 }
 
-
-
 /* 标题过长后尾部的白色阴影去除 */
 /* .layout-tab-bar .item__text::after {
     background: transparent !important;
@@ -1143,7 +1152,6 @@ div[data-type='block-render'] .ft__secondary {
 span[data-type='html-inline'] code {
     padding-left: 0em !important;
 }
-
 
 /* 工具栏隐藏动画效果 */
 /* 工具栏隐藏动画效果 */
@@ -1343,29 +1351,31 @@ audio {
     width: 800px !important;
 }
 /* 手机端平板端适配 */
-@media screen and (min-width: 320px) and (max-width: 420px){
+@media screen and (min-width: 320px) and (max-width: 420px) {
     iframe {
-    height: 150px;
+        height: 150px;
     }
     .fn__flex-column .vditor-ir {
         /* 多窗口非活动窗口变暗 */
         background-color: var(--b3-theme-background);
     }
 }
-@media screen and (min-width: 421px)and (max-width: 1023px) {
+@media screen and (min-width: 421px) and (max-width: 1023px) {
     /* 保证手机端和平板端的窗口背景不为电脑端非活动背景 */
     .fn__flex-column .vditor-ir {
         background-color: var(--b3-theme-background);
     }
     iframe {
-    height: 320px;
+        height: 320px;
     }
 }
 /* 调整引用中的加粗样式 */
 .vditor-reset blockquote strong {
     color: inherit !important;
 }
-
-/* 调整大纲样式 */
-
-
+.b3-tooltips__s::before, .b3-tooltips__se::before, .b3-tooltips__sw::before {
+    border-bottom-color: #81afbdd8;
+}
+.b3-tooltips::after {
+    background: #81afbdd8;
+}

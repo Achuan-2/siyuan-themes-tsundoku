@@ -24,30 +24,79 @@
 ---
 
 ## v0.3.8/2021-4-3
+1. 修复 light 主题无序列表变灰导致任务列表、表格也变灰、引用样式字体变黑的问题
 
-- 修复 light 主题无序列表变灰导致任务列表也变灰、引用样式字体变黑的问题
-- 对手机和平板针对 iframe 中的视频进行样式调整（其实只是针对我的设备哈，iplay 40平板和Redmi 7手机）
+   ```css
+   /* 列表样式 */
 
-```css
-@media screen and (min-width: 320px) and (max-width: 420px){
-    iframe {
-    height: 150px;
-    }
-    .fn__flex-column .vditor-ir {
-        /* 多窗口非活动窗口变暗 */
-        background-color: var(--b3-theme-background);
-    }
-}
-@media screen and (min-width: 421px)and (max-width: 1023px) {
-    /* 保证手机端和平板端的窗口背景不为电脑端非活动背景 */
-    .fn__flex-column .vditor-ir {
-        background-color: var(--b3-theme-background);
-    }
-    iframe {
-    height: 320px;
-    }
-}
-```
+   .vditor-reset ul {
+       color: grey;
+
+   }
+   .vditor-reset ul > li:not(.vditor-task) {
+
+       list-style-type: disc;
+   }
+   .vditor-preview li {
+       color: var(--b3-theme-on-background); 
+   }
+   .vditor-reset ul li p {
+       color: var(--b3-theme-on-background); 
+   }
+   .vditor-reset table {
+       color: var(--b3-theme-on-background);
+   }
+   ```
+2. 对手机和平板针对 iframe 中的视频进行样式调整
+
+   ```css
+   @media screen and (min-width: 320px) and (max-width: 420px){
+       iframe {
+       height: 150px;
+       }
+       .fn__flex-column .vditor-ir {
+           /* 多窗口非活动窗口变暗 */
+           background-color: var(--b3-theme-background);
+       }
+   }
+   @media screen and (min-width: 421px)and (max-width: 1023px) {
+       /* 保证手机端和平板端的窗口背景不为电脑端非活动背景 */
+       .fn__flex-column .vditor-ir {
+           background-color: var(--b3-theme-background);
+       }
+       iframe {
+       height: 320px;
+       }
+   }
+   ```
+3. 对代码块复制按钮的复制样式进行旋转，避免遮盖旁边主题自定义的代码语言类型提示
+
+   ```css
+   .vditor-copy span:hover::before {
+       transform: rotate(90deg) translateX(-11.5px) translateY(-4px);
+       border-left-color: #727273;
+
+   }
+   .vditor-copy span:hover::after {
+
+       transform: translateX(27px) translateY(-16px);
+       background-color: #727273;
+   }
+   ```
+4. 更改提示框背景色 `aria-label `
+
+   ```css
+   .b3-tooltips__s::before, .b3-tooltips__se::before, .b3-tooltips__sw::before {
+       border-bottom-color: #07899d9f;
+   }
+   .b3-tooltips::after {
+       background: #07899d9f;
+   }
+   ```
+5. 关于类名.vditor-ir 是即时编辑，.vditor-preview 是预览模式，鉴于大纲也有.vditor-reset，想要预览和即时编辑样式保持一致最好用.vditor .vditor-reset
+
+   - 修复预览样式中 Katex 公式行内公式太大的问题，MathJax 暂时无法修复
+   - 修复二级标题样式错误问题
 
 ## v0.3.7/2021-4-3
 
@@ -59,18 +108,18 @@
 * 保证 light 主题手机端和平板端的窗口背景不为电脑端非活动背景
 * 发现自己的字体虽然是思源黑体 SourceHan 但是和 notion 主题的字体 NotoSansSC 有差别，于是我的列表样式就显得格外的小……这次干脆 copy 了 notion 的字体，light 主题的无序列表颜色调整为灰色, 统一无序列表样式为小圆点![image.png](https://b3logfile.com/siyuan/1610205759005/assets/image-20210403204713-opwzwz7.png)
 
-```css
-.vditor-ir ul > li:not(.vditor-task) {
-    list-style-type: disc;
-}
-.vditor-ir ul > li:not(.vditor-task) p{
-    color:var(--b3-theme-on-background);
-}
-.vditor-ir ul{
-    color:grey;
-}
+    ```css
+    .vditor-ir ul > li:not(.vditor-task) {
+        list-style-type: disc;
+    }
+    .vditor-ir ul > li:not(.vditor-task) p{
+        color:var(--b3-theme-on-background);
+    }
+    .vditor-ir ul{
+        color:grey;
+    }
 
-```
+    ```
 
 
 ## v0.3.6/2021-4-2
