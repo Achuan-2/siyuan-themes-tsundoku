@@ -213,10 +213,10 @@ span[data-type='block-query-embed-script'] {
     list-style-type: disc;
 }
 .vditor-preview li {
-    color: var(--b3-theme-on-background); 
+    color: var(--b3-theme-on-background);
 }
-.vditor-reset ul li p {
-    color: var(--b3-theme-on-background); 
+.vditor-reset ul li:not(.vditor-task) p {
+    color: var(--b3-theme-on-background);
 }
 .vditor-reset table {
     color: var(--b3-theme-on-background);
@@ -232,7 +232,7 @@ span[data-type='block-query-embed-script'] {
     padding-left: 2.5em !important;
 }
 /* 调整列表间距 */
-.vditor-reset li p{
+.vditor-reset li p {
     margin-bottom: 2px;
 }
 
@@ -515,7 +515,7 @@ pre:hover .vditor-copy span {
     width: 12px;
     z-index: 1;
 }
-.vditor-ir div[data-type="code-block"] pre::before {
+.vditor-ir div[data-type='code-block'] pre::before {
     content: '';
     background: #fc625d;
     box-shadow: 23px 0 #fdbc40, 45px 0 #35cd4b;
@@ -1373,7 +1373,9 @@ audio {
 .vditor-reset blockquote strong {
     color: inherit !important;
 }
-.b3-tooltips__s::before, .b3-tooltips__se::before, .b3-tooltips__sw::before {
+.b3-tooltips__s::before,
+.b3-tooltips__se::before,
+.b3-tooltips__sw::before {
     border-bottom-color: #81afbdd8;
 }
 .b3-tooltips::after {
