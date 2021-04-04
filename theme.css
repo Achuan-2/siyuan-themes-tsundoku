@@ -491,7 +491,7 @@ span[data-type='a']:hover .vditor-ir__link {
 .vditor-copy span {
     opacity: 0;
 }
-pre:hover .vditor-copy span {
+.vditor-reset pre:hover .vditor-copy span {
     opacity: 1;
     transition: all 0.3s linear;
 }
@@ -541,21 +541,11 @@ pre:hover .vditor-copy span {
 }
 /*仿照Blue_Topaz主题，渲染块显示所用代码语言*/
 
-/* .hljs:before {
-    position: absolute;
-    display: inline-block;
-    right: 40px;
-    top: 0.45em;
-    color: #b8bec2 !important;
-    cursor: pointer;
-    font-weight: 600;
-    z-index: 1;
-} */
 .hljs:before {
     float: right;
     position: sticky;
     left: 622px;
-    margin-right: 50px;
+    margin-right: 26px;
     margin-top: -2em;
     color: #b8bec2 !important;
     cursor: pointer;
