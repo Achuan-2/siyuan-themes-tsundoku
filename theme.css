@@ -510,7 +510,7 @@ span[data-type='a']:hover .vditor-ir__link {
     text-align: center;
     padding-left: 5px !important;
     padding-right: 5px !important;
-    opacity: 0;
+    opacity: 0 ;
     color: #b8bec2 !important;
     cursor: pointer;
     font-weight: 600;
@@ -611,6 +611,7 @@ div [data-close="false"]{
     color: #b8bec2 !important;
     cursor: pointer;
     font-weight: 600;
+    font-size: 15px;
     z-index: 1;
 }
 
@@ -717,7 +718,7 @@ div [data-close="false"]{
     position: relative;
     text-align: center;
     vertical-align: middle;
-    top: 0em;
+    top: -0.1em;
     right: -0.1em;
     margin-right: 0.6em;
     font-size: 1em;
@@ -766,10 +767,12 @@ div [data-close="false"]{
     color: #f8f9fa;
     background-color: #a0d1e7;
 }
-/* 完成的待办事项 */
 .vditor-reset .vditor-task {
     color: var(--b3-theme-on-background);
 }
+
+/* 完成的待办事项 */
+
 .vditor-reset .vditor-task--done {
     /* 完成的待办事项删除线 */
     /* text-decoration: line-through; */
@@ -800,12 +803,11 @@ div [data-close="false"]{
 /* 对完成的待办事项内容全部调整透明度 */
 .vditor-task--done {
     opacity: 0.5;
-    transition: all 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
 }
 
 .vditor-task--done:hover {
     opacity: 1;
-    transition: all 0.4s ease-in-out;
 }
 
 /* ---------------------------复选框 End ------------------------------------------ */
