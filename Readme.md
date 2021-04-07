@@ -21,7 +21,42 @@
 - 任务列表完成默认无删除线，如果需要完成任务列表自动添加的删除线，可以自行添加删除线（`Ctrl+D`），或者自行修改主题：搜索"完成的待办事项删除线",将`/* text-decoration: line-through; */`取消注释注释
 - 由于个人习惯一级标题作为文章标题索所以默认为居中，可能对习惯把一级标题作为正文标题的童鞋不太友好，可以搜索`标题样式`，将h1`.vditor-reset h1 {text-align: center;...}`中的`text-align: center;`改为`/* text-align: center; */`以注释
 
+本人的思源订阅推荐码：B3XX0Y8，欢迎各位老板使用！
+
 ---
+
+## 0.3.9/2021-4-7
+
+* 更改 code 字体为 `JetBrainsMono` 字体
+* 安卓端黑色主题图片透明度不变
+* 黑色主题行内代码样式更改
+* 借鉴了 notion 主题，终于让代码块能真正原地编辑了，代码语言类型也可以在右上方固定不会随着滚动条而移动了，而且还可以直接编辑！了了一大梦啊。不过目前 markdown 图表可能有点小问题，自己不用就不管了，也办法单独调整。
+* 增大两个列表块 ul、ol、待办列表的间距
+
+  ```css
+  .vditor .vditor-reset ul+ul,
+  .vditor .vditor-reset ol+ol, 
+  .vditor .vditor-reset ol+ul,
+  .vditor .vditor-reset ul+ol{
+      margin-top: 1em;
+  }
+  ```
+* 优化表格 br显示
+
+  ```css
+  .vditor-ir__br {
+      /* transition: opacity 0.5s ease 1s; */
+      opacity: 0;
+  }
+  /* .vditor-ir__br:hover {
+      transition: opacity 400ms ease 0s;`
+      opacity: 1;
+  } */
+
+  table td:hover .vditor-ir__br{
+      opacity: 1;
+  }
+  ```
 
 ## v0.3.8/2021-4-4
 1. 修复 light 主题无序列表变灰导致任务列表、表格也变灰、引用样式字体变黑的问题

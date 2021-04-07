@@ -5,15 +5,16 @@
     src: url('fonts/NotoSansSC-Regular.otf');
 }
 @font-face {
-    font-family: 'FiraCode';
-    font-style: normal;
-    src: url('fonts/FiraCode-Regular.ttf');
-}
-@font-face {
     font-family: 'Win10 Emoji';
     font-style: normal;
     src: url('fonts/seguiemj.ttf');
 }
+@font-face {
+    font-family: 'JetBrainsMono';
+    font-style: normal;
+    src: url('fonts/JetBrainsMono-Regular.ttf');
+}
+
 :root {
     /* 主色 */
     --b3-theme-primary: #4285f4;
@@ -63,9 +64,9 @@
     --b3-font-family: 'SourceHan', 'Helvetica Neue', 'Luxi Sans', 'DejaVu Sans', 'Hiragino Sans GB',
         'Microsoft Yahei', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji',
         'Win10 Emoji', 'Segoe UI Symbol', 'Android Emoji', 'EmojiSymbols';
-    --b3-font-family-code: 'FiraCode', mononoki, Consolas, 'Liberation Mono', Menlo, Courier,
-        monospace, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Segoe UI Symbol',
-        'Android Emoji', 'EmojiSymbols';
+    --b3-font-family-code: 'JetBrainsMono', mononoki, Consolas, 'Liberation Mono', Menlo,
+        Courier, monospace, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji',
+        'Segoe UI Symbol', 'Android Emoji', 'EmojiSymbols';
 
     /* 线条 */
     --b3-border-color: rgba(0, 0, 0, 0.1);
@@ -231,11 +232,14 @@ span[data-type='block-query-embed-script'] {
     margin-left: -0.93em !important;
     padding-left: 2.5em !important;
 }
-/* 调整列表间距 */
-.vditor-reset li p {
-    margin-bottom: 2px;
-}
 
+/* 由于思源无法合并并列的两个列表,所以增大间距以区分 */
+.vditor .vditor-reset ul + ul,
+.vditor .vditor-reset ol + ol,
+.vditor .vditor-reset ol + ul,
+.vditor .vditor-reset ul + ol {
+    margin-top: 1em;
+}
 .hljs-comment {
     font-style: normal !important;
     font-family: var(--b3-font-family-code);
@@ -474,6 +478,57 @@ span[data-type='a']:hover .vditor-ir__link {
 .vditor-ir__marker--pre code {
     background-color: #f0f3f5a8 !important;
 }
+.vditor-ir__node[data-type='code-block'] {
+    position: relative;
+    display: block;
+}
+
+.vditor-ir__node[data-type='code-block']::before,
+.vditor-ir__node[data-type='code-block']::after,
+.vditor-ir__node[data-type='yaml-front-matter']::before,
+.vditor-ir__node[data-type='yaml-front-matter']::after {
+    display: none;
+}
+.vditor-ir__node--expand[data-type='code-block'] span.vditor-ir__marker--info {
+    opacity: 1;
+}
+
+/* 代码语言类型 */
+.vditor-ir__node .vditor-ir__marker[data-type='code-block-info'] {
+    display: block !important;
+    position: absolute;
+    top: 3px;
+    right: 28px;
+    z-index: 9;
+    width: auto;
+    height: 20px;
+    min-width: 30px;
+    align-items: center;
+    border-radius: 3px;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    opacity: 0;
+    color: #b8bec2 !important;
+    cursor: pointer;
+    font-weight: 600;
+    /* transition: all 0.3s linear; */
+}
+/* 代码类型提醒弹出菜单 */
+div [data-close="false"]{
+    right: 200px !important;
+}
+
+.vditor-ir__marker[data-type='code-block-info']:hover {
+    background-color: #fff;
+    border: 1px solid rgb(232, 231, 228);
+    opacity: 1;
+}
+.vditor-ir__node[data-type='code-block']:hover .vditor-ir__marker[data-type='code-block-info'] {
+    opacity: 1;
+}
 /* 代码块样式 */
 .vditor-reset pre > .hljs {
     position: relative;
@@ -484,17 +539,19 @@ span[data-type='a']:hover .vditor-ir__link {
     padding-top: 32px !important;
     background-image: none !important;
 }
-
+/* 复制按钮调整 */
 .vditor-copy {
     display: block !important;
 }
 .vditor-copy span {
     opacity: 0;
 }
-.vditor-reset pre:hover .vditor-copy span {
+.vditor-reset pre:hover .vditor-copy span,
+.vditor-ir__node--expand[data-type='code-block']  .vditor-copy span{
     opacity: 1;
     transition: all 0.3s linear;
 }
+
 .vditor-copy span:hover::before {
     transform: rotate(90deg) translateX(-11.5px) translateY(-4px);
     border-left-color: #93bac6;
@@ -503,6 +560,8 @@ span[data-type='a']:hover .vditor-ir__link {
     transform: translateX(27px) translateY(-16px);
     background-color: #93bac6;
 }
+
+/* 仿Mac 三原点 */
 .vditor-preview .vditor-copy::before {
     content: ' ';
     background: #fc625d;
@@ -515,7 +574,9 @@ span[data-type='a']:hover .vditor-ir__link {
     width: 12px;
     z-index: 1;
 }
-.vditor-ir div[data-type='code-block'] pre:not(.vditor-ir__preview)::before {
+.vditor-ir
+    div[data-type='code-block']
+    pre:not(.vditor-ir__preview):not(.vditor-ir__marker--pre)::before {
     content: '';
     background: #fc625d;
     box-shadow: 23px 0 #fdbc40, 45px 0 #35cd4b;
@@ -540,8 +601,8 @@ span[data-type='a']:hover .vditor-ir__link {
     color: #7f8181 !important;
 }
 /*仿照Blue_Topaz主题，渲染块显示所用代码语言*/
-
-.hljs:before {
+/* 这块改为预览模式才显示 */
+.vditor-preview .hljs:before {
     float: right;
     position: sticky;
     left: 622px;
@@ -553,98 +614,98 @@ span[data-type='a']:hover .vditor-ir__link {
     z-index: 1;
 }
 
-code[class~='language-js']:before {
-    content: 'JS';
+.vditor-preview code[class~='language-js']:before {
+    content: 'js';
 }
 
-code[class~='language-javascript']:before {
-    content: 'JS';
+.vditor-preview code[class~='language-javascript']:before {
+    content: 'javascript';
 }
-code[class~='language-c']:before {
-    content: 'C';
+.vditor-preview code[class~='language-c']:before {
+    content: 'c';
 }
-code[class~='language-cpp']::before {
+.vditor-preview code[class~='language-cpp']::before {
     content: 'C++';
 }
 
-code[class~='language-java']::before {
-    content: 'JAVA';
+.vditor-preview code[class~='language-java']::before {
+    content: 'java';
 }
 
-code[class~='language-python']:before {
-    content: 'PYTHON';
+.vditor-preview code[class~='language-python']:before {
+    content: 'python';
 }
-code[class~='language-Python']:before {
-    content: 'PYTHON';
-}
-
-code[class~='language-nginx']:before {
-    content: 'NGINX';
-}
-code[class~='language-html']::before {
-    content: 'HTML';
-}
-code[class~='language-css']:before {
-    content: 'CSS';
-}
-code[class~='language-json']:before {
-    content: 'JSON';
-}
-code[class~='language-go']:before {
-    content: 'GO';
-}
-code[class~='language-php']:before {
-    content: 'PHP';
-}
-code[class~='language-shell']:before {
-    content: 'SHELL';
-}
-code[class~='language-bash']:before {
-    content: 'BASH';
+.vditor-preview code[class~='language-Python']:before {
+    content: 'python';
 }
 
-code[class~='language-flow']:before {
-    content: 'FLOW';
+.vditor-preview code[class~='language-nginx']:before {
+    content: 'nginx';
+}
+.vditor-preview code[class~='language-html']::before {
+    content: 'html';
+}
+.vditor-preview code[class~='language-css']:before {
+    content: 'css';
+}
+.vditor-preview code[class~='language-json']:before {
+    content: 'json';
+}
+.vditor-preview code[class~='language-go']:before {
+    content: 'go';
+}
+.vditor-preview code[class~='language-php']:before {
+    content: 'php';
+}
+.vditor-preview code[class~='language-shell']:before {
+    content: 'shell';
+}
+.vditor-preview code[class~='language-bash']:before {
+    content: 'bash';
 }
 
-code[class~='language-sequence']:before {
-    content: 'SEQUENCE';
+.vditor-preview code[class~='language-flow']:before {
+    content: 'flow';
 }
 
-code[class~='language-sql']:before {
-    content: 'SQL';
+.vditor-preview code[class~='language-sequence']:before {
+    content: 'sequence';
 }
 
-code[class~='language-yaml']::before {
-    content: 'YAML';
+.vditor-preview code[class~='language-sql']:before {
+    content: 'sql';
 }
 
-code[class~='language-ini']::before {
-    content: 'INI';
+.vditor-preview code[class~='language-yaml']::before {
+    content: 'yaml';
 }
 
-code[class~='language-xml']::before {
-    content: 'XML';
+.vditor-preview code[class~='language-ini']::before {
+    content: 'ini';
 }
 
-code[class~='language-git']::before {
-    content: 'GIT';
+.vditor-preview code[class~='language-xml']::before {
+    content: 'xml';
 }
 
-code[class~='language-plaintext']::before {
-    content: 'TEXT';
+.vditor-preview code[class~='language-git']::before {
+    content: 'git';
 }
-code[class~='language-markdown']::before {
-    content: 'MARKDOWN';
+
+.vditor-preview code[class~='language-plaintext']::before {
+    content: 'plaintext';
 }
-code[class~='language-matlab']::before {
-    content: 'MATLAB';
+.vditor-preview code[class~='language-markdown']::before {
+    content: 'markdown';
 }
-code[class~='language-r']::before {
-    content: 'R';
+.vditor-preview code[class~='language-matlab']::before {
+    content: 'matlab';
 }
-code[class~='language-R']::before {
-    content: 'R';
+.vditor-preview code[class~='language-r']::before {
+    content: 'r';
+}
+.vditor-preview code[class~='language-R']::before {
+    content: 'r';
 }
 /* --------------------------------------------------------------------- */
 /* --------------------------------------------------------------------- */
@@ -746,6 +807,7 @@ code[class~='language-R']::before {
     opacity: 1;
     transition: all 0.4s ease-in-out;
 }
+
 /* ---------------------------复选框 End ------------------------------------------ */
 
 /* -------------------------------标题样式-------------------------------------- */
@@ -1207,13 +1269,18 @@ table:after {
 /* --------------------------------------------------------------------- */
 /* 隐藏br */
 .vditor-ir__br {
-    transition: opacity 0.5s ease 1s;
+    /* transition: opacity 0.5s ease 1s; */
     opacity: 0;
 }
-.vditor-ir__br:hover {
+/* .vditor-ir__br:hover {
     transition: opacity 400ms ease 0s;
     opacity: 1;
+} */
+
+table td:hover .vditor-ir__br {
+    opacity: 1;
 }
+
 /* 调整行内样式 */
 .vditor-reset h1 strong,
 .vditor-reset h2 strong,
@@ -1365,12 +1432,12 @@ audio {
 }
 .b3-tooltips__s::before,
 .b3-tooltips__se::before,
-.b3-tooltips__sw::before{
+.b3-tooltips__sw::before {
     border-bottom-color: #81afbdd8;
 }
 .b3-tooltips::after {
     background: #81afbdd8;
 }
-.b3-tooltips__w:before{
+.b3-tooltips__w:before {
     border-left-color: #81afbdd8;
 }
