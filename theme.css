@@ -325,11 +325,15 @@ mark {
 /* 块引用悬浮动画 */
 .block__popover.block__popover--move.block__popover--open {
     animation: showBlock 0.4s ease;
+    /* transform:  */
+    /* transform: rotateY(80deg);  */
 }
 @keyframes showBlock {
     0% {
         border-radius: 50%;
-        transform: rotateY(80deg);
+        /* transform: rotateY(80deg); 会位置偏左 */
+        /* transform: rotateX(80deg); */
+        /* transform: rotateY(80deg); */
     }
     100% {
         border-radius: 0;
