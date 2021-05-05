@@ -287,6 +287,9 @@ mark {
     background-color: var(--b3-protyle-inline-mark-background);
     color: var(--b3-protyle-inline-mark-color);
 }
+strong {
+    color:inherit !important;
+}
 /* blockquote 引用 */
 .protyle-wysiwyg [data-node-id].bq {
     border-left: 0.25em solid #b5cfd3 !important;
@@ -457,7 +460,9 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
 .protyle-wysiwyg [data-node-id] span[data-type='tag']:hover {
     transform: scale(1.1);
 }
-.protyle-wysiwyg [data-node-id] code {
+.protyle-wysiwyg [data-node-id] code,
+.b3-typography code:not(.hljs),
+.protyle-wysiwyg code:not(.hljs) {
     padding: 0.2em 0.4em;
     margin: 0;
     font-size: 85%;
@@ -467,8 +472,10 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     background-size: 20px 20px;
     white-space: pre-wrap;
     color: var(--b3-protyle-inline-code-color);
-    background-color: var(--b3-protyle-code-background);
+    background-color: var(--b3-protyle-inline-code-background);
+    /* box-shadow: #0993a580 1px 0px 5px 1px inset; */
 }
+
 /* 超链接 */
 .protyle-wysiwyg [data-node-id] span[data-type='a'] {
     color: var(--b3-protyle-inline-link-color);
@@ -570,6 +577,15 @@ div[data-type='NodeMathBlock'] .minner .mfrac {
     /* 字体颜色 */
     color: #6791a396 !important;
 }
+.protyle-task--done strong,
+.protyle-task--done em,
+.protyle-task--done s,
+.protyle-task--done u{
+    /* 完成的待办事项删除线 */
+    /* text-decoration: line-through; */
+    /* 字体颜色 */
+    color: inherit !important;
+}
 .protyle-task--done [data-type='a'] {
     /* 超链接调整 */
     color: #8cb5bb !important;
@@ -660,13 +676,15 @@ div[data-subtype='t'][data-type='NodeList'] {
     /* padding-top: 32px !important; */
     background-size: 20px 20px;
     background-image: none !important;
-    background: #eaeef2 !important;
+    background: var(--b3-protyle-code-background) !important;
 }
 
 .code-block {
     position: relative;
     display: block;
     border-radius: 4px;
+    background: var(--b3-protyle-code-background) !important;
+    box-shadow: 0px 3px 10px 3px rgb(6 6 6 / 10%);
     /* filter: drop-shadow(2px 2px 3px #999); */
 }
 .code-block .protyle-action {
@@ -1037,7 +1055,42 @@ div[data-subtype='t'][data-type='NodeList'] {
     background: #fff;
     transform: rotate(180deg);
 } */
-.b3-typography ul, .b3-typography ol {
-    /* padding-left: 2em; */
+.b3-typography ul,
+.b3-typography ol {
+    padding-left: 16px !important;
     margin: 4px 0;
+}
+
+iframe {
+    height: 500px;
+}
+/* 手机端平板端适配 */
+@media screen and (min-width: 320px) and (max-width: 420px) {
+    iframe {
+        height: 150px;
+    }
+    .fn__flex-column .vditor-ir {
+        background-color: var(--b3-theme-background);
+    }
+    .vditor-reset img {
+         /* 手机端图片不变暗 */
+        opacity: 1;
+    }
+}
+@media screen and (min-width: 421px) and (max-width: 1023px) {
+    /* 保证手机端和平板端的窗口背景不为电脑端非活动背景 */
+    .fn__flex-column .vditor-ir {
+        background-color: var(--b3-theme-background);
+    }
+    iframe {
+        height: 320px;
+    }
+    iframe[src~="https://player.bilibili.com/"]
+    {
+        height: 420px;
+    }
+    .vditor-reset img {
+        /* 平板端图片不变暗 */
+        opacity: 1;
+    }
 }
