@@ -468,6 +468,7 @@ span[data-type='a']:hover .vditor-ir__link {
     /* 行内分式公式 */
     font-size: 1.4em;
 }
+
 .minner .mfrac {
     /* 公式块分式字体调整 */
     font-size: 1.1em !important;
@@ -1302,17 +1303,7 @@ table td:hover .vditor-ir__br {
     color: inherit;
 }
 
-/* 集市动画 */
-.b3-dialog__container div[data-name='bazaar'] .b3-card:hover {
-    transform: translateY(-8px) scale(1.05);
-    box-shadow: 7px 7px 12px #929191;
-    transition: all 0.2s ease-in-out;
-}
 
-/*分窗口的边框（线）  */
-.layout__resize::after {
-    background-color: #e2e9f1;
-}
 /* 主要背景色 */
 
 .dock {
@@ -1428,10 +1419,7 @@ audio {
         height: 320px;
     }
 }
-/* 调整引用中的加粗样式 */
-.vditor-reset blockquote strong {
-    color: inherit !important;
-}
+
 .b3-tooltips__s::before,
 .b3-tooltips__se::before,
 .b3-tooltips__sw::before {
