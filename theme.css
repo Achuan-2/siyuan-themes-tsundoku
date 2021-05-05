@@ -1033,3 +1033,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     background: #fff;
     transform: rotate(180deg);
 } */
+.b3-typography ul, .b3-typography ol {
+    /* padding-left: 2em; */
+    margin: 4px 0;
+}
