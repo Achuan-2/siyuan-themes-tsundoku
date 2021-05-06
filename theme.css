@@ -422,7 +422,7 @@ li[data-type='navigation-file'] .counter {
     z-index: 1;
     cursor: pointer;
     transition: var(--b3-transition);
-    background-color: rgb(45 58 56 / 90%);
+    background-color: rgb(229 231 231);
     border-radius: 4px;
     height: 22px;
     width: 22px;
@@ -685,6 +685,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     border-radius: 4px;
     background: var(--b3-protyle-code-background) !important;
     box-shadow: 0px 3px 10px 3px rgb(6 6 6 / 10%);
+    margin-top: 10px !important;
     /* filter: drop-shadow(2px 2px 3px #999); */
 }
 .code-block .protyle-action {
@@ -735,7 +736,10 @@ div[data-subtype='t'][data-type='NodeList'] {
     counter-reset: linenumber;
     font-family: var(--b3-font-family-code);
     /* font-size: 100%; */
+    border-right: 1px solid #b1c3c4;
 }
+
+
 .protyle-linenumber__rows > span::before {
     color: var(--b3-theme-on-surface);
     display: block;
