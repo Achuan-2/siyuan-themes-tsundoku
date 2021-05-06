@@ -156,7 +156,7 @@
     --b3-protyle-inline-strong-color: #202124;
     --b3-protyle-inline-em-color: #202124;
     --b3-protyle-inline-s-color: #202124;
-    --b3-protyle-inline-link-color: #75a9ca;
+    --b3-protyle-inline-link-color: #408bba;
     --b3-protyle-inline-link-hover-color: #fa60a0;
     --b3-protyle-inline-mark-background: #fff6bc;
     --b3-protyle-inline-mark-color: #202124;
@@ -288,7 +288,7 @@ mark {
     color: var(--b3-protyle-inline-mark-color);
 }
 strong {
-    color:inherit !important;
+    color: inherit !important;
 }
 /* blockquote 引用 */
 .protyle-wysiwyg [data-node-id].bq {
@@ -580,7 +580,7 @@ div[data-type='NodeMathBlock'] .minner .mfrac {
 .protyle-task--done strong,
 .protyle-task--done em,
 .protyle-task--done s,
-.protyle-task--done u{
+.protyle-task--done u {
     /* 完成的待办事项删除线 */
     /* text-decoration: line-through; */
     /* 字体颜色 */
@@ -738,7 +738,6 @@ div[data-subtype='t'][data-type='NodeList'] {
     /* font-size: 100%; */
     border-right: 1px solid #b1c3c4;
 }
-
 
 .protyle-linenumber__rows > span::before {
     color: var(--b3-theme-on-surface);
@@ -1077,7 +1076,7 @@ iframe {
         background-color: var(--b3-theme-background);
     }
     .vditor-reset img {
-         /* 手机端图片不变暗 */
+        /* 手机端图片不变暗 */
         opacity: 1;
     }
 }
