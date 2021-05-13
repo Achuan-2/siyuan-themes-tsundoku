@@ -296,6 +296,7 @@ strong {
     border-radius: 0.31em;
     background-color: rgba(66, 185, 185, 0.05) !important;
     /* padding-left: 1em !important; */
+    margin-top: 10px;
 }
 .protyle-wysiwyg [data-node-id].bq .p {
     padding-left: 1em !important;
@@ -684,8 +685,9 @@ div[data-subtype='t'][data-type='NodeList'] {
     display: block;
     border-radius: 4px;
     background: var(--b3-protyle-code-background) !important;
-    box-shadow: 0px 3px 10px 3px rgb(6 6 6 / 10%);
+    /* box-shadow: 0px 3px 10px 3px rgb(6 6 6 / 10%); */
     margin-top: 10px !important;
+    margin-bottom: 15px !important;
     /* filter: drop-shadow(2px 2px 3px #999); */
 }
 .code-block .protyle-action {
