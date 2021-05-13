@@ -686,8 +686,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     border-radius: 4px;
     background: var(--b3-protyle-code-background) !important;
     /* box-shadow: 0px 3px 10px 3px rgb(6 6 6 / 10%); */
-    margin-top: 10px !important;
-    margin-bottom: 15px !important;
+    margin-top: 15px !important;
     /* filter: drop-shadow(2px 2px 3px #999); */
 }
 .code-block .protyle-action {
