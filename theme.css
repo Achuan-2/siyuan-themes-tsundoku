@@ -622,7 +622,7 @@ div[data-type='NodeMathBlock'] .minner .mfrac {
     margin-bottom: 0;
 }
 
-.protyle-task--done{
+.protyle-task--done .p,.protyle-task--done p{
     /* 完成的待办事项删除线 */
     text-decoration: line-through;
     /* 字体颜色 */
@@ -633,8 +633,6 @@ div[data-type='NodeMathBlock'] .minner .mfrac {
 .protyle-task--done em,
 .protyle-task--done s,
 .protyle-task--done u {
-    /* 完成的待办事项删除线 */
-    /* text-decoration: line-through; */
     /* 字体颜色 */
     color: inherit !important;
 }
@@ -652,6 +650,9 @@ div[data-type='NodeMathBlock'] .minner .mfrac {
     background-color: rgba(201, 228, 233, 53%);
     color: #8cb5bb;
 }
+.protyle-task--done span[data-type="tag"]{
+    text-decoration: none !important;
+}
 /* 对完成的待办事项内容全部调整透明度，发现一个问题，父级的透明度会被子级继承 */
 div[data-subtype='t'][data-type='NodeList'] {
     position: relative;
@@ -660,12 +661,16 @@ div[data-subtype='t'][data-type='NodeList'] {
 /* div[data-subtype="t"][data-type="NodeList"] li{
     position:absolute;
 } */
-.protyle-wysiwyg  .protyle-task--done {
+.protyle-task--done {
     /* opacity: 0.5; */
     /* filter:opacity(50%) ; */
     /* opacity: 0.5; */
     opacity: 1;
     /* background: rgba(0,0,0,0.5); */
+    transition: opacity 0.5s ease-in-out;
+}
+.protyle-task--done  .code-block{
+    opacity: 0.5;
     transition: opacity 0.5s ease-in-out;
 }
 .protyle-task--done .protyle-task--done {
@@ -676,6 +681,9 @@ div[data-subtype='t'][data-type='NodeList'] {
     transition: opacity 0.5s ease-in-out;
 }
 .protyle-task--done:hover {
+    opacity: 1 !important;
+}
+.protyle-task--done:hover  .code-block{
     opacity: 1 !important;
 }
 
