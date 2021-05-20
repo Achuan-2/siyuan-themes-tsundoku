@@ -212,20 +212,20 @@
 }
 
 /* -------------------------------标题样式-------------------------------------- */
-.protyle-wysiwyg [data-node-id].h1 {
+.protyle-wysiwyg [data-node-id].h1 ,.b3-typography h1{
     text-align: center;
     border-bottom: 0px solid #c5c7ca !important;
     font-size: 1.75em;
     padding: 0.3em 4px;
     color: #04393f;
 }
-.protyle-wysiwyg [data-node-id].h2 {
+.protyle-wysiwyg [data-node-id].h2,.b3-typography h2 {
     border-bottom: 1px solid #dfe0e1 !important;
     font-size: 1.55em !important;
     color: #34495e;
     padding: 0.3em 0px !important;
 }
-.protyle-wysiwyg [data-node-id].h3 {
+.protyle-wysiwyg [data-node-id].h3,.b3-typography h3 {
     position: relative;
     font-size: 1.35em;
     color: rgb(21, 170, 191);
@@ -238,15 +238,15 @@
     padding-left: 7px;
 }
 
-.protyle-wysiwyg [data-node-id].h4 {
+.protyle-wysiwyg [data-node-id].h4,.b3-typography h4 {
     font-size: 1.2em;
     color: #03a1b9cc;
 }
-.protyle-wysiwyg [data-node-id].h5 {
+.protyle-wysiwyg [data-node-id].h5,.b3-typography h5 {
     font-size: 1.1em;
     /* color: #03a1b9cc; */
 }
-.protyle-wysiwyg [data-node-id].h6 {
+.protyle-wysiwyg [data-node-id].h6,.b3-typography h6 {
     font-size: 1.1em;
     /* color: #03a1b9cc; */
 }
@@ -254,29 +254,29 @@
 /* -------------------------------表格------------------------------------- */
 
 /* 表格 */
-.protyle-wysiwyg [data-node-id].table table thead tr {
+.protyle   table thead tr {
     background-color: var(--b3-table-th-color) !important;
 }
-.protyle-wysiwyg [data-node-id].table table tbody tr:nth-child(2n + 1) {
+.protyle  table tbody tr:nth-child(2n + 1) {
     background-color: var(--b3-table-trn-color) !important;
 }
-.protyle-wysiwyg [data-node-id].table table tbody tr:nth-child(2n) {
+.protyle  table tbody tr:nth-child(2n) {
     background-color: var(--b3-table-tr2n-color) !important;
 }
-.protyle-wysiwyg [data-node-id].table table tr th {
+.protyle  table tr th {
     border-left: 1px solid var(--b3-table-border-color);
     border-right: 1px solid var(--b3-table-border-color);
 }
-.protyle-wysiwyg [data-node-id].table table tr td {
+.protyle table tr td {
     border-left: 1px solid var(--b3-table-border-color);
     border-right: 1px solid var(--b3-table-border-color);
 }
-.protyle-wysiwyg [data-node-id].table table tr th:first-child,
-.protyle-wysiwyg [data-node-id].table table tr td:first-child {
+.protyle table tr th:first-child,
+.protyle table tr td:first-child {
     border-left-width: 0px;
 }
-.protyle-wysiwyg [data-node-id].table table tr th:last-child,
-.protyle-wysiwyg [data-node-id].table table tr td:last-child {
+.protyle table tr th:last-child,
+.protyle table tr td:last-child {
     border-right-width: 0px;
 }
 
@@ -291,22 +291,22 @@ strong {
     color: inherit !important;
 }
 /* blockquote 引用 */
-.protyle-wysiwyg [data-node-id].bq {
+.protyle-wysiwyg [data-node-id].bq ,.b3-typography blockquote{
     border-left: 0.25em solid #b5cfd3 !important;
     border-radius: 0.31em;
     background-color: rgba(66, 185, 185, 0.05) !important;
     /* padding-left: 1em !important; */
     margin-top: 10px;
 }
-.protyle-wysiwyg [data-node-id].bq .p {
+.protyle-wysiwyg [data-node-id].bq .p ,.b3-typography blockquote p{
     padding-left: 1em !important;
 }
-.protyle-wysiwyg [data-node-id].bq strong {
+.protyle-wysiwyg [data-node-id].bq strong,.b3-typography blockquote strong{
     color: inherit !important;
 }
 
 /* 块引用 */
-.protyle-wysiwyg [data-node-id] span[data-type='block-ref'] {
+.protyle-wysiwyg [data-node-id] span[data-type='block-ref']{
     color: var(--b3-protyle-inline-blockref-color); /*更改颜色*/
     padding-bottom: 0em;
     display: inline-block;
@@ -412,25 +412,7 @@ li[data-type='navigation-file'] .counter {
     color: #ef9a9ab9;
 }
 
-.protyle-wysiwyg [data-node-id] .img .protyle-action,
-.protyle-wysiwyg [data-node-id].iframe .protyle-action,
-.protyle-wysiwyg [data-node-id].table .protyle-action {
-    position: absolute;
-    right: 4px;
-    top: 4px;
-    color: #3f657c;
-    display: none;
-    z-index: 1;
-    cursor: pointer;
-    transition: var(--b3-transition);
-    background-color: rgb(229 231 231);
-    border-radius: 4px;
-    height: 22px;
-    width: 22px;
-    box-sizing: border-box;
-    align-items: center;
-    justify-content: center;
-}
+
 /* sql查找不到字体颜色*/
 div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     color: #ff7875;
@@ -481,8 +463,13 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
 .protyle-wysiwyg [data-node-id] span[data-type='a'] {
     color: var(--b3-protyle-inline-link-color);
     cursor: pointer;
-    border-bottom: 1px solid #dae3e9;
+    /* border-bottom: 1px solid #dae3e9; */
+    border-bottom: 1px solid transparent;
     /* text-decoration: underline; */
+}
+.b3-typography a {
+    text-decoration: underline;
+    color: var(--b3-protyle-inline-link-color);
 }
 .protyle-wysiwyg [data-node-id] span[data-type='a']:hover {
     color: var(--b3-protyle-inline-link-hover-color);
@@ -493,7 +480,7 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     /* border-bottom: 1px solid var(--b3-protyle-inline-link-hover-color); */
 }
 /* 图片 */
-.protyle-wysiwyg img {
+.protyle-wysiwyg img,.b3-typography img {
     max-width: 100%;
     cursor: pointer;
     box-shadow: 0px 1px 5px 1px rgba(6, 6, 6, 10%);
@@ -511,10 +498,13 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     font-size: 1.4em;
 }
 
-/* g公式块分式 */
+/* 公式块分式 */
 div[data-type='NodeMathBlock'] .minner .mfrac {
     font-size: 115%;
 }
+/* .b3-typography .minner .mfrac {
+    font-size: 115%;
+} */
 /* 公式换行调大距离 */
 .katex .katex-html > .newline {
     padding-bottom: 0.5em;
@@ -526,13 +516,68 @@ div[data-type='NodeMathBlock'] .minner .mfrac {
     text-align: center;
 }
 
-/* ---------------------复选框（待办事项）Start------------------------------------------------ */
-.protyle-wysiwyg [data-node-id].li > .protyle-action--task svg {
+
+/* 无序列表 */
+
+.protyle-wysiwyg [data-subtype='u'] > .protyle-action svg {
+    opacity: 0;
+}
+.b3-typography li {
+    position: relative;
+}
+.b3-typography ul li {
+    list-style-type: none;
+}
+.protyle-wysiwyg [data-subtype='u'] > .protyle-action:before,.b3-typography ul li::before{
+    content: '';
+    position: absolute;
+    display: inline-block;
+    cursor: pointer;
+    width: 0.5em;
+    height: 0.5em;
+    vertical-align: middle;
+    text-align: center;
+    border: 0px;
+    border-radius: 0.6em;
+    background-color: #515e64;
+    top: 12px;
+    left: 4px;
+}
+.b3-typography ul li::before {
+    left: -19px;
+}
+.protyle-wysiwyg [data-subtype='u'] > .protyle-action:hover:before {
+    background-color: var(--b3-theme-primary);
+}
+
+/* 列表缩进 */
+.protyle li {
+    padding: 0;
+    margin: 0px 4px 0px 4px;
+}
+
+.protyle-wysiwyg [data-node-id].li > .protyle-action--task svg{
     /* display: v; */
     /* visibility: hidden;   */
     opacity: 0;
 }
-.protyle-wysiwyg .protyle-action--task:before {
+.b3-typography  .protyle-task input {
+    opacity: 0;
+}
+.protyle-task li p{
+    margin: 0px 4px 0px 4px;
+}
+/* 调整列表间距 */
+.b3-typography ul, .b3-typography ol {
+    padding-left: 16px !important;
+    margin: 4px 11px;
+}
+
+.b3-typography .protyle-task p {
+    margin: 3px 2px;
+}
+/* ---------------------复选框（待办事项）Start------------------------------------------------ */
+.protyle-wysiwyg .protyle-action--task:before,.b3-typography .protyle-task:before{
     content: '';
     position: absolute;
     display: inline-block;
@@ -550,9 +595,13 @@ div[data-type='NodeMathBlock'] .minner .mfrac {
     left: -0.1em;
     font-size: 1.1em;
 }
+.b3-typography  .protyle-task:before {
+    left: -1.2em;
+    top: 0.3em;
+}
 /* 复选框选中 */
 /* .protyle-task--done>.protyle-action--task:before */
-.protyle-task--done > .protyle-action--task:before {
+.protyle-task--done > .protyle-action--task:before,.b3-typography .protyle-task--done:before {
     content: '\2713';
     font-size: 1.1em;
     line-height: 1.1em;
@@ -574,7 +623,7 @@ div[data-type='NodeMathBlock'] .minner .mfrac {
 }
 .protyle-task--done {
     /* 完成的待办事项删除线 */
-    /* text-decoration: line-through; */
+    text-decoration: line-through;
     /* 字体颜色 */
     color: #6791a396 !important;
 }
@@ -587,7 +636,7 @@ div[data-type='NodeMathBlock'] .minner .mfrac {
     /* 字体颜色 */
     color: inherit !important;
 }
-.protyle-task--done [data-type='a'] {
+.protyle-task--done [data-type='a'],.protyle-task--done a{
     /* 超链接调整 */
     color: #8cb5bb !important;
 }
@@ -609,7 +658,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 /* div[data-subtype="t"][data-type="NodeList"] li{
     position:absolute;
 } */
-.protyle-task--done {
+.protyle-wysiwyg  .protyle-task--done {
     /* opacity: 0.5; */
     /* filter:opacity(50%) ; */
     opacity: 0.5;
@@ -626,35 +675,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 .protyle-task--done:hover {
     opacity: 1 !important;
 }
-/* 无序列表 */
 
-.protyle-wysiwyg [data-subtype='u'] > .protyle-action svg {
-    opacity: 0;
-}
-.protyle-wysiwyg [data-subtype='u'] > .protyle-action:before {
-    content: '';
-    position: absolute;
-    display: inline-block;
-    cursor: pointer;
-    width: 0.5em;
-    height: 0.5em;
-    vertical-align: middle;
-    text-align: center;
-    border: 0px;
-    border-radius: 0.6em;
-    background-color: #515e64;
-    top: 12px;
-    left: 4px;
-}
-.protyle-wysiwyg [data-subtype='u'] > .protyle-action:hover:before {
-    background-color: var(--b3-theme-primary);
-}
-
-/* 列表缩进 */
-.protyle-wysiwyg [data-node-id].li {
-    padding: 0;
-    margin: 0px 4px 0px 4px;
-}
 
 /* -------------------------------代码块样式-------------------------------------- */
 
@@ -666,7 +687,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     
 } */
 .protyle-reset .hljs,
-.protyle-wysiwyg .hljs {
+.protyle-wysiwyg .hljs ,.b3-typography .hljs{
     padding-top: 4px !important;
     padding-bottom: 4px !important;
     padding-left: 16px;
@@ -689,9 +710,9 @@ div[data-subtype='t'][data-type='NodeList'] {
     margin-top: 15px !important;
     /* filter: drop-shadow(2px 2px 3px #999); */
 }
-.code-block .protyle-action {
+/* .code-block .protyle-action {
     position: relative;
-}
+} */
 
 /* .code-block:before {
     
@@ -710,36 +731,28 @@ div[data-subtype='t'][data-type='NodeList'] {
 } */
 
 /* 代码语言显示 */
-.protyle-reset .code-block .protyle-action__language,
+/* .protyle-reset .code-block .protyle-action__language,
 .protyle-wysiwyg .code-block .protyle-action__language {
     margin-right: 8px;
     margin-top: -8px;
 
     cursor: pointer;
     min-width: 24px;
-
-    /* background-color: var(--b3-theme-surface); */
     background-color: #ffffff !important;
     padding: 0 8px 22px 8px;
     height: 18px;
     box-sizing: border-box;
     line-height: 18px;
-    border-radius: 4px;
-}
+    border-radius: 4px; */
+/* } */
 
 /*  代码块行数*/
-.protyle-linenumber__rows {
-    position: absolute;
-    pointer-events: none;
-    left: 0;
-    width: 3em;
-    user-select: none;
-    counter-reset: linenumber;
-    font-family: var(--b3-font-family-code);
-    /* font-size: 100%; */
-    border-right: 1px solid #b1c3c4;
-}
 
+.protyle-linenumber__rows {
+    background-color: var(--b3-protyle-code-background) !important;
+    border-right: 1px solid #b1c3c4;
+    /* width: 3em; */
+}
 .protyle-linenumber__rows > span::before {
     color: var(--b3-theme-on-surface);
     display: block;
@@ -1033,13 +1046,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 /* 面包屑 */
 .protyle-breadcrumb {
-    height: 24px;
-    display: flex;
-    align-items: center;
-    padding: 0 8px;
     background-color: var(--b3-tab-custom-background);
-    flex-shrink: 0;
-    line-height: 24px;
 }
 
 /* .b3-dialog__container .b3-dialog__close {
