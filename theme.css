@@ -52,7 +52,7 @@
         'Android Emoji', 'EmojiSymbols';
     --b3-font-family-graph: mononoki;
     /* 线条 */
-    --b3-border-color: rgba(0, 0, 0, 0.1);
+    --b3-border-color: #dfe0e1;
 
     /* 滚动条 m */
     /* --b3-scroll-color: rgba(0, 0, 0, .2); */
@@ -464,8 +464,8 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
 .protyle-wysiwyg [data-node-id] span[data-type='a'] {
     color: var(--b3-protyle-inline-link-color);
     cursor: pointer;
-    /* border-bottom: 1px solid #dae3e9; */
-    border-bottom: 1px solid transparent;
+    border-bottom: 1px solid #dae3e9;
+    /* border-bottom: 1px solid transparent; */
     /* text-decoration: underline; */
 }
 .b3-typography a {
@@ -677,6 +677,10 @@ div[data-subtype='t'][data-type='NodeList'] {
     /* background: rgba(0,0,0,0.5); */
     transition: opacity 0.5s ease-in-out;
 }
+.protyle-task--done  img{
+    opacity: 0.5;
+    transition: opacity 0.2s ease-in-out;
+}
 .protyle-task--done  .code-block{
     opacity: 0.5;
     transition: opacity 0.5s ease-in-out;
@@ -797,6 +801,9 @@ div[data-subtype='t'][data-type='NodeList'] {
 
     background-color: transparent;
     border-radius: 4px;
+}
+.code-block .protyle-icons>span:hover {
+    background-color: #cad8dd;
 }
 
 .code-block .protyle-icons .protyle-action__language,.code-block .protyle-icons>span{
