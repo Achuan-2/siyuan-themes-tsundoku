@@ -630,13 +630,15 @@ div[data-type='NodeMathBlock'] .minner .mfrac {
     margin-bottom: 0;
 }
 
-.protyle-task--done .p,.protyle-task--done p{
+.protyle-task--done [data-type="NodeParagraph"]>[contenteditable="true"],.protyle-task--done p{
     /* 完成的待办事项删除线 */
     text-decoration: line-through;
     /* 字体颜色 */
     color: #6791a396 !important;
 }
-
+.protyle-task--done .hljs{
+    text-decoration: none;
+}
 .protyle-task--done strong,
 .protyle-task--done em,
 .protyle-task--done s,
@@ -669,14 +671,23 @@ div[data-subtype='t'][data-type='NodeList'] {
 /* div[data-subtype="t"][data-type="NodeList"] li{
     position:absolute;
 } */
-.protyle-task--done {
+.protyle-task--done{
     /* opacity: 0.5; */
     /* filter:opacity(50%) ; */
-    /* opacity: 0.5; */
+    opacity: 1;
+    /* opacity: 1; */
+    /* background: rgba(0,0,0,0.5); */
+    transition: opacity 0.5s ease-in-out;
+}
+.protyle-task--done .protyle-task--done {
     opacity: 1;
     /* background: rgba(0,0,0,0.5); */
     transition: opacity 0.5s ease-in-out;
 }
+.protyle-task--done div[data-type="NodeParagraph"],.protyle-task--done .protyle-action--task {
+    opacity: 1;
+}
+
 .protyle-task--done  img{
     opacity: 0.5;
     transition: opacity 0.2s ease-in-out;
@@ -685,13 +696,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     opacity: 0.5;
     transition: opacity 0.5s ease-in-out;
 }
-.protyle-task--done .protyle-task--done {
-    /* opacity: 0.5; */
-    /* filter:opacity(50%) ; */
-    opacity: 1;
-    /* background: rgba(0,0,0,0.5); */
-    transition: opacity 0.5s ease-in-out;
-}
+
 .protyle-task--done:hover {
     opacity: 1 !important;
 }
