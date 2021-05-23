@@ -729,7 +729,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     padding-bottom: 4px !important;
     padding-left: 16px;
     /* 这里字体改小了…… */
-    /* font-size: 75%; */
+    font-size: 14px;
     font-family: var(--b3-font-family-code);
     background-size: 20px 20px;
     background-image: none !important;
@@ -788,6 +788,8 @@ div[data-subtype='t'][data-type='NodeList'] {
     padding-bottom: 0px;
     margin-bottom: 6px;
     width: 39px;
+    font-size:14px;
+    font-family: var(--b3-font-family-code);
 }
 .protyle-linenumber__rows::before{
     content: '';
@@ -1112,6 +1114,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 /* 面包屑 */
 .protyle-breadcrumb {
     background-color: var(--b3-tab-custom-background);
+    z-index: 2;
 }
 
 /* .b3-dialog__container .b3-dialog__close {
