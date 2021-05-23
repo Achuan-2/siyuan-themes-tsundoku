@@ -346,11 +346,15 @@ strong {
 div[data-type='block-render'] {
     margin-top: 5px;
 }
-/* 块嵌入颜色与块引用区分 */
-div[data-type='block-render'] .vditor-ir__blockref[data-type='ref-text-tpl-render-result'] {
-    color: var(--b3-vditor-inline-blockref-color); /*更改颜色*/
-    padding-bottom: 0.1em;
-    border-bottom: 1px dashed var(--b3-vditor-inline-blockref-color); /*下划线可以去掉*/
+
+/* 块嵌入 */
+.protyle-wysiwyg [data-node-id].render-node[data-type="NodeBlockQueryEmbed"] {
+    box-shadow: 0px 0px 3px 1px rgb(143 167 235 / 38%);
+    border-left: 0px dashed var(--b3-border-color);
+}
+.protyle-wysiwyg__embed {
+    border-bottom: 2px dashed rgb(143 167 235 / 38%);;
+    position: relative;
 }
 
 /* 文件树中区别文件数和引用数 */
@@ -419,10 +423,7 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     font-weight: 800;
     /* background: #929275; */
 }
-/* 块嵌入 */
-.protyle-wysiwyg [data-node-id].render-node[data-type='NodeBlockQueryEmbed'] {
-    box-shadow: 0px 0px 2px rgb(0 0 0 / 29%);
-}
+
 /* 标签 */
 .protyle-wysiwyg [data-node-id] span[data-type='tag'] {
     border-bottom: 0px solid var(--b3-protyle-inline-tag-color);
@@ -491,20 +492,24 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
 /* 行内公式 */
 .protyle-wysiwyg [data-node-id] span[data-type='inline-math'] {
     cursor: pointer;
-    font-size: 100%;
+    font-size: 115%;
 }
-[data-type='inline-math'] .mfrac {
-    /* 行内分式公式 */
-    font-size: 1.4em;
-}
+   /* 行内分式公式 */
+/* [data-type='inline-math'] .mfrac {
+    font-size: 1.6em;
+}  */
 
 /* 公式块分式 */
 div[data-type='NodeMathBlock'] .minner .mfrac {
-    font-size: 115%;
+    font-size: 165%;
 }
 /* .b3-typography .minner .mfrac {
     font-size: 115%;
 } */
+.b3-typography [data-subtype="math"], .protyle-wysiwyg [data-subtype="math"] {
+    font-size: 140%;
+    font-family: monospace;
+}
 /* 公式换行调大距离 */
 .katex .katex-html > .newline {
     padding-bottom: 0.5em;
@@ -550,11 +555,6 @@ div[data-type='NodeMathBlock'] .minner .mfrac {
     background-color: var(--b3-theme-primary);
 }
 
-/* 列表缩进 */
-.protyle li {
-    padding: 0;
-    margin: 0px 4px 0px 4px;
-}
 
 .protyle-wysiwyg [data-node-id].li > .protyle-action--task svg{
     /* display: v; */
@@ -564,17 +564,25 @@ div[data-type='NodeMathBlock'] .minner .mfrac {
 .b3-typography  .protyle-task input {
     opacity: 0;
 }
-.protyle-task li p{
+
+/* 调整列表间距 */
+
+/* 暂时注释,因为发现代码块的行数不会变化 */
+/* .protyle .li {
+    padding: 0;
     margin: 0px 4px 0px 4px;
 }
-/* 调整列表间距 */
 .b3-typography ul, .b3-typography ol {
     padding-left: 16px !important;
     margin: 4px 11px;
-}
+} */
+
 
 .b3-typography .protyle-task p {
     margin: 3px 2px;
+}
+.protyle-task li p{
+    margin: 0px 4px 0px 4px;
 }
 /* ---------------------复选框（待办事项）Start------------------------------------------------ */
 .protyle-wysiwyg .protyle-action--task:before,.b3-typography .protyle-task:before{
@@ -687,6 +695,15 @@ div[data-subtype='t'][data-type='NodeList'] {
     opacity: 1 !important;
 }
 
+/* 超级块 */
+/* .protyle-wysiwyg [data-node-id].sb[data-sb-layout="col"] > div::after{
+    content:"";
+    display: block;
+    width:100%;
+    height:100%;
+    background-color: #fff;
+    border-right: 1px solid black;
+} */
 
 /* -------------------------------代码块样式-------------------------------------- */
 
@@ -703,10 +720,9 @@ div[data-subtype='t'][data-type='NodeList'] {
     padding-bottom: 4px !important;
     padding-left: 16px;
     /* 这里字体改小了…… */
-    /* font-size: 100%; */
+    /* font-size: 75%; */
     overflow: auto;
     font-family: var(--b3-font-family-code);
-    /* padding-top: 32px !important; */
     background-size: 20px 20px;
     background-image: none !important;
     background: var(--b3-protyle-code-background) !important;
@@ -719,25 +735,25 @@ div[data-subtype='t'][data-type='NodeList'] {
     background: var(--b3-protyle-code-background) !important;
     /* box-shadow: 0px 3px 10px 3px rgb(6 6 6 / 10%); */
     margin-top: 15px !important;
-    /* filter: drop-shadow(2px 2px 3px #999); */
+    padding-top: 32px !important;
 }
 /* .code-block .protyle-action {
     position: relative;
 } */
 
-/* .code-block:before {
-    
+.code-block:before {
     content: ' ';
     position: absolute;
     background: #fa625c;
     box-shadow: 23px 0 #fdbc40, 45px 0 #35cd4b;
     border-radius: 50%;
-    margin-top: 10px;
+    /* margin-top: 10px; */
+    top:10px;
     left: 15px;
     height: 12px;
     width: 12px;
     z-index: 1;
-} */
+}
 
 /* 代码语言显示 */
 /* .protyle-reset .code-block .protyle-action__language,
@@ -756,19 +772,48 @@ div[data-subtype='t'][data-type='NodeList'] {
 /* } */
 
 /*  代码块行数*/
-
 .protyle-linenumber__rows {
     background-color: var(--b3-protyle-code-background) !important;
-    border-right: 1px solid #b1c3c4;
-    /* width: 3em; */
+    /* border-right: 1px solid #b1c3c491; */
+    margin-top: 31px !important;
+    padding-right:15px;
+    padding-bottom: 0px;
+    margin-bottom: 6px;
+    width: 39px;
 }
-.protyle-linenumber__rows > span::before {
-    color: var(--b3-theme-on-surface);
+.protyle-linenumber__rows::before{
+    content: '';
     display: block;
-    padding-right: 1em;
-    text-align: right;
-    font-family: var(--b3-font-family-code);
+    position: absolute;
+    width: 1px;
+    height: calc(100% - 10px); 
+    margin: 5px 0px 2px 33px;
+    background-color: #b1c3c491;
 }
+
+/* 代码语言显示 */
+
+.code-block .protyle-icons {
+
+    background-color: transparent;
+    border-radius: 4px;
+}
+
+.code-block .protyle-icons .protyle-action__language,.code-block .protyle-icons>span{
+    color: rgba(13, 56, 50, 0.719);
+    font-weight: 600;
+}
+
+.code-block .protyle-icons {
+    opacity: 1;
+}
+.code-block .protyle-icons .protyle-action__copy {
+    opacity: 0;
+}
+.code-block:hover .protyle-icons .protyle-action__copy {
+    opacity: 1;
+}
+
 
 /* -----------------      外观样式 ----------------- */
 
