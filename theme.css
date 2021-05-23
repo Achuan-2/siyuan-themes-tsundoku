@@ -725,18 +725,17 @@ div[data-subtype='t'][data-type='NodeList'] {
     padding-left: 16px;
     /* 这里字体改小了…… */
     /* font-size: 75%; */
-    overflow: auto;
     font-family: var(--b3-font-family-code);
     background-size: 20px 20px;
     background-image: none !important;
-    background: var(--b3-protyle-code-background) !important;
+    background: var(--b3-protyle-code-background) ;
 }
 
 .code-block {
     position: relative;
     display: block;
     border-radius: 4px;
-    background: var(--b3-protyle-code-background) !important;
+    background: var(--b3-protyle-code-background) ;
     /* box-shadow: 0px 3px 10px 3px rgb(6 6 6 / 10%); */
     margin-top: 15px !important;
     padding-top: 32px !important;
