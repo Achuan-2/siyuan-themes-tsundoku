@@ -52,7 +52,8 @@
         'Android Emoji', 'EmojiSymbols';
     --b3-font-family-graph: mononoki;
     /* 线条 */
-    --b3-border-color: #dfe0e1;
+    /* --b3-border-color: #dfe0e1; */
+    --b3-border-color: rgba(0, 0, 0, .1);
 
     /* 滚动条 m */
     /* --b3-scroll-color: rgba(0, 0, 0, .2); */
@@ -158,7 +159,7 @@
     --b3-protyle-inline-s-color: #202124;
     --b3-protyle-inline-link-color: #408bba;
     --b3-protyle-inline-link-hover-color: #fa60a0;
-    --b3-protyle-inline-mark-background: #fff6bc;
+    --b3-protyle-inline-mark-background: #f8e8cb;
     --b3-protyle-inline-mark-color: #202124;
     --b3-protyle-inline-tag-background: #81a9a9;
     --b3-protyle-inline-tag-text-color: #f8f9fa;
@@ -288,7 +289,7 @@ mark {
     color: var(--b3-protyle-inline-mark-color);
 }
 strong {
-    color: inherit !important;
+    color: inherit;
 }
 /* blockquote 引用 */
 .protyle-wysiwyg [data-node-id].bq ,.b3-typography blockquote{
@@ -296,7 +297,7 @@ strong {
     border-radius: 0.31em;
     background-color: rgba(66, 185, 185, 0.05) !important;
     /* padding-left: 1em !important; */
-    margin-top: 10px;
+    margin-top: 8px !important;
 }
 .protyle-wysiwyg [data-node-id].bq .p ,.b3-typography blockquote p{
     padding-left: 1em !important;
@@ -350,7 +351,7 @@ div[data-type='block-render'] {
 /* 块嵌入 */
 .protyle-wysiwyg [data-node-id].render-node[data-type="NodeBlockQueryEmbed"] {
     box-shadow: 0px 0px 3px 1px rgb(143 167 235 / 38%);
-    border-left: 0px dashed var(--b3-border-color);
+    border-left: 0px dashed #dfe0e1;
 }
 .protyle-wysiwyg__embed {
     border-bottom: 2px dashed rgb(143 167 235 / 38%);;
@@ -492,7 +493,7 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
 /* 行内公式 */
 .protyle-wysiwyg [data-node-id] span[data-type='inline-math'] {
     cursor: pointer;
-    font-size: 115%;
+    /* font-size: 115%; */
 }
    /* 行内分式公式 */
 /* [data-type='inline-math'] .mfrac {
@@ -501,13 +502,13 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
 
 /* 公式块分式 */
 div[data-type='NodeMathBlock'] .minner .mfrac {
-    font-size: 165%;
+    font-size: 135%;
 }
 /* .b3-typography .minner .mfrac {
     font-size: 115%;
 } */
 .b3-typography [data-subtype="math"], .protyle-wysiwyg [data-subtype="math"] {
-    font-size: 140%;
+    font-size: 120%;
     font-family: monospace;
 }
 /* 公式换行调大距离 */
@@ -533,19 +534,28 @@ div[data-type='NodeMathBlock'] .minner .mfrac {
 .b3-typography ul li {
     list-style-type: none;
 }
+.protyle-wysiwyg [data-node-id].li {
+    position: relative;
+}
+/* 本来像让列表图标居中的，但是效果不太好，还不如置顶 */
+/* .protyle-wysiwyg [data-node-id].li>.protyle-action {
+
+    top: calc(50% - 16px);
+
+} */
 .protyle-wysiwyg [data-subtype='u'] > .protyle-action:before,.b3-typography ul li::before{
     content: '';
     position: absolute;
     display: inline-block;
     cursor: pointer;
-    width: 0.5em;
-    height: 0.5em;
+    width: 8px;
+    height: 8px;
     vertical-align: middle;
     text-align: center;
     border: 0px;
     border-radius: 0.6em;
     background-color: #515e64;
-    top: 12px;
+    top: calc(50% - 4px);
     left: 4px;
 }
 .b3-typography ul li::before {
@@ -568,14 +578,14 @@ div[data-type='NodeMathBlock'] .minner .mfrac {
 /* 调整列表间距 */
 
 /* 暂时注释,因为发现代码块的行数不会变化 */
-/* .protyle .li {
+.protyle .li {
     padding: 0;
     margin: 0px 4px 0px 4px;
 }
 .b3-typography ul, .b3-typography ol {
     padding-left: 16px !important;
     margin: 4px 11px;
-} */
+}
 
 
 .b3-typography .protyle-task p {
@@ -635,7 +645,11 @@ div[data-type='NodeMathBlock'] .minner .mfrac {
     text-decoration: line-through;
     /* 字体颜色 */
     color: #6791a396 !important;
+    /* transition: all 0.5s ease-in-out; */
 }
+/* .protyle-task--done:hover [data-type="NodeParagraph"]>[contenteditable="true"],.protyle-task--done:hover p{
+    text-decoration: none;
+} */
 .protyle-task--done .hljs{
     text-decoration: none;
 }
@@ -1172,4 +1186,77 @@ iframe {
         /* 平板端图片不变暗 */
         opacity: 1;
     }
+}
+
+/* 光标选中文本样式 */
+.protyle-wysiwyg ::selection{ 
+    background-color:rgba(247, 199, 177, 0.445);
+}
+/* 选中块 */
+.protyle-wysiwyg--select, .protyle-wysiwyg--select .hljs {
+    background-color: #91d5ff38 !important;
+}
+/* 鼠标划选区域*/
+.protyle-select{
+    background-color: #91d5ff75;
+}
+/* 图片大小调整手柄 */
+.protyle-wysiwyg [data-node-id] .img .protyle-action__drag {
+    width: 9px;
+    background: #2d7098ad;
+    border-radius: 3px;
+    right: -2px;
+    box-shadow: 0 0 2px #415f86;
+    opacity:0.5;
+}
+.protyle-wysiwyg [data-node-id] .img .protyle-action__drag:hover {
+    background-color: #2d7098ad;
+    box-shadow: 0 0 2px #415f86;
+}
+/* .protyle-wysiwyg [data-node-id] .img .protyle-action__drag::before {
+    content: "";
+    width: 0;
+    height: 0;
+    border: 10px solid #2182bbad;
+    border-color: transparent transparent transparent #2182bbad;
+    position: absolute;
+    top: 50%;
+    left: 7px;
+} */
+
+
+/* 块折叠状态 */
+
+.protyle-wysiwyg [data-type="NodeParagraph"][fold="1"]{
+    padding-left: 18px;
+    /* opacity: 1; */
+}
+/* 调整段落块折叠时的样式 */
+.protyle-wysiwyg [data-type="NodeParagraph"][fold="1"]:after{
+    content: "";
+    background-color: var(--b3-theme-on-background);
+    width:  12px;
+    height: 12px;
+    position: absolute;
+    left:   4px;
+    top:    50%;
+    margin-top: -6px;
+    -webkit-mask:   url(src/iconTriangle.svg) no-repeat;
+    mask:           url(src/iconTriangle.svg) no-repeat;
+    -webkit-mask-size:  100% 100%;
+    mask-size:          100% 100%;
+}
+
+/* 列表zoom in */
+.protyle-wysiwyg [data-node-id].li .protyle-action--task:hover:after {
+    background-color: transparent !important;
+}
+.protyle-wysiwyg [data-node-id].li>.protyle-action:hover:after {
+    background-color: #77d8d89e !important;
+    opacity: .68;
+}
+/* 实验功能：调整超级块中元素间距 */
+.protyle-wysiwyg .sb div[data-node-id]{
+    margin: 4px;
+    border-radius: 3px;
 }
