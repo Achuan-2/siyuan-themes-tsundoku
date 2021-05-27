@@ -501,9 +501,9 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
 }  */
 
 /* 公式块分式 */
-div[data-type='NodeMathBlock'] .minner .mfrac {
+/* div[data-type='NodeMathBlock'] .minner .mfrac {
     font-size: 135%;
-}
+} */
 /* .b3-typography .minner .mfrac {
     font-size: 115%;
 } */
@@ -1201,10 +1201,12 @@ iframe {
     background-color: #91d5ff75;
 }
 /* 图片大小调整手柄 */
+/* 目前会飘 */
 .protyle-wysiwyg [data-node-id] .img .protyle-action__drag {
     width: 9px;
     background: #2d7098ad;
     border-radius: 3px;
+    /* margin-top: -50%; */
     right: -2px;
     box-shadow: 0 0 2px #415f86;
     opacity:0.5;
@@ -1248,14 +1250,18 @@ iframe {
 }
 
 /* 列表zoom in */
-.protyle-wysiwyg [data-node-id].li .protyle-action--task:hover:after {
-    background-color: transparent !important;
-}
+
 .protyle-wysiwyg [data-node-id].li>.protyle-action:hover:after {
     background-color: #77d8d89e !important;
-    opacity: .68;
+    opacity: 0.68;
 }
-/* 实验功能：调整超级块中元素间距 */
+.protyle-wysiwyg [data-node-id].li .protyle-action--task:hover:after {
+    /* background-color: transparent !important; */
+    width:0px;
+    height:0px;
+    opacity: 0 !important;
+}
+/* 调整超级块中元素间距 */
 .protyle-wysiwyg .sb div[data-node-id]{
     margin: 4px;
     border-radius: 3px;
