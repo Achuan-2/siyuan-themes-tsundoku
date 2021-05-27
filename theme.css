@@ -747,7 +747,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     font-family: var(--b3-font-family-code);
     background-size: 20px 20px;
     background-image: none !important;
-    background: var(--b3-protyle-code-background) ;
+    background: transparent;
 }
 
 .code-block {
