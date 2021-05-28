@@ -169,7 +169,7 @@
     --b3-protyle-inline-blockref-hover-color: #ff398b;
     /* 表格 */
     --b3-table-border-color: #dfe0e1;
-    --b3-table-th-color: #d0d6d85b;
+    --b3-table-th-color: #e9ecee;
     --b3-table-trn-color: #f8f9fa;
     --b3-table-tr2n-color: #f0f4f5;
     /* 高亮 */
@@ -255,29 +255,55 @@
 /* -------------------------------表格------------------------------------- */
 
 /* 表格 */
-.protyle   table thead tr {
+.protyle-wysiwyg   table thead tr {
     background-color: var(--b3-table-th-color) !important;
 }
-.protyle  table tbody tr:nth-child(2n + 1) {
+.protyle-wysiwyg   table tbody tr:nth-child(2n + 1) {
     background-color: var(--b3-table-trn-color) !important;
 }
-.protyle  table tbody tr:nth-child(2n) {
+.protyle-wysiwyg   table tbody tr:nth-child(2n) {
     background-color: var(--b3-table-tr2n-color) !important;
 }
-.protyle  table tr th {
+.protyle-wysiwyg   table tr th {
     border-left: 1px solid var(--b3-table-border-color);
     border-right: 1px solid var(--b3-table-border-color);
 }
-.protyle table tr td {
+.protyle-wysiwyg table tr td {
     border-left: 1px solid var(--b3-table-border-color);
     border-right: 1px solid var(--b3-table-border-color);
 }
-.protyle table tr th:first-child,
-.protyle table tr td:first-child {
+.protyle-wysiwyg  table tr th:first-child,
+.protyle-wysiwyg table tr td:first-child {
     border-left-width: 0px;
 }
-.protyle table tr th:last-child,
-.protyle table tr td:last-child {
+.protyle-wysiwyg  table tr th:last-child,
+.protyle-wysiwyg  table tr td:last-child {
+    border-right-width: 0px;
+}
+/*  */
+.b3-typography   table thead tr {
+    background-color: var(--b3-table-th-color) !important;
+}
+.b3-typography   table tbody tr:nth-child(2n + 1) {
+    background-color: var(--b3-table-trn-color) !important;
+}
+.b3-typography    table tbody tr:nth-child(2n) {
+    background-color: var(--b3-table-tr2n-color) !important;
+}
+.b3-typography   table tr th {
+    border-left: 1px solid var(--b3-table-border-color);
+    border-right: 1px solid var(--b3-table-border-color);
+}
+.b3-typography  table tr td {
+    border-left: 1px solid var(--b3-table-border-color);
+    border-right: 1px solid var(--b3-table-border-color);
+}
+.b3-typography   table tr th:first-child,
+.b3-typography  table tr td:first-child {
+    border-left-width: 0px;
+}
+.b3-typography   table tr th:last-child,
+.b3-typography   table tr td:last-child {
     border-right-width: 0px;
 }
 
@@ -493,24 +519,33 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
 /* 行内公式 */
 .protyle-wysiwyg [data-node-id] span[data-type='inline-math'] {
     cursor: pointer;
-    /* font-size: 115%; */
+    font-size: 100%;
+}
+.b3-typography span[data-subtype="math"] {
+    font-size: 100% !important;
 }
    /* 行内分式公式 */
-/* [data-type='inline-math'] .mfrac {
-    font-size: 1.6em;
-}  */
-
+[data-type='inline-math'] .mfrac {
+    font-size: 1.5em;
+} 
+.b3-typography span[data-subtype="math"] .mfrac {
+    font-size: 1.5em;
+} 
 /* 公式块分式 */
-/* div[data-type='NodeMathBlock'] .minner .mfrac {
-    font-size: 135%;
-} */
-/* .b3-typography .minner .mfrac {
-    font-size: 115%;
-} */
-.b3-typography [data-subtype="math"], .protyle-wysiwyg [data-subtype="math"] {
-    font-size: 120%;
+.b3-typography [data-subtype="math"]{
+    font-weight: 400 !important;
+}
+.b3-typography div[data-subtype="math"], .protyle-wysiwyg div[data-subtype="math"] {
+    /* font-size: 120%; */
     font-family: monospace;
 }
+.b3-typography .minner .mfrac {
+    font-size: 115%;
+}
+div[data-type='NodeMathBlock'] .minner .mfrac {
+    font-size: 115%;
+}
+
 /* 公式换行调大距离 */
 .katex .katex-html > .newline {
     padding-bottom: 0.5em;
@@ -580,11 +615,11 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
 /* 暂时注释,因为发现代码块的行数不会变化 */
 .protyle .li {
     padding: 0;
-    margin: 0px 4px 0px 4px;
+    margin: 0px 3px 0px 3px;
 }
 .b3-typography ul, .b3-typography ol {
     padding-left: 16px !important;
-    margin: 4px 11px;
+    margin: 4px 10px;
 }
 
 
@@ -1148,11 +1183,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     background: #fff;
     transform: rotate(180deg);
 } */
-.b3-typography ul,
-.b3-typography ol {
-    padding-left: 16px !important;
-    margin: 4px 0;
-}
+
 
 iframe {
     height: 500px;
