@@ -318,13 +318,19 @@ strong {
     color: inherit;
 }
 /* blockquote 引用 */
-.protyle-wysiwyg [data-node-id].bq ,.b3-typography blockquote{
+.protyle-wysiwyg [data-node-id].bq, .b3-typography blockquote {
+    border-left: 0.25em solid #b5cfd3 !important;
+    border-radius: 0em 0.31em 0.31em 0.em;
+    background-color: rgba(66, 185, 185, 0.05) !important;
+    margin-top: 8px !important;
+}
+/* .protyle-wysiwyg [data-node-id].bq ,.b3-typography blockquote{
     border-left: 0.25em solid #b5cfd3 !important;
     border-radius: 0.31em;
     background-color: rgba(66, 185, 185, 0.05) !important;
-    /* padding-left: 1em !important; */
     margin-top: 8px !important;
-}
+} */
+
 .protyle-wysiwyg [data-node-id].bq .p ,.b3-typography blockquote p{
     padding-left: 1em !important;
 }
@@ -526,11 +532,18 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
 }
    /* 行内分式公式 */
 [data-type='inline-math'] .mfrac {
-    font-size: 1.5em;
+    font-size: 1.4em;
 } 
+[data-type='inline-math'] span.sqrt .mfrac {
+    font-size: 100% !important;
+}
+
 .b3-typography span[data-subtype="math"] .mfrac {
-    font-size: 1.5em;
+    font-size: 1.4em;
 } 
+.b3-typography span[data-subtype="math"] span.sqrt .mfrac {
+    font-size: 100% !important;
+}
 /* 公式块分式 */
 .b3-typography [data-subtype="math"]{
     font-weight: 400 !important;
@@ -539,12 +552,12 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     /* font-size: 120%; */
     font-family: monospace;
 }
-.b3-typography .minner .mfrac {
+/* .b3-typography .minner .mfrac {
     font-size: 115%;
 }
 div[data-type='NodeMathBlock'] .minner .mfrac {
     font-size: 115%;
-}
+} */
 
 /* 公式换行调大距离 */
 .katex .katex-html > .newline {
@@ -557,58 +570,6 @@ div[data-type='NodeMathBlock'] .minner .mfrac {
     text-align: center;
 }
 
-
-/* 无序列表 */
-
-.protyle-wysiwyg [data-subtype='u'] > .protyle-action svg {
-    opacity: 0;
-}
-.b3-typography li {
-    position: relative;
-}
-.b3-typography ul li {
-    list-style-type: none;
-}
-.protyle-wysiwyg [data-node-id].li {
-    position: relative;
-}
-/* 本来像让列表图标居中的，但是效果不太好，还不如置顶 */
-/* .protyle-wysiwyg [data-node-id].li>.protyle-action {
-
-    top: calc(50% - 16px);
-
-} */
-.protyle-wysiwyg [data-subtype='u'] > .protyle-action:before,.b3-typography ul li::before{
-    content: '';
-    position: absolute;
-    display: inline-block;
-    cursor: pointer;
-    width: 8px;
-    height: 8px;
-    vertical-align: middle;
-    text-align: center;
-    border: 0px;
-    border-radius: 0.6em;
-    background-color: #515e64;
-    top: calc(50% - 4px);
-    left: 4px;
-}
-.b3-typography ul li::before {
-    left: -19px;
-}
-.protyle-wysiwyg [data-subtype='u'] > .protyle-action:hover:before {
-    background-color: var(--b3-theme-primary);
-}
-
-
-.protyle-wysiwyg [data-node-id].li > .protyle-action--task svg{
-    /* display: v; */
-    /* visibility: hidden;   */
-    opacity: 0;
-}
-.b3-typography  .protyle-task input {
-    opacity: 0;
-}
 
 /* 调整列表间距 */
 
@@ -629,6 +590,55 @@ div[data-type='NodeMathBlock'] .minner .mfrac {
 .protyle-task li p{
     margin: 0px 4px 0px 4px;
 }
+
+/* 无序列表 */
+
+.protyle-wysiwyg [data-subtype='u'] > .protyle-action svg {
+    opacity: 0;
+}
+.b3-typography li {
+    position: relative;
+}
+.b3-typography ul li {
+    list-style-type: none;
+}
+.protyle-wysiwyg [data-node-id].li {
+    position: relative;
+}
+
+.protyle-wysiwyg [data-subtype='u'] > .protyle-action:before,.b3-typography ul li::before{
+    content: '';
+    position: absolute;
+    display: inline-block;
+    cursor: pointer;
+    width: 8px;
+    height: 8px;
+    vertical-align: middle;
+    text-align: center;
+    border: 0px;
+    border-radius: 0.6em;
+    background-color: #515e64;
+    top: 12px;
+    left: 4px;
+}
+.b3-typography ul li::before {
+    left: -19px;
+}
+.protyle-wysiwyg [data-subtype='u'] > .protyle-action:hover:before {
+    background-color: var(--b3-theme-primary);
+}
+
+
+.protyle-wysiwyg [data-node-id].li > .protyle-action--task svg{
+    /* display: v; */
+    /* visibility: hidden;   */
+    opacity: 0;
+}
+.b3-typography  .protyle-task input {
+    opacity: 0;
+}
+
+
 /* ---------------------复选框（待办事项）Start------------------------------------------------ */
 .protyle-wysiwyg .protyle-action--task:before,.b3-typography .protyle-task:before{
     content: '';
