@@ -5,7 +5,7 @@
     src: url('fonts/NotoSansSC-Regular.otf');
 }
 @font-face {
-    font-family: 'Win10 Emoji';
+    font-family: 'Win10 Emoji'; 
     font-style: normal;
     src: url('fonts/seguiemj.ttf');
 }
@@ -335,7 +335,7 @@ strong {
     padding-left: 1em !important;
 }
 .protyle-wysiwyg [data-node-id].bq strong,.b3-typography blockquote strong{
-    color: inherit !important;
+    color: inherit;
 }
 
 /* 块引用 */
@@ -382,11 +382,12 @@ div[data-type='block-render'] {
 
 /* 块嵌入 */
 .protyle-wysiwyg [data-node-id].render-node[data-type="NodeBlockQueryEmbed"] {
-    box-shadow: 0px 0px 3px 1px rgb(143 167 235 / 38%);
+    box-shadow: 0px 0px 3px 1px rgb(135 148 186 / 38%);
     border-left: 0px dashed #dfe0e1;
+    margin:10px 0px;
 }
 .protyle-wysiwyg__embed {
-    border-bottom: 2px dashed rgb(143 167 235 / 38%);;
+    border-top: 2px dashed rgb(143 167 235 / 38%);
     position: relative;
 }
 
@@ -700,10 +701,12 @@ div[data-type='NodeMathBlock'] .minner .mfrac {
 }
 .protyle-task--done strong,
 .protyle-task--done em,
-.protyle-task--done s,
-.protyle-task--done u {
+.protyle-task--done {
     /* 字体颜色 */
-    color: inherit !important;
+    color: inherit
+}
+.protyle-task--done s {
+    color: rgb(164 213 221 / 65%);
 }
 .protyle-task--done [data-type='a'],.protyle-task--done a{
     /* 超链接调整 */
@@ -1149,14 +1152,14 @@ div[data-subtype='t'][data-type='NodeList'] {
     border-bottom: 2px solid #c7d1d8c5;
 } */
 /* 调整选中标签页文字最大宽度 */
-.item--focus .item__text {
+/* .item--focus .item__text {
     max-width: 300px;
-}
+} */
 /* 文字超出范围的模糊效果 */
-.layout-tab-bar .item--focus .item__text::after {
+/* .layout-tab-bar .item--focus .item__text::after {
     background: linear-gradient(110deg, rgba(0, 0, 0, 0.001), var(--b3-theme-surface));
     left: 294px;
-}
+} */
 
 /* 标签页按钮 */
 .layout-tab-bar .item__close {
@@ -1312,3 +1315,12 @@ iframe {
     margin: 4px;
     border-radius: 3px;
 }
+/* 工具栏样式 */
+.protyle-toolbar {
+    background-color: rgb(235 239 243);
+}
+/* 控制导出pdf的字体不过大 */
+/* 似乎导出没用 */
+/* .b3-typography {
+    font-size: 14px !important;
+} */
