@@ -612,6 +612,10 @@ div[data-type='NodeMathBlock'] .minner .mfrac {
     /* visibility: hidden;   */
     opacity: 0;
 }
+.protyle-wysiwyg [data-node-id].li>.protyle-action--task:hover:after {
+    background-color: transparent !important;
+    opacity: 0 !important;
+}
 .b3-typography  .protyle-task input {
     opacity: 0;
 }
@@ -1246,40 +1250,7 @@ iframe {
 } */
 
 
-/* 块折叠状态 */
 
-.protyle-wysiwyg [data-type="NodeParagraph"][fold="1"]{
-    padding-left: 18px;
-    /* opacity: 1; */
-}
-/* 调整段落块折叠时的样式 */
-.protyle-wysiwyg [data-type="NodeParagraph"][fold="1"]:after{
-    content: "";
-    background-color: var(--b3-theme-on-background);
-    width:  12px;
-    height: 12px;
-    position: absolute;
-    left:   4px;
-    top:    50%;
-    margin-top: -6px;
-    -webkit-mask:   url(src/iconTriangle.svg) no-repeat;
-    mask:           url(src/iconTriangle.svg) no-repeat;
-    -webkit-mask-size:  100% 100%;
-    mask-size:          100% 100%;
-}
-
-/* 列表zoom in */
-
-.protyle-wysiwyg [data-node-id].li>.protyle-action:hover:after {
-    background-color: #77d8d89e !important;
-    opacity: 0.68;
-}
-.protyle-wysiwyg [data-node-id].li .protyle-action--task:hover:after {
-    /* background-color: transparent !important; */
-    width:0px;
-    height:0px;
-    opacity: 0 !important;
-}
 /* 调整超级块中元素间距 */
 .protyle-wysiwyg .sb div[data-node-id]{
     margin: 4px;
