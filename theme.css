@@ -393,61 +393,32 @@ div[data-type='block-render'] {
 
 /* 文件树中区别文件数和引用数 */
 li[data-type='navigation-file'] .counter {
-    color: #ef9a9ab9;
+    color: #b16666cc;
     /* background-color: #dfdfdf9e; */
     font-weight: 600;
     background: transparent !important;
 }
 /* 内容中计数 */
-.protyle-wysiwyg .counter,
-.protyle-wysiwyg .protyle-attr--refcount {
+.counter, .protyle-attr--refcount {
     margin-left: 8px;
-    background-color: rgb(45 58 56 / 11%);
+    background-color: rgba(0, 0, 0, .05) !important;
     z-index: 2;
     line-height: 16px;
-    padding: 1px 5.5px 1.5px 5.5px;
-    color: #746868;
-    border-radius: 50%;
+    color: #766f6fbd;
+    border-radius:  20%;
     font-size: 12px;
     user-select: none;
     font-weight: 600;
     cursor: pointer;
-    /* filter: drop-shadow(2px 2px 3px #999); */
-    /* box-shadow: 2px 0px 2px 0px rgb(33 78 85 / 34%); */
-    /* border: 1px solid #9e9e9ea9; */
 }
-/* .protyle-wysiwyg .counter, .protyle-attr--refcount:after {
-    content: '';
-    width: 8px;
-    height: 8px;
-    background: #f0f3f5;
-    position: absolute;
-    left: 0px;
-    bottom: -4px;
-    border-right: 30px solid #abe1eb;
-    -moz-border-radius: 0 0 100px 0;
-    -webkit-border-radius: 0 0 100px 0;
-    border-radius: 0 0 100px 0;
-} */
-/* .protyle-attr--refcount:after {
-    content: '';
-    position: absolute;
-    top: 70%;
-    left: 11px;
-    width: 0;
-    height: 0;
-    border-width: 6px;
-    border-style: solid;
-    border-color: transparent;
-    border-top-width: 10px;
-    border-top-color: currentColor;
-    color: #dddddd;
-    border-radius: 10%;
-} */
+
 
 .protyle-wysiwyg .counter,
+.protyle-attr--refcount {
+    color: #b16666;
+}
 .protyle-attr--refcount:hover {
-    color: #ef9a9ab9;
+    color: #b16666cc;
 }
 
 
@@ -476,7 +447,8 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     z-index: 20;
 }
 .protyle-wysiwyg [data-node-id] span[data-type='tag']:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
+    background-color: var(--b3-protyle-inline-tag-background);
 }
 .protyle-wysiwyg [data-node-id] code,
 .b3-typography code:not(.hljs),
@@ -584,7 +556,6 @@ div[data-type='NodeMathBlock'] .minner .mfrac {
     margin: 4px 10px;
 }
 
-
 .b3-typography .protyle-task p {
     margin: 3px 2px;
 }
@@ -592,6 +563,12 @@ div[data-type='NodeMathBlock'] .minner .mfrac {
     margin: 0px 4px 0px 4px;
 }
 
+
+/* 有序列表 */
+
+.protyle-wysiwyg [data-node-id].li>.protyle-action:hover {
+    color: var(--b3-theme-primary);
+}
 /* 无序列表 */
 
 .protyle-wysiwyg [data-subtype='u'] > .protyle-action svg {
@@ -600,14 +577,14 @@ div[data-type='NodeMathBlock'] .minner .mfrac {
 .b3-typography li {
     position: relative;
 }
-.b3-typography ul li {
+.b3-typography ul>li {
     list-style-type: none;
 }
 .protyle-wysiwyg [data-node-id].li {
     position: relative;
 }
 
-.protyle-wysiwyg [data-subtype='u'] > .protyle-action:before,.b3-typography ul li::before{
+.protyle-wysiwyg [data-subtype='u'] > .protyle-action:before,.b3-typography ul>li::before{
     content: '';
     position: absolute;
     display: inline-block;
@@ -708,9 +685,11 @@ div[data-type='NodeMathBlock'] .minner .mfrac {
 .protyle-task--done s {
     color: rgb(164 213 221 / 65%);
 }
-.protyle-task--done [data-type='a'],.protyle-task--done a{
+
+.protyle-task--done [data-type='a'], .protyle-task--done a {
     /* 超链接调整 */
-    color: #8cb5bb !important;
+    color: #88a7d1 !important;
+    border-bottom: 1px solid #88a7d1 !important;
 }
 .protyle-task--done [data-type='a']:hover {
     /* 超链接悬浮调整 */
@@ -724,6 +703,16 @@ div[data-type='NodeMathBlock'] .minner .mfrac {
 }
 .protyle-task--done span[data-type="tag"]{
     text-decoration: none !important;
+}
+
+/* 完成的待办事项有序列表样式 */
+.protyle-task--done  [data-node-id].li>.protyle-action--order,
+.b3-typography ol>li{
+    color: #6791a396 !important;
+}
+/* 完成的待办事项无序列表样式 */
+.protyle-task--done  [data-subtype='u'] > .protyle-action:before,.b3-typography .protyle-task--done  ul>li::before {
+    background-color: #6791a396;
 }
 /* 对完成的待办事项内容全部调整透明度，发现一个问题，父级的透明度会被子级继承 */
 div[data-subtype='t'][data-type='NodeList'] {
@@ -778,13 +767,6 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 /* -------------------------------代码块样式-------------------------------------- */
 
-/* .hljs {
-    display: block;
-    overflow-x: auto;
-    padding: 0.5em;
-    color: #333;
-    
-} */
 .protyle-reset .hljs,
 .protyle-wysiwyg .hljs ,.b3-typography .hljs{
     padding-top: 4px !important;
@@ -825,34 +807,19 @@ div[data-subtype='t'][data-type='NodeList'] {
     z-index: 1;
 }
 
-/* 代码语言显示 */
-/* .protyle-reset .code-block .protyle-action__language,
-.protyle-wysiwyg .code-block .protyle-action__language {
-    margin-right: 8px;
-    margin-top: -8px;
-
-    cursor: pointer;
-    min-width: 24px;
-    background-color: #ffffff !important;
-    padding: 0 8px 22px 8px;
-    height: 18px;
-    box-sizing: border-box;
-    line-height: 18px;
-    border-radius: 4px; */
-/* } */
 
 /*  代码块行数*/
 .protyle-linenumber__rows {
-    background-color: var(--b3-protyle-code-background) !important;
-    /* border-right: 1px solid #b1c3c491; */
     margin-top: 31px !important;
+    background-color: var(--b3-protyle-code-background) !important;
     padding-right:15px;
     padding-bottom: 0px;
     margin-bottom: 6px;
     width: 39px;
-    font-size:14px;
-    font-family: var(--b3-font-family-code);
+    /* font-size:14px; */
+    /* font-family: var(--b3-font-family-code); */
 }
+
 .protyle-linenumber__rows::before{
     content: '';
     display: block;
@@ -988,7 +955,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     padding: 8px 16px;
     color: #fff;
     font-size: inherit;
-    background-color: #ec8d8e;
+    background-color: #ec8d8deb;
     box-sizing: border-box;
     box-shadow: 0 3px 5px -1px rgb(0 0 0 / 20%), 0 6px 10px 0 rgb(0 0 0 / 14%),
         0 1px 18px 0 rgb(0 0 0 / 12%);
@@ -1006,7 +973,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     font-size: 50%;
     padding: 4px;
     /* background-color: bisque; */
-    background: #ec8d8e;
+    background: #ec8d8deb;
     border-radius: 16px;
     cursor: pointer;
     top: 2px;
@@ -1097,18 +1064,21 @@ div[data-subtype='t'][data-type='NodeList'] {
 /* ----------------------------标签页样式----------------------------------------- */
 
 /* 多窗口区别 */
-.fn__flex-column .protyle-wysiwyg {
+.fn__flex-column .protyle-content,
+.fn__flex-column .protyle-title .protyle-title__input  {
     /* 多窗口非活动窗口变暗 */
     background-color: #f3f7f8;
     transition: background-color 0.5s linear;
 }
+
 .block__popover--open .fn__flex-column .protyle-wysiwyg {
     /* 块引用预览背景颜色 */
-    background-color: var(--b3-theme-background);
+    background-color: #f3f7f8;
     transition: background-color 0.5s linear;
 }
 
-.layout__wnd--active .protyle-wysiwyg {
+.layout__wnd--active .protyle-content,
+.layout__wnd--active .protyle-title .protyle-title__input{
     /* 当前编辑窗口保持主背景色 */
     background-color: var(--b3-theme-background);
 }
@@ -1324,3 +1294,11 @@ iframe {
 /* .b3-typography {
     font-size: 14px !important;
 } */
+
+
+/* 调整kbd标签 */
+.b3-typography kbd, .protyle-wysiwyg kbd {
+    padding: 2px 2px;
+    font: 80% Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    margin: 0px 1px;
+}
