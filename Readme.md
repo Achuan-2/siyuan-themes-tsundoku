@@ -2,39 +2,34 @@
 
 ![preview](preview.png)
 
-🌂缘起：Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释的“Tsundoku is acquiring reading materials but letting them pile up in one's home without reading them. It is also used to refer to books ready for reading later when they are on a bookshelf.”我希望思源能帮助我成长，而不是又成为缓解知识焦虑的积灰箱。
+> 🌞 亮色主题见[Tsundoku Light](https://github.com/Achuan-2/siyuan-themes-tsundoku-light) | 🌛 深色主题见[Tsundoku Dark
+> ](https://github.com/Achuan-2/siyuan-themes-mixture)
+>
+> 本人的思源订阅推荐码：B3XX0Y8，欢迎各位老板使用！
 
----
+💌 缘起：Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释的“Tsundoku is acquiring reading materials but letting them pile up in one's home without reading them. It is also used to refer to books ready for reading later when they are on a bookshelf.”我希望思源能帮助我成长，而不是又成为缓解知识焦虑的积灰箱。
 
-这可能不会是最符合你审美的主题，但或许这会是一个最追求极致体验的主题（之一）🏹
-主颜色为青色和青灰色，代码字体为Fira Code，深色主题见[Tsundoku Dark](https://github.com/Achuan-2/siyuan-themes-tsundoku)
+🔱 这可能不会是最符合你审美的主题，但或许这会是一个最追求极致体验的主题（之一）！
 
-❤特色
+❤ 特色
 
-- 增大了当前标签页的最大文字宽度
-- 动效丰富：弹出窗口有左右展开动效，块引用预览页面展开动效、点开关闭窗口动效
-- 点击任务列表有动效，完成的任务列表样式暂定以颜色减淡来取代删除线（删除线太不优雅了，这样也可以多一个选择，可以自行添加），并对特殊样式包括图片、高亮、加粗、超链接、代码块等也进行一定减淡、颜色更改处理。鼠标经过完成的任务列表会重新恢复透明度
-- 优化了对行内公式和公式块的大小问题
-- 添加了多窗口区分当前和其他窗口
-- 修改安卓端的默认emoji为Win 10 emoji——Segoe UI Emoji，保证样式统一
+* 动效丰富：弹出窗口有左右展开动效，块引用预览页面展开动效、点开关闭窗口动效
+* 对任务列表效果做了最多的优化，完成的任务列表内各个行内和块样式都做了一定处理
+* 优化了对行内公式和公式块的大小问题
+* 修改安卓端的默认 emoji 为 Win 10 emoji——Segoe UI Emoji，保证样式统一
+* 代码字体为 Fira Code，支持连字
 
-由于思源重写编辑器，被覆盖掉（被官方抄了）的特色
+🗞由于思源重写编辑器，被覆盖掉（被官方抄了）的特色
 
-- ~~代码块预览支持直接在右侧显示所用的主流语言~~
-- ~~**隐藏了标签页的文件图标**~~
+* ~~代码块预览支持直接在右侧显示所用的主流语言~~
+* ~~**隐藏了标签页的文件图标**~~
+* ~~添加了多窗口区分当前和其他窗口~~
 
-⚠前排提示：
+🗑取消的特色
 
-- 思源默认2s后自动保存，本主题未保存时标签页的样式是当前标签页的底框会变暗
-- 由于添加了多窗口区分当前和其他窗口，造成了单窗口若未处于激活状态，dark主题会变黑，light主题会变绿———也就是伪护眼模式或休息模式（😂）
-- 如果需要**更改字体**，请在主题文件夹下的 theme.css 中，`--b3-font-family:'SourceHan',... ` 将思源黑体删除、置后或更改
-- 任务列表完成默认无删除线，如果需要完成任务列表自动添加的删除线，可以自行添加删除线（`Ctrl+D`），或者自行修改主题：搜索"完成的待办事项删除线",将`/* text-decoration: line-through; */`取消注释注释
-- 由于个人习惯一级标题作为文章标题索所以默认为居中，可能对习惯把一级标题作为正文标题的童鞋不太友好，可以搜索`标题样式`，将h1`.vditor-reset h1 {text-align: center;...}`中的`text-align: center;`改为`/* text-align: center; */`以注释
-
-本人的思源订阅推荐码：B3XX0Y8，欢迎各位老板使用！
+* ~~增大了当前标签页的最大文字宽度~~（由于现在标签页只有一行横向排布，避免长标题占据太多空间只好暂时取消）
 
 本主题详细改动帖子：#TODO#
-
 ---
 
 ## v0.4.3/2021-06-06

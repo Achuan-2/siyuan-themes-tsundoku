@@ -1,19 +1,10 @@
-@font-face {
-    /* 思源黑体 */
-    font-family: 'SourceHan';
-    font-style: normal;
-    src: url('fonts/NotoSansSC-Regular.otf');
-}
+
 @font-face {
     font-family: 'Win10 Emoji'; 
     font-style: normal;
     src: url('fonts/seguiemj.ttf');
 }
-@font-face {
-    font-family: 'JetBrainsMono';
-    font-style: normal;
-    src: url('fonts/JetBrainsMono-Regular.ttf');
-}
+
 @font-face {
     font-family: 'FiraCode';
     font-style: normal;
@@ -562,7 +553,10 @@ div[data-type='NodeMathBlock'] .minner .mfrac {
 .protyle-task li p{
     margin: 0px 4px 0px 4px;
 }
-
+/* 让有序列表数字居中 */
+.protyle-wysiwyg [data-node-id].li>.protyle-action {
+    text-align: center;
+}
 
 /* 有序列表 */
 
@@ -597,7 +591,7 @@ div[data-type='NodeMathBlock'] .minner .mfrac {
     border-radius: 0.6em;
     background-color: #515e64;
     top: 12px;
-    left: 4px;
+    left: 12px;
 }
 .b3-typography ul li::before {
     left: -19px;
@@ -642,7 +636,7 @@ div[data-type='NodeMathBlock'] .minner .mfrac {
     border-radius: 0.17em;
     background-color: #c7ced1;
     top: 0.3em;
-    left: -0.1em;
+    left: 6px;
     font-size: 1.1em;
 }
 .b3-typography  .protyle-task:before {
@@ -1274,7 +1268,7 @@ iframe {
 
 /* 调整kbd标签 */
 .b3-typography kbd, .protyle-wysiwyg kbd {
+    font-size: 90%;
     padding: 2px 4px;
-    font: 80% Consolas, "Liberation Mono", Menlo, Courier, monospace;
     margin: 0px 1px;
 }
