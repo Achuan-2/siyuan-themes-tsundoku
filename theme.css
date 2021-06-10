@@ -56,7 +56,8 @@
     /* 页签 */
     --b3-tab-background: #e7edf0;
     --b3-tab-background-hover: #dee4e8;
-
+    /* 菜单 */
+    --b3-menu-background: #f8f9fa;
     /* 提示 */
     --b3-tooltips-color: #88adb8d2;
 
