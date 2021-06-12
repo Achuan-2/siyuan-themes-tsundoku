@@ -1,6 +1,8 @@
 <a title="Hits" target="_blank" href="https://github.com/Achuan-2/siyuan-themes-tsundoku-light"><img src="https://hits.b3log.org/Achuan-2/siyuan-themes-tsundoku-light.svg" ></a>
 [![Downloads](https://img.shields.io/github/downloads/Achuan-2/siyuan-themes-tsundoku-light/total?logo=github)](https://github.com/Achuan-2/siyuan-themes-tsundoku-light/releases/latest/download/siyuan-themes-tsundoku-light.zip)
 [![Release](https://img.shields.io/github/release/Achuan-2/siyuan-themes-tsundoku-light.svg)](https://github.com/Achuan-2/siyuan-themes-tsundoku-light/releases)
+![issues](https://badgen.net/github/issues/Achuan-2/siyuan-themes-tsundoku-light.svg)
+
 
 # 思源主题: Tsundoku(light)
 
