@@ -1,3 +1,6 @@
+[![Downloads](https://img.shields.io/github/downloads/Achuan-2/siyuan-themes-tsundoku-light/total?logo=github)](https://github.com/Achuan-2/siyuan-themes-tsundoku-light/releases/latest/download/siyuan-themes-tsundoku-light.zip)
+[![Release](https://img.shields.io/github/release//Achuan-2/siyuan-themes-tsundoku-light.svg)](https://github.com/Achuan-2/siyuan-themes-tsundoku-light/releases)
+
 # 思源主题: Tsundoku(light)
 
 ![preview](preview.png)
