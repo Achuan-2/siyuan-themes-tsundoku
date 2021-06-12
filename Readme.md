@@ -6,7 +6,7 @@
 ![closed-issues](https://badgen.net/github/closed-issues/Achuan-2/siyuan-themes-tsundoku-light)
 ![last-commit](https://badgen.net/github/last-commit/Achuan-2/siyuan-themes-tsundoku-light)
 ![totalcommit](https://badgen.net/github/commits/Achuan-2/siyuan-themes-tsundoku-light)
-![totalcommit](https://badgen.net/github/last-commit/micromatch/micromatch)
+![totalcommit](https://badgen.net/github/last-commit/Achuan-2/siyuan-themes-tsundoku-light)
 
 # 思源主题: Tsundoku(light)
 
