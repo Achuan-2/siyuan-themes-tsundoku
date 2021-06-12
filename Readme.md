@@ -4,8 +4,9 @@
 ![stars](https://badgen.net/github/stars/Achuan-2/siyuan-themes-tsundoku-light)
 ![open-issues](https://badgen.net/github/open-issues/Achuan-2/siyuan-themes-tsundoku-light)
 ![closed-issues](https://badgen.net/github/closed-issues/Achuan-2/siyuan-themes-tsundoku-light)
-![last-commits](https://badgen.net/github/last-commit/Achuan-2/siyuan-themes-tsundoku-light)
-
+![last-commit](https://badgen.net/github/last-commit/Achuan-2/siyuan-themes-tsundoku-light)
+![totalcommit](https://badgen.net/github/commits/Achuan-2/siyuan-themes-tsundoku-light)
+![totalcommit](https://badgen.net/github/last-commit/micromatch/micromatcht)
 
 # 思源主题: Tsundoku(light)
 
