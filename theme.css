@@ -154,7 +154,7 @@
     --b3-protyle-inline-mark-background: #f8e8cb;
     --b3-protyle-inline-mark-color: #202124;
     --b3-protyle-inline-tag-background: #81a9a9;
-    --b3-protyle-inline-tag-text-color: #f8f9fa;
+    --b3-protyle-inline-tag-color: #f8f9fa;
     --b3-protyle-inline-code-color: #038296;
     --b3-protyle-inline-code-background: #e0ecf3a6;
     --b3-protyle-inline-blockref-color: #f58484;
@@ -427,7 +427,7 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     display: inline-flex;
     font-size: 85%;
     text-decoration: none !important;
-    color: var(--b3-protyle-inline-tag-text-color);
+    color: var(--b3-protyle-inline-tag-color);
     background-color: var(--b3-protyle-inline-tag-background);
     border-radius: 0.625em;
     padding: 0.08em 0.375em 0.08em !important;
@@ -466,9 +466,22 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     /* border-bottom: 1px solid transparent; */
     /* text-decoration: underline; */
 }
+.protyle-wysiwyg [data-node-id] span[data-type='a']:before,
+.b3-typography a:before {
+    content: "";
+    position: relative;
+    display: inline-block;
+    width:  1em;
+    height: 1em;
+    top: 0.2em;
+    margin-right:2px;
+    background-image: url(src/share.svg);
+    background-size: 100% 100%;
+}
 .b3-typography a {
     text-decoration: underline;
     color: var(--b3-protyle-inline-link-color);
+    
 }
 .protyle-wysiwyg [data-node-id] span[data-type='a']:hover {
     color: var(--b3-protyle-inline-link-hover-color);
@@ -716,7 +729,7 @@ div[data-type='NodeMathBlock'] .minner .mfrac {
 
 /* 完成的待办事项有序列表样式 */
 .protyle-task--done  [data-node-id].li>.protyle-action--order,
-.b3-typography ol>li{
+.protyle-task--done  .b3-typography ol>li{
     color: #6791a396 !important;
 }
 /* 完成的待办事项无序列表样式 */
@@ -1085,6 +1098,9 @@ div[data-subtype='t'][data-type='NodeList'] {
     background-color: #f3f7f8;
     transition: background-color 0.5s linear;
 }
+.layout-tab-bar {
+    background-color: transparent;
+}
 
 .layout__wnd--active .protyle-content,
 .layout__wnd--active .protyle-title .protyle-title__input{
@@ -1278,3 +1294,21 @@ iframe {
     padding: 2px 4px;
     margin: 0px 1px;
 }
+
+
+
+/* .fn__flex-column .fn__flex-column.fn__flex.fn__flex-1 {
+    background: transparent;
+    min-height: 90% !important;
+
+    margin: 4px 0px 10px 0px;
+    box-shadow: rgb(0 0 0 / 23%) 2px 2px 7px -1px;
+    overflow: hidden;
+    z-index: 2;
+    box-sizing: border-box;
+    border-radius: 6px;
+}
+.layout__center  .fn__flex-column.fn__flex.fn__flex-1 {
+    margin: 0px 10px 0px 10px !important;
+    box-shadow: rgb(0 0 0 / 43%) 0px 0px 5px -1px !important;
+} */
