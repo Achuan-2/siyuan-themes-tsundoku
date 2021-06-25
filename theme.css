@@ -500,53 +500,6 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     /* transition: all 0.4s ease-in-out; 加了这个缩放会不跟                              手*/
 }
 
-/* 行内公式 */
-.protyle-wysiwyg [data-node-id] span[data-type='inline-math'] {
-    cursor: pointer;
-    font-size: 100%;
-}
-.b3-typography span[data-subtype="math"] {
-    font-size: 100% !important;
-}
-   /* 行内分式公式 */
-[data-type='inline-math'] .mfrac {
-    font-size: 1.4em;
-} 
-[data-type='inline-math'] span.sqrt .mfrac {
-    font-size: 100% !important;
-}
-
-.b3-typography span[data-subtype="math"] .mfrac {
-    font-size: 1.4em;
-} 
-.b3-typography span[data-subtype="math"] span.sqrt .mfrac {
-    font-size: 100% !important;
-}
-/* 公式块分式 */
-.b3-typography [data-subtype="math"]{
-    font-weight: 400 !important;
-}
-.b3-typography div[data-subtype="math"], .protyle-wysiwyg div[data-subtype="math"] {
-    /* font-size: 120%; */
-    font-family: monospace;
-}
-/* .b3-typography .minner .mfrac {
-    font-size: 115%;
-}
-div[data-type='NodeMathBlock'] .minner .mfrac {
-    font-size: 115%;
-} */
-
-/* 公式换行调大距离 */
-.katex .katex-html > .newline {
-    padding-bottom: 0.5em;
-}
-/* 修复1.1.3后公式块与正文间距变大的问题 */
-.katex-display {
-    display: block;
-    margin: 5px 0;
-    text-align: center;
-}
 
 
 /* 调整列表间距 */
