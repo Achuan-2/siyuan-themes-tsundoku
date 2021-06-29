@@ -243,7 +243,67 @@
     font-size: 1.1em;
     /* color: #03a1b9cc; */
 }
+/* 标题加粗不显示 */
+.protyle-wysiwyg [data-type="NodeHeading"] strong{
+    color:inherit;
+}
+/* 自动编号 */
+/* 首先全局进行一次reset，这样即使不添加h1标题也可以使用较低级别的标题 */
+/* 编辑器编号 */
+/* .protyle-wysiwyg ,.b3-typography {
+    counter-reset:  h2 0 h3 0 h4 0 h5 0 h6 0;
+}
+.protyle-wysiwyg [data-node-id].h1,.b3-typography h1 {
+    counter-reset: h2;
+}
+.protyle-wysiwyg [data-node-id].h2,.b3-typography h2 {
+    counter-reset: h3;
+}
+.protyle-wysiwyg [data-node-id].h3 ,.b3-typography h3{
+    counter-reset: h4;
+}
+.protyle-wysiwyg [data-node-id].h4 ,.b3-typography h4{
+    counter-reset: h5;
+}
+.protyle-wysiwyg [data-node-id].h5,.b3-typography h5 {
+    counter-reset: h6;
+}
+.protyle-wysiwyg [data-node-id].h2 div:before,.b3-typography h2:before {
+    counter-increment: h2;
+    content: counter(h2) ;
+    margin-right: 2rem;
+}
+.protyle-wysiwyg [data-node-id].h3 div:before,.b3-typography h3:before{
+    counter-increment: h3;
+    content: counter(h2) "." counter(h3);
+    margin-right: 2rem;
+}
+.protyle-wysiwyg [data-node-id].h4 div:before,.b3-typography h4:before{
+    counter-increment: h4;
+    content: counter(h2) "." counter(h3) "." counter(h4);
+    margin-right: 2rem;
+}
+.protyle-wysiwyg [data-node-id].h5 div:before,.b3-typography h5:before{
+    counter-increment: h5;
+    content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5);
+    margin-right: 2rem;
+}
+.protyle-wysiwyg [data-node-id].h6 div:before,.b3-typography h6:before {
+    counter-increment: h6;
+    content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "."
+        counter(h6);
+    margin-right: 2rem; */
+}
+/* 想大纲编号 */
 
+/* .b3-list.b3-list--background ul{
+    list-style-type:none;
+    counter-reset:sectioncounter;
+}
+.b3-list.b3-list--background ul li:before {
+       content:counter(sectioncounter) "."; 
+       counter-increment:sectioncounter;
+    } */
 /* -------------------------------表格------------------------------------- */
 
 /* 表格 */
@@ -438,10 +498,12 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     transition: all 0.2s ease-in-out;
     z-index: 20;
 }
+
 .protyle-wysiwyg [data-node-id] span[data-type='tag']:hover {
     transform: scale(1.05);
     background-color: var(--b3-protyle-inline-tag-background);
 }
+/* 行内代码 */
 .protyle-wysiwyg [data-node-id] code,
 .b3-typography code:not(.hljs),
 .protyle-wysiwyg code:not(.hljs) {
@@ -455,7 +517,7 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     white-space: pre-wrap;
     color: var(--b3-protyle-inline-code-color);
     background-color: var(--b3-protyle-inline-code-background);
-    /* box-shadow: #0993a580 1px 0px 5px 1px inset; */
+    box-shadow: #34808a38 0px 0px 3px 1px inset;
 }
 
 /* 超链接 */
@@ -546,7 +608,7 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
 .protyle-wysiwyg [data-node-id].li {
     position: relative;
 }
-
+/* 无序列表小圆点样式 */
 .protyle-wysiwyg [data-subtype='u'] > .protyle-action:before,.b3-typography ul>li::before{
     content: '';
     position: absolute;
@@ -559,8 +621,8 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     border: 0px;
     border-radius: 0.6em;
     background-color: #515e64;
-    top: 12px;
-    left: 12px;
+    top: 14.5px;
+    left: 13px;
 }
 .b3-typography ul li::before {
     left: -19px;
@@ -718,7 +780,8 @@ div[data-subtype='t'][data-type='NodeList'] {
     opacity: 0.5;
     transition: opacity 0.2s ease-in-out;
 }
-.protyle-task--done  .code-block{
+.protyle-task--done  .code-block,
+.protyle-task--done  code{
     opacity: 0.5;
     transition: opacity 0.5s ease-in-out;
 }
