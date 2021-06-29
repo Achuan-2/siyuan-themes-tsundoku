@@ -380,21 +380,30 @@ strong {
     color: inherit;
 }
 /* blockquote 引用 */
-.protyle-wysiwyg [data-node-id].bq, .b3-typography blockquote {
+/* old */
+/* .protyle-wysiwyg [data-node-id].bq, .b3-typography blockquote {
     border-left: 0.25em solid #b5cfd3 !important;
     border-radius: 0em 0.31em 0.31em 0.em;
     background-color: rgba(66, 185, 185, 0.05) !important;
     margin-top: 8px !important;
-}
-/* .protyle-wysiwyg [data-node-id].bq ,.b3-typography blockquote{
-    border-left: 0.25em solid #b5cfd3 !important;
-    border-radius: 0.31em;
-    background-color: rgba(66, 185, 185, 0.05) !important;
-    margin-top: 8px !important;
 } */
+.protyle-wysiwyg [data-node-id].bq, .b3-typography blockquote {
+    border-left: 4px solid #8aacac !important;
+    border: 2px solid #8aacac ;
+    border-radius: 0em 0.31em 0.31em 0.em;
+    margin-top: 8px !important;
+}
 
 .protyle-wysiwyg [data-node-id].bq > div{
-    padding-left: 1em;
+    margin-left: 1em;
+}
+/* 缩进调整 */
+.b3-typography blockquote > p,
+.b3-typography blockquote .code-block,
+.b3-typography blockquote ul,
+.b3-typography blockquote li
+.b3-typography blockquote > blockquote {
+    margin-left: 1em;
 }
 .protyle-wysiwyg [data-node-id].bq strong,.b3-typography blockquote strong{
     color: inherit;
@@ -518,7 +527,7 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
 .b3-typography code:not(.hljs),
 .protyle-wysiwyg code:not(.hljs) {
     padding: 0.2em 0.4em;
-    margin: 0;
+    margin: 0 2px;
     font-size: 85%;
     border-radius: 3px;
     font-family: var(--b3-font-family-code);
@@ -786,20 +795,18 @@ div[data-subtype='t'][data-type='NodeList'] {
     opacity: 1;
 }
 
-.protyle-task--done  img{
-    opacity: 0.5;
-    transition: opacity 0.2s ease-in-out;
-}
+
 .protyle-task--done  .code-block,
-.protyle-task--done  code{
+.protyle-task--done  code,
+.protyle-task--done  kbd,
+.protyle-task--done  img{
     opacity: 0.5;
     transition: opacity 0.5s ease-in-out;
 }
 
-.protyle-task--done:hover {
-    opacity: 1 !important;
-}
-.protyle-task--done:hover  .code-block{
+
+.protyle-task--done:hover  .code-block,
+.protyle-task--done:hover img {
     opacity: 1 !important;
 }
 
@@ -982,9 +989,10 @@ div[data-subtype='t'][data-type='NodeList'] {
 .b3-button--cancel:focus,
 .b3-button--outline:hover,
 .b3-button--outline:focus {
-    background-color: #d4e2ef;
+    background-color: rgba(137, 233, 212, 0.24);
     font-weight: 600;
-    filter: drop-shadow(2px 2px 2px #4a6c8da1);
+    /* border:1px solid rgba(87, 86, 86, 0.144); */
+    /* filter: drop-shadow(1px 1px 1px #4a6c8da1); */
 }
 /* 悬浮工具栏 */
 .protyle-toolbar__item:hover {
@@ -1338,3 +1346,8 @@ iframe {
     margin: 0px 10px 0px 10px !important;
     box-shadow: rgb(0 0 0 / 43%) 0px 0px 5px -1px !important;
 } */
+
+
+.protyle-title__input {
+    border-bottom: 2px solid #011010ad;
+}
