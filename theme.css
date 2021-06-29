@@ -245,6 +245,16 @@
 }
 /* 标题加粗不显示 */
 .protyle-wysiwyg [data-type="NodeHeading"] strong{
+    /* 编辑器 */
+    color:inherit;
+}
+.b3-typography h1 strong,
+.b3-typography h2 strong,
+.b3-typography h3 strong,
+.b3-typography h4 strong,
+.b3-typography h5 strong,
+.b3-typography h6 strong {
+    /* 预览样式 */
     color:inherit;
 }
 /* 自动编号 */
@@ -383,8 +393,8 @@ strong {
     margin-top: 8px !important;
 } */
 
-.protyle-wysiwyg [data-node-id].bq .p ,.b3-typography blockquote p{
-    padding-left: 1em !important;
+.protyle-wysiwyg [data-node-id].bq > div{
+    padding-left: 1em;
 }
 .protyle-wysiwyg [data-node-id].bq strong,.b3-typography blockquote strong{
     color: inherit;
@@ -572,8 +582,8 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     margin: 0px 3px 0px 3px;
 }
 .b3-typography ul, .b3-typography ol {
-    padding-left: 16px !important;
-    margin: 4px 10px;
+    padding-left: 2em;
+    margin: 4px 0px;
 }
 
 .b3-typography .protyle-task p {
