@@ -606,10 +606,10 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     margin: 0px 4px 0px 4px;
 }
 /* 列表和文字的距离 */
-.protyle-wysiwyg [data-node-id].li>[data-node-id] {
+/* .protyle-wysiwyg [data-node-id].li>[data-node-id] {
     margin-left: 1.7em !important;
 
-}
+} */
 
 /* 让有序列表数字居中 */
 .protyle-wysiwyg [data-node-id].li>.protyle-action {
