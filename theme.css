@@ -541,8 +541,9 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     /* border-bottom: 1px solid transparent; */
     /* text-decoration: underline; */
 }
-.protyle-wysiwyg [data-node-id] span[data-type='a']:after,
-.b3-typography a:after{
+/* 超链接前后是否要设置icon */
+/* .protyle-wysiwyg [data-node-id] span[data-type='a']:before
+.b3-typography a:before{
     content: "";
     position: relative;
     display: inline-block;
@@ -552,7 +553,7 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     margin-right:2px;
     background-image: url(src/share.svg);
     background-size: 100% 100%;
-}
+} */
 .b3-typography a {
     text-decoration: underline;
     color: var(--b3-protyle-inline-link-color);
