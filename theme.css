@@ -35,7 +35,7 @@
     --b3-theme-on-error: #fff;
 
     /* 字体 */
-    --b3-font-family:  'Helvetica Neue', 'Luxi Sans', 'DejaVu Sans', 'Hiragino Sans GB',
+    --b3-font-family: 'Helvetica Neue', 'Luxi Sans', 'DejaVu Sans', 'Hiragino Sans GB',
         'Microsoft Yahei', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji',
         'Win10 Emoji', 'Segoe UI Symbol', 'Android Emoji', 'EmojiSymbols';
     --b3-font-family-code: 'FiraCode', mononoki, Consolas, 'Liberation Mono', Menlo, Courier,
@@ -257,9 +257,8 @@
     /* 预览样式 */
     color:inherit;
 }
-/* 自动编号 */
+/* 标题自动编号 */
 /* 首先全局进行一次reset，这样即使不添加h1标题也可以使用较低级别的标题 */
-/* 编辑器编号 */
 /* .protyle-wysiwyg ,.b3-typography {
     counter-reset:  h2 0 h3 0 h4 0 h5 0 h6 0;
 }
@@ -302,18 +301,9 @@
     counter-increment: h6;
     content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "."
         counter(h6);
-    margin-right: 2rem; */
-}
-/* 想大纲编号 */
+    margin-right: 2rem;
+} */
 
-/* .b3-list.b3-list--background ul{
-    list-style-type:none;
-    counter-reset:sectioncounter;
-}
-.b3-list.b3-list--background ul li:before {
-       content:counter(sectioncounter) "."; 
-       counter-increment:sectioncounter;
-    } */
 /* -------------------------------表格------------------------------------- */
 
 /* 表格 */
@@ -462,7 +452,7 @@ div[data-type='block-render'] {
     margin:10px 0px;
 }
 .protyle-wysiwyg__embed {
-    border-top: 2px dashed rgb(143 167 235 / 38%);
+    border-top: 3px dashed #0e5d12d6;
     position: relative;
 }
 
@@ -551,8 +541,8 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     /* border-bottom: 1px solid transparent; */
     /* text-decoration: underline; */
 }
-.protyle-wysiwyg [data-node-id] span[data-type='a']:before,
-.b3-typography a:before {
+.protyle-wysiwyg [data-node-id] span[data-type='a']:after,
+.b3-typography a:after{
     content: "";
     position: relative;
     display: inline-block;
@@ -1329,3 +1319,9 @@ iframe {
 .protyle-title__input {
     border-bottom: 2px solid #011010ad;
 }
+/* .file-tree [data-type="navigation-file"] .b3-list-item__text {
+    opacity: 1;
+}
+.file-tree [data-type="navigation-folder"] .b3-list-item__text {
+    font-weight: 600;
+} */
