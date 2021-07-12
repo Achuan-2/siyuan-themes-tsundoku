@@ -1122,13 +1122,6 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 /* ----------------------------标签页样式----------------------------------------- */
 
-/* 多窗口区别 */
-.fn__flex-column .protyle-content,
-.fn__flex-column .protyle-title .protyle-title__input  {
-    /* 多窗口非活动窗口变暗 */
-    background-color: #f3f7f8;
-    transition: background-color 0.5s linear;
-}
 
 .block__popover--open .fn__flex-column .protyle-wysiwyg {
     /* 块引用预览背景颜色 */
