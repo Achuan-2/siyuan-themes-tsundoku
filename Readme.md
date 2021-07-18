@@ -28,6 +28,21 @@
 
 ---
 
+## v0.5.3 / 2021-07-18
+
+* 修正 h3 标题的行距
+* light 主题修改分栏多窗口的分割线
+* 完成的待办列表中的 strike 样式修改：从“更改颜色”到“减淡透明度”
+* 表格默认居中，表格字体减小
+* 更改空行提示为："To the time to life, rather than to life in time"，可通过以下代码修改 content 内容进行修改，删除这段代码则恢复默认。
+
+  ```css
+  .protyle-wysiwyg [data-node-id] [spellcheck="false"]:focus:empty:after {  
+      content: "To the time to life, rather than to life in time.";  
+      color: #9fa5a6;
+  }
+  ```
+
 ## v0.5.2 / 2021-07-12
 
 * 取消多窗口区别样式

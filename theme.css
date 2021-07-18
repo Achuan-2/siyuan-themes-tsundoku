@@ -201,7 +201,7 @@
 
 /*分窗口的边框（线）  */
 .layout__resize::after {
-    background-color: #e2e9f1;
+    background-color: #c7d1d8;
 }
 
 /* -------------------------------标题样式-------------------------------------- */
@@ -217,6 +217,7 @@
     font-size: 1.55em !important;
     color: #34495e;
     padding: 0.3em 0px !important;
+    /* margin-bottom: 0.75em; */
 }
 .protyle-wysiwyg [data-node-id].h3,.b3-typography h3 {
     position: relative;
@@ -226,8 +227,8 @@
     border-left: 4px solid rgb(21, 170, 191);
     text-align: justify;
     padding: 5px 0px 0px 7px;
-    margin-top: 19px;
-    /* margin-bottom: 16px; */
+    margin-top: 20px;
+    margin-bottom: 17px;
     padding-left: 7px;
 }
 
@@ -306,7 +307,17 @@
 
 /* -------------------------------表格------------------------------------- */
 
-/* 表格 */
+
+/* 表格默认居中 */
+.protyle  .table {
+    text-align: center;
+    font-size: 0.9em;
+}
+.protyle table {
+    font-size: 0.9em;
+    /* 导出时表格无法居中 */
+}
+/* 表格背景设置 */
 .protyle-wysiwyg   table thead tr {
     background-color: var(--b3-table-th-color) !important;
 }
@@ -743,7 +754,8 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     color: inherit
 }
 .protyle-task--done s {
-    color: rgb(164 213 221 / 65%);
+    color: inherit;
+    opacity: 0.5;
 }
 
 .protyle-task--done [data-type='a'], .protyle-task--done a {
@@ -831,7 +843,6 @@ div[data-subtype='t'][data-type='NodeList'] {
     padding-top: 4px !important;
     padding-bottom: 4px !important;
     padding-left: 16px;
-    /* 这里字体改小了…… */
     font-family: var(--b3-font-family-code);
     background-size: 20px 20px;
     background-image: none !important;
@@ -874,8 +885,6 @@ div[data-subtype='t'][data-type='NodeList'] {
     padding-bottom: 0px;
     margin-bottom: 6px;
     width: 39px;
-    /* font-size:14px; */
-    /* font-family: var(--b3-font-family-code); */
 }
 
 .protyle-linenumber__rows::before{
@@ -889,7 +898,6 @@ div[data-subtype='t'][data-type='NodeList'] {
 }
 
 /* 代码语言显示 */
-
 .code-block .protyle-icons {
 
     background-color: transparent;
@@ -1313,9 +1321,9 @@ iframe {
 .protyle-title__input {
     border-bottom: 2px solid #011010ad;
 }
-/* .file-tree [data-type="navigation-file"] .b3-list-item__text {
-    opacity: 1;
+
+/* 更改提示 */
+.protyle-wysiwyg [data-node-id] [spellcheck="false"]:focus:empty:after {  
+    content: "To the time to life, rather than to life in time.";  
+    color: #9fa5a6;
 }
-.file-tree [data-type="navigation-folder"] .b3-list-item__text {
-    font-weight: 600;
-} */
