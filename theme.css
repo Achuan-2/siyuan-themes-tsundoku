@@ -377,10 +377,11 @@ mark {
     background-color: var(--b3-protyle-inline-mark-background);
     color: var(--b3-protyle-inline-mark-color);
 }
-.protyle mark{
+/* 修改高亮为挖空效果，但是预览模式关闭（毕竟需要导出） */
+.protyle-wysiwyg mark{
     color: transparent;
 }
-.protyle mark:hover{
+.protyle-wysiwyg mark:hover{
     color: var(--b3-protyle-inline-mark-color);
     transition: all 0.5s ease-in-out;
 }

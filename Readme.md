@@ -37,10 +37,10 @@
 * 修改 mark 样式为挖空效果
 
   ```css
-  .protyle mark{
+  .protyle-wysiwyg mark{
       color: transparent;
   }
-  .protyle mark:hover{
+  .protyle-wysiwyg mark:hover{
       color: var(--b3-protyle-inline-mark-color);
       transition: all 0.5s ease-in-out;
   }
