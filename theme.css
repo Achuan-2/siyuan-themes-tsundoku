@@ -377,6 +377,13 @@ mark {
     background-color: var(--b3-protyle-inline-mark-background);
     color: var(--b3-protyle-inline-mark-color);
 }
+.protyle mark{
+    color: transparent;
+}
+.protyle mark:hover{
+    color: var(--b3-protyle-inline-mark-color);
+    transition: all 0.5s ease-in-out;
+}
 strong {
     color: inherit;
 }

@@ -34,6 +34,17 @@
 * light 主题修改分栏多窗口的分割线
 * 完成的待办列表中的 strike 样式修改：从“更改颜色”到“减淡透明度”
 * 表格默认居中，表格字体减小
+* 修改 mark 样式为挖空效果
+
+  ```css
+  .protyle mark{
+      color: transparent;
+  }
+  .protyle mark:hover{
+      color: var(--b3-protyle-inline-mark-color);
+      transition: all 0.5s ease-in-out;
+  }
+  ```
 * 更改空行提示为："To the time to life, rather than to life in time"，可通过以下代码修改 content 内容进行修改，删除这段代码则恢复默认。
 
   ```css
