@@ -311,7 +311,6 @@
 /* 表格默认居中 */
 .protyle  .table {
     text-align: center;
-    font-size: 0.9em;
 }
 .protyle table {
     font-size: 0.9em;
@@ -380,10 +379,11 @@ mark {
 /* 修改高亮为挖空效果，但是预览模式关闭（毕竟需要导出） */
 .protyle-wysiwyg mark{
     color: transparent;
+    transition: all 2s ease-in-out;
 }
 .protyle-wysiwyg mark:hover{
     color: var(--b3-protyle-inline-mark-color);
-    transition: all 0.5s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 strong {
     color: inherit;
@@ -667,6 +667,7 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
 /* .b3-typography ul li::before {
     left: -19px;
 } */
+/* 无序列表 */
 /* 无序列表悬浮的小圆点 */
 .protyle-wysiwyg [data-subtype='u'] > .protyle-action:hover:before,
 .protyle-wysiwyg [data-node-id].li[fold="1"]>.protyle-action:before {
@@ -676,11 +677,13 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
 /* 无序列表悬浮的大圆点 */
 .protyle-wysiwyg [data-node-id].li>.protyle-action:hover:after,
 .protyle-wysiwyg [data-node-id].li[fold="1"]>.protyle-action:after{
-    background-color: #3ca2ce9c !important;
+    background-color: #a1b5bd9c !important;
     opacity: .68;
 }
 
-
+.protyle-wysiwyg [data-node-id].li>.protyle-action:hover, .protyle-wysiwyg [data-node-id].li[fold="1"]>.protyle-action {
+    color: #477f96 !important;
+}
 
 
 /* ---------------------复选框（待办事项）Start------------------------------------------------ */
