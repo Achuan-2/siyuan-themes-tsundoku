@@ -376,6 +376,7 @@ mark {
     background-color: var(--b3-protyle-inline-mark-background);
     color: var(--b3-protyle-inline-mark-color);
 }
+/* ----------如果希望取消挖空效果，请删除这段代码 Start---------------- */
 /* 修改高亮为挖空效果，但是预览模式关闭（毕竟需要导出） */
 .protyle-wysiwyg mark{
     color: transparent;
@@ -385,6 +386,7 @@ mark {
     color: var(--b3-protyle-inline-mark-color);
     transition: all 0.2s ease-in-out;
 }
+/* -------------如果希望取消挖空效果，请删除这段代码 END----------------------------------- */
 strong {
     color: inherit;
 }
@@ -1311,9 +1313,16 @@ iframe {
 
 
 /* 调整超级块中元素间距 */
+.protyle-wysiwyg .sb{
+    padding: 4px 0px !important;
+}
 .protyle-wysiwyg .sb div[data-node-id]{
-    margin: 4px;
+    margin:4px 4px 4px 0px;
+    /* padding: 0px; */
     border-radius: 3px;
+}
+.protyle-wysiwyg .sb div[data-node-id]:nth-last-child(2){
+    margin:4px 0px 4px 0px;
 }
 /* 工具栏样式 */
 .protyle-toolbar {
