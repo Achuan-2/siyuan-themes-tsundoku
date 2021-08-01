@@ -44,15 +44,28 @@
   | 状态     | 配色情况                                             |
   | ---------- | ------------------------------------------------------ |
   | 修改前   | ![Pl图片注释](https://b3logfile.com/siyuan/1610205759005/assets/image-20210801154103-b72ek74.png) |
-  | 修改后： | ![Pl图片注释](https://b3logfile.com/siyuan/1610205759005/assets/image-20210801151904-m65d5c7.png) |
+  | 修改后： | ![Pl图片注释](https://b3logfile.com/siyuan/1610205759005/assets/image-20210801192810-mf90ey5.png) |
 
   dark 主题：
 
   | 状态   | 配色情况                                             |
   | -------- | ------------------------------------------------------ |
   | 修改前 | ![Pl图片注释](https://b3logfile.com/siyuan/1610205759005/assets/image-20210801154046-7bhhio4.png) |
-  | 修改后 | ![Pl图片注释](https://b3logfile.com/siyuan/1610205759005/assets/image-20210801153719-c1ymmcc.png) |
+  | 修改后 | ![Pl图片注释](https://b3logfile.com/siyuan/1610205759005/assets/image-20210801192205-rw7usxd.png) |
+* 添加自定义块属性样式
+  * 属性 key 都为 function
+  * value 可为
 
+    * zy ——代表重要
+    * ing ——代表进行中
+    * done ——代表事项已完成
+    * 50 ——代表完成 50%
+    * kaiti ——字体为楷体
+    * 挖空——挖空效果
+    * 黄——黄背景色
+    * 蓝——蓝色背景色
+    * 红——红色背景色
+  * 预览图：![Pl图片注释](https://b3logfile.com/siyuan/1610205759005/assets/image-20210801200405-zy5kgxz.png)
 
 ## v0.5.5/2021-07-28
 

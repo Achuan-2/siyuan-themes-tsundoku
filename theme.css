@@ -86,13 +86,13 @@
     --b3-font-color12: #f5822e;
     --b3-font-color13: var(--b3-theme-background);
     --b3-font-background1: #f5cfd0;
-    --b3-font-background2: #fdfade;
+    --b3-font-background2: #f5edaa;
     --b3-font-background3: #d4eefc;
     --b3-font-background4: #bff0d1d0;
-    --b3-font-background5: var(--b3-theme-surface);
-    --b3-font-background6: #dfdddd;
-    --b3-font-background7: #f99c7bad;
-    --b3-font-background8: #f8e8cb;
+    --b3-font-background5: #3bb92c85;
+    --b3-font-background6: #f99c7bad;
+    --b3-font-background7: #dfdddd;
+    --b3-font-background8: #efb243a6;
     --b3-font-background9: #d6ddfc;
     --b3-font-background10: #d3adf7d0;
     --b3-font-background11: #ff85c0d5;
@@ -1346,4 +1346,82 @@ iframe {
 .protyle-wysiwyg [data-node-id] [spellcheck="false"]:focus:empty:after {  
     content: "To the time to life";  
     color: #9fa5a6;
+}
+/* ------------------ 自定义属性 ----------------------- */
+.protyle-wysiwyg [data-node-id][custom-function="挖空"] {
+    border:2px dashed rgb(25, 230, 245);
+    color: transparent;
+    transition: all 2s ease-in-out;
+}
+.protyle-wysiwyg [data-node-id][custom-function="挖空"]:hover {
+    border:2px solid rgb(25, 230, 245);
+    color: var(--b3-theme-on-background);
+    transition: all 2s ease-in-out;
+}
+.protyle-wysiwyg [data-node-id][custom-function ="黄"] {
+    background: #ffeb3b;
+    color: black;
+}
+.protyle-wysiwyg [data-node-id][custom-function ="红"]{
+    background: #ff5722;
+    color: white;
+
+}
+.protyle-wysiwyg [data-node-id][custom-function ="蓝"]{
+    background: #2196f3;
+    color: white;
+}
+.protyle-wysiwyg [data-node-id][custom-function="ing"]{
+    display: flex;
+}
+.protyle-wysiwyg [data-node-id][custom-function="ing"]:after {
+    content: "ING";
+    padding: 0 7px;
+    background: #ffeb3b;
+    border-radius: 15px;
+    color: black;
+margin-left:10px;
+transform:scale(0.7);
+}
+.protyle-wysiwyg [data-node-id][custom-function="done"]{
+    display: flex;
+} 
+.protyle-wysiwyg [data-node-id][custom-function="done"]:after {
+    content: "✔";
+    padding: 0px 3px;
+    background: #ffffff;
+    border-radius: 20px;
+    color: white;
+    margin-left: 4px;
+    margin-left:10px;
+    transform:scale(0.7);
+}
+.protyle-wysiwyg [data-node-id][custom-function="50"]{
+display: flex;
+} 
+.protyle-wysiwyg [data-node-id][custom-function="50"]:after {
+    padding: 1px 3px;
+    background: #ff3b3b;
+    border-radius: 15px;
+    color: white;
+    content: "50%";
+    margin-left:10px;
+    transform:scale(0.7);
+}
+.protyle-wysiwyg [data-node-id][custom-function="zy"]{
+    display: flex;
+} 
+.protyle-wysiwyg [data-node-id][custom-function="zy"]:after{
+    content: "❕❕❕";
+    padding: 0 7px;
+    background:#ff5722;
+    border-radius: 15px;
+    color: black;
+    margin-left:10px;
+    transform:scale(0.7);
+}
+
+
+.protyle-wysiwyg [data-node-id][custom-function="kaiti"]{
+        font-family: kaiti;
 }
