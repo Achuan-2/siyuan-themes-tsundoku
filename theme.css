@@ -72,11 +72,11 @@
     --b3-card-success-background: rgb(237, 247, 237);
 
     /* 自定义文字 */
-    --b3-font-color1: var(--b3-card-error-color);
+    --b3-font-color1: #52d4ca;
     --b3-font-color2: var(--b3-card-warning-color);
-    --b3-font-color3: var(--b3-card-info-color);
-    --b3-font-color4: var(--b3-card-success-color);
-    --b3-font-color5: var(--b3-theme-on-surface);
+    --b3-font-color3: rgb(24, 83, 128);
+    --b3-font-color4: rgb(50, 112, 54);
+    --b3-font-color5: #8E8E8E;
     --b3-font-color6: var(--b3-theme-primary);
     --b3-font-color7: var(--b3-theme-secondary);
     --b3-font-color8: var(--b3-theme-error);
@@ -85,18 +85,18 @@
     --b3-font-color11: #65b84d;
     --b3-font-color12: #f5822e;
     --b3-font-color13: var(--b3-theme-background);
-    --b3-font-background1: var(--b3-card-error-background);
-    --b3-font-background2: var(--b3-card-warning-background);
-    --b3-font-background3: var(--b3-card-info-background);
-    --b3-font-background4: var(--b3-card-success-background);
+    --b3-font-background1: #f5cfd0;
+    --b3-font-background2: #fdfade;
+    --b3-font-background3: #d4eefc;
+    --b3-font-background4: #bff0d1d0;
     --b3-font-background5: var(--b3-theme-surface);
-    --b3-font-background6: var(--b3-theme-primary-light);
-    --b3-font-background7: rgba(217, 211, 215, 0.5);
-    --b3-font-background8: rgba(255, 193, 153, 0.5);
-    --b3-font-background9: rgba(189, 201, 255, 0.5);
-    --b3-font-background10: rgba(239, 218, 251, 0.5);
-    --b3-font-background11: rgba(234, 202, 220, 0.5);
-    --b3-font-background12: rgba(253, 198, 200, 0.5);
+    --b3-font-background6: #dfdddd;
+    --b3-font-background7: #f99c7bad;
+    --b3-font-background8: #f8e8cb;
+    --b3-font-background9: #d6ddfc;
+    --b3-font-background10: #d3adf7d0;
+    --b3-font-background11: #ff85c0d5;
+    --b3-font-background12: #87e8de94;
     --b3-font-background13: var(--b3-theme-on-background);
 
     /* 动画效果 */
@@ -1313,15 +1313,15 @@ iframe {
 
 
 /* 调整超级块中元素间距 */
-.protyle-wysiwyg .sb{
+.protyle-wysiwyg>.sb{
     padding: 4px 0px !important;
 }
-.protyle-wysiwyg .sb div[data-node-id]{
+.protyle-wysiwyg .sb>div[data-node-id]{
     margin:4px 4px 4px 0px;
     /* padding: 0px; */
     border-radius: 3px;
 }
-.protyle-wysiwyg .sb div[data-node-id]:nth-last-child(2){
+.protyle-wysiwyg .sb>div[data-node-id]:nth-last-child(2){
     margin:4px 0px 4px 0px;
 }
 /* 工具栏样式 */
@@ -1344,6 +1344,6 @@ iframe {
 
 /* 更改提示 */
 .protyle-wysiwyg [data-node-id] [spellcheck="false"]:focus:empty:after {  
-    content: "To the time to life, rather than to life in time.";  
+    content: "To the time to life";  
     color: #9fa5a6;
 }
