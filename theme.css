@@ -382,7 +382,7 @@ mark {
     color: transparent;
     transition: all 2s ease-in-out;
 }
-.protyle-wysiwyg mark:hover{
+.protyle-wysiwyg [data-node-id] [spellcheck="false"]:focus-within mark{
     color: var(--b3-protyle-inline-mark-color);
     transition: all 0.2s ease-in-out;
 }
@@ -1348,15 +1348,43 @@ iframe {
     color: #9fa5a6;
 }
 /* ------------------ 自定义属性 ----------------------- */
-.protyle-wysiwyg [data-node-id][custom-function="挖空"] {
-    border:2px dashed rgb(25, 230, 245);
+.protyle-wysiwyg [data-node-id][custom-function="挖空"]{
+    border: 2px dashed  rgba(92, 135, 138, 0.322);
+    background-color: rgba(92, 135, 138, 0.322);
     color: transparent;
-    transition: all 2s ease-in-out;
+    background-image: -webkit-gradient(linear,
+    0 0, 100% 100%,
+    color-stop(.25, rgba(255, 255, 255, .2)),
+    color-stop(.25, transparent),
+    color-stop(.5, transparent),
+    color-stop(.5, rgba(255, 255, 255, .2)),
+    color-stop(.75, rgba(255, 255, 255, .2)),
+    color-stop(.75, transparent),
+    to(transparent));
+    background-size: 10px 10px;
+    border-radius: 0.5em;
+    transform: perspective(1000px);
+    transform-style: preserve-3d;
+    transform: rotateX(180deg); 
+    /* transition: all 0.5 ease; */
+    /* animation: hide 1s ease forwards; */
 }
-.protyle-wysiwyg [data-node-id][custom-function="挖空"]:hover {
-    border:2px solid rgb(25, 230, 245);
-    color: var(--b3-theme-on-background);
-    transition: all 2s ease-in-out;
+
+.protyle-wysiwyg [data-node-id][custom-function="挖空"]:focus-within {
+    animation: showHide 1s ease forwards;
+}
+
+@keyframes showHide {
+    0% {
+
+    }
+    100% {
+        transform: rotateX(360deg); 
+        color: var(--b3-theme-on-background);
+        border-color: var(--b3-theme-on-background);
+        background-color: transparent;
+        background-image: none;
+    }
 }
 .protyle-wysiwyg [data-node-id][custom-function ="黄"] {
     background: #ffeb3b;
