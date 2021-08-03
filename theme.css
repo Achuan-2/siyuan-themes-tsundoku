@@ -387,21 +387,16 @@ mark {
     transition: all 0.2s ease-in-out;
 }
 /* -------------如果希望取消挖空效果，请删除这段代码 END----------------------------------- */
+/* 加粗 */
 strong {
     color: inherit;
 }
+
 /* blockquote 引用 */
-/* old */
-/* .protyle-wysiwyg [data-node-id].bq, .b3-typography blockquote {
-    border-left: 0.25em solid #b5cfd3 !important;
-    border-radius: 0em 0.31em 0.31em 0.em;
-    background-color: rgba(66, 185, 185, 0.05) !important;
-    margin-top: 8px !important;
-} */
 .protyle-wysiwyg [data-node-id].bq, .b3-typography blockquote {
     border-left: 4px solid #8aacac !important;
     border: 2px solid #8aacac ;
-    border-radius: 0em 0.31em 0.31em 0.em;
+    border-radius: 0.31em 0.31em 0.31em 0.31em;
     margin-top: 8px !important;
 }
 
@@ -1124,10 +1119,12 @@ div[data-subtype='t'][data-type='NodeList'] {
 }
 .b3-dialog__container svg:hover {
     color: var(--b3-menu-highlight-color);
-    background: #fff;
+    background: transparent;
     transform: scale(1.2);
 }
-
+.b3-dialog__container .b3-dialog__close:hover {
+    background: #fff;
+}
 .b3-dialog__container {
     animation: show 0.5s ease forwards;
 }
