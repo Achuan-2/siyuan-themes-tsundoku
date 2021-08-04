@@ -1371,22 +1371,23 @@ iframe {
     opacity: 0;
 }
 .protyle-wysiwyg [data-node-id][custom-function="挖空"]:focus-within {
-    animation: showHide 1s ease forwards;
+    transform: rotateX(0deg); 
+    color: var(--b3-theme-on-background);
+    border-color: var(--b3-theme-on-background);
+    background-color: transparent;
+    background-image: none;
 }
+
 .protyle-wysiwyg [data-node-id][custom-function="挖空"]:focus-within [data-type="NodeListItem"] {
     opacity: 1;
 }
-@keyframes showHide {
-    0% {
-        transform: rotateX(0deg); 
-        color: var(--b3-theme-on-background);
-        border-color: var(--b3-theme-on-background);
-        background-color: transparent;
-        background-image: none;
-        
-    }
-    50% {
 
+.protyle-wysiwyg .protyle-wysiwyg__embed [data-node-id][custom-function="挖空"]:hover{
+        animation: rotateHide 0.7s ease forwards;
+}
+
+@keyframes rotateHide {
+    0% {
     }
     100% {
         transform: rotateX(0deg); 
