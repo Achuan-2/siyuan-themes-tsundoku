@@ -1385,7 +1385,9 @@ iframe {
 .protyle-wysiwyg .protyle-wysiwyg__embed [data-node-id][custom-function="挖空"]:hover{
         animation: rotateHide 0.7s ease forwards;
 }
-
+.protyle-wysiwyg .protyle-wysiwyg__embed [data-node-id][custom-function="挖空"]:hover [data-type="NodeListItem"] {
+    opacity: 1;
+}
 @keyframes rotateHide {
     0% {
     }
