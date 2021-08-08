@@ -404,6 +404,10 @@ strong {
     /* margin-left: 1em; */
     padding-left: 1em;
 }
+.protyle-wysiwyg [data-node-id].bq > div.bq{
+    margin-left: 1em;
+    padding-left: 0em;
+}
 .protyle-wysiwyg [data-node-id].bq div.code-block {
     margin-left: 1em;
 }
@@ -596,10 +600,15 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
 
 /* 调整列表间距 */
 
-/* 暂时注释,因为发现代码块的行数不会变化 */
 .protyle .li {
     padding: 0;
-    margin: 0px 3px 0px 3px;
+    margin: 0px 0px 0px 0px;
+}
+
+.protyle-wysiwyg [data-node-id].li>[data-node-id] {
+    margin-left: 27px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 .b3-typography ul, .b3-typography ol {
     padding-left: 2em;
