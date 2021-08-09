@@ -203,6 +203,10 @@
 .layout__resize::after {
     background-color: #c7d1d8;
 }
+/* 文档树 */
+.b3-list--files .b3-list-item--focus:not(.dragover) {
+    background-color: var(--b3-menu-highlight-background) !important;
+}
 
 /* -------------------------------标题样式-------------------------------------- */
 .protyle-wysiwyg [data-node-id].h1 ,.b3-typography h1{
@@ -258,52 +262,6 @@
     /* 预览样式 */
     color:inherit;
 }
-/* 标题自动编号 */
-/* 首先全局进行一次reset，这样即使不添加h1标题也可以使用较低级别的标题 */
-/* .protyle-wysiwyg ,.b3-typography {
-    counter-reset:  h2 0 h3 0 h4 0 h5 0 h6 0;
-}
-.protyle-wysiwyg [data-node-id].h1,.b3-typography h1 {
-    counter-reset: h2;
-}
-.protyle-wysiwyg [data-node-id].h2,.b3-typography h2 {
-    counter-reset: h3;
-}
-.protyle-wysiwyg [data-node-id].h3 ,.b3-typography h3{
-    counter-reset: h4;
-}
-.protyle-wysiwyg [data-node-id].h4 ,.b3-typography h4{
-    counter-reset: h5;
-}
-.protyle-wysiwyg [data-node-id].h5,.b3-typography h5 {
-    counter-reset: h6;
-}
-.protyle-wysiwyg [data-node-id].h2 div:before,.b3-typography h2:before {
-    counter-increment: h2;
-    content: counter(h2) ;
-    margin-right: 2rem;
-}
-.protyle-wysiwyg [data-node-id].h3 div:before,.b3-typography h3:before{
-    counter-increment: h3;
-    content: counter(h2) "." counter(h3);
-    margin-right: 2rem;
-}
-.protyle-wysiwyg [data-node-id].h4 div:before,.b3-typography h4:before{
-    counter-increment: h4;
-    content: counter(h2) "." counter(h3) "." counter(h4);
-    margin-right: 2rem;
-}
-.protyle-wysiwyg [data-node-id].h5 div:before,.b3-typography h5:before{
-    counter-increment: h5;
-    content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5);
-    margin-right: 2rem;
-}
-.protyle-wysiwyg [data-node-id].h6 div:before,.b3-typography h6:before {
-    counter-increment: h6;
-    content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "."
-        counter(h6);
-    margin-right: 2rem;
-} */
 
 /* -------------------------------表格------------------------------------- */
 
@@ -641,39 +599,7 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
 }
 
 /* 无序列表 */
-/* 暂时取消无序列表特殊样式 */
-/* .protyle-wysiwyg [data-subtype='u'] > .protyle-action svg {
-    opacity: 0;
-}
-.b3-typography li {
-    position: relative;
-}
-.b3-typography ul>li {
-    list-style-type: none;
-}
-.protyle-wysiwyg [data-node-id].li {
-    position: relative;
-} */
-/* 无序列表小圆点样式 */
-/* .protyle-wysiwyg [data-subtype='u'] > .protyle-action:before,.b3-typography ul>li::before{
-    content: '';
-    position: absolute;
-    display: inline-block;
-    cursor: pointer;
-    width: 8px;
-    height: 8px;
-    vertical-align: middle;
-    text-align: center;
-    border: 0px;
-    border-radius: 0.6em;
-    background-color: #515e64;
-    top: 14.5px;
-    left: 13px;
-} */
-/* .b3-typography ul li::before {
-    left: -19px;
-} */
-/* 无序列表 */
+
 /* 无序列表悬浮的小圆点 */
 .protyle-wysiwyg [data-subtype='u'] > .protyle-action:hover:before,
 .protyle-wysiwyg [data-node-id].li[fold="1"]>.protyle-action:before {
@@ -944,33 +870,33 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 /* 文件树列表 */
 
-.b3-list--background .b3-list-item:hover {
+.b3-list--files .b3-list-item:hover {
     color: var(--b3-menu-highlight-color);
     background-color: var(--b3-list-hover);
 }
-.b3-list--background .b3-list-item:hover .b3-list-item__text,
-.b3-list--background .b3-list-item:hover .b3-list-item__graphic {
+.b3-list--files .b3-list-item:hover .b3-list-item__text,
+.b3-list--files .b3-list-item:hover .b3-list-item__graphic {
     color: var(--b3-menu-highlight-color);
     /* background-color: var(--b3-list-hover); */
 }
 
-.b3-list--background .b3-list-item--focus {
+.b3-list--files .b3-list-item--focus {
     background-color: var(--b3-menu-highlight-background) !important;
     border-radius: 0% 6px 6px 0%;
     color: var(--b3-menu-highlight-focus-color);
     font-weight: bold;
 }
-.b3-list--background .b3-list-item--focus .b3-list-item__text {
+.b3-list--files .b3-list-item--focus .b3-list-item__text {
     color: var(--b3-menu-highlight-focus-color);
     font-weight: bold;
     /* border-radius: 15px 15px 15px 15px; */
 }
-.b3-list--background .b3-list-item--focus .b3-list-item__graphic {
+.b3-list--files .b3-list-item--focus .b3-list-item__graphic {
     color: var(--b3-menu-highlight-focus-color);
 }
 
-.b3-list--background .b3-list-item--focus:hover .b3-list-item__text,
-.b3-list--background .b3-list-item--focus:hover .b3-list-item__graphic {
+.b3-list--files .b3-list-item--focus:hover .b3-list-item__text,
+.b3-list--files .b3-list-item--focus:hover .b3-list-item__graphic {
     color: var(--b3-menu-highlight-focus-color);
 }
 
@@ -1076,7 +1002,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     color: var(--b3-menu-highlight-color);
 }
 
-.b3-dialog__container .b3-list--background .b3-list-item--focus {
+.b3-dialog__container .b3-list--files .b3-list-item--focus {
     background-color: #d8e0e5c7 !important;
     border-radius: 16px 10% 10% 16px;
     /* border-radius: 10%; */
