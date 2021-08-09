@@ -899,6 +899,35 @@ div[data-subtype='t'][data-type='NodeList'] {
 .b3-list--files .b3-list-item--focus:hover .b3-list-item__graphic {
     color: var(--b3-menu-highlight-focus-color);
 }
+.b3-list--background .b3-list-item:hover {
+    color: var(--b3-menu-highlight-color);
+    background-color: var(--b3-list-hover);
+}
+.b3-list--background .b3-list-item:hover .b3-list-item__text,
+.b3-list--background .b3-list-item:hover .b3-list-item__graphic {
+    color: var(--b3-menu-highlight-color);
+    /* background-color: var(--b3-list-hover); */
+}
+
+.b3-list--files .b3-list-item--focus {
+    background-color: var(--b3-menu-highlight-background) !important;
+    border-radius: 0% 6px 6px 0%;
+    color: var(--b3-menu-highlight-focus-color);
+    font-weight: bold;
+}
+.b3-list--background .b3-list-item--focus .b3-list-item__text {
+    color: var(--b3-menu-highlight-focus-color);
+    font-weight: bold;
+    /* border-radius: 15px 15px 15px 15px; */
+}
+.b3-list--background .b3-list-item--focus .b3-list-item__graphic {
+    color: var(--b3-menu-highlight-focus-color);
+}
+
+.b3-list--background .b3-list-item--focus:hover .b3-list-item__text,
+.b3-list--background .b3-list-item--focus:hover .b3-list-item__graphic {
+    color: var(--b3-menu-highlight-focus-color);
+}
 
 /* 大纲 */
 .b3-typography .b3-list-item__text {
@@ -1002,7 +1031,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     color: var(--b3-menu-highlight-color);
 }
 
-.b3-dialog__container .b3-list--files .b3-list-item--focus {
+.b3-dialog__container .b3-list--background .b3-list-item--focus {
     background-color: #d8e0e5c7 !important;
     border-radius: 16px 10% 10% 16px;
     /* border-radius: 10%; */
