@@ -1349,7 +1349,7 @@ iframe {
 }
 
 /* 更改提示 */
-.protyle-wysiwyg [data-node-id] [spellcheck="false"]:focus:empty:after {  
+.protyle-wysiwyg [data-node-id]:not(.code-block) [spellcheck="false"]:focus:empty:after {  
     content: "To the time to life";  
     color: #9fa5a6;
 }
