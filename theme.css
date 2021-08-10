@@ -844,6 +844,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 /* 文件树列表 */
 
+
 .b3-list--files .b3-list-item:hover {
     color: var(--b3-menu-highlight-color);
     background-color: var(--b3-list-hover);
@@ -873,6 +874,8 @@ div[data-subtype='t'][data-type='NodeList'] {
 .b3-list--files .b3-list-item--focus:hover .b3-list-item__graphic {
     color: var(--b3-menu-highlight-focus-color);
 }
+
+
 .b3-list--background .b3-list-item:hover {
     color: var(--b3-menu-highlight-color);
     background-color: var(--b3-list-hover);
@@ -883,7 +886,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     /* background-color: var(--b3-list-hover); */
 }
 
-.b3-list--files .b3-list-item--focus {
+.b3-list--background .b3-list-item--focus {
     background-color: var(--b3-menu-highlight-background) !important;
     border-radius: 0% 6px 6px 0%;
     color: var(--b3-menu-highlight-focus-color);
