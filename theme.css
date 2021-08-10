@@ -562,61 +562,35 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     padding: 0;
     margin: 0px 0px 0px 0px;
 }
-
-.protyle-wysiwyg [data-node-id].li>[data-node-id] {
-    margin-left: 27px;
+.protyle-wysiwyg [data-node-id].li>.p {
+    margin-left: 28px;
     margin-top: 0;
     margin-bottom: 0;
 }
-.b3-typography ul, .b3-typography ol {
-    padding-left: 2em;
-    margin: 4px 0px;
-}
-
-.b3-typography .protyle-task p {
-    margin: 3px 2px;
-}
-.protyle-task li p{
-    margin: 0px 4px 0px 4px;
-}
-/* 列表和文字的距离 */
-/* .protyle-wysiwyg [data-node-id].li>[data-node-id] {
-    margin-left: 1.7em !important;
-
-} */
-
-/* 让有序列表数字居中 */
-.protyle-wysiwyg [data-node-id].li>.protyle-action {
-    text-align: center;
-}
 
 
-/* 有序列表 */
 
-.protyle-wysiwyg [data-node-id].li>.protyle-action:hover,
-.protyle-wysiwyg [data-node-id].li[fold="1"]>.protyle-action {
-    color: var(--b3-theme-primary) !important;
-}
-
-/* 无序列表 */
-
-/* 无序列表悬浮的小圆点 */
-.protyle-wysiwyg [data-subtype='u'] > .protyle-action:hover:before,
-.protyle-wysiwyg [data-node-id].li[fold="1"]>.protyle-action:before {
-    background-color: var(--b3-theme-primary);
-}
-
-/* 无序列表悬浮的大圆点 */
-.protyle-wysiwyg [data-node-id].li>.protyle-action:hover:after,
-.protyle-wysiwyg [data-node-id].li[fold="1"]>.protyle-action:after{
+/* 列表悬浮 */
+.protyle-wysiwyg [data-node-id].li>.protyle-action:hover:after {
+    /* 大圆背景 */
     background-color: #a1b5bd9c !important;
     opacity: .68;
-}
 
-.protyle-wysiwyg [data-node-id].li>.protyle-action:hover, .protyle-wysiwyg [data-node-id].li[fold="1"]>.protyle-action {
-    color: #477f96 !important;
 }
-
+.protyle-wysiwyg [data-node-id].li>.protyle-action:hover {
+    /* 小圆点 */
+    color: #476796bb;
+}
+/* 列表折叠 */
+.protyle-wysiwyg [data-node-id].li[fold="1"]>.protyle-action:after{
+    /* 大圆背景 */
+    background-color: #667ea97d !important;
+    opacity: .68;
+}
+.protyle-wysiwyg [data-node-id].li[fold="1"]>.protyle-action {
+    /* 小圆点 */
+    color: #476796 !important;
+}
 
 /* ---------------------复选框（待办事项）Start------------------------------------------------ */
 .b3-typography  .protyle-task input {
@@ -984,8 +958,9 @@ div[data-subtype='t'][data-type='NodeList'] {
 }
 .protyle-toolbar__item--current,
 .protyle-toolbar__item--current:hover {
-    color: var(--b3-menu-highlight-focus-color);
+    color: #04a0bf;
 }
+
 
 /* 警告 */
 .b3-snackbar__content {
