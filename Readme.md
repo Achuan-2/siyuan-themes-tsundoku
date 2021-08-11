@@ -11,6 +11,7 @@
 ![preview](preview.png)
 
 > 🎠 这可能不会是最符合你审美的主题，但或许会是一个最追求极致体验的主题（之一）！
+> 
 > 🌞 亮色主题见[Tsundoku Light](https://github.com/Achuan-2/siyuan-themes-tsundoku-light) | 🌛 深色主题见[Tsundoku Dark
 > ](https://github.com/Achuan-2/siyuan-themes-mixture)
 >
