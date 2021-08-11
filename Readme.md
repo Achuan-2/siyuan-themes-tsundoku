@@ -16,19 +16,19 @@
 >
 > 另外，本人的思源订阅推荐码：**B3XX0Y8**，欢迎各位老板使用！在买会员时使用订阅推荐码可增加 500 MB 云端空间和 7 天使用期！
 
-💌 **缘起**
+## 💌 **缘起**
 
 Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释的“Tsundoku is acquiring reading materials but letting them pile up in one's home without reading them. It is also used to refer to books ready for reading later when they are on a bookshelf.”我借此名来警醒自己，希望思源能帮助我成长，而不是又成为缓解知识焦虑的积灰箱，满足我的囤积症。
 
 
 
-💥特色
+## 💥特色
 
 * **动效丰富**：弹出窗口有左右展开动效，块引用预览页面展开动效、点开关闭窗口动效，丰富用户在写作和阅读时的体验
 * **任务列表样式优化**：对任务列表效果做了最多的优化，当把任务列表勾选时，普通文字变色加删除线，各个行内和块样式都做了一定处理
 * **win端和安卓端emoji样式统一**：修改**安卓端的默认 emoji** 为 Win 10 emoji——Segoe UI Emoji，保证emoji样式统一
 
-🦠 本主题重要的修改
+## 🦠 本主题重要的修改
 
 1. 本主题暂时将高亮<kbd>Ctrl+E</kbd>,设置为挖空效果：悬浮时才显示高亮的文字，默认隐藏文字
 
@@ -57,12 +57,12 @@ Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释
    | 修改后： | ![Pl图片注释](https://b3logfile.com/siyuan/1610205759005/assets/image-20210801192810-mf90ey5.png) |
 
 
-**☎️意见交流**
+## **☎️意见交流**
 
 
 若主题存在样式的问题，欢迎在此repo提issue或是通过邮箱联系我(achuan-2@outlook.com)。在提issue之前建议先切换为默认主题，确定是本主题的问题。
 
 
-**🚀更新情况**
+## **🚀更新情况**
 
 见[更新日志](CHANGE_LOGS.md)
