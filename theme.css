@@ -1219,7 +1219,7 @@ iframe {
 
 /* 光标选中文本样式 */
 .protyle-wysiwyg ::selection{ 
-    background-color:rgba(247, 199, 177, 0.445);
+    background-color:rgba(184, 247, 177, 0.445);
 }
 /* 选中块 */
 .protyle-wysiwyg--select, .protyle-wysiwyg--select .hljs {
