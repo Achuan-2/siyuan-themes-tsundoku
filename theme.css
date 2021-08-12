@@ -63,40 +63,45 @@
 
     /* 卡片背景 */
     --b3-card-error-color: rgb(97, 26, 21);
-    --b3-card-error-background: rgb(253, 236, 234);
+    --b3-card-error-background: #f9dfdb;
     --b3-card-warning-color: rgb(102, 60, 0);
-    --b3-card-warning-background: rgb(255, 244, 229);
+    --b3-card-warning-background: #fbebd5;
     --b3-card-info-color: rgb(13, 60, 97);
-    --b3-card-info-background: rgb(232, 244, 253);
+    --b3-card-info-background: #d7eaf9;
     --b3-card-success-color: rgb(30, 70, 32);
-    --b3-card-success-background: rgb(237, 247, 237);
+    --b3-card-success-background: #e0f9e0;
 
     /* 自定义文字 */
-    --b3-font-color1: #52d4ca;
-    --b3-font-color2: var(--b3-card-warning-color);
-    --b3-font-color3: rgb(24, 83, 128);
-    --b3-font-color4: rgb(50, 112, 54);
-    --b3-font-color5: #8E8E8E;
-    --b3-font-color6: var(--b3-theme-primary);
-    --b3-font-color7: var(--b3-theme-secondary);
-    --b3-font-color8: var(--b3-theme-error);
-    --b3-font-color9: #f5539e;
+    --b3-font-color1: #ec5a5b;
+    --b3-font-color2: #bf7203;
+    --b3-font-color3: #2183ce;
+    --b3-font-color4: #11ad81;
+    --b3-font-color5: #099083;
+    --b3-font-color6: #f5822e;
+    --b3-font-color7: #8E8E8E;
+    --b3-font-color8: var(--b3-theme-secondary);
+    --b3-font-color9: #596ab7;
     --b3-font-color10: #944194;
-    --b3-font-color11: #65b84d;
-    --b3-font-color12: #f5822e;
+    --b3-font-color11: #52d4ca;
+    --b3-font-color12: var(--b3-theme-on-background);
     --b3-font-color13: var(--b3-theme-background);
-    --b3-font-background1: #f5cfd0;
-    --b3-font-background2: #f5edaa;
-    --b3-font-background3: #d4eefc;
-    --b3-font-background4: #bff0d1d0;
-    --b3-font-background5: #3bb92c85;
-    --b3-font-background6: #f99c7bad;
+    --b3-font-background1: #ffababe3; 
+    --b3-font-background2: #fff195;
+    --b3-font-background3: #5bc0f796;
+    --b3-font-background4: #b8f5ced0;
+    /* 思考下要不要前四个背景色和卡片样式一致
+    --b3-font-background1: var(--b3-card-error-background);
+    --b3-font-background2: var(--b3-card-warning-background);
+    --b3-font-background3: var(--b3-card-info-background);
+    --b3-font-background4: var(--b3-card-success-background); */
+    --b3-font-background5: #49efbe87;
+    --b3-font-background6: #f5905673;
     --b3-font-background7: #dfdddd;
-    --b3-font-background8: #efb243a6;
+    --b3-font-background8: #ffd486a6;
     --b3-font-background9: #d6ddfc;
     --b3-font-background10: #d3adf7d0;
-    --b3-font-background11: #ff85c0d5;
-    --b3-font-background12: #87e8de94;
+    --b3-font-background11: #27e5ff8a;
+    --b3-font-background12: var(--b3-theme-background);
     --b3-font-background13: var(--b3-theme-on-background);
 
     /* 动画效果 */
@@ -176,6 +181,37 @@
     fill: transparent;
 }
 
+
+/* ---------------编辑器内容两侧宽度设置 Start ————————————————————————*/
+
+/* 宽度设置 */
+.protyle-content > .protyle-wysiwyg,
+.protyle  .b3-typography *,
+.protyle-content > .protyle-title {
+    /* 如果要调整编辑器宽度只需调整下面这个值 */
+    max-width: 1140px;
+}
+/* 居中 */
+.protyle-content > .protyle-wysiwyg,
+.protyle  .b3-typography *{
+    margin: 0px auto !important;
+}
+
+/* 加之调整标题位置 */
+.protyle-content > .protyle-title{
+    margin: 16px auto 0px !important;
+    /* 原来title就有margin 96px，上面为了水平居中就清除了，于是改为padding，
+    保证标题和内容对齐
+     */
+    padding: 0px 96px 0px;
+}
+/* 调整标题的块图标 */
+.protyle-title__icon  {
+    /* 标题的块图标还在原来的位置，也要修改 */
+    margin: -15px 0 0 96px;
+}
+/* ---------------编辑器内容两侧宽度设置 END ———————————————————————— */
+
 /* 主要背景色 */
 
 .dock {
@@ -242,7 +278,7 @@
 }
 .protyle-wysiwyg [data-node-id].h5,.b3-typography h5 {
     font-size: 1.1em;
-    /* color: #03a1b9cc; */
+    color: #58c6d6;
 }
 .protyle-wysiwyg [data-node-id].h6,.b3-typography h6 {
     font-size: 1.1em;
@@ -843,19 +879,16 @@ div[data-subtype='t'][data-type='NodeList'] {
 /* -----------------      外观样式 ----------------- */
 
 /* 文件树列表 */
-
-
 .b3-list--files .b3-list-item:hover {
     color: var(--b3-menu-highlight-color);
-    background-color: var(--b3-list-hover);
+    background-color: transparent;
 }
 .b3-list--files .b3-list-item:hover .b3-list-item__text,
 .b3-list--files .b3-list-item:hover .b3-list-item__graphic {
     color: var(--b3-menu-highlight-color);
-    /* background-color: var(--b3-list-hover); */
 }
 
-.b3-list--files .b3-list-item--focus {
+.b3-list--files .b3-list-item--focus:not(.dragover) {
     background-color: var(--b3-menu-highlight-background) !important;
     border-radius: 0% 6px 6px 0%;
     color: var(--b3-menu-highlight-focus-color);
