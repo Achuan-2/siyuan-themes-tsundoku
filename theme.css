@@ -183,32 +183,36 @@
 
 
 /* ---------------编辑器内容两侧宽度设置 Start ————————————————————————*/
+/* 调整思源编辑器内容宽度 */
 
-/* 宽度设置 */
 .protyle-content > .protyle-wysiwyg,
 .protyle  .b3-typography *,
 .protyle-content > .protyle-title {
     /* 如果要调整编辑器宽度只需调整下面这个值 */
-    max-width: 1140px;
+    max-width: 1100px;
 }
+
 /* 居中 */
 .protyle-content > .protyle-wysiwyg,
 .protyle  .b3-typography *{
     margin: 0px auto !important;
 }
 
-/* 加之调整标题位置 */
-.protyle-content > .protyle-title{
+.protyle-content > .protyle-title {
     margin: 16px auto 0px !important;
     /* 原来title就有margin 96px，上面为了水平居中就清除了，于是改为padding，
     保证标题和内容对齐
      */
-    padding: 0px 96px 0px;
+    padding: 0px 60px 0px;
 }
-/* 调整标题的块图标 */
 .protyle-title__icon  {
     /* 标题的块图标还在原来的位置，也要修改 */
-    margin: -15px 0 0 96px;
+    margin: -15px 0 0 60px;
+}
+/* 思源的编辑器在宽度较小的时候会主动调小编辑器内容,晕😵 */
+.protyle-content > .protyle-wysiwyg {
+    padding: 16px 65px 162px !important;
+    
 }
 /* ---------------编辑器内容两侧宽度设置 END ———————————————————————— */
 
