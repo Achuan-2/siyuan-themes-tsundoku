@@ -215,7 +215,10 @@
      */
     padding: 0px 75px 0px;
 }
-
+.protyle-background__icon {
+    /* 文档图标 */
+    left: 75px !important;
+}
 .protyle-title .protyle-title__icon  {
     /* 标题的块图标还在原来的位置，也要修改 */
     margin: -15px 0 0 75px;
@@ -224,6 +227,37 @@
     /* 然后文档右边的引用数原来是right0，要改成前面设置的宽度 */
     right: 75px;
 }
+
+/* 调整手机和平板端 */
+@media screen and (max-width: 1023px) {
+    /* 这里我假设平板最大宽度为1023px，小于此大小的屏幕将调整
+    页面两侧宽度 */
+    .protyle-content > .protyle-wysiwyg {
+        padding: 16px 16px 162px !important;
+        
+    }
+
+    .protyle-content > .protyle-title {
+        margin: 16px auto 0px !important;
+        /* 原来title就有margin 96px，上面为了水平居中就清除了，于是改为padding，
+        保证标题和内容对齐
+        */
+        padding: 0px 16px 0px;
+    }
+    .protyle-background__icon {
+        /* 文档图标 */
+        left: 16px !important;
+    }
+    .protyle-title .protyle-title__icon  {
+        /* 标题的块图标还在原来的位置，也要修改 */
+        margin: -15px 0 0 16px;
+    }
+    .protyle-title .protyle-attr {
+        /* 然后文档右边的引用数原来是right0，要改成前面设置的宽度 */
+        right: 16px;
+    }
+}
+
 /* ---------------编辑器内容两侧宽度设置 END ———————————————————————— */
 
 
