@@ -1313,9 +1313,9 @@ div[data-subtype='t'][data-type='NodeList'] {
 }
 
 /* 文档标题添加下划线 */
-.protyle-title__input {
+/* .protyle-title__input {
     border-bottom: 2px solid #011010ad;
-}
+} */
 
 /* 更改空行提示 */
 .protyle-wysiwyg [data-node-id]:not(.code-block)>[spellcheck="false"]:focus:empty:after {
