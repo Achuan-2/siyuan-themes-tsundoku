@@ -183,13 +183,14 @@
 
 
 /* ---------------编辑器内容两侧宽度设置 Start ————————————————————————*/
-/* 调整思源编辑器内容宽度 */
 
+/* 调整思源编辑器内容最大宽度 */
 .protyle-content > .protyle-wysiwyg,
 .protyle  .b3-typography *,
-.protyle-content > .protyle-title {
+.protyle-content > .protyle-title,
+.protyle-content > .protyle-title .protyle-title__input{
     /* 如果要调整编辑器宽度只需调整下面这个值 */
-    max-width: 1100px;
+    max-width: 1000px;
 }
 
 /* 居中 */
@@ -198,23 +199,33 @@
     margin: 0px auto !important;
 }
 
+/* 调整两侧宽度 */
+/* 要调整宽度，就搜索75px 把下面是75px的全部修改 */
+.protyle-content > .protyle-wysiwyg {
+    /* 思源的编辑器在宽度较小的时候会主动调小编辑器内容,晕😵 */
+    /* 所以我就搞固定宽度了，不然不好调整 */
+    padding: 16px 75px 162px !important;
+    
+}
+
 .protyle-content > .protyle-title {
     margin: 16px auto 0px !important;
     /* 原来title就有margin 96px，上面为了水平居中就清除了，于是改为padding，
     保证标题和内容对齐
      */
-    padding: 0px 60px 0px;
+    padding: 0px 75px 0px;
 }
-.protyle-title__icon  {
+
+.protyle-title .protyle-title__icon  {
     /* 标题的块图标还在原来的位置，也要修改 */
-    margin: -15px 0 0 60px;
+    margin: -15px 0 0 75px;
 }
-/* 思源的编辑器在宽度较小的时候会主动调小编辑器内容,晕😵 */
-.protyle-content > .protyle-wysiwyg {
-    padding: 16px 65px 162px !important;
-    
+.protyle-title .protyle-attr {
+    /* 然后文档右边的引用数原来是right0，要改成前面设置的宽度 */
+    right: 75px;
 }
 /* ---------------编辑器内容两侧宽度设置 END ———————————————————————— */
+
 
 /* 主要背景色 */
 
@@ -310,10 +321,10 @@
 .protyle  .table {
     text-align: center;
 }
-.protyle table {
+/* 调整表格字体 */
+/* .protyle table {
     font-size: 0.9em;
-    /* 导出时表格无法居中 */
-}
+} */
 /* 表格背景设置 */
 .protyle-wysiwyg   table thead tr {
     background-color: var(--b3-table-th-color) !important;
@@ -1195,64 +1206,14 @@ div[data-subtype='t'][data-type='NodeList'] {
     background-color: #eef4f7;
 }
 
+/* ----------------------------标签页样式 END----------------------------------------- */
+
 /* 面包屑 */
 .protyle-breadcrumb {
     background-color: var(--b3-tab-custom-background);
     z-index: 2;
 }
 
-/* .b3-dialog__container .b3-dialog__close {
-    color: #505964;
-    font-size: 50%;
-    cursor: pointer;
-    background: #fff;
-    border-radius: 16px;
-    padding: 4px;
-    margin-left: 22px;
-    height: 13px;
-    width: 13px;
-    transition: all 0.3s linear;
-}
-.b3-dialog__container svg:hover {
-    color: var(--b3-menu-highlight-color);
-    background: #fff;
-    transform: rotate(180deg);
-} */
-
-
-iframe {
-    height: 500px;
-}
-/* 手机端平板端适配 */
-@media screen and (min-width: 320px) and (max-width: 420px) {
-    iframe {
-        height: 150px;
-    }
-    .fn__flex-column .vditor-ir {
-        background-color: var(--b3-theme-background);
-    }
-    .vditor-reset img {
-        /* 手机端图片不变暗 */
-        opacity: 1;
-    }
-}
-@media screen and (min-width: 421px) and (max-width: 1023px) {
-    /* 保证手机端和平板端的窗口背景不为电脑端非活动背景 */
-    .fn__flex-column .vditor-ir {
-        background-color: var(--b3-theme-background);
-    }
-    iframe {
-        height: 320px;
-    }
-    iframe[src~="https://player.bilibili.com/"]
-    {
-        height: 420px;
-    }
-    .vditor-reset img {
-        /* 平板端图片不变暗 */
-        opacity: 1;
-    }
-}
 
 /* 光标选中文本样式 */
 .protyle-wysiwyg ::selection{ 
@@ -1266,9 +1227,9 @@ iframe {
 .protyle-select{
     background-color: #91d5ff42;
 }
-/* 图片大小调整手柄 */
-/* 目前会飘 */
 
+
+/* 图片大小调整手柄 */
 .protyle-wysiwyg [data-node-id] .img .protyle-action__drag {
     width: 7px;
     height: 50%;
@@ -1288,7 +1249,10 @@ iframe {
 
 
 
-/* 调整超级块中元素间距 */
+/* 调整超级块的块间距 */
+/* 效果：
+- 左右超级块添加间距，
+- 超级块与普通块间距一致 */
 .protyle-wysiwyg>.sb{
     padding: 4px 0px !important;
 }
@@ -1300,6 +1264,7 @@ iframe {
 .protyle-wysiwyg .sb>div[data-node-id]:nth-last-child(2){
     margin:4px 0px 4px 0px;
 }
+
 /* 工具栏样式 */
 .protyle-toolbar {
     background-color: rgb(235 239 243);
@@ -1313,13 +1278,14 @@ iframe {
     margin: 0px 1px;
 }
 
-/* 笔记名字下划线 */
+/* 文档标题添加下划线 */
 .protyle-title__input {
     border-bottom: 2px solid #011010ad;
 }
 
-/* 更改提示 */
-.protyle-wysiwyg [data-node-id]:not(.code-block)>[spellcheck="false"]:focus:empty:after {  
+/* 更改空行提示 */
+.protyle-wysiwyg [data-node-id]:not(.code-block)>[spellcheck="false"]:focus:empty:after {
+    /* 避免代码块也出现空行提示  */
     content: "To the time to life";  
     color: #9fa5a6;
 }
