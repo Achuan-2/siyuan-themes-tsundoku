@@ -182,83 +182,7 @@
 }
 
 
-/* ---------------编辑器内容两侧宽度设置 Start ————————————————————————*/
 
-/* 调整思源编辑器内容最大宽度 */
-.protyle-content > .protyle-wysiwyg,
-.protyle  .b3-typography *,
-.protyle-content > .protyle-title,
-.protyle-content > .protyle-title .protyle-title__input{
-    /* 如果要调整编辑器宽度只需调整下面这个值 */
-    max-width: 1000px;
-}
-
-/* 居中 */
-.protyle-content > .protyle-wysiwyg,
-.protyle  .b3-typography *{
-    margin: 0px auto !important;
-}
-
-/* 调整两侧宽度 */
-/* 要调整宽度，就搜索75px 把下面是75px的全部修改 */
-.protyle-content > .protyle-wysiwyg {
-    /* 思源的编辑器在宽度较小的时候会主动调小编辑器内容,晕😵 */
-    /* 所以我就搞固定宽度了，不然不好调整 */
-    padding: 16px 75px 162px !important;
-    
-}
-
-.protyle-content > .protyle-title {
-    margin: 16px auto 0px !important;
-    /* 原来title就有margin 96px，上面为了水平居中就清除了，于是改为padding，
-    保证标题和内容对齐
-     */
-    padding: 0px 75px 0px;
-}
-.protyle-background__icon {
-    /* 文档图标 */
-    left: 75px !important;
-}
-.protyle-title .protyle-title__icon  {
-    /* 标题的块图标还在原来的位置，也要修改 */
-    margin: -15px 0 0 75px;
-}
-.protyle-title .protyle-attr {
-    /* 然后文档右边的引用数原来是right0，要改成前面设置的宽度 */
-    right: 75px;
-}
-
-/* 调整手机和平板端 */
-@media screen and (max-width: 1023px) {
-    /* 这里我假设平板最大宽度为1023px，小于此大小的屏幕将调整
-    页面两侧宽度 */
-    .protyle-content > .protyle-wysiwyg {
-        padding: 16px 16px 162px !important;
-        
-    }
-
-    .protyle-content > .protyle-title {
-        margin: 16px auto 0px !important;
-        /* 原来title就有margin 96px，上面为了水平居中就清除了，于是改为padding，
-        保证标题和内容对齐
-        */
-        padding: 0px 16px 0px;
-    }
-    .protyle-background__icon {
-        /* 文档图标 */
-        left: 16px !important;
-    }
-    .protyle-title .protyle-title__icon  {
-        /* 标题的块图标还在原来的位置，也要修改 */
-        margin: -15px 0 0 16px;
-    }
-    .protyle-title .protyle-attr {
-        /* 然后文档右边的引用数原来是right0，要改成前面设置的宽度 */
-        right: 16px;
-    }
-}
-
-/* ---------------编辑器内容两侧宽度设置 END ———————————————————————— */
 
 
 /* 主要背景色 */
@@ -1244,7 +1168,8 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 /* 面包屑 */
 .protyle-breadcrumb {
-    background-color: var(--b3-tab-custom-background);
+    /* background-color: var(--b3-tab-custom-background); */
+    background-color: transparent;
     z-index: 2;
 }
 
