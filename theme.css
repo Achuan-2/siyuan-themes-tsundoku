@@ -85,22 +85,22 @@
     --b3-font-color11: #52d4ca;
     --b3-font-color12: var(--b3-theme-on-background);
     --b3-font-color13: var(--b3-theme-background);
-    --b3-font-background1: #ffababe3; 
-    --b3-font-background2: #fff195;
-    --b3-font-background3: #5bc0f796;
-    --b3-font-background4: #b8f5ced0;
-    /* 思考下要不要前四个背景色和卡片样式一致
+    /* --b3-font-background1: #fddcdd; 
+    --b3-font-background2: #ffd58671;
+    --b3-font-background3: #64c2f541;
+    --b3-font-background4: #b8f5ce8a; */
+    /* 思考下要不要前四个背景色和卡片样式一致 */
     --b3-font-background1: var(--b3-card-error-background);
     --b3-font-background2: var(--b3-card-warning-background);
     --b3-font-background3: var(--b3-card-info-background);
-    --b3-font-background4: var(--b3-card-success-background); */
-    --b3-font-background5: #49efbe87;
-    --b3-font-background6: #f5905673;
-    --b3-font-background7: #dfdddd;
-    --b3-font-background8: #ffd486a6;
+    --b3-font-background4: var(--b3-card-success-background);
+    --b3-font-background5: #49efc54f;
+    --b3-font-background6: #f5905663;
+    --b3-font-background7: #dfddddaf;
+    --b3-font-background8: #fff19598;
     --b3-font-background9: #d6ddfc;
-    --b3-font-background10: #d3adf7d0;
-    --b3-font-background11: #27e5ff8a;
+    --b3-font-background10: #d3adf763;
+    --b3-font-background11: #27e6ff42;
     --b3-font-background12: var(--b3-theme-background);
     --b3-font-background13: var(--b3-theme-on-background);
 
@@ -229,7 +229,7 @@
     border-bottom: 1px solid #dfe0e1 !important;
     font-size: 1.55em !important;
     color: #34495e;
-    padding: 0.3em 0px !important;
+    /* padding: 0.3em 0px !important; */
     /* margin-bottom: 0.75em; */
 }
 .protyle-wysiwyg [data-node-id].h3,.b3-typography h3 {
@@ -239,8 +239,8 @@
     line-height: 1.25em;
     border-left: 4px solid rgb(21, 170, 191);
     text-align: justify;
-    padding: 5px 0px 0px 7px;
-    margin-top: 20px;
+    padding: 5px 0px 0px 7px !important;
+    margin-top: 20px !important;
     margin-bottom: 17px;
     padding-left: 7px;
 }
@@ -670,8 +670,16 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
 /* .protyle-task--done:hover [data-type="NodeParagraph"]>[contenteditable="true"],.protyle-task--done:hover p{
     text-decoration: none;
 } */
-.protyle-task--done .hljs{
-    text-decoration: none;
+
+/* 已知目前完成的待办列表下加代码块会有删除线，但是没办法删除 */
+.protyle-task--done [data-type="NodeParagraph"]>[contenteditable="true"] .code-block{
+    text-decoration: none !important;
+}
+/* .protyle-task--done  .bq [contenteditable="true"]{
+    text-decoration: none !important;
+} */
+.protyle-task--done [data-type="NodeParagraph"]>[contenteditable="true"] .code-block *{
+    text-decoration: none !important;
 }
 .protyle-task--done strong,
 .protyle-task--done em,
@@ -762,6 +770,10 @@ div[data-subtype='t'][data-type='NodeList'] {
     border-right: 1px solid black;
 } */
 
+/* 完成的待办列表代码块不加删除线 */
+.protyle-task--done  code{
+    text-decoration: none;
+}
 /* -------------------------------代码块样式-------------------------------------- */
 
 .protyle-reset .hljs,
@@ -1166,7 +1178,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 /* ----------------------------标签页样式 END----------------------------------------- */
 
-/* 面包屑 */
+/* h3 */
 .protyle-breadcrumb {
     /* background-color: var(--b3-tab-custom-background); */
     background-color: transparent;
@@ -1247,6 +1259,11 @@ div[data-subtype='t'][data-type='NodeList'] {
     /* 避免代码块也出现空行提示  */
     content: "To the time to life";  
     color: #9fa5a6;
+}
+
+/* 块添加圆角 */
+.protyle-wysiwyg [data-node-id] {
+    border-radius: 3px;
 }
 /* ------------------ 自定义属性 ----------------------- */
 .protyle-wysiwyg [data-node-id][custom-function="挖空"]{
