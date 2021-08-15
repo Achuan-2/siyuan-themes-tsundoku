@@ -180,9 +180,19 @@
 .render-node[data-subtype='graphviz'] .graph > polygon {
     fill: transparent;
 }
+/* ---------------编辑器内容两侧宽度设置 Start ————————————————————————*/
+/* 已放弃调整即时编辑内容两侧宽度，只调整预览模式 */
+/* 调整思源编辑器内容最大宽度 */
+.protyle  .b3-typography * {
+    /* 如果要调整编辑器宽度只需调整下面这个值 */
+    max-width: 1000px;
+}
 
-
-
+/* 居中 */
+.protyle  .b3-typography *{
+    margin: 0px auto !important;
+}
+/* ---------------编辑器内容两侧宽度设置 END ———————————————————————— */
 
 
 /* 主要背景色 */
@@ -1222,19 +1232,36 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 /* 调整超级块的块间距 */
 /* 效果：
-- 左右超级块添加间距，
-- 超级块与普通块间距一致 */
+- 超级块内的横排块添加间距，
+- 超级块与普通块间距一致
+- 超级块与超级块直接添加间距
+ */
 .protyle-wysiwyg>.sb{
+    /* 超级块与普通块间距一致  */
     padding: 4px 0px !important;
 }
-.protyle-wysiwyg .sb>div[data-node-id]{
+.protyle-wysiwyg .sb[data-sb-layout="col"]>div[data-node-id]{
+    /* 超级块内块都设置右margin */
     margin:4px 4px 4px 0px;
     /* padding: 0px; */
     border-radius: 3px;
 }
-.protyle-wysiwyg .sb>div[data-node-id]:nth-last-child(2){
+.protyle-wysiwyg .sb[data-sb-layout="col"] > div[data-node-id]:nth-last-child(2){
+    /* 超级块内最后一个块无右margin */
     margin:4px 0px 4px 0px;
 }
+
+
+.protyle-wysiwyg [data-node-id].sb[data-sb-layout="col"] .sb{
+    /* 超级块与超级块间距 */
+    margin:0px 4px 0px 0px;
+}
+.protyle-wysiwyg [data-node-id].sb[data-sb-layout="col"]>div[data-node-id]:nth-last-child(2){
+     /* 超级块与超级块间距，最后一个超级块无右margin */
+    margin:0px;
+}
+
+/* 调整超级块的块间距  END*/
 
 /* 工具栏样式 */
 .protyle-toolbar {
