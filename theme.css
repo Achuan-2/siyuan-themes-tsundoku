@@ -250,7 +250,7 @@
     font-size: 1.35em;
 }
 .protyle-wysiwyg [data-node-id].h3 div[contenteditable="true"] {
-    display: inline;
+    display: inline-block;
 }
 .protyle-wysiwyg [data-node-id].h4,.b3-typography h4 {
     font-size: 1.2em;
