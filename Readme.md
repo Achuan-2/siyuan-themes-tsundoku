@@ -1,4 +1,4 @@
-<h1 align="center">A Theme for siyuan-note: Tsundoku(light)</h1>
+<h1 align="center">Tsundoku(light): A Theme for siyuan-note</h1>
 
 <p align="center">          
            <a title="Hits" target="_blank" href="https://github.com/Achuan-2/siyuan-themes-tsundoku-light"><img src="https://hits.b3log.org/Achuan-2/siyuan-themes-tsundoku-light.svg" ></a>
