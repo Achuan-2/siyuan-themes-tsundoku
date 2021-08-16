@@ -1,12 +1,18 @@
-<a title="Hits" target="_blank" href="https://github.com/Achuan-2/siyuan-themes-tsundoku-light"><img src="https://hits.b3log.org/Achuan-2/siyuan-themes-tsundoku-light.svg" ></a>
-[![Downloads](https://img.shields.io/github/downloads/Achuan-2/siyuan-themes-tsundoku-light/total?logo=github)](https://github.com/Achuan-2/siyuan-themes-tsundoku-light/releases/latest/download/siyuan-themes-tsundoku-light.zip)
-[![Release](https://img.shields.io/github/release/Achuan-2/siyuan-themes-tsundoku-light.svg)](https://github.com/Achuan-2/siyuan-themes-tsundoku-light/releases)
-![stars](https://img.shields.io/github/stars/Achuan-2/siyuan-themes-tsundoku-light)
-![open-issues](https://img.shields.io/github/issues-raw/Achuan-2/siyuan-themes-tsundoku-light)
-![closed-issues](https://img.shields.io/github/issues-closed-raw/Achuan-2/siyuan-themes-tsundoku-light)
-![GitHub last commit](https://img.shields.io/github/last-commit/Achuan-2/siyuan-themes-tsundoku-light)
+<h1 align="center">A Theme for siyuan-note: Tsundoku(light)</h1>
 
-# 思源主题: Tsundoku(light)
+<p align="center">          
+           <a title="Hits" target="_blank" href="https://github.com/Achuan-2/siyuan-themes-tsundoku-light"><img src="https://hits.b3log.org/Achuan-2/siyuan-themes-tsundoku-light.svg" ></a>
+           <a href="https://github.com/Achuan-2/siyuan-themes-tsundoku-light/releases/latest/download/siyuan-themes-tsundoku-light.zip">
+                      <img src="https://img.shields.io/github/downloads/Achuan-2/siyuan-themes-tsundoku-light/total?logo=github" alt="Downloads">
+           </a>
+           <a href="https://github.com/Achuan-2/siyuan-themes-tsundoku-light/releases">
+                      <https://img.shields.io/github/release/Achuan-2/siyuan-themes-tsundoku-light.svg" alt="Release">
+           </a>
+           <img src="https://img.shields.io/github/stars/Achuan-2/siyuan-themes-tsundoku-light" alt="stars">
+           <img src="https://img.shields.io/github/issues-raw/Achuan-2/siyuan-themes-tsundoku-light" alt="open-issues">
+           <img src="https://img.shields.io/github/issues-closed-raw/Achuan-2/siyuan-themes-tsundoku-light" alt="closed-issues">
+          <img src="https://img.shields.io/github/last-commit/Achuan-2/siyuan-themes-tsundoku-light" alt="GitHub last commit">
+</p>
 
 ![preview](preview.png)
 
