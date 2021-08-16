@@ -1,3 +1,5 @@
+<h1 align="center">A Theme for siyuan-note: Tsundoku(light)</h1>           
+           
 <a title="Hits" target="_blank" href="https://github.com/Achuan-2/siyuan-themes-tsundoku-light"><img src="https://hits.b3log.org/Achuan-2/siyuan-themes-tsundoku-light.svg" ></a>
 [![Downloads](https://img.shields.io/github/downloads/Achuan-2/siyuan-themes-tsundoku-light/total?logo=github)](https://github.com/Achuan-2/siyuan-themes-tsundoku-light/releases/latest/download/siyuan-themes-tsundoku-light.zip)
 [![Release](https://img.shields.io/github/release/Achuan-2/siyuan-themes-tsundoku-light.svg)](https://github.com/Achuan-2/siyuan-themes-tsundoku-light/releases)
@@ -5,8 +7,6 @@
 ![open-issues](https://img.shields.io/github/issues-raw/Achuan-2/siyuan-themes-tsundoku-light)
 ![closed-issues](https://img.shields.io/github/issues-closed-raw/Achuan-2/siyuan-themes-tsundoku-light)
 ![GitHub last commit](https://img.shields.io/github/last-commit/Achuan-2/siyuan-themes-tsundoku-light)
-
-# A Theme for siyuan-note: Tsundoku(light)
 
 ![preview](preview.png)
 
