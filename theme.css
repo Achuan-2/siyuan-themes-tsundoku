@@ -231,7 +231,7 @@
 .protyle-wysiwyg [data-node-id].h1 ,.b3-typography h1{
     text-align: center;
     border-bottom: 0px solid #c5c7ca !important;
-    font-size: 1.75em;
+    font-size: 1.75em !important;
     padding: 0.3em 4px;
     color: #04393f;
 }
@@ -241,27 +241,27 @@
     color: #34495e;
 }
 .protyle-wysiwyg [data-node-id].h3,.b3-typography h3 {
-    font-size: 1.35em;
+    font-size: 1.35em !important;
     color: rgb(21, 170, 191);
 }
 .protyle-wysiwyg [data-node-id].h3:before {
     content:"| ";
     display: inline;
-    font-size: 1.35em;
+    font-size: 1.35em !important;
 }
 .protyle-wysiwyg [data-node-id].h3 div[contenteditable="true"] {
     display: inline-block;
 }
 .protyle-wysiwyg [data-node-id].h4,.b3-typography h4 {
-    font-size: 1.2em;
+    font-size: 1.2em !important;
     color: #03a1b9cc;
 }
 .protyle-wysiwyg [data-node-id].h5,.b3-typography h5 {
-    font-size: 1.1em;
+    font-size: 1.1em!important;
     color: #58c6d6;
 }
 .protyle-wysiwyg [data-node-id].h6,.b3-typography h6 {
-    font-size: 1.1em;
+    font-size: 1.1em!important;
     /* color: #03a1b9cc; */
 }
 /* 标题加粗不显示 */
