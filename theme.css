@@ -72,18 +72,18 @@
     --b3-card-success-background: #e0f9e0;
 
     /* 自定义文字 */
-    --b3-font-color1: #ec5a5b;
+    --b3-font-color1: #f88686;
     --b3-font-color2: #bf7203;
     --b3-font-color3: #2183ce;
     --b3-font-color4: #11ad81;
-    --b3-font-color5: #099083;
-    --b3-font-color6: #f5822e;
-    --b3-font-color7: #8E8E8E;
-    --b3-font-color8: var(--b3-theme-secondary);
+    --b3-font-color5: #8E8E8E;
+    --b3-font-color6: #52d4ca;
+    --b3-font-color7: var(--b3-theme-secondary);
+    --b3-font-color8: #d32a1b;
     --b3-font-color9: #596ab7;
     --b3-font-color10: #944194;
-    --b3-font-color11: #52d4ca;
-    --b3-font-color12: var(--b3-theme-on-background);
+    --b3-font-color11: #099083;
+    --b3-font-color12: #f5822e;
     --b3-font-color13: var(--b3-theme-background);
     /* --b3-font-background1: #fddcdd; 
     --b3-font-background2: #ffd58671;
@@ -94,14 +94,14 @@
     --b3-font-background2: var(--b3-card-warning-background);
     --b3-font-background3: var(--b3-card-info-background);
     --b3-font-background4: var(--b3-card-success-background);
-    --b3-font-background5: #49efc54f;
-    --b3-font-background6: #f5905663;
-    --b3-font-background7: #dfddddaf;
-    --b3-font-background8: #fff19598;
+    --b3-font-background5: #dfddddaf;
+    --b3-font-background6: #27e6ff42;
+    --b3-font-background7: #fff19598;
+    --b3-font-background8: #f5250a69;
     --b3-font-background9: #d6ddfc;
     --b3-font-background10: #d3adf763;
-    --b3-font-background11: #27e6ff42;
-    --b3-font-background12: var(--b3-theme-background);
+    --b3-font-background11: #49efc54f;
+    --b3-font-background12: #f5905663;
     --b3-font-background13: var(--b3-theme-on-background);
 
     /* 动画效果 */
@@ -352,14 +352,14 @@ mark {
 }
 /* ----------如果希望取消挖空效果，请删除这段代码 Start---------------- */
 /* 修改高亮为挖空效果，但是预览模式关闭（毕竟需要导出） */
-.protyle-wysiwyg mark{
+/* .protyle-wysiwyg mark{
     color: transparent;
     transition: all 2s ease-in-out;
 }
 .protyle-wysiwyg [data-node-id] [spellcheck="false"] mark:hover{
     color: var(--b3-protyle-inline-mark-color);
     transition: all 0.2s ease-in-out;
-}
+} */
 /* -------------如果希望取消挖空效果，请删除这段代码 END----------------------------------- */
 /* 加粗 */
 strong {
