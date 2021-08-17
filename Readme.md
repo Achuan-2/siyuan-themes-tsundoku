@@ -21,7 +21,7 @@
 
 > 🎠 这可能不会是最符合你审美的主题，但或许会是一个最追求极致体验的主题（之一）！
 > 
-> 🌞 亮色主题见[Tsundoku Light](https://github.com/Achuan-2/siyuan-themes-tsundoku-light) | 🌛 深色主题见[Tsundoku Dark ](https://github.com/Achuan-2/siyuan-themes-tsundoku) | 🥗 护眼主题见[Tsundoku Green](https://github.com/Achuan-2/siyuan-themes-tsundoku-greent)
+> 🌞 亮色主题见[Tsundoku Light](https://github.com/Achuan-2/siyuan-themes-tsundoku-light) | 🌛 深色主题见[Tsundoku Dark ](https://github.com/Achuan-2/siyuan-themes-tsundoku) | 🥗 护眼主题见[Tsundoku Green](https://github.com/Achuan-2/siyuan-themes-tsundoku-green)
 > 
 > 另外，本人的思源订阅推荐码：**B3XX0Y8**，欢迎各位老板使用！在买会员时使用订阅推荐码可增加 500 MB 云端空间和 7 天使用期！
 
