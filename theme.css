@@ -584,7 +584,9 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     margin-bottom: 0;
 }
 
-
+.b3-typography ul li.protyle-task::before {
+    margin:2px 2px 0px -2px; 
+}
 
 /* 列表悬浮 */
 .protyle-wysiwyg [data-node-id].li>.protyle-action:hover:after {
