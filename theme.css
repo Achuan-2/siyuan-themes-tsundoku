@@ -976,7 +976,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 .b3-button--cancel:focus,
 .b3-button--outline:hover,
 .b3-button--outline:focus {
-    background-color: rgba(137, 233, 212, 0.24);
+    background-color: #89aba33d;
     font-weight: 600;
     /* border:1px solid rgba(87, 86, 86, 0.144); */
     /* filter: drop-shadow(1px 1px 1px #4a6c8da1); */
