@@ -1270,9 +1270,12 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 /* 调整kbd标签 */
 .b3-typography kbd, .protyle-wysiwyg kbd {
-    font-size: 90%;
+    display: inline-flex;
     padding: 2px 4px;
     margin: 0px 1px;
+    background-color: #cccccc38;
+    box-shadow: 0 0 1px #415f86;
+    transform: translateY(-1.5px);
 }
 
 /* 文档标题添加下划线 */
