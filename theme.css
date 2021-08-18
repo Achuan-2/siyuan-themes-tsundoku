@@ -513,6 +513,7 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
 /* 行内代码 */
 .b3-typography code:not(.hljs), .protyle-wysiwyg code:not(.hljs) {
     display: inline-flex;
+    padding: 0em 0.4em;
     transform: translateY(-1.5px);
     margin:0px 2px;
 }
@@ -1262,7 +1263,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 .b3-typography kbd, .protyle-wysiwyg kbd {
     display: inline-flex;
     padding: 2px 4px;
-    margin: 0px 1px;
+    margin: 0px 2px;
     background-color: #cccccc38;
     box-shadow: 0 0 1px #415f86;
     transform: translateY(-1.5px);
