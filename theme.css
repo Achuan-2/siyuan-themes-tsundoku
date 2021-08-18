@@ -511,21 +511,11 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     background-color: var(--b3-protyle-inline-tag-background);
 }
 /* 行内代码 */
-/* .protyle-wysiwyg [data-node-id] code,
-.b3-typography code:not(.hljs),
-.protyle-wysiwyg code:not(.hljs) {
-    padding: 0.2em 0.4em;
-    margin: 0 2px;
-    font-size: 85%;
-    border-radius: 3px;
-    font-family: var(--b3-font-family-code);
-    word-break: break-word;
-    background-size: 20px 20px;
-    white-space: pre-wrap;
-    color: var(--b3-protyle-inline-code-color);
-    background-color: var(--b3-protyle-inline-code-background);
-    box-shadow: #34808a38 0px 0px 3px 1px inset;
-} */
+.b3-typography code:not(.hljs), .protyle-wysiwyg code:not(.hljs) {
+    display: inline-flex;
+    transform: translateY(-1.5px);
+    margin:0px 2px;
+}
 
 /* 超链接 */
 .protyle-wysiwyg [data-node-id] span[data-type='a'] {
