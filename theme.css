@@ -236,7 +236,7 @@
     color: #04393f;
 }
 .protyle-wysiwyg [data-node-id].h2,.b3-typography h2 {
-    border-bottom: 1px solid #dfe0e1 !important;
+    /* border-bottom: 1px solid #dfe0e1 !important; */
     font-size: 1.55em !important;
     color: #34495e;
 }
@@ -1406,4 +1406,22 @@ display: flex;
 
 .protyle-wysiwyg [data-node-id][custom-function="kaiti"]{
         font-family: kaiti;
+}
+.protyle-wysiwyg [data-node-id][custom-function="quote"] {
+    background-color: var(--b3-card-success-background);
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.protyle-wysiwyg [data-node-id][custom-function="quote"]:before {
+    content:"📌";
+    display: inline-block;
+    position: relative;
+    top: 0px;
+    
+}
+.protyle-wysiwyg [data-node-id][custom-function="quote"] [contenteditable="true"]{
+        display: inline-block;
+        margin-top: 0px;
+        margin-left: 1em;
+        /* width:calc(100% - 40px); */
 }
