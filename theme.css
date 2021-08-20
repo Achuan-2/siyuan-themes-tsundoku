@@ -237,6 +237,7 @@
 }
 .protyle-wysiwyg [data-node-id].h2,.b3-typography h2 {
     /* border-bottom: 1px solid #dfe0e1 !important; */
+    border-bottom: 0px solid transparent !important;
     font-size: 1.55em !important;
     color: #34495e;
 }
