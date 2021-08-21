@@ -1275,6 +1275,15 @@ div[data-subtype='t'][data-type='NodeList'] {
 .protyle-wysiwyg [data-node-id] {
     border-radius: 3px;
 }
+/* 文件树文档图标悬浮放大 */
+.b3-list--files .b3-list-item__icon:hover {
+    transform: scale(1.2);
+}
+/* 文档树文字放大 */
+.b3-list--files .b3-list-item__text:hover {
+    transform: scale(1.02);
+}
+
 /* ------------------ 自定义属性 ----------------------- */
 .protyle-wysiwyg [data-node-id][custom-function="挖空"]{
     border: 2px dashed  rgba(92, 135, 138, 0.322);
