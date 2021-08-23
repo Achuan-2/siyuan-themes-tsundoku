@@ -1194,9 +1194,9 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 
 /* 光标选中文本样式 */
-.protyle-wysiwyg ::selection{ 
-    background-color:rgba(184, 247, 177, 0.445);
-}
+/* .protyle-wysiwyg ::selection{ 
+    background-color:rgba(184, 247, 177, 0.645);
+} */
 /* 选中块 */
 .protyle-wysiwyg--select, .protyle-wysiwyg--select .hljs {
     background-color: #91d5ff38 !important;
