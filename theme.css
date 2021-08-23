@@ -1465,3 +1465,13 @@ display: flex;
         margin-left: 1em;
         /* width:calc(100% - 40px); */
 }
+
+
+/* 文档标签 */
+.protyle-background__tags .item {
+    padding: 1px 5px;
+    font-size: 14px;
+}
+.protyle-background__tags .item:hover {
+    transform: scale(1.1);
+}
