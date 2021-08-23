@@ -1475,3 +1475,12 @@ display: flex;
 .protyle-background__tags .item:hover {
     transform: scale(1.1);
 }
+
+/* 调整菜单 */
+.b3-menu__item {
+    padding: 4px 16px 0 8px;
+
+}
+.b3-menu, .protyle-util {
+    padding: 0px 0;
+}
