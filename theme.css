@@ -353,14 +353,14 @@ mark {
 }
 /* ----------如果希望取消挖空效果，请删除这段代码 Start---------------- */
 /* 修改高亮为挖空效果，但是预览模式关闭（毕竟需要导出） */
-/* .protyle-wysiwyg mark{
+.protyle-wysiwyg mark{
     color: transparent;
     transition: all 2s ease-in-out;
 }
 .protyle-wysiwyg [data-node-id] [spellcheck="false"] mark:hover{
     color: var(--b3-protyle-inline-mark-color);
     transition: all 0.2s ease-in-out;
-} */
+}
 /* -------------如果希望取消挖空效果，请删除这段代码 END----------------------------------- */
 /* 加粗 */
 strong {
