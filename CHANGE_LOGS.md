@@ -3,6 +3,7 @@
 * :lipstick: 光标选中文本样式
 * :lipstick: 文档标签样式调整
 * :lipstick: 菜单样式增高
+* :lipstick: 菜单增加圆角
 
 ## v0.6.5/2021-08-21
 
