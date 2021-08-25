@@ -189,7 +189,7 @@
 }
 
 /* 居中 */
-.protyle  .b3-typography *{
+.protyle  .b3-typography > *{
     margin: 0px auto !important;
 }
 /* ---------------编辑器内容两侧宽度设置 END ———————————————————————— */
@@ -390,8 +390,8 @@ strong {
 .b3-typography blockquote > p,
 .b3-typography blockquote .code-block,
 .b3-typography blockquote ul,
-.b3-typography blockquote li
-.b3-typography blockquote > blockquote {
+.b3-typography blockquote li,
+.b3-typography blockquote  blockquote {
     margin-left: 1em;
 }
 .protyle-wysiwyg [data-node-id].bq strong,.b3-typography blockquote strong{
