@@ -355,11 +355,11 @@ mark {
 /* 修改高亮为挖空效果，但是预览模式关闭（毕竟需要导出） */
 .protyle-wysiwyg mark{
     color: transparent;
-    transition: all 2s ease-in-out;
+    transition: color 2s ease-in-out;
 }
 .protyle-wysiwyg [data-node-id] [spellcheck="false"] mark:hover{
     color: var(--b3-protyle-inline-mark-color);
-    transition: all 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out;
 }
 /* -------------如果希望取消挖空效果，请删除这段代码 END----------------------------------- */
 /* 加粗 */
@@ -1330,7 +1330,6 @@ div[data-subtype='t'][data-type='NodeList'] {
 .protyle-wysiwyg [data-node-id][custom-function="挖空"]{
     border: 2px dashed  rgba(92, 135, 138, 0.322);
     background-color: rgba(92, 135, 138, 0.322);
-    color: transparent;
     background-image: -webkit-gradient(linear,
     0 0, 100% 100%,
     color-stop(.25, rgba(255, 255, 255, .2)),
@@ -1345,13 +1344,13 @@ div[data-subtype='t'][data-type='NodeList'] {
     transform: perspective(1000px);
     transform-style: preserve-3d;
     transform: rotateX(180deg); 
-    /* transition: all 0.5 ease; */
-    /* animation: hide 1s ease forwards; */
 }
 
-.protyle-wysiwyg [data-node-id][custom-function="挖空"] [data-type="NodeListItem"] {
+.protyle-wysiwyg [data-node-id][custom-function="挖空"] * {
     opacity: 0;
 }
+
+
 .protyle-wysiwyg [data-node-id][custom-function="挖空"]:focus-within {
     transform: rotateX(0deg); 
     color: var(--b3-theme-on-background);
@@ -1360,15 +1359,17 @@ div[data-subtype='t'][data-type='NodeList'] {
     background-image: none;
 }
 
-.protyle-wysiwyg [data-node-id][custom-function="挖空"]:focus-within [data-type="NodeListItem"] {
+.protyle-wysiwyg [data-node-id][custom-function="挖空"]:focus-within * {
     opacity: 1;
 }
 
 .protyle-wysiwyg .protyle-wysiwyg__embed [data-node-id][custom-function="挖空"]:hover{
         animation: rotateHide 0.7s ease forwards;
 }
-.protyle-wysiwyg .protyle-wysiwyg__embed [data-node-id][custom-function="挖空"]:hover [data-type="NodeListItem"] {
+
+.protyle-wysiwyg .protyle-wysiwyg__embed [data-node-id][custom-function="挖空"]:hover * {
     opacity: 1;
+    transition: opacity 0.7s ease;
 }
 @keyframes rotateHide {
     0% {
