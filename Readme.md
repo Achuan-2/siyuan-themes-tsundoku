@@ -27,7 +27,12 @@
 
 ## 💌 **缘起**
 
-Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释的“Tsundoku is acquiring reading materials but letting them pile up in one's home without reading them. It is also used to refer to books ready for reading later when they are on a bookshelf.”我借此名来警醒自己，希望思源能帮助我成长，而不是又成为缓解知识焦虑的积灰箱，满足我的囤积症。
+Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释的“Tsundoku is acquiring reading materials but letting them pile up in one's home without reading them. It is also used to refer to books ready for reading later when they are on a bookshelf.”
+
+> Any PKM approach that doesn’t tie into execution tools is destined to languish on the back burner forever
+
+我借此名来警醒自己，希望思源能帮助我成长，帮我更好的完成任务，而不是又成为一个缓解知识焦虑的积灰箱，满足我的数字化囤积症。
+
 
 
 
