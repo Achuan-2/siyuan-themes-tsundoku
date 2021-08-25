@@ -369,10 +369,10 @@ strong {
 
 /* blockquote 引用 */
 .protyle-wysiwyg [data-node-id].bq, .b3-typography blockquote {
-    border-left: 4px solid #8aacac !important;
     border: 2px solid #8aacac ;
-    border-radius: 0.31em 0.31em 0.31em 0.31em;
+    border-radius: 0.31em;
     margin-top: 8px !important;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 16%), 0 0 0 1px rgb(0 0 0 / 8%);
 }
 
 .protyle-wysiwyg [data-node-id].bq > div{
