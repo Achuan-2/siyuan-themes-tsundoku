@@ -1500,3 +1500,10 @@ display: flex;
     opacity: 1;
     border-top: 1px solid var(--b3-border-color);
 }
+
+/* optimize-custom-emoji */
+.b3-typography img.emoji, .protyle-wysiwyg img.emoji {
+    cursor: auto;
+    max-width: 2.5em;
+    box-shadow: none !important;
+}
