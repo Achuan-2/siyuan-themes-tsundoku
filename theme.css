@@ -247,11 +247,11 @@
 }
 .protyle-wysiwyg [data-node-id].h3:before {
     content:"| ";
-    display: inline;
+    display: inline !important;
     font-size: 1.35em !important;
 }
-.protyle-wysiwyg [data-node-id].h3 div[contenteditable="true"] {
-    display: inline-block;
+.protyle-wysiwyg [data-node-id].h3>div:first-child{
+    display: inline !important;
 }
 .protyle-wysiwyg [data-node-id].h4,.b3-typography h4 {
     font-size: 1.2em !important;

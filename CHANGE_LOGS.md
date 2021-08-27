@@ -1,3 +1,7 @@
+## v0.6.9 / 2021-8-27
+
+* :bug: Fix h3 display in Embeded Block
+
 ## v0.6.8 / 2021-8-26
 
 * :lipstick: Optimize custom-emoji display
