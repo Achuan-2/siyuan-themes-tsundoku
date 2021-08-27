@@ -245,7 +245,8 @@
     font-size: 1.35em !important;
     color: rgb(21, 170, 191);
 }
-.protyle-wysiwyg [data-node-id].h3:before {
+.protyle-wysiwyg [data-node-id].h3:before,
+.b3-typography h3:before {
     content:"| ";
     display: inline !important;
     font-size: 1.35em !important;
