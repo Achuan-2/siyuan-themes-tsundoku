@@ -1507,4 +1507,5 @@ display: flex;
     cursor: auto;
     max-width: 2.5em;
     box-shadow: none !important;
+    vertical-align: top;
 }
