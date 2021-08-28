@@ -182,16 +182,13 @@
 }
 /* ---------------编辑器内容两侧宽度设置 Start ————————————————————————*/
 /* 已放弃调整即时编辑内容两侧宽度，只调整预览模式 */
+/* 目前这种方式的弊端就是滑块位置往右了 */
 /* 调整思源编辑器内容最大宽度 */
-.protyle  .b3-typography * {
+.protyle  .b3-typography {
     /* 如果要调整编辑器宽度只需调整下面这个值 */
     max-width: 1000px;
 }
 
-/* 居中 */
-.protyle  .b3-typography > *{
-    margin: 0px auto !important;
-}
 /* ---------------编辑器内容两侧宽度设置 END ———————————————————————— */
 
 
@@ -241,18 +238,27 @@
     font-size: 1.55em !important;
     color: #34495e;
 }
-.protyle-wysiwyg [data-node-id].h3,.b3-typography h3 {
+.protyle-wysiwyg [data-node-id].h3,
+.b3-typography h3{
     font-size: 1.35em !important;
     color: rgb(21, 170, 191);
+    display: flex;
+    align-items: center;
 }
+
 .protyle-wysiwyg [data-node-id].h3:before,
 .b3-typography h3:before {
-    content:"| ";
-    display: inline !important;
+    content:"|";
+    display: inline-block;
     font-size: 1.35em !important;
+    margin-right: 8px;
+}
+.b3-typography h3:before {
+    margin-right: 8px;
 }
 .protyle-wysiwyg [data-node-id].h3>div:first-child{
-    display: inline !important;
+        /* inline-block 不能改为inline,不然点击旁边不会激活光标！ */
+    display: inline-block !important;
 }
 .protyle-wysiwyg [data-node-id].h4,.b3-typography h4 {
     font-size: 1.2em !important;
