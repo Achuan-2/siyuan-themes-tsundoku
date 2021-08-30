@@ -1545,4 +1545,27 @@ display: flex;
     padding: 0 2px;
     width: 20px;
 }
+
+
+.emojis__item img, .emojis__item svg {
+    height: 30px;
+    width: 30px;
+}
+.emojis__item {
+    font-size: 24px;
+    line-height: 30px;
+    font-family: var(--b3-font-family-emoji);
+    text-align: center;
+    height: 30px;
+    width:33px;
+    padding: 2px 4px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+/* 删除了一些无谓的emoji，适应win10emoji */
+.emojis__item[data-unicode *="-"] {
+    /* font-size: 12px; */
+    display: none;
+}
 /* ----------optimize-custom-emoji ---END---------*/
