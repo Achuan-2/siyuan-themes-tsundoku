@@ -1326,7 +1326,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 }
 /* 文档树文字放大 */
 .b3-list--files .b3-list-item__text:hover {
-    transform: scale(1.01);
+    /* transform: scale(1.01); */
     transition: all 0.1s ease-in-out;
 }
 .b3-list--files .b3-list-item__text {
