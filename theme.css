@@ -562,11 +562,11 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
 }
 /* 图片 */
 .protyle-wysiwyg img,.b3-typography img {
-    max-width: 100%;
+
     cursor: pointer;
     /* box-shadow: 0px 1px 5px 1px rgba(6, 6, 6, 10%); */
     border-radius: 5px;
-    /* transition: all 0.4s ease-in-out; 加了这个缩放会不跟                              手*/
+    /* transition: all 0.4s ease-in-out; 加了这个缩放会不跟手*/
 }
 
 
@@ -1508,10 +1508,41 @@ display: flex;
     border-top: 1px solid var(--b3-border-color);
 }
 
-/* optimize-custom-emoji */
+/* ----------optimize-custom-emoji ----Start--------*/
+/* 调整编辑器内的自定义emoji大小 */
 .b3-typography img.emoji, .protyle-wysiwyg img.emoji {
     cursor: auto;
     max-width: 2.5em;
     box-shadow: none !important;
     vertical-align: top;
 }
+
+/* 取消官方悬浮文档图标的修改提示 */
+.b3-list--files .b3-list-item__icon:hover {
+    background-color: transparent;
+    border-radius: 0px;
+}
+.b3-list--files .b3-list-item__icon:hover::after,
+.b3-list--files .b3-list-item__icon:hover::before{
+    opacity: 0;
+}
+
+/* 文档图标大小调整 */
+.b3-list--files .b3-list-item__icon svg, .b3-list--files .b3-list-item__icon img {
+    float: left;
+    margin: 4px 0;
+    height: 20px;
+    width: 20px;
+    color: var(--b3-theme-on-surface);
+}
+.b3-list--files .b3-list-item__icon {
+    text-align: center;
+    font-size: 16px;
+    margin-right: 4px;
+    line-height: 28px;
+    height: 28px;
+    transition: var(--b3-transition);
+    padding: 0 2px;
+    width: 20px;
+}
+/* ----------optimize-custom-emoji ---END---------*/
