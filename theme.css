@@ -377,6 +377,11 @@ strong {
     box-shadow: 0 2px 2px 0 rgb(0 0 0 / 16%), 0 0 0 1px rgb(0 0 0 / 8%);
 }
 
+.protyle-wysiwyg [data-node-id].bq strong, .b3-typography blockquote strong {
+    color: rgba(0, 0, 0, 0.67);
+
+}
+
 .protyle-wysiwyg [data-node-id].bq > div{
     /* margin-left: 1em; */
     padding-left: 1em;
@@ -396,9 +401,7 @@ strong {
 .b3-typography blockquote  blockquote {
     margin-left: 1em;
 }
-.protyle-wysiwyg [data-node-id].bq strong,.b3-typography blockquote strong{
-    color: inherit;
-}
+
 
 /* 块引用 */
 .protyle-wysiwyg [data-node-id] span[data-type='block-ref']{
@@ -508,7 +511,12 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     transition: all 0.2s ease-in-out;
     z-index: 20;
 }
-
+.protyle-wysiwyg [data-node-id] span[data-type='tag']::before {
+    content: "#";
+}
+.protyle-wysiwyg [data-node-id] span[data-type='tag']::after {
+    content: "#";
+}
 .protyle-wysiwyg [data-node-id] span[data-type='tag']:hover {
     transform: scale(1.05);
     background-color: var(--b3-protyle-inline-tag-background);
