@@ -1,3 +1,8 @@
+## v0.7.2 / 2021-09-05
+
+* :lipstick: Change the label style: wrap both sides with # marks
+* :lipstick: Make the bold style of the blockquote obvious
+
 ## v0.7.1 / 2021-8-30
 
 * :lipstick: 调整自定义emoji大小，适配 win10emoji大小
