@@ -927,13 +927,11 @@ div[data-subtype='t'][data-type='NodeList'] {
     border-radius: 0% 6px 6px 0%;
     color: var(--b3-menu-highlight-focus-color);
     font-weight: bold;
-    transition: all 0.1s ease-in-out;
 
 }
 .b3-list--background .b3-list-item--focus .b3-list-item__text {
     color: var(--b3-menu-highlight-focus-color);
     font-weight: bold;
-    transition: all 0.1s ease-in-out;
 
     /* border-radius: 15px 15px 15px 15px; */
 }
