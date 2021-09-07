@@ -1530,7 +1530,21 @@ display: flex;
     opacity: 0;
 }
 
-/* 文档图标大小调整 */
+/* 文档图标标题上方大小调整win10 emoji */
+.protyle-background__icon {
+    height: 80px;
+    width: 80px;
+    transition: var(--b3-transition);
+    position: absolute;
+    bottom: -40px;
+    cursor: pointer;
+    font-size: 70px;
+    line-height: 70px;
+    text-align: center;
+    font-family: var(--b3-font-family-emoji);
+    z-index: 1;
+}
+/* 文档图标文件树大小调整 */
 .b3-list--files .b3-list-item__icon svg, .b3-list--files .b3-list-item__icon img {
     float: left;
     margin: 4px 0;
