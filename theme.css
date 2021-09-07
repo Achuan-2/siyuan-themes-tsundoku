@@ -381,17 +381,16 @@ strong {
     color: rgba(0, 0, 0, 0.67);
 
 }
-
+/* blockquote 缩进调整 */
 .protyle-wysiwyg [data-node-id].bq > div{
-    /* margin-left: 1em; */
-    padding-left: 1em;
+    padding-left: 1rem;
 }
 .protyle-wysiwyg [data-node-id].bq > div.bq{
-    margin-left: 1em;
+    margin-left: 1rem;
     padding-left: 0em;
 }
 .protyle-wysiwyg [data-node-id].bq div.code-block {
-    margin-left: 1em;
+    margin-left: 1rem;
 }
 /* 缩进调整 */
 .b3-typography blockquote > p,
