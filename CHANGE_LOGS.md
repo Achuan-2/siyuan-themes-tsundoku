@@ -1,3 +1,7 @@
+## v0.7.3 / 2021-09-07
+* :bug: 修复编辑时大纲标题闪烁
+* :lipstick: 文档图标标题上方针对win10 emoji进行大小调整
+
 ## v0.7.2 / 2021-09-05
 
 * :lipstick: Change the label style: wrap both sides with # marks
