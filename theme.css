@@ -211,9 +211,14 @@
 }
 
 /*分窗口的边框（线）  */
-.layout__resize::after {
+/* .layout__resize::after {
     background-color: #c7d1d8;
-}
+    background-color: #f8f9fa;
+} */
+/* .fn__flex.fn__flex-1{
+    border-radius: 10px;
+    background-color: #d5dde2;
+} */
 /* 文档树 */
 .b3-list--files .b3-list-item--focus:not(.dragover) {
     background-color: var(--b3-menu-highlight-background) !important;
@@ -1132,7 +1137,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 .layout-tab-bar .item {
     padding: 4px 4px 4px 14px;
     border: 0px;
-    border-bottom: 2px solid transparent;
+    border-bottom: 0px solid transparent;
     border-right: 2px solid #b7b8b97c;
     border-left: 2px solid #b7b8b97c;
     border-radius: 7px 7px 0px 0px;
@@ -1140,6 +1145,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     background-color: #d5dde270;
     /* transition: all 0.1s ease; */
 }
+
 /* 选中的标签页 */
 .layout-tab-bar .item--focus {
     color: var(--b3-menu-highlight-focus-color);
@@ -1148,7 +1154,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     background-color: var(--b3-theme-background);
     border-right: 1px solid #b7b8b9;
     border-left: 1px solid #b7b8b9;
-    border-bottom: 2px solid transparent;
+    border-bottom: 0px solid transparent;
     /* filter: drop-shadow(2px 2px 3px #999); */
 }
 /* 多窗口foucs的标签页 */
@@ -1159,9 +1165,14 @@ div[data-subtype='t'][data-type='NodeList'] {
     border-right: 1px solid #b7b8b9;
     border-left: 1px solid #b7b8b9;
     /* 更改多窗口标签页当前页面底框高亮颜色 */
-    border-bottom: 2px solid transparent;
+    border-bottom: 0px solid transparent;
     /* border-bottom: 2px solid #34495e7c; */
     /* background-color: #00aaff; */
+}
+.layout-tab-bar .item:first-child,
+.layout-tab-bar .item--focus:first-child{
+    border-radius: 0px 7px 0px 0px;
+    border-left: 0px solid #b7b8b97c;
 }
 
 /* 未保存样式 */
