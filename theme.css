@@ -410,7 +410,6 @@ strong {
 .protyle-wysiwyg [data-node-id] span[data-type='block-ref']{
     color: var(--b3-protyle-inline-blockref-color); /*更改颜色*/
     padding-bottom: 0em;
-    display: inline-block;
     box-sizing: border-box;
     height: 1.5em;
     border-bottom: 1px dashed var(--b3-protyle-inline-blockref-color);
