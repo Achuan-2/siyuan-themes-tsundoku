@@ -171,7 +171,9 @@
     --b3-menu-highlight-background: #dde5ea;
     --b3-tab-custom-background: #e4ebec;
 }
-
+.b3-dialog__container {
+    background-color: #f0f3f5;
+}
 .render-node[data-subtype='graphviz'] .graph > polygon {
     fill: transparent;
 }
@@ -241,23 +243,33 @@
 .b3-typography h3{
     font-size: 1.35em !important;
     color: rgb(21, 170, 191);
-    display: flex;
-    align-items: center;
 }
-
 .protyle-wysiwyg [data-node-id].h3:before,
 .b3-typography h3:before {
     content:"|";
-    display: inline-block;
+    display: block;
+    float: left;
+    height: 1.105em;
     font-size: 1.35em !important;
+    margin-right: 8px;
+}
+
+.protyle-wysiwyg [data-node-id].h3>div:first-child{
+    /* block 不能改为inline,不然点击旁边不会激活光标！ */
+    display: block !important;
+    margin-top: 0.27em;
     margin-right: 8px;
 }
 .b3-typography h3:before {
     margin-right: 8px;
+    margin-top: -0.23em;
 }
-.protyle-wysiwyg [data-node-id].h3>div:first-child{
-        /* inline-block 不能改为inline,不然点击旁边不会激活光标！ */
-    display: inline-block !important;
+.b3-typography h3 {
+    padding-top: 0.27em;
+}
+.protyle-wysiwyg .h3[data-node-id][fold="1"]>div:first-child {
+    margin-top: 0em;
+
 }
 .protyle-wysiwyg [data-node-id].h4,.b3-typography h4 {
     font-size: 1.2em !important;
