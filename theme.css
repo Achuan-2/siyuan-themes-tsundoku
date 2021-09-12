@@ -252,12 +252,13 @@
     height: 1.105em;
     font-size: 1.35em !important;
     margin-right: 8px;
+    margin-top: -0.15em;
 }
 
 .protyle-wysiwyg [data-node-id].h3>div:first-child{
     /* block 不能改为inline,不然点击旁边不会激活光标！ */
     display: block !important;
-    margin-top: 0.27em;
+    margin-top: 0.15em;
     margin-right: 8px;
 }
 .b3-typography h3:before {
@@ -267,9 +268,9 @@
 .b3-typography h3 {
     padding-top: 0.27em;
 }
+
 .protyle-wysiwyg .h3[data-node-id][fold="1"]>div:first-child {
     margin-top: 0em;
-
 }
 .protyle-wysiwyg [data-node-id].h4,.b3-typography h4 {
     font-size: 1.2em !important;
