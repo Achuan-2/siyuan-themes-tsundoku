@@ -211,10 +211,9 @@
 }
 
 /*分窗口的边框（线）  */
-/* .layout__resize::after {
-    background-color: #c7d1d8;
-    background-color: #f8f9fa;
-} */
+.layout__resize::after {
+    background-color: #dbe1e6b6;
+}
 /* .fn__flex.fn__flex-1{
     border-radius: 10px;
     background-color: #d5dde2;
