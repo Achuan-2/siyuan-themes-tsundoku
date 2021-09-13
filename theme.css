@@ -272,6 +272,10 @@
 .protyle-wysiwyg .h3[data-node-id][fold="1"]>div:first-child {
     margin-top: 0em;
 }
+/* 调整h3的空行提示 */
+.protyle-wysiwyg .h3>[spellcheck="false"]:focus:empty {
+    padding-left: 1rem;
+}
 .protyle-wysiwyg [data-node-id].h4,.b3-typography h4 {
     font-size: 1.2em !important;
     color: #03a1b9cc;
@@ -1678,3 +1682,7 @@ display: flex;
 
 
 /* ----------optimize-custom-emoji ---END---------*/
+/* 块标提示不被窗口线遮挡 */
+.protyle-gutters {
+    z-index: 3;
+}
