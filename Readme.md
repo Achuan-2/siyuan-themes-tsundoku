@@ -1,4 +1,4 @@
-<h1 align="center">Tsundoku(light): A Theme for SiYuan Note</h1>
+<h1 align="center">🌞Tsundoku(light): A Theme for SiYuan Note</h1>
 
 <p align="center">          
            <a title="Hits" target="_blank" href="https://github.com/Achuan-2/siyuan-themes-tsundoku-light"><img src="https://hits.b3log.org/Achuan-2/siyuan-themes-tsundoku-light.svg" ></a>
@@ -21,7 +21,7 @@
 
 > 🎠 这可能不会是最符合你审美的主题，但或许会是一个最追求极致体验的主题（之一）！
 > 
-> 🌞 亮色主题见[Tsundoku Light](https://github.com/Achuan-2/siyuan-themes-tsundoku-light) | 🌛 深色主题见[Tsundoku Dark ](https://github.com/Achuan-2/siyuan-themes-tsundoku) | 🥗 护眼主题见[Tsundoku Green](https://github.com/Achuan-2/siyuan-themes-tsundoku-green)
+> Others Themes: 🧇[Tsundoku Texture](https://github.com/Achuan-2/siyuan-themes-tsundoku-texture) | 🌛[Tsundoku Dark ](https://github.com/Achuan-2/siyuan-themes-tsundoku) | 🥗[Tsundoku Green](https://github.com/Achuan-2/siyuan-themes-tsundoku-green)
 
 ## 💌 **缘起**
 
