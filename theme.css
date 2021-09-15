@@ -424,7 +424,8 @@ strong {
 
 
 /* 块引用 */
-.protyle-wysiwyg [data-node-id] span[data-type='block-ref']{
+.protyle-wysiwyg [data-node-id] span[data-type='block-ref'],
+.protyle-wysiwyg [data-node-id] span[data-type='file-annotation-ref']{
     color: var(--b3-protyle-inline-blockref-color); /*更改颜色*/
     padding-bottom: 0em;
     box-sizing: border-box;
