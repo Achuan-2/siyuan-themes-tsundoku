@@ -98,7 +98,16 @@
     --b3-font-background11: #49efc54f;
     --b3-font-background12: #f5905663;
     --b3-font-background13: var(--b3-theme-on-background);
-
+    /* PDF */
+    --b3-pdf-sidebar-width: 200px;
+    --b3-pdf-offset: 0;
+    --b3-pdf-background1: var(--b3-font-color1);
+    --b3-pdf-background2: #fff195ec;
+    --b3-pdf-background3: #5be9ffb9;
+    --b3-pdf-background4: #9af997;
+    --b3-pdf-background5:  #d4d4d4;
+    --b3-pdf-background6: #52d4ca;
+    --b3-pdf-background7:  #faad14;
     /* 动画效果 */
     --b3-transition: all 0.15s cubic-bezier(0, 0, 0.2, 1) 0ms;
 
@@ -1686,4 +1695,14 @@ display: flex;
 /* 块标提示不被窗口线遮挡 */
 .protyle-gutters {
     z-index: 3;
+}
+
+/* pdf搜索高亮 */
+.textLayer .highlight.selected {
+    background-color: #f8e254ec;
+}
+
+/* 悬浮工具栏样式 */
+.pdf__util.b3-menu.pdf__util--hide {
+    padding: 4px 4px;
 }
