@@ -433,14 +433,15 @@ strong {
 
 
 /* 块引用 */
-.protyle-wysiwyg [data-node-id] span[data-type='block-ref'],
-.protyle-wysiwyg [data-node-id] span[data-type='file-annotation-ref']{
+.protyle-wysiwyg [data-node-id] span[data-type='block-ref']{
     color: var(--b3-protyle-inline-blockref-color); /*更改颜色*/
     padding-bottom: 0em;
     box-sizing: border-box;
     height: 1.5em;
+    opacity: 1;
     border-bottom: 1px dashed var(--b3-protyle-inline-blockref-color);
 }
+
 .protyle-wysiwyg [data-node-id] span[data-type='block-ref']:hover {
     color: var(--b3-protyle-inline-blockref-hover-color); /*更改鼠标悬浮的颜色*/
     border-bottom: 1px dashed var(--b3-protyle-inline-blockref-hover-color); /*下划线可以去掉*/
@@ -1697,7 +1698,20 @@ display: flex;
     z-index: 3;
 }
 
+/* pdf双链 */
+.protyle-wysiwyg [data-node-id] span[data-type='file-annotation-ref'] {
+    color: #308b84;
+    padding-bottom: 0em;
+    box-sizing: border-box;
+    height: 1.5em;
+    opacity: 1;
+    border-bottom: 1px dashed #308b84;
 
+}
+.protyle-wysiwyg [data-node-id] span[data-type='file-annotation-ref']:hover {
+    color: var(--b3-protyle-inline-blockref-hover-color); /*更改鼠标悬浮的颜色*/
+    border-bottom: 1px dashed var(--b3-protyle-inline-blockref-hover-color); /*下划线可以去掉*/
+}
 /* pdf搜索高亮 */
 .textLayer .highlight.selected {
     background-color: #ffa938b9;
