@@ -42,7 +42,7 @@ I use this name to wake myself up and hope that SiYuan will help me make gradual
 * **win端和安卓端emoji样式统一**：修改**安卓端的默认 emoji** 为 Win 10 emoji——Segoe UI Emoji，保证emoji样式统一
 * **代码块样式调整**
 ![image](https://user-images.githubusercontent.com/60436214/132628072-31619c0c-63c7-4e5a-82ba-aa1e12a56f47.png)
-* **文字颜色和背景色选框样式优化**
+* **文字颜色和背景色选框样式优化**  
 ![](assets/Readme_2021-09-17-10-20-31.png)
   
 
