@@ -36,7 +36,7 @@ I use this name to wake myself up and hope that SiYuan will help me make gradual
 ## ✨Features
                                                                                                                              
 * **标题样式优化**: ![image](https://user-images.githubusercontent.com/60436214/132635300-18a6ff9b-ae04-48df-adeb-d121177760f6.png)
-* **动效丰富**：块引用鼠标悬浮预览页面展开动效、悬浮在按钮图标上有放大效果等待，提升用户在写作和阅读时的体验。
+* **动效丰富**：块引用鼠标悬浮预览页面展开动效、悬浮在按钮图标上有放大效果等，提升用户在写作和阅读时的体验。
 * **任务列表样式优化**：对任务列表效果做了很多的优化，当把任务列表勾选时，普通文字变色加删除线，并针对完成的任务列表中的各个行内和块样式都做了一定处理。完成的任务列表中的图片和代码块透明度降低![image](https://user-images.githubusercontent.com/60436214/132628061-742bce8f-00be-4f6d-9a76-32c9ef253c7f.png)
 
 * **win端和安卓端emoji样式统一**：修改**安卓端的默认 emoji** 为 Win 10 emoji——Segoe UI Emoji，保证emoji样式统一
