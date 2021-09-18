@@ -63,13 +63,13 @@
 
     /* 卡片背景 */
     --b3-card-error-color: rgb(97, 26, 21);
-    --b3-card-error-background: #f9dfdb;
+    --b3-card-error-background: #f9dfdbd2;
     --b3-card-warning-color: rgb(102, 60, 0);
-    --b3-card-warning-background: #fbebd5;
+    --b3-card-warning-background: #fbebd5d2;
     --b3-card-info-color: rgb(13, 60, 97);
-    --b3-card-info-background: #d7eaf9;
+    --b3-card-info-background: #d7eaf9d2;
     --b3-card-success-color: rgb(30, 70, 32);
-    --b3-card-success-background: #e0f9e0;
+    --b3-card-success-background: #e0f9e0d2;
 
     /* 自定义文字 */
     --b3-font-color1: #f88686;
@@ -166,7 +166,7 @@
     --b3-protyle-inline-tag-color: #f8f9fa;
     --b3-protyle-inline-code-color: #038296;
     --b3-protyle-inline-code-background: #e0ecf3a6;
-    --b3-protyle-inline-blockref-color: #f58484;
+    --b3-protyle-inline-blockref-color: #0e7a88;
     --b3-protyle-inline-blockref-hover-color: #ff398b;
     /* 表格 */
     --b3-table-border-color: #dfe0e1;
@@ -436,7 +436,6 @@ strong {
 .protyle-wysiwyg [data-node-id] span[data-type='block-ref']{
     color: var(--b3-protyle-inline-blockref-color); /*更改颜色*/
     padding-bottom: 0em;
-    box-sizing: border-box;
     height: 1.5em;
     opacity: 1;
     border-bottom: 1px dashed var(--b3-protyle-inline-blockref-color);
@@ -563,7 +562,7 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
 .protyle-wysiwyg [data-node-id] span[data-type='a'] {
     color: var(--b3-protyle-inline-link-color);
     cursor: pointer;
-    border-bottom: 1px solid #dae3e9;
+    border-bottom: 1px solid #bacbd6;
     /* border-bottom: 1px solid transparent; */
     /* text-decoration: underline; */
 }
@@ -1828,7 +1827,7 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 
 /* pdf双链 */
 .protyle-wysiwyg [data-node-id] span[data-type='file-annotation-ref'] {
-    color: #308b84;
+    color: #185666;
     padding-bottom: 0em;
     box-sizing: border-box;
     height: 1.5em;
