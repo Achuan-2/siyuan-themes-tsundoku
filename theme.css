@@ -1109,7 +1109,8 @@ div[data-subtype='t'][data-type='NodeList'] {
 .b3-dialog__container .b3-card__info a:hover {
     outline: 0;
     text-decoration: underline;
-    color: #f48fb1;
+    color: var(--b3-menu-highlight-color);
+
 }
 .b3-dialog__container .b3-card__info a {
     color: #34495e;
