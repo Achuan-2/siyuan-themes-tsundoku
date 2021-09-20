@@ -478,8 +478,8 @@ div[data-type='block-render'] {
 .protyle-wysiwyg [data-node-id].render-node[data-type="NodeBlockQueryEmbed"] {
     box-shadow: 0px 0px 3px 1px rgb(135 148 186 / 38%);
     border-left: 0px dashed #dfe0e1;
-    margin: 10px -10px;
-    padding: 0px 10px;
+    /* margin: 10px -10px; */
+    padding: 4px 10px;
 
 }
 .protyle-wysiwyg__embed {
