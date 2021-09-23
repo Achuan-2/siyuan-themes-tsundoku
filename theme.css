@@ -101,7 +101,7 @@
     /* PDF */
     --b3-pdf-sidebar-width: 200px;
     --b3-pdf-offset: 0;
-    --b3-pdf-background1: #fff195ec;
+    --b3-pdf-background1: #f4eba3;
     --b3-pdf-background2: #9af997;
     --b3-pdf-background3: #59c6ff;
     --b3-pdf-background4: #ff8280;
@@ -1884,7 +1884,11 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
     transform: scale(1.1);
     box-shadow: 0 0 1.5px 1px var(--b3-theme-on-background) inset;
 }
-
+.pdf__util.b3-menu {
+    /* 阴影减小 */
+    box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2),
+        0px 9px 46px 8px rgba(0, 0, 0, 0.12);;
+}
 
 .pdf__util.b3-menu .b3-color__square{
     height: 20px;
@@ -1892,6 +1896,12 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
     border-radius: 10px;    
     margin-right: 4px;
 }
+/* pdf光标选中文本样式 */
+.pdf__outer ::selection{ 
+    /* 颜色不能加透明度，不然有叠加层  */
+    background-color:#dcedf5;
+}
+
 
 /* 区分侧栏聚焦和未聚焦状态 */
 .block__icons--active {
