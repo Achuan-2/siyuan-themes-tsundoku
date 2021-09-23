@@ -533,8 +533,8 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     text-decoration: none !important;
     color: var(--b3-protyle-inline-tag-color);
     background-color: var(--b3-protyle-inline-tag-background);
-    border-radius: 0.625em;
-    padding: 0.08em 0.375em 0.08em !important;
+    border-radius: 0.3em;
+    padding: 0em 0.375em 0.08em !important;
     margin: 0em 0.25em;
     transform: translateY(-1.5px);
     box-sizing: border-box;
@@ -542,12 +542,13 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     transition: all 0.2s ease-in-out;
     z-index: 20;
 }
+/* 标签#号 */
 .protyle-wysiwyg [data-node-id] span[data-type='tag']::before {
     content: "#";
 }
-.protyle-wysiwyg [data-node-id] span[data-type='tag']::after {
+/* .protyle-wysiwyg [data-node-id] span[data-type='tag']::after {
     content: "#";
-}
+} */
 .protyle-wysiwyg [data-node-id] span[data-type='tag']:hover {
     transform: scale(1.05);
     background-color: var(--b3-protyle-inline-tag-background);
