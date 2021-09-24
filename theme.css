@@ -1954,6 +1954,11 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
     content: "";
     background-image: url('src/pdf.svg');
 }
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href ^="http"]:not(:empty)::before,
+.b3-typography a[href ^="http"]::before{
+    content: "";
+    background-image: url('src/net.svg');
+}
 .protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="cnblogs.com"]:not(:empty)::before,
 .b3-typography a[href *="cnblogs.com"]::before{
     content: "";
