@@ -526,9 +526,9 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
 }
 
 /* 标签 */
-.protyle-wysiwyg [data-node-id] span[data-type='tag'] {
-    border-bottom: 0px solid var(--b3-protyle-inline-tag-color);
+.protyle-wysiwyg [data-node-id] span[data-type='tag']:not(:empty) {
     display: inline-flex;
+    border-bottom: 0px solid var(--b3-protyle-inline-tag-color);
     font-size: 85%;
     text-decoration: none !important;
     color: var(--b3-protyle-inline-tag-color);
@@ -543,10 +543,10 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     z-index: 20;
 }
 /* 标签#号 */
-.protyle-wysiwyg [data-node-id] span[data-type='tag']::before {
+.protyle-wysiwyg [data-node-id] span[data-type='tag']:not(:empty)::before {
     content: "#";
 }
-/* .protyle-wysiwyg [data-node-id] span[data-type='tag']::after {
+/*.protyle-wysiwyg [data-node-id] span[data-type='tag']:not(:empty)::after {
     content: "#";
 } */
 .protyle-wysiwyg [data-node-id] span[data-type='tag']:hover {
@@ -1945,12 +1945,12 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
     background-image: url('src/bookxnote.ico');
 }
 .protyle-wysiwyg [data-node-id] span[data-type='a'][data-href ^="assets/"]:not(:empty)::before,
-.b3-typography a[href ^="assets/"]::before{
+.b3-typography a[href *="assets/"]::before{
     content: "";
     background-image: url('src/assets.svg');
 }
 .protyle-wysiwyg [data-node-id] span[data-type='a'][data-href ^="assets/"][data-href $=".pdf"]:not(:empty)::before,
-.b3-typography [href ^="assets/"][href $=".pdf"]::before{
+.b3-typography [href *="assets/"][href $=".pdf"]::before{
     content: "";
     background-image: url('src/pdf.svg');
 }

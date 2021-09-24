@@ -2,6 +2,7 @@
 
 * ✨ add link icon!
 * ✨ add local protocol icon!
+* 🐛 fix deleting problem of tag 
 
 ## v0.8.1/2021-09-23
 
