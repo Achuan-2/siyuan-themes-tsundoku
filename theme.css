@@ -1908,3 +1908,409 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 .block__icons--active {
     background-color: var(--b3-theme-primary-lightest);
 }
+
+/* ----------------------------custom: 超链接icon---------------------------------- */
+
+.protyle-wysiwyg [data-node-id] span[data-type='a']:not(:empty)::before,
+.b3-typography a::before{
+    display: inline-block;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: 1.1em 1.1em;
+    top: 0.2em;
+    width:1.1em;
+    height: 1.1em;
+    margin-right: 0.2em;
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *=".pdf"]:not(:empty)::before,
+.b3-typography a[href *=".pdf"]::before{
+    content: "";
+    background-image: url('src/pdf.svg');
+
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="cnblogs.com"]:not(:empty)::before,
+.b3-typography a[href *="cnblogs.com"]::before{
+    content: "";
+    background-image: url('src/cnblogs.svg');
+
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="bilibili.com"]:not(:empty)::before,
+.b3-typography a[href *="bilibili.com"]::before{
+    content: "";
+    background-image: url('src/bilibili.svg');
+
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="zhihu.com"]:not(:empty)::before,
+.b3-typography a[href *="zhihu.com"]::before{
+
+    content: "";
+    background-image: url('src/zhihu.svg');
+
+}
+
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="microsoft.com"]:not(:empty)::before,
+.b3-typography a[href *="microsoft.com"]::before{
+
+    content: "";
+    background-image: url('src/microsoft.svg');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="ld246.com"]:not(:empty)::before,
+.b3-typography a[href *="ld246.com"]::before{
+
+    content: "";
+    background-image: url('src/ld246.ico');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="google.com"]:not(:empty)::before,
+.b3-typography a[href *="google.com"]::before{
+
+    content: "";
+    background-image: url('src/logo_google_icon.svg');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="chrome.google.com"]:not(:empty)::before,
+.b3-typography a[href *="chrome.google.com"]::before{
+    content: "";
+    background-image: url('src/chrome-web-store.svg');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="taobao.com"]:not(:empty)::before,
+.b3-typography a[href *="taobao.com"]::before{
+
+    content: "";
+    background-image: url('src/taobao.svg');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="jd.com"]:not(:empty)::before,
+.b3-typography a[href *="jd.com"]::before{
+
+    content: "";
+    background-image: url('src/jd.ico');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="xiaohongshu.com"]:not(:empty)::before,
+.b3-typography a[href *="xiaohongshu.com"]::before{
+
+    content: "";
+    background-image: url('src/xiaohongshu.ico');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="pinduoduo.com"]:not(:empty)::before,
+.b3-typography a[href *="pinduoduo.com"]::before{
+
+    content: "";
+    background-image: url('src/pinduoduo.svg');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="alibaba.com"]:not(:empty)::before,
+.b3-typography a[href *="alibaba.com"]::before{
+
+    content: "";
+    background-image: url('src/alibaba.svg');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="tmall.com"]:not(:empty)::before,
+.b3-typography a[href *="tmall.com"]::before{
+
+    content: "";
+    background-image: url('src/tianmao.png');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="amazon.com"]:not(:empty)::before,
+.b3-typography a[href *="amazon.com"]::before{
+
+    content: "";
+    background-image: url('src/amazon.ico');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="iq.com"]:not(:empty)::before,
+.b3-typography a[href *="iq.com"]::before{
+
+    content: "";
+    background-image: url('src/aiqiyi.svg');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="youku.com"]:not(:empty)::before,
+.b3-typography a[href *="youku.com"]::before{
+
+    content: "";
+    background-image: url('src/youku.ico');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="lanzoui.com"]:not(:empty)::before,
+.b3-typography a[href *="lanzoui.com"]::before{
+
+    content: "";
+    background-image: url('src/lanzouyun.ico');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="aliyundrive.com"]:not(:empty)::before,
+.b3-typography a[href *="aliyundrive.com"]::before{
+
+    content: "";
+    background-image: url('src/aliyunpan.ico');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="cloud.189.cn"]:not(:empty)::before,
+.b3-typography a[href *="cloud.189.cn"]::before{
+
+    content: "";
+    background-image: url('src/tianyiyun.png');
+    background-size: 1.4em 1em;
+    background-position: left -4px top 2px;
+    width: 1.1em;
+    height: 1.1em;
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="1drv.ms"]:not(:empty)::before,
+.b3-typography a[href *="1drv.ms"]::before{
+
+    content: "";
+    background-image: url('src/onedrive.svg');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="sharepoint.com"]:not(:empty)::before,
+.b3-typography a[href *="sharepoint.com"]::before{
+
+    content: "";
+    background-image: url('src/sharepoint.svg');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="weiyun.com"]:not(:empty)::before,
+.b3-typography a[href *="weiyun.com"]::before{
+
+    content: "";
+    background-image: url('src/weiyun.svg');
+}
+
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="baidu.com"]:not(:empty)::before,
+.b3-typography a[href *="baidu.com"]::before{
+
+    content: "";
+    background-image: url('src/baidu.svg');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="pan.baidu.com"]:not(:empty)::before,
+.b3-typography a[href *="pan.baidu.com"]::before{
+
+    content: "";
+    background-image: url('src/baiduwangpan.svg');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="tieba.baidu.com"]:not(:empty)::before,
+.b3-typography a[href *="tieba.baidu.com"]::before{
+
+    content: "";
+    background-image: url('src/logo_baidu_tieba_logo.svg');
+}
+
+
+
+
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="obsidian.md"]:not(:empty)::before,
+.b3-typography a[href *="obsidian.md"]::before{
+
+    content: "";
+    background-image: url('src/obsidian.ico');
+}
+
+
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="yuque.com"]:not(:empty)::before,
+.b3-typography a[href *="yuque.com"]::before{
+
+    content: "";
+    background-image: url('src/yuque.svg');
+}
+
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="blog.csdn.net"]:not(:empty)::before,
+.b3-typography a[href *="blog.csdn.net"]::before{
+
+    content: "";
+    background-image: url('src/csdn.svg');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="jianshu.com"]:not(:empty)::before,
+.b3-typography a[href *="jianshu.com"]::before{
+
+    content: "";
+    background-image: url('src/jianshu.svg');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="gitee.com"]:not(:empty)::before,
+.b3-typography a[href *="gitee.com"]::before{
+
+    content: "";
+    background-image: url('src/gitee.svg');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="wikipedia.org"]:not(:empty)::before,
+.b3-typography a[href *="wikipedia.org"]::before{
+
+    content: "";
+    background-image: url('src/wikipedia.svg');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="weixin.qq.com"]:not(:empty)::before,
+.b3-typography a[href *="weixin.qq.com"]::before{
+
+    content: "";
+    background-image: url('src/wechat.svg');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="y.qq.com"]:not(:empty)::before,
+.b3-typography a[href *="y.qq.com"]::before{
+
+    content: "";
+    background-image: url('src/qqmusic.ico');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="v.qq.com"]:not(:empty)::before,
+.b3-typography a[href *="v.qq.com"]::before{
+
+    content: "";
+    background-image: url('src/qqvideo.ico');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="news.qq.com"]:not(:empty)::before,
+.b3-typography a[href *="news.qq.com"]::before{
+
+    content: "";
+    background-image: url('src/newsqq.ico');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="163.com"]:not(:empty)::before,
+.b3-typography a[href *="163.com"]::before{
+
+    content: "";
+    background-image: url('src/news163.ico');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="music.163.com"]:not(:empty)::before,
+.b3-typography a[href *="music.163.com"]::before{
+
+    content: "";
+    background-image: url('src/netease_music.svg');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="sohu.com"]:not(:empty)::before,
+.b3-typography a[href *="sohu.com"]::before{
+
+    content: "";
+    background-image: url('src/souhu.svg');
+}
+
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="guancha.cn"]:not(:empty)::before,
+.b3-typography a[href *="guancha.cn"]::before{
+
+    content: "";
+    background-image: url('src/guancha.ico');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="thepaper.cn"]:not(:empty)::before,
+.b3-typography a[href *="thepaper.cn"]::before{
+
+    content: "";
+    background-image: url('src/thepaper.ico');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="toutiao.com"]:not(:empty)::before,
+.b3-typography a[href *="toutiao.com"]::before{
+
+    content: "";
+    background-image: url('src/toutiao.ico');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="facebook.com"]:not(:empty)::before,
+.b3-typography a[href *="facebook.com"]::before{
+
+    content: "";
+    background-image: url('src/facebook.png');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="cctv.com"]:not(:empty)::before,
+.b3-typography a[href *="cctv.com"]::before{
+
+    content: "";
+    background-image: url('src/cctv.ico');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="sspai.com"]:not(:empty)::before,
+.b3-typography a[href *="sspai.com"]::before{
+
+    content: "";
+    background-image: url('src/sspai.svg');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="weibo.com"]:not(:empty)::before,
+.b3-typography a[href *="weibo.com"]::before{
+
+    content: "";
+    background-image: url('src/logo_weibo_icon.svg');
+}
+
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="github.io"]:not(:empty)::before,
+.b3-typography a[href *="github.io"]::before{
+
+    content: "";
+    background-image: url('src/blog.svg');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="github.com"]:not(:empty)::before,
+.b3-typography a[href *="github.com"]::before{
+
+    content: "";
+    background-image: url('src/github_icon.svg');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="bing.com"]:not(:empty)::before,
+.b3-typography a[href *="bing.com"]::before{
+
+    content: "";
+    background-image: url('src/bing.svg');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="sogou.com"]:not(:empty)::before,
+.b3-typography a[href *="sogou.com"]::before{
+
+    content: "";
+    background-image: url('src/sogou.ico');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="so.com"]:not(:empty)::before,
+.b3-typography a[href *="so.com"]::before{
+
+    content: "";
+    background-image: url('src/so.ico');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="stackoverflow.com"]:not(:empty)::before,
+.b3-typography a[href *="stackoverflow.com"]::before{
+
+    content: "";
+    background-image: url('src/stack-overflow.svg');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="icourse163.org"]:not(:empty)::before,
+.b3-typography a[href *="icourse163.org"]::before{
+
+    content: "";
+    background-image: url('src/mooc.svg');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="imooc.com"]:not(:empty)::before,
+.b3-typography a[href *="imooc.com"]::before{
+
+    content: "";
+    background-image: url('src/imooc.svg');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="pornhub.com"]:not(:empty)::before,
+.b3-typography a[href *="pornhub.com"]::before{
+
+    content: "";
+    background-image: url('src/pornhub.ico');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="twitter.com"]:not(:empty)::before,
+.b3-typography a[href *="twitter.com"]::before{
+    content: "";
+    background-image: url('src/logo_twitter.svg');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="youtube.com"]:not(:empty)::before,
+.b3-typography a[href *="youtube.com"]::before{
+    content: "";
+    background-image: url('src/logo_youtube_play_video_icon.svg');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="wolai.com"]:not(:empty)::before,
+.b3-typography a[href *="wolai.com"]::before{
+    content: "";
+    background-image: url('src/logo_wolai_logo.svg');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="notion."]:not(:empty)::before,
+.b3-typography a[href *="notion."]::before{
+    content: "";
+    background-image: url('src/logo_notion-logo.svg');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="douban.com"]:not(:empty)::before,
+.b3-typography a[href *="douban.com"]::before{
+    content: "";
+    background-image: url('src/social-douban.svg');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="ncbi"]:not(:empty)::before,
+.b3-typography a[href *="ncbi"]::before{
+    content: "";
+    background-image: url('src/ncbi.svg');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="pubmed.ncbi.nlm.nih.gov"]:not(:empty)::before,
+.b3-typography a[href *="pubmed.ncbi.nlm.nih.gov"]::before{
+    content: "";
+    background-image: url('src/pubmed.ico');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="cell.com"]:not(:empty)::before,
+.b3-typography a[href *="cell.com"]::before{
+    content: "";
+    background-image: url('src/cell.ico');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="nature.com"]:not(:empty)::before,
+.b3-typography a[href *="nature.com"]::before{
+    content: "";
+    background-image: url('src/nature.png');
+}
+
+/* ----------------------------custom: 超链接icon---end------------------------------- */
