@@ -3,6 +3,7 @@
 * 🍱 add new link icons
 * 💄 区分侧栏聚焦和未聚焦状态颜色调整
 * 💄 add border for inline-code
+* 💄 increase kbd font size
 
 ## v0.8.2/2021-09-24
 

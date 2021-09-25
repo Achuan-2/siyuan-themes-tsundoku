@@ -1323,6 +1323,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     display: inline-flex;
     padding: 2px 4px;
     margin: 0px 2px;
+    font-size: 85%;
     background-color: #cccccc38;
     box-shadow: 0 0 1px #415f86;
     transform: translateY(-1.5px);
