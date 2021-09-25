@@ -559,6 +559,8 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     padding: 0em 0.4em;
     transform: translateY(-1.5px);
     margin:0px 2px;
+    border: 1px solid #c6c6c73f;
+
 }
 
 /* 超链接 */
