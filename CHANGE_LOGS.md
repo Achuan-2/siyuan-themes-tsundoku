@@ -1,3 +1,8 @@
+## v0.8.4/2021-09-26
+* ✨ change new file icon
+* 🍱 add new link icons
+* 💄 optimize the size of file icons
+
 ## v0.8.3/2021-09-25
 * ✨ net hyperlink default icon
 * 🍱 add new link icons
