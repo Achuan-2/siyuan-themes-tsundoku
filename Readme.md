@@ -38,7 +38,7 @@ I use this name to wake myself up and hope that SiYuan will help me make gradual
 
 * **Optimized  style of each level title**
 ![](assets/Readme_2021-09-27-17-39-06.png)
-* **Added hyperlink icon**  to distinguish local protocal for different softwares from web links,to learn all supported links, see [more info](https://www.yuque.com/achuan-2/siyuan/gar358)  
+* **Added hyperlink icon**  to distinguish local protocol of different softwares from web links,to learn all supported links, see [more info](https://www.yuque.com/achuan-2/siyuan/gar358)  
 ![](assets/Readme_2021-09-27-17-40-33.png)
 * **Rich dynamic effects**：hovering over the button icon with a magnification effect, etc. to enhance the user experience when writing and reading.
 * **Optimized style of completed Task list**：A lot of optimization has been done to the task list effect, when the task list is checked, the normal text will change color with strikethrough, and the style of each line and block in the completed task list has been handled in some way, for example, the opacity of the images and code blocks in the completed task list will be reduced.
