@@ -17,7 +17,8 @@
           <img src="https://img.shields.io/github/last-commit/Achuan-2/siyuan-themes-tsundoku-light" alt="GitHub last commit">
 </p>
 
-                                                                                                                             
+<p align="center">English |<a href="https://www.yuque.com/achuan-2/siyuan/fqew9h"> 中文介绍</a></p>
+
 [SiYuan](https://github.com/siyuan-note/siyuan) is a local-first personal knowledge management system, supports fine-grained block-level reference, and Markdown WYSIWYG. This is a theme for it.  
 ![preview](preview.png)
 
@@ -29,60 +30,66 @@
 
 Tsundoku “積 ん 読” , a Japanese word，explained in Wikipedia as “Tsundoku is acquiring reading materials but letting them pile up in one's home without reading them. It is also used to refer to books ready for reading later when they are on a bookshelf.”
 
-> Any PKM approach that doesn’t tie into execution tools is destined to languish on the back burner forever
+> Any PKM approach that doesn’t tie into execution tools is destined to languish on the back burner forever.
 
 I use this name to wake myself up and hope that SiYuan will help me make gradual progress and  get things done better, instead of becoming another dustbin for relieving intellectual anxiety and satisfying my digital hoarding disorder.
 
 
 
-## ✨Features
-                                                                                                                             
-* **标题样式优化**: ![image](https://user-images.githubusercontent.com/60436214/132635300-18a6ff9b-ae04-48df-adeb-d121177760f6.png)
-* **动效丰富**：块引用鼠标悬浮预览页面展开动效、悬浮在按钮图标上有放大效果等，提升用户在写作和阅读时的体验。
-* **任务列表样式优化**：对任务列表效果做了很多的优化，当把任务列表勾选时，普通文字变色加删除线，并针对完成的任务列表中的各个行内和块样式都做了一定处理。完成的任务列表中的图片和代码块透明度降低![image](https://user-images.githubusercontent.com/60436214/132628061-742bce8f-00be-4f6d-9a76-32c9ef253c7f.png)
 
-* **win端和安卓端emoji样式统一**：修改**安卓端的默认 emoji** 为 Win 10 emoji——Segoe UI Emoji，保证emoji样式统一
-* **代码块样式调整**
-![image](https://user-images.githubusercontent.com/60436214/132628072-31619c0c-63c7-4e5a-82ba-aa1e12a56f47.png)
-* **文字颜色和背景色选框样式优化**  
+## ✨Features
+
+* **Optimized  style of each level title**
+![](assets/Readme_2021-09-27-17-39-06.png)
+* **Added hyperlink icon**  to distinguish local protocal for different softwares from web links,to learn all supported links, see [more info](https://www.yuque.com/achuan-2/siyuan/gar358)  
+![](assets/Readme_2021-09-27-17-40-33.png)
+* **Rich dynamic effects**：hovering over the button icon with a magnification effect, etc. to enhance the user experience when writing and reading.
+* **Optimized style of completed Task list**：A lot of optimization has been done to the task list effect, when the task list is checked, the normal text will change color with strikethrough, and the style of each line and block in the completed task list has been handled in some way, for example, the opacity of the images and code blocks in the completed task list will be reduced.
+![](assets/Readme_2021-09-27-17-39-41.png)
+* **Unified emoji style for Win and Android**：Modify the default emoji on Android to Win 10 emoji--Segoe UI Emoji to ensure the uniformity of emoji style.
+* **MAC's code block style** 
+![](assets/Readme_2021-09-27-17-39-50.png)
+* **Optimized  text color and background color popup**  
 ![](assets/Readme_2021-09-17-10-20-31.png)
-  
+
 
 ## 💥Impotant Changes
 
-1.  本主题暂时将高亮 <kbd>Ctrl+E </kbd>,设置为挖空效果：悬浮时才显示高亮的文字，默认隐藏文字 
+1. This theme temporarily set highlighting <kbd>Ctrl+E</kbd>, to a hide effect: the highlighted text is shown only when mouse hovering, and the default text is hidden.
 
-   * 如果需要取消该效果，请在主题 css 中搜索「挖空」关键词，将所提示的代码删除![挖空效果代码](https://b3logfile.com/siyuan/1610205759005/assets/image-20210811113010-dpmose7.png)
-2. 添加了自定义块属性样式
+   * If you need to cancel this effect, please search for the `.protyle-wysiwyg mark` keyword in the theme css, and delete the suggested code ![](assets/Readme_2021-09-27-17-42-05.png)
+2. Added custom block attribute styles
 
-   * 属性 key 都为 function或f（简写）
-   * value 可为
+   * Attributes key are set to `function` or `f` (abbreviated)
+   * value can be
 
-     * **zy/important**：代表重要
-     * **ing** ：代表进行中
-     * **done/100** ：代表事项已完成
-     * **10/20/30.../90**：代表完成 10/20/30.../90%
-     * **kaiti**：字体为楷体
-     * **hide/挖空**：挖空效果
-     * **quote**: 📌引用
-     * **yellow/黄**：黄色背景色
-     * **blue蓝**：蓝色背景色
-     * **red/红**：红色背景色
-   * 使用方式：单击块标选择打开属性列表或<kbd>Shift+Click</kbd>打开，点击<kbd>添加</kbd>，输入属性名为function或f，并输入相应的属性值（如“hide”）
-   * 预览图：![](assets/Readme_2021-09-17-10-21-15.png)
+     * **zy/important**: add "❗❗❗" the end of this block;
+     * **ing** : add "ing" the end of this block;
+     * **done/100**: add "done" the end of this block;
+     * **10/20/30.../90**: add 10%/20%/.../90% at the end of this block;
+     * **kaiti**：The font-family of this block will be set to Kaiti;
+     * **hide/挖空**：This block will be automatically hided;
+     * **quote**: 📌quote style;
+     * **yellow/黄**：This block will
+     *  have a yellow background color;
+     * **blue蓝**：This block will
+     *  have a blue background color;
+     * **red/红**：This block will
+     *  have a  red background color;
+   * How to use:  use <kbd>Shift+Click</kbd> to  click the block icon to open the attribute list, click <kbd>add</kbd >, enter the attribute name  `function` or `f`, and enter the corresponding attribute value (such as "hide")
+   * preview image：![](assets/Readme_2021-09-17-10-21-15.png)
 3. 对文字样式进行了自定义
 
-   | 状态     | 配色情况                                                                                        |
-   | -------- | ----------------------------------------------------------------------------------------------- |
-   | 修改前   | ![image](https://user-images.githubusercontent.com/60436214/132626819-fed6f256-b6b0-4ac1-b5f7-91ac51034adc.png)|
-   | 修改后： | ![image](https://user-images.githubusercontent.com/60436214/129700927-eea97dc7-3038-4577-b2d9-d1a24fbcd274.png)|
+   | Condition   | Color Scheme                                                                                        |
+   | ------ | ----------------------------------------------------------------------------------------------- |
+   | Before |![](assets/Readme_2021-09-27-17-42-34.png) |
+   | After |![](assets/Readme_2021-09-27-17-42-40.png) |
 
 ## ☎️Feedback
 
 
-若主题存在样式的问题，欢迎在此repo提issue或是通过邮箱联系我(achuan-2@outlook.com)。在提issue之前建议先切换为默认主题，确定是本主题特有的问题。
-
+If there is a problem with the style of the theme, welcome to raise an issue in this repo or contact me via email (achuan-2@outlook.com). Before raising an issue, it is recommended to switch to the default theme to make sure it is a problem specific to this theme.
 
 ## 🚀Change Log
 
-见[更新日志](CHANGE_LOGS.md)
+See [CHANGE_LOGS](CHANGE_LOGS.md)
