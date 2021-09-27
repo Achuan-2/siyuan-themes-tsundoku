@@ -1345,7 +1345,11 @@ div[data-subtype='t'][data-type='NodeList'] {
     content: "To the time to life";  
     color: #9fa5a6;
 }
-/* 空待办列表出现提示 */
+/* 空列表出现提示 */
+.protyle-wysiwyg .list .li .p>[spellcheck="false"]:empty:after {
+    content: "List";  
+    color: #9fa5a675;
+}
 .protyle-wysiwyg [data-subtype="t"] .li .p>[spellcheck="false"]:empty:after {
     content: "To-do";  
     color: #9fa5a675;
