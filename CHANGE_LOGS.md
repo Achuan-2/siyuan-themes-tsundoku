@@ -3,7 +3,7 @@
 * 🍱add vscode link icon
 * 💄adjust opacity for link icon in completed task list
 * 💄add background color when mouse hovering new file icon
-* 💄add placeholder text "To-do" for empty task list, like notion
+* 💄add placeholder text "To-do" for empty task list, placeholder text"List" for empty ordered or unordered list like notion
 * 📝 readme
   * change to English
   * add Yuque link
