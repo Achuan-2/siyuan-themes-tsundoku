@@ -1,5 +1,6 @@
 ## v.8.5/2021-09-27
 
+* ✨ distinguish parent doc and no-child doc, canel the hidden effect of arrow and dot before doc 
 * 🍱add vscode link icon
 * 💄adjust opacity for link icon in completed task list
 * 💄add background color when mouse hovering new file icon

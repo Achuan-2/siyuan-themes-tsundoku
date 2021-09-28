@@ -932,7 +932,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     background-color: var(--b3-menu-highlight-background) !important;
     border-radius: 0% 6px 6px 0%;
     color: var(--b3-menu-highlight-focus-color);
-    font-weight: bold;
+    /* font-weight: bold; */
     transition: all 0.1s ease-in-out;
 
 }
@@ -1389,6 +1389,24 @@ div[data-subtype='t'][data-type='NodeList'] {
 }
 .b3-list--files .b3-list-item__text {
     transition: all 0.1s ease-in-out;
+}
+/* 文档树区分有子文档和无子文档的文档 */
+.b3-list-item.b3-list-item--hide-action .b3-list-item__toggle.fn__hidden::before {
+    content: "·";
+    display: inline-block;
+    /* color: #84827d; */
+    font-size: 190%;
+    margin-right: -7px;
+    vertical-align: middle;
+    transition: all 0s ease-in-out;
+    visibility: visible;
+    opacity: 1;
+    transition: var(--b3-transition);
+
+}
+/* 取消默认的隐藏效果 */
+.file-tree--leave .b3-list-item__graphic--arrow:not(.fn__hidden) {
+    opacity: 1;
 }
 
 /* ------------------ 自定义属性 ----------------------- */
