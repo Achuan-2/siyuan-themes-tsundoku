@@ -1964,8 +1964,13 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
     /* 颜色不能加透明度，不然有叠加层  */
     background-color:#dcedf5;
 }
-
-
+/* pdf矩形选框增加border宽度 */
+.pdf__rect.popover__block>div[style*="border: 2px solid var(--b3-pdf-"]{
+    border-width: 3px!important;
+}
+.pdf__resize {
+    border-width: 3px!important;
+}
 /* 区分侧栏聚焦和未聚焦状态 */
 .block__icons--active {
     background-color: #c0d0daa9;
