@@ -1,4 +1,9 @@
-## v.8.5/2021-09-27
+## v0.8.6/2021-09-30
+
+* 💄 pdf矩形选框增加border宽度
+* 🐛修复空列表提示嵌套问题
+
+## v0.8.5/2021-09-27
 
 * ✨ distinguish parent doc and no-child doc, canel the hidden effect of arrow and dot before doc 
 * 🍱add vscode link icon
