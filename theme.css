@@ -476,10 +476,11 @@ div[data-type='block-render'] {
 
 /* 块嵌入 */
 .protyle-wysiwyg [data-node-id].render-node[data-type="NodeBlockQueryEmbed"] {
-    box-shadow: 0px 0px 3px 1px rgb(135 148 186 / 38%);
+    box-shadow: 0px 0px 3px 2px rgb(135 148 186 / 38%);
     border-left: 0px dashed #dfe0e1;
     /* margin: 10px -10px; */
     padding: 4px 10px;
+    margin:12px 0px;
 
 }
 .protyle-wysiwyg__embed {
@@ -2584,8 +2585,9 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
     color: var(--b3-menu-highlight-color) !important;
 }
 .file-tree .b3-list--background .b3-list-item--focus .b3-list-item__text {
-    color: var(--b3-menu-highlight-focus-color) !important;
+    color: inherit !important;
     opacity: 1 !important;
+
 }
 /* 标题图标放大，提示可以块悬浮窗 */
 .file-tree .b3-list-item__graphic.popover__block:hover {
