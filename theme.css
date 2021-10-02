@@ -902,6 +902,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     font-weight: 600;
 }
 
+/* 代码块编辑时不闪 */
 .code-block .protyle-icons {
     opacity: 1;
 }
@@ -911,11 +912,15 @@ div[data-subtype='t'][data-type='NodeList'] {
 .code-block:hover .protyle-icons .protyle-action__copy {
     opacity: 1;
 }
-.code-block:focus-within .protyle-icons .protyle-action__copy {
+
+.code-block:focus-within .protyle-icons .protyle-action__copy{
+    opacity: 0;
+}
+.code-block .protyle-icons .protyle-action__copy:hover{
     opacity: 1;
 }
-.code-block:focus-within {
-    background-color: #fff;
+.code-block:hover .protyle-icons {
+    opacity: 1 !important;
 }
 
 /* -----------------      外观样式 ----------------- */
