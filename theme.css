@@ -848,6 +848,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     /* box-shadow: 0px 3px 10px 3px rgb(6 6 6 / 10%); */
     margin-top: 15px !important;
     padding-top: 32px !important;
+    box-shadow: 0px 0px 2px 0px #041b1538;
 }
 /* .code-block .protyle-action {
     position: relative;
