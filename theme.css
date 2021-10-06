@@ -2750,7 +2750,7 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
     font-size:0.7em;
 }
 .protyle-wysiwyg [data-node-id][fold="1"].code-block::after {
-    left:-1.7em;
+    left:-2em;
     top:0.2em;
     font-size:0.6em;
     opacity: 0.7;
