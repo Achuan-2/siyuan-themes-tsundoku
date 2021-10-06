@@ -473,7 +473,11 @@ strong {
 div[data-type='block-render'] {
     margin-top: 5px;
 }
+/* 块引弹窗固定高度 */
 
+.block__popover.block__popover--move.block__popover--open{
+    height: 70%;
+} 
 /* 块嵌入 */
 .protyle-wysiwyg [data-node-id].render-node[data-type="NodeBlockQueryEmbed"] {
     box-shadow: 0px 0px 3px 2px rgb(135 148 186 / 38%);
@@ -607,7 +611,8 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     border-radius: 5px;
     /* transition: all 0.4s ease-in-out; 加了这个缩放会不跟手*/
 }
-.protyle-wysiwyg img:hover {
+.protyle-wysiwyg img:hover,
+.p [contenteditable="true"]:focus img {
     box-shadow: 1px 1px 5px 5px rgba(6, 6, 6, 10%);
 }
 
