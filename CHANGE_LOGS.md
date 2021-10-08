@@ -1,6 +1,6 @@
 ## v0.9.0 引入语雀提示块样式/2021-10-08
 
-* ✨ 块折叠显示优化，引入语雀提示块, [使用介绍](https://www.yuque.com/achuan-2/siyuan/cv0ubg)
+* ✨ 块折叠显示优化，引入语雀提示块, [使用介绍](https://www.yuque.com/achuan-2/siyuan/obxpvr)
 * 🐛 修复对二级标题折叠的问题
 * ✨ 块折叠显示优化
   * 段落块折叠只显示Text
