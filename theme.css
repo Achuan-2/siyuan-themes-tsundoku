@@ -401,10 +401,10 @@ strong {
 
 /* blockquote 引用 */
 .protyle-wysiwyg [data-node-id].bq, .b3-typography blockquote {
-    border: 2px solid #8aacac ;
+    border: 2.3px solid #8aacac ;
     border-radius: 0.31em;
     margin-top: 8px !important;
-    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 16%), 0 0 0 1px rgb(0 0 0 / 8%);
+    /* box-shadow: 0 2px 2px 0 rgb(0 0 0 / 16%), 0 0 0 1px rgb(0 0 0 / 8%); */
 }
 
 .protyle-wysiwyg [data-node-id].bq strong, .b3-typography blockquote strong {
@@ -1420,11 +1420,14 @@ div[data-subtype='t'][data-type='NodeList'] {
 }
 /* dock栏和顶部图标放大动效 */
 .dock--vertical .dock__item:hover svg,
-.toolbar__item:hover svg,
-.block__icon:hover svg{
+.toolbar__item:hover svg{
     transform: scale(1.1);
     transition: all 0.1s ease-in-out;
 }
+.block__icon:hover svg{
+    transform: scale(0.9) !important;
+}
+
 .dock--vertical .dock__item svg,
 .toolbar__item svg,
 .block__icon svg{
@@ -2940,3 +2943,15 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 }
 
 /* -------------------搬运语雀的提示区块 --END-----------------------------------*/
+
+/* 暂时取消列表项的竖线，影响视线 */
+.protyle-wysiwyg [data-node-id].li:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 1px;
+    background-color: var(--b3-border-color);
+    top: 18px;
+    left: 17px;
+    display: none;
+}
