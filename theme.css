@@ -422,11 +422,14 @@ strong {
 .protyle-wysiwyg [data-node-id].bq div.code-block {
     margin-left: 1rem;
 }
+.protyle-wysiwyg [data-node-id].li .bq>.list {
+    margin-left: 0px;
+}
 /* 缩进调整 */
 .b3-typography blockquote > p,
 .b3-typography blockquote .code-block,
 .b3-typography blockquote ul,
-.b3-typography blockquote li,
+/* .b3-typography blockquote li, */
 .b3-typography blockquote  blockquote {
     margin-left: 1em;
 }
@@ -2847,6 +2850,8 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
     left:-2.2em;
     
 }
+
+
 /* -----------------------------折叠优化 End---------------- */
 
 
