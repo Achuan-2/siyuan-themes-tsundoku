@@ -612,7 +612,7 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     /* transition: all 0.4s ease-in-out; 加了这个缩放会不跟手*/
 }
 .protyle-wysiwyg img:hover,
-.p [contenteditable="true"]:focus img {
+.p [contenteditable="true"]:focus>.img:first-child img {
     box-shadow: 1px 1px 5px 5px rgba(6, 6, 6, 10%);
 }
 

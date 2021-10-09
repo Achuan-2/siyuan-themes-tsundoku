@@ -2,6 +2,7 @@
 
 * ✨ 块折叠显示优化，引入语雀提示块, [使用介绍](https://www.yuque.com/achuan-2/siyuan/obxpvr)
 * 🐛 修复对二级标题折叠的问题
+* 🐛 完善点击图片块显示阴影的逻辑
 * ✨ 块折叠显示优化
   * 段落块折叠只显示Text
   * 引述块折叠只显示Blockquote
