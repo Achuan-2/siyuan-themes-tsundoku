@@ -214,6 +214,17 @@
     /* box-shadow: rgb(0 0 0 / 30%) 0px 1px 2px; */
     background-color: #d5dde2;
 }
+/* 修复面板收缩的留白问题 */
+.block__icons,
+.block__icons>* {
+    background-color: rgb(213, 221, 226) !important;
+}
+.block__icons span.fn__space,
+.block__icons div.fn__space{
+    display: inline-block;
+    flex-shrink: 1 !important;
+}
+
 /* 集市动画 */
 .b3-dialog__container div[data-name='bazaar'] .b3-card:hover {
     transform: translateY(-8px) scale(1.05);
@@ -2955,3 +2966,4 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
     left: 17px;
     display: none;
 }
+
