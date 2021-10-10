@@ -2781,7 +2781,7 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
     line-height: 2em;
     color: transparent;
     width: 2.5em;
-    z-index: 999;
+    z-index: 1;
     transition: opacity 0.2s ease;
 }
 .protyle-wysiwyg [data-node-id][fold="1"].p::after {
