@@ -2598,6 +2598,12 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
     background-image: url('src/mediatrack.ico');
 
 }
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="xinpianchang.com"]:not(:empty)::before,
+.b3-typography a[href *="xinpianchang.com"]::before{
+    content: "";
+    background-image: url('src/xinpianchang.ico');
+
+}
 /* ----------------------------custom: 超链接icon---end------------------------------- */
 
 /* -------------------主题增强面板区分度-------------------- */
