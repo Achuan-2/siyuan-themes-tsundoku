@@ -2592,6 +2592,12 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
     background-image: url('src/vsvisual-studio-code.svg');
 
 }
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="mediatrack.cn"]:not(:empty)::before,
+.b3-typography a[href *="mediatrack.cn"]::before{
+    content: "";
+    background-image: url('src/mediatrack.ico');
+
+}
 /* ----------------------------custom: 超链接icon---end------------------------------- */
 
 /* -------------------主题增强面板区分度-------------------- */
