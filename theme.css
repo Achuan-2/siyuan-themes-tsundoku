@@ -2688,6 +2688,7 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
     content: "Math Block";
 }
 .protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeIFrame"],
+.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeWidget"],
 .protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeVideo"],
 .protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeAudio"],
 .protyle-wysiwyg [data-node-id][fold="1"][data-type="mindmap"],
@@ -2701,6 +2702,7 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 }
 
 .protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeIFrame"] div,
+.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeWidget"] div,
 .protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeVideo"] div,
 .protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeAudio"] div,
 .protyle-wysiwyg [data-node-id][fold="1"][data-subtype="mindmap"] div,
@@ -2714,8 +2716,12 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 .protyle-wysiwyg [data-node-id][fold="1"][data-subtype="abc"] span{
     display: none !important;
 }
+
 .protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeIFrame"]::before{
     content: "IFrame";
+}
+.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeWidget"]::before{
+    content:"Widget";
 }
 
 .protyle-wysiwyg [data-node-id][fold="1"].p .img::before{
@@ -2815,20 +2821,19 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
     top:0.5em;
     left:-1.7em;
 }
+.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeWidget"]::after,
 .protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeIFrame"]::after ,
 .protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeVideo"]::after ,
 .protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeAudio"]::after ,
-.protyle-wysiwyg [data-node-id][fold="1"][data-type="mindmap"]::after ,
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="mindmap"]::after ,
 .protyle-wysiwyg [data-node-id][fold="1"][data-subtype="mermaid"]::after ,
 .protyle-wysiwyg [data-node-id][fold="1"][data-subtype="echarts"]::after ,
 .protyle-wysiwyg [data-node-id][fold="1"][data-subtype="flowchart"]::after ,
 .protyle-wysiwyg [data-node-id][fold="1"][data-subtype="plantuml"]::after ,
 .protyle-wysiwyg [data-node-id][fold="1"][data-subtype="graphviz"]::after ,
 .protyle-wysiwyg [data-node-id][fold="1"][data-subtype="abc"]::after  {
-    left:-2em;
-    top:0.5em;
-
-    
+    left:-2.35em;
+    top:0.5em; 
 }
 
 
