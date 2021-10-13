@@ -44,7 +44,7 @@
     --b3-font-family-graph: mononoki;
     /* 线条 */
     /* --b3-border-color: #dfe0e1; */
-    --b3-border-color: rgba(0, 0, 0, .1);
+    --b3-border-color: #eceded;
 
     /* 滚动条 m */
     /* --b3-scroll-color: rgba(0, 0, 0, .2); */
@@ -414,7 +414,7 @@ strong {
 .protyle-wysiwyg [data-node-id].bq, .b3-typography blockquote {
     border: 2.3px solid #8aacac ;
     border-radius: 0.31em;
-    margin-top: 8px !important;
+    margin-top: 8px;
     /* box-shadow: 0 2px 2px 0 rgb(0 0 0 / 16%), 0 0 0 1px rgb(0 0 0 / 8%); */
 }
 
@@ -871,15 +871,17 @@ div[data-subtype='t'][data-type='NodeList'] {
     border-radius: 4px;
     background: var(--b3-protyle-code-background) ;
     /* box-shadow: 0px 3px 10px 3px rgb(6 6 6 / 10%); */
-    margin-top: 15px !important;
+    /* margin-top: 15px !important; */
     padding-top: 32px !important;
     box-shadow: 0px 0px 2px 0px #041b1538;
 }
+
+
 /* .code-block .protyle-action {
     position: relative;
+    .hljs::before
 } */
-
-.code-block:before {
+.code-block::after{
     content: ' ';
     position: absolute;
     background: #fa625c;
@@ -949,19 +951,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 .code-block:hover .protyle-icons {
     opacity: 1 !important;
 }
-/* 代码块折叠 */
-.protyle-wysiwyg [data-node-id][fold="1"]:not(.li).code-block {
-    line-height: 1.625;
-    height: 1px;
-    opacity: 1 !important;
-    font-size: inherit !important;
-    overflow: visible !important;
-}
 
-.protyle-wysiwyg [data-node-id][fold="1"]:not(.li).code-block .hljs {
-    overflow: hidden !important;
-    display: none;
-}
 /* .protyle-wysiwyg [data-node-id][fold="1"]:not(.li).code-block:after {
     content: "-";
     position: absolute;
@@ -2685,24 +2675,14 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 .protyle-wysiwyg [data-node-id][fold="1"].list .li:not(:first-child){
     display: none;
 }
-.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeBlockQueryEmbed"] div{
-    display: none;
-}
 
-.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeTable"] table tbody {
-    display: none;
-}
-.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeMathBlock"] div{
-    display: none;
-}
-.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeMathBlock"]::before{
-    content: "Math Block";
-}
+
+
 .protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeIFrame"],
 .protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeWidget"],
 .protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeVideo"],
 .protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeAudio"],
-.protyle-wysiwyg [data-node-id][fold="1"][data-type="mindmap"],
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="mindmap"],
 .protyle-wysiwyg [data-node-id][fold="1"][data-subtype="mermaid"],
 .protyle-wysiwyg [data-node-id][fold="1"][data-subtype="echarts"],
 .protyle-wysiwyg [data-node-id][fold="1"][data-subtype="flowchart"],
@@ -2711,7 +2691,9 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 .protyle-wysiwyg [data-node-id][fold="1"][data-subtype="abc"]{
     text-align: left;
 }
-
+.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeBlockQueryEmbed"] div,
+.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeTable"] table tbody,
+.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeMathBlock"] div,
 .protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeIFrame"] div,
 .protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeWidget"] div,
 .protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeVideo"] div,
@@ -2725,49 +2707,68 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 .protyle-wysiwyg [data-node-id][fold="1"].p .img span,
 .protyle-wysiwyg [data-node-id][fold="1"][data-subtype="abc"] div,
 .protyle-wysiwyg [data-node-id][fold="1"][data-subtype="abc"] span{
-    display: none !important;
+    display: none;
 }
 
+
+.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeMathBlock"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeMathBlock"] div:first-child:before{
+    content: "Math Block";
+}
+
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeIFrame"] div:first-child:before,
 .protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeIFrame"]::before{
     content: "IFrame";
 }
-.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeWidget"]::before{
+.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeWidget"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeWidget"] div:first-child:before{
     content:"Widget";
 }
 
-.protyle-wysiwyg [data-node-id][fold="1"].p .img::before{
-    content: "[Image]";
-}
-.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeVideo"]::before{
+
+.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeVideo"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeVideo"] div:first-child:before{
     content: "Video";
 }
-.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="plantuml"]::before{
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="plantuml"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="plantuml"] div:first-child:before{
     content: "Plantuml";
 }
-.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="flowchart"]::before{
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="flowchart"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="flowchart"] div:first-child:before{
     content: "Flowchart";
 }
-.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="echarts"]::before{
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="echarts"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="echarts"] div:first-child:before{
     content: "Echarts";
 }
-.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="graphviz"]::before{
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="graphviz"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="graphviz"] div:first-child:before{
     content: "Graphviz";
 }
-.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="abc"]::before{
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="abc"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="abc"] div:first-child:before{
     content: "Music";
 }
 
-.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeAudio"]::before{
+.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeAudio"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeAudio"] div:first-child:before{
     content: "Audio";
 }
-.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="mindmap"]::before{
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="mindmap"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="mindmap"] div:first-child:before{
         content: "Mind Map";
 }
-.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="mermaid"]::before{
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="mermaid"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="mermaid"] div:first-child:before{
         content: "Mermaid";
 }
-.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="mermaid"][data-content^="gantt"]::before {
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="mermaid"][data-content^="gantt"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="mermaid"][data-content^="gantt"] div:first-child:before {
         content: "Gannt";
+}
+.protyle-wysiwyg [data-node-id][fold="1"].p .img::before{
+    content: "[Image]";
 }
 .protyle-wysiwyg [data-node-id][fold="1"].sb{
     line-height: inherit;
@@ -2786,7 +2787,7 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 .protyle-wysiwyg [data-node-id][fold="1"].h3 [contenteditable="true"] {
     display: -webkit-box !important;
 }
-.protyle-wysiwyg [data-node-id][fold="1"]:not(.li)::after {
+.protyle-wysiwyg [data-node-id][fold="1"]:not(.li,.code-block)::after {
     content: ".";
     display: block;
     position: absolute;
@@ -2811,12 +2812,6 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
     left:-2em;
     top:0.4em;
     font-size:0.7em;
-}
-.protyle-wysiwyg [data-node-id][fold="1"].code-block::after {
-    left:-2.1em;
-    top:0.2em;
-    font-size:0.6em;
-    opacity: 0.7;
 }
 
 .protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeBlockQueryEmbed"]::after {
@@ -2849,8 +2844,7 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 
 
 .protyle-wysiwyg [data-node-id][fold="1"].protyle-wysiwyg--hl::after,
-.protyle-wysiwyg [data-node-id][fold="1"]:hover::after,
-.protyle-wysiwyg .li [data-node-id][fold="1"].p:after{
+.protyle-wysiwyg [data-node-id][fold="1"]:hover::after{
     display: none;
     transition: display 0.2s ease;
 }
@@ -2874,16 +2868,13 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
     display: none;
 }
 .protyle-wysiwyg [data-node-id][fold="1"].bq{
-    border-width: 0.1px !important;
-    padding: 0 !important;
+    border-width: 0px !important;
     box-shadow: none !important;
-    border: none !important;
 }
+
 .protyle-wysiwyg [data-node-id][fold="1"].bq>div::before {
     content: "Blockquote";
     margin-left: -0.8em;
-    /* display: block; */
-    /* line-height: 2.5em; */
 }
 .protyle-wysiwyg [data-node-id][fold="1"].bq::after {
     top: 0.8em;
@@ -2892,6 +2883,14 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 .protyle-wysiwyg [data-node-id][fold="1"].p::before {
     content: "Text";
 }
+.protyle-wysiwyg .li [data-node-id][fold="1"].p::before {
+    content: "";
+}
+
+.protyle-wysiwyg .li [data-node-id][fold="1"].p div[contenteditable="true"]{
+    display: block;
+}
+
 .protyle-wysiwyg [data-node-id][fold="1"].list::after {
     top: 1.1em;
     left:-2.2em;
@@ -2901,7 +2900,7 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
     top: 1.1em;
     left:-2.2em;
 }
-.protyle-wysiwyg [data-node-id][fold="1"].sb>div>div {
+/* .protyle-wysiwyg [data-node-id][fold="1"].sb>div>div {
     display: none;
 }
 .protyle-wysiwyg [data-node-id][fold="1"].sb {
@@ -2916,8 +2915,7 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 .protyle-wysiwyg [data-node-id][fold="1"].sb div:first-child {
     color:var(--b3-theme-on-background) !important;
     text-align: left !important;
-    /* height: 0rem; */
-    display: inline;
+    display: block;
 
 }
 .protyle-wysiwyg [data-node-id][fold="1"].sb>div:first-child div{
@@ -2925,19 +2923,77 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 }
 .protyle-wysiwyg [data-node-id][fold="1"].sb>div:first-child:before{
     content: "Super Block";
-    /* line-height: 1.5rem;
-    height: 1.5rem; */
     display: inline-block;
     font-size: 1em;
     text-align: left !important;
     vertical-align: middle;
-    /* top:0.71rem; */
-    /* position:absolute; */
 }
 .protyle-wysiwyg [data-node-id][fold="1"].sb::after {
     top: 1em;
     left:-2.5em;
+} */
+/* 代码块折叠 */
+.protyle-wysiwyg [data-node-id][fold="1"]:not(.li).code-block {
+    line-height: 1.625;
+    height: 1px;
+    opacity: 1 !important;
+    font-size: inherit !important;
+    overflow: visible !important;
 }
+
+.protyle-wysiwyg [data-node-id][fold="1"]:not(.li).code-block .hljs{
+    overflow: hidden !important;
+    display: none;
+}
+.protyle-wysiwyg [data-node-id][fold="1"]:not(.li).code-block::after{
+    display: block;
+    border-radius: 0px;
+
+}
+/* 列表折叠优化 */
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeMathBlock"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeIFrame"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeWidget"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeVideo"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeAudio"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="mindmap"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="mermaid"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="echarts"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="flowchart"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="plantuml"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="graphviz"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="abc"]::before {
+    content: "" !important;
+}
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeMathBlock"] div:first-child,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeIFrame"] div:first-child,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeWidget"] div:first-child,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeVideo"] div:first-child,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeAudio"] div:first-child,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="mindmap"]>div:first-child,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="mermaid"]>div:first-child,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="echarts"]>div:first-child,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="flowchart"]>div:first-child,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="plantuml"]>div:first-child,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="graphviz"]>div:first-child,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="abc"]>div:first-child{
+    display: block;
+}
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeMathBlock"] div *,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeIFrame"] div *,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeWidget"] div *,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeVideo"] div *,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeAudio"] div *,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="mindmap"] div *,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="mermaid"] div *,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="echarts"] div *,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="flowchart"] div *,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="plantuml"] div *,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="graphviz"] div *,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="abc"] div *{
+    display: none;
+}
+
 /* -----------------------------折叠优化 End---------------- */
 
 
@@ -3027,3 +3083,27 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 
 /* -------------------搬运语雀的提示区块 --END-----------------------------------*/
 
+.layout-tab-bar {
+    background-color: #f8f9fa;
+}
+
+/* 修复1.4.2 文件树列表focus高亮问题 */
+.b3-list--files .b3-list-item--focus:not(.dragover):not(.dragover__top):not(.dragover__bottom) {
+    background-color: var(--b3-menu-highlight-background) !important;
+}
+
+
+
+/* 文件树拖拽增强 */
+.file-tree .dragover__bottom {
+    box-shadow: 0 2px 0 rgba(44, 160, 255, 0.726),inset 0px -2px 0 rgba(44, 160, 255, 0.726);
+}
+.file-tree .dragover__top {
+    box-shadow: 0 -2px 0 rgba(44, 160, 255, 0.726),inset 0px 2px 0 rgba(44, 160, 255, 0.726);
+}
+
+/* 前进后退disable颜色更改 */
+.toolbar__item--disabled, .toolbar__item--disabled:hover {
+    color: #acb7b7;
+    cursor: not-allowed;
+}
