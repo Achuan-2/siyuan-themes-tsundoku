@@ -412,9 +412,11 @@ strong {
 
 /* blockquote 引用 */
 .protyle-wysiwyg [data-node-id].bq, .b3-typography blockquote {
-    border: 2.3px solid #8aacac ;
+    /* border: 2.3px solid #8aacac ; */
+    border-left: 0.25em solid #b7ccd6;
     border-radius: 0.31em;
     margin-top: 8px;
+    background-color: #c4d3d42b;
     /* box-shadow: 0 2px 2px 0 rgb(0 0 0 / 16%), 0 0 0 1px rgb(0 0 0 / 8%); */
 }
 
@@ -2870,6 +2872,7 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 .protyle-wysiwyg [data-node-id][fold="1"].bq{
     border-width: 0px !important;
     box-shadow: none !important;
+    background-color: unset;
 }
 
 .protyle-wysiwyg [data-node-id][fold="1"].bq>div::before {
@@ -3029,6 +3032,18 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
     background-color: var(--b3-card-success-background) !important;
 }
 
+.bq[style*="background-color: var(--b3-card-warning-background);"] strong {
+    color:#98651d !important;
+}
+.bq[style*="background-color: var(--b3-card-success-background);"] strong {
+    color:#258c19 !important;
+}
+.bq[style*="background-color: var(--b3-card-error-background);"] strong {
+    color:#a75050 !important;
+}
+.bq[style*="background-color: var(--b3-card-info-background);"] strong {
+    color:#226892 !important;
+}
 /* 块背景色 */
 .bq[style*="background-color: var(--b3-font-background1);"] {
     border: 1px solid var(--b3-font-color1) !important;
@@ -3107,3 +3122,7 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
     color: #acb7b7;
     cursor: not-allowed;
 }
+
+/* .protyle-wysiwyg [data-node-id].li>[data-node-id]:before{
+    background-color:var(--b3-border-color);
+} */
