@@ -169,7 +169,7 @@
     --b3-protyle-inline-blockref-color: #0e7a88;
     --b3-protyle-inline-blockref-hover-color: #ff398b;
     /* 表格 */
-    --b3-table-border-color: #dfe0e1;
+    --b3-table-border-color: #e4e6e8;
     --b3-table-th-color: #e9ecee;
     --b3-table-trn-color: #f8f9fa;
     --b3-table-tr2n-color: #f0f4f5;
@@ -323,7 +323,7 @@
     color:inherit;
 }
 
-/* -------------------------------表格------------------------------------- */
+/* -------------------------------表格start------------------------------------- */
 
 
 /* 表格默认居中 */
@@ -335,57 +335,51 @@
     font-size: 0.9em;
 } */
 /* 表格背景设置 */
-.protyle-wysiwyg   table thead tr {
-    background-color: var(--b3-table-th-color) !important;
+.b3-typography table,
+.protyle-wysiwyg table {
+    border-collapse: separate;
 }
-.protyle-wysiwyg   table tbody tr:nth-child(2n + 1) {
-    background-color: var(--b3-table-trn-color) !important;
-}
-.protyle-wysiwyg   table tbody tr:nth-child(2n) {
-    background-color: var(--b3-table-tr2n-color) !important;
-}
-.protyle-wysiwyg   table tr th {
-    border-left: 1px solid var(--b3-table-border-color);
-    border-right: 1px solid var(--b3-table-border-color);
-}
-.protyle-wysiwyg table tr td {
-    border-left: 1px solid var(--b3-table-border-color);
-    border-right: 1px solid var(--b3-table-border-color);
-}
-.protyle-wysiwyg  table tr th:first-child,
-.protyle-wysiwyg table tr td:first-child {
-    border-left-width: 0px;
-}
-.protyle-wysiwyg  table tr th:last-child,
-.protyle-wysiwyg  table tr td:last-child {
-    border-right-width: 0px;
-}
-/*  */
+.protyle-wysiwyg   table thead tr,
 .b3-typography   table thead tr {
     background-color: var(--b3-table-th-color) !important;
 }
+.protyle-wysiwyg   table tbody tr:nth-child(2n + 1),
 .b3-typography   table tbody tr:nth-child(2n + 1) {
     background-color: var(--b3-table-trn-color) !important;
 }
+.protyle-wysiwyg   table tbody tr:nth-child(2n),
 .b3-typography    table tbody tr:nth-child(2n) {
     background-color: var(--b3-table-tr2n-color) !important;
 }
-.b3-typography   table tr th {
-    border-left: 1px solid var(--b3-table-border-color);
-    border-right: 1px solid var(--b3-table-border-color);
+.protyle-wysiwyg table tr th, .b3-typography table tr th {
+    border-collapse: separate;
+    border-left: 1px solid #dbe2e2;
+    border-right: 1px solid #dbe2e2;
 }
-.b3-typography  table tr td {
-    border-left: 1px solid var(--b3-table-border-color);
-    border-right: 1px solid var(--b3-table-border-color);
-}
+
+
+.protyle-wysiwyg  table tr th:first-child,
+.protyle-wysiwyg table tr td:first-child,
 .b3-typography   table tr th:first-child,
 .b3-typography  table tr td:first-child {
     border-left-width: 0px;
 }
+.protyle-wysiwyg  table tr th:last-child,
+.protyle-wysiwyg  table tr td:last-child,
 .b3-typography   table tr th:last-child,
 .b3-typography   table tr td:last-child {
     border-right-width: 0px;
 }
+.protyle-wysiwyg table tr td,
+.b3-typography  table tr td{
+    border: 0.9px solid var(--b3-table-border-color);
+}
+/* .protyle-wysiwyg table tr td,
+.b3-typography  table tr td{
+    border-left: 0.9px solid var(--b3-table-border-color);
+    border-right: 0.9px solid var(--b3-table-border-color);
+} */
+/* -------------------------------表格end------------------------------------- */
 
 /* -------------------------------行内块字体样式-------------------------------------- */
 
@@ -2596,6 +2590,18 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
     background-image: url('src/xinpianchang.ico');
 
 }
+
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="zhangxinxu.com"]:not(:empty)::before,
+.b3-typography a[href *="xinpianchang.com"]::before{
+    content: "";
+    background-image: url('src/zhangxinxu.ico');
+}
+
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="w3school.com"]:not(:empty)::before,
+.b3-typography a[href *="xinpianchang.com"]::before{
+    content: "";
+    background-image: url('src/w3school.png');
+}
 /* ----------------------------custom: 超链接icon---end------------------------------- */
 
 /* -------------------主题增强面板区分度-------------------- */
@@ -2944,7 +2950,8 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
     overflow: visible !important;
 }
 
-.protyle-wysiwyg [data-node-id][fold="1"]:not(.li).code-block .hljs{
+.protyle-wysiwyg [data-node-id][fold="1"]:not(.li).code-block .hljs,
+.protyle-wysiwyg [data-node-id][fold="1"]:not(.li).code-block .protyle-linenumber__rows{
     overflow: hidden !important;
     display: none;
 }
@@ -3003,7 +3010,8 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 /* -------------------搬运语雀的提示区块 ---------Start----------------------------*/
 
 /* 卡片样式 */
-.bq[style*="background-color: var(--b3-card-error-background);"] {
+.bq[style*="background-color: var(--b3-card-error-background);"],
+blockquote[style*="background-color: var(--b3-card-error-background);"] {
     /* border: 1px solid var(--b3-card-error-color) !important; */
     /* border: 1px solid #deb8be !important; */
     border: 1px solid var(--b3-font-color1) !important;
@@ -3011,7 +3019,8 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 }
 
 
-.bq[style*="background-color: var(--b3-card-warning-background);"] {
+.bq[style*="background-color: var(--b3-card-warning-background);"],
+blockquote[style*="background-color: var(--b3-card-warning-background);"]{
     /* border: 1px solid var(--b3-card-warning-color) !important ; */
     /* border: 1px solid #e0d1b1 !important ; */
     border: 1px solid var(--b3-font-color2) !important;
@@ -3019,81 +3028,102 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 
     background-color: var(--b3-card-warning-background)!important;
 }
-.bq[style*="background-color: var(--b3-card-info-background);"] {
+blockquote[style*="background-color: var(--b3-card-info-background);"],
+.bq[style*="background-color: var(--b3-card-info-background);"] 
+{
     /* border: 1px solid var(--b3-card-info-color) !important; */
         /* border: 1px solid #abd2da !important; */
     border: 1px solid var(--b3-font-color3) !important;
     background-color: var(--b3-card-info-background) !important;
 }
+blockquote[style*="background-color: var(--b3-card-success-background);"],
 .bq[style*="background-color: var(--b3-card-success-background);"] {
     /* border: 1px solid var(--b3-card-success-color) !important; */
     /* border: 1px solid #c2d2b5 !important; */
     border: 1px solid var(--b3-font-color4) !important;
     background-color: var(--b3-card-success-background) !important;
 }
-
+blockquote[style*="background-color: var(--b3-card-warning-background);"] strong,
 .bq[style*="background-color: var(--b3-card-warning-background);"] strong {
     color:#98651d !important;
 }
+blockquote[style*="background-color: var(--b3-card-success-background);"] strong,
 .bq[style*="background-color: var(--b3-card-success-background);"] strong {
     color:#258c19 !important;
 }
+
+blockquote[style*="background-color: var(--b3-card-error-background);"] strong ,
 .bq[style*="background-color: var(--b3-card-error-background);"] strong {
     color:#a75050 !important;
 }
+blockquote[style*="background-color: var(--b3-card-error-background);"] strong,
 .bq[style*="background-color: var(--b3-card-info-background);"] strong {
     color:#226892 !important;
 }
+
 /* 块背景色 */
+blockquote[style*="background-color: var(--b3-font-background1);"],
 .bq[style*="background-color: var(--b3-font-background1);"] {
     border: 1px solid var(--b3-font-color1) !important;
 }
 
+blockquote[style*="background-color: var(--b3-font-background2);"],
 .bq[style*="background-color: var(--b3-font-background2);"] {
     border: 1px solid var(--b3-font-color2) !important;
 
 }
+
+blockquote[style*="background-color: var(--b3-font-background3);"],
 .bq[style*="background-color: var(--b3-font-background3);"] {
         border: 1px solid var(--b3-font-color3)  !important;
 }
 
+blockquote[style*="background-color: var(--b3-font-background4);"],
 .bq[style*="background-color: var(--b3-font-background4);"] {
     border: 1px solid var(--b3-font-color4) !important;
 }
 
-
+blockquote[style*="background-color: var(--b3-font-background5);"],
 .bq[style*="background-color: var(--b3-font-background5);"] {
     border: 1px solid var(--b3-font-color5) !important;
 }
+blockquote[style*="background-color: var(--b3-font-background6);"],
 .bq[style*="background-color: var(--b3-font-background6);"] {
     border: 1px solid var(--b3-font-color6) !important;
 }
+blockquote[style*="background-color: var(--b3-font-background7);"],
 .bq[style*="background-color: var(--b3-font-background7);"] {
     border: 1px solid var(--b3-font-color7) !important;
 }
+blockquote[style*="background-color: var(--b3-font-background8);"],
 .bq[style*="background-color: var(--b3-font-background8);"] {
     border: 1px solid var(--b3-font-color8) !important;
 }
+blockquote[style*="background-color: var(--b3-font-background9);"],
 .bq[style*="background-color: var(--b3-font-background9);"] {
     border: 1px solid var(--b3-font-color9) !important;
 }
+blockquote[style*="background-color: var(--b3-font-background10);"],
 .bq[style*="background-color: var(--b3-font-background10);"] {
     border: 1px solid var(--b3-font-color10) !important;
 }
+blockquote[style*="background-color: var(--b3-font-background11);"],
 .bq[style*="background-color: var(--b3-font-background11);"] {
     border: 1px solid var(--b3-font-color11) !important;
 }
+blockquote[style*="background-color: var(--b3-font-background12);"],
 .bq[style*="background-color: var(--b3-font-background12);"] {
     border: 1px solid var(--b3-font-color12) !important;
 }
+blockquote[style*="background-color: var(--b3-font-background13);"],
 .bq[style*="background-color: var(--b3-font-background13);"] {
     border: 1px solid var(--b3-font-color13) !important;
 }
 
 /* 选中块的优化 */
-
 .protyle-wysiwyg--select.bq[style*="background-color:"]>div{
-    background-color: #91d5ff38 !important;
+    background-color: rgba(31, 138, 93, 0.12) !important;
+
 }
 
 /* -------------------搬运语雀的提示区块 --END-----------------------------------*/
@@ -3131,4 +3161,11 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 
 .protyle-wysiwyg [data-node-id].hr>div {
     border-bottom: 2px solid #bbc1c18c;
+}
+
+
+/* 下划线加粗 */
+.b3-typography u, .protyle-wysiwyg u {
+    text-decoration: none;
+    border-bottom: 2px solid var(--b3-theme-on-background);
 }
