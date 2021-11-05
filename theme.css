@@ -252,6 +252,7 @@
     font-size: 1.75em !important;
     padding: 0.3em 4px;
     color: #04393f;
+    page-break-before: always;
 }
 .protyle-wysiwyg [data-node-id].h2,.b3-typography h2 {
     /* border-bottom: 1px solid #dfe0e1 !important; */
@@ -575,9 +576,9 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     background-color: var(--b3-protyle-inline-tag-background);
 }
 /* 行内代码 */
-.b3-typography code:not(.hljs), .protyle-wysiwyg code:not(.hljs) {
+.b3-typography code:not(.hljs):not(:empty) , .protyle-wysiwyg code:not(.hljs):not(:empty)  {
     /* display: inline-flex; */
-    padding: 0em 0.4em;
+    /* padding: 0em 0.4em; */
     transform: translateY(-1.5px);
     margin:0px 2px;
     border: 1px solid #c6c6c73f;
@@ -2608,6 +2609,11 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
     content: "";
     background-image: url('src/w3school.png');
 }
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="rcsb.org"]:not(:empty)::before,
+.b3-typography a[href *="rcsb.org"]::before{
+    content: "";
+    background-image: url('src/pdb.ico');
+}
 /* ----------------------------custom: 超链接icon---end------------------------------- */
 
 /* -------------------主题增强面板区分度-------------------- */
@@ -2877,7 +2883,7 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
     left:-1.15em;
     top:0.5em;
 }
-.protyle-wysiwyg [data-node-id][fold="1"].bq div[contenteditable="true"],
+.protyle-wysiwyg [data-node-id][fold="1"].bq div,
 .protyle-wysiwyg [data-node-id][fold="1"].p div[contenteditable="true"]{
     display: none;
 }
@@ -2886,14 +2892,20 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
     box-shadow: none !important;
     background-color: unset;
 }
-
-.protyle-wysiwyg [data-node-id][fold="1"].bq>div::before {
+.protyle-wysiwyg [data-node-id][fold="1"].bq>div:first-child{
+    display: block;
+}
+.protyle-wysiwyg [data-node-id][fold="1"].bq>div:first-child *{
+    display: none;
+}
+.protyle-wysiwyg [data-node-id][fold="1"].bq>div:first-child:before {
     content: "Blockquote";
     margin-left: -0.8em;
 }
+
 .protyle-wysiwyg [data-node-id][fold="1"].bq::after {
     top: 0.8em;
-    left:-3em
+    left:-2em;
 }
 .protyle-wysiwyg [data-node-id][fold="1"].p::before {
     content: "Text";
