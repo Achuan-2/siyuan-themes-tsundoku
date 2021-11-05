@@ -2058,6 +2058,11 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
     content: "";
     background-image: url('src/everything.svg');
 }
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href^="siyuan://"]:not(:empty)::before,
+.b3-typography a[href^="siyuan://"]::before {
+    content: "";
+    background-image: url('../../icon/siyuan.ico');
+}
 .protyle-wysiwyg [data-node-id] span[data-type='a'][data-href^="zotero://"]:not(:empty)::before,
 .b3-typography a[href^="zotero://"]::before{
     content: "";
