@@ -1,3 +1,9 @@
+## v0.9.7/2021-11-05
+
+- 🐛 bug when collapsing quote blocks https://github.com/Achuan-2/siyuan-themes-tsundoku-light/issues/7
+- 🐛 inline code block part deletes unpleasant https://github.com/Achuan-2/siyuan-themes-tsundoku-light/issues/8
+- 🍱link icon add [RCSB PDB](https://www.rcsb.org/)
+
 ## v0.9.6/2021-10-27
 
 * 🐛 块嵌入里的待办列表不能显示删除线
