@@ -3,6 +3,7 @@
 - 🐛 bug when collapsing quote blocks https://github.com/Achuan-2/siyuan-themes-tsundoku-light/issues/7
 - 🐛 inline code block part deletes unpleasant https://github.com/Achuan-2/siyuan-themes-tsundoku-light/issues/8
 - 🍱link icon add [RCSB PDB](https://www.rcsb.org/)
+- optimize export style: h1,page-break-before: always
 
 ## v0.9.6/2021-10-27
 

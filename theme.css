@@ -2900,6 +2900,7 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 }
 .protyle-wysiwyg [data-node-id][fold="1"].bq>div:first-child:before {
     content: "Blockquote";
+    font-size: 1rem;
     margin-left: -0.8em;
 }
 
