@@ -235,6 +235,7 @@
 /*分窗口的边框（线）  */
 .layout__resize::after {
     background-color: #dbe1e6b6;
+    z-index: 1;
 }
 /* .fn__flex.fn__flex-1{
     border-radius: 10px;
@@ -572,8 +573,8 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     content: "#";
 } */
 .protyle-wysiwyg [data-node-id] span[data-type='tag']:hover {
-    transform: scale(1.05);
-    background-color: var(--b3-protyle-inline-tag-background);
+    /* transform: scale(1.05); */
+    background-color:#559898;
 }
 /* 行内代码 */
 .b3-typography code:not(.hljs):not(:empty) , .protyle-wysiwyg code:not(.hljs):not(:empty)  {
@@ -2081,7 +2082,8 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 .protyle-wysiwyg [data-node-id] span[data-type='a'][data-href ^="http"]:not(:empty)::before,
 .b3-typography a[href ^="http"]::before{
     content: "";
-    background-image: url('src/net.svg');
+    background-image: url('src/net2.svg');
+    opacity: 0.8;
 }
 .protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="cnblogs.com"]:not(:empty)::before,
 .b3-typography a[href *="cnblogs.com"]::before{
@@ -2614,7 +2616,23 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
     content: "";
     background-image: url('src/pdb.ico');
 }
-/* ----------------------------custom: 超链接icon---end------------------------------- */
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="ghxi.com"]:not(:empty)::before,
+.b3-typography a[href *="ghxi.com"]::before{
+    content: "";
+    background-image: url('src/ghxi.ico');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="sciencenet.cn"]:not(:empty)::before,
+.b3-typography a[href *="sciencenet.cn"]::before{
+    content: "";
+    background-image: url('src/sciencenet.ico');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="deepl.com"]:not(:empty)::before,
+.b3-typography a[href *="deepl.com"]::before{
+    content: "";
+    background-image: url('src/deepl.png');
+}
+
+/* ----------------------------custom: 超链接link icon---end------------------------------- */
 
 /* -------------------主题增强面板区分度-------------------- */
 .block__logo {

@@ -1,3 +1,12 @@
+## v0.9.8/2021-11-13
+
+* 🔥取消标签hover放大效果，因为有点影响修改，改为hover更改背景色
+* 🍱添加link icon
+  * [科学网—NBT：牛瘤胃微生物组的 4941 个宏基因组组装基因组(MAG) - 刘永鑫的博文 (sciencenet.cn)](http://blog.sciencenet.cn/blog-3334560-1290999.html)
+  * [电脑软件 - 果核剥壳 (ghxi.com)](https://www.ghxi.com/category/pcsoft)
+  * [DeepL 翻译：全世界最准确的翻译](https://www.deepl.com/translator)
+* 💄把默认的超链link icon替换了，之前的icon我自己看着有点会让我忍不住补全没有添加的网站icon
+
 ## v0.9.7/2021-11-05
 
 - 🐛 bug when collapsing quote blocks https://github.com/Achuan-2/siyuan-themes-tsundoku-light/issues/7
