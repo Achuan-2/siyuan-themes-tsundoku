@@ -2083,7 +2083,6 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 .b3-typography a[href ^="http"]::before{
     content: "";
     background-image: url('src/net2.svg');
-    opacity: 0.8;
 }
 .protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="cnblogs.com"]:not(:empty)::before,
 .b3-typography a[href *="cnblogs.com"]::before{
