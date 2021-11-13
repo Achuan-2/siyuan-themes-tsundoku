@@ -6,6 +6,8 @@
   * [电脑软件 - 果核剥壳 (ghxi.com)](https://www.ghxi.com/category/pcsoft)
   * [DeepL 翻译：全世界最准确的翻译](https://www.deepl.com/translator)
   * [flomo](https://flomoapp.com/mine/?memo_id=OTQ5OTcwMQ)
+  * [腾讯文档 (qq.com)](https://docs.qq.com/sheet/DRXpTREZzVFlibXVY?tab=plbdhd)
+  * [微信读书-正版书籍小说免费阅读 (qq.com)](https://weread.qq.com/)
 * 💄把默认的超链link icon替换了，之前的icon我自己看着有点会让我忍不住补全没有添加的网站icon
 
 ## v0.9.7/2021-11-05
