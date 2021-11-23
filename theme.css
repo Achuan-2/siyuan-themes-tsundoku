@@ -24,7 +24,7 @@
     --b3-theme-background: #f8f9fa;
     /* 面包屑和标签页 */
     --b3-theme-surface: #f8f9fa;
-    --b3-theme-error: #ec8d8e;
+    --b3-theme-error: #ec8d8deb;
 
     /* 文字颜色 */
     --b3-theme-on-primary: #fff;
@@ -408,12 +408,10 @@ strong {
 
 /* blockquote 引用 */
 .protyle-wysiwyg [data-node-id].bq, .b3-typography blockquote {
-    /* border: 2.3px solid #8aacac ; */
-    border-left: 0.25em solid #b7ccd6;
+    border-left: 0.25em solid rgb(183 211 214);
     border-radius: 0.31em;
     margin-top: 8px;
-    background-color: #c4d3d42b;
-    /* box-shadow: 0 2px 2px 0 rgb(0 0 0 / 16%), 0 0 0 1px rgb(0 0 0 / 8%); */
+    background-color: rgb(196 212 205 / 17%);
 }
 
 .protyle-wysiwyg [data-node-id].bq strong, .b3-typography blockquote strong {
@@ -1101,16 +1099,20 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 
 /* 警告 */
+.b3-snackbar--error {
+    background-color: var(--b3-theme-error);
+    color:var(--b3-theme-on-error);
+}
 .b3-snackbar__content {
     line-height: 20px;
     border-radius: 4px;
     padding: 8px 16px;
     color: #fff;
     font-size: inherit;
-    background-color: #ec8d8deb;
+    background-color: #3fb6be;
     box-sizing: border-box;
-    box-shadow: 0 3px 5px -1px rgb(0 0 0 / 20%), 0 6px 10px 0 rgb(0 0 0 / 14%),
-        0 1px 18px 0 rgb(0 0 0 / 12%);
+    /* box-shadow: 0 3px 5px -1px rgb(0 0 0 / 20%), 0 6px 10px 0 rgb(0 0 0 / 14%),
+        0 1px 18px 0 rgb(0 0 0 / 12%); */
     transition: transform 0.15s cubic-bezier(0, 0, 0.2, 1) 0ms;
     transform: scale(0.8);
     top: 16px;
@@ -3220,3 +3222,9 @@ blockquote[style*="background-color: var(--b3-font-background13);"],
     border-bottom: 2px solid var(--b3-theme-on-background);
 }
 
+/* 左上方菜单栏加宽 */
+.b3-menu, .b3-menu .b3-menu__submenu {
+    border-radius: 6px;
+    padding: 7px 6px 6px;
+    min-width: 200px;
+}
