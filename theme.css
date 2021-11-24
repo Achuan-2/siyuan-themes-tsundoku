@@ -3223,8 +3223,12 @@ blockquote[style*="background-color: var(--b3-font-background13);"],
 }
 
 /* 左上方菜单栏加宽 */
-.b3-menu, .b3-menu .b3-menu__submenu {
+.b3-menu,.b3-menu .b3-menu__submenu {
     border-radius: 6px;
-    padding: 7px 6px 6px;
+    padding: 6px 6px 6px;
     min-width: 200px;
+}
+.b3-menu .b3-menu__submenu {
+    margin-left: 10px;
+    padding: 5px 6px 5px;
 }
