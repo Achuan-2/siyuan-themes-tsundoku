@@ -233,10 +233,10 @@
 }
 
 /*分窗口的边框（线）  */
-.layout__resize::after {
+/* .layout__resize::after {
     background-color: #dbe1e6b6;
     z-index: 1;
-}
+} */
 /* .fn__flex.fn__flex-1{
     border-radius: 10px;
     background-color: #d5dde2;
@@ -519,7 +519,7 @@ li[data-type='navigation-file'] .counter {
 .counter, .protyle-attr--refcount {
     margin-left: 8px;
     background-color: rgba(0, 0, 0, .05) !important;
-    z-index: 2;
+    /* z-index: 2; */
     line-height: 16px;
     color: #766f6fbd;
     border-radius:  20%;
@@ -1298,11 +1298,11 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 /* ----------------------------标签页样式 END----------------------------------------- */
 
-/* h3 */
+
 .protyle-breadcrumb {
     /* background-color: var(--b3-tab-custom-background); */
     background-color: transparent;
-    z-index: 2;
+    /* z-index: 2; */
 }
 
 
@@ -3088,6 +3088,9 @@ blockquote[style*="background-color: var(--b3-card-info-background);"],
     border: 1px solid var(--b3-font-color3) !important;
     background-color: var(--b3-card-info-background) !important;
 }
+
+
+
 blockquote[style*="background-color: var(--b3-card-success-background);"],
 .bq[style*="background-color: var(--b3-card-success-background);"] {
     /* border: 1px solid var(--b3-card-success-color) !important; */
@@ -3095,6 +3098,9 @@ blockquote[style*="background-color: var(--b3-card-success-background);"],
     border: 1px solid var(--b3-font-color4) !important;
     background-color: var(--b3-card-success-background) !important;
 }
+
+
+
 blockquote[style*="background-color: var(--b3-card-warning-background);"] strong,
 .bq[style*="background-color: var(--b3-card-warning-background);"] strong {
     color:#98651d !important;
@@ -3113,6 +3119,58 @@ blockquote[style*="background-color: var(--b3-card-error-background);"] strong,
     color:#226892 !important;
 }
 
+/* 优化代码块和行内代码 */
+blockquote[style*="background-color: var(--b3-card-error-background);"] code,
+.bq[style*="background-color: var(--b3-card-error-background);"] code{
+    background-color: #f0c4b959 !important;
+}
+blockquote[style*="background-color: var(--b3-card-error-background);"] .code-block,
+.bq[style*="background-color: var(--b3-card-error-background);"] .code-block{
+    background-color: #f0c4b959;
+}
+blockquote[style*="background-color: var(--b3-card-warning-background);"] code,
+.bq[style*="background-color: var(--b3-card-warning-background);"] code{
+    background-color: #f0dfb959 !important;
+}
+blockquote[style*="background-color: var(--b3-card-warning-background);"] .code-block,
+.bq[style*="background-color: var(--b3-card-warning-background);"] .code-block{
+    background-color: #f0dfb959;
+}
+blockquote[style*="background-color: var(--b3-card-info-background);"] code,
+.bq[style*="background-color: var(--b3-card-info-background);"] code{
+    background-color: #bedaeb59 !important;
+}
+blockquote[style*="background-color: var(--b3-card-info-background);"] .code-block,
+.bq[style*="background-color: var(--b3-card-info-background);"] .code-block{
+    background-color: #bedaeb59;
+}
+blockquote[style*="background-color: var(--b3-card-success-background);"] code,
+.bq[style*="background-color: var(--b3-card-success-background);"] code{
+    background-color: #c7ebbe59 !important;
+}
+blockquote[style*="background-color: var(--b3-card-success-background);"] .code-block,
+.bq[style*="background-color: var(--b3-card-success-background);"] .code-block{
+    background-color: #c7ebbe59;
+}
+
+/* 优化列表线 */
+blockquote[style*="background-color: var(--b3-card-error-background);"] [data-node-id].li>[data-node-id]:before,
+.bq[style*="background-color: var(--b3-card-error-background);"] [data-node-id].li>[data-node-id]:before{
+    border-left: 1px solid #debeb9 !important;
+}
+
+blockquote[style*="background-color: var(--b3-card-error-background);"] [data-node-id].li>[data-node-id]:before,
+.bq[style*="background-color: var(--b3-card-warning-background);"] [data-node-id].li>[data-node-id]:before{
+    border-left: 1px solid #d6c0a3 !important;
+}
+blockquote[style*="background-color: var(--b3-card-info-background);"] [data-node-id].li>[data-node-id]:before,
+.bq[style*="background-color: var(--b3-card-info-background);"] [data-node-id].li>[data-node-id]:before{
+    border-left: 1px solid #83a8c2 !important;
+}
+blockquote[style*="background-color: var(--b3-card-success-background);"] [data-node-id].li>[data-node-id]:before,
+.bq[style*="background-color: var(--b3-card-success-background);"] [data-node-id].li>[data-node-id]:before{
+    border-left: 1px solid #a7c4b8 !important;
+}
 /* 块背景色 */
 blockquote[style*="background-color: var(--b3-font-background1);"],
 .bq[style*="background-color: var(--b3-font-background1);"] {
