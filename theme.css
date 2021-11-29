@@ -2089,7 +2089,7 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 .b3-typography [href ^="note"]{
     border-bottom: 2px solid #f3a92f !important;
     background-color: #f6e5c9;
-    color: var(--b3-theme-on-background);
+    color: inherit;
 }
 
 
