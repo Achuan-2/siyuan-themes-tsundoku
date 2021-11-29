@@ -3102,21 +3102,21 @@ blockquote[style*="background-color: var(--b3-card-success-background);"],
 
 
 
-blockquote[style*="background-color: var(--b3-card-warning-background);"] strong,
-.bq[style*="background-color: var(--b3-card-warning-background);"] strong {
+blockquote[style*="background-color: var(--b3-card-warning-background);"] strong:not([style*="color: var(--b3"]),
+.bq[style*="background-color(--b3-card-warning-background);"] strong:not([style*="color: var(--b3"]) {
     color:#98651d !important;
 }
-blockquote[style*="background-color: var(--b3-card-success-background);"] strong,
-.bq[style*="background-color: var(--b3-card-success-background);"] strong {
+blockquote[style*="background-color: var(--b3-card-success-background);"] strong:not([style*="color: var(--b3"]),
+.bq[style*="background-color: var(--b3-card-success-background);"] strong:not([style*="color: var(--b3"]) {
     color:#258c19 !important;
 }
 
-blockquote[style*="background-color: var(--b3-card-error-background);"] strong ,
-.bq[style*="background-color: var(--b3-card-error-background);"] strong {
+blockquote[style*="background-color: var(--b3-card-error-background);"] strong:not([style*="color: var(--b3"]) ,
+.bq[style*="background-color: var(--b3-card-error-background);"] strong:not([style*="color: var(--b3"]) {
     color:#a75050 !important;
 }
-blockquote[style*="background-color: var(--b3-card-info-background);"] strong,
-.bq[style*="background-color: var(--b3-card-info-background);"] strong {
+blockquote[style*="background-color: var(--b3-card-info-background);"] strong:not([style*="color: var(--b3"]),
+.bq[style*="background-color: var(--b3-card-info-background);"] strong:not([style*="color: var(--b3"]) {
     color:#226892 !important;
 }
 
