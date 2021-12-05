@@ -417,7 +417,7 @@ strong {
 
 .protyle-wysiwyg [data-node-id].bq:not([style]),
 .b3-typography blockquote:not([style]) {
-    opacity: 0.8;
+    opacity: 0.87;
     background-image: url('src/blockquote.svg');
     background-size: 18px 18px;
     background-repeat: no-repeat;
