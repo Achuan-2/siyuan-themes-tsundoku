@@ -42,6 +42,7 @@
         monospace, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Segoe UI Symbol',
         'Android Emoji', 'EmojiSymbols';
     --b3-font-family-graph: mononoki;
+    --b3-font-family-math: KaTeX_Math;
     /* 线条 */
     /* --b3-border-color: #dfe0e1; */
     --b3-border-color: #eceded;
@@ -415,13 +416,18 @@ strong {
     /* background-color: rgb(196 212 205 / 17%); */
 }
 
-.protyle-wysiwyg [data-node-id].bq:not([style]),
-.b3-typography blockquote:not([style]) {
+.protyle-wysiwyg [data-node-id].bq:not([style*="color"]),
+.b3-typography blockquote:not([style*="color"]) {
     opacity: 0.87;
     background-image: url('src/blockquote.svg');
     background-size: 18px 18px;
     background-repeat: no-repeat;
+    /* border: 2px solid var(--b3-font-color5) !important; */
+    background-color: #e9e9e9a2;
 }
+
+/*     blockquote[style*="background-color: var(--b3-font-background5);"],
+.bq[style*="background-color: var(--b3-font-background5);"] { */
 
 
 .protyle-wysiwyg [data-node-id].bq strong, .b3-typography blockquote strong {
@@ -1991,9 +1997,12 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 /* 悬浮工具栏样式 */
 .pdf__util.b3-menu.pdf__util--hide {
     padding: 2px 4px 5px;
+    border: 2px solid rgba(0, 0, 0, 0.63);
+
 }
 .pdf__util.b3-menu .fn__flex {
     padding: 6px 4px 0px !important;
+
 }
 
 /* 自定义颜色选框调整宽高 */
@@ -2025,10 +2034,10 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 }
 
 .pdf__util.b3-menu .b3-color__square{
-    height: 20px;
-    width: 20px;
+    height: 25px;
+    width: 25px;
     border-radius: 10px;    
-    margin-right: 4px;
+    box-shadow: 0 0 0 2px black inset;
 }
 /* pdf光标选中文本样式 */
 .pdf__outer ::selection{ 
@@ -2114,6 +2123,8 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
     background-image: url('src/cnblogs.ico');
 
 }
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="b23.tv"]:not(:empty)::before,
+.b3-typography a[href *="b23.tv"]::before,
 .protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="bilibili.com"]:not(:empty)::before,
 .b3-typography a[href *="bilibili.com"]::before{
     content: "";
@@ -3142,6 +3153,9 @@ blockquote[style*="background-color: var(--b3-card-info-background);"] strong:no
 }
 
 /* 优化代码块和行内代码 */
+
+blockquote[style*="background-color: var(--b3-card-error-background);"] kbd,
+.bq[style*="background-color: var(--b3-card-error-background);"] kbd,
 blockquote[style*="background-color: var(--b3-card-error-background);"] code,
 .bq[style*="background-color: var(--b3-card-error-background);"] code{
     background-color: #f0c4b959 !important;
@@ -3150,6 +3164,8 @@ blockquote[style*="background-color: var(--b3-card-error-background);"] .code-bl
 .bq[style*="background-color: var(--b3-card-error-background);"] .code-block{
     background-color: #f0c4b959;
 }
+blockquote[style*="background-color: var(--b3-card-warning-background);"] kbd,
+.bq[style*="background-color: var(--b3-card-warning-background);"] kbd,
 blockquote[style*="background-color: var(--b3-card-warning-background);"] code,
 .bq[style*="background-color: var(--b3-card-warning-background);"] code{
     background-color: #f0dfb959 !important;
@@ -3158,6 +3174,8 @@ blockquote[style*="background-color: var(--b3-card-warning-background);"] .code-
 .bq[style*="background-color: var(--b3-card-warning-background);"] .code-block{
     background-color: #f0dfb959;
 }
+blockquote[style*="background-color: var(--b3-card-info-background);"] kbd,
+.bq[style*="background-color: var(--b3-card-info-background);"] kbd,
 blockquote[style*="background-color: var(--b3-card-info-background);"] code,
 .bq[style*="background-color: var(--b3-card-info-background);"] code{
     background-color: #bedaeb59 !important;
@@ -3166,6 +3184,8 @@ blockquote[style*="background-color: var(--b3-card-info-background);"] .code-blo
 .bq[style*="background-color: var(--b3-card-info-background);"] .code-block{
     background-color: #bedaeb59;
 }
+blockquote[style*="background-color: var(--b3-card-success-background);"] kbd,
+.bq[style*="background-color: var(--b3-card-success-background);"] kbd,
 blockquote[style*="background-color: var(--b3-card-success-background);"] code,
 .bq[style*="background-color: var(--b3-card-success-background);"] code{
     background-color: #c7ebbe59 !important;
