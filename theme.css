@@ -10,6 +10,11 @@
     font-style: normal;
     src: url('fonts/FiraCode-Regular.ttf');
 }
+@font-face {
+    font-family: 'HarmonyOS';
+    font-style: normal;
+    src: url('fonts/HarmonyOS_Sans_SC_Regular.ttf');
+}
 :root {
     /* 主色 */
     /* 高亮 */
@@ -35,7 +40,7 @@
     --b3-theme-on-error: #fff;
 
     /* 字体 */
-    --b3-font-family: 'Helvetica Neue', 'Luxi Sans', 'DejaVu Sans', 'Hiragino Sans GB',
+    --b3-font-family: "HarmonyOS", 'Helvetica Neue', 'Luxi Sans', 'DejaVu Sans', 'Hiragino Sans GB',
         'Microsoft Yahei', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji',
         'Win10 Emoji', 'Segoe UI Symbol', 'Android Emoji', 'EmojiSymbols';
     --b3-font-family-code: 'FiraCode', mononoki, Consolas, 'Liberation Mono', Menlo, Courier,
@@ -423,7 +428,7 @@ strong {
     background-size: 18px 18px;
     background-repeat: no-repeat;
     /* border: 2px solid var(--b3-font-color5) !important; */
-    background-color: #e9e9e9a2;
+    background-color: #e9eef0dc;
 }
 
 /*     blockquote[style*="background-color: var(--b3-font-background5);"],
@@ -1472,15 +1477,10 @@ div[data-subtype='t'][data-type='NodeList'] {
 }
 /* 文档树区分有子文档和无子文档的文档 */
 .b3-list-item.b3-list-item--hide-action .b3-list-item__toggle.fn__hidden::before {
-    content: "·";
-    display: inline-block;
-    /* color: #84827d; */
-    font-size: 190%;
-    margin-right: -7px;
-    vertical-align: middle;
-    transition: all 0s ease-in-out;
+    content: "\26AC";
+    display: block;
+    position: absolute;
     visibility: visible;
-    opacity: 1;
     transition: var(--b3-transition);
 
 }
@@ -3339,3 +3339,8 @@ blockquote[style*="background-color: var(--b3-font-background13);"],
     background: rgba(103, 182, 235, 0.658);
     border-radius: 4px;
 }
+
+
+
+
+
