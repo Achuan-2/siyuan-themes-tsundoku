@@ -1493,12 +1493,12 @@ div[data-subtype='t'][data-type='NodeList'] {
 }
 /* 文档树区分有子文档和无子文档的文档 */
 .b3-list-item.b3-list-item--hide-action .b3-list-item__toggle.fn__hidden::before {
-    content: "\26AC";
+    content: "✧";
     display: block;
     position: absolute;
     visibility: visible;
     transition: var(--b3-transition);
-
+    margin-bottom: 2px;
 }
 /* 取消默认的隐藏效果 */
 .file-tree--leave .b3-list-item__graphic--arrow:not(.fn__hidden) {
@@ -1863,19 +1863,19 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 }
 
 /* 改变新建按钮图标 */
-.b3-list--files [data-type="new"] svg {
+.file-tree [data-type="new"] svg {
     opacity: 0;
 }
 
 
-.b3-list--files [data-type="new"] {
+.file-tree [data-type="new"] {
     /* background-color: #fff; */
     background-image: url(src/add.svg);
-    background-size: 16px 16px;
+    background-size: 15px 15px;
     background-repeat: no-repeat;
     background-position: left 4px top 6px;
 }
-.b3-list--files [data-type="new"]:hover{
+.file-tree [data-type="new"]:hover{
     background-color: #d3e2e671;
 }
 /* 调整内容中标题左侧文档图标大小 */
