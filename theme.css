@@ -1833,10 +1833,10 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
     width: 80px;
     transition: var(--b3-transition);
     position: absolute;
-    bottom: -40px;
+    /* bottom: -40px; */
     cursor: pointer;
-    font-size: 70px;
-    line-height: 70px;
+    /* font-size: 70px;
+    line-height: 70px; */
     text-align: center;
     font-family: var(--b3-font-family-emoji);
     z-index: 1;
