@@ -2,9 +2,6 @@
 
 <p align="center">          
            <a title="Hits" target="_blank" href="https://github.com/Achuan-2/siyuan-themes-tsundoku-light"><img src="https://hits.b3log.org/Achuan-2/siyuan-themes-tsundoku-light.svg" ></a>
-           <a href="https://gitmoji.dev">
-             <img src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square" alt="Gitmoji">
-           </a>
            <a href="https://github.com/Achuan-2/siyuan-themes-tsundoku-light/releases">
                       <https://img.shields.io/github/release/Achuan-2/siyuan-themes-tsundoku-light.svg" alt="Release">
            </a>
