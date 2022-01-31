@@ -11,79 +11,45 @@
           <img src="https://img.shields.io/github/last-commit/Achuan-2/siyuan-themes-tsundoku-light" alt="GitHub last commit">
 </p>
 
-<p align="center">English |<a href="https://www.yuque.com/achuan-2/siyuan/fqew9h"> 中文介绍</a></p>
+<p align="center">中文介绍 |<a href="README_EN.md"> English</a></p>
 
-[SiYuan](https://github.com/siyuan-note/siyuan) is a local-first personal knowledge management system, supports fine-grained block-level reference, and Markdown WYSIWYG. This is a theme for it.  
-![preview](preview.png)
+<p align="center"><a href="https://github.com/Achuan-2/siyuan-themes-tsundoku-dark"> 🌙Tsunoku Dark </a> |🌞Tsunoku Light | <a href="https://github.com/Achuan-2/siyuan-themes-tsundoku-texture"> 🧱Tsunoku Stone </a>|<a href="https://github.com/Achuan-2/siyuan-themes-tsundoku-green"> 🍃Tsunoku Green </a></p>
 
-> 🎠 This may not be the most aesthetically pleasing theme for you, but perhaps it will be one of the most sought-after themes for the ultimate experience！
-> 
-> Others Themes: 🧇[Tsundoku Texture](https://github.com/Achuan-2/siyuan-themes-tsundoku-texture) | 🌙[Tsundoku Dark ](https://github.com/Achuan-2/siyuan-themes-tsundoku) | 🥗[Tsundoku Green](https://github.com/Achuan-2/siyuan-themes-tsundoku-green)
+## 💌 缘起
+Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释的“Tsundoku is acquiring reading materials but letting them pile up in one's home without reading them. It is also used to refer to books ready for reading later when they are on a bookshelf.” 简单说就是买书成瘾却不读的行为。
+> Any PKM approach that doesn’t tie into execution tools is destined to languish on the back burner forever
 
-## 💌 Origin
+我借此名来警醒自己，希望能利用好思源笔记，帮助我养成每日记录、定期回顾复盘的习惯，更好地掌握知识和技能，争取做有意义的项目，变成更优秀的人，而不是为了记笔记而笔记，让笔记软件成为一个个缓解知识焦虑的积灰箱，满足变态的数字化囤积症。
 
-Tsundoku “積 ん 読” , a Japanese word，explained in Wikipedia as “Tsundoku is acquiring reading materials but letting them pile up in one's home without reading them. It is also used to refer to books ready for reading later when they are on a bookshelf.”
+## ✨主题样式优化
 
-> Any PKM approach that doesn’t tie into execution tools is destined to languish on the back burner forever.
-
-I use this name to wake myself up and hope that SiYuan will help me make gradual progress and  get things done better, instead of becoming another dustbin for relieving intellectual anxiety and satisfying my digital hoarding disorder.
-
-
-
-
-## ✨Features
-
-* **Optimized  style of each level title**
-![](assets/Readme_2021-09-27-17-39-06.png)
-* **Added hyperlink icon**  to distinguish local protocol of different softwares from web links,to learn all supported links, see [more info](https://www.yuque.com/achuan-2/siyuan/gar358)  
-![](assets/Readme_2021-09-27-17-40-33.png)
-* **Rich dynamic effects**：hovering over the button icon with a magnification effect, etc. to enhance the user experience when writing and reading.
-* **Optimized style of completed Task list**：A lot of optimization has been done to the task list effect, when the task list is checked, the normal text will change color with strikethrough, and the style of each line and block in the completed task list has been handled in some way, for example, the opacity of the images and code blocks in the completed task list will be reduced.
-![](assets/Readme_2021-09-27-17-39-41.png)
-* **Unified emoji style for Win and Android**：Modify the default emoji on Android to Win 10 emoji--Segoe UI Emoji to ensure the uniformity of emoji style.
-* **MAC's code block style** 
-![](assets/Readme_2021-09-27-17-39-50.png)
-* **Optimized  text color and background color popup**  
-![](assets/Readme_2021-09-17-10-20-31.png)
+- 📋标题样式优化，一级标题居中、三级标题添加左侧竖线，添加标题的区别度
+  ![20220131164455_2022-01-31](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220131164455_2022-01-31.png)
+- 💻仿MAC的代码块样式![20220131164515_2022-01-31](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220131164515_2022-01-31.png)
+- ✅任务列表样式优化：当把任务列表勾选时，普通文字变色加删除线，并针对完成的任务列表中的各个行内和块样式都做了一定处理。完成的任务列表中的图片和代码块透明度降低
+  ![20220131165058_2022-01-31](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220131165058_2022-01-31.png)
+- 🎨文字颜色和背景色选框样式优化、颜色配色调整![20220131165152_2022-01-31](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220131165152_2022-01-31.png)
+- 😀win端和安卓端emoji样式统一：修改安卓端的默认 emoji 为 Win 10 emoji——Segoe UI Emoji，保持手机电脑预览笔记emoji样式统一
 
 
-## 💥Impotant Changes
+## 💥主题特色功能
+- **为超链接添加了icon**：区别不同的本地链接和网络链接，详见[超链接图标介绍](https://www.yuque.com/achuan-2/siyuan/gar358)
+  ![20220131165215_2022-01-31](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220131165215_2022-01-31.png)
+- **引入语雀提示区块**：给引述块blockquote添加块背景颜色，就会自动应用样式，详见[语雀提示区块样式](https://www.yuque.com/achuan-2/siyuan/obxpvr)
+  ![20220131165233_2022-01-31](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220131165233_2022-01-31.png)
+- 引入文本折叠和挖空块功能
+  - **文本遮挡**：暂时将高亮Ctrl+E,设置为文本遮挡效果：悬浮时才显示高亮的文字，默认隐藏文字 
+    - 如果需要取消该效果，请在主题 css 中搜索「挖空」关键词，将所提示的代码删除
+  ![20220131165254_2022-01-31](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220131165254_2022-01-31.png)
+  - **添加了自定义块属性样式——挖空块**
+    - 属性 key ： f（简写）或function
+    - value ：hide或挖空
+    - 使用方式：单击块标选择打开属性列表或Shift+Click打开，点击添加，输入属性名为f或function，并输入相应的属性值（hide或挖空）![](https://cdn.jsdelivr.net/gh/Achuan-2/Picbed@pic/assets/1643619360054%E6%80%9D%E6%BA%90light%E6%8C%96%E7%A9%BA.gif)
 
-1. This theme temporarily set highlighting <kbd>Ctrl+E</kbd>, to a hide effect: the highlighted text is shown only when mouse hovering, and the default text is hidden.
+## 🚀更新情况
 
-   * If you need to cancel this effect, please search for the `.protyle-wysiwyg mark` keyword in the theme css, and delete the suggested code ![](assets/Readme_2021-09-27-17-42-05.png)
-2. Added custom block attribute styles
+见[📃Tsundoku Light 更新日志](https://www.yuque.com/achuan-2/siyuan/bkq4s2)
 
-   * Attributes key are set to `function` or `f` (abbreviated)
-   * value can be
+## ☎️意见交流
 
-     * **zy/important**: add "❗❗❗" the end of this block;
-     * **ing** : add "ing" the end of this block;
-     * **done/100**: add "done" the end of this block;
-     * **10/20/30.../90**: add 10%/20%/.../90% at the end of this block;
-     * **kaiti**：The font-family of this block will be set to Kaiti;
-     * **hide/挖空**：This block will be automatically hided;
-     * **quote**: 📌quote style;
-     * **yellow/黄**：This block will
-     *  have a yellow background color;
-     * **blue蓝**：This block will
-     *  have a blue background color;
-     * **red/红**：This block will
-     *  have a  red background color;
-   * How to use:  use <kbd>Shift+Click</kbd> to  click the block icon to open the attribute list, click <kbd>add</kbd >, enter the attribute name  `function` or `f`, and enter the corresponding attribute value (such as "hide")
-   * preview image：![](assets/Readme_2021-09-17-10-21-15.png)
-3. 对文字样式进行了自定义
-
-   | Condition   | Color Scheme                                                                                        |
-   | ------ | ----------------------------------------------------------------------------------------------- |
-   | Before |![](assets/Readme_2021-09-27-17-42-34.png) |
-   | After |![](assets/Readme_2021-09-27-17-42-40.png) |
-
-## ☎️Feedback
-
-
-If there is a problem with the style of the theme, welcome to raise an issue in this repo or contact me via email (achuan-2@outlook.com). Before raising an issue, it is recommended to switch to the default theme to make sure it is a problem specific to this theme.
-
-## 🚀Change Log
-
-See [CHANGE_LOGS](CHANGE_LOGS.md)
+若主题存在样式的问题，欢迎在Github提issue或是通过邮箱联系我([achuan-2@outlook.com](mailto:achuan-2@outlook.com))。在提issue之前建议先切换为默认主题，确定是本主题特有的问题。

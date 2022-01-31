@@ -127,7 +127,7 @@
     visibility: visible !important;
     overflow: visible !important;
     /* background-color: rgb(241, 16, 16); */
-    background-image: url(src/fold.svg) !important;
+    background-image: url(../src/fold.svg) !important;
     background-size: 1.5rem;
     background-repeat: no-repeat;
     background-position: 0px 0px ;
