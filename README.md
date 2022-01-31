@@ -13,7 +13,7 @@
 
 <p align="center">中文介绍 |<a href="README_EN.md"> English</a></p>
 
-<p align="center"><a href="https://github.com/Achuan-2/siyuan-themes-tsundoku-dark"> 🌙Tsunoku Dark </a> |🌞Tsunoku Light | <a href="https://github.com/Achuan-2/siyuan-themes-tsundoku-texture"> 🧱Tsunoku Stone </a>|<a href="https://github.com/Achuan-2/siyuan-themes-tsundoku-green"> 🍃Tsunoku Green </a></p>
+<p align="center"><a href="https://github.com/Achuan-2/siyuan-themes-tsundoku-dark"> 🌙Tsunoku Dark </a> |🌞Tsunoku Light | <a href="https://github.com/Achuan-2/siyuan-themes-tsundoku-stone"> 🧱Tsunoku Stone </a>|<a href="https://github.com/Achuan-2/siyuan-themes-tsundoku-green"> 🍃Tsunoku Green </a></p>
 
 ## 💌 缘起
 Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释的“Tsundoku is acquiring reading materials but letting them pile up in one's home without reading them. It is also used to refer to books ready for reading later when they are on a bookshelf.” 简单说就是买书成瘾却不读的行为。
@@ -28,7 +28,7 @@ Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释
 - 💻仿MAC的代码块样式![20220131164515_2022-01-31](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220131164515_2022-01-31.png)
 - ✅任务列表样式优化：当把任务列表勾选时，普通文字变色加删除线，并针对完成的任务列表中的各个行内和块样式都做了一定处理。完成的任务列表中的图片和代码块透明度降低
   ![20220131165058_2022-01-31](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220131165058_2022-01-31.png)
-- 🎨文字颜色和背景色选框样式优化、颜色配色调整![20220131165152_2022-01-31](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220131165152_2022-01-31.png)
+- 🎨文字颜色和背景色选框样式优化、颜色配色调整![20220131231307_2022-01-31](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220131231307_2022-01-31.png)
 - 😀win端和安卓端emoji样式统一：修改安卓端的默认 emoji 为 Win 10 emoji——Segoe UI Emoji，保持手机电脑预览笔记emoji样式统一
 
 
@@ -48,7 +48,7 @@ Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释
 
 ## 🚀更新情况
 
-见[📃Tsundoku Light 更新日志](https://www.yuque.com/achuan-2/siyuan/bkq4s2)
+见[📃Tsundoku 主题更新日志](https://www.yuque.com/achuan-2/siyuan/bkq4s2)
 
 ## ☎️意见交流
 
