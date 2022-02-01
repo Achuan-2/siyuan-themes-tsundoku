@@ -38,7 +38,7 @@ Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释
   ![20220131165215_2022-01-31](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220131165215_2022-01-31.png)
 - **引入语雀提示区块**：给引述块blockquote添加块背景颜色，就会自动应用样式，详见[语雀提示区块样式](https://www.yuque.com/achuan-2/siyuan/obxpvr)
   ![20220131165233_2022-01-31](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220131165233_2022-01-31.png)
-- 引入文本折叠和挖空块功能
+- 引入文本遮挡和挖空块功能
   - **文本遮挡**：暂时将高亮Ctrl+E,设置为文本遮挡效果：悬浮时才显示高亮的文字，默认隐藏文字 
     - 如果需要取消该效果，请在主题 css 中搜索「挖空」关键词，将所提示的代码删除
   ![20220131165254_2022-01-31](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220131165254_2022-01-31.png)
