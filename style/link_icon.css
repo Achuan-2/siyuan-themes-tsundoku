@@ -12,12 +12,7 @@
     height: 1.1em;
     margin-right: 0.2em;
 }
-.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href ^="http"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href ^="http"]::before,
-.b3-typography a[href ^="http"]::before{
-    content: "";
-    background-image: url('../src/net2.svg');
-}
+
 .protyle-wysiwyg [data-node-id] span[data-type='a'][data-href^="es://"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href^="es://"]::before,
 .b3-typography a[href^="es://"]::before{
@@ -172,7 +167,12 @@
     background-color: #f6ddb5d1;
     color: inherit;
 }
-
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href ^="http"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href ^="http"]::before,
+.b3-typography a[href ^="http"]::before{
+    content: "";
+    background-image: url('../src/net2.svg');
+}
 
 .protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="cnblogs.com"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href *="cnblogs.com"]::before,
@@ -848,4 +848,25 @@
 
     content: "";
     background-image: url('../src/developermozilla.png');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="bbs.huaweicloud.com"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href *="bbs.huaweicloud.com"]::before,
+.b3-typography a[href *="bbs.huaweicloud.com"]::before{
+
+    content: "";
+    background-image: url('../src/bbshuaweicloud.ico');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="b3log.org"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href *="b3log.org"]::before,
+.b3-typography a[href *="b3log.org"]::before{
+
+    content: "";
+    background-image: url('../src/b3log.png');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="qun.qq.com"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href *="qun.qq.com"]::before,
+.b3-typography a[href *="qun.qq.com"]::before{
+
+    content: "";
+    background-image: url('../src/qunqq.ico');
 }

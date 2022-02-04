@@ -947,6 +947,8 @@ div[data-subtype='t'][data-type='NodeList'] {
     padding-bottom: 0px;
     margin-bottom: 0px;
     width: 39px;
+    font-family: var(--b3-font-family-code);
+    
 }
 
 .protyle-linenumber__rows::before{
