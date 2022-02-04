@@ -53,4 +53,4 @@ Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释
 
 ## ☎️意见交流
 
-若主题存在样式的问题，欢迎在Github提issue或是通过邮箱联系我([achuan-2@outlook.com](mailto:achuan-2@outlook.com))。在提issue之前建议先切换为默认主题，确定是本主题特有的问题。
+若主题存在样式的问题，欢迎在Github提issue或是通过邮箱联系我(achuan-2@outlook.com)。在提issue之前建议先切换为默认主题，确定是本主题特有的问题。
