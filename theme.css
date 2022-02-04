@@ -2267,7 +2267,11 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 .file-tree .b3-list.fn__flex-column.fn__flex-1>.b3-list-item:first-child{
     background-color:#e1e2d5;
 }
-
+.layout__resize--lr {
+    background-color: #d5dde2;
+    width: 2px;
+    margin: 0px -2px 0px 0px;
+}
 .layout__resize--lr:after{
     width: 3px;
 }
