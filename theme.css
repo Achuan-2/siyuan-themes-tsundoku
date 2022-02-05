@@ -1283,6 +1283,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     /* border-radius: 7px 7px 0px 0px; */
     border-radius: 7px 7px 7px 7px;
     /* margin-right: 2px; */
+    box-shadow: 1px 4px 2px 0 var(--b3-theme-background);
     background-color: #d5dde270;
     /* transition: all 0.1s ease; */
 }
