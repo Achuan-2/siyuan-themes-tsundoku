@@ -6,7 +6,7 @@
 @import url("style/yuque.css");
 
 @font-face {
-    font-family: 'Win10 Emoji'; 
+    font-family: 'Win11 Emoji'; 
     font-style: normal;
     src: url('fonts/seguiemj.ttf');
 }
@@ -48,7 +48,7 @@
     /* 字体 */
     --b3-font-family: "HarmonyOS", 'Helvetica Neue', 'Luxi Sans', 'DejaVu Sans', 'Hiragino Sans GB',
         'Microsoft Yahei', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji',
-        'Win10 Emoji', 'Segoe UI Symbol', 'Android Emoji', 'EmojiSymbols';
+        'Win11 Emoji', 'Segoe UI Symbol', 'Android Emoji', 'EmojiSymbols';
     --b3-font-family-code: 'FiraCode', mononoki, Consolas, 'Liberation Mono', Menlo, Courier,
         monospace, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Segoe UI Symbol',
         'Android Emoji', 'EmojiSymbols';
