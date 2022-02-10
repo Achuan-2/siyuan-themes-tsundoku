@@ -36,6 +36,9 @@ Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释
 ## 💥主题特色功能
 - **为超链接添加了icon**：区别不同的本地链接和网络链接，详见[超链接图标介绍](https://www.yuque.com/achuan-2/siyuan/gar358)
   ![20220131165215_2022-01-31](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220131165215_2022-01-31.png)
+- **自定义简陋的行内备注**：鉴于思源笔记短期不会添加行内备注功能，主题自行基于超链接功能实现山寨版行内备注
+  - 使用方法：使用超链接功能，在链接一栏填入“备注：”或“note:"，然后在标题输入备注内容（之所以在标题输入实际内容是因为超链接的标题才能可以搜索到，而链接无法搜索）
+  - 截图：![20220210182827_2022-02-10](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220210182827_2022-02-10.png)
 - **引入语雀提示区块**：给引述块blockquote添加块背景颜色，就会自动应用样式，详见[语雀提示区块样式](https://www.yuque.com/achuan-2/siyuan/obxpvr)
   ![20220131165233_2022-01-31](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220131165233_2022-01-31.png)
 - 引入文本遮挡和挖空块功能
