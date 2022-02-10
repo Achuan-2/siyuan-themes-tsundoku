@@ -1309,6 +1309,8 @@ div[data-subtype='t'][data-type='NodeList'] {
 /* 多窗口foucs的标签页 */
 .layout__wnd--active .layout-tab-bar .item--focus {
     font-weight: 600;
+    border-top: 2px solid #555f63;
+
 }
 .layout-tab-bar .item:first-child,
 .layout-tab-bar .item--focus:first-child,
