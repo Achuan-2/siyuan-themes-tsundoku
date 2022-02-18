@@ -1,10 +1,10 @@
 ## v1.1.0/2022-02-18
-- :bug: [feature]修复dark主题备注样式
-- :memo: [docs]添加行内备注信息
 - :memo: [docs]添加行内备注信息
 - :sparkles: [feature] win10emoji替换为win11emoji
 - :bug: [feature]修复标题加粗文字丢失颜色的问题
 - :bug: [style]修复列表下的引述块使列表竖线产生间距问题
+- :bug: [feature]修复dark主题备注样式
+- :bug: [feature]修复代码块行数超过100数字重叠问题
 
 
 ## v1.0.9/2022-02-05
