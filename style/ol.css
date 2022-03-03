@@ -1,0 +1,94 @@
+/*  二级有序列表 */
+/* 注意这里本来应该用div[data-subtype="o"][data-node-index]，有index的list是代表第一级列表，由于思源导出的html没有index标签，导致我只能去掉了，去掉的坏处在于现在这个写法是有问题的
+会比如二层列表，二层以后的列表都会被渲染一遍，但是后面有第三层渲染就被第三层样式覆盖了，以此类推 */
+div[data-subtype="o"].list > .li[data-subtype="o"] > .list[data-subtype="o"]{
+    counter-reset: o2;
+}
+
+
+div[data-subtype="o"].list > .li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"]>.protyle-action--order {
+    color:transparent !important;
+}
+div[data-subtype="o"].list > .li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"]>.protyle-action--order::before {
+    content: counter(o2,decimal)")";
+    counter-increment: o2;
+    color:var(--b3-theme-on-surface);
+    position: absolute;
+}
+
+/*  三级有序列表 */
+
+div[data-subtype="o"].list > .li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]{
+    counter-reset: o3;
+}
+
+
+div[data-subtype="o"].list > .li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"]>.protyle-action--order {
+    color:transparent !important;
+}
+
+div[data-subtype="o"].list > .li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"]>.protyle-action--order::before {
+    content: counter(o3,upper-latin)".";
+    counter-increment: o3;
+    color:var(--b3-theme-on-surface);
+    position: absolute;
+
+}
+
+/* 四级有序列表 */
+
+
+div[data-subtype="o"].list > .li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]{
+    counter-reset: o4;
+}
+
+
+div[data-subtype="o"].list > .li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"]>.protyle-action--order {
+    color:transparent !important;
+}
+
+
+div[data-subtype="o"].list > .li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"]>.protyle-action--order::before {
+    content: counter(o4,lower-latin)".";
+    counter-increment: o4;
+    color:var(--b3-theme-on-surface);
+    position: absolute;
+
+}
+
+/* 五级有序列表 */
+
+
+div[data-subtype="o"].list > .li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"]> .list[data-subtype="o"]{
+    counter-reset: o4;
+}
+
+
+div[data-subtype="o"].list > .li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"]> .list[data-subtype="o"]>.li[data-subtype="o"] >.protyle-action--order {
+    color:transparent !important;
+}
+div[data-subtype="o"].list > .li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"]> .list[data-subtype="o"]>.li[data-subtype="o"] >.protyle-action--order:before{
+    content: counter(o4,lower-alpha)")";
+    counter-increment: o4;
+    color:var(--b3-theme-on-surface);
+    position: absolute;
+}
+
+/* 六级有序列表 */
+
+
+div[data-subtype="o"].list > .li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"]> .list[data-subtype="o"]>.li[data-subtype="o"]> .list[data-subtype="o"]{
+    counter-reset: o4;
+}
+
+
+
+div[data-subtype="o"].list > .li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"]> .list[data-subtype="o"]>.li[data-subtype="o"]>.list[data-subtype="o"]>.li[data-subtype="o"] >.protyle-action--order{
+    color:transparent !important;
+}
+div[data-subtype="o"].list > .li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"]> .list[data-subtype="o"]>.li[data-subtype="o"]>.list[data-subtype="o"]>.li[data-subtype="o"] >.protyle-action--order:before{
+    content: counter(o4,decimal)".";
+    counter-increment: o4;
+    color:var(--b3-theme-on-surface);
+    position: absolute;
+}

@@ -1,3 +1,5 @@
+/* 导入有序列表 */
+@import url("style/ol.css");
 /* 导入折叠css */
 @import url("style/fold.css");
 /* 导入超链接图标link icon css */
@@ -2221,3 +2223,5 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
     color: inherit !important;
     opacity: 0.5;
 }
+
+

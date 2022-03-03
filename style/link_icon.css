@@ -870,3 +870,17 @@
     content: "";
     background-image: url('../src/qunqq.ico');
 }
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="pythonav.com"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href *="pythonav.com"]::before,
+.b3-typography a[href *="pythonav.com"]::before{
+
+    content: "";
+    background-image: url('../src/pythonav.png');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="pypi.org"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href *="pypi.org"]::before,
+.b3-typography a[href *="pypi.org"]::before{
+
+    content: "";
+    background-image: url('../src/pypi.ico');
+}
