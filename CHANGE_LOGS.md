@@ -1,3 +1,8 @@
+## v1.1.1/2022-03-05
+- :sparkles: 自定义有序列表层级样式
+- :bug: 取消主题自定义的标题折叠小三角样式
+
+
 ## v1.1.0/2022-02-18
 - :memo: [docs]添加行内备注信息
 - :sparkles: [feature] win10emoji替换为win11emoji

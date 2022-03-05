@@ -1,4 +1,5 @@
 
+
 /* ------------------- 折叠样式 Start------------------- */
 .protyle-wysiwyg [data-node-id][fold="1"]:not(.li,.sb){
     overflow: visible !important;
@@ -117,10 +118,13 @@
     -webkit-box-orient: vertical;
     /* line-height: 1.2; */
 }
-.protyle-wysiwyg [data-node-id][fold="1"].h3 [contenteditable="true"] {
-    display: -webkit-box !important;
+.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeHeading"] {
+    line-height: 1.2em;
 }
-.protyle-wysiwyg [data-node-id][fold="1"]:not(.li,.code-block)::after {
+.protyle-wysiwyg [data-node-id][fold="1"].h3 {
+    line-height: 1.5em;
+}
+.protyle-wysiwyg [data-node-id][fold="1"]:not(.li,.code-block,[data-type="NodeHeading"])::after {
     content: ".";
     display: block;
     position: absolute;
@@ -182,20 +186,7 @@
     transition: display 0.2s ease;
 }
 
-.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeHeading"] {
-    line-height: 1.2em;
-}
-.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeHeading"]:after{
-    background-size: 1.5rem;
-}
-.protyle-wysiwyg [data-node-id][fold="1"].h2:after {
-    left:-1.3em;
-    top:0.5em;
-}
-.protyle-wysiwyg [data-node-id][fold="1"].h1:after {
-    left:-1.15em;
-    top:0.5em;
-}
+
 .protyle-wysiwyg [data-node-id][fold="1"].bq div,
 .protyle-wysiwyg [data-node-id][fold="1"].p div[contenteditable="true"]{
     display: none;
@@ -216,7 +207,6 @@
     font-size: 1rem;
     margin-left: -0.8em;
 }
-
 .protyle-wysiwyg [data-node-id][fold="1"].bq::after {
     top: 0.8em;
     left:-2em;
@@ -337,4 +327,3 @@
 }
 
 /* -----------------------------折叠优化 End---------------- */
-
