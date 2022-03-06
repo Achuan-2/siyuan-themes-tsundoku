@@ -1290,7 +1290,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     /* margin-right: 2px; */
     box-shadow: 1px 4px 2px 0 var(--b3-theme-background);
     background-color: #d5dde270;
-    /* transition: all 0.1s ease; */
+    transition: background-color 0.1s ease-in-out;
 }
 
 /* 选中的标签页 */
@@ -1314,7 +1314,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 /* 多窗口foucs的标签页 */
 .layout__wnd--active .layout-tab-bar .item--focus {
     font-weight: 600;
-    border-top: 2px solid #555f63;
+    border-top: 2px solid #5d8855;
 
 }
 .layout-tab-bar .item:first-child,
@@ -1355,7 +1355,9 @@ div[data-subtype='t'][data-type='NodeList'] {
 .layout-tab-bar .item:hover:not(.item--focus) {
     background-color: #76878d38;
 }
-
+.layout-tab-bar .item__text{
+    padding: 4px 0px 0px 8px;
+}
 /* ----------------------------标签页样式 END----------------------------------------- */
 
 
