@@ -2225,3 +2225,6 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 }
 
 
+.layout-tab-bar .item--pin{
+    width:200px;
+}
