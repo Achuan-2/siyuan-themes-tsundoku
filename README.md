@@ -49,7 +49,7 @@ Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释
     - 属性 key ： f（简写）或function
     - value ：hide或挖空
     - 使用方式：单击块标选择打开属性列表或Shift+Click打开，点击添加，输入属性名为f或function，并输入相应的属性值（hide或挖空）![](https://cdn.jsdelivr.net/gh/Achuan-2/Picbed@pic/assets/1643619360054%E6%80%9D%E6%BA%90light%E6%8C%96%E7%A9%BA.gif)
-  - 参考Zhang light主题，添加自定义属性 f:table,可将列表转化为表格
+- 参考Zhang light主题，添加自定义属性 f:table或f:bg,可将列表转化为表格![20220309122930_2022-03-09](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220309122930_2022-03-09.png)
 
 ## 🚀更新情况
 

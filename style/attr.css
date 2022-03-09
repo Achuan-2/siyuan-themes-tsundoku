@@ -1,26 +1,34 @@
+
+
 /* -----------------------------------------------列表转化为表格------------------------------------------- */
 /* ————————————————————所有子项目的表格（除去第一列其余的列），包含溢出的空白部分，所以才会有边框—————————————————————— */
-.protyle-wysiwyg *[custom-f="table"] .li .list{
+.protyle-wysiwyg *[custom-f="table"] .li .list,
+.protyle-wysiwyg *[custom-f="bg"] .li .list{
     padding: 0px;
     margin: 0px !important;
     width: 100%;
     outline: 0.05em solid rgba(128, 128, 128, 0.3);
 }
 /* ————————————————————对所有子列表项设置格式———————————————————— */
-.protyle-wysiwyg *[custom-f="table"] .li{
+.protyle-wysiwyg *[custom-f="table"] .li,
+.protyle-wysiwyg *[custom-f="bg"] .li{
     display: flex;
     outline: 0.05em solid rgba(128, 128, 128, 0.3);
     background-color: var(--b3-theme-background);
 }
-.protyle-wysiwyg *[custom-f="table"] .li:hover{
+.protyle-wysiwyg *[custom-f="table"] .li:hover,
+.protyle-wysiwyg *[custom-f="bg"] .li:hover{
     background-color: #e8f4f7;
+
 }
 /* ————————————————————大神增加代码———————————————————— */
-.protyle-wysiwyg *[custom-f="table"] [data-node-id].li>[data-node-id] {
+.protyle-wysiwyg *[custom-f="table"] [data-node-id].li>[data-node-id],
+.protyle-wysiwyg *[custom-f="bg"] [data-node-id].li>[data-node-id]{
     margin-left: 20px !important;
 }
 /* ————————————————————对符号后文字设置格式———————————————————— */
-.protyle-wysiwyg *[custom-f="table"] .p {
+.protyle-wysiwyg *[custom-f="table"] .p,
+.protyle-wysiwyg *[custom-f="bg"] .p {
     flex: 1;
     text-align: left;
     align-items: center;
@@ -30,19 +38,23 @@
     margin: 0;
     text-align: justify;
 }
-.protyle-wysiwyg *[custom-f="table"] .li>.list>.li {
+.protyle-wysiwyg *[custom-f="table"] .li>.list>.li,
+.protyle-wysiwyg *[custom-f="bg"] .li>.list>.li{
     outline: none !important;
     border-top: 0.05em solid rgba(128, 128, 128, 0.3);
 }
-.protyle-wysiwyg *[custom-f="table"] .li>.list>.li:first-of-type {
+.protyle-wysiwyg *[custom-f="table"] .li>.list>.li:first-of-type,
+.protyle-wysiwyg *[custom-f="bg"] .li>.list>.li:first-of-type {
     border-top: none;
 }
 /* ————————————————————去除小竖线———————————————————— */
-.list[data-node-id][data-type="NodeList"][custom-f="table"] .li>:before{
+.list[data-node-id][data-type="NodeList"][custom-f="table"] .li>:before,
+.list[data-node-id][data-type="NodeList"][custom-f="bg"] .li>:before{
     display: none ;
 }
 /* ————————————————————设置前面的符号居中对齐———————————————————— */
-.list[data-node-id][data-type="NodeList"][custom-f="table"] .protyle-action {
+.list[data-node-id][data-type="NodeList"][custom-f="table"] .protyle-action,
+.list[data-node-id][data-type="NodeList"][custom-f="bg"] .protyle-action{
     position: absolute;
     top: 50%;
     transform:translate(0, -50%);
@@ -50,11 +62,14 @@
 }
 /* ————————————————————减小前面符号·的大小———————————————————— */
 
-.list[data-node-id][data-type="NodeList"][custom-f="table"] .protyle-action>svg {
+.list[data-node-id][data-type="NodeList"][custom-f="table"] .protyle-action>svg,
+.list[data-node-id][data-type="NodeList"][custom-f="bg"] .protyle-action>svg {
     width: 10px;
 }
 /* ————————————————————表格设置为100%宽度，即填充整个空间———————————————————— */
-.protyle-wysiwyg *[custom-f="table"]  .table {
+.protyle-wysiwyg *[custom-f="table"]  .table,
+.protyle-wysiwyg *[custom-f="bg"]  .table {
     width: 100%;
 }
 /* ---------------------------------------------------------列表转化为表格 END-------------------------------------------------- */
+
