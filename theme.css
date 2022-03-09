@@ -1216,7 +1216,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 .b3-dialog__container a {
     outline: 0;
     /* text-decoration: none; */
-    text-decoration: underline;
+    /* text-decoration: underline; */
     color: #588699;
     font-weight: 500;
 }
