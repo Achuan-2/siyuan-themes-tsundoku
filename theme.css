@@ -1,3 +1,7 @@
+
+
+/* 导入自定义属性 */
+@import url("style/attr.css");
 /* 导入有序列表 */
 @import url("style/ol.css");
 /* 导入折叠css */
@@ -449,12 +453,8 @@ strong {
 
 /* blockquote 引用 */
 .protyle-wysiwyg [data-node-id].bq, .b3-typography blockquote {
-    /* border: 2.3px solid #8aacac ; */
-    border-left: 0.25em solid #8598a1;
-    border-radius: 0.31em;
-    /* margin-top: 8px; */
-    background-color: #c4d3d42b;
-    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 16%), 0 0 0 1px rgb(0 0 0 / 8%);
+    border: 1px solid #8e8e8e ;
+    background-color: #f7f8f9;
 }
 
 /* .protyle-wysiwyg [data-node-id].bq strong, .b3-typography blockquote strong {
@@ -2230,3 +2230,7 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 .layout-tab-bar .item--pin{
     width:200px;
 }
+
+
+
+
