@@ -948,13 +948,11 @@ div[data-subtype='t'][data-type='NodeList'] {
 /*  代码块行数*/
 .protyle-linenumber__rows {
     margin-top: 32px !important;
-    padding-top: 8px;
     background-color: var(--b3-protyle-code-background);
     font-family: var(--b3-font-family-code);
     opacity: 0.5;
-    width: 40px;
+    width: 45px;
     left:0px;
-    font-size: 60%;
 
 }
 
