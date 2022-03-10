@@ -910,6 +910,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     background-size: 20px 20px;
     background-image: none !important;
     background: #f6f8fa;
+    border-radius: 0px 0px 4px 4px;
 
 }
 
@@ -946,16 +947,16 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 /*  代码块行数*/
 .protyle-linenumber__rows {
-    margin-top: 3em !important;
+    margin-top: 32px !important;
+    padding-top: 8px;
     background-color: var(--b3-protyle-code-background);
     font-family: var(--b3-font-family-code);
     opacity: 0.5;
     width: 40px;
     left:0px;
-    font-size: 0.6em;
+    font-size: 60%;
+
 }
-
-
 
 
 /* 代码语言显示 */
