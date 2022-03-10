@@ -170,7 +170,7 @@
     --b3-protyle-search-current-background: #a5d3fe;
 
     /* 代码片段背景 m */
-    --b3-protyle-code-background: #e7ecef;
+    --b3-protyle-code-background: #f6f8fa;
 
     /* 所见即所得行内元素颜色 */
     --b3-protyle-inline-strong-color: #202124;
@@ -186,6 +186,7 @@
     --b3-protyle-inline-code-background: #eff1f3;
     --b3-protyle-inline-blockref-color: #0e7a88;
     --b3-protyle-inline-blockref-hover-color: #ff398b;
+    --blockquote-border-color: #8e8e8e;
     /* 表格 */
     --b3-table-border-color: #e4e6e8;
     --b3-table-th-color: #e9ecee;
@@ -453,7 +454,8 @@ strong {
 
 /* blockquote 引用 */
 .protyle-wysiwyg [data-node-id].bq, .b3-typography blockquote {
-    border: 1px solid #8e8e8e ;
+    border: 1px solid var(--blockquote-border-color);
+    border-left: 0.18em solid var(--blockquote-border-color);
     background-color: #f7f8f9;
 }
 
@@ -655,7 +657,7 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     background-size: 100% 100%;
 } */
 .b3-typography a {
-    text-decoration: underline;
+    /* text-decoration: underline; */
     color: var(--b3-protyle-inline-link-color);
     
 }
@@ -916,6 +918,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     display: block;
     border-radius: 4px;
     background: var(--b3-protyle-code-background) ;
+    /* border: 1.5px solid rgb(0 0 0 / 8%); */
     box-shadow:  0 0 0 1px rgb(0 0 0 / 8%);
     /* margin-top: 15px !important; */
     padding-top: 32px !important;
@@ -953,16 +956,6 @@ div[data-subtype='t'][data-type='NodeList'] {
 }
 
 
-.protyle-linenumber__rows::before{
-    /* 代码行数右边的分割线 */
-    content: '';
-    display: block;
-    position: absolute;
-    width: 1px;
-    height: calc(100% - 10px); 
-    margin: 0px 0px 2px 44px;
-    background-color: #b1c3c491;
-}
 
 
 
@@ -1925,6 +1918,9 @@ div[data-subtype='t'][data-type='NodeList'] {
 /* 代码块样式 */
 #configBazaarReadme code.hljs{
     background-color: var(--b3-protyle-code-background);
+    box-shadow:  0 0 0 1px rgb(0 0 0 / 8%);
+    border: 2px solid rgb(0 0 0 / 8%);
+
 }
 /* ------------集市Readme-End----------*/
 /* 滚动条 */
