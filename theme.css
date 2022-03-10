@@ -909,7 +909,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     font-family: var(--b3-font-family-code);
     background-size: 20px 20px;
     background-image: none !important;
-    background: transparent;
+    background: #f6f8fa;
 
 }
 
@@ -917,7 +917,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     position: relative;
     display: block;
     border-radius: 4px;
-    background: var(--b3-protyle-code-background) ;
+    background: #e6ebf1 ;
     /* border: 1.5px solid rgb(0 0 0 / 8%); */
     box-shadow:  0 0 0 1px rgb(0 0 0 / 8%);
     /* margin-top: 15px !important; */
@@ -946,15 +946,14 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 /*  代码块行数*/
 .protyle-linenumber__rows {
-    margin-top: 32px !important;
-    background-color:var(--b3-protyle-code-background);
-    /* padding-right:10px; */
-    /* padding-bottom: 0px; */
-    /* margin-bottom: 0px; */
-    /* width: 39px; */
+    margin-top: 3em !important;
+    background-color: var(--b3-protyle-code-background);
     font-family: var(--b3-font-family-code);
+    opacity: 0.5;
+    width: 40px;
+    left:0px;
+    font-size: 0.6em;
 }
-
 
 
 
