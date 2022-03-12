@@ -464,7 +464,7 @@ strong {
 
 } */
 /* blockquote 缩进调整 */
-.protyle-wysiwyg [data-node-id].bq > div{
+.protyle-wysiwyg [data-node-id].bq > div:not(.code-block){
     padding-left: 1rem;
 }
 .protyle-wysiwyg [data-node-id].bq > div.bq{
