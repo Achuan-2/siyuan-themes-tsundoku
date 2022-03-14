@@ -884,3 +884,10 @@
     content: "";
     background-image: url('../src/pypi.ico');
 }
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="electronjs.org"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href *="electronjs.org"]::before,
+.b3-typography a[href *="electronjs.org"]::before{
+
+    content: "";
+    background-image: url('../src/electronjs.ico');
+}

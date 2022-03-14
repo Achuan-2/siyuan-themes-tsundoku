@@ -1299,8 +1299,6 @@ div[data-subtype='t'][data-type='NodeList'] {
     border-bottom: 0px solid #b7b8b9;
     /* filter: drop-shadow(2px 2px 3px #999); */
     background-color: var(--b3-theme-surface);
-    background-image: url('src/paper.png');
-
 }
 /* 多窗口foucs的标签页 */
 .layout__wnd--active .layout-tab-bar .item--focus {
