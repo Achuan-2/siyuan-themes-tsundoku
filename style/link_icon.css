@@ -891,3 +891,10 @@
     content: "";
     background-image: url('../src/electronjs.ico');
 }
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="biostars.org"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href *="biostars.org"]::before,
+.b3-typography a[href *="biostars.org"]::before{
+
+    content: "";
+    background-image: url('../src/biostars.ico');
+}
