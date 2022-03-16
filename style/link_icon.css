@@ -602,9 +602,9 @@
     content: "";
     background-image: url('../src/social-douban.svg');
 }
-.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="ncbi"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="ncbi"]::before,
-.b3-typography a[href *="ncbi"]::before{
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="ncbi.nlm.nih.gov"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href *="ncbi.nlm.nih.gov"]::before,
+.b3-typography a[href *="ncbi.nlm.nih.gov"]::before{
     content: "";
     background-image: url('../src/ncbi.svg');
 }
