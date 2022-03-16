@@ -868,7 +868,7 @@
 .b3-typography a[href *="qun.qq.com"]::before{
 
     content: "";
-    background-image: url('../src/qunqq.ico');
+    background-image: url('../src/QQ.svg');
 }
 .protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="pythonav.com"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href *="pythonav.com"]::before,
