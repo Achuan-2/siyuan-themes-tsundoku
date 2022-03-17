@@ -16,6 +16,9 @@
 <p align="center"><a href="https://github.com/Achuan-2/siyuan-themes-tsundoku-dark"> 🌙Tsunoku Dark </a> |🌞Tsunoku Light | <a href="https://github.com/Achuan-2/siyuan-themes-tsundoku-stone"> 🧱Tsunoku Stone </a>|<a href="https://github.com/Achuan-2/siyuan-themes-tsundoku-green"> 🍃Tsunoku Green </a></p>
 
 ![](preview.png)
+
+简介：[思源笔记(Siyuan)](https://github.com/siyuan-note/siyuan)是一款本地优先的个人知识管理系统，支持完全离线使用，同时也支持端到端加密同步。融合块、大纲和双向链接，构建你永恒的数字花园。本主题为个人原创主题，专为思源笔记设计。
+
 ## 💌 缘起
 Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释的“Tsundoku is acquiring reading materials but letting them pile up in one's home without reading them. It is also used to refer to books ready for reading later when they are on a bookshelf.” 简单说就是买书成瘾却不读的行为。
 > Any PKM approach that doesn’t tie into execution tools is destined to languish on the back burner forever
