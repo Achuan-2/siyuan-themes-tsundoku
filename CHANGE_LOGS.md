@@ -1,3 +1,9 @@
+## v1.1.5/2022-03-17
+- :bug: h3标题折叠跳动
+- :bento: change qq qun svg
+- :bento: [link icon]update default link icon 
+- :bug: 包含ncbi 关键词的link都会被解析为ncbi网站
+
 ## v1.1.4/2022-03-14
 - :bug: 修复代码块新样式在引述块中的padding问题
 - :sparkles: 语雀提示区块的表格样式匹配
