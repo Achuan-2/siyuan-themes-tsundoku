@@ -1260,7 +1260,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     transition: background-color 0.5s linear;
 }
 .layout-tab-bar {
-    background-color: transparent;
+    background-color: #ccd5da;
 }
 
 .layout__wnd--active .protyle-content,
@@ -1271,16 +1271,16 @@ div[data-subtype='t'][data-type='NodeList'] {
 .layout-tab-bar .item {
     /* padding: 4px 4px 3px 14px; */
     border: 0px;
-    border-bottom: 0px solid transparent;
     /* border-right: 2px solid #b7b8b97c;
     border-left: 2px solid #b7b8b97c; */
     border: 1px solid #b7b8b97c;
     border-top: 0px solid #b7b8b97c;
+    border-bottom: 0px solid transparent;
     /* border-radius: 7px 7px 0px 0px; */
     border-radius: 7px 7px 7px 7px;
     /* margin-right: 2px; */
     box-shadow: 1px 4px 2px 0 var(--b3-theme-background);
-    background-color: #d5dde270;
+    background-color: #edf0f2;
     transition: background-color 0.1s ease-in-out;
 }
 
@@ -1810,9 +1810,6 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 
 
-.layout-tab-bar {
-    background-color: #f8f9fa;
-}
 
 /* 修复1.4.2 文件树列表focus高亮问题 */
 .b3-list--files .b3-list-item--focus:not(.dragover):not(.dragover__top):not(.dragover__bottom) {
