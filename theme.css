@@ -1262,7 +1262,9 @@ div[data-subtype='t'][data-type='NodeList'] {
 .layout-tab-bar {
     background-color: #ccd5da;
 }
-
+.b3-dialog__container .layout-tab-bar {
+    background-color: transparent;
+}
 .layout__wnd--active .protyle-content,
 .layout__wnd--active .protyle-title .protyle-title__input{
     /* 当前编辑窗口保持主背景色 */
