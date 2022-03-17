@@ -118,11 +118,11 @@
     -webkit-box-orient: vertical;
     /* line-height: 1.2; */
 }
-.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeHeading"] {
+/* .protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeHeading"] {
     line-height: 1.2em;
-}
-.protyle-wysiwyg [data-node-id][fold="1"].h3 {
-    line-height: 1.5em;
+} */
+.protyle-wysiwyg [data-node-id][fold="1"].h3>div:first-child{
+    margin-top: 0.15em !important;
 }
 .protyle-wysiwyg [data-node-id][fold="1"]:not(.li,.code-block,[data-type="NodeHeading"])::after {
     content: ".";
