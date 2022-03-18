@@ -2,7 +2,9 @@
 
 /* 导入自定义属性 */
 @import url("style/attr.css");
-/* 导入有序列表 */
+/* 导入自定义无序列表样式 */
+@import url("style/ul.css");
+/* 导入自定义有序列表样式 */
 @import url("style/ol.css");
 /* 导入折叠css */
 @import url("style/fold.css");
@@ -702,7 +704,7 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
 /* 列表悬浮 */
 .protyle-wysiwyg [data-node-id].li>.protyle-action:hover:after {
     /* 大圆背景 */
-    background-color: #a1b5bd9c !important;
+    background-color: #b4cef09c !important;
     opacity: .68;
 
 }
@@ -716,9 +718,9 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     background-color: #667ea97d !important;
     opacity: .68;
 }
-.protyle-wysiwyg [data-node-id].li[fold="1"]>.protyle-action {
+.protyle-wysiwyg [data-subtype="u"].li[fold="1"]>.protyle-action {
     /* 小圆点 */
-    color: #476796 !important;
+    color: #476796;
 }
 
 /* ---------------------复选框（待办事项）Start------------------------------------------------ */
@@ -1958,6 +1960,18 @@ div[data-subtype='t'][data-type='NodeList'] {
     width:200px;
 }
 
+
+
+
+.li[data-subtype="u"]>.protyle-action{
+	color:transparent!important;
+}
+.li[data-subtype="u"]:before{
+	padding:3px 2px;
+	width: 26px;
+	display:flex;
+    justify-content: center;
+}
 
 
 

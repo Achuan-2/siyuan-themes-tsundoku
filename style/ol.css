@@ -1,94 +1,131 @@
-/*  二级有序列表 */
-/* 注意这里本来应该用div[data-subtype="o"][data-node-index]，有index的list是代表第一级列表，由于思源导出的html没有index标签，导致我只能去掉了，去掉的坏处在于现在这个写法是有问题的
-会比如二层列表，二层以后的列表都会被渲染一遍，但是后面有第三层渲染就被第三层样式覆盖了，以此类推 */
-div[data-subtype="o"].list > .li[data-subtype="o"] > .list[data-subtype="o"]{
-    counter-reset: o2;
+/* 自定义有序列表样式
+可以从下面参数更改有序列表：
+16层级后默认为第一层级样式1.,2.
+*/
+div[data-subtype="o"].list {
+    --o1-style: counter(o1,decimal)".";
+    --o2-style: counter(o2,decimal)")";
+    --o3-style: counter(o3,upper-latin)".";
+    --o4-style: counter(o4,lower-latin)".";
+    --o5-style: counter(o5,lower-roman)".";
+}
+.protyle-wysiwyg [data-subtype="o"].li > .protyle-action:after {
+    height: 25px;
+    width: 25px;
+    margin: -14px 0 0 -14px;
+}
+.li[data-subtype="o"][fold="1"]:before{
+    color: #1757b5bb !important;
+}
+.li[data-subtype="o"]>.protyle-action{
+	color:transparent!important;
+}
+.li[data-subtype="o"]:before{
+	padding:3px 2px;
+	width: 26px;
+	display:flex;
+    justify-content: center;
+}
+.list[data-subtype="o"]{
+	counter-reset: o1 0 o2 0 o3 0 o4 0 o5 0;
 }
 
-
-div[data-subtype="o"].list > .li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"]>.protyle-action--order {
-    color:transparent !important;
+/* 第1层级 */
+.list[data-subtype="o"]>.li[data-subtype="o"]:before {
+    counter-increment: o1;
+    content: var(--o1-style);
+	position:absolute;
 }
-div[data-subtype="o"].list > .li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"]>.protyle-action--order::before {
-    content: counter(o2,decimal)")";
+/* 第2层级 */
+
+.list[data-subtype="o"]>.li[data-subtype="o"] .li[data-subtype="o"]:before {
     counter-increment: o2;
-    color:var(--b3-theme-on-surface);
-    position: absolute;
+    content: var(--o2-style);
+	position:absolute;
 }
-
-/*  三级有序列表 */
-
-div[data-subtype="o"].list > .li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]{
-    counter-reset: o3;
-}
-
-
-div[data-subtype="o"].list > .li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"]>.protyle-action--order {
-    color:transparent !important;
-}
-
-div[data-subtype="o"].list > .li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"]>.protyle-action--order::before {
-    content: counter(o3,upper-latin)".";
+/* 第3层级 */
+.list[data-subtype="o"]>.li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"]:before{
     counter-increment: o3;
-    color:var(--b3-theme-on-surface);
-    position: absolute;
-
+    content: var(--o3-style);
+	position:absolute;
 }
 
-/* 四级有序列表 */
-
-
-div[data-subtype="o"].list > .li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]{
-    counter-reset: o4;
-}
-
-
-div[data-subtype="o"].list > .li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"]>.protyle-action--order {
-    color:transparent !important;
-}
-
-
-div[data-subtype="o"].list > .li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"]>.protyle-action--order::before {
-    content: counter(o4,lower-latin)".";
+/* 第4层级 */
+.list[data-subtype="o"]>.li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"]:before{
     counter-increment: o4;
-    color:var(--b3-theme-on-surface);
-    position: absolute;
-
+    content: var(--o4-style);
+	position:absolute;
 }
-
-/* 五级有序列表 */
-
-
-div[data-subtype="o"].list > .li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"]> .list[data-subtype="o"]{
-    counter-reset: o4;
+/* 第5层级 */
+.list[data-subtype="o"]>.li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"]:before {
+    counter-increment: o5;
+    content: var(--o5-style);
+	position:absolute;
 }
-
-
-div[data-subtype="o"].list > .li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"]> .list[data-subtype="o"]>.li[data-subtype="o"] >.protyle-action--order {
-    color:transparent !important;
+/* 第6层级 */
+.list[data-subtype="o"]>.li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"]:before{
+    counter-increment: o1;
+    content: var(--o1-style);
+	position:absolute;
 }
-div[data-subtype="o"].list > .li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"]> .list[data-subtype="o"]>.li[data-subtype="o"] >.protyle-action--order:before{
-    content: counter(o4,lower-alpha)")";
+/* 第7层级 */
+.list[data-subtype="o"]>.li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"]:before{
+    counter-increment: o2;
+    content: var(--o2-style);
+	position:absolute;
+}
+/* 第8层级 */
+.list[data-subtype="o"]>.li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"]:before {
+    counter-increment: o3;
+    content: var(--o3-style);
+	position:absolute;
+}
+/* 第9层级 */
+.list[data-subtype="o"]>.li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"]:before{
     counter-increment: o4;
-    color:var(--b3-theme-on-surface);
-    position: absolute;
+    content: var(--o4-style);
+	position:absolute;
 }
-
-/* 六级有序列表 */
-
-
-div[data-subtype="o"].list > .li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"]> .list[data-subtype="o"]>.li[data-subtype="o"]> .list[data-subtype="o"]{
-    counter-reset: o4;
+/* 第10层级 */
+.list[data-subtype="o"]>.li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"]:before{
+    counter-increment: o5;
+    content: var(--o5-style);
+	position:absolute;
 }
-
-
-
-div[data-subtype="o"].list > .li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"]> .list[data-subtype="o"]>.li[data-subtype="o"]>.list[data-subtype="o"]>.li[data-subtype="o"] >.protyle-action--order{
-    color:transparent !important;
+/* 第11层级 */
+.list[data-subtype="o"]>.li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"]:before {
+    counter-increment: o1;
+    content: var(--o1-style);
+	position:absolute;
 }
-div[data-subtype="o"].list > .li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"] > .list[data-subtype="o"]>.li[data-subtype="o"]> .list[data-subtype="o"]>.li[data-subtype="o"]>.list[data-subtype="o"]>.li[data-subtype="o"] >.protyle-action--order:before{
-    content: counter(o4,decimal)".";
+/* 第12层级 */
+.list[data-subtype="o"]>.li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"]:before{
+    counter-increment: o2;
+    content: var(--o2-style);
+	position:absolute;
+}
+/* 第13层级 */
+.list[data-subtype="o"]>.li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"]:before{
+    counter-increment: o3;
+    content: var(--o3-style);
+	position:absolute;
+}
+/* 第14层级 */
+.list[data-subtype="o"]>.li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"]:before {
     counter-increment: o4;
-    color:var(--b3-theme-on-surface);
-    position: absolute;
+    content: var(--o4-style);
+	position:absolute;
+}
+/* 第15层级 */
+.list[data-subtype="o"]>.li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"]:before{
+    counter-increment: o5;
+    content: var(--o5-style);
+	position:absolute;
+}
+
+/* 第16层级 */
+.list[data-subtype="o"]>.li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"]:before{
+    counter-increment: o1;
+    content: var(--o1-style);
+	position:absolute;
 }
