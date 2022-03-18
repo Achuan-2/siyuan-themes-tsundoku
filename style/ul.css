@@ -22,13 +22,13 @@
 /* 第3层级 */
 .list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
     content: '❖';
-    font-size: 0.7em;
+    font-size: 0.6em;
     position: absolute;
 }
 /* 第4层级 */
 .list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
     content: '➤';
-    font-size: 0.6em;
+    font-size: 0.5em;
     position: absolute;
 }
 /* 第5层级及之后层级 */
