@@ -337,3 +337,26 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 }
 /* ---------------------------------------------------------列表转化为表格 END-------------------------------------------------- */
 
+
+/* f:scroll 表格和代码块控制宽度------------------------------------------ */
+.protyle-wysiwyg:not([id="preview"])  [data-node-id][custom-f~=scroll].code-block::-webkit-scrollbar-thumb,
+.protyle-wysiwyg:not([id="preview"]) [data-node-id][custom-f~=scroll][data-type="NodeTable"]  ::-webkit-scrollbar-thumb{
+    border-left:solid 0px transparent
+}
+/* 为指定块添加纵向滚动条 */
+.protyle-wysiwyg:not([id="preview"]) [data-node-id][custom-f~=scroll].code-block {
+    overflow-y: auto;
+    max-height: 80vh;
+}
+
+.protyle-wysiwyg:not([id="preview"]) [data-node-id][custom-f~=scroll][data-type="NodeTable"] table {
+    position: relative;
+    overflow-y: auto;
+    max-height: 50vh;
+}
+
+.protyle-wysiwyg:not([id="preview"]) [data-node-id][custom-f~=scroll][data-type="NodeTable"] table>thead {
+    position: sticky;
+    top: 1px;
+    z-index: 1;
+}

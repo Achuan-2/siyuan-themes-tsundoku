@@ -49,15 +49,18 @@ Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释
   - 截图：![20220210182827_2022-02-10](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220210182827_2022-02-10.png)
 - **引入语雀提示区块**：给引述块blockquote添加块背景颜色，就会自动应用样式，详见[语雀提示区块样式](https://www.yuque.com/achuan-2/siyuan/obxpvr)
   ![20220131165233_2022-01-31](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220131165233_2022-01-31.png)
-- 引入文本遮挡和挖空块功能
-  - **文本遮挡**：暂时将高亮Ctrl+E,设置为文本遮挡效果：悬浮时才显示高亮的文字，默认隐藏文字 
+- 引入文本遮挡：暂时将高亮Ctrl+E,设置为文本遮挡效果：悬浮时才显示高亮的文字，默认隐藏文字 
     - 如果需要取消该效果，请在主题 css 中搜索「挖空」关键词，将所提示的代码删除
   ![20220131165254_2022-01-31](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220131165254_2022-01-31.png)
-  - **添加了自定义块属性样式——挖空块**
-    - 属性 key ： f（简写）或function
-    - value ：hide或挖空
-    - 使用方式：单击块标选择打开属性列表或Shift+Click打开，点击添加，输入属性名为f或function，并输入相应的属性值（hide或挖空）![](https://cdn.jsdelivr.net/gh/Achuan-2/Picbed@pic/assets/1643619360054%E6%80%9D%E6%BA%90light%E6%8C%96%E7%A9%BA.gif)
-- 参考Zhang light主题，添加自定义属性 f:table或f:bg,可将列表转化为表格![20220309122930_2022-03-09](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220309122930_2022-03-09.png)
+- 代码块默认设置最大展示高度为80vh，超过则显示纵向滚动条，但不对列表字块的代码块生效（因为存在问题）
+- **添加了自定义块属性样式**
+  - 使用方式：单击块标选择打开属性列表或Shift+Click打开，点击添加，输入属性名为f或function，并输入相应的属性值（hide或挖空）
+  - 自定义块属性列表
+    | 属性key | 属性名      | 功能                                                   | 备注                                                                       |
+    | --------- | ------------- | -------------------------------------------------------- | ---------------------------------------------------------------------------- |
+    | f       | hide/挖空<br /> | 挖空块                                                 |                                                                            |
+    | f       | table       | 将列表转化为表格<br />                                     | 参考自[Zhang light主题](https://github.com/UserZYF/zhang-light)            |
+    | f       | scroll      | 代码块和表格设置最大展示高度，超过则显示纵向滚动条，<br /> | 参考自[Dark+主题](https://github.com/Zuoqiu-Yingyi/siyuan-theme-dark-plus) |
 
 ## 🚀更新情况
 

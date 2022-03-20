@@ -1,0 +1,106 @@
+/* -----------------设置代码块最大长度，添加纵向滚动条------------------------------ */
+.protyle-wysiwyg:not([id="preview"])  .code-block {
+    overflow-y: auto;
+    max-height: 80vh;
+}
+.protyle-wysiwyg:not([id="preview"])  .code-block::-webkit-scrollbar-thumb{
+    border-left:solid 0px transparent
+}
+.protyle-wysiwyg:not([id="preview"])  .li .code-block:not(:nth-child(2)) {
+    overflow-y: inherit;
+    max-height: inherit;
+}
+/* -------------------------------代码块样式-------------------------------------- */
+
+.protyle-reset .hljs,
+.protyle-wysiwyg .hljs ,.b3-typography .hljs{
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+    padding-left: 16px;
+    font-family: var(--b3-font-family-code);
+    background-size: 20px 20px;
+    background-image: none !important;
+    background: #f6f8fa;
+    border-radius: 0px 0px 4px 4px;
+
+}
+
+.code-block {
+    position: relative;
+    display: block;
+    border-radius: 4px;
+    background: #e6ebf1 ;
+    /* border: 1.5px solid rgb(0 0 0 / 8%); */
+    box-shadow:  0 0 0 1px rgb(0 0 0 / 8%);
+    /* margin-top: 15px !important; */
+    padding-top: 32px !important;
+}
+
+
+/* .code-block .protyle-action {
+    position: relative;
+    .hljs::before
+} */
+.code-block::after{
+    content: ' ';
+    position: absolute;
+    background: #fa625c;
+    box-shadow: 23px 0 #fdbc40, 45px 0 #35cd4b;
+    border-radius: 50%;
+    /* margin-top: 10px; */
+    top:10px;
+    left: 15px;
+    height: 12px;
+    width: 12px;
+    z-index: 1;
+}
+
+
+/*  代码块行数*/
+.protyle-linenumber__rows {
+    margin-top: 32px !important;
+    background-color: var(--b3-protyle-code-background);
+    font-family: var(--b3-font-family-code);
+    opacity: 0.5;
+    width: 45px;
+    left:0px;
+
+}
+
+
+/* 代码语言显示 */
+.code-block .protyle-icons {
+
+    background-color: transparent;
+    border-radius: 4px;
+}
+.code-block .protyle-icons>span:hover {
+    background-color: #cad8dd;
+}
+
+.code-block .protyle-icons .protyle-action__language,.code-block .protyle-icons>span{
+    color: rgba(13, 56, 50, 0.719);
+    font-weight: 600;
+}
+
+/* 代码块编辑时不闪 */
+.code-block .protyle-icons {
+    opacity: 1;
+}
+.code-block .protyle-icons .protyle-action__copy {
+    opacity: 0;
+}
+.code-block:hover .protyle-icons .protyle-action__copy {
+    opacity: 1;
+}
+
+.code-block:focus-within .protyle-icons .protyle-action__copy{
+    opacity: 0;
+}
+.code-block .protyle-icons .protyle-action__copy:hover{
+    opacity: 1;
+}
+.code-block:hover .protyle-icons {
+    opacity: 1 !important;
+}
+
