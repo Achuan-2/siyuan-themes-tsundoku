@@ -461,6 +461,9 @@ strong {
     border: 1px solid var(--blockquote-border-color);
     border-left: 0.18em solid var(--blockquote-border-color);
     background-color: #f7f8f9;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 /* .protyle-wysiwyg [data-node-id].bq strong, .b3-typography blockquote strong {
@@ -480,6 +483,11 @@ strong {
 }
 .protyle-wysiwyg [data-node-id].li .bq>.list {
     margin-left: 0px;
+}
+/* 调整列表下引述块小竖线 */
+.protyle-wysiwyg [data-node-id].li>.bq{
+    left:0.07em;
+    top:-1px;
 }
 /* 缩进调整 */
 .b3-typography blockquote > p,

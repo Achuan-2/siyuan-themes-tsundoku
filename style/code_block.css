@@ -1,5 +1,5 @@
 /* -----------------设置代码块最大长度，添加纵向滚动条------------------------------ */
-.protyle-wysiwyg:not([id="preview"])  .code-block {
+/* .protyle-wysiwyg:not([id="preview"])  .code-block {
     overflow-y: auto;
     max-height: 80vh;
 }
@@ -9,7 +9,7 @@
 .protyle-wysiwyg:not([id="preview"])  .li .code-block:not(:nth-child(2)) {
     overflow-y: inherit;
     max-height: inherit;
-}
+} */
 /* -------------------------------代码块样式-------------------------------------- */
 
 .protyle-reset .hljs,
