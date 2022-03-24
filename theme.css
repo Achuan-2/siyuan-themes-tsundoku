@@ -288,8 +288,8 @@ body{
     font-size: 1.55em !important;
     color: #34495e;
 }
-.protyle-wysiwyg .li>[data-node-id].h2,.b3-typography li h2{
-    /* 列表h2不显示竖线 */
+.protyle-wysiwyg .sb .h2,.protyle-wysiwyg .li>[data-node-id].h2,.b3-typography li h2{
+    /* 列表、超级块h2不显示竖线 */
     border-bottom: 0px solid transparent !important;
 }
 .protyle-wysiwyg [data-node-id].h3,
