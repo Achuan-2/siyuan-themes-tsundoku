@@ -278,7 +278,7 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 .protyle-wysiwyg *[custom-f="bg"] .li{
     display: flex;
     outline: 0.05em solid rgba(128, 128, 128, 0.3);
-    background-color: var(--b3-theme-background);
+    background-color: transparent;
 }
 .protyle-wysiwyg *[custom-f="table"] .li:hover,
 .protyle-wysiwyg *[custom-f="bg"] .li:hover{
