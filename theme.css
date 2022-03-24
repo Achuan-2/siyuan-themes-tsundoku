@@ -1536,7 +1536,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     background-image: url(src/add.svg);
     background-size: 15px 15px;
     background-repeat: no-repeat;
-    background-position: left 4px top 6px;
+    background-position: left 1px top 6px;
 }
 .file-tree [data-type="new"]:hover{
     background-color: #d3e2e671;
