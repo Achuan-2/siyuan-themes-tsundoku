@@ -278,6 +278,10 @@ body{
     color: #04393f;
     page-break-before: always;
 }
+.protyle-wysiwyg .li>[data-node-id].h1,.b3-typography li h1{
+    /* 列表h1居左 */
+    text-align: left;
+}
 .protyle-wysiwyg [data-node-id].h2,.b3-typography h2 {
     /* border-bottom: 1px solid #dfe0e1 !important; */
     border-bottom: 0px solid transparent !important;
