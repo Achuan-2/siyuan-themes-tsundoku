@@ -644,6 +644,8 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
 .b3-typography code:not(.hljs):not(:empty) , .protyle-wysiwyg code:not(.hljs):not(:empty)  {
     margin:0px 2px;
     border: 1px solid #c6c6c73f;
+    /* border-radius: 0.5em; */
+    color: #5a7eaf;
     background-color: var(--b3-protyle-inline-code-background);
 }
 
