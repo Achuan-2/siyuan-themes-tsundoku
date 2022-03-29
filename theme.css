@@ -1,6 +1,6 @@
-
-
-/* 导入自定义属性 */
+/* 导入文档属性 */
+@import url("style/doc-attr.css");
+/* 导入块自定义属性 */
 @import url("style/attr.css");
 /* 导入代码块样式 */
 @import url("style/code_block.css");
@@ -42,9 +42,9 @@
     --b3-theme-primary-lightest: rgba(66, 133, 244, 0.12);
     /* 订阅黄 */
     --b3-theme-secondary: #faad14;
-    --b3-theme-background: #f8f9fa;
+    --b3-theme-background: #fff;
     /* 面包屑和标签页 */
-    --b3-theme-surface: #f8f9fa;
+    --b3-theme-surface: #fff;
     --b3-theme-error: #ec8d8deb;
 
     /* 文字颜色 */
@@ -79,9 +79,9 @@
     --b3-tab-background: #e7edf0;
     --b3-tab-background-hover: #dee4e8;
     /* 菜单 */
-    --b3-menu-background: #f8f9fa;
+    --b3-menu-background: #fff;
     /* 提示 */
-    --b3-tooltips-color: #88adb8d2;
+    --b3-tooltips-color: #616567;
 
     /* 卡片背景 */
     --b3-card-error-color: rgb(97, 26, 21);
@@ -94,7 +94,7 @@
     --b3-card-success-background: #e0f9e0d2;
 
     /* 自定义文字 */
-    --b3-font-color1: #f88686;
+    --b3-font-color1: rgb(250, 118, 109);
     --b3-font-color2: #bf7203;
     --b3-font-color3: #2183ce;
     --b3-font-color4: #11ad81;
@@ -185,16 +185,16 @@
     --b3-protyle-inline-mark-background: #f8e8cb;
     --b3-protyle-inline-mark-color: #202124;
     --b3-protyle-inline-tag-background: #81a9a9;
-    --b3-protyle-inline-tag-color: #f8f9fa;
+    --b3-protyle-inline-tag-color: #fff;
     --b3-protyle-inline-code-color: hsl(188, 96%, 25%);
     --b3-protyle-inline-code-background: #eff1f3;
     --b3-protyle-inline-blockref-color: #0e7a88;
     --b3-protyle-inline-blockref-hover-color: #ff398b;
     --blockquote-border-color: #8e8e8e;
-    /* 表格 */
+    /* 表格背景设置 */
     --b3-table-border-color: #e4e6e8;
     --b3-table-th-color: #e9ecee;
-    --b3-table-trn-color: #f8f9fa;
+    --b3-table-trn-color: #fff;
     --b3-table-tr2n-color: #f0f4f5;
     /* 高亮 */
     --b3-menu-highlight-color: #068eb8;
@@ -203,8 +203,9 @@
     --b3-menu-highlight-background: #dde5ea;
     --b3-tab-custom-background: #e4ebec;
 }
+
 .b3-dialog__container {
-    background-color: #f0f3f5;
+    background-color: #f2f6f7;
 }
 .render-node[data-subtype='graphviz'] .graph > polygon {
     fill: transparent;
@@ -233,7 +234,7 @@ body{
     background-color: #c3cfd6a9;
 }
 .layout-tab-container {
-    background-color: #f0f3f5;
+    background-color: #fff;
 }
 .block__icons {
     /* box-shadow: rgb(0 0 0 / 30%) 0px 1px 2px; */
@@ -468,7 +469,7 @@ strong {
 .protyle-wysiwyg [data-node-id].bq, .b3-typography blockquote {
     border: 1px solid var(--blockquote-border-color);
     border-left: 0.18em solid var(--blockquote-border-color);
-    background-color: #f7f8f9;
+    background-color: #ffffff;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -575,7 +576,7 @@ div[data-type='block-render'] {
 
 /* 文件树中区别文件数和引用数 */
 li[data-type='navigation-file'] .counter {
-    color: #b16666cc;
+    color: #66acb1cc;
     /* background-color: #dfdfdf9e; */
     font-weight: 600;
     background: transparent !important;
@@ -793,12 +794,6 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     line-height: 1.1em;
     color: #f8f9fa;
 }
-/* 待办列表文本间距 */
-.protyle-wysiwyg [data-subtype='t'] > [data-node-id] div[contenteditable='true'] {
-    margin-left: 0.3em !important;
-    margin-top: 0;
-    margin-bottom: 0;
-}
 
 .protyle-task--done [data-type="NodeParagraph"]>div:first-child,.protyle-task--done p{
     /* 完成的待办事项删除线 */
@@ -857,13 +852,14 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
 }
 
 /* 完成的待办事项有序列表样式 */
-.protyle-task--done  [data-node-id].li>.protyle-action--order,
+.protyle-task--done  [data-subtype='o'].li>.protyle-action,
+.protyle-task--done  [data-subtype='o'].li::before,
 .protyle-task--done  .b3-typography ol>li{
-    color: #6791a396 !important;
+    color: #6791a396;
 }
 /* 完成的待办事项无序列表样式 */
-.protyle-task--done  [data-subtype='u'] > .protyle-action:before,.b3-typography .protyle-task--done  ul>li::before {
-    background-color: #6791a396;
+.protyle-task--done  [data-subtype='u'].li > .protyle-action:before,.b3-typography .protyle-task--done  ul>li::before {
+    color: #6791a396 !important;
 }
 /* 对完成的待办事项内容全部调整透明度，发现一个问题，父级的透明度会被子级继承 */
 div[data-subtype='t'][data-type='NodeList'] {
@@ -1103,18 +1099,21 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 .b3-dialog__container .b3-list--background .b3-list-item--focus {
     background-color: #d8e0e5c7 !important;
-    border-radius: 16px 10% 10% 16px;
+    /* border-radius: 16px 10% 10% 16px; */
     /* border-radius: 10%; */
 }
+/* .b3-dialog__container ::-webkit-scrollbar-thumb{
+    border-left:solid 0px transparent
+} */
 /* 调整设置的select按钮 */
-.b3-tab-container .b3-select {
+.b3-select {
     background-color: #d8e0e5;
 }
-.b3-tab-container .b3-select option {
+.b3-select option {
     background-color: #f3f5f7;
     border-radius: 10%;
 }
-.b3-tab-container .b3-select option:hover {
+.b3-select option:hover {
     background-color: #dfe6ea !important;
 }
 
@@ -1859,10 +1858,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 .protyle-wysiwyg strong,.b3-typography strong{
     color: inherit;
 }
-.protyle-wysiwyg strong ,
-.b3-typography strong{
-    text-shadow: 0 0 0.5px #ffffff; 
-}
+
 .b3-typography s, .protyle-wysiwyg s{
     color: inherit !important;
     opacity: 0.5;
@@ -1888,3 +1884,25 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 
 
+.protyle-preview,.protyle-preview__action {
+    background-color: #fff;
+}
+.protyle{
+    background-color: #fff;
+}
+
+
+/* 文字背景色颜色优化 */
+
+strong[style*="background-color: var(--b3-font-background1);"]{
+    background-color:#facec7 !important;
+}
+strong[style*="background-color: var(--b3-font-background2);"]{
+    background-color:#f3e0c5 !important;
+}
+strong[style*="background-color: var(--b3-font-background3);"]{
+    background-color:#c4e0f8 !important;
+}
+strong[style*="background-color: var(--b3-font-background4);"]{
+    background-color:#d2fad2 !important;
+}

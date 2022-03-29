@@ -17,7 +17,7 @@ div[data-subtype="o"].list {
 .li[data-subtype="o"][fold="1"]:before{
     color: #1757b5bb !important;
 }
-.li[data-subtype="o"]>.protyle-action{
+.list[data-subtype="o"]>.li[data-subtype="o"] .li[data-subtype="o"]>.protyle-action{
 	color:transparent!important;
 }
 .li[data-subtype="o"]:before{
@@ -31,11 +31,8 @@ div[data-subtype="o"].list {
 }
 
 /* 第1层级 */
-.list[data-subtype="o"]>.li[data-subtype="o"]:before {
-    counter-increment: o1;
-    content: var(--o1-style);
-	position:absolute;
-}
+/* 保持默认，这样可以从任意序号开始编号 */
+
 /* 第2层级 */
 
 .list[data-subtype="o"]>.li[data-subtype="o"] .li[data-subtype="o"]:before {

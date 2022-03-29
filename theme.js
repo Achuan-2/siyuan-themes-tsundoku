@@ -17,8 +17,8 @@ function changeFamily() {
     body.style.fontFamily = family.innerHTML.substring(start + 13, length - 13);
 
 }
-
+/* inject local script */
 (function () {
-    // changeFamily()
-    setInterval(changeFamily, 1000);
+	// changeFamily()
+	setInterval(changeFamily, 1000);
 })();

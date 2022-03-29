@@ -20,7 +20,7 @@
     font-family: var(--b3-font-family-code);
     background-size: 20px 20px;
     background-image: none !important;
-    background: #f6f8fa;
+    background: #fff;
     border-radius: 0px 0px 4px 4px;
 
 }
@@ -31,11 +31,13 @@
     border-radius: 4px;
     background: #e6ebf1 ;
     /* border: 1.5px solid rgb(0 0 0 / 8%); */
-    box-shadow:  0 0 0 1px rgb(0 0 0 / 8%);
+    box-shadow:  0 0 0 1px #1e25351a;
     /* margin-top: 15px !important; */
     padding-top: 32px !important;
 }
-
+.protyle-wysiwyg[id="preview"] .code-block {
+    box-shadow:  0 0 0 1.5px #1e25351a;
+}
 
 /* .code-block .protyle-action {
     position: relative;
