@@ -1219,15 +1219,15 @@ div[data-subtype='t'][data-type='NodeList'] {
 /* 多窗口foucs的标签页 */
 .layout__wnd--active .layout-tab-bar .item--focus {
     font-weight: 600;
-    border-top: 2px solid #5d8855;
+    border-top: 2px solid #556988;
 
 }
-.layout-tab-bar .item:first-child,
+/* .layout-tab-bar .item:first-child,
 .layout-tab-bar .item--focus:first-child,
 .layout__wnd--active .layout-tab-bar .item--focus:first-child{
     border-radius: 0px 7px 7px 0px;
     border-left: 0px solid #b7b8b97c;
-}
+} */
 
 /* 未保存样式 */
 /* .layout__wnd--active .layout-tab-bar .item--unsave {
