@@ -642,12 +642,8 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
 }
 /* 行内代码 */
 .b3-typography code:not(.hljs):not(:empty) , .protyle-wysiwyg code:not(.hljs):not(:empty)  {
-    /* display: inline-flex; */
-    /* padding: 0em 0.4em; */
-    /* transform: translateY(-1.5px);    */
     margin:0px 2px;
     border: 1px solid #c6c6c73f;
-    color: #5a7eaf;
     background-color: var(--b3-protyle-inline-code-background);
 }
 
