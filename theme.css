@@ -184,13 +184,13 @@
     --b3-protyle-inline-link-hover-color: #fa60a0;
     --b3-protyle-inline-mark-background: #f8e8cb;
     --b3-protyle-inline-mark-color: #202124;
-    --b3-protyle-inline-tag-background: #81a9a9;
+    --b3-protyle-inline-tag-background: #70b3ca;
     --b3-protyle-inline-tag-color: #fff;
     --b3-protyle-inline-code-color: hsl(188, 96%, 25%);
     --b3-protyle-inline-code-background: #eff1f3;
     --b3-protyle-inline-blockref-color: #0e7a88;
     --b3-protyle-inline-blockref-hover-color: #ff398b;
-    --blockquote-border-color: #8e8e8e;
+    --blockquote-border-color: #90a2ae;
     /* 表格背景设置 */
     --b3-table-border-color: #e4e6e8;
     --b3-table-th-color: #e9ecee;
@@ -449,7 +449,7 @@ strong {
     color: inherit;
 }
 
-/* blockquote 引用 */
+/* blockquote 引述块 */
 /* 之前1.0.7之前的引用块样式 */
 /* .protyle-wysiwyg [data-node-id].bq, .b3-typography blockquote {
     border-left: 0.25em solid transparent;
@@ -465,11 +465,11 @@ strong {
     background-color: #e9eef0dc;
 } */
 
-/* blockquote 引用 */
+
 .protyle-wysiwyg [data-node-id].bq, .b3-typography blockquote {
-    border: 1px solid var(--blockquote-border-color);
+    /* border: 1px solid var(--blockquote-border-color); */
     border-left: 0.18em solid var(--blockquote-border-color);
-    background-color: #ffffff;
+    background-color: #d7dad82b;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;

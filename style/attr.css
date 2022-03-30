@@ -297,6 +297,8 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 .protyle-wysiwyg *[custom-f="bg"] [data-node-id].li>[data-node-id]{
     margin-left: 20px !important;
 }
+
+
 /* 对符号后文字设置格式 */
 .protyle-wysiwyg *[custom-f="table"] .p,
 .protyle-wysiwyg *[custom-f="bg"] .p {
@@ -308,6 +310,10 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
     height: auto;
     margin: 0;
     text-align: justify;
+}
+.protyle-wysiwyg [data-subtype="o"][custom-f="table"] .p div,
+.protyle-wysiwyg [data-subtype="o"][custom-f="bg"] .p div{
+    margin-left: 7px !important;
 }
 .protyle-wysiwyg *[custom-f="table"] .li>.list>.li,
 .protyle-wysiwyg *[custom-f="bg"] .li>.list>.li{
