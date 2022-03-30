@@ -261,36 +261,43 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
         margin-left: 1em;
         /* width:calc(100% - 40px); */
 }
-/* 自定义属性 END */
 
+/* -----------------------------------------------f:table列表转化为表格------------------------------------------- */
+/* 设置整个列表表格的缩进 */
+.list[data-node-id][data-type="NodeList"][custom-f="table"],
+.list[data-node-id][data-type="NodeList"][custom-f="bg"] {
+    padding: 4px;
+}
 
-/* -----------------------------------------------列表转化为表格------------------------------------------- */
-/* ————————————————————所有子项目的表格（除去第一列其余的列），包含溢出的空白部分，所以才会有边框—————————————————————— */
+/* 所有子项目的表格（除去第一列其余的列），包含溢出的空白部分，所以才会有边框*/
 .protyle-wysiwyg *[custom-f="table"] .li .list,
 .protyle-wysiwyg *[custom-f="bg"] .li .list{
     padding: 0px;
     margin: 0px !important;
     width: 100%;
-    outline: 0.05em solid rgba(128, 128, 128, 0.3);
+    outline: 1px solid #d0d7e0;
 }
-/* ————————————————————对所有子列表项设置格式———————————————————— */
+/* 对所有子列表项设置格式*/
 .protyle-wysiwyg *[custom-f="table"] .li,
 .protyle-wysiwyg *[custom-f="bg"] .li{
     display: flex;
-    outline: 0.05em solid rgba(128, 128, 128, 0.3);
-    background-color: transparent;
+    outline: 1px solid #d0d7e0;
+    background-color: var(--b3-theme-background);
+    border-radius:0px;   
+    /* background-color: transparent; */
 }
-.protyle-wysiwyg *[custom-f="table"] .li:hover,
-.protyle-wysiwyg *[custom-f="bg"] .li:hover{
-    background-color: #e8f4f7;
+/* ————————————————————调整每个子列表项右侧边距———————————————————— */
+.protyle-wysiwyg *[custom-f="table"] .li>div 
+.protyle-wysiwyg *[custom-f="bg"] .li>div {
+    margin-right: 6px;
+}
 
-}
-/* ————————————————————大神增加代码———————————————————— */
+
 .protyle-wysiwyg *[custom-f="table"] [data-node-id].li>[data-node-id],
 .protyle-wysiwyg *[custom-f="bg"] [data-node-id].li>[data-node-id]{
     margin-left: 20px !important;
 }
-/* ————————————————————对符号后文字设置格式———————————————————— */
+/* 对符号后文字设置格式 */
 .protyle-wysiwyg *[custom-f="table"] .p,
 .protyle-wysiwyg *[custom-f="bg"] .p {
     flex: 1;
@@ -305,18 +312,18 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 .protyle-wysiwyg *[custom-f="table"] .li>.list>.li,
 .protyle-wysiwyg *[custom-f="bg"] .li>.list>.li{
     outline: none !important;
-    border-top: 0.05em solid rgba(128, 128, 128, 0.3);
+    border-top: 1px solid #d0d7e0;
 }
 .protyle-wysiwyg *[custom-f="table"] .li>.list>.li:first-of-type,
 .protyle-wysiwyg *[custom-f="bg"] .li>.list>.li:first-of-type {
     border-top: none;
 }
-/* ————————————————————去除小竖线———————————————————— */
+/* 去除小竖线*/
 .list[data-node-id][data-type="NodeList"][custom-f="table"] .li>:before,
 .list[data-node-id][data-type="NodeList"][custom-f="bg"] .li>:before{
     display: none ;
 }
-/* ————————————————————设置前面的符号居中对齐———————————————————— */
+/*设置前面的符号居中对齐 */
 .list[data-node-id][data-type="NodeList"][custom-f="table"] .protyle-action,
 .list[data-node-id][data-type="NodeList"][custom-f="bg"] .protyle-action{
     position: absolute;
@@ -324,13 +331,8 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
     transform:translate(0, -50%);
     width: 20px;
 }
-/* ————————————————————减小前面符号·的大小———————————————————— */
 
-.list[data-node-id][data-type="NodeList"][custom-f="table"] .protyle-action>svg,
-.list[data-node-id][data-type="NodeList"][custom-f="bg"] .protyle-action>svg {
-    width: 10px;
-}
-/* ————————————————————表格设置为100%宽度，即填充整个空间———————————————————— */
+/* 表格设置为100%宽度，即填充整个空间*/
 .protyle-wysiwyg *[custom-f="table"]  .table,
 .protyle-wysiwyg *[custom-f="bg"]  .table {
     width: 100%;
