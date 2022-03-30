@@ -1839,6 +1839,8 @@ div[data-subtype='t'][data-type='NodeList'] {
 .file-tree .b3-list.fn__flex-column.fn__flex-1>.b3-list-item:first-child{
     background-color:#e1e2d5;
 }
+
+
 .layout__resize--lr {
     background-color: #d5dde2;
     width: 2px;
@@ -1847,7 +1849,18 @@ div[data-subtype='t'][data-type='NodeList'] {
 .layout__resize--lr:after{
     width: 3px;
 }
-
+.file-tree {
+    border-radius: 5px 5px 0px 0px;
+}
+.layout-tab-container {
+    background-color: #ccd4da;
+}
+.fn__flex-column.fn__flex-1{
+    background-color: #fff;
+}
+.graph__loading{
+    background-color: rgb(196, 214, 212);
+}
 ::-webkit-scrollbar-thumb{border-radius:0px;-webkit-box-shadow:inset 0 0 10px 10px #d5dde2;box-shadow:inset 0 0 10px 10px #d5dde2;background:unset;border-left:solid 4px transparent}
 ::-webkit-scrollbar-thumb:hover{border-left:solid 0px transparent;-webkit-box-shadow:inset 0 0 10px 10px #d5dde2;box-shadow:inset 0 0 10px 10px #d5dde2}
 
