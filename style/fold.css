@@ -108,7 +108,7 @@
     line-height: inherit;
     height: 1.5em;
 }
-.protyle-wysiwyg [data-node-id][fold="1"]:not(.sb,.li) [contenteditable="true"] {
+.protyle-wysiwyg [data-node-id][fold="1"]:not(.sb,.li,[data-type="NodeHeading"]) [contenteditable="true"] {
     display: -webkit-box;
     overflow: hidden;
     text-overflow: ellipsis;
