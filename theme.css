@@ -1,3 +1,5 @@
+/* 导入搜索窗口调大样式 */
+@import url("style/ctrlP.css");
 /* 导入文档属性 */
 @import url("style/doc-attr.css");
 /* 导入块自定义属性 */
@@ -1967,4 +1969,9 @@ strong[style*="background-color: var(--b3-font-background4);"]{
 /* 调整自定义演示：灰色不加粗 */
 strong[style="color: var(--b3-font-color5);"] {
     font-weight: 400 !important;
+}
+
+
+.b3-label .fn__flex-1{
+    overflow: hidden;
 }
