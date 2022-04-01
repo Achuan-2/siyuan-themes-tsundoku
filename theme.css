@@ -1964,3 +1964,7 @@ strong[style*="background-color: var(--b3-font-background4);"]{
 .layout__wnd--active .layout-tab-bar .item--focus{
     box-shadow: inherit;
 }
+/* 调整自定义演示：灰色不加粗 */
+strong[style="color: var(--b3-font-color5);"] {
+    font-weight: 400 !important;
+}
