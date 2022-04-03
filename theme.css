@@ -659,14 +659,16 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     background-color:#559898;
 }
 /* 行内代码 */
-.b3-typography code:not(.hljs):not(:empty) , .protyle-wysiwyg code:not(.hljs):not(:empty)  {
-    margin:0px 2px;
-    border: 1px solid #c6c6c73f;
-    /* border-radius: 0.5em; */
-    color: #5a7eaf;
+.b3-typography code:not(.hljs):not(:empty),
+.protyle-wysiwyg code:not(.hljs):not(:empty) {
+    position: relative;
+    display: inline-block;
+    margin: 0px 2px 0px;
+    top: -0.1em;
+    /* color: #5a7eaf; */
+    font-size: 80%;
     background-color: var(--b3-protyle-inline-code-background);
 }
-
 /* 超链接 */
 .protyle-wysiwyg [data-node-id] span[data-type='a'] {
     color: var(--b3-protyle-inline-link-color);
@@ -1966,12 +1968,16 @@ strong[style*="background-color: var(--b3-font-background4);"]{
 .layout__wnd--active .layout-tab-bar .item--focus{
     box-shadow: inherit;
 }
-/* 调整自定义演示：灰色不加粗 */
+/* 调整自定义颜色：灰色不加粗 */
 strong[style="color: var(--b3-font-color5);"] {
     font-weight: 400 !important;
 }
 
-
-.b3-label .fn__flex-1{
+/* 修复一些按钮出现滚轮 */
+.b3-label .fn__flex-1 {
     overflow: hidden;
 }
+
+
+
+

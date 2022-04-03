@@ -271,33 +271,36 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 
 /* 所有子项目的表格（除去第一列其余的列），包含溢出的空白部分，所以才会有边框*/
 .protyle-wysiwyg *[custom-f="table"] .li .list,
-.protyle-wysiwyg *[custom-f="bg"] .li .list{
+.protyle-wysiwyg *[custom-f="bg"] .li .list {
     padding: 0px;
     margin: 0px !important;
-    width: 100%;
-    outline: 1px solid #d0d7e0;
+    width: 80%;
+    outline: 1px solid #bbc9be;
+    /* flex-direction:row; */
 }
+
 /* 对所有子列表项设置格式*/
 .protyle-wysiwyg *[custom-f="table"] .li,
-.protyle-wysiwyg *[custom-f="bg"] .li{
+.protyle-wysiwyg *[custom-f="bg"] .li {
     display: flex;
-    outline: 1px solid #d0d7e0;
+    outline: 1px solid #bbc9be;
+    border-radius: 0px;
     background-color: var(--b3-theme-background);
-    border-radius:0px;   
+    background-image: url('../src/paper.png');
     /* background-color: transparent; */
 }
-/* ————————————————————调整每个子列表项右侧边距———————————————————— */
-.protyle-wysiwyg *[custom-f="table"] .li>div 
+
+/* 调整每个子列表项右侧边距 */
+.protyle-wysiwyg *[custom-f="table"] .li>div,
 .protyle-wysiwyg *[custom-f="bg"] .li>div {
     margin-right: 6px;
 }
 
 
 .protyle-wysiwyg *[custom-f="table"] [data-node-id].li>[data-node-id],
-.protyle-wysiwyg *[custom-f="bg"] [data-node-id].li>[data-node-id]{
+.protyle-wysiwyg *[custom-f="bg"] [data-node-id].li>[data-node-id] {
     margin-left: 20px !important;
 }
-
 
 /* 对符号后文字设置格式 */
 .protyle-wysiwyg *[custom-f="table"] .p,
@@ -306,45 +309,50 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
     text-align: left;
     align-items: center;
     display: flex;
-    min-width: 120px;
+    min-width: calc(25%);
     height: auto;
     margin: 0;
     text-align: justify;
 }
+
 .protyle-wysiwyg [data-subtype="o"][custom-f="table"] .p div,
-.protyle-wysiwyg [data-subtype="o"][custom-f="bg"] .p div{
+.protyle-wysiwyg [data-subtype="o"][custom-f="bg"] .p div {
     margin-left: 7px !important;
 }
+
 .protyle-wysiwyg *[custom-f="table"] .li>.list>.li,
-.protyle-wysiwyg *[custom-f="bg"] .li>.list>.li{
+.protyle-wysiwyg *[custom-f="bg"] .li>.list>.li {
     outline: none !important;
-    border-top: 1px solid #d0d7e0;
+    border-top: 1px solid #bbc9be;
 }
+
 .protyle-wysiwyg *[custom-f="table"] .li>.list>.li:first-of-type,
 .protyle-wysiwyg *[custom-f="bg"] .li>.list>.li:first-of-type {
     border-top: none;
 }
+
 /* 去除小竖线*/
 .list[data-node-id][data-type="NodeList"][custom-f="table"] .li>:before,
-.list[data-node-id][data-type="NodeList"][custom-f="bg"] .li>:before{
-    display: none ;
+.list[data-node-id][data-type="NodeList"][custom-f="bg"] .li>:before {
+    display: none;
 }
+
 /*设置前面的符号居中对齐 */
 .list[data-node-id][data-type="NodeList"][custom-f="table"] .protyle-action,
-.list[data-node-id][data-type="NodeList"][custom-f="bg"] .protyle-action{
+.list[data-node-id][data-type="NodeList"][custom-f="bg"] .protyle-action {
     position: absolute;
     top: 50%;
-    transform:translate(0, -50%);
+    transform: translate(0, -50%);
     width: 20px;
 }
 
 /* 表格设置为100%宽度，即填充整个空间*/
-.protyle-wysiwyg *[custom-f="table"]  .table,
-.protyle-wysiwyg *[custom-f="bg"]  .table {
+.protyle-wysiwyg *[custom-f="table"] .table,
+.protyle-wysiwyg *[custom-f="bg"] .table {
     width: 100%;
 }
-/* ---------------------------------------------------------列表转化为表格 END-------------------------------------------------- */
 
+/* ---------------------------------------------------------列表转化为表格 END-------------------------------------------------- */
 
 /* f:scroll 表格和代码块控制宽度------------------------------------------ */
 .protyle-wysiwyg:not([id="preview"])  [data-node-id][custom-f~=scroll].code-block::-webkit-scrollbar-thumb,

@@ -3,40 +3,46 @@
 /*---------ctrl+p窗口改造-------------*/
 /*放大ctrl+p窗口尺寸*/
 /*不添加[data-key]属性选择器将会同时影响alt+p窗口*/
-div[data-key] .b3-dialog__container {
+body>div[data-key]>.b3-dialog>.b3-dialog__container {
     width: 95vw !important;
 }
 
-div[data-key] .b3-dialog__container .fn__flex-column {
+body>div[data-key]>.b3-dialog>.b3-dialog__container>div>.fn__flex>.fn__flex-column {
     height: 95vh !important;
     width: 95vw !important;
 }
 
 /*ctrl+p改造成左右排列*/
 /*先把容器改成左右排列并自动换行*/
-div[data-key] .b3-dialog__container .fn__flex-column {
+body>div[data-key]>.b3-dialog>.b3-dialog__container>div>.fn__flex>.fn__flex-column {
     flex-direction: row !important;
     flex-wrap: wrap;
 }
 
 /*设置需要占满一行的项目*/
-div[data-key] .b3-dialog__container .fn__flex-column .search__header,
-div[data-key] .b3-dialog__container .fn__flex-column .b3-form__space--small {
+body>div[data-key]>.b3-dialog>.b3-dialog__container>div>.fn__flex>.fn__flex-column .search__header,
+body>div[data-key]>.b3-dialog>.b3-dialog__container>div>.fn__flex>.fn__flex-column .b3-form__space--small {
     width: 100vw;
-    /*flex-shrink:0;*/
+    flex-shrink: 0;
 }
 
 /*搜索结果列表占一半宽度，靠左排列*/
-div[data-key] .b3-dialog__container .fn__flex-column #searchList {
+body>div[data-key]>.b3-dialog>.b3-dialog__container>div>.fn__flex>.fn__flex-column #searchList {
     float: left;
-    /*width:45vw;*/
-    width: calc(50%);
+    width: 45vw;
+    /* width: calc(50%); */
     height: calc(100% - 85px) !important;
 }
 
 /*结果预览自动占满剩余宽度*/
-div[data-key] .b3-dialog__container .fn__flex-column #searchPreview {
+body>div[data-key]>.b3-dialog>.b3-dialog__container>div>.fn_flex>.fn__flex-column #searchPreview {
     width: 45vw;
+}
+
+
+/* 修复搜索文章不能完整显示的问题 */
+.spread-search__preview .protyle-content {
+    padding-bottom: 56px;
 }
 
 /*---------ctrl+p窗口改造 end -------------*/

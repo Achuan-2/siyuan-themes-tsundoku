@@ -898,3 +898,10 @@
     content: "";
     background-image: url('../src/biostars.ico');
 }
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="mubu.com"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href *="mubu.com"]::before,
+.b3-typography a[href *="mubu.com"]::before{
+
+    content: "";
+    background-image: url('../src/mubu.ico');
+}
