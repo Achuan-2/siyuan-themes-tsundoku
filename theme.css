@@ -29,9 +29,9 @@
     src: url('fonts/FiraCode-Regular.ttf');
 }
 @font-face {
-    font-family: 'HarmonyOS';
+    font-family: 'NotoSansSC';
     font-style: normal;
-    src: url('fonts/HarmonyOS_Sans_SC_Regular.ttf');
+    src: url('fonts/NotoSansSC-Regular.otf');
 }
 :root {
     /* 主色 */
@@ -58,7 +58,7 @@
     --b3-theme-on-error: #fff;
 
     /* 字体 */
-    --b3-font-family: "HarmonyOS", 'Helvetica Neue', 'Luxi Sans', 'DejaVu Sans', 'Hiragino Sans GB',
+    --b3-font-family: 'NotoSansSC','Helvetica Neue', 'Luxi Sans', 'DejaVu Sans', 'Hiragino Sans GB',
         'Microsoft Yahei', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji',
         'Win11 Emoji', 'Segoe UI Symbol', 'Android Emoji', 'EmojiSymbols';
     --b3-font-family-code: 'FiraCode', mononoki, Consolas, 'Liberation Mono', Menlo, Courier,
