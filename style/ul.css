@@ -1,48 +1,140 @@
+.protyle-wysiwyg:not(#preview) div[data-subtype="u"].list {
+    /* 思源内的界面 */
+    --u1-font-size: 0.4em;
+    --u2-font-size: 0.4em;
+    --u3-font-size: 0.4em;
+}
 
-div[data-subtype="u"].list {
+.protyle-wysiwyg#preview div[data-subtype="u"].list {
+    /* 导出pdf特地调大字体 */
+    --u1-font-size: 0.8em;
+    --u2-font-size: 1em;
+    --u3-font-size: 0.8em;
+}
+
+.protyle-wysiwyg div[data-subtype="u"].list {
     /* 无序列表自定义层级样式 */
     --u1-style: '●';
     --u2-style: '◆';
-    --u3-style: '❖';
-    --u4-style: '➤';
-    --u5-style: '■';
+    --u3-style: '■';
+
 }
-.li[data-subtype="u"]>.protyle-action{
-	color:transparent!important;
+
+.li[data-subtype="u"]>.protyle-action {
+    color: transparent !important;
 }
-.li[data-subtype="u"]>.protyle-action:before{
-    color:var(--b3-theme-on-background) !important;
+
+.li[data-subtype="u"]>.protyle-action:before {
+    color: #66666d !important;
+    font-size: 0.8em;
+
 }
-.li[data-subtype="u"][fold="1"]>.protyle-action:before{
+
+.li[data-subtype="u"][fold="1"]>.protyle-action:before {
     color: #1757b5bb !important;
 }
+
 /* 第1层级 */
 .list[data-subtype="u"]>.li[data-subtype="u"]>.protyle-action:before {
     content: var(--u1-style);
-    font-size: 0.4em;
+    font-size: var(--u1-font-size);
     position: absolute;
 }
+
 /* 第2层级 */
 .list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
     content: var(--u2-style);
-    font-size: 0.5em;
+    font-size: var(--u2-font-size);
     position: absolute;
 }
+
 /* 第3层级 */
 .list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
     content: var(--u3-style);
-    font-size: 0.6em;
+    font-size: var(--u3-font-size);
     position: absolute;
 }
+
 /* 第4层级 */
 .list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
-    content: var(--u4-style);
-    font-size: 0.5em;
+    content: var(--u1-style);
+    font-size: var(--u1-font-size);
     position: absolute;
 }
-/* 第5层级及之后层级 */
+
+/* 第5层级 */
 .list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
-    content: var(--u5-style);
-    font-size: 0.5em;
+    content: var(--u2-style);
+    font-size: var(--u2-font-size);
+    position: absolute;
+}
+
+/* 第6层级 */
+.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
+    content: var(--u3-style);
+    font-size: var(--u3-font-size);
+    position: absolute;
+}
+
+/* 第7层级 */
+.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
+    content: var(--u1-style);
+    font-size: var(--u1-font-size);
+    position: absolute;
+}
+
+/* 第8层级 */
+.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
+    content: var(--u2-style);
+    font-size: var(--u2-font-size);
+    position: absolute;
+}
+
+/* 第9层级 */
+.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
+    content: var(--u3-style);
+    font-size: var(--u3-font-size);
+    position: absolute;
+}
+
+/* 第10层级 */
+.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
+    content: var(--u1-style);
+    font-size: var(--u1-font-size);
+    position: absolute;
+}
+
+/* 第11层级 */
+.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
+    content: var(--u2-style);
+    font-size: var(--u2-font-size);
+    position: absolute;
+}
+
+/* 第12层级 */
+.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
+    content: var(--u3-style);
+    font-size: var(--u3-font-size);
+    position: absolute;
+}
+
+/* 第13层级 */
+.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
+    content: var(--u1-style);
+    font-size: var(--u1-font-size);
+    position: absolute;
+}
+
+/* 第14层级 */
+.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
+    content: var(--u2-style);
+    font-size: var(--u2-font-size);
+    position: absolute;
+}
+
+/* 第15层级及之后更深的层级 */
+.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
+    content: var(--u3-style);
+    font-size: var(--u3-font-size);
     position: absolute;
 }
