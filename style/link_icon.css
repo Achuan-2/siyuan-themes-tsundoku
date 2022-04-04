@@ -12,7 +12,11 @@
     height: 1.1em;
     margin-right: 0.2em;
 }
-
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href^="siyuan://"],
+.protyle-wysiwyg [data-node-id] a[href^="siyuan://"],
+.b3-typography a[href^="siyuan://"] {
+    color: var(--b3-protyle-inline-blockref-color);
+}
 .protyle-wysiwyg [data-node-id] span[data-type='a'][data-href^="es://"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href^="es://"]::before,
 .b3-typography a[href^="es://"]::before{
