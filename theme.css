@@ -203,7 +203,10 @@
     --b3-menu-highlight-focus-color: #34495e;
     /* 文件树背景高亮颜色 */
     --b3-menu-highlight-background: #dde5ea;
-    --b3-tab-custom-background: #e4ebec;
+    --b3-custom-tab-background: #edf0f2;
+    --b3-custom-tab-hover-background: #76878d38;
+    --b3-custom-tab-border:#d3dae27c;
+    --b3-custom-tab-focus-top-border: #b4cbd338;
 }
 
 .b3-dialog__container {
@@ -1181,108 +1184,73 @@ div[data-subtype='t'][data-type='NodeList'] {
 .b3-dialog__container .b3-dialog__close:hover {
     background: #fff;
 }
-
-
-/* ----------------------------标签页样式----------------------------------------- */
-
-
 .block__popover--open .fn__flex-column .protyle-wysiwyg {
     /* 块引用预览背景颜色 */
     background-color: #f3f7f8;
     transition: background-color 0.5s linear;
 }
+.protyle-title__input,
+.layout__wnd--active .protyle-content,
+.layout__wnd--active .protyle-title .protyle-title__input {
+    /* 当前编辑窗口保持主背景色 */
+    background-color: transparent;
+}
+
+/* ----------------------------标签页、页签样式 Start----------------------------------------- */
+
+
 .layout-tab-bar {
     background-color: #ccd5da;
 }
+
 .b3-dialog__container .layout-tab-bar {
     background-color: transparent;
 }
-.layout__wnd--active .protyle-content,
-.layout__wnd--active .protyle-title .protyle-title__input{
-    /* 当前编辑窗口保持主背景色 */
-    background-color: var(--b3-theme-background);
-}
+
 .layout-tab-bar .item {
-    /* padding: 4px 4px 3px 14px; */
-    border: 0px;
-    /* border-right: 2px solid #b7b8b97c;
-    border-left: 2px solid #b7b8b97c; */
-    border: 1px solid #b7b8b97c;
-    border-top: 0px solid #b7b8b97c;
-    border-bottom: 0px solid transparent;
-    /* border-radius: 7px 7px 0px 0px; */
+    border: 1px solid var(--b3-custom-tab-border);
     border-radius: 7px 7px 7px 7px;
-    /* margin-right: 2px; */
-    box-shadow: 1px 4px 2px 0 var(--b3-theme-background);
-    background-color: #edf0f2;
-    transition: background-color 0.1s ease-in-out;
+    background-color: var(--b3-custom-tab-background);
+    box-shadow: transparent;
+    box-shadow: 0px 6px 0px 0 var(--b3-theme-background);
 }
 
-/* 选中的标签页 */
-/* 选中的标签页 */
+/* 已打开的标签页 */
 .layout-tab-bar .item--focus,
 .layout__wnd--active .layout-tab-bar .item--focus {
-    border-radius: 7px 7px 0px 0px; 
-    color: var(--b3-menu-highlight-focus-color);
+    border-radius: 7px 7px 0px 0px;
+    border: 0px solid transparent;
+    border-top: 2px solid grey;
     font-weight: 400;
     font-size: 15px;
-    background-color: transparent;
-    border-top: 1px solid #b7b8b9;
-    border-right: 0px solid #b7b8b9;
-    border-left: 0px solid #b7b8b9;
-    border-bottom: 0px solid #b7b8b9;
-    /* filter: drop-shadow(2px 2px 3px #999); */
     background-color: var(--b3-theme-surface);
+
 }
+
+.layout__wnd--active .layout-tab-bar .item--focus>.item__text {
+    color: var(--b3-menu-highlight-focus-color);
+}
+
 /* 多窗口foucs的标签页 */
-.layout__wnd--active .layout-tab-bar .item--focus {
+.layout__wnd--active .layout-tab-bar .item--focus,
+.b3-dialog__container .layout-tab-bar .item--focus {
     font-weight: 600;
-    border-top: 2px solid #556988;
+    border-top: 2px solid var(--b3-custom-tab-focus-top-border);
 
 }
-/* .layout-tab-bar .item:first-child,
-.layout-tab-bar .item--focus:first-child,
-.layout__wnd--active .layout-tab-bar .item--focus:first-child{
-    border-radius: 0px 7px 7px 0px;
-    border-left: 0px solid #b7b8b97c;
-} */
 
-/* 未保存样式 */
-/* .layout__wnd--active .layout-tab-bar .item--unsave {
-    border-bottom: 2px solid #c7d1d8c5;
-} */
-/* 调整选中标签页文字最大宽度 */
-/* .item--focus .item__text {
-    max-width: 300px;
-} */
-/* 文字超出范围的模糊效果 */
-/* .layout-tab-bar .item--focus .item__text::after {
-    background: linear-gradient(110deg, rgba(0, 0, 0, 0.001), var(--b3-theme-surface));
-    left: 294px;
-} */
 
-/* 标签页按钮 */
-/* .layout-tab-bar .item__close {
-    margin-left: 8px;
-    height: 8px;
-    width: 8px;
-    padding: 4px;
-    border-radius: 10px;
-    color: var(--b3-theme-on-surface);
-    transition: var(--b3-transition);
-    background-color: transparent;
-} */
-/* .layout-tab-bar .item{
-    flex:none;
-} */
+/* hover页签背景色 */
 .layout-tab-bar .item:hover:not(.item--focus) {
-    background-color: #76878d38;
+    background-color: var(--b3-custom-tab-hover-background);
 }
-.layout-tab-bar .item__text{
-    padding: 4px 0px 0px 8px;
-}
-/* ----------------------------标签页样式 END----------------------------------------- */
 
+/* siyuan 1.9.6增加的标签页focus shadow取消 */
+.layout__wnd--active .layout-tab-bar .item--focus {
+    box-shadow: inherit;
+}
+
+/* ----------------------------标签页、页签样式 END----------------------------------------- */
 
 .protyle-breadcrumb {
     /* background-color: var(--b3-tab-custom-background); */
@@ -1876,7 +1844,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     background-color: #ccd4da;
 }
 .fn__flex-column.fn__flex-1{
-    background-color: #fff;
+    background-color: #f1f5f8;
 }
 #viewerContainer{
     background-color: #ebeef1;
@@ -1965,10 +1933,7 @@ strong[style*="background-color: var(--b3-font-background4);"]{
     margin-top: -6px;
 }
 
-/* siyuan 1.9.6增加的标签页shadow取消 */
-.layout__wnd--active .layout-tab-bar .item--focus{
-    box-shadow: inherit;
-}
+
 /* 调整自定义颜色：灰色不加粗 */
 strong[style="color: var(--b3-font-color5);"] {
     font-weight: 400 !important;
