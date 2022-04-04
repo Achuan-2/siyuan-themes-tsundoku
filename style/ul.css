@@ -1,17 +1,3 @@
-.protyle-wysiwyg:not(#preview) div[data-subtype="u"].list {
-    /* 思源内的界面 */
-    --u1-font-size: 0.4em;
-    --u2-font-size: 0.4em;
-    --u3-font-size: 0.4em;
-}
-
-.protyle-wysiwyg#preview div[data-subtype="u"].list {
-    /* 导出pdf特地调大字体 */
-    --u1-font-size: 0.8em;
-    --u2-font-size: 1em;
-    --u3-font-size: 0.8em;
-}
-
 .protyle-wysiwyg div[data-subtype="u"].list {
     /* 无序列表自定义层级样式 */
     --u1-style: '●';
@@ -26,7 +12,11 @@
 
 .li[data-subtype="u"]>.protyle-action:before {
     color: #66666d !important;
-    font-size: 0.8em;
+    transform: scale(0.35);
+
+}
+.protyle-wysiwyg#preview .li[data-subtype="u"]>.protyle-action:before {
+    transform: scale(0.8);
 
 }
 
@@ -37,104 +27,89 @@
 /* 第1层级 */
 .list[data-subtype="u"]>.li[data-subtype="u"]>.protyle-action:before {
     content: var(--u1-style);
-    font-size: var(--u1-font-size);
     position: absolute;
 }
 
 /* 第2层级 */
 .list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
     content: var(--u2-style);
-    font-size: var(--u2-font-size);
     position: absolute;
 }
 
 /* 第3层级 */
 .list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
     content: var(--u3-style);
-    font-size: var(--u3-font-size);
     position: absolute;
 }
 
 /* 第4层级 */
 .list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
     content: var(--u1-style);
-    font-size: var(--u1-font-size);
     position: absolute;
 }
 
 /* 第5层级 */
 .list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
     content: var(--u2-style);
-    font-size: var(--u2-font-size);
     position: absolute;
 }
 
 /* 第6层级 */
 .list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
     content: var(--u3-style);
-    font-size: var(--u3-font-size);
     position: absolute;
 }
 
 /* 第7层级 */
 .list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
     content: var(--u1-style);
-    font-size: var(--u1-font-size);
     position: absolute;
 }
 
 /* 第8层级 */
 .list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
     content: var(--u2-style);
-    font-size: var(--u2-font-size);
     position: absolute;
 }
 
 /* 第9层级 */
 .list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
     content: var(--u3-style);
-    font-size: var(--u3-font-size);
     position: absolute;
 }
 
 /* 第10层级 */
 .list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
     content: var(--u1-style);
-    font-size: var(--u1-font-size);
     position: absolute;
 }
 
 /* 第11层级 */
 .list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
     content: var(--u2-style);
-    font-size: var(--u2-font-size);
     position: absolute;
 }
 
 /* 第12层级 */
 .list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
     content: var(--u3-style);
-    font-size: var(--u3-font-size);
     position: absolute;
 }
 
 /* 第13层级 */
 .list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
     content: var(--u1-style);
-    font-size: var(--u1-font-size);
     position: absolute;
 }
 
 /* 第14层级 */
 .list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
     content: var(--u2-style);
-    font-size: var(--u2-font-size);
     position: absolute;
 }
 
 /* 第15层级及之后更深的层级 */
 .list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
     content: var(--u3-style);
-    font-size: var(--u3-font-size);
     position: absolute;
 }
