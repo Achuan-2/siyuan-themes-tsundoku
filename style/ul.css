@@ -1,115 +1,191 @@
-.protyle-wysiwyg div[data-subtype="u"].list {
-    /* 无序列表自定义层级样式 */
-    --u1-style: '●';
-    --u2-style: '◆';
-    --u3-style: '■';
+.li[data-subtype="u"][fold="1"]>.protyle-action svg {
+    color: transparent;
+    background-color: #1757b5bb !important;
+    -webkit-mask: url(../src/ul/ul1.svg) no-repeat;
+    mask: url(../src/ul/ul1.svg) no-repeat;
+    -webkit-mask-size: 0.5em;
+    -webkit-mask-position: center;
+    mask-size: 0.5em;
+    mask-position: center;
+}
+
+/* 第一层级 */
+.list[data-subtype="u"]>.li[data-subtype="u"] .protyle-action svg {
+    color: transparent;
+    background-color: var(--b3-theme-on-surface);
+    -webkit-mask: url(../src/ul/ul1.svg) no-repeat;
+    mask: url(../src/ul/ul1.svg) no-repeat;
+    -webkit-mask-size: 0.5em;
+    -webkit-mask-position: center;
+    mask-size: 0.5em;
+    mask-position: center;
 
 }
 
-.li[data-subtype="u"]>.protyle-action {
-    color: transparent !important;
+/* 第二层级 */
+.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .protyle-action svg {
+    color: transparent;
+    background-color: var(--b3-theme-on-surface);
+    -webkit-mask: url(../src/ul/ul2.svg) no-repeat;
+    mask: url(../src/ul/ul2.svg) no-repeat;
+    -webkit-mask-size: 0.46em;
+    -webkit-mask-position: center;
+    mask-size: 0.46em;
+    mask-position: center;
 }
 
-.li[data-subtype="u"]>.protyle-action:before {
-    color: #66666d !important;
-    transform: scale(0.35);
-
-}
-.protyle-wysiwyg#preview .li[data-subtype="u"]>.protyle-action:before {
-    transform: scale(0.8);
-
-}
-
-.li[data-subtype="u"][fold="1"]>.protyle-action:before {
-    color: #1757b5bb !important;
+/* 第三层级 */
+.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .protyle-action svg {
+    color: transparent;
+    background-color: var(--b3-theme-on-surface);
+    -webkit-mask: url(../src/ul/ul3.svg) no-repeat;
+    mask: url(../src/ul/ul3.svg) no-repeat;
+    -webkit-mask-size: 0.39em;
+    -webkit-mask-position: center;
+    mask-size: 0.39em;
+    mask-position: center;
 }
 
-/* 第1层级 */
-.list[data-subtype="u"]>.li[data-subtype="u"]>.protyle-action:before {
-    content: var(--u1-style);
-    position: absolute;
+/* 第四层级 */
+.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .protyle-action svg {
+    color: transparent;
+    background-color: var(--b3-theme-on-surface);
+    -webkit-mask: url(../src/ul/ul1.svg) no-repeat;
+    mask: url(../src/ul/ul1.svg) no-repeat;
+    -webkit-mask-size: 0.5em;
+    -webkit-mask-position: center;
+    mask-size: 0.5em;
+    mask-position: center;
 }
 
-/* 第2层级 */
-.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
-    content: var(--u2-style);
-    position: absolute;
+/* 第五层级 */
+.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .protyle-action svg {
+    color: transparent;
+    background-color: var(--b3-theme-on-surface);
+    -webkit-mask: url(../src/ul/ul2.svg) no-repeat;
+    mask: url(../src/ul/ul2.svg) no-repeat;
+    -webkit-mask-size: 0.46em;
+    -webkit-mask-position: center;
+    mask-size: 0.46em;
+    mask-position: center;
 }
 
-/* 第3层级 */
-.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
-    content: var(--u3-style);
-    position: absolute;
+/* 第六层级 */
+.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .protyle-action svg {
+    color: transparent;
+    background-color: var(--b3-theme-on-surface);
+    -webkit-mask: url(../src/ul/ul3.svg) no-repeat;
+    mask: url(../src/ul/ul3.svg) no-repeat;
+    -webkit-mask-size: 0.39em;
+    -webkit-mask-position: center;
+    mask-size: 0.39em;
+    mask-position: center;
 }
 
-/* 第4层级 */
-.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
-    content: var(--u1-style);
-    position: absolute;
+/* 第七层级 */
+.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .protyle-action svg {
+    color: transparent;
+    background-color: var(--b3-theme-on-surface);
+    -webkit-mask: url(../src/ul/ul1.svg) no-repeat;
+    mask: url(../src/ul/ul1.svg) no-repeat;
+    -webkit-mask-size: 0.5em;
+    -webkit-mask-position: center;
+    mask-size: 0.5em;
+    mask-position: center;
 }
 
-/* 第5层级 */
-.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
-    content: var(--u2-style);
-    position: absolute;
+/* 第八层级 */
+.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .protyle-action svg {
+    color: transparent;
+    background-color: var(--b3-theme-on-surface);
+    -webkit-mask: url(../src/ul/ul2.svg) no-repeat;
+    mask: url(../src/ul/ul2.svg) no-repeat;
+    -webkit-mask-size: 0.46em;
+    -webkit-mask-position: center;
+    mask-size: 0.46em;
+    mask-position: center;
 }
 
-/* 第6层级 */
-.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
-    content: var(--u3-style);
-    position: absolute;
+/* 第九层级 */
+.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .protyle-action svg {
+    color: transparent;
+    background-color: var(--b3-theme-on-surface);
+    -webkit-mask: url(../src/ul/ul3.svg) no-repeat;
+    mask: url(../src/ul/ul3.svg) no-repeat;
+    -webkit-mask-size: 0.39em;
+    -webkit-mask-position: center;
+    mask-size: 0.39em;
+    mask-position: center;
 }
 
-/* 第7层级 */
-.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
-    content: var(--u1-style);
-    position: absolute;
+/* 第十层级 */
+.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .protyle-action svg {
+    color: transparent;
+    background-color: var(--b3-theme-on-surface);
+    -webkit-mask: url(../src/ul/ul1.svg) no-repeat;
+    mask: url(../src/ul/ul1.svg) no-repeat;
+    -webkit-mask-size: 0.5em;
+    -webkit-mask-position: center;
+    mask-size: 0.5em;
+    mask-position: center;
 }
 
-/* 第8层级 */
-.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
-    content: var(--u2-style);
-    position: absolute;
+/* 第十一层级 */
+.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .protyle-action svg {
+    color: transparent;
+    background-color: var(--b3-theme-on-surface);
+    -webkit-mask: url(../src/ul/ul2.svg) no-repeat;
+    mask: url(../src/ul/ul2.svg) no-repeat;
+    -webkit-mask-size: 0.46em;
+    -webkit-mask-position: center;
+    mask-size: 0.46em;
+    mask-position: center;
 }
 
-/* 第9层级 */
-.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
-    content: var(--u3-style);
-    position: absolute;
+/* 第十二层级 */
+.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .protyle-action svg {
+    color: transparent;
+    background-color: var(--b3-theme-on-surface);
+    -webkit-mask: url(../src/ul/ul3.svg) no-repeat;
+    mask: url(../src/ul/ul3.svg) no-repeat;
+    -webkit-mask-size: 0.39em;
+    -webkit-mask-position: center;
+    mask-size: 0.39em;
+    mask-position: center;
 }
 
-/* 第10层级 */
-.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
-    content: var(--u1-style);
-    position: absolute;
+/* 第十三层级 */
+.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .protyle-action svg {
+    color: transparent;
+    background-color: var(--b3-theme-on-surface);
+    -webkit-mask: url(../src/ul/ul1.svg) no-repeat;
+    mask: url(../src/ul/ul1.svg) no-repeat;
+    -webkit-mask-size: 0.5em;
+    -webkit-mask-position: center;
+    mask-size: 0.5em;
+    mask-position: center;
 }
 
-/* 第11层级 */
-.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
-    content: var(--u2-style);
-    position: absolute;
+/* 第十四层级 */
+.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .protyle-action svg {
+    color: transparent;
+    background-color: var(--b3-theme-on-surface);
+    -webkit-mask: url(../src/ul/ul2.svg) no-repeat;
+    mask: url(../src/ul/ul2.svg) no-repeat;
+    -webkit-mask-size: 0.46em;
+    -webkit-mask-position: center;
+    mask-size: 0.46em;
+    mask-position: center;
 }
 
-/* 第12层级 */
-.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
-    content: var(--u3-style);
-    position: absolute;
-}
-
-/* 第13层级 */
-.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
-    content: var(--u1-style);
-    position: absolute;
-}
-
-/* 第14层级 */
-.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
-    content: var(--u2-style);
-    position: absolute;
-}
-
-/* 第15层级及之后更深的层级 */
-.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action:before {
-    content: var(--u3-style);
-    position: absolute;
+/* 第十五层级 */
+.list[data-subtype="u"]>.li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .protyle-action svg {
+    color: transparent;
+    background-color: var(--b3-theme-on-surface);
+    -webkit-mask: url(../src/ul/ul3.svg) no-repeat;
+    mask: url(../src/ul/ul3.svg) no-repeat;
+    -webkit-mask-size: 0.39em;
+    -webkit-mask-position: center;
+    mask-size: 0.39em;
+    mask-position: center;
 }

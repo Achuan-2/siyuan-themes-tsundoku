@@ -867,6 +867,20 @@
     content: "";
     background-image: url('../src/b3log.png');
 }
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="b3log.org/siyuan"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href *="b3log.org/siyuan"]::before,
+.b3-typography a[href *="b3log.org/siyuan"]::before {
+
+    content: "";
+    background-image: url('../src/siyuan.svg');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="b3log.org/siyuan"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href *="b3log.org/siyuan"]::before,
+.b3-typography a[href *="b3log.org/siyuan"]::before {
+
+    content: "";
+    background-image: url('../src/siyuan.svg');
+}
 .protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="qun.qq.com"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href *="qun.qq.com"]::before,
 .b3-typography a[href *="qun.qq.com"]::before{
