@@ -203,10 +203,10 @@
     --b3-menu-highlight-focus-color: #34495e;
     /* 文件树背景高亮颜色 */
     --b3-menu-highlight-background: #dde5ea;
-    --b3-custom-tab-background: #edf0f2;
-    --b3-custom-tab-hover-background: #76878d38;
-    --b3-custom-tab-border:#d3dae27c;
-    --b3-custom-tab-focus-top-border: #435f6b;
+    --custom-tab-background: #edf0f2;
+    --custom-tab-hover-background: #76878d38;
+    --custom-tab-border:#d3dae27c;
+    --custom-tab-focus-top-border: #435f6b;
 }
 
 .b3-dialog__container {
@@ -1191,7 +1191,10 @@ div[data-subtype='t'][data-type='NodeList'] {
     /* 当前编辑窗口保持主背景色 */
     background-color: transparent;
 }
-
+/* 如果页签文字太长避免出现隐藏掉的文字 */
+.layout-tab-bar .item__text {
+    padding: 4px 0px 0px 8px;
+}
 /* ----------------------------标签页、页签样式 Start----------------------------------------- */
 
 
@@ -1202,11 +1205,10 @@ div[data-subtype='t'][data-type='NodeList'] {
 .b3-dialog__container .layout-tab-bar {
     background-color: transparent;
 }
-
 .layout-tab-bar .item {
-    border: 1px solid var(--b3-custom-tab-border);
+    border: 1px solid var(--custom-tab-border);
     border-radius: 7px 7px 7px 7px;
-    background-color: var(--b3-custom-tab-background);
+    background-color: var(--custom-tab-background);
     box-shadow: transparent;
     box-shadow: 0px 6px 0px 0 var(--b3-theme-background);
 }
@@ -1216,10 +1218,11 @@ div[data-subtype='t'][data-type='NodeList'] {
 .layout__wnd--active .layout-tab-bar .item--focus {
     border-radius: 7px 7px 0px 0px;
     border: 0px solid transparent;
-    border-top: 2px solid grey;
+    border-top: 2px solid transparent;
     font-weight: 400;
     font-size: 15px;
     background-color: var(--b3-theme-surface);
+    color: var(--b3-menu-highlight-focus-color);
 
 }
 
@@ -1230,15 +1233,15 @@ div[data-subtype='t'][data-type='NodeList'] {
 /* 多窗口foucs的标签页 */
 .layout__wnd--active .layout-tab-bar .item--focus,
 .b3-dialog__container .layout-tab-bar .item--focus {
-    font-weight: 600;
-    border-top: 2px solid var(--b3-custom-tab-focus-top-border);
+    /* font-weight: 600; */
+    border-top: 2px solid var(--custom-tab-focus-top-border);
 
 }
 
 
 /* hover页签背景色 */
 .layout-tab-bar .item:hover:not(.item--focus) {
-    background-color: var(--b3-custom-tab-hover-background);
+    background-color: var(--custom-tab-hover-background);
 }
 
 /* siyuan 1.9.6增加的标签页focus shadow取消 */
@@ -1246,6 +1249,10 @@ div[data-subtype='t'][data-type='NodeList'] {
     box-shadow: inherit;
 }
 
+/* 如果页签文字太长避免出现隐藏掉的文字 */
+.layout-tab-bar .item__text {
+    padding: 4px 0px 0px 8px;
+}
 /* ----------------------------标签页、页签样式 END----------------------------------------- */
 
 .protyle-breadcrumb {
