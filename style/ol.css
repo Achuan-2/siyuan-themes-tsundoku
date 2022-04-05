@@ -14,6 +14,8 @@ div[data-subtype="o"].list {
     width: 25px;
     margin: -14px 0 0 -14px;
 }
+
+.li[data-subtype="o"][fold="1"] .protyle-action--order,
 .li[data-subtype="o"][fold="1"]:before{
     color: #1757b5bb !important;
 }
