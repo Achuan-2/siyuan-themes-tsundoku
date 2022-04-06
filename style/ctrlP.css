@@ -1,4 +1,4 @@
-/* 来源：https: //ld246.com/article/1648269766832 */
+/* 来源：https://ld246.com/article/1648269766832 */
 /*链滴id：abbj，推荐码：K9TdVww */
 /*---------ctrl+p窗口改造-------------*/
 /*放大ctrl+p窗口尺寸*/
@@ -6,13 +6,14 @@
 /* 不添加[data-key]属性选择器将会同时影响alt+p窗口 */
 body>div[data-key]>.b3-dialog>.b3-dialog__container,
 body>div[data-key]>.b3-dialog>.b3-dialog__container>div>.fn__flex>.fn__flex-column {
-    width: 96vw !important;
-    height: 96vh !important;
+    width: 90vw !important;
+    height: 86vh !important;
 }
 
 /* 调整搜索框关闭按钮位置, 避免被遮挡 */
 body>div[data-key]>.b3-dialog>.b3-dialog__container>svg.b3-dialog__close {
-    right: calc((100vw - 96vw) / -2);
+    right: -25px;
+    z-index: 9999;
 }
 
 /* 窗口较宽时并排显示搜索结果 */
