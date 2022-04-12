@@ -1631,7 +1631,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     height: 25px;
     width: 25px;
     border-radius: 10px;    
-    box-shadow: 0 0 0 2px black inset;
+    box-shadow: 0 0 0 2px #334b4b inset;
 }
 /* pdf光标选中文本样式 */
 .pdf__outer ::selection{ 
