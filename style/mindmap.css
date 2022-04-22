@@ -165,5 +165,7 @@ div[data-node-index]>[data-type="NodeListItem"]::after,
 div[data-node-index]>[data-type="NodeListItem"]::before {
     display: none;
 }
-
+.protyle-wysiwyg .list[custom-f="dt"] [data-node-id].li>.protyle-action--task svg {
+    opacity: 1 !important;
+}
 /*————————————————————————————————————————————————————————————————————————*/
