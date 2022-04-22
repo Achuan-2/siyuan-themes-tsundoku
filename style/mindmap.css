@@ -4,9 +4,10 @@
 .protyle-wysiwyg *[custom-f="dt"]{
     --b3-border-daotu: 1px solid #3a4c4d;
 }
-.protyle-wysiwyg *[custom-f~="dt"].list>.li>.protyle-action {
+/* .protyle-wysiwyg *[custom-f~="dt"].list[data-subtype="u"]>.li>.protyle-action {
     display: none;
-}
+} */
+
 .protyle-wysiwyg *[custom-f="dt"] .li .list {
     padding: 0px;
     margin: 0px;
@@ -60,13 +61,13 @@
     white-space: nowrap;
 }
 
-.protyle-wysiwyg *[custom-f="dt"] .li[data-subtype="t"]>[data-node-id]>div[spellcheck="false"] {
+.protyle-wysiwyg *[custom-f="dt"] .li[data-subtype="t"]>[data-node-id]:nth-child(2)>div[spellcheck="false"] {
     padding: 5px 10px 5px 32px;
 }
-
 .protyle-wysiwyg *[custom-f="dt"] .li[data-subtype="o"]>[data-node-id]>div[spellcheck="false"] {
     padding: 5px 10px 5px 25px;
 }
+
 
 /*去除竖线*/
 .list[custom-f="dt"][data-node-id] .li>:before {
@@ -123,7 +124,7 @@
 .protyle-wysiwyg *[custom-f="dt"] .list>.li:first-child:nth-last-child(2)::after {
     border-radius: 0px;
     width: 22px;
-    margin-bottom: -2px;
+    margin-bottom: -1px;
 }
 
 /*单子项居中*/
