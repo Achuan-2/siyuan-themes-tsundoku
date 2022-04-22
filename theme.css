@@ -1,3 +1,7 @@
+/* 导入看板样式 */
+@import url("style/kanban.css");
+/* 导入脑图样式 */
+@import url("style/mindmap.css");
 /* 导入搜索窗口调大样式 */
 @import url("style/ctrlP.css");
 /* 导入文档属性 */

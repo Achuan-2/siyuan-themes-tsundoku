@@ -923,3 +923,10 @@
     content: "";
     background-image: url('../src/mubu.ico');
 }
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="jianguoyun.com"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href *="jianguoyun.com"]::before,
+.b3-typography a[href *="jianguoyun.com"]::before{
+
+    content: "";
+    background-image: url('../src/jianguoyun.ico');
+}

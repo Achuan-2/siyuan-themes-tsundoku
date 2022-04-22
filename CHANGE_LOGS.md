@@ -1,3 +1,7 @@
+## v1.2.7/2022.04.22
+- :sparkles: 搬运notion themes的theme.js
+- :sparkles: 搬运notion themes的列表转脑图、列表转看板
+
 ## v1.2.6/2022.04.18
 - :bug: Crtl+P 搜索右上方设置按钮错位问题
 
