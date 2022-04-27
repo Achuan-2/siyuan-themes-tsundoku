@@ -54,6 +54,7 @@ async function 解析响应体(response) {
 		块标菜单.insertBefore(选择视图按钮(), 最后项);
 		块标菜单.insertBefore(菜单分隔项(), 最后项);
 	}
+	changeFamily();
 };
 
 选择视图按钮 = function () {
@@ -195,7 +196,6 @@ var 全局菜单定时器 = {};
 扩展菜单 = function (父元素) {
 	if (父元素.getAttribute("data-type") == "NodeList" || "NodeTable") {
 		全局菜单定时器 = setTimeout(() => 生成列表菜单项目(), 0);
-		setInterval(changeFamily, 1000);
 	}
 };
 添加视图菜单监听器();
@@ -216,3 +216,5 @@ var 全局菜单定时器 = {};
 	// console.log(attrs)
 	设置思源块属性(id, attrs);
 };
+
+setInterval(changeFamily, 1000);
