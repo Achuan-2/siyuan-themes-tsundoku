@@ -1,3 +1,10 @@
+## v1.2.8/2022.04.27
+- :bug: 修复字体设置不应用于编辑器外部问题
+- :lipstick: h1除第一个标题才分页（同时发现目前思源导出pdf不支持让h1居中）
+- :lipstick: 取消钉住页签的宽度设置，改成默认主题的样式
+- :lipstick: 调整待办列表大小
+- :art: 重构h3竖线样式
+
 ## v1.2.7/2022.04.22
 - :sparkles: 搬运notion themes的theme.js
 - :sparkles: 搬运notion themes的列表转脑图、列表转看板

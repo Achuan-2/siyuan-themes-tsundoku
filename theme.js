@@ -1,3 +1,22 @@
+function loadScript(url) {
+	let script = document.createElement("script");
+	script.setAttribute("type", "module");
+	script.setAttribute("src", url);
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+
+function changeFamily() {
+	family = document.querySelector("style#editorFontSize");
+	start = family.innerHTML.indexOf("font-family");
+	length = family.innerHTML.length;
+	document.documentElement.style.setProperty(
+		"--font-family",
+		family.innerHTML.substring(start + 13, length - 13)
+	);
+	body = document.querySelector("body");
+	body.style.fontFamily = family.innerHTML.substring(start + 13, length - 13);
+}
+
 /***js from Morgan***/
 /****************************思源API操作**************************/
 async function 设置思源块属性(内容块id, 属性对象) {
@@ -176,6 +195,7 @@ var 全局菜单定时器 = {};
 扩展菜单 = function (父元素) {
 	if (父元素.getAttribute("data-type") == "NodeList" || "NodeTable") {
 		全局菜单定时器 = setTimeout(() => 生成列表菜单项目(), 0);
+		setInterval(changeFamily, 1000);
 	}
 };
 添加视图菜单监听器();
