@@ -180,11 +180,7 @@
 }
 
 
-.protyle-wysiwyg [data-node-id][fold="1"].protyle-wysiwyg--hl::after,
-.protyle-wysiwyg [data-node-id][fold="1"]:hover::after{
-    display: none;
-    transition: display 0.2s ease;
-}
+
 
 
 .protyle-wysiwyg [data-node-id][fold="1"].bq div,
@@ -222,47 +218,12 @@
     display: block;
 }
 
-.protyle-wysiwyg [data-node-id][fold="1"].list::after {
-    top: 1.1em;
-    left:-2.2em;
-    
-}
+
 .protyle-wysiwyg [data-node-id][fold="1"].table::after {
     top: 1.1em;
     left:-2.2em;
 }
-/* .protyle-wysiwyg [data-node-id][fold="1"].sb>div>div {
-    display: none;
-}
-.protyle-wysiwyg [data-node-id][fold="1"].sb {
-    overflow: visible !important;
-    height: 2em !important;
-    margin-top: 0px !important;
-}
 
-.protyle-wysiwyg [data-node-id][fold="1"].sb div:not(:first-child){
-    display: none;
-}
-.protyle-wysiwyg [data-node-id][fold="1"].sb div:first-child {
-    color:var(--b3-theme-on-background) !important;
-    text-align: left !important;
-    display: block;
-
-}
-.protyle-wysiwyg [data-node-id][fold="1"].sb>div:first-child div{
-    display: none;
-}
-.protyle-wysiwyg [data-node-id][fold="1"].sb>div:first-child:before{
-    content: "Super Block";
-    display: inline-block;
-    font-size: 1em;
-    text-align: left !important;
-    vertical-align: middle;
-}
-.protyle-wysiwyg [data-node-id][fold="1"].sb::after {
-    top: 1em;
-    left:-2.5em;
-} */
 /* 代码块折叠 */
 .protyle-wysiwyg [data-node-id][fold="1"]:not(.li).code-block {
     line-height: 1.625;
