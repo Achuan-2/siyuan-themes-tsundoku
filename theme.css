@@ -615,12 +615,14 @@ li[data-type='navigation-file'] .counter {
     background: transparent !important;
 }
 /* 内容中计数 */
-.counter, .protyle-attr--refcount {
+.counter,
+.protyle-attr--refcount,
+.protyle-wysiwyg .protyle-attr--refcount {
     margin-left: 8px;
     background-color: rgba(0, 0, 0, .05) !important;
     /* z-index: 2; */
     line-height: 16px;
-    color: #766f6fbd;
+    color: var(--b3-protyle-inline-blockref-color);
     border-radius:  20%;
     font-size: 12px;
     user-select: none;
@@ -629,13 +631,6 @@ li[data-type='navigation-file'] .counter {
 }
 
 
-.protyle-wysiwyg .counter,
-.protyle-attr--refcount {
-    color: #b16666;
-}
-.protyle-attr--refcount:hover {
-    color: #b16666cc;
-}
 
 
 /* sql查找不到字体颜色*/

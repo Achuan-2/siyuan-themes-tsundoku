@@ -1,3 +1,8 @@
+/* 调整列表下引述块小竖线 */
+.protyle-wysiwyg [data-node-id].li>.bq[style*="background-color:"] {
+    left: 4px !important;
+    top: -1px;
+}
 
 /* -------------------搬运语雀的提示区块 ---------Start----------------------------*/
 
