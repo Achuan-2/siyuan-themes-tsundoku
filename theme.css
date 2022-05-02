@@ -615,7 +615,7 @@ li[data-type='navigation-file'] .counter {
     background: transparent !important;
 }
 /* 内容中计数 */
-.counter,
+/* .counter, */
 .protyle-attr--refcount,
 .protyle-wysiwyg .protyle-attr--refcount {
     margin-left: 8px;
