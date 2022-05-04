@@ -7,7 +7,7 @@
 /* 导入搜索窗口调大样式 */
 @import url("style/ctrlP.css");
 /* 导入文档属性 */
-@import url("style/doc-attr.css");
+@import url("style/doc_attr.css");
 /* 导入块自定义属性 */
 @import url("style/attr.css");
 /* 导入代码块样式 */
@@ -89,7 +89,7 @@
     /* 菜单 */
     --b3-menu-background: #fff;
     /* 提示 */
-    --b3-tooltips-color: #616567;
+    --b3-tooltips-color: #89b0c6;
 
     /* 卡片背景 */
     --b3-card-error-color: rgb(97, 26, 21);
