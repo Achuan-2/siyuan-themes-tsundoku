@@ -256,11 +256,11 @@ body{
 .block__icons {
     background-color: rgb(213, 221, 226) !important;
 }
-.block__icons span.fn__space,
+/* .block__icons span.fn__space,
 .block__icons div.fn__space{
     display: inline-block;
     flex-shrink: 1 !important;
-}
+} */
 
 /* 集市动画 */
 .b3-dialog__container div[data-name='bazaar'] .b3-card:hover {
@@ -1953,4 +1953,13 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
     column-rule: 1px solid #13c2c240;
     min-width: 50vw !important;
     max-height: 480px !important;
+}
+
+/* 去除dock栏的边框 */
+.dock#dockLeft {
+    border-right: 0px solid var(--b3-border-color);
+}
+
+.dock#dockRight {
+    border-left: 0px solid var(--b3-border-color);
 }
