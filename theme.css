@@ -606,10 +606,7 @@ div[data-type='block-render'] {
     margin-top: 10px;
 
 }
-/* 调整列表下嵌入块小竖线 */
-.protyle-wysiwyg [data-node-id].li>[data-type="NodeBlockQueryEmbed"]{
-    top:-10px;
-}
+
 .protyle-wysiwyg [data-node-id].render-node[data-type=NodeBlockQueryEmbed]>.protyle-wysiwyg__embed {
     border-top: 3px dashed #0e5d12d6;
     position: relative;
