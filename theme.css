@@ -1082,21 +1082,12 @@ div[data-subtype='t'][data-type='NodeList'] {
     background-color: var(--b3-theme-error);
     color:var(--b3-theme-on-error);
 }
+
 /* 消息提示 */
 .b3-snackbar__content {
-    line-height: 20px;
-    border-radius: 4px;
-    padding: 8px 16px;
     color: #fff;
-    font-size: inherit;
     background-color: #3fb6be;
-    box-sizing: border-box;
-    /* box-shadow: 0 3px 5px -1px rgb(0 0 0 / 20%), 0 6px 10px 0 rgb(0 0 0 / 14%),
-        0 1px 18px 0 rgb(0 0 0 / 12%); */
-    transition: transform 0.15s cubic-bezier(0, 0, 0.2, 1) 0ms;
-    transform: scale(0.8);
 }
-
 .b3-snackbar__close {
     position: absolute;
     color: #fff;
