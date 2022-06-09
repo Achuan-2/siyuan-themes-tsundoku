@@ -66,32 +66,28 @@
 .bq[style*="background-color: var(--b3-card-error-background);"] code{
     background-color: #f0c4b959 !important;
 }
-.bq[style*="background-color: var(--b3-card-error-background);"] .code-block,
-.bq[style*="background-color: var(--b3-card-error-background);"] .protyle-linenumber__rows{
+.bq[style*="background-color: var(--b3-card-error-background);"] .code-block{
     background-color: #f6d8d3;
 }
 .bq[style*="background-color: var(--b3-card-warning-background);"] kbd,
 .bq[style*="background-color: var(--b3-card-warning-background);"] code{
     background-color: #f0dfb959 !important;
 }
-.bq[style*="background-color: var(--b3-card-warning-background);"] .code-block,
-.bq[style*="background-color: var(--b3-card-warning-background);"] .protyle-linenumber__rows{
+.bq[style*="background-color: var(--b3-card-warning-background);"] .code-block{
     background-color: #f7e9d0;
 }
 .bq[style*="background-color: var(--b3-card-info-background);"] kbd,
 .bq[style*="background-color: var(--b3-card-info-background);"] code{
     background-color: #bedaeb59 !important;
 }
-.bq[style*="background-color: var(--b3-card-info-background);"] .code-block,
-.bq[style*="background-color: var(--b3-card-info-background);"] .protyle-linenumber__rows{
+.bq[style*="background-color: var(--b3-card-info-background);"] .code-block{
     background-color: #d2e6f4;
 }
 .bq[style*="background-color: var(--b3-card-success-background);"] kbd,
 .bq[style*="background-color: var(--b3-card-success-background);"] code{
     background-color: #c7ebbe59 !important;
 }
-.bq[style*="background-color: var(--b3-card-success-background);"] .code-block,
-.bq[style*="background-color: var(--b3-card-success-background);"] .protyle-linenumber__rows{
+.bq[style*="background-color: var(--b3-card-success-background);"] .code-block{
     background-color: #d9f4d6;
 }
 
