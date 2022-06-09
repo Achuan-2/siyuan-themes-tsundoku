@@ -1963,3 +1963,7 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
 .dock#dockRight {
     border-left: 0px solid var(--b3-border-color);
 }
+
+.b3-dialog__container .layout-tab-bar{
+    background-color: var(--b3-theme-surface);
+}
