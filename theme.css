@@ -1221,7 +1221,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 .layout__wnd--active .layout-tab-bar .item--focus {
     border-radius: 7px 7px 0px 0px;
     border: 0px solid transparent;
-    border-top: 1px solid transparent;
+    border-top: 0px solid transparent;
     font-weight: 400;
     font-size: 15px;
     background-color: #ffffff;
