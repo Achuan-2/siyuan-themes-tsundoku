@@ -1,3 +1,62 @@
+## v1.3.1/2022.06.09
+
+1. 折叠标题小三角丢失
+2. 按钮悬浮高亮
+
+    ```css
+    /* 思源官方2.0.x起样式添加了新变量*/
+    --b3-theme-background-light: #c4d2db;
+    ```
+3. 代码块颜色丢失、优化dark主题的代码样式
+
+    ```css
+    .protyle-wysiwyg .hljs{
+    background改为background-color，并添加!important;
+    }
+    ```
+4. 横版斜杠菜单
+
+    ```css
+    /* 横版斜杠菜单 */
+    .b3-menu.b3-list.b3-list--background.hint--menu {
+        column-count: 4;
+        column-width: 160px !important;
+        column-gap: 10px;
+        column-rule: 1px solid #13c2c240;
+        min-width: 50vw !important;
+        max-height: 480px !important;
+    }
+    ```
+5. 块标移动增加过渡 
+
+    ```css
+    .protyle-gutters {
+        z-index: 3;
+        /* 块标移动增加过渡 */
+            transition: all 200ms ease-out;
+    }
+    ```
+6. 页签样式修正：去掉`.layout-tab-bar .item`样式
+7. 修复嵌入块和浮窗中列表下的引述块左边的列表竖线错位
+
+    ```css
+    .block__popover .protyle-wysiwyg  [data-node-id].li>.bq,
+    .protyle-wysiwyg .protyle-wysiwyg__embed [data-node-id].li>.bq {
+        left: 0.1em;
+        top: -1px;
+    }
+    ```
+8. 嵌入块分割
+
+    ```css
+    /* 嵌入块分割 */
+    .protyle-wysiwyg [data-node-id].render-node[data-type=NodeBlockQueryEmbed]>.protyle-wysiwyg__embed {
+        border-top: 3px dashed #0e5d12d6;
+        position: relative;
+    }
+    ```
+
+
 ## v1.3.0/2022.05.04
 - :bug: 适配思源v2.0.4 alpha1
 
