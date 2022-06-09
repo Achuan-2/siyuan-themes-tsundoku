@@ -18,7 +18,7 @@
 ![](preview.png)
 
 > 前排提示：今后会专注于生活工作本身，应该会很少更新本主题了。   
-> Achaun-2于2022.06.09
+> Achuan-2于2022.06.09
 
 
 **简介**：[思源笔记(Siyuan)](https://github.com/siyuan-note/siyuan)是一款本地优先的个人知识管理系统，支持完全离线使用，同时也支持端到端加密同步。融合块、大纲和双向链接，构建你永恒的数字花园。本主题为个人原创主题，专为思源笔记设计。
@@ -64,6 +64,7 @@ Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释
     | f       | hide/挖空<br /> | 挖空块                                                 |                                                                            |
     | f       | table       | 将列表转化为表格<br />                                     | 参考自[Zhang light主题](https://github.com/UserZYF/zhang-light)            |
     | f       | scroll      | 代码块和表格设置最大展示高度，超过则显示纵向滚动条，<br /> | 参考自[Dark+主题](https://github.com/Zuoqiu-Yingyi/siyuan-theme-dark-plus) |
+  
   - 自定义文档属性
     | 属性key  | 属性值value | 功能             |
     | ---------- | ------------- | ------------------ |
