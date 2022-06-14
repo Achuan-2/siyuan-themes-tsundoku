@@ -1,3 +1,7 @@
+## v1.3.2/2020.06.14
+- :bug:对搜索结果页面进行全屏展示的 bughttps://github.com/Achuan-2/siyuan-themes-tsundoku-stone/issues/7
+- :bug:【外观】无序列表中的三级标题左边的竖线，以前是居中的，现在靠上显示了https://github.com/Achuan-2/siyuan-themes-tsundoku-dark/issues/30
+
 ## v1.3.1/2022.06.09
 
 1. 折叠标题小三角丢失

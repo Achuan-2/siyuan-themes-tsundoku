@@ -355,7 +355,7 @@ body{
 }
 /* 列表中h3特殊调整 */
 .protyle-wysiwyg .li>.h3>div:first-child:before{
-    margin-top: -0.1em;
+    margin-top: 0.1em;
 }
 /* 
 .protyle-wysiwyg .li>.h3>div:first-child:before{

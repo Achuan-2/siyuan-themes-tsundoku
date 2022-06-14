@@ -13,7 +13,7 @@ body>div[data-key]>.b3-dialog>.b3-dialog__container>div>.fn__flex>.fn__flex-colu
 /* 调整搜索框关闭按钮位置, 避免被遮挡 */
 body>div[data-key]>.b3-dialog>.b3-dialog__container>svg.b3-dialog__close {
     right: -25px;
-    z-index: 9999;
+    /* z-index: 9999; */
 }
 
 /* 窗口较宽时并排显示搜索结果 */
@@ -33,12 +33,13 @@ body>div[data-key]>.b3-dialog>.b3-dialog__container>svg.b3-dialog__close {
 
     /* 搜索结果与搜索结果预览分栏 */
     body>div[data-key]>.b3-dialog>.b3-dialog__container>div>.fn__flex>.fn__flex-column #searchList,
-    body>div[data-key]>.b3-dialog>.b3-dialog__container>div>.fn__flex>.fn__flex-column #searchPreview {
+    body>div[data-key]>.b3-dialog>.b3-dialog__container>div>.fn__flex>.fn__flex-column #searchPreview:not(.fullscreen) {
         float: left;
         width: 50% !important;
         height: calc(100% - 84px) !important;
     }
 }
+
 /* 修复搜索文章不能完整显示的问题 */
 .spread-search__preview .protyle-content {
     padding-bottom: 56px;
@@ -63,4 +64,5 @@ div[data-key='⌘R'] #searchPreview .protyle-content {
     overflow: hidden !important;
     text-overflow: ellipsis;
 }
+
 /*---------ctrl+p窗口改造 end -------------*/
