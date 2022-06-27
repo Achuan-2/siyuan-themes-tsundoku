@@ -1084,6 +1084,13 @@ div[data-subtype='t'][data-type='NodeList'] {
 }
 
 /* 消息提示 */
+/* 消息提示 */
+#message .b3-button {
+    color: #fff;
+    background-color: #3fb6be;
+    border-radius: 16x;
+    padding: 8px 8px;
+}
 .b3-snackbar__content {
     color: #fff;
     background-color: #3fb6be;
@@ -1500,7 +1507,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     transition: var(--b3-transition);
     padding: 0 2px;
     width: 20px;
-    margin-top: -3px;
+    margin-top: -1px;
 }
 
 /* 改变新建按钮图标 */
@@ -1527,10 +1534,10 @@ div[data-subtype='t'][data-type='NodeList'] {
 }
 
 
-.emojis__item img, .emojis__item svg {
+/* .emojis__item img, .emojis__item svg {
     height: 30px;
     width: 30px;
-}
+} */
 .emojis__item {
     font-size: 20px;
     line-height: 30px;
@@ -1936,15 +1943,7 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
 }
 
 
-/* 横版斜杠菜单 */
-.b3-menu.b3-list.b3-list--background.hint--menu {
-    column-count: 4;
-    column-width: 160px !important;
-    column-gap: 10px;
-    column-rule: 1px solid #13c2c240;
-    min-width: 50vw !important;
-    max-height: 480px !important;
-}
+
 
 /* 去除dock栏的边框 */
 .dock#dockLeft {
