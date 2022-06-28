@@ -1502,8 +1502,6 @@ div[data-subtype='t'][data-type='NodeList'] {
     text-align: center;
     font-size: 15px;
     margin-right: 1px;
-    line-height: 28px;
-    height: 28px;
     transition: var(--b3-transition);
     padding: 0 2px;
     width: 20px;
