@@ -1,24 +1,674 @@
-function loadScript(url) {
-	let script = document.createElement("script");
-	script.setAttribute("type", "module");
-	script.setAttribute("src", url);
-	document.getElementsByTagName("head")[0].appendChild(script);
-}
+/**目标：能跑就行 */
 
-function changeFamily() {
-	family = document.querySelector("style#editorFontSize");
-	start = family.innerHTML.indexOf("font-family");
-	length = family.innerHTML.length;
-	document.documentElement.style.setProperty(
-		"--font-family",
-		family.innerHTML.substring(start + 13, length - 13)
+const HBuiderXToolbarID = "HBuiderXToolbar";
+const SiYuanToolbarID = "toolbar";
+
+const SidebarHoverButtonID = "sidebarHoverButton";
+const HighlightBecomesHiddenID = "highlightBecomesHidden";
+const QuickDropDownID = "quickDropDown";
+const FocusingOnAmplification = "FocusingOnAmplification";
+
+var siYuanToolbar = null;
+var HBuiderXToolbar = null;
+var sidebarHoverButton = null;
+var highlightBecomesHiddenButton = null;
+var quickDropDownButton = null;
+var focusingOnAmplificationButton = null;
+
+var layout__center_fn__flex_fn__flex_1 = null;
+
+var LeftHoverBlock = null;
+var RightHoverBlock = null;
+
+var left_fn__flex_column = null;
+var right_fn__flex_column = null;
+
+var left_fn__flex_column_Width_Str = null;
+var right_fn__flex_column_Width_Str = null;
+
+/*创建HBuiderX主题工具栏区域*/
+function createHBuiderXToolbar() {
+	siYuanToolbar = getSiYuanToolbar();
+
+	HBuiderXToolbar = getHBuiderXToolbar();
+	var windowControls = document.getElementById("windowControls");
+
+	if (HBuiderXToolbar) siYuanToolbar.removeChild(HBuiderXToolbar);
+	HBuiderXToolbar = insertCreateBefore(
+		windowControls,
+		"div",
+		HBuiderXToolbarID
 	);
-	body = document.querySelector("body");
-	body.style.fontFamily = family.innerHTML.substring(start + 13, length - 13);
 }
 
-/***js from Morgan***/
-/****************************思源API操作**************************/
+/**------------------边栏鼠标悬浮展开按钮-----------------*/
+/*创建边栏鼠标悬浮展开按钮*/
+function createSidebarMouseHoverExpandButton() {
+	sidebarHoverButton = addinsertCreateElement(
+		HBuiderXToolbar,
+		"div",
+		SidebarHoverButtonID
+	);
+	sidebarHoverButton.setAttribute(
+		"title",
+		"开启后左右面板自动关闭，鼠标贴边自动展开,鼠标移动编辑区域左右上角触发关闭。"
+	);
+	addSidebarHoverButtonEven(
+		sidebarHoverButtonImplementEven
+	); /*为此按钮注册点击事件 */
+}
+
+/*SidebarHoverButton按钮添加监听事件*/
+function addSidebarHoverButtonEven(fun) {
+	AddEvent(sidebarHoverButton, "mousedown", fun);
+}
+
+/*SidebarHoverButton 按钮点击后执行事件*/
+function sidebarHoverButtonImplementEven() {
+	loadStyle(
+		"/appearance/themes/Tsundoku Light/customizeStyle/customizeCss.css",
+		"customizeCss"
+	);
+
+	/**获取区域主体 */
+	var column = document.querySelectorAll("#layouts>div.fn__flex.fn__flex-1")[0];
+
+	/**左区域 */
+	if (!left_fn__flex_column) left_fn__flex_column = column.firstElementChild;
+	/**右区域 */
+	if (!right_fn__flex_column) right_fn__flex_column = column.lastElementChild;
+
+	/**必须左右已经展开功能才可以生效 */
+	if (
+		"0px" != left_fn__flex_column.style.width &&
+		"0px" != right_fn__flex_column.style.width
+	) {
+		if (!LeftHoverBlock) createHoverBlock();
+
+		closeLeftPanel();
+		closeRightPanel();
+		sidebarHoverButton.style.backgroundColor ="var(--b3-theme-background-light)";
+		sidebarHoverButton.style.backgroundImage =
+			"url(/appearance/themes/Tsundoku Light/customizeStyle/sidebar.svg)";
+	} else {
+		if (!LeftHoverBlock) {
+			alert("请在左右区域都处于打开下状态下点击！");
+			return;
+		}
+
+		openLeftPanel();
+		openRightPanel();
+
+		HBuiderXToolbar.removeChild(LeftHoverBlock);
+		HBuiderXToolbar.removeChild(RightHoverBlock);
+
+		LeftHoverBlock = null;
+		RightHoverBlock = null;
+		sidebarHoverButton.style.backgroundColor =
+			"transparent";
+		sidebarHoverButton.style.backgroundImage =
+			"url(/appearance/themes/Tsundoku Light/customizeStyle/sidebar.svg)";
+	}
+}
+
+/*在左右面板打开鼠标触发块*/
+function createHoverBlock() {
+	LeftHoverBlock = addinsertCreateElement(
+		HBuiderXToolbar,
+		"div",
+		"LeftHoverBlock"
+	);
+	LeftHoverBlock.setAttribute("display", "block");
+
+	RightHoverBlock = addinsertCreateElement(
+		HBuiderXToolbar,
+		"div",
+		"RightHoverBlock"
+	);
+	RightHoverBlock.setAttribute("display", "block");
+}
+
+/*左面板关闭*/
+function closeLeftPanel() {
+	if ("0px" != left_fn__flex_column.style.width) {
+		left_fn__flex_column_Width_Str = left_fn__flex_column.style.width;
+		left_fn__flex_column.style.width = "0px";
+		left_fn__flex_column.style.position = "fixed";
+		left_fn__flex_column.style.zIndex = "-11";
+
+		/*解绑触发块鼠标进入，面板关闭事件 */
+		myRemoveEvent(LeftHoverBlock, "mouseover", closeLeftPanel);
+		/*注册触发块鼠标进入，面板打开事件 */
+		AddEvent(LeftHoverBlock, "mouseover", openLeftPanel);
+
+		/*移动触发块位置，等待触发面板打开 */
+		LeftHoverBlock.style.width = "12px";
+		LeftHoverBlock.style.left = "0px";
+		LeftHoverBlock.style.right = "auto";
+		LeftHoverBlock.style.height = "100%";
+
+		if (right_fn__flex_column.style.width == "0px") {
+			RightHoverBlock.style.right = "0px";
+			RightHoverBlock.style.left = "auto";
+		} else {
+			RightHoverBlock.style.left = "0px";
+		}
+	}
+}
+
+/*左面板展开*/
+function openLeftPanel() {
+	if ("0px" != left_fn__flex_column_Width_Str) {
+		left_fn__flex_column.style.width = left_fn__flex_column_Width_Str;
+		left_fn__flex_column.style.position = "static";
+		left_fn__flex_column.style.zIndex = "2";
+
+		/*解绑触发块鼠标进入，面板打开事件 */
+		myRemoveEvent(LeftHoverBlock, "mouseover", openLeftPanel);
+		/*注册触发块鼠标进入，面板关闭事件 */
+		AddEvent(LeftHoverBlock, "mouseover", closeLeftPanel);
+
+		/*移动触发块位置，等待触发面板关闭 */
+		LeftHoverBlock.style.width = "400px";
+		LeftHoverBlock.style.left = "auto";
+		LeftHoverBlock.style.right =
+			parseFloat(right_fn__flex_column.style.width) + 25 + "px";
+		LeftHoverBlock.style.height = "200px";
+
+		if (right_fn__flex_column.style.width != "0px") {
+			RightHoverBlock.style.left =
+				parseFloat(left_fn__flex_column_Width_Str) + 25 + "px";
+		}
+	}
+}
+
+/*右面板关闭*/
+function closeRightPanel() {
+	if ("0px" != right_fn__flex_column.style.width) {
+		right_fn__flex_column_Width_Str = right_fn__flex_column.style.width;
+		right_fn__flex_column.style.width = "0px";
+		right_fn__flex_column.style.position = "fixed";
+		right_fn__flex_column.style.zIndex = "-11";
+
+		/*解绑触发块鼠标进入，面板关闭事件 */
+		myRemoveEvent(RightHoverBlock, "mouseover", closeRightPanel);
+		/*注册触发块鼠标进入，面板打开事件 */
+		AddEvent(RightHoverBlock, "mouseover", openRightPanel);
+
+		/*移动触发块位置，等待触发面板打开 */
+		RightHoverBlock.style.width = "12px";
+		RightHoverBlock.style.height = "100%";
+		RightHoverBlock.style.right = "0px";
+		RightHoverBlock.style.left = "auto";
+
+		if (left_fn__flex_column.style.width == "0px") {
+			LeftHoverBlock.style.left = "0px";
+			LeftHoverBlock.style.right = "auto";
+		} else {
+			LeftHoverBlock.style.right = "0px";
+		}
+	}
+}
+
+/*右面板展开*/
+function openRightPanel() {
+	if ("0px" != right_fn__flex_column_Width_Str) {
+		right_fn__flex_column.style.width = right_fn__flex_column_Width_Str;
+		right_fn__flex_column.style.position = "static";
+		right_fn__flex_column.style.zIndex = "0";
+
+		/*解绑触发块鼠标进入，面板打开事件 */
+		myRemoveEvent(RightHoverBlock, "mouseover", openRightPanel);
+		/*注册触发块鼠标进入，面板关闭事件 */
+		AddEvent(RightHoverBlock, "mouseover", closeRightPanel);
+
+		/*移动触发块位置，等待触发面板关闭 */
+		RightHoverBlock.style.width = "400px";
+		RightHoverBlock.style.right = "auto";
+		RightHoverBlock.style.left =
+			parseFloat(left_fn__flex_column.style.width) + 25 + "px";
+		RightHoverBlock.style.height = "200px";
+
+		if (left_fn__flex_column.style.width != "0px") {
+			LeftHoverBlock.style.right =
+				parseFloat(right_fn__flex_column_Width_Str) + 25 + "px";
+		}
+	}
+}
+
+/**------------------高亮变隐藏按钮-----------------*/
+
+function createHighlightBecomesHidden() {
+	loadStyle(
+		"/appearance/themes/Tsundoku Light/customizeStyle/conceal-Mark.css",
+		"markCss"
+	);
+
+	highlightBecomesHiddenButton = addinsertCreateElement(
+		HBuiderXToolbar,
+		"div",
+		HighlightBecomesHiddenID
+	);
+	highlightBecomesHiddenButton.setAttribute(
+		"title",
+		"开启后显示CTRL+E隐藏文本。"
+	);
+
+	AddEvent(
+		highlightBecomesHiddenButton,
+		"mousedown",
+		highlightBecomesHiddenButtonClickEven
+	); /*为此按钮注册点击事件 */
+}
+
+/*切换mark标签外部css样式,以达到高亮变隐藏的效果 */
+function highlightBecomesHiddenButtonClickEven() {
+	var obj = document.getElementById("markCss");
+
+	if (
+		obj.getAttribute("href") !=
+		"/appearance/themes/Tsundoku Light/customizeStyle/conceal-Mark.css"
+	) {
+		obj.setAttribute(
+			"href",
+			"/appearance/themes/Tsundoku Light/customizeStyle/conceal-Mark.css"
+		);
+		highlightBecomesHiddenButton.style.backgroundColor = "transparent";
+		highlightBecomesHiddenButton.style.backgroundImage =
+			"url(/appearance/themes/Tsundoku Light/customizeStyle/highlight.svg)";
+	} else {
+		obj.setAttribute(
+			"href",
+			"/appearance/themes/Tsundoku Light/customizeStyle/highlight-Mark.css"
+		);
+		highlightBecomesHiddenButton.style.backgroundColor =
+			"var(--b3-theme-background-light)";
+		highlightBecomesHiddenButton.style.backgroundImage =
+			"url(/appearance/themes/Tsundoku Light/customizeStyle/highlight.svg)";
+	}
+}
+
+/**-------------------------------选中文字计数-------------------------------------*/
+
+function getTXTSum() {
+	setInterval(gettxt, 300); /**块级计数 */
+
+	AddEvent(document.body, "mousedown", gettxtMouseDown);
+	AddEvent(document.body, "mouseup", gettxtMouseUp);
+}
+
+/**鼠标选中的字数，显示在标题栏 */
+var dragTxt = null;
+var drag = null;
+function gettxtMouseDown() {
+	AddEvent(document.body, "mousemove", gettxtMouseMove);
+}
+
+var flag = false;
+function gettxtMouseMove() {
+	if (flag == false) {
+		drag = document.getElementById("drag");
+		dragTxt = drag.innerText;
+		flag = true;
+	}
+
+	var txt = window.getSelection
+		? window.getSelection()
+		: document.selection.createRange().text;
+	var sun = iGettxtSun(txt);
+
+	if (sun <= 0) {
+		return;
+	}
+
+	drag.innerText = "划选字数：" + sun;
+}
+
+function gettxtMouseUp() {
+	myRemoveEvent(document.body, "mousemove", gettxtMouseMove);
+
+	flag = false;
+
+	if (dragTxt != null) {
+		drag.innerText = dragTxt;
+		dragTxt = null;
+	}
+}
+
+//获取鼠标选中的文字字数,显示在工具栏
+function gettxt() {
+	CreateAcountSelectElement();
+
+	var txt = window.getSelection
+		? window.getSelection()
+		: document.selection.createRange().text;
+	var sun = iGettxtSun(txt);
+
+	if (sun <= 0) {
+		return;
+	}
+
+	var txtSuns = document.querySelectorAll(
+		".protyle-toolbar>[data-type='txtSun']"
+	);
+
+	for (let index = 0; index < txtSuns.length; index++) {
+		const element = txtSuns[index];
+		element.innerText = sun;
+	}
+}
+
+/**为每个文档选择工具栏创建计数选择元素 */
+function CreateAcountSelectElement() {
+	/**获得所有打开文档为激活工具栏 */
+	var protyleToolbars = document.querySelectorAll(
+		"div.protyle-toolbar.fn__none"
+	);
+
+	/**没有标记就创建 */
+	for (let index = 0; index < protyleToolbars.length; index++) {
+		const element = protyleToolbars[index];
+
+		if (element.getAttribute("count") == null) {
+			element.setAttribute("count", true);
+			CreateTxtSumElement(element);
+		}
+	}
+}
+
+/** 创建工具栏显示元素*/
+function CreateTxtSumElement(inser) {
+	var divIder = addinsertCreateElement(inser, "div");
+	divIder.setAttribute("class", "protyle-toolbar__divider");
+
+	var txtSunElement = addinsertCreateElement(inser, "div");
+	txtSunElement.setAttribute(
+		"class",
+		"protyle-toolbar__item b3-tooltips b3-tooltips__n"
+	);
+	txtSunElement.setAttribute("data-type", "txtSun");
+	txtSunElement.setAttribute("aria-label", "选中字数");
+	txtSunElement.style.paddingRight = "10px";
+	txtSunElement.style.lineHeight = "29px";
+	txtSunElement.style.fontSize = "110%";
+	txtSunElement.style.fontWeight = "bold";
+}
+
+/**去除空格换行 */
+function iGettxtSun(text) {
+	var resultStr = text.toString();
+	if (resultStr.length == 0) {
+		return 0;
+	} else {
+		resultStr = resultStr.replace(/[\'\"\\\/\b\f\n\r\t]/g, ""); //去掉空格
+		var newStr = "";
+		for (var i = 0; i < resultStr.length; i++) {
+			if (resultStr[i] != "​") {
+				newStr += resultStr[i];
+			}
+		}
+		return newStr.length;
+	}
+}
+
+/**------------------为打开文档的标题下显示文档创建日期------------- */
+
+function showDocumentCreationDate() {
+	setInterval(DocumentCreationDate, 300); /**块级计数 */
+}
+
+function DocumentCreationDate() {
+	var allDocumentTitleElement = getAllDocumentTitleElement();
+
+	for (let index = 0; index < allDocumentTitleElement.length; index++) {
+		const element = allDocumentTitleElement[index];
+
+		var documentCreatTimeElement = creatTimeSpanElement(element.parentElement);
+
+		var spanTxt = documentCreatTimeElement.innerText;
+
+		if (spanTxt == "" || spanTxt == "日期取中……") {
+			var documentCreatTimeTxt = getDocumentTime(element);
+			documentCreatTimeElement.innerText = documentCreatTimeTxt;
+		}
+	}
+}
+
+/**获取所有打开文档的标题元素 */
+function getAllDocumentTitleElement() {
+	return document.querySelectorAll(".protyle-title__input");
+}
+
+/**为文档标题元素下创建时间容器元素 */
+function creatTimeSpanElement(tilteElement) {
+	var item = tilteElement.children;
+
+	for (let index = 0; index < item.length; index++) {
+		const element = item[index];
+
+		if (element.getAttribute("documentCreatTimeElement") != null) {
+			return element;
+		}
+	}
+
+	var documentCreatTimeElement = addinsertCreateElement(tilteElement, "span");
+	documentCreatTimeElement.setAttribute("documentCreatTimeElement", "true");
+	documentCreatTimeElement.style.display = "block";
+
+	documentCreatTimeElement.style.marginLeft = "7px";
+	documentCreatTimeElement.style.marginBottom = "0px";
+
+	documentCreatTimeElement.style.fontSize = "61%";
+	documentCreatTimeElement.style.color = "#767676";
+
+	return documentCreatTimeElement;
+}
+
+/**获得这个文档的创建时间 */
+function getDocumentTime(tilteElement) {
+	var tS =
+		tilteElement.parentElement.previousElementSibling.getAttribute(
+			"data-node-id"
+		);
+
+	if (tS == null) {
+		return "日期取中……";
+	}
+	var year = tS.substring(0, 4);
+	var moon = tS.substring(4, 6);
+	var day = tS.substring(6, 8);
+	var hour = tS.substring(8, 10);
+	var minute = tS.substring(10, 12);
+	var second = tS.substring(12, 14);
+
+	return (
+		year + "-" + moon + "-" + day + " . " + hour + ":" + minute + ":" + second
+	);
+	/*return year+"年"+moon+"月"+day+"日"+hour+"时"+minute+"分"+second+"秒";*/
+}
+
+/**
+ * 向body注入新style覆盖原本的css
+ * @param {css文本字符串} csstxt
+ */
+function injectionCss(csstxt) {
+	var styleElement = document.createElement("style");
+	styleElement.innerText = t;
+	document.body.appendChild(styleElement);
+}
+
+/**
+ * 向指定父级创建追加一个子元素，并可选添加ID,
+ * @param {Element} fatherElement
+ * @param {string} addElementTxt 要创建添加的元素标签
+ * @param {string} setId
+ * @returns addElementObject
+ */
+function addinsertCreateElement(fatherElement, addElementTxt, setId = null) {
+	if (!fatherElement) console.error("指定元素对象不存在！");
+	if (!addElementTxt) console.error("未指定字符串！");
+
+	var element = document.createElement(addElementTxt);
+
+	if (setId) element.id = setId;
+
+	fatherElement.appendChild(element);
+
+	return element;
+}
+
+/**
+ * 向指定元素后创建插入一个元素，可选添加ID
+ * @param {*} targetElement 目标元素
+ * @param {*} addElementTxt 要创建添加的元素标签
+ * @param {*} setId 为创建元素设置ID
+ */
+function insertCreateAfter(targetElement, addElementTxt, setId = null) {
+	if (!targetElement) console.error("指定元素对象不存在！");
+	if (!addElementTxt) console.error("未指定字符串！");
+
+	var element = document.createElement(addElementTxt);
+
+	if (setId) element.id = setId;
+
+	var parent = targetElement.parentNode; //得到父节点
+	if (parent.lastChild === targetElement) {
+		//如果最后一个子节点是当前元素那么直接添加即可
+		parent.appendChild(element);
+
+		return element;
+	} else {
+		parent.insertBefore(element, targetElement.nextSibling); //否则，当前节点的下一个节点之前添加
+
+		return element;
+	}
+}
+
+/**
+ * 向指定元素前创建插入一个元素，可选添加ID
+ * @param {*} targetElement 目标元素
+ * @param {*} addElementTxt 要创建添加的元素标签
+ * @param {*} setId 为创建元素设置ID
+ */
+function insertCreateBefore(targetElement, addElementTxt, setId = null) {
+	if (!targetElement) console.error("指定元素对象不存在！");
+	if (!addElementTxt) console.error("未指定字符串！");
+
+	var element = document.createElement(addElementTxt);
+
+	if (setId) element.id = setId;
+
+	targetElement.parentElement.insertBefore(element, targetElement);
+
+	return element;
+}
+
+/**
+ * 为元素注册监听事件
+ * @param {Element} element
+ * @param {string} strType
+ * @param {Fun} fun
+ */
+function AddEvent(element, strType, fun) {
+	//判断浏览器有没有addEventListener方法
+	if (element.addEventListener) {
+		element.addEventListener(strType, fun, false);
+		//判断浏览器有没 有attachEvent IE8的方法
+	} else if (element.attachEvent) {
+		element.attachEvent("on" + strType, fun);
+		//如果都没有则使用 元素.事件属性这个基本方法
+	} else {
+		element["on" + strType] = fun;
+	}
+}
+
+/**
+ * 为元素解绑监听事件
+ * @param {Element}  element ---注册事件元素对象
+ * @param {String}   strType ---注册事件名(不加on 如"click")
+ * @param {Function} fun	 ---回调函数
+ *
+ */
+function myRemoveEvent(element, strType, fun) {
+	//判断浏览器有没有addEventListener方法
+	if (element.addEventListener) {
+		// addEventListener方法专用删除方法
+		element.removeEventListener(strType, fun, false);
+		//判断浏览器有没有attachEvent IE8的方法
+	} else if (element.attachEvent) {
+		// attachEvent方法专用删除事件方法
+		element.detachEvent("on" + strType, fun);
+		//如果都没有则使用 元素.事件属性这个基本方法
+	} else {
+		//删除事件用null
+		element["on" + strType] = null;
+	}
+}
+
+/**
+ * 加载脚本文件
+ * @param {string} url 脚本地址
+ * @param {string} type 脚本类型
+ */
+function loadScript(url, type = "module") {
+	let script = document.createElement("script");
+	if (type) script.setAttribute("type", type);
+	script.setAttribute("src", url);
+	document.head.appendChild(script);
+}
+
+/**
+ * 得到思源toolbar
+ * @returns
+ */
+function getSiYuanToolbar() {
+	return document.getElementById(SiYuanToolbarID);
+}
+
+/**
+ * 得到HBuiderXToolbar
+ * @returns
+ */
+function getHBuiderXToolbar() {
+	return document.getElementById(HBuiderXToolbarID);
+}
+
+/**简单判断目前思源是否是手机模式 */
+function isPhone() {
+	if (document.getElementById(SiYuanToolbarID) == null) {
+		return true;
+	}
+	return false;
+}
+
+/**
+ * 加载样式文件
+ * @param {string} url 样式地址
+ * @param {string} id 样式 ID
+ */
+function loadStyle(url, id) {
+	var headElement = document.head;
+
+	if (!id) console.error("未指定外部css文件引入ID");
+
+	let style = document.getElementById(id);
+	if (style) headElement.removeChild(style);
+
+	style = document.createElement("link");
+
+	style.id = id;
+	style.setAttribute("type", "text/css");
+	style.setAttribute("rel", "stylesheet");
+	style.setAttribute("href", url);
+	headElement.appendChild(style);
+}
+
+/**
+ *
+ * @param {*} 内容块id
+ * @param {*} 属性对象
+ * @returns
+ */
 async function 设置思源块属性(内容块id, 属性对象) {
 	let url = "/api/attr/setBlockAttrs";
 	return 解析响应体(
@@ -28,6 +678,12 @@ async function 设置思源块属性(内容块id, 属性对象) {
 		})
 	);
 }
+/**
+ *
+ * @param {*} url
+ * @param {*} data
+ * @returns
+ */
 async function 向思源请求数据(url, data) {
 	let resData = null;
 	await fetch(url, {
@@ -41,125 +697,139 @@ async function 向思源请求数据(url, data) {
 	});
 	return resData;
 }
+/**
+ *
+ * @param {*} response
+ * @returns
+ */
 async function 解析响应体(response) {
 	let r = await response;
 	return r.code === 0 ? r.data : null;
 }
 
-/****UI****/
-生成列表菜单项目 = function () {
-	let 块标菜单 = document.getElementById("commonMenu");
-	let 最后项 = 块标菜单.querySelector(".b3-menu__item--readonly");
-	if (最后项) {
-		块标菜单.insertBefore(选择视图按钮(), 最后项);
-		块标菜单.insertBefore(菜单分隔项(), 最后项);
-	}
-	changeFamily();
-};
-
-选择视图按钮 = function () {
+/****各种列表转xx的UI****/
+function ViewSelect(selectid, selecttype) {
 	let button = document.createElement("button");
 	button.id = "viewselect";
 	button.className = "b3-menu__item";
 	button.innerHTML =
-		'<svg class="b3-menu__icon" style="null"><use xlink:href="#iconPreview"></use></svg><span class="b3-menu__label" style="">选择视图</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="null"><use xlink:href="#iconRight"></use></svg></button>';
-	button.appendChild(子菜单栏());
+		'<svg class="b3-menu__icon" style="null"><use xlink:href="#iconGlobalGraph"></use></svg><span class="b3-menu__label" style="">视图选择</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="null"><use xlink:href="#iconRight"></use></svg></button>';
+	button.appendChild(SubMenu(selectid, selecttype));
 	return button;
-};
+}
 
-子菜单栏 = function (className = "b3-menu__submenu") {
+function SubMenu(selectid, selecttype, className = "b3-menu__submenu") {
 	let node = document.createElement("div");
 	node.className = className;
-	selectid = getBlockSelected();
-	id = selectid.id;
-	if (selectid.type == "NodeList") {
-		node.appendChild(列表转换导图按钮(id));
-		node.appendChild(列表转换表格按钮(id));
-		node.appendChild(列表转换看板按钮(id));
-		node.appendChild(列表恢复默认按钮(id));
-		return node;
+	if (selecttype == "NodeList") {
+		node.appendChild(GraphView(selectid));
+		node.appendChild(TableView(selectid));
+		node.appendChild(kanbanView(selectid));
+		node.appendChild(DefaultView(selectid));
 	}
-	// if (selectid.type == "NodeTable") {
-	// 	node.appendChild(页面宽度视图按钮(id));
-	// 	node.appendChild(自动宽度视图按钮(id));
-	// }
-	else {
-		return null;
+	if (selecttype == "NodeTable") {
+		node.appendChild(FixWidth(selectid));
+		node.appendChild(AutoWidth(selectid));
+		node.appendChild(Removeth(selectid));
+		node.appendChild(Defaultth(selectid));
 	}
-};
+	return node;
+}
 
-列表转换导图按钮 = function (id) {
+function GraphView(selectid) {
 	let button = document.createElement("button");
 	button.className = "b3-menu__item";
-	button.setAttribute("data-node-id", id);
+	button.setAttribute("data-node-id", selectid);
 	button.setAttribute("custom-attr-name", "f");
 	button.setAttribute("custom-attr-value", "dt");
 
-	button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFiles"></use></svg><span class="b3-menu__label">转换为脑图</span>`;
-	button.onclick = 视图菜单监听器;
+	button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFiles"></use></svg><span class="b3-menu__label">转换为导图</span>`;
+	button.onclick = ViewMonitor;
 	return button;
-};
-列表转换表格按钮 = function (id) {
+}
+function TableView(selectid) {
 	let button = document.createElement("button");
 	button.className = "b3-menu__item";
-	button.setAttribute("data-node-id", id);
+	button.setAttribute("data-node-id", selectid);
 	button.setAttribute("custom-attr-name", "f");
 	button.setAttribute("custom-attr-value", "bg");
 
 	button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">转换为表格</span>`;
-	button.onclick = 视图菜单监听器;
+	button.onclick = ViewMonitor;
 	return button;
-};
-列表转换看板按钮 = function (id) {
+}
+function kanbanView(selectid) {
 	let button = document.createElement("button");
 	button.className = "b3-menu__item";
-	button.setAttribute("data-node-id", id);
+	button.setAttribute("data-node-id", selectid);
 	button.setAttribute("custom-attr-name", "f");
 	button.setAttribute("custom-attr-value", "kb");
 
 	button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconMenu"></use></svg><span class="b3-menu__label">转换为看板</span>`;
-	button.onclick = 视图菜单监听器;
+	button.onclick = ViewMonitor;
 	return button;
-};
-列表恢复默认按钮 = function (id) {
+}
+function DefaultView(selectid) {
 	let button = document.createElement("button");
 	button.className = "b3-menu__item";
-	button.onclick = 视图菜单监听器;
-	button.setAttribute("data-node-id", id);
+	button.onclick = ViewMonitor;
+	button.setAttribute("data-node-id", selectid);
 	button.setAttribute("custom-attr-name", "f");
 	button.setAttribute("custom-attr-value", "");
 
 	button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconList"></use></svg><span class="b3-menu__label">恢复为列表</span>`;
 	return button;
-};
-页面宽度视图按钮 = function (id) {
+}
+function FixWidth(selectid) {
 	let button = document.createElement("button");
 	button.className = "b3-menu__item";
-	button.onclick = 视图菜单监听器;
-	button.setAttribute("data-node-id", id);
+	button.onclick = ViewMonitor;
+	button.setAttribute("data-node-id", selectid);
 	button.setAttribute("custom-attr-name", "f");
-	button.setAttribute("custom-attr-value", "auto");
+	button.setAttribute("custom-attr-value", "");
 
 	button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">页面宽度</span>`;
 	return button;
-};
-自动宽度视图按钮 = function (id) {
+}
+function AutoWidth(selectid) {
 	let button = document.createElement("button");
 	button.className = "b3-menu__item";
-	button.setAttribute("data-node-id", id);
+	button.setAttribute("data-node-id", selectid);
 	button.setAttribute("custom-attr-name", "f");
-	button.setAttribute("custom-attr-value", "");
+	button.setAttribute("custom-attr-value", "auto");
 	button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">自动宽度</span>`;
-	button.onclick = 视图菜单监听器;
+	button.onclick = ViewMonitor;
 	return button;
-};
-菜单分隔项 = function (className = "b3-menu__separator") {
+}
+function Removeth(selectid) {
+	let button = document.createElement("button");
+	button.className = "b3-menu__item";
+	button.onclick = ViewMonitor;
+	button.setAttribute("data-node-id", selectid);
+	button.setAttribute("custom-attr-name", "t");
+	button.setAttribute("custom-attr-value", "biaotou");
+
+	button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">取消表头样式</span>`;
+	return button;
+}
+function Defaultth(selectid) {
+	let button = document.createElement("button");
+	button.className = "b3-menu__item";
+	button.setAttribute("data-node-id", selectid);
+	button.setAttribute("custom-attr-name", "t");
+	button.setAttribute("custom-attr-value", "");
+	button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">默认表头样式</span>`;
+	button.onclick = ViewMonitor;
+	return button;
+}
+function MenuSeparator(className = "b3-menu__separator") {
 	let node = document.createElement("button");
 	node.className = className;
 	return node;
-};
+}
 
 /* 操作 */
+
 /**
  * 获得所选择的块对应的块 ID
  * @returns {string} 块 ID
@@ -180,27 +850,36 @@ function getBlockSelected() {
 	return null;
 }
 
-const 添加视图菜单监听器 = function () {
-	window.addEventListener("mouseup", 判定目标并添加菜单项目);
-};
-var 全局菜单定时器 = {};
-判定目标并添加菜单项目 = function (event) {
-	let 父元素 = event.target.parentElement;
-	if (父元素.getAttribute("draggable") == "true") {
-		扩展菜单(父元素);
-	} else if (父元素.parentElement.getAttribute("draggable") == "true") {
-		扩展菜单(父元素.parentElement);
-	}
-};
+function ClickMonitor() {
+	window.addEventListener("mouseup", MenuShow);
+}
 
-扩展菜单 = function (父元素) {
-	if (父元素.getAttribute("data-type") == "NodeList" || "NodeTable") {
-		全局菜单定时器 = setTimeout(() => 生成列表菜单项目(), 0);
+function MenuShow() {
+	setTimeout(() => {
+		let selectinfo = getBlockSelected();
+		if (selectinfo) {
+			let selecttype = selectinfo.type;
+			let selectid = selectinfo.id;
+			if (selecttype == "NodeList" || selecttype == "NodeTable") {
+				setTimeout(() => InsertMenuItem(selectid, selecttype), 0);
+			}
+		}
+	}, 0);
+}
+
+function InsertMenuItem(selectid, selecttype) {
+	let commonMenu = document.getElementById("commonMenu");
+	let readonly = commonMenu.querySelector(".b3-menu__item--readonly");
+	let selectview = commonMenu.querySelector('[id="viewselect"]');
+	if (readonly) {
+		if (!selectview) {
+			commonMenu.insertBefore(ViewSelect(selectid, selecttype), readonly);
+			commonMenu.insertBefore(MenuSeparator(), readonly);
+		}
 	}
-};
-添加视图菜单监听器();
-视图菜单监听器 = function (event) {
-	// console.log(event.currentTarget)
+}
+
+function ViewMonitor(event) {
 	let id = event.currentTarget.getAttribute("data-node-id");
 	let attrName =
 		"custom-" + event.currentTarget.getAttribute("custom-attr-name");
@@ -213,8 +892,33 @@ var 全局菜单定时器 = {};
 	}
 	let attrs = {};
 	attrs[attrName] = attrValue;
-	// console.log(attrs)
 	设置思源块属性(id, attrs);
-};
+}
 
-setInterval(changeFamily, 1000);
+(function (w, und) {
+	Refresh();
+})(window, undefined);
+
+function Refresh() {
+	setTimeout(() => {
+		createHBuiderXToolbar(); /*创建BuiderXToolbar*/
+
+		createSidebarMouseHoverExpandButton(); /*创建鼠标移动展开左右树面板按钮*/
+		createHighlightBecomesHidden(); /*创建高亮变隐藏按钮 */
+
+		getTXTSum(); /**选中文字计数 */
+
+		loadStyle(
+			"/appearance/themes/Tsundoku Light/customizeStyle/customizeCss.css",
+			"customizeCss"
+		);
+
+		setTimeout(() => ClickMonitor(), 3000); /*各种列表转xx */
+
+		showDocumentCreationDate(); /**为打开文档标题下面显示文档创建日期 */
+
+		console.log(
+			"==============>HBuilderX-Light:CSS,JS_已经执行<=============="
+		);
+	}, 500);
+}

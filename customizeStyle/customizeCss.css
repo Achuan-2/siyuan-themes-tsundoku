@@ -1,0 +1,37 @@
+#HBuiderXToolbar{
+    margin-right: 14px;
+    padding-left: 11px;
+}
+
+#sidebarHoverButton{
+    width: 20px;
+    height: 100%;
+    float: left;
+    background-image: url("sidebar.svg");
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: 120%;
+}
+
+
+
+
+
+
+#highlightBecomesHidden{
+    width: 20px;
+    height: 100%;
+    float: left;
+    margin-left: 10px;
+    background-image: url("highlight.svg");
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: 100%;
+}
+
+
+
+
+
+
+
