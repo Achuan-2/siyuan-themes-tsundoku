@@ -237,7 +237,7 @@ body{
     font-size: 15.5px;
 }
 /* 主要背景色 */
-
+.status,
 .dock {
     /* 侧边栏更改 */
     background-color: #c3cfd6a9;
