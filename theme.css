@@ -497,7 +497,7 @@ strong {
 .protyle-wysiwyg [data-node-id].bq, .b3-typography blockquote {
     /* border: 1px solid var(--blockquote-border-color); */
     border-left: 0.18em solid var(--blockquote-border-color);
-    background-color: #dbe8e52b;
+    background-color: #d2d9de2b;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
