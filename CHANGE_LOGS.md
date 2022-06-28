@@ -1,5 +1,7 @@
 ## v1.3.4/2022.06.28
 - 搬运HBuilderX-Light主题theme.js的关闭左右侧栏、隐藏文本显示功能
+- fix https://github.com/Achuan-2/siyuan-themes-tsundoku-dark/issues/27
+
 
 ## v1.3.3/2022.06.27
 - 文件树emoji位置调整
