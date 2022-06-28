@@ -1957,3 +1957,10 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
 .b3-dialog__container .layout-tab-bar{
     background-color: var(--b3-theme-surface);
 }
+
+
+.protyle-preview__action button,
+.protyle-preview__action button.protyle-preview__action--current,
+.protyle-preview__action button:hover{
+    background-color: transparent;
+}
