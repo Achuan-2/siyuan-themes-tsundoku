@@ -1,3 +1,8 @@
+## v1.3.5/2022.06.29
+- :fire:取消主题选中计数功能
+- :fire:取消主题默认字体思源黑体，并删除字体文件
+- :sparkles: 改进了关闭左右侧栏的功能，只开一边侧栏也可以关闭
+
 ## v1.3.4/2022.06.28
 - 搬运HBuilderX-Light主题theme.js的关闭左右侧栏、隐藏文本显示功能
 - fix https://github.com/Achuan-2/siyuan-themes-tsundoku-dark/issues/27

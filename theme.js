@@ -25,7 +25,8 @@ var right_fn__flex_column = null;
 
 var left_fn__flex_column_Width_Str = null;
 var right_fn__flex_column_Width_Str = null;
-
+var flag = true;
+var bar = null;
 /*创建HBuiderX主题工具栏区域*/
 function createHBuiderXToolbar() {
 	siYuanToolbar = getSiYuanToolbar();
@@ -49,10 +50,7 @@ function createSidebarMouseHoverExpandButton() {
 		"div",
 		SidebarHoverButtonID
 	);
-	sidebarHoverButton.setAttribute(
-		"title",
-		"开启后左右面板自动关闭，鼠标贴边自动展开,鼠标移动编辑区域左右上角触发关闭。"
-	);
+	sidebarHoverButton.setAttribute("title", "开启后左右面板自动关闭。");
 	addSidebarHoverButtonEven(
 		sidebarHoverButtonImplementEven
 	); /*为此按钮注册点击事件 */
@@ -78,37 +76,61 @@ function sidebarHoverButtonImplementEven() {
 	/**右区域 */
 	if (!right_fn__flex_column) right_fn__flex_column = column.lastElementChild;
 
-	/**必须左右已经展开功能才可以生效 */
-	if (
-		"0px" != left_fn__flex_column.style.width &&
-		"0px" != right_fn__flex_column.style.width
-	) {
-		if (!LeftHoverBlock) createHoverBlock();
+	sidebarHoverButton.onclick = function () {
+		if (flag) {
+			if (!LeftHoverBlock) createHoverBlock();
 
-		closeLeftPanel();
-		closeRightPanel();
-		sidebarHoverButton.style.backgroundColor ="var(--b3-theme-background-light)";
-		sidebarHoverButton.style.backgroundImage =
-			"url(/appearance/themes/Tsundoku Light/customizeStyle/sidebar.svg)";
-	} else {
-		if (!LeftHoverBlock) {
-			alert("请在左右区域都处于打开下状态下点击！");
-			return;
+			if (
+				"0px" != left_fn__flex_column.style.width &&
+				"0px" != right_fn__flex_column.style.width
+			) {
+				closeLeftPanel();
+				closeRightPanel();
+				bar = "00";
+			} else if (
+				"0px" != left_fn__flex_column.style.width &&
+				"0px" == right_fn__flex_column.style.width
+			) {
+				closeLeftPanel();
+				bar = "10";
+			} else if (
+				"0px" == left_fn__flex_column.style.width &&
+				"0px" != right_fn__flex_column.style.width
+			) {
+				closeRightPanel();
+				bar = "01";
+			}
+
+			sidebarHoverButton.classList.add("active");
+			flag = false;
+			sidebarHoverButton.style.backgroundColor =
+				"var(--b3-theme-background-light)";
+			sidebarHoverButton.style.backgroundImage =
+				"url(/appearance/themes/Tsundoku Light/customizeStyle/sidebar.svg)";
+			// console.log(flag);
+		} else {
+			if (bar == "00") {
+				openLeftPanel();
+				openRightPanel();
+			} else if (bar == "10") {
+				openLeftPanel();
+			} else if (bar == "01") {
+				openRightPanel();
+			}
+
+			HBuiderXToolbar.removeChild(LeftHoverBlock);
+			HBuiderXToolbar.removeChild(RightHoverBlock);
+
+			LeftHoverBlock = null;
+			RightHoverBlock = null;
+			sidebarHoverButton.classList.remove("active");
+			flag = true;
+			sidebarHoverButton.style.backgroundColor = "transparent";
+			sidebarHoverButton.style.backgroundImage =
+				"url(/appearance/themes/Tsundoku Light/customizeStyle/sidebar.svg)";
+			// console.log(flag);
 		}
-
-		openLeftPanel();
-		openRightPanel();
-
-		HBuiderXToolbar.removeChild(LeftHoverBlock);
-		HBuiderXToolbar.removeChild(RightHoverBlock);
-
-		LeftHoverBlock = null;
-		RightHoverBlock = null;
-		sidebarHoverButton.style.backgroundColor =
-			"transparent";
-		sidebarHoverButton.style.backgroundImage =
-			"url(/appearance/themes/Tsundoku Light/customizeStyle/sidebar.svg)";
-	}
+	};
 }
 
 /*在左右面板打开鼠标触发块*/
@@ -285,129 +307,6 @@ function highlightBecomesHiddenButtonClickEven() {
 			"var(--b3-theme-background-light)";
 		highlightBecomesHiddenButton.style.backgroundImage =
 			"url(/appearance/themes/Tsundoku Light/customizeStyle/highlight.svg)";
-	}
-}
-
-/**-------------------------------选中文字计数-------------------------------------*/
-
-function getTXTSum() {
-	setInterval(gettxt, 300); /**块级计数 */
-
-	AddEvent(document.body, "mousedown", gettxtMouseDown);
-	AddEvent(document.body, "mouseup", gettxtMouseUp);
-}
-
-/**鼠标选中的字数，显示在标题栏 */
-var dragTxt = null;
-var drag = null;
-function gettxtMouseDown() {
-	AddEvent(document.body, "mousemove", gettxtMouseMove);
-}
-
-var flag = false;
-function gettxtMouseMove() {
-	if (flag == false) {
-		drag = document.getElementById("drag");
-		dragTxt = drag.innerText;
-		flag = true;
-	}
-
-	var txt = window.getSelection
-		? window.getSelection()
-		: document.selection.createRange().text;
-	var sun = iGettxtSun(txt);
-
-	if (sun <= 0) {
-		return;
-	}
-
-	drag.innerText = "划选字数：" + sun;
-}
-
-function gettxtMouseUp() {
-	myRemoveEvent(document.body, "mousemove", gettxtMouseMove);
-
-	flag = false;
-
-	if (dragTxt != null) {
-		drag.innerText = dragTxt;
-		dragTxt = null;
-	}
-}
-
-//获取鼠标选中的文字字数,显示在工具栏
-function gettxt() {
-	CreateAcountSelectElement();
-
-	var txt = window.getSelection
-		? window.getSelection()
-		: document.selection.createRange().text;
-	var sun = iGettxtSun(txt);
-
-	if (sun <= 0) {
-		return;
-	}
-
-	var txtSuns = document.querySelectorAll(
-		".protyle-toolbar>[data-type='txtSun']"
-	);
-
-	for (let index = 0; index < txtSuns.length; index++) {
-		const element = txtSuns[index];
-		element.innerText = sun;
-	}
-}
-
-/**为每个文档选择工具栏创建计数选择元素 */
-function CreateAcountSelectElement() {
-	/**获得所有打开文档为激活工具栏 */
-	var protyleToolbars = document.querySelectorAll(
-		"div.protyle-toolbar.fn__none"
-	);
-
-	/**没有标记就创建 */
-	for (let index = 0; index < protyleToolbars.length; index++) {
-		const element = protyleToolbars[index];
-
-		if (element.getAttribute("count") == null) {
-			element.setAttribute("count", true);
-			CreateTxtSumElement(element);
-		}
-	}
-}
-
-/** 创建工具栏显示元素*/
-function CreateTxtSumElement(inser) {
-	var divIder = addinsertCreateElement(inser, "div");
-	divIder.setAttribute("class", "protyle-toolbar__divider");
-
-	var txtSunElement = addinsertCreateElement(inser, "div");
-	txtSunElement.setAttribute(
-		"class",
-		"protyle-toolbar__item b3-tooltips b3-tooltips__n"
-	);
-	txtSunElement.setAttribute("data-type", "txtSun");
-	txtSunElement.setAttribute("aria-label", "选中字数");
-	txtSunElement.style.paddingRight = "10px";
-	txtSunElement.style.lineHeight = "29px";
-	txtSunElement.style.fontSize = "110%";
-	txtSunElement.style.fontWeight = "bold";
-}
-
-/**去除空格换行 */
-function iGettxtSun(text) {
-	var resultStr = text.toString();
-	if (resultStr.length == 0) {
-		return 0;
-	} else {
-		resultStr = resultStr.replace(/[\'\"\\\/\b\f\n\r\t]/g, ""); //去掉空格
-		var newStr = "";
-		for (var i = 0; i < resultStr.length; i++) {
-			if (resultStr[i] != "​") {
-				newStr += resultStr[i];
-			}
-		}
-		return newStr.length;
 	}
 }
 
@@ -905,8 +804,6 @@ function Refresh() {
 
 		createSidebarMouseHoverExpandButton(); /*创建鼠标移动展开左右树面板按钮*/
 		createHighlightBecomesHidden(); /*创建高亮变隐藏按钮 */
-
-		getTXTSum(); /**选中文字计数 */
 
 		loadStyle(
 			"/appearance/themes/Tsundoku Light/customizeStyle/customizeCss.css",

@@ -34,4 +34,16 @@
 
 
 
+/* #LeftHoverBlock {
+    width: 12px;
+    height: 100%;
+    position: fixed;
+    z-index: 999;
+}
 
+#RightHoverBlock {
+    width: 12px;
+    height: 100%;
+    position: fixed;
+    z-index: 999;
+} */
