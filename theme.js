@@ -326,7 +326,7 @@ function DocumentCreationDate() {
 
 		var spanTxt = documentCreatTimeElement.innerText;
 
-		if (spanTxt == "" || spanTxt == "日期取中……") {
+		if (spanTxt == "" || spanTxt == "日期获取中……") {
 			var documentCreatTimeTxt = getDocumentTime(element);
 			documentCreatTimeElement.innerText = documentCreatTimeTxt;
 		}
