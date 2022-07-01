@@ -86,7 +86,7 @@ function sidebarHoverButtonImplementEven() {
 			) {
 				closeLeftPanel();
 				closeRightPanel();
-				bar = "00";
+				bar = "11";
 			} else if (
 				"0px" != left_fn__flex_column.style.width &&
 				"0px" == right_fn__flex_column.style.width
@@ -99,6 +99,8 @@ function sidebarHoverButtonImplementEven() {
 			) {
 				closeRightPanel();
 				bar = "01";
+			} else {
+				bar="00";
 			}
 
 			sidebarHoverButton.classList.add("active");
@@ -109,7 +111,7 @@ function sidebarHoverButtonImplementEven() {
 				"url(/appearance/themes/Tsundoku Light/customizeStyle/sidebar.svg)";
 			// console.log(flag);
 		} else {
-			if (bar == "00") {
+			if (bar == "11") {
 				openLeftPanel();
 				openRightPanel();
 			} else if (bar == "10") {

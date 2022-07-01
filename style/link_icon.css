@@ -937,3 +937,24 @@
     content: "";
     background-image: url('../src/cnki.ico');
 }
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="flowus.cn"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href *="flowus.cn"]::before,
+.b3-typography a[href *="flowus.cn"]::before{
+
+    content: "";
+    background-image: url('../src/flowus.png');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="logseq.com"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href *="logseq.com"]::before,
+.b3-typography a[href *="logseq.com"]::before{
+
+    content: "";
+    background-image: url('../src/logseq.png');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="hub.docker.com"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href *="hub.docker.com"]::before,
+.b3-typography a[href *="hub.docker.com"]::before{
+
+    content: "";
+    background-image: url('../src/hubdocker.ico');
+}
