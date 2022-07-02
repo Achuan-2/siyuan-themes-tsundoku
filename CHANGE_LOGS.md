@@ -1,3 +1,35 @@
+## v1.3.6/2022.07.02 安卓端适配
+- :bug: 安卓端代码块行号位置错乱
+- :bug: 安卓端菜单过宽，取消主题的加框,原加宽代码如下
+  ```css
+  /* 左上方菜单栏加宽 */
+  @media screen and (min-width: 1500px) {
+
+      .b3-menu,
+      .b3-menu .b3-menu__submenu {
+          border-radius: 6px;
+          padding: 6px 6px 6px;
+          min-width: 200px;
+      }
+
+      .b3-menu .b3-menu__submenu {
+          margin-left: 10px;
+          margin-right: 10px;
+          padding: 5px 6px 5px;
+      }
+      /* 调整菜单 */
+      .b3-menu .b3-menu__item {
+          padding: 4px 16px 0 8px;
+          border-radius: 4px !important;
+
+      }
+
+      .b3-menu {
+          padding: 0px 0;
+      }
+  }
+  ```
+
 ## v1.3.5/2022.06.29
 - :fire:取消主题选中计数功能
 - :fire:取消主题默认字体思源黑体，并删除字体文件

@@ -1432,15 +1432,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     transform: scale(1.1);
 }
 
-/* 调整菜单 */
-.b3-menu  .b3-menu__item {
-    padding: 4px 16px 0 8px;
-    border-radius: 4px !important;
 
-}
-.b3-menu {
-    padding: 0px 0;
-}
 
 /* Optimize the style of closed notebooks */
 
@@ -1518,7 +1510,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     background-image: url(src/add.svg);
     background-size: 15px 15px;
     background-repeat: no-repeat;
-    background-position: left 1px top 6px;
+    background-position: left 1px top 4px;
 }
 .file-tree [data-type="new"]:hover{
     background-color: #d3e2e671;
@@ -1750,21 +1742,6 @@ div[data-subtype='t'][data-type='NodeList'] {
     border-bottom: 2px solid var(--b3-theme-on-background);
 }
 
-/* 左上方菜单栏加宽 */
-@media screen and (min-width: 768px) {
-    .b3-menu,
-    .b3-menu .b3-menu__submenu {
-        border-radius: 6px;
-        padding: 6px 6px 6px;
-        min-width: 200px;
-    }
-
-    .b3-menu .b3-menu__submenu {
-        margin-left: 10px;
-        margin-right: 10px;
-        padding: 5px 6px 5px;
-    }
-}
 
 /* emoji选中背景 */
 .emojis__item--current {
