@@ -958,3 +958,10 @@
     content: "";
     background-image: url('../src/hubdocker.ico');
 }
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="dida365.com"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href *="dida365.com"]::before,
+.b3-typography a[href *="dida365.com"]::before{
+
+    content: "";
+    background-image: url('../src/dida365.ico');
+}

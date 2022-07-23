@@ -196,7 +196,7 @@
     --b3-protyle-inline-code-background: #eff1f3;
     --b3-protyle-inline-blockref-color: #0e7a88;
     --b3-protyle-inline-blockref-hover-color: #ff398b;
-    --blockquote-border-color: #8892a2;
+    --blockquote-border-color: #5f6368;
     /* 表格背景设置 */
     --b3-table-border-color: #e4e6e8;
     --b3-table-th-color: #e9ecee;
@@ -287,9 +287,7 @@ body{
     padding: 0.3em 4px;
     color: #04393f;
 }
-.protyle-wysiwyg [data-node-id].h1:not(:first-of-type) {
-    page-break-before: always;
-}
+
 .protyle-wysiwyg [data-node-id].h2,.b3-typography h2 {
     border-bottom: 1px solid #dfe0e1 !important;
     /* border-bottom: 0px solid transparent !important; */
@@ -373,9 +371,9 @@ body{
 }
 /* 标题加粗样式 */
 
-.protyle-wysiwyg [data-type="NodeHeading"] strong {
+/* .protyle-wysiwyg [data-type="NodeHeading"] strong {
     text-shadow: 1px 1px 1px #002636b8;
-}
+} */
 
 .protyle-wysiwyg [data-type="NodeHeading"] strong:not([style]) {
     color: inherit !important;
@@ -493,8 +491,8 @@ strong {
 
 .protyle-wysiwyg [data-node-id].bq, .b3-typography blockquote {
     /* border: 1px solid var(--blockquote-border-color); */
-    border-left: 0.18em solid var(--blockquote-border-color);
-    background-color: #d2d9de2b;
+    border-left: 0.2em solid var(--blockquote-border-color);
+    background-color: #d2d9de2e;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -520,7 +518,7 @@ strong {
 }
 /* 调整列表下引述块小竖线 */
 .protyle-wysiwyg [data-node-id].li>.bq{
-    left:0.07em;
+    left:0.05em;
     top:-1px;
 }
 .block__popover .protyle-wysiwyg  [data-node-id].li>.bq,
@@ -1449,12 +1447,12 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 /* ----------optimize-custom-emoji ----Start--------*/
 /* 调整编辑器内的自定义emoji大小 */
-.b3-typography img.emoji, .protyle-wysiwyg img.emoji {
+/* .b3-typography img.emoji, .protyle-wysiwyg img.emoji {
     cursor: auto;
     max-width: 2.5em;
     box-shadow: none !important;
     vertical-align: top;
-}
+} */
 
 /* 取消官方悬浮文档图标的修改提示 */
 .b3-list--files .b3-list-item__icon:hover {
@@ -1906,7 +1904,7 @@ strong[style*="background-color: var(--b3-font-background4);"]{
 }
 
 /* 调整自定义颜色：灰色不加粗 */
-strong[style="color: var(--b3-font-color5);"] {
+strong[style^="color: var(--b3-font-color5)"] {
     font-weight: 400 !important;
 }
 
@@ -1942,4 +1940,30 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
 .protyle-preview__action button.protyle-preview__action--current,
 .protyle-preview__action button:hover{
     background-color: transparent;
+}
+
+/* 聚焦面包屑高亮 */
+.protyle-breadcrumb__item:hover,
+.protyle-breadcrumb__item--active {
+    color: var(--b3-menu-highlight-color);
+    background-color: var(--b3-menu-highlight-background);
+}
+
+
+
+
+
+
+/* 设置导出样式 */
+@media print {
+    :root {
+        font-family: var(--b3-font-family);
+    }
+    .protyle-wysiwyg .h1:first-child {
+        color:black !important;
+    }
+    .protyle-wysiwyg .h1:not(:first-child, :nth-child(2)) {
+        page-break-before: always;
+    }
+
 }
