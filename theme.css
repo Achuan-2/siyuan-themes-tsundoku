@@ -201,7 +201,7 @@
     --b3-table-border-color: #e4e6e8;
     --b3-table-th-color: #e9ecee;
     --b3-table-trn-color: #fff;
-    --b3-table-tr2n-color: #f0f4f5;
+    --b3-table-tr2n-color: #f0f4f551;
     /* 高亮 */
     --b3-menu-highlight-color: #068eb8;
     --b3-menu-highlight-focus-color: #34495e;
@@ -1869,4 +1869,15 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
 }
 .protyle-wysiwyg {
     transition: none;
+}
+
+
+/* 钉住页签调整宽度 */
+.layout-tab-bar .item--pin {
+    flex: none;
+    width: 100px;
+}
+/* 钉住页签显示文本 */
+.layout-tab-bar .item--pin .fn__none {
+    display: block !important;
 }
