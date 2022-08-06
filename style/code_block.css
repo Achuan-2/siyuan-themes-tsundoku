@@ -1,26 +1,11 @@
-/* -----------------设置代码块最大长度，添加纵向滚动条------------------------------ */
-/* .protyle-wysiwyg:not([id="preview"])  .code-block {
-    overflow-y: auto;
-    max-height: 80vh;
-}
-.protyle-wysiwyg:not([id="preview"])  .code-block::-webkit-scrollbar-thumb{
-    border-left:solid 0px transparent
-}
-.protyle-wysiwyg:not([id="preview"])  .li .code-block:not(:nth-child(2)) {
-    overflow-y: inherit;
-    max-height: inherit;
-} */
-/* -------------------------------代码块样式-------------------------------------- */
 
 .protyle-reset .hljs,
 .protyle-wysiwyg .hljs ,.b3-typography .hljs{
-    padding-top: 4px !important;
-    padding-bottom: 4px !important;
-    padding-left: 16px;
+    padding: 8px 16px 26px 16px !important;
     font-family: var(--b3-font-family-code);
     background-size: 20px 20px;
     background-image: none !important;
-    background-color: #ffffffa8 !important;
+    background-color: #f6f8fa7d !important;
     border-radius: 0 0px 4px 0;
 
 }
@@ -29,21 +14,17 @@
     position: relative;
     display: block;
     border-radius: 4px;
-    background: #e6ebf1 ;
+    background: #f6f8fa ;
     /* border: 1.5px solid rgb(0 0 0 / 8%); */
     box-shadow:  0 0 0 1px #1e25351a;
     /* margin-top: 15px !important; */
-    padding-top: 32px !important;
+    padding-top: 25px !important;
 }
 .protyle-wysiwyg[id="preview"] .code-block {
     box-shadow:  0 0 0 1.5px #1e25351a;
 }
-
-/* .code-block .protyle-action {
-    position: relative;
-    .hljs::before
-} */
-.code-block::after {
+/* mac三点 */
+/* .code-block::after {
     content: ' ';
     position: absolute;
     background: #fa625c;
@@ -54,7 +35,7 @@
     height: 12px;
     width: 12px;
     z-index: 1;
-}
+} */
 
 .b3-typography .code-block .protyle-action .protyle-icon,
 .protyle-wysiwyg .code-block .protyle-action .protyle-icon {
@@ -65,27 +46,29 @@
     height: 2px;
 }
 
-/* 功能标签栏 */
-.b3-typography .code-block .protyle-action,
-.protyle-wysiwyg [data-node-id].code-block .protyle-action {
-    left: auto;
-    right: 4px;
-    /* float: right; */
-    /* position: relative; */
-}
 
-/* 间隔 */
-.b3-typography .code-block .protyle-action>span.fn__flex-1,
-.protyle-wysiwyg [data-node-id].code-block .protyle-action>span.fn__flex-1 {
-    flex: 0;
-}
 
 /* 语言标签 */
-.b3-typography .code-block .protyle-action .protyle-action__language,
 .protyle-wysiwyg .code-block .protyle-action .protyle-action__language {
-    margin-left: 0.5em !important;
-    margin-right: 0.5em;
-    margin-top: -1px;
+    display: flex;
+    font-size: 13px !important;
+    text-transform: capitalize;
+    height: 20px;
+    padding: 0 5px;
+    margin: 3px 0 0 4px !important;
+}
+.protyle-wysiwyg[contenteditable=true] .code-block .protyle-action .protyle-action__language:hover{
+    background-color: var(--b3-menu-highlight-background);
+}
+
+.code-block .protyle-action .protyle-action__language::after {
+    content: "";
+    width: 8px;
+    height: 21px;
+    margin-left: 5px;
+    background-color: var(--b3-theme-on-background);
+    -webkit-mask: url("../src/expand_more_black_18dp.svg") no-repeat center;
+    mask: url("../src/expand_more_black_18dp.svg") no-repeat center;
 }
 
 .b3-typography .code-block .protyle-icons,
@@ -109,42 +92,22 @@
     color: #b1b1b1;
     opacity: 0.5;
 }
-/* 代码语言显示 */
-.protyle-wysiwyg .code-block .protyle-action .protyle-action__language {
-    opacity: 1;
-}
+
 .code-block .protyle-icons {
 
     background-color: transparent;
     border-radius: 4px;
 }
 .code-block .protyle-icons>span:hover {
-    background-color: #cad8dd;
+    background-color: #b7c5ca;
 }
 
-.code-block .protyle-icons .protyle-action__language,.code-block .protyle-icons>span{
-    color: rgba(13, 56, 50, 0.719);
-    font-weight: 600;
+
+
+/* 按钮颜色 */
+.b3-typography .code-block .protyle-action .protyle-icon,
+.protyle-wysiwyg .code-block .protyle-action .protyle-icon {
+    background-color: #828a8e96;
 }
 
-/* 代码块编辑时不闪 */
-.code-block .protyle-icons {
-    opacity: 1;
-}
-.code-block .protyle-icons .protyle-action__copy {
-    opacity: 0;
-}
-.code-block:hover .protyle-icons .protyle-action__copy {
-    opacity: 1;
-}
-
-.code-block:focus-within .protyle-icons .protyle-action__copy{
-    opacity: 0;
-}
-.code-block .protyle-icons .protyle-action__copy:hover{
-    opacity: 1;
-}
-.code-block:hover .protyle-icons {
-    opacity: 1 !important;
-}
 

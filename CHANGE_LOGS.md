@@ -1,3 +1,9 @@
+## v1.3.8/2022.08.06
+- 待办样式修改
+  ![20220806094505_2022-08-06](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/CHANGE_LOGS/20220806094505_2022-08-06.png)
+- 代码块样式修改，去掉Mac小圆点，调整背景色
+  ![20220806094645_2022-08-06](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/CHANGE_LOGS/20220806094645_2022-08-06.png)
+
 ## v1.3.7/2022.07.16 
 - :bug: fix聚焦面包屑文字高亮
 - :lipstick: 导出优化：导出支持使用root下的font-family 变量，导出开头连续两个h1不分页
