@@ -1872,12 +1872,3 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
 }
 
 
-/* 钉住页签调整宽度 */
-.layout-tab-bar .item--pin {
-    flex: none;
-    width: 100px;
-}
-/* 钉住页签显示文本 */
-.layout-tab-bar .item--pin .fn__none {
-    display: block !important;
-}
