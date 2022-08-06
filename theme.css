@@ -1867,8 +1867,8 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
     }
 
 }
-.protyle-wysiwyg .protyle-title{
-    transition: none;
+
+
+.protyle-wysiwyg{
+    transition: none !important;
 }
-
-

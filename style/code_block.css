@@ -47,11 +47,11 @@
     text-transform: capitalize;
     height: 20px;
     padding: 0 5px;
-    margin: 3px 0 0 4px !important;
+    margin: 3px 0 0 8px !important;
     color:#7e888d;
 }
 .protyle-wysiwyg[contenteditable=true] .code-block .protyle-action .protyle-action__language:hover{
-    background-color: var(--b3-menu-highlight-background);
+    background-color: #a1abb161;
 }
 
 .code-block .protyle-action .protyle-action__language::after {
@@ -90,21 +90,12 @@
     opacity: 0.5;
 }
 
-.code-block .protyle-icons {
-
-    background-color: transparent;
-    border-radius: 4px;
-}
-.code-block .protyle-icons>span:hover {
-    background-color: #b7c5ca;
-}
-
 
 
 /* 按钮颜色 */
 .b3-typography .code-block .protyle-action .protyle-icon,
 .protyle-wysiwyg .code-block .protyle-action .protyle-icon {
-    background-color: #828a8e96;
+    background-color: #a1abb1;
 }
 
 
