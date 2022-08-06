@@ -79,7 +79,7 @@
 /*  代码块行数*/
 .protyle-linenumber__rows {
     margin-top: 32px !important;
-    background-color: #ffffffa8;
+    background-color: #f6f8fa7d;
     font-family: var(--b3-font-family-code);
     /* opacity: 0.5; */
     /* width: 57px;
