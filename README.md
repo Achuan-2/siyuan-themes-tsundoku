@@ -71,6 +71,14 @@ Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释
     | img      | center      | 文档全部图片居中 |
     | linkicon | no          | 超链接取消icon   |
 
+## 致谢
+借鉴了以下主题的功能
+- https://github.com/Zuoqiu-Yingyi/siyuan-theme-dark-plus
+- https://github.com/UFDXD/HBuilderX-Light
+- https://github.com/royc01/notion-theme
+
+
+
 ## 🚀更新情况
 
 见[📃Tsundoku 主题更新日志](https://www.yuque.com/achuan-2/siyuan/bkq4s2)
