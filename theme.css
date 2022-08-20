@@ -545,7 +545,12 @@ strong {
     opacity: 1;
     border-bottom: 1px dashed var(--b3-protyle-inline-blockref-color);
 }
-
+/* .protyle-wysiwyg [data-node-id] span[data-type='block-ref']::before{
+    content: "[[";
+}
+.protyle-wysiwyg [data-node-id] span[data-type='block-ref']::after{
+    content: "]]";
+} */
 .protyle-wysiwyg [data-node-id] span[data-type='block-ref']:hover {
     color: var(--b3-protyle-inline-blockref-hover-color); /*更改鼠标悬浮的颜色*/
     border-bottom: 1px dashed var(--b3-protyle-inline-blockref-hover-color); /*下划线可以去掉*/
@@ -810,7 +815,6 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     border: 1px solid transparent;
     line-height: 1em;
     color: #8f9091;
-    /* background-color: #c0c3c3; */
     background-color: transparent;
 }
 
@@ -831,18 +835,7 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     transition: all 0.5s ease-in-out;
 }
 
-/* 折叠复选框完成时的图标 */
 
-
-/* .li[fold="1"]>.protyle-action--task:before {
-    content: '';
-    background-color: transparent;
-    border: 1.7px solid #5f6368;
-    border-radius: 1em;
-    font-size: 0.9em;
-    vertical-align: middle;
-    line-height: 1em;
-} */
 .protyle-task--done[fold="1"]>.protyle-action--task:before{
     content: '\2713';
     background-color: transparent;
@@ -851,7 +844,6 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
 }
 div[data-subtype='t'][data-type='NodeList'] {
     position: relative;
-    /* background-color: red; */
 }
 
 /* 调整透明度 */
@@ -1859,9 +1851,15 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
     :root {
         font-family: var(--b3-font-family);
     }
+
     .protyle-wysiwyg .h1:first-child {
-        color:black !important;
+        color: black !important;
+        text-align: Left;
+        border-bottom: 2px solid #e8e9e8 !important;
+
+
     }
+
     .protyle-wysiwyg .h1:not(:first-child, :nth-child(2)) {
         page-break-before: always;
     }

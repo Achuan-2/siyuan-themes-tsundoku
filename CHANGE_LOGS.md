@@ -1,8 +1,14 @@
-## v1.3.8/2022.08.06
-- 待办样式修改
-  ![20220806094505_2022-08-06](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/CHANGE_LOGS/20220806094505_2022-08-06.png)
-- 代码块样式修改，去掉Mac小圆点，调整背景色
-  ![20220806094645_2022-08-06](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/CHANGE_LOGS/20220806094645_2022-08-06.png)
+## v1.3.9/2022.08.20
+
+* ✨link icon：添加 mp4、mkv、flv视频格式
+* ✨代码语言显示大写：css->CSS
+* 💄代码块样式调整，去除mac圆点样式
+  ![20220820114308](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/CHANGE_LOGS/20220820114308.png)
+* 💄任务列表样式：调整为圆形
+    ![20220806094505_2022-08-06](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/CHANGE_LOGS/20220806094505_2022-08-06.png)
+* 💄文字背景色11从青绿色调整紫色
+* 🐛导出优化：Tsundoku Green和Stone主题不导出背景图片，加快导出速度，减小pdf大小
+
 
 ## v1.3.7/2022.07.16 
 - :bug: fix聚焦面包屑文字高亮

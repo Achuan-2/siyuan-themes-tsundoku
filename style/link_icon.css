@@ -35,9 +35,9 @@
     content: "";
     background-image: url('../src/bookxnote.ico');
 }
-.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href^="file://"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href^="file://"]::before,
-.b3-typography a[href^="file://"]::before{
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href^="file://"][data-href $="/"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href^="file://"][data-href $="/"]::before,
+.b3-typography a[href^="file://"][data-href $="/"]::before{
     content: "";
     background-image: url('../src/folder.svg');
     opacity: 0.9;
@@ -45,6 +45,7 @@
     filter: hue-rotate(0.9turn);
 }
 
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href ^="file://"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] span[data-type='a'][data-href ^="assets/"]:not(:empty)::before,
 .b3-typography a[href ^="assets/"]::before,
 .protyle-wysiwyg [data-node-id] a[href^="http://127.0.0.1:6806/assets/"]::before,
@@ -79,6 +80,18 @@
 .b3-typography [href ^="assets/"][href $=".pdf"]::before{
     content: "";
     background-image: url('../src/pdf.svg');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href $=".mp4"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href $=".mp4"]::before,
+.b3-typography [href ^="assets/"][href $=".mp4"]::before,
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href $=".flv"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href $="flv"]::before,
+.b3-typography [href ^="assets/"][href $=".flv"]::before,
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href $=".mkv"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href $=".mkv"]::before,
+.b3-typography [href ^="assets/"][href $=".mkv"]::before {
+    content: "";
+    background-image: url('../src/videos.svg');
 }
 
 .protyle-wysiwyg [data-node-id] span[data-type='a'][data-href $=".xlsx"]:not(:empty)::before,
