@@ -978,3 +978,10 @@
     content: "";
     background-image: url('../src/dida365.ico');
 }
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="leetcode.cn"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href *="leetcode.cn"]::before,
+.b3-typography a[href *="leetcode.cn"]::before{
+
+    content: "";
+    background-image: url('../src/leetcode.ico');
+}
