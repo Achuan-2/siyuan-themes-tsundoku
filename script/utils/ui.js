@@ -26,10 +26,6 @@ import {
     pushErrMsg
 } from './api.js';
 
-import {
-    runCode,
-    closeConnection,
-} from '/appearance/themes/Dark+/app/jupyter/js/run.js';
 
 var toolbarItemList = [];
 
@@ -616,10 +612,7 @@ const TASK_HANDLER = {
         eval(`${params.key} = value`);
         saveCustomFile(custom);
     },
-    /* 运行代码 */
-    'jupyter-run-code': runCode,
-    /* 关闭会话 */
-    'jupyter-close-connection': closeConnection,
+
     /* 归档页签 */
     'tab-archive': async (e, id, params) => {
         const editors = getEditors().filter(editor => {
