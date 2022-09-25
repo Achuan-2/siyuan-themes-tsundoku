@@ -14,10 +14,15 @@ import {
 } from '../module/config.js';
 import { printHotKey } from './hotkey.js';
 import {
+    editDocKramdown,
+    editBlockKramdown,
+} from './markdown.js';
+import {
     getEditors,
     setBlockDOMAttrs,
 } from './dom.js';
 import { Iterator } from './misc.js';
+import { compareVersion } from './string.js';
 import {
     getBlockByID,
     getBlockAttrs,
@@ -61,12 +66,12 @@ function createToolbarItem(toolbarConfig, className) {
         const status = toolbarConfig.status[toolbarConfig.status.default];
         icon = status.icon;
         label = status.label;
-        label += status.hotkey ? ` [${printHotKey(status.hotkey())}]` : '';
+        label += (status.hotkey && status.hotkey().enable !== false) ? ` [${printHotKey(status.hotkey())}]` : '';
     }
     else { // 按钮没有多个状态
         icon = toolbarConfig.icon;
         label = toolbarConfig.label[language] || toolbarConfig.label.other;
-        label += toolbarConfig.hotkey ? ` [${printHotKey(toolbarConfig.hotkey())}]` : '';
+        label += (toolbarConfig.hotkey && toolbarConfig.hotkey().enable !== false) ? ` [${printHotKey(toolbarConfig.hotkey())}]` : '';
     }
 
     item.id = toolbarConfig.id;
@@ -97,7 +102,7 @@ function toolbarItemListPush(item) {
     let windowControls = document.getElementById('windowControls');
     let custom_toolbar = document.getElementById(config.theme.toolbar.id);
 
-    if (window.theme.clientMode !== 'mobile' && toolbar && windowControls) {
+    if (window.theme.clientMode !== 'mobile' && toolbar) {
         if (!custom_toolbar) {
             /* 自定义菜单项容器 */
             custom_toolbar = document.createElement('div');
@@ -126,9 +131,26 @@ function toolbarItemListPush(item) {
                 setTimeout(async () => saveCustomFile(custom), 0);
             });
 
+            /* 分割线 */
+            let divider_before = document.createElement('div');
+            let divider_after = document.createElement('div');
+            divider_before.className = 'protyle-toolbar__divider';
+            divider_after.className = 'protyle-toolbar__divider';
+
             itemStateLoad(config.theme.toolbar.more.id, custom.theme.toolbar, more);
-            toolbar.insertBefore(more, windowControls);
-            toolbar.insertBefore(custom_toolbar, windowControls);
+
+            if (windowControls) {
+                toolbar.insertBefore(divider_before, windowControls);
+                toolbar.insertBefore(more, windowControls);
+                toolbar.insertBefore(custom_toolbar, windowControls);
+                if (windowControls.childElementCount > 0) // 存在窗口控制按钮, 插入分割线
+                    toolbar.insertBefore(divider_after, windowControls);
+            }
+            else {
+                toolbar.appendChild(divider_before);
+                toolbar.appendChild(more);
+                toolbar.appendChild(custom_toolbar);
+            }
         }
 
         toolbarItemList = toolbarItemList.sort((a, b) => a.index - b.index);
@@ -419,7 +441,8 @@ const TASK_HANDLER = {
                 new_attrs[attr] = old_attrs[attr].replace(params[attr].regexp, params[attr].substr);
             }
         }
-        setBlockDOMAttrs(id, new_attrs);
+        if (compareVersion(window.theme.kernelVersion, '2.2.0') < 0)
+            setBlockDOMAttrs(id, new_attrs);
         setBlockAttrs(id, new_attrs);
     },
     /**
@@ -445,7 +468,8 @@ const TASK_HANDLER = {
                 new_attrs[attr] = params[attr].value;
             }
         }
-        setBlockDOMAttrs(id, new_attrs);
+        if (compareVersion(window.theme.kernelVersion, '2.2.0') < 0)
+            setBlockDOMAttrs(id, new_attrs);
         setBlockAttrs(id, new_attrs);
     },
     /* 在后方插入属性 */
@@ -463,7 +487,8 @@ const TASK_HANDLER = {
                 new_attrs[attr] = params[attr];
             }
         }
-        setBlockDOMAttrs(id, new_attrs);
+        if (compareVersion(window.theme.kernelVersion, '2.2.0') < 0)
+            setBlockDOMAttrs(id, new_attrs);
         setBlockAttrs(id, new_attrs);
     },
     /* 插入属性值中空格分隔的一项(插入单词) */
@@ -483,7 +508,8 @@ const TASK_HANDLER = {
                 new_attrs[attr] = params[attr];
             }
         }
-        setBlockDOMAttrs(id, new_attrs);
+        if (compareVersion(window.theme.kernelVersion, '2.2.0') < 0)
+            setBlockDOMAttrs(id, new_attrs);
         setBlockAttrs(id, new_attrs);
     },
     /* 删除属性值中空格分隔的一项 */
@@ -507,7 +533,8 @@ const TASK_HANDLER = {
                 new_attrs[key] = '';
             }
         }
-        setBlockDOMAttrs(id, new_attrs);
+        if (compareVersion(window.theme.kernelVersion, '2.2.0') < 0)
+            setBlockDOMAttrs(id, new_attrs);
         setBlockAttrs(id, new_attrs);
     },
     /* 覆盖整个属性值 */
@@ -515,7 +542,8 @@ const TASK_HANDLER = {
         // console.log('attr-update');
         for (const [key, value] of Object.entries(params))
             if (!value) params[key] = '';
-        setBlockDOMAttrs(id, params);
+        if (compareVersion(window.theme.kernelVersion, '2.2.0') < 0)
+            setBlockDOMAttrs(id, params);
         setBlockAttrs(id, params);
     },
     /* 切换属性值中空格分隔的一项 */
@@ -543,7 +571,8 @@ const TASK_HANDLER = {
                 new_attrs[key] = iter.next().value;
             }
         }
-        setBlockDOMAttrs(id, new_attrs);
+        if (compareVersion(window.theme.kernelVersion, '2.2.0') < 0)
+            setBlockDOMAttrs(id, new_attrs);
         setBlockAttrs(id, new_attrs);
     },
     /* 子菜单展开 */
@@ -606,12 +635,21 @@ const TASK_HANDLER = {
             config.theme.window.open.editor.path.index,
         );
     },
-    /* 新窗口打开超链接 */
+    /* 在新窗口打开编辑器并编辑 kramdown 文档源代码 */
+    'window-open-editor-kramdown': async (e, id, params) => {
+        if (compareVersion(window.theme.kernelVersion, '2.0.24') > 0)
+            editBlockKramdown(id);
+        else
+            editDocKramdown(id);
+    },
+    /* 保存输入框内容 */
     'save-input-value': async (e, id, params) => {
         const value = document.getElementById(params.id).value;
         eval(`${params.key} = value`);
         saveCustomFile(custom);
     },
+    /* 处理输入框内容 */
+    'handle-input-value': async (e, id, params) => params.handler(e, id, params),
 
     /* 归档页签 */
     'tab-archive': async (e, id, params) => {
@@ -623,7 +661,7 @@ const TASK_HANDLER = {
         if (editors.length > 0) {
             const IDs = editors.map(editor => editor.protyle.options.blockId); // 待归档的文档的 ID
             const time = new Date().format('yyyy-MM-dd hh:mm:ss'); // 归档时间戳(书签名)
-            const attrs = {bookmark: time}; // 待设置的书签属性
+            const attrs = { bookmark: time }; // 待设置的书签属性
             IDs.forEach(id => setBlockAttrs(id, attrs));
             editors.forEach(editor => editor.protyle.model.headElement.lastElementChild.click());
             pushMsg(params.message.success);
@@ -757,7 +795,7 @@ class CommonMenuObserver {
         // REF [MutationObserver.MutationObserver() - Web API 接口参考 | MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/MutationObserver/MutationObserver)
         fn_callback,
         observerConfig = { // 节点监听配置
-            // REF [MutationObserverInit | MDN](https://developer.mozilla.org/zh-CN/docs/conflicting/Web/API/MutationObserver/observe_2f2addbfa1019c23a6255648d6526387)
+            // REF [MutationObserverInit | MDN](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver/observe#parameters)
             childList: true,
             subtree: false,
         },

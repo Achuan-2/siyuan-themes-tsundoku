@@ -1,0 +1,6 @@
+.protyle-wysiwyg span[data-type~=mark]{
+    color: var(--b3-protyle-inline-mark-color);
+    transition: color 0.2s ease-in-out;
+    background-color: var(--b3-card-success-background);
+    border-bottom: 2px solid var(--b3-font-color4);
+}

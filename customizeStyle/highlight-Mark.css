@@ -1,6 +1,0 @@
-.protyle-wysiwyg [data-node-id] [spellcheck="false"] mark{
-    color: var(--b3-protyle-inline-mark-color);
-    transition: color 0.2s ease-in-out;
-    background-color: transparent;
-    border-bottom: 1px solid var(--b3-theme-on-background);
-}

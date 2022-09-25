@@ -5,10 +5,6 @@
  */
 
 import { config } from './config.js';
-import {
-    isKey,
-    isEvent,
-} from './../utils/hotkey.js';
 import { getBlockAttrs } from './../utils/api.js';
 import { timestampParse } from './../utils/misc.js';
 import { toolbarItemInit } from './../utils/ui.js';
@@ -110,11 +106,16 @@ setTimeout(() => {
                     config.theme.reload.window.toolbar,
                     async () => {
                         try {
-                            const { webFrame, webContents } = require('@electron/remote');
+                            // const { webFrame, webContents } = require('@electron/remote');
                             // webFrame.clearCache();
                             // webContents.getFocusedWebContents().reload();
                             // webContents.getFocusedWebContents().reloadIgnoringCache();
-                            webContents.getFocusedWebContents().session.clearCache().then((...args) => window.location.reload());
+                            // webContents.getFocusedWebContents().session.clearCache().then((...args) => window.location.reload());
+
+                            const { session } = require('@electron/remote');
+                            session.defaultSession.clearCache().then((...args) => window.location.reload());
+                            // session.defaultSession.clearCodeCaches().then((...args) => window.location.reload());
+                            // session.defaultSession.clearStorageData().then((...args) => window.location.reload());
                         }
                         catch (err) {
                             console.warn(err);

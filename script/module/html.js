@@ -2,9 +2,14 @@
 
 /* 运行系统命令 */
 window.theme.runcmd = function (commands) {
-    if (window.confirm(commands) && require) {
-        commands = `start powershell -c ${commands.replaceAll('\n', '; ')}pause`;
-        require('child_process').exec(commands, null);
+    try {
+        if (window.confirm(commands) && require) {
+            commands = `start powershell -c ${commands.replaceAll('\n', '; ')}pause`;
+            require('child_process').exec(commands, null);
+        }
+    }
+    catch (err) {
+        console.warn(err);
     }
 }
 
@@ -171,8 +176,18 @@ window.theme.openNewWindow = function (
             console.warn(err);
             // 新建标签页(Web 环境)
             // window.open(url.href, "_blank");
-            window.open(url.href, "popup");
-            return null;
+            // REF [Window.open() - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/open)
+            // REF [Window open() 方法 | 菜鸟教程](https://www.runoob.com/jsref/met-win-open.html)
+            newWin = window.open(
+                url.href,
+                url.href,
+                `
+                    popup = true,
+                    width = ${windowParams.width},
+                    height = ${windowParams.height},
+                `,
+            );
+            return newWin;
         }
     }
     catch (err) {

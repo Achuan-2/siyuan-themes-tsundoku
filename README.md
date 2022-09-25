@@ -23,6 +23,11 @@
 
 **简介**：[思源笔记(Siyuan)](https://github.com/siyuan-note/siyuan)是一款本地优先的个人知识管理系统，支持完全离线使用，同时也支持端到端加密同步。融合块、大纲和双向链接，构建你永恒的数字花园。本主题为个人原创主题，专为思源笔记设计。
 
+## 🚀更新情况
+
+见[📃Tsundoku 主题更新日志](https://www.yuque.com/achuan-2/siyuan/bkq4s2)
+
+
 ## 💌 缘起
 
 🎉系列主题最早诞生于2021.02.22
@@ -34,28 +39,22 @@ Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释
 
 我借此名来警醒自己，希望能利用好思源笔记，帮助我养成每日记录、定期回顾复盘的习惯，更好地掌握知识和技能，争取做有意义的项目，变成更优秀的人，而不是为了记笔记而笔记，让笔记软件成为一个个缓解知识焦虑的积灰箱，满足变态的数字化囤积症。
 
-## ✨主题样式优化
-
-- 📋标题样式优化，一级标题居中、三级标题添加左侧竖线，添加标题的区别度
-  ![20220131164455_2022-01-31](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220131164455_2022-01-31.png)
-- 💻仿MAC的代码块样式![20220131164515_2022-01-31](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220131164515_2022-01-31.png)
-- ✅任务列表样式优化：当把任务列表勾选时，普通文字变色加删除线，并针对完成的任务列表中的各个行内和块样式都做了一定处理。完成的任务列表中的图片和代码块透明度降低
-  ![20220131165058_2022-01-31](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220131165058_2022-01-31.png)
-- 🎨文字颜色和背景色选框样式优化、颜色配色调整![20220131231307_2022-01-31](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220131231307_2022-01-31.png)
-- 😀win端和安卓端emoji样式统一：修改安卓端的默认 emoji 为 Win 11 emoji——Segoe UI Emoji，保持手机电脑预览笔记emoji样式统一
-
 
 ## 💥主题特色功能
 - **为超链接添加了icon**：区别不同的本地链接和网络链接，详见[超链接图标介绍](https://www.yuque.com/achuan-2/siyuan/gar358)
   ![20220131165215_2022-01-31](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220131165215_2022-01-31.png)
-- **自定义简陋的行内备注**：鉴于思源笔记短期不会添加行内备注功能，主题自行基于超链接功能实现山寨版行内备注
-  - 使用方法：使用超链接功能，在链接一栏填入“备注：”或“note:"，然后在标题输入备注内容（之所以在标题输入实际内容是因为超链接的标题才能可以搜索到，而链接无法搜索）
-  - 截图：![20220210182827_2022-02-10](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220210182827_2022-02-10.png)
 - **引入语雀提示区块**：给引述块blockquote添加块背景颜色，就会自动应用样式，详见[语雀提示区块样式](https://www.yuque.com/achuan-2/siyuan/obxpvr)
   ![20220131165233_2022-01-31](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220131165233_2022-01-31.png)
 - 引入文本遮挡：暂时将高亮Ctrl+E,设置为文本遮挡效果：悬浮时才显示高亮的文字，默认隐藏文字 
-    - 如果需要取消该效果，请在主题 css 中搜索「挖空」关键词，将所提示的代码删除
-  ![20220131165254_2022-01-31](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220131165254_2022-01-31.png)
+- [Dark+](https://github.com/Zuoqiu-Yingyi/siyuan-theme-dark-plus)主题的功能（copy）
+  - 打开一个新窗口并置顶
+  - 复制当前文档大纲为无序列表
+  - 复制文档内容
+  - 剪切文档内容
+  - 按alt+中键可以打开用monaco-editor打开以markdown样式当前块或文档（打开文档需要在文档题头图那块点击）
+- [HBuilderX-Light](https://github.com/UFDXD/HBuilderX-Light)的功能（copy）
+  - 左右面板收起
+  - 高亮文本显示
 - **添加了自定义块属性样式**
   - 使用方式：单击块标选择打开属性列表或Shift+Click打开，点击添加，输入属性名为f或function，并输入相应的属性值（hide或挖空）
   - 自定义块属性列表
@@ -77,11 +76,6 @@ Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释
 - https://github.com/UFDXD/HBuilderX-Light
 - https://github.com/royc01/notion-theme
 
-
-
-## 🚀更新情况
-
-见[📃Tsundoku 主题更新日志](https://www.yuque.com/achuan-2/siyuan/bkq4s2)
 
 ## ☎️意见交流
 

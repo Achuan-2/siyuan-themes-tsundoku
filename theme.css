@@ -371,19 +371,19 @@ body{
 }
 /* 标题加粗样式 */
 
-/* .protyle-wysiwyg [data-type="NodeHeading"] strong {
+/* .protyle-wysiwyg [data-type="NodeHeading"] span[data-type="strong"] {
     text-shadow: 1px 1px 1px #002636b8;
 } */
 
-.protyle-wysiwyg [data-type="NodeHeading"] strong:not([style]) {
+.protyle-wysiwyg [data-type="NodeHeading"] span[data-type="strong"]:not([style]) {
     color: inherit !important;
 }
-.b3-typography h1 strong,
-.b3-typography h2 strong,
-.b3-typography h3 strong,
-.b3-typography h4 strong,
-.b3-typography h5 strong,
-.b3-typography h6 strong {
+.b3-typography h1 span[data-type="strong"],
+.b3-typography h2 span[data-type="strong"],
+.b3-typography h3 span[data-type="strong"],
+.b3-typography h4 span[data-type="strong"],
+.b3-typography h5 span[data-type="strong"],
+.b3-typography h6 span[data-type="strong"] {
     /* 预览样式 */
     color:inherit;
 }
@@ -450,25 +450,14 @@ body{
 /* -------------------------------行内块字体样式-------------------------------------- */
 
 /* 高亮 */
+
 mark {
     background-color: var(--b3-protyle-inline-mark-background);
     color: var(--b3-protyle-inline-mark-color);
 }
-/* ----------如果希望取消挖空效果，请删除这段代码 Start---------------- */
-/* 修改高亮为挖空效果，但是预览模式关闭（毕竟需要导出） */
-.protyle-wysiwyg mark {
-    color: transparent;
-    transition: color 2s ease-in-out;
-    background-color: transparent;
-    border-bottom: 1px solid var(--b3-theme-on-background);
-}
-.protyle-wysiwyg [data-node-id] [spellcheck="false"] mark:hover{
-    color: var(--b3-protyle-inline-mark-color);
-    transition: color 0.2s ease-in-out;
-}
-/* -------------如果希望取消挖空效果，请删除这段代码 END----------------------------------- */
+
 /* 加粗 */
-strong {
+span[data-type="strong"] {
     color: inherit;
 }
 
@@ -674,8 +663,10 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     background-color:#559898;
 }
 /* 行内代码 */
-.b3-typography code:not(.hljs):not(:empty),
-.protyle-wysiwyg code:not(.hljs):not(:empty) {
+.b3-typography code:not(.hljs),
+.b3-typography span[data-type~=code],
+.protyle-wysiwyg code:not(.hljs),
+.protyle-wysiwyg span[data-type~=code] {
     /* position: relative;
     display: inline-block; */
     margin: 0px 2px 0px;
@@ -1256,7 +1247,8 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 
 /* 调整kbd标签 */
-.b3-typography kbd, .protyle-wysiwyg kbd {
+.b3-typography kbd, .protyle-wysiwyg kbd,
+.protyle-wysiwyg span[data-type~=kbd] {
     display: inline-flex;
     padding: 2px 4px;
     margin: 0px 2px;
@@ -1734,8 +1726,8 @@ div[data-subtype='t'][data-type='NodeList'] {
 ::-webkit-scrollbar-thumb:hover{border-left:solid 0px transparent;border-radius: 5px;}
 
 
-.b3-typography em, .protyle-wysiwyg em,
-.protyle-wysiwyg strong,.b3-typography strong{
+.b3-typography span[data-type="em"], .protyle-wysiwyg span[data-type="em"],
+.protyle-wysiwyg span[data-type="strong"],.b3-typography span[data-type="strong"]{
     color: inherit;
 }
 
@@ -1750,12 +1742,6 @@ div[data-subtype='t'][data-type='NodeList'] {
 } */
 
 
-
-
-
-
-
-
 .protyle-preview,.protyle-preview__action {
     background-color: #fff;
 }
@@ -1764,27 +1750,11 @@ div[data-subtype='t'][data-type='NodeList'] {
 }
 
 
-/* 文字背景色颜色优化 */
-
-strong[style*="background-color: var(--b3-font-background1);"]{
-    background-color:#facec7 !important;
-}
-strong[style*="background-color: var(--b3-font-background2);"]{
-    background-color:#f3e0c5 !important;
-}
-strong[style*="background-color: var(--b3-font-background3);"]{
-    background-color:#c4e0f8 !important;
-}
-strong[style*="background-color: var(--b3-font-background4);"]{
-    background-color:#d2fad2 !important;
-}
-
-
-
-
-
 
 /* 折叠标题优化 */
+.protyle-wysiwyg div[fold="1"][data-type="NodeHeading"]{
+    opacity: 0.7;
+}
 .protyle-wysiwyg div[fold="1"][data-type="NodeHeading"]:before {
     background-color: transparent !important;
     border-radius: 0px;
@@ -1797,10 +1767,7 @@ strong[style*="background-color: var(--b3-font-background4);"]{
     margin-top: -6px;
 }
 
-/* 调整自定义颜色：灰色不加粗 */
-strong[style^="color: var(--b3-font-color5)"] {
-    font-weight: 400 !important;
-}
+
 
 /* 修复一些按钮出现滚轮 */
 .b3-label .fn__flex-1 {
@@ -1869,4 +1836,28 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
 
 .protyle-wysiwyg{
     transition: none !important;
+}
+
+/* 设置备注样式 */
+.b3-typography span[data-type~=inline-memo],
+.protyle-wysiwyg span[data-type~=inline-memo] {
+    background-color: var(--b3-card-warning-background);
+    border-bottom: 2px solid var(--b3-font-color2);
+}
+
+
+
+
+/* 代码块添加margin bottom */
+.protyle-wysiwyg [data-node-id].li>[data-node-id].code-block {
+    margin-bottom: 10px;
+}
+
+.protyle-wysiwyg [data-node-id].li>[data-node-id].code-block:before {
+    height: calc(100% + 7px);
+}
+
+/* 导出pdf右侧选项背景 */
+body>div#action{
+    background: var(--b3-theme-background) !important;
 }

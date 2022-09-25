@@ -1,0 +1,49 @@
+#HBuiderXToolbar{
+    margin-right: 14px;
+    padding-left: 11px;
+}
+
+#sidebarHoverButton{
+    width: 20px;
+    height: 100%;
+    float: left;
+    background-image: url("../src/sidebar.svg");
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: 120%;
+}
+
+
+
+
+
+
+#highlightBecomesHidden{
+    width: 20px;
+    height: 100%;
+    float: left;
+    margin-left: 10px;
+    background-image: url("../src/highlight.svg");
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: 100%;
+}
+
+
+
+
+
+
+/* #LeftHoverBlock {
+    width: 12px;
+    height: 100%;
+    position: fixed;
+    z-index: 999;
+}
+
+#RightHoverBlock {
+    width: 12px;
+    height: 100%;
+    position: fixed;
+    z-index: 999;
+} */

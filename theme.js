@@ -64,8 +64,8 @@ function addSidebarHoverButtonEven(fun) {
 /*SidebarHoverButton 按钮点击后执行事件*/
 function sidebarHoverButtonImplementEven() {
 	loadStyle(
-		"/appearance/themes/Tsundoku Light/customizeStyle/customizeCss.css",
-		"customizeCss"
+		"/appearance/themes/Tsundoku Light/style/topbar.css",
+		"topbarCss"
 	);
 
 	/**获取区域主体 */
@@ -100,7 +100,7 @@ function sidebarHoverButtonImplementEven() {
 				closeRightPanel();
 				bar = "01";
 			} else {
-				bar="00";
+				bar = "00";
 			}
 
 			sidebarHoverButton.classList.add("active");
@@ -108,7 +108,7 @@ function sidebarHoverButtonImplementEven() {
 			sidebarHoverButton.style.backgroundColor =
 				"var(--b3-theme-background-light)";
 			sidebarHoverButton.style.backgroundImage =
-				"url(/appearance/themes/Tsundoku Light/customizeStyle/sidebar.svg)";
+				"url(/appearance/themes/Tsundoku Light/src/sidebar.svg)";
 			// console.log(flag);
 		} else {
 			if (bar == "11") {
@@ -129,7 +129,7 @@ function sidebarHoverButtonImplementEven() {
 			flag = true;
 			sidebarHoverButton.style.backgroundColor = "transparent";
 			sidebarHoverButton.style.backgroundImage =
-				"url(/appearance/themes/Tsundoku Light/customizeStyle/sidebar.svg)";
+				"url(/appearance/themes/Tsundoku Light/src/sidebar.svg)";
 			// console.log(flag);
 		}
 	};
@@ -263,10 +263,7 @@ function openRightPanel() {
 /**------------------高亮变隐藏按钮-----------------*/
 
 function createHighlightBecomesHidden() {
-	loadStyle(
-		"/appearance/themes/Tsundoku Light/customizeStyle/conceal-Mark.css",
-		"markCss"
-	);
+	loadStyle("/appearance/themes/Tsundoku Light/style/mark-hide.css", "markCss");
 
 	highlightBecomesHiddenButton = addinsertCreateElement(
 		HBuiderXToolbar,
@@ -291,24 +288,24 @@ function highlightBecomesHiddenButtonClickEven() {
 
 	if (
 		obj.getAttribute("href") !=
-		"/appearance/themes/Tsundoku Light/customizeStyle/conceal-Mark.css"
+		"/appearance/themes/Tsundoku Light/style/mark-hide.css"
 	) {
 		obj.setAttribute(
 			"href",
-			"/appearance/themes/Tsundoku Light/customizeStyle/conceal-Mark.css"
+			"/appearance/themes/Tsundoku Light/style/mark-hide.css"
 		);
 		highlightBecomesHiddenButton.style.backgroundColor = "transparent";
 		highlightBecomesHiddenButton.style.backgroundImage =
-			"url(/appearance/themes/Tsundoku Light/customizeStyle/highlight.svg)";
+			"url(/appearance/themes/Tsundoku Light/src/highlight.svg)";
 	} else {
 		obj.setAttribute(
 			"href",
-			"/appearance/themes/Tsundoku Light/customizeStyle/highlight-Mark.css"
+			"/appearance/themes/Tsundoku Light/style/mark-display.css"
 		);
 		highlightBecomesHiddenButton.style.backgroundColor =
 			"var(--b3-theme-background-light)";
 		highlightBecomesHiddenButton.style.backgroundImage =
-			"url(/appearance/themes/Tsundoku Light/customizeStyle/highlight.svg)";
+			"url(/appearance/themes/Tsundoku Light/src/highlight.svg)";
 	}
 }
 
@@ -383,7 +380,18 @@ function getDocumentTime(tilteElement) {
 	var second = tS.substring(12, 14);
 
 	return (
-		"Created at "+year + "-" + moon + "-" + day + "  " + hour + ":" + minute + ":" + second
+		"Created at " +
+		year +
+		"-" +
+		moon +
+		"-" +
+		day +
+		"  " +
+		hour +
+		":" +
+		minute +
+		":" +
+		second
 	);
 	/*return year+"年"+moon+"月"+day+"日"+hour+"时"+minute+"分"+second+"秒";*/
 }
@@ -807,8 +815,8 @@ function Refresh() {
 		createHighlightBecomesHidden(); /*创建高亮变隐藏按钮 */
 
 		loadStyle(
-			"/appearance/themes/Tsundoku Light/customizeStyle/customizeCss.css",
-			"customizeCss"
+			"/appearance/themes/Tsundoku Light/style/topbar.css",
+			"topbarCss"
 		);
 
 		setTimeout(() => ClickMonitor(), 3000); /*各种列表转xx */
@@ -1002,14 +1010,15 @@ window.theme.changeThemeMode = function (
 	window.theme.updateStyle(window.theme.ID_CUSTOM_STYLE, href_custom);
 };
 
-
 /* 加载 HTML 块中使用的小工具 */
 window.theme.loadScript(
 	"/appearance/themes/Tsundoku Light/script/module/html.js",
 	"text/javascript"
 );
 
-window.theme.loadScript("/appearance/themes/Tsundoku Light/script/module/window.js");
+window.theme.loadScript(
+	"/appearance/themes/Tsundoku Light/script/module/window.js"
+);
 window.theme.loadScript(
 	"/appearance/themes/Tsundoku Light/script/module/doc.js"
 );

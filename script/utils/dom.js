@@ -12,6 +12,7 @@ export {
     getTargetBlockID, // 获得目标的块 ID
     getTargetBlockIndex, // 获得目标的块在文档中的索引
     getTargetInboxID, // 获得目标的收件箱 ID
+    getTargetHistory, // 获得目标的历史文档路径与 ID
     getTargetHref, // 获得目标超链接
     getBlockMark, // 获得块标记
     getBlockSelected, // 获得块选中
@@ -22,6 +23,7 @@ export {
     getEditor, // 获得指定编辑器
     disabledProtyle, // 禁用编辑器
     enableProtyle, // 解除编辑器禁用
+    setDockState, // 设置侧边栏状态
 };
 
 import { url2id } from './misc.js';
@@ -262,6 +264,33 @@ function getTargetInboxID(target) {
 }
 
 /**
+ * 获得目标的历史文档路径与 ID
+ * @params {HTMLElement} target: 目标
+ * @return {object}
+ *      path: 历史文档文件路径
+ *      id: 历史文档对应的 ID
+ * @return {null} 没有找到历史文档
+ */
+function getTargetHistory(target) {
+    let element = target;
+    while (element != null && element.localName !== 'li') element = element.parentElement;
+
+    if (element != null) {
+        const result = config.theme.regs.historypath.exec(element.dataset.path);
+        if (result
+            && element.dataset.type === 'doc'
+            && element.classList.contains('b3-list-item')
+        ) {
+            return {
+                path: element.dataset.path,
+                id: result[1],
+            };
+        }
+    }
+    return null;
+}
+
+/**
  * 获得目标超链接
  * @params {HTMLElement} target 目标
  * @return {string} 超链接
@@ -306,8 +335,8 @@ function getBlockMark(target) {
 
     // 文档块块标
     if (node.localName === 'span'
-        && node.parentElement.parentElement.firstElementChild.dataset.nodeId
-        && node.parentElement.parentElement.lastElementChild.dataset.docType
+        && node.classList.contains('protyle-title__icon')
+        && node.parentElement.parentElement.firstElementChild.classList.contains('protyle-background')
     ) return {
         id: node.parentElement.parentElement.firstElementChild.dataset.nodeId,
         // type: node.parentElement.parentElement.lastElementChild.dataset.docType,
@@ -339,11 +368,12 @@ function getBlockSelected() {
 
 /**
  * 设置 DOM 中的块属性
+ * @deprecated 2.1.15+ https://github.com/siyuan-note/siyuan/issues/5847 https://github.com/siyuan-note/siyuan/issues/5866
  * @param {string} id 块 ID
  * @param {object} attrs 块属性 dict
  */
 function setBlockDOMAttrs(id, attrs) {
-    let block = document.querySelector(`div.protyle-content div[data-node-id="${id}"]`);
+    let block = document.querySelector(`.protyle-content [data-node-id="${id}"]`);
     if (block) {
         if (block.className === 'protyle-background') {
             while (block && block.dataset.docType == null) block = block.nextElementSibling;
@@ -362,14 +392,34 @@ function setBlockDOMAttrs(id, attrs) {
 
 /**
  * 设置编辑器字号
- * @param {number} size 字号
+ * REF https://github.com/siyuan-note/siyuan/blob/fcabf93cabf0383a8b59616d66ec44e7869236cf/app/src/protyle/export/index.ts#L242-L107
+ * @param {number} fontSize 字号
  * @return {number} 设置后的字号
  * @return {null} 没有找到字号
  */
-function setFontSize(size) {
+function setFontSize(fontSize) {
     let style = document.getElementById('editorFontSize');
     if (style) {
-        style.innerHTML = style.innerHTML.replace(config.theme.regs.fontsize, size);
+        const height = Math.floor(fontSize * 1.625);
+        style.innerHTML = `
+.b3-typography, .protyle-wysiwyg, .protyle-title {font-size:${fontSize}px !important}
+.b3-typography code:not(.hljs), .protyle-wysiwyg code:not(.hljs) { font-variant-ligatures: ${window.siyuan.config.editor.codeLigatures ? "normal" : "none"} }
+.li > .protyle-action {height:${height + 8}px;line-height: ${height + 8}px}
+.protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h1, .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h2, .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h3, .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h4, .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h5, .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h6 {line-height:${height + 8}px;}
+.protyle-wysiwyg [data-node-id].li > .protyle-action:after {height: ${fontSize}px;width: ${fontSize}px;margin:-${fontSize / 2}px 0 0 -${fontSize / 2}px}
+.protyle-wysiwyg [data-node-id].li > .protyle-action svg {height: ${Math.max(14, fontSize - 8)}px}
+.protyle-wysiwyg [data-node-id] [spellcheck="false"] {min-height:${height}px}
+.protyle-wysiwyg .li {min-height:${height + 8}px}
+.protyle-gutters button svg {height:${height}px}
+.protyle-wysiwyg img.emoji, .b3-typography img.emoji {width:${height - 8}px}
+.protyle-wysiwyg .h1 img.emoji, .b3-typography h1 img.emoji {width:${Math.floor(fontSize * 1.75 * 1.25)}px}
+.protyle-wysiwyg .h2 img.emoji, .b3-typography h2 img.emoji {width:${Math.floor(fontSize * 1.55 * 1.25)}px}
+.protyle-wysiwyg .h3 img.emoji, .b3-typography h3 img.emoji {width:${Math.floor(fontSize * 1.38 * 1.25)}px}
+.protyle-wysiwyg .h4 img.emoji, .b3-typography h4 img.emoji {width:${Math.floor(fontSize * 1.25 * 1.25)}px}
+.protyle-wysiwyg .h5 img.emoji, .b3-typography h5 img.emoji {width:${Math.floor(fontSize * 1.13 * 1.25)}px}
+.protyle-wysiwyg .h6 img.emoji, .b3-typography h6 img.emoji {width:${Math.floor(fontSize * 1.25)}px}
+.b3-typography, .protyle-wysiwyg, .protyle-title, .protyle-title__input{font-family: "${window.siyuan.config.editor.fontFamily}", "quote", "Helvetica Neue", "Luxi Sans", "DejaVu Sans", "Hiragino Sans GB", "Microsoft Yahei", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols" !important;}
+`;
         return parseInt(config.theme.regs.fontsize.exec(style.innerHTML));
     }
     return null;
@@ -387,8 +437,8 @@ function getEditorsFromLayout(centerLayout) {
         const layout = layouts.pop();
         if (layout.children.length > 0) {
             for (let child of layout.children) {
-                if (child.model) editors.push(child.model.editor);
-                else layouts.push(child);
+                if (child.model?.editor) editors.push(child.model.editor);
+                else if (child.children) layouts.push(child);
             }
         }
     }
@@ -541,3 +591,16 @@ function enableProtyle(protyle) {
         }
     });
 };
+
+/**
+ * 设置侧边栏状态
+ * @params {elements} items: 侧边栏展开/收缩按钮列表
+ * @params {object} state: 侧边栏项想要设置的展开/收缩状态
+ */
+function setDockState(items, state) {
+    for (const item of items) {
+        const type = item.dataset.type;
+        const active = item.classList.contains('dock__item--active');
+        if (state[type] && (active ^ state[type].fold)) item.click();
+    }
+}
