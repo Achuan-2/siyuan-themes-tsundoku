@@ -51,7 +51,7 @@ Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释
   - 复制当前文档大纲为无序列表
   - 复制文档内容
   - 剪切文档内容
-  - 按alt+中键可以打开用monaco-editor打开以markdown样式当前块或文档（打开文档需要在文档题头图那块点击）
+  - 按alt+中键可以打开用monaco-editor以markdown样式打开当前块或文档（打开文档需要在文档题头图那块点击）
 - [HBuilderX-Light](https://github.com/UFDXD/HBuilderX-Light)的功能（copy）
   - 左右面板收起
   - 高亮文本显示
