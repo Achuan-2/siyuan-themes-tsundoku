@@ -29,11 +29,7 @@
     src: url('fonts/seguiemj.ttf');
 }
 
-@font-face {
-    font-family: 'FiraCode';
-    font-style: normal;
-    src: url('fonts/FiraCode-Regular.ttf');
-}
+
 
 :root {
     /* 主色 */
@@ -64,9 +60,7 @@
     --b3-font-family: "quote",'Helvetica Neue', 'Luxi Sans', 'DejaVu Sans', 'Hiragino Sans GB',
         'Microsoft Yahei', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji',
         'Win11 Emoji', 'Segoe UI Symbol', 'Android Emoji', 'EmojiSymbols';
-    --b3-font-family-code: 'FiraCode', mononoki, Consolas, 'Liberation Mono', Menlo, Courier,
-        monospace, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Segoe UI Symbol',
-        'Android Emoji', 'EmojiSymbols';
+    --b3-font-family-code: "JetBrainsMono-Regular", mononoki, Consolas, "Liberation Mono", Menlo, Courier, monospace, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols";
     --b3-font-family-graph: mononoki;
     --b3-font-family-emoji: 'Win11 Emoji',"Segoe UI Emoji", "Segoe UI Symbol", "Segoe UI", "Apple Color Emoji", "Twemoji Mozilla", "Noto Color Emoji", "Android Emoji";
     --b3-font-family-math: KaTeX_Math;
@@ -375,7 +369,8 @@ body{
     text-shadow: 1px 1px 1px #002636b8;
 } */
 
-.protyle-wysiwyg [data-type="NodeHeading"] span[data-type="strong"]:not([style]) {
+.protyle-wysiwyg [data-type="NodeHeading"] span[data-type="strong"]:not([style]),
+.protyle-wysiwyg [data-type="NodeHeading"] span[data-type="em"]:not([style]) {
     color: inherit !important;
 }
 .b3-typography h1 span[data-type="strong"],
@@ -527,20 +522,20 @@ span[data-type="strong"] {
 
 
 /* 块引用 */
-.protyle-wysiwyg [data-node-id] span[data-type='block-ref']{
+.protyle-wysiwyg [data-node-id] span[data-type~='block-ref']{
     color: var(--b3-protyle-inline-blockref-color); /*更改颜色*/
     padding-bottom: 0em;
     height: 1.5em;
     opacity: 1;
     border-bottom: 1px dashed var(--b3-protyle-inline-blockref-color);
 }
-/* .protyle-wysiwyg [data-node-id] span[data-type='block-ref']::before{
+/* .protyle-wysiwyg [data-node-id] span[data-type~='block-ref']::before{
     content: "[[";
 }
-.protyle-wysiwyg [data-node-id] span[data-type='block-ref']::after{
+.protyle-wysiwyg [data-node-id] span[data-type~='block-ref']::after{
     content: "]]";
 } */
-.protyle-wysiwyg [data-node-id] span[data-type='block-ref']:hover {
+.protyle-wysiwyg [data-node-id] span[data-type~='block-ref']:hover {
     color: var(--b3-protyle-inline-blockref-hover-color); /*更改鼠标悬浮的颜色*/
     border-bottom: 1px dashed var(--b3-protyle-inline-blockref-hover-color); /*下划线可以去掉*/
 }
@@ -676,7 +671,7 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     background-color: var(--b3-protyle-inline-code-background);
 }
 /* 超链接 */
-.protyle-wysiwyg [data-node-id] span[data-type='a'] {
+.protyle-wysiwyg [data-node-id] span[data-type~='a'] {
     color: var(--b3-protyle-inline-link-color);
     cursor: pointer;
     border-bottom: 1px solid #bacbd650;
@@ -689,7 +684,7 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
 
 }
 /* 超链接前后是否要设置icon */
-/* .protyle-wysiwyg [data-node-id] span[data-type='a']:before
+/* .protyle-wysiwyg [data-node-id] span[data-type~='a']:before
 .b3-typography a:before{
     content: "";
     position: relative;
@@ -706,11 +701,11 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     color: var(--b3-protyle-inline-link-color);
     
 }
-.protyle-wysiwyg [data-node-id] span[data-type='a']:hover {
+.protyle-wysiwyg [data-node-id] span[data-type~='a']:hover {
     color: var(--b3-protyle-inline-link-hover-color);
     border-bottom: 1px solid var(--b3-protyle-inline-link-hover-color);
 }
-.protyle-wysiwyg [data-node-id] span[data-type='a']:hover code {
+.protyle-wysiwyg [data-node-id] span[data-type~='a']:hover code {
     color: var(--b3-protyle-inline-link-hover-color);
     /* border-bottom: 1px solid var(--b3-protyle-inline-link-hover-color); */
 }
@@ -1811,7 +1806,12 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
 }
 
 
-
+#preview.protyle-wysiwyg span[data-type~=mark] {
+    color: transparent !important;
+    transition: color 2s ease-in-out;
+    background-color: transparent;
+    border-bottom: 2px solid var(--b3-font-color4) !important;
+}
 
 /* 设置导出样式 */
 @media print {

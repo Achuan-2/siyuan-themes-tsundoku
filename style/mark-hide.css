@@ -8,7 +8,7 @@
     border-bottom: 2px solid var(--b3-font-color4);
 }
 
-.protyle-wysiwyg [data-node-id] [spellcheck="false"] mark:hover {
+.protyle-wysiwyg  span[data-type~=mark]:hover {
     color: var(--b3-protyle-inline-mark-color);
     transition: color 0.2s ease-in-out;
 }
