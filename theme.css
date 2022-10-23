@@ -64,6 +64,10 @@
     --b3-font-family-graph: mononoki;
     --b3-font-family-emoji: 'Win11 Emoji',"Segoe UI Emoji", "Segoe UI Symbol", "Segoe UI", "Apple Color Emoji", "Twemoji Mozilla", "Noto Color Emoji", "Android Emoji";
     --b3-font-family-math: KaTeX_Math;
+    /* 顶部工具栏 */   
+    --b3-toolbar-background: #d7dfe4;
+    --b3-toolbar-blur-background: #d7dfe4;
+    --b3-toolbar-color: #5f6368;
     /* 线条 */
     /* --b3-border-color: #dfe0e1; */
     --b3-border-color: #eceded;
@@ -1716,9 +1720,11 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 ::-webkit-scrollbar-thumb {
     background-color: #d5dde2;
+    border: 2px solid rgba(0,0,0,0);
 }
 ::-webkit-scrollbar-thumb{border-radius:0px;-webkit-box-shadow:inset 0 0 10px 10px #d5dde2;box-shadow:inset 0 0 10px 10px #d5dde2;background:unset;border-left:solid 4px transparent}
-::-webkit-scrollbar-thumb:hover{border-left:solid 0px transparent;border-radius: 5px;}
+::-webkit-scrollbar-thumb:hover{border-radius:0px;-webkit-box-shadow:inset 0 0 10px 10px #d5dde2;box-shadow:inset 0 0 10px 10px #d5dde2;background:unset;border-left:solid 4px transparent}
+/* ::-webkit-scrollbar-thumb:hover{border-left:solid 0px transparent;border-radius: 0px;} */
 
 
 .b3-typography span[data-type="em"], .protyle-wysiwyg span[data-type="em"],
@@ -1812,6 +1818,13 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
     background-color: transparent;
     border-bottom: 2px solid var(--b3-font-color4) !important;
 }
+#preview.protyle-wysiwyg .h1{
+    text-align: center !important;
+}
+
+#preview.protyle-wysiwyg .h1:not(:first-child, :nth-child(2)) {
+    page-break-before: always;
+}
 
 /* 设置导出样式 */
 @media print {
@@ -1819,20 +1832,7 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
         font-family: var(--b3-font-family);
     }
 
-    .protyle-wysiwyg .h1:first-child {
-        color: black !important;
-        text-align: Left;
-        border-bottom: 2px solid #e8e9e8 !important;
-
-
-    }
-
-    .protyle-wysiwyg .h1:not(:first-child, :nth-child(2)) {
-        page-break-before: always;
-    }
-
 }
-
 
 .protyle-wysiwyg{
     transition: none !important;
@@ -1841,10 +1841,30 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
 /* 设置备注样式 */
 .b3-typography span[data-type~=inline-memo],
 .protyle-wysiwyg span[data-type~=inline-memo] {
-    background-color: var(--b3-card-warning-background);
-    border-bottom: 2px solid var(--b3-font-color2);
+    background-color: #fffccf;
+    border-bottom: 2px solid #fff001;
+}
+.b3-typography span[data-type~=inline-memo]::after,
+.protyle-wysiwyg span[data-type~=inline-memo]::after {
+    content: "";
+    display: inline-block;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: 1em 1em;
+    top: 0em;
+    width: 1em;
+    height: 1em;
+    background-image: url('./src/memo.svg');
 }
 
+.tooltip--memo{
+    border-top: 3px solid #fff001;
+    background-color: #fffccf;
+    padding: 1rem 1rem;
+    font-size: 1rem;
+    color: var(--b3-theme-on-background);
+    min-width: 100px;
+}
 
 
 
@@ -1861,3 +1881,5 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
 body>div#action{
     background: var(--b3-theme-background) !important;
 }
+
+/* 备注模式 */

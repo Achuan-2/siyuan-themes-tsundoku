@@ -524,13 +524,7 @@
     background-image: url('../src/logo_weibo_icon.svg');
 }
 
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="github.io"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="github.io"]::before,
-.b3-typography a[href *="github.io"]::before{
 
-    content: "";
-    background-image: url('../src/blog.svg');
-}
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="github.com"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href *="github.com"]::before,
 .b3-typography a[href *="github.com"]::before{

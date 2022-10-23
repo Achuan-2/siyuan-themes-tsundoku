@@ -1,7 +1,7 @@
 .protyle-reset .hljs,
 .protyle-wysiwyg .hljs,
 .b3-typography .hljs {
-    padding: 8px 16px 4px 16px !important;
+    padding: 0px 16px 8px 16px !important;
     font-family: var(--b3-font-family-code);
     background-size: 20px 20px;
     background-image: none !important;
@@ -62,16 +62,6 @@
     background-color: #a1abb161;
 }
 
-.code-block .protyle-action .protyle-action__language::after {
-    content: "";
-    width: 8px;
-    height: 19px;
-    margin-left: 5px;
-    background-color: var(--b3-theme-on-background);
-    -webkit-mask: url("../src/expand_more_black_18dp.svg") no-repeat center;
-    mask: url("../src/expand_more_black_18dp.svg") no-repeat center;
-    opacity: 0;
-}
 
 .code-block .protyle-action .protyle-action__language:hover::after {
     opacity: 1;

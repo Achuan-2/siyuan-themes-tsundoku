@@ -641,7 +641,7 @@ export var config = {
 				height: 480, // 窗口高度
 				frame: true, // 是否显示边缘框
 				fullscreen: false, // 是否全屏显示
-				alwaysOnTop: true, // 是否置顶显示
+				alwaysOnTop: false, // 是否置顶显示
 				autoHideMenuBar: true, // 是否隐藏菜单栏(使用 Alt 显示)
 				// backgroundColor: window.siyuan.config.appearance.mode // 窗口默认背景色
 				//     ? '#1e1e1e'
@@ -758,7 +758,7 @@ export var config = {
 				block: {
 					// 新窗口打开当前块, 否则打开当前文档
 					enable: false,
-					editable: false, // 新窗口默认是否可编辑
+					editable: true, // 新窗口默认是否可编辑
 					outfocus: {
 						// 新窗口打开当前块, 否则打开当前文档
 						enable: true,

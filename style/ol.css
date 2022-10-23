@@ -11,7 +11,7 @@ div[data-subtype="o"].list {
 }
 
 .protyle-wysiwyg [data-subtype="o"].li>.protyle-action:after {
-    margin: -12px 0 0 -12px;
+    margin: -12px 0 0 -12px !important;
     line-height: 20px;
 }
 
