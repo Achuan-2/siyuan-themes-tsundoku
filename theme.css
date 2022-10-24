@@ -786,9 +786,9 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     vertical-align: middle;
     text-align: center;
     border: 1.7px solid #5f6368;
-    border-radius: 1em;
-    top: 0.5em;
-    font-size: 0.9em;
+    border-radius: 0.2em;
+    top: 0.65em;
+    font-size: 0.8em;
 }
 
 .b3-typography .protyle-task:before {
@@ -800,36 +800,34 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
 .protyle-task--done>.protyle-action--task:before,
 .b3-typography .protyle-task--done:before {
     content: '\2713';
-    font-size: 0.9em;
+    font-size: 0.8em;
     font-weight: bold;
-    border: 1px solid transparent;
+    border: 1.7px solid #289aa2;
     line-height: 1em;
-    color: #8f9091;
+    color: #289aa2;
     background-color: transparent;
 }
 
 /* 复选框鼠标悬停 */
 .protyle-wysiwyg [data-node-id].li>.protyle-action--task:hover:before {
     content: '\2713';
-    font-size: 0.9em;
+    font-size: 0.8em;
     vertical-align: middle;
     line-height: 1em;
     color: #436681;
 }
 /* 复选框完成 */
-.protyle-task--done [data-type="NodeParagraph"]>div:first-child,
+/* .protyle-task--done [data-type="NodeParagraph"]>div:first-child,
 .protyle-task--done p {
-    /* 完成的待办事项删除线 */
     text-decoration: line-through;
     opacity: 0.5;
     transition: all 0.5s ease-in-out;
-}
+} */
 
 
 .protyle-task--done[fold="1"]>.protyle-action--task:before{
     content: '\2713';
     background-color: transparent;
-    border: none;
     color: #476796;
 }
 div[data-subtype='t'][data-type='NodeList'] {
@@ -1882,4 +1880,12 @@ body>div#action{
     background: var(--b3-theme-background) !important;
 }
 
-/* 备注模式 */
+/* 调整标签页 */
+.layout-tab-bar .item__text {
+    /* 超出显示省略号 */
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    mask-image: none;
+    -webkit-mask-image: none;
+}
