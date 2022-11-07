@@ -986,3 +986,17 @@
     content: "";
     background-image: url('../src/docspython.svg');
 }
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="mathworks.com"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href *="mathworks.com"]::before,
+.b3-typography a[href *="mathworks.com"]::before{
+
+    content: "";
+    background-image: url('../src/mathworks.ico');
+}
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="ww2.mathworks.cn"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href *="ww2.mathworks.cn"]::before,
+.b3-typography a[href *="ww2.mathworks.cn"]::before{
+
+    content: "";
+    background-image: url('../src/ww2mathworks.ico');
+}

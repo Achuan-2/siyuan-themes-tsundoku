@@ -279,7 +279,7 @@ body{
 
 /* -------------------------------标题样式-------------------------------------- */
 .protyle-wysiwyg [data-node-id].h1 ,.b3-typography h1{
-    text-align: center;
+    /* text-align: center; */
     border-bottom: 0px solid #c5c7ca !important;
     font-size: 1.75em !important;
     padding: 0.3em 4px;
@@ -1888,4 +1888,13 @@ body>div#action{
     overflow: hidden;
     mask-image: none;
     -webkit-mask-image: none;
+}
+
+.protyle-wysiwyg [data-node-id].li:before {
+    content: "";
+    position: absolute;
+    height: calc(100% - 41px);
+    border-left: .5px solid var(--b3-theme-background-light);
+    top: 35px;
+    left: 17px;
 }
