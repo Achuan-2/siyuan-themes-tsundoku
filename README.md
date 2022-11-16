@@ -2,6 +2,9 @@
 
 <p align="center">          
            <a title="Hits" target="_blank" href="https://github.com/Achuan-2/siyuan-themes-tsundoku-light"><img src="https://hits.b3log.org/Achuan-2/siyuan-themes-tsundoku-light.svg" ></a>
+           <a title="GitHub release (latest by date including pre-releases)" target="_blank" href="https://github.com/Achuan-2/siyuan-themes-tsundoku-light/releases/latest">
+                 <img src="https://img.shields.io/github/v/release/Achuan-2/siyuan-themes-tsundoku-light?include_prereleases&style=flat-square" >
+           </a>
            <a href="https://github.com/Achuan-2/siyuan-themes-tsundoku-light/releases">
                       <https://img.shields.io/github/release/Achuan-2/siyuan-themes-tsundoku-light.svg" alt="Release">
            </a>
