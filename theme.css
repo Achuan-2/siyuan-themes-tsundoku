@@ -10,8 +10,7 @@
 @import url("style/attr.css");
 /* 导入代码块样式 */
 @import url("style/code_block.css");
-/* 导入自定义无序列表样式 */
-@import url("style/ul.css");
+
 /* 导入自定义有序列表样式 */
 @import url("style/ol.css");
 /* 导入折叠css */
