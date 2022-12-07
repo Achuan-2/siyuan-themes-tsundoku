@@ -4,8 +4,6 @@
 @import url("style/list2board.css");
 @import url("style/list2map.css");
 @import url("style/list2table.css");
-/* 导入搜索窗口调大样式 */
-@import url("style/ctrlP.css");
 /* 导入文档属性 */
 @import url("style/doc_attr.css");
 /* 导入块自定义属性 */
@@ -279,7 +277,7 @@ body{
 
 /* -------------------------------标题样式-------------------------------------- */
 .protyle-wysiwyg [data-node-id].h1 ,.b3-typography h1{
-    /* text-align: center; */
+    text-align: center;
     border-bottom: 0px solid #c5c7ca !important;
     font-size: 1.75em !important;
     padding: 0.3em 4px;
@@ -1732,7 +1730,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 }
 ::-webkit-scrollbar-thumb{border-radius:0px;-webkit-box-shadow:inset 0 0 10px 10px #d5dde2;box-shadow:inset 0 0 10px 10px #d5dde2;background:unset;border-left:solid 4px transparent}
 ::-webkit-scrollbar-thumb:hover{border-radius:0px;-webkit-box-shadow:inset 0 0 10px 10px #d5dde2;box-shadow:inset 0 0 10px 10px #d5dde2;background:unset;border-left:solid 4px transparent}
-/* ::-webkit-scrollbar-thumb:hover{border-left:solid 0px transparent;border-radius: 0px;} */
+::-webkit-scrollbar-thumb:hover{border-left:solid 0px transparent;border-radius: 0px;}
 
 
 .b3-typography span[data-type="em"], .protyle-wysiwyg span[data-type="em"],
@@ -1908,3 +1906,4 @@ body>div#action{
     top: 35px;
     left: 17px;
 } */
+

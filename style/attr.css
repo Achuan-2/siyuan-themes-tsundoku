@@ -284,3 +284,14 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
     top: 1px;
     z-index: 1;
 }
+
+/* 代码块输出code output */
+.protyle-wysiwyg [data-node-id][custom-code="output"] .protyle-action .protyle-action__language{
+    opacity: 0;
+}
+.protyle-wysiwyg [data-node-id][custom-code="output"]{
+    background-color: transparent;
+}
+.protyle-wysiwyg [data-node-id][custom-code="output"] .hljs{
+    background-color: transparent !important;
+}
