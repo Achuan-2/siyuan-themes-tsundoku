@@ -1906,3 +1906,13 @@ body>div#action{
     left: 17px;
 } */
 
+/* 钉住添加图标 */
+.item.item--pin::before {
+    content: "📌";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 13px;
+    font-size: 0.7em;
+    opacity: 0.7;
+}

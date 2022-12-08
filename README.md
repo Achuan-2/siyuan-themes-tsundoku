@@ -63,6 +63,7 @@ Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释
     | f       | hide/挖空<br /> | 挖空块                                                 |                                                                            |
     | f       | table       | 将列表转化为表格<br />                                     | 参考自[Zhang light主题](https://github.com/UserZYF/zhang-light)            |
     | f       | scroll      | 代码块和表格设置最大展示高度，超过则显示纵向滚动条，<br /> | 参考自[Dark+主题](https://github.com/Zuoqiu-Yingyi/siyuan-theme-dark-plus) |
+    | code       | output      | 专门用来放输出结果的代码块 |  |
   
   - 自定义文档属性
     | 属性key  | 属性值value | 功能             |

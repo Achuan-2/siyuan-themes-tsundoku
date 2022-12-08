@@ -1,3 +1,16 @@
+## v1.4.7/2022.12.08
+
+* :sparkles: [钉住的页签添加pushpin图标](https://github.com/Achuan-2/siyuan-themes-tsundoku-light/issues/49)
+
+
+## v1.4.6/2022.12.07
+
+* :sparkles[自定义属性 code:output improvement](https://github.com/Achuan-2/siyuan-themes-tsundoku-light/issues/48)
+* :bug: [导出长图，无序列表符号错乱 ](https://github.com/Achuan-2/siyuan-themes-tsundoku-light/issues/43)
+* :fire: [去除Ctr+P搜索窗自定义样式](https://github.com/Achuan-2/siyuan-themes-tsundoku-light/issues/44)
+
+
+
 ## v1.4.5/2022.11.16
 
 * :bug: 待办列表折叠问题
