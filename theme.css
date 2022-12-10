@@ -206,6 +206,13 @@
     --custom-tab-hover-background: #76878d38;
     --custom-tab-border:#d3dae27c;
     --custom-tab-focus-top-border: #435f6b;
+    /* 各级标题颜色 */
+    --custom-h1-color: #04393f;
+    --custom-h2-color: #0f6379;
+    --custom-h3-color: #15aabf;
+    --custom-h4-color: #2c99a2;
+    --custom-h5-color: #387b86cc;
+    --custom-h6-color: var(--b3-theme-on-background);
 }
 
 .b3-dialog__container {
@@ -280,14 +287,14 @@ body{
     border-bottom: 0px solid #c5c7ca !important;
     font-size: 1.75em !important;
     padding: 0.3em 4px;
-    color: #04393f;
+    color: var(--custom-h1-color);
 }
 
 .protyle-wysiwyg [data-node-id].h2,.b3-typography h2 {
     border-bottom: 1px solid #dfe0e1 !important;
     /* border-bottom: 0px solid transparent !important; */
     font-size: 1.55em !important;
-    color: #34495e;
+    color: var(--custom-h2-color);
     border-radius: 0px;
 
 }
@@ -298,7 +305,7 @@ body{
 .protyle-wysiwyg [data-node-id].h3,
 .b3-typography h3{
     font-size: 1.35em !important;
-    color: rgb(21, 170, 191);
+    color: var(--custom-h3-color);
     
 }
 .protyle-wysiwyg [data-node-id].h3>div:first-child::before,
@@ -311,7 +318,7 @@ body{
     font-size: 1.35em !important;
     margin-right: 8px;
     margin-top: -0.10em;
-    background: rgb(21, 170, 191);
+    background: var(--custom-h3-color);
 }
 
 
@@ -354,15 +361,15 @@ body{
 } */
 .protyle-wysiwyg [data-node-id].h4,.b3-typography h4 {
     font-size: 1.2em !important;
-    color: #03a1b9cc;
+    color: var(--custom-h4-color);
 }
 .protyle-wysiwyg [data-node-id].h5,.b3-typography h5 {
     font-size: 1.1em!important;
-    color: #58c6d6;
+    color: var(--custom-h5-color);
 }
 .protyle-wysiwyg [data-node-id].h6,.b3-typography h6 {
     font-size: 1.1em!important;
-    /* color: #03a1b9cc; */
+    color: var(--custom-h6-color);
 }
 /* 标题加粗样式 */
 
@@ -1476,10 +1483,9 @@ div[data-subtype='t'][data-type='NodeList'] {
     border-bottom: 1px dashed #308b84;
 
 }
-.protyle-wysiwyg [data-node-id] span[data-type='file-annotation-ref']::before {
-    /* 隐藏默认主题加的🔖，原因：我觉得很多余 */
+/* .protyle-wysiwyg [data-node-id] span[data-type='file-annotation-ref']::before {
     display: none;
-}
+} */
 .protyle-wysiwyg [data-node-id] span[data-type='file-annotation-ref']:hover {
     color: var(--b3-protyle-inline-blockref-hover-color); /*更改鼠标悬浮的颜色*/
     border-bottom: 1px dashed var(--b3-protyle-inline-blockref-hover-color); /*下划线可以去掉*/
@@ -1574,32 +1580,33 @@ div[data-subtype='t'][data-type='NodeList'] {
 .file-tree ul.b3-list.b3-list--background [data-subtype="h1"]{
     font-weight: 600;
     opacity: 1;
-    color:#04393f !important;
+    color:var(--custom-h1-color) !important;
 }
 .file-tree ul.b3-list.b3-list--background [data-subtype="h2"] .b3-list-item__text,
 .file-tree ul.b3-list.b3-list--background [data-subtype="h2"]{
     opacity: 1;
     font-weight: 600;
-    color:#34495e;
+    color:var(--custom-h2-color) !important;
 }
 .file-tree ul.b3-list.b3-list--background [data-subtype="h3"] .b3-list-item__text,
 .file-tree ul.b3-list.b3-list--background [data-subtype="h3"]{
     /* opacity: 1; */
     font-weight: 600;
-    color:#15aabf !important;
+    color:var(--custom-h3-color) !important;
 }
 .file-tree ul.b3-list.b3-list--background [data-subtype="h4"] .b3-list-item__text,
 .file-tree ul.b3-list.b3-list--background [data-subtype="h4"]{
-    color:#34b3c6;
+    color:var(--custom-h4-color);
 }
 .file-tree ul.b3-list.b3-list--background [data-subtype="h5"] .b3-list-item__text,
 .file-tree ul.b3-list.b3-list--background [data-subtype="h5"]{
     opacity: 1;
-    color:#58c6d6;
+    color:var(--custom-h5-color);
 }
 .file-tree ul.b3-list.b3-list--background [data-subtype="h6"] .b3-list-item__text,
 .file-tree ul.b3-list.b3-list--background [data-subtype="h6"]{
     opacity: 1;
+    color: var(--custom-h6-color);
 }
 .file-tree .b3-list--background .b3-list-item .b3-list-item__text:hover {
     color: var(--b3-menu-highlight-color) !important;
@@ -1915,4 +1922,9 @@ body>div#action{
     width: 13px;
     font-size: 0.7em;
     opacity: 0.7;
+}
+
+/* 修复页签搜索的背景颜色 */
+.search__list{
+    background-color: #f1f5f8;
 }

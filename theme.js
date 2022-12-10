@@ -263,17 +263,14 @@ function openRightPanel() {
 /**------------------高亮变隐藏按钮-----------------*/
 
 function createHighlightBecomesHidden() {
-	loadStyle("/appearance/themes/Tsundoku Light/style/mark-hide.css", "markCss");
+	loadStyle("/appearance/themes/Tsundoku Light/style/mark-display.css", "markCss");
 
 	highlightBecomesHiddenButton = addinsertCreateElement(
 		HBuiderXToolbar,
 		"div",
 		HighlightBecomesHiddenID
 	);
-	highlightBecomesHiddenButton.setAttribute(
-		"title",
-		"开启后显示CTRL+E隐藏文本。"
-	);
+	highlightBecomesHiddenButton.setAttribute('title', '开启后隐藏CTRL+E文本');
 
 	AddEvent(
 		highlightBecomesHiddenButton,
@@ -288,11 +285,11 @@ function highlightBecomesHiddenButtonClickEven() {
 
 	if (
 		obj.getAttribute("href") !=
-		"/appearance/themes/Tsundoku Light/style/mark-hide.css"
+		"/appearance/themes/Tsundoku Light/style/mark-display.css"
 	) {
 		obj.setAttribute(
 			"href",
-			"/appearance/themes/Tsundoku Light/style/mark-hide.css"
+			"/appearance/themes/Tsundoku Light/style/mark-display.css"
 		);
 		highlightBecomesHiddenButton.style.backgroundColor = "transparent";
 		highlightBecomesHiddenButton.style.backgroundImage =
@@ -300,7 +297,7 @@ function highlightBecomesHiddenButtonClickEven() {
 	} else {
 		obj.setAttribute(
 			"href",
-			"/appearance/themes/Tsundoku Light/style/mark-display.css"
+			"/appearance/themes/Tsundoku Light/style/mark-hide.css"
 		);
 		highlightBecomesHiddenButton.style.backgroundColor =
 			"var(--b3-theme-background-light)";
