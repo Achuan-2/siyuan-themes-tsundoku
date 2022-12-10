@@ -270,7 +270,7 @@ function createHighlightBecomesHidden() {
 		"div",
 		HighlightBecomesHiddenID
 	);
-	highlightBecomesHiddenButton.setAttribute('title', '开启后隐藏CTRL+E文本');
+	highlightBecomesHiddenButton.setAttribute('title', '开启后隐藏高亮文本');
 
 	AddEvent(
 		highlightBecomesHiddenButton,
