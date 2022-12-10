@@ -1,6 +1,6 @@
 ## v1.4.8/2022.12.10
 
-- :bug: Green主题导出图片与导出pdf冲突
+- :bug: [Green主题导出图片与导出pdf冲突](https://github.com/Achuan-2/siyuan-themes-tsundoku-light/issues/53)
 - :sparkles: [Ctrl+E高亮修改为不自动隐藏，需要点击隐藏按钮才会隐藏](https://github.com/Achuan-2/siyuan-themes-tsundoku-light/issues/51)
 - :lipstick: [Light 主题页签搜索背景色修正](https://github.com/Achuan-2/siyuan-themes-tsundoku-light/issues/50)
 - :lipstick: [优化标题样式](https://github.com/Achuan-2/siyuan-themes-tsundoku-light/issues/42)
