@@ -1364,7 +1364,7 @@ export var config = {
                                 },
                             },
                             {
-                                enable: true,
+                                enable: false,
                                 type: null,
                                 mode: 'button',
                                 icon: '#iconFocus',
