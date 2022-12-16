@@ -1,3 +1,10 @@
+## v1.4.9/2022.12.17
+
+* ✨新增文档属性-标题自动编号：`title-num:true`
+* ✨块菜单增强：添加用monaco编辑器打开、在新窗口打开
+
+
+
 ## v1.4.8/2022.12.10
 
 - :bug: [Green主题导出图片与导出pdf冲突](https://github.com/Achuan-2/siyuan-themes-tsundoku-light/issues/53)

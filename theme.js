@@ -1,5 +1,9 @@
-/**目标：能跑就行 */
 
+/**目标：能跑就行 */
+/**
+ * 获取思源版本号
+ * @return {string} 思源版本号
+ */
 const HBuiderXToolbarID = "HBuiderXToolbar";
 const SiYuanToolbarID = "toolbar";
 
@@ -1007,7 +1011,7 @@ window.theme.changeThemeMode = function (
 	window.theme.updateStyle(window.theme.ID_CUSTOM_STYLE, href_custom);
 };
 
-/* 加载 HTML 块中使用的小工具 */
+/* 加载主题功能 */
 window.theme.loadScript(
 	"/appearance/themes/Tsundoku Light/script/module/html.js",
 	"text/javascript"
@@ -1018,4 +1022,14 @@ window.theme.loadScript(
 );
 window.theme.loadScript(
 	"/appearance/themes/Tsundoku Light/script/module/doc.js"
+);
+window.theme.loadScript(
+    window.theme.addURLParam('/appearance/themes/Tsundoku Light/script/module/goto.js'),
+    undefined,
+    true
+);
+window.theme.loadScript(
+    window.theme.addURLParam('/appearance/themes/Tsundoku Light/script/module/menu.js'),
+    undefined,
+    true
 );

@@ -642,6 +642,13 @@ const TASK_HANDLER = {
         else
             editDocKramdown(id);
     },
+    /* 选择文件 */
+    'file-select': async (e, id, params) => {
+        fileSelect(params.accept, params.multiple).then(files => {
+            params.files = files;
+            TASK_HANDLER?.[params.callback](e, id, params);
+        });
+    },
     /* 保存输入框内容 */
     'save-input-value': async (e, id, params) => {
         const value = document.getElementById(params.id).value;
@@ -649,8 +656,81 @@ const TASK_HANDLER = {
         saveCustomFile(custom);
     },
     /* 处理输入框内容 */
-    'handle-input-value': async (e, id, params) => params.handler(e, id, params),
+    'handler': async (e, id, params) => params.handler(e, id, params),
+    /* 打开全局设置窗口 */
+    'jupyter-open-global-settings': async (e, id, params) => {
+        window.theme.openNewWindow(
+            'browser',
+            params.href,
+            Object.assign({ id: id }, params.urlParams),
+            config.theme.window.windowParams,
+            config.theme.window.menu.template,
+            undefined,
+            undefined,
+            undefined,
+            async (...args) => jupyterWorker.postMessage(JSON.stringify({
+                type: 'call',
+                handle: 'reloadCustomJson',
+                params: [],
+            })),
+        );
+        return null;
+    },
+    /* 关闭会话 */
+    // 'jupyter-close-connection': closeConnection,
+    'jupyter-close-connection': async (...args) => jupyterWorker.postMessage(JSON.stringify({
+        type: 'call',
+        handle: 'closeConnection',
+        params: args,
+    })),
+    /* 重启内核 */
+    // 'jupyter-restart-kernel': restartKernel,
+    'jupyter-restart-kernel': async (...args) => jupyterWorker.postMessage(JSON.stringify({
+        type: 'call',
+        handle: 'restartKernel',
+        params: args,
+    })),
+    /* 运行单元格 */
+    // 'jupyter-run-cell': runCell,
+    'jupyter-run-cell': async (...args) => jupyterWorker.postMessage(JSON.stringify({
+        type: 'call',
+        handle: 'runCell',
+        params: args,
+    })),
+    /* 运行所有单元格 */
+    'jupyter-run-all-cells': async (e, id, params) => {
+        const stmt = `SELECT a.block_id FROM attributes AS a WHERE a.root_id = '${id}' AND a.name = '${jupyterConfig.jupyter.attrs.code.type.key}' AND a.value = '${jupyterConfig.jupyter.attrs.code.type.value}';`;
+        const rows = await sql(stmt);
+        if (rows && rows.length > 0) {
+            for (let i = 0; i < rows.length; ++i) {
+                const index = await getBlockIndex(rows[i].block_id);
+                if (!index) return;
+                rows[i].index = index;
+            }
+            rows.sort((a, b) => a.index - b.index);
+            const IDs = rows.map(row => row.block_id);
 
+            jupyterWorker.postMessage(JSON.stringify({
+                type: 'call',
+                handle: 'runCells',
+                params: [
+                    e,
+                    IDs,
+                    params,
+                ],
+            }));
+        }
+    },
+    /* 导入 *.ipynb */
+    'jupyter-import-ipynb': async (e, id, params) => {
+        /* 读取并解析 ipynb */
+        const ipynb = await params.files[0].text();
+        jupyterImportWorker.postMessage(JSON.stringify({
+            type: 'call',
+            handle: 'importJson',
+            params: [id, ipynb, params.mode],
+        }));
+    },
     /* 归档页签 */
     'tab-archive': async (e, id, params) => {
         const editors = getEditors().filter(editor => {
@@ -667,6 +747,73 @@ const TASK_HANDLER = {
             pushMsg(params.message.success);
         }
         else pushErrMsg(params.message.error);
+    },
+    /* 全屏显示 iframe 块/挂件块 */
+    'full-screen': async (e, id, params) => {
+        requestFullscreen(id);
+    },
+    /* 显示嵌入块查询结果的路径 */
+    // REF [思源笔记渲染 SQL 文档路径代码 - 链滴](https://ld246.com/article/1665129901544)
+    // @deprecated
+    'show-hpath': async (e, id, params) => {
+        /* 定位到嵌入块的 DOM */
+        document.querySelectorAll(`.render-node[data-node-id="${id}"]`).forEach(block => {
+            const callback = () => {
+                // console.log('callback');
+                /* 遍历嵌入块的查询结果的 DOM */
+                let counter = 0;
+                const results = block.parentElement.querySelectorAll(`.render-node[data-node-id="${block.dataset.nodeId}"]>.protyle-wysiwyg__embed`);
+                // console.log(block, results);
+                const length = results.length.toString().length;
+                results.forEach(result => {
+                    const index = ++counter;
+                    // console.log(index);
+                    setTimeout(async () => {
+                        /* 使用 API /api/filetree/getFullHPathByID 查询完整路径 */
+                        const breadcurmb = await getBlockBreadcrumb(result.dataset.id);
+                        if (breadcurmb) {
+                            /* 将路径插入每个查询结果中 */
+                            let nodes = []; // 文档路径 HTML 节点列表
+                            const paths = breadcurmb[0].name.split('/'); // 文档路径节点列表
+                            for (let i = 0; i < paths.length; ++i)
+                                nodes.push(`<span data-type="kbd">${paths[i]}</span>`);
+                            let crumb = document.createElement('div');
+                            crumb.classList.add('p');
+                            crumb.style.outline = '2px solid var(--b3-theme-on-surface-light)'
+                            crumb.style.borderRadius = '2px';
+                            crumb.setAttribute('data-node-id', '');
+                            crumb.setAttribute('data-type', 'NodeParagraph');
+                            // [关于格式化：如何在javascript中将整数格式化为特定长度？ | 码农家园](https://www.codenong.com/1127905/)
+                            crumb.innerHTML = `<div contenteditable="false" spellcheck="false"><span data-type="code">#${index.toString().padStart(length, '0')}</span>: ${nodes.join('&gt;')}</div>`;
+                            result.parentElement.insertBefore(crumb, result);
+                        }
+                    }, 0);
+                });
+            };
+            callback();
+            const observer = new MutationObserver((mutationList, observer) => {
+                for (let i = mutationList.length - 1; i >= 0; --i) {
+                    const mutation = mutationList[i];
+                    // console.log(mutation);
+                    if (mutation.type === 'childList'
+                        && mutation.addedNodes.length >= 2
+                        && mutation.nextSibling?.classList.contains('protyle-attr')
+                    ) {
+                        // setTimeout(callback(), 0);
+                        callback();
+                        break;
+                    }
+                }
+            });
+            observer.observe(block, {
+                // attributeFilter: ['data-render'], // 声明哪些属性名会被监听的数组
+                // attributeOldValue: true, // 记录上一次被监听的节点的属性变化
+                childList: true,
+                attributes: false,
+                characterData: false,
+            });
+            observer.takeRecords();
+        });
     },
 };
 
