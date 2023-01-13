@@ -1,12 +1,9 @@
 /* 配置文件(可以被 data/widgets/custom.js 覆盖) */
 
 import { merge } from './../utils/misc.js';
-import {
-    getFile,
-    putFile,
-} from './../utils/api.js';
+import { getFile, putFile } from './../utils/api.js';
 
-const THEME_PATHNAME = "/appearance/themes/Tsundoku Light";
+const THEME_PATHNAME = '/appearance/themes/Tsundoku Light';
 
 export var config = {
     token: '', // API token, 无需填写
@@ -634,8 +631,8 @@ export var config = {
             enable: true, // 窗口功能开关
             windowParams: {
                 // 窗口参数
-                width: 720, // 窗口宽度
-                height: 480, // 窗口高度
+                width: 520, // 窗口宽度
+                height: 780, // 窗口高度
                 frame: true, // 是否显示边缘框
                 fullscreen: false, // 是否全屏显示
                 alwaysOnTop: true, // 是否置顶显示
@@ -1432,7 +1429,7 @@ export var config = {
                                 mode: 'button',
                                 icon: '#iconPreview',
                                 label: {
-                                    zh_CN: '查看 Markdown 源代码',
+                                    zh_CN: '编辑 Markdown 源代码',
                                     other: 'Review the Markdown Source Code',
                                 },
                                 accelerator: () => config.theme.hotkeys.window.open.editor,
@@ -2713,7 +2710,7 @@ export var config = {
                     },
                     editor: {
                         // 新窗口打开编辑器(Alt + 鼠标中键)
-                        enable: true,
+                        enable: false,
                         CtrlCmd: false,
                         WinCtrl: false,
                         Shift: false,
@@ -2722,7 +2719,7 @@ export var config = {
                     },
                     markdown: {
                         // 以 markdown 模式在新窗口打开编辑器(Shift + Alt + 鼠标中键)
-                        enable: true,
+                        enable: false,
                         CtrlCmd: false,
                         WinCtrl: false,
                         Shift: true,

@@ -196,10 +196,10 @@
     --b3-protyle-inline-blockref-hover-color: #ff398b;
     --blockquote-border-color: #5f6368;
     /* 表格背景设置 */
-    --b3-table-border-color: #e4e6e8;
+    --b3-table-border-color: #d1d3d6;
     --b3-table-th-color: #e9ecee;
     --b3-table-trn-color: #fff;
-    --b3-table-tr2n-color: #f0f4f551;
+    --b3-table-tr2n-color: var(--b3-theme-background);
     /* 高亮 */
     --b3-menu-highlight-color: #068eb8;
     --b3-menu-highlight-focus-color: #34495e;
@@ -409,28 +409,34 @@ body {
     font-size: 0.9em;
 } */
 /* 表格背景设置 */
+
 .b3-typography table,
 .protyle-wysiwyg table {
-    border-collapse: separate;
+    border-collapse: collapse;
 }
-.protyle-wysiwyg table thead tr,
-.b3-typography table thead tr {
-    background-color: var(--b3-table-th-color) !important;
+.b3-typography .table table th,
+.b3-typography .table table td,
+.protyle-wysiwyg .table table th,
+.protyle-wysiwyg .table table td {
+    background-color: var(--b3-theme-background) !important;
 }
-.protyle-wysiwyg table tbody tr:nth-child(2n + 1),
-.b3-typography table tbody tr:nth-child(2n + 1) {
-    background-color: var(--b3-table-trn-color) !important;
+.b3-typography table th,
+.b3-typography table td,
+.protyle-wysiwyg table th,
+.protyle-wysiwyg table td {
+    background-color: var(--b3-theme-background) !important;
 }
-.protyle-wysiwyg table tbody tr:nth-child(2n),
-.b3-typography table tbody tr:nth-child(2n) {
-    background-color: var(--b3-table-tr2n-color) !important;
-}
+
 .protyle-wysiwyg table tr th,
 .b3-typography table tr th {
-    border-collapse: separate;
-    border-top: 1px solid #dbe2e2;
-    border-left: 1px solid #dbe2e2;
-    border-right: 1px solid #dbe2e2;
+    border-collapse: collapse;
+    border: 1px solid var(--b3-table-border-color);
+}
+
+
+
+.protyle-wysiwyg table tr td { 
+    border:1px solid var(--b3-table-border-color); 
 }
 
 .protyle-wysiwyg table tr th:first-child,
@@ -439,21 +445,15 @@ body {
 .b3-typography table tr td:first-child {
     border-left-width: 0px;
 }
+
 .protyle-wysiwyg table tr th:last-child,
 .protyle-wysiwyg table tr td:last-child,
 .b3-typography table tr th:last-child,
 .b3-typography table tr td:last-child {
     border-right-width: 0px;
 }
-.protyle-wysiwyg table tr td,
-.b3-typography table tr td {
-    border: 0.9px solid var(--b3-table-border-color);
-}
-/* .protyle-wysiwyg table tr td,
-.b3-typography  table tr td{
-    border-left: 0.9px solid var(--b3-table-border-color);
-    border-right: 0.9px solid var(--b3-table-border-color);
-} */
+
+
 /* -------------------------------表格end------------------------------------- */
 
 /* -------------------------------行内块字体样式-------------------------------------- */
@@ -490,6 +490,7 @@ span[data-type='strong'] {
 .b3-typography blockquote {
     /* border: 1px solid var(--blockquote-border-color); */
     border-left: 0.2em solid var(--blockquote-border-color);
+    border-radius: 0px 4px 4px 0px !important;
     background-color: #d2d9de2e;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -765,8 +766,8 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     opacity: 0.68;
     width: 1.2em;
     height: 1.2em;
-    top: 0.95em;
-    left: 0.98em;
+    top: 0.93em;
+    left: 0.9em;
 }
 .protyle-wysiwyg [data-subtype='u'].li[fold='1'] > .protyle-action {
     /* 小圆点 */
@@ -1272,7 +1273,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 /* 块添加圆角 */
 .protyle-wysiwyg [data-node-id] {
-    border-radius: 3px;
+    border-radius: 4px !important;
 }
 
 /* 文件树文档图标悬浮放大 */
@@ -1892,4 +1893,9 @@ body > div#action {
 }
 .protyle-scroll .protyle-scroll__bar {
     right: -98px;
+}
+
+/* 闪卡 */
+.protyle-wysiwyg [data-node-id][custom-riff-decks] {
+    box-shadow: 4px 0px 0px -1px var(--b3-protyle-inline-mark-background);
 }
