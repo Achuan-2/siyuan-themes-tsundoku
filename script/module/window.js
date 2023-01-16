@@ -130,7 +130,7 @@ setTimeout(async () => {
                             const windowParams = merge(
                                 {},
                                 config.theme.window.windowParams,
-                                { alwaysOnTop: false }, // 关闭置顶
+                                { alwaysOnTop: true }, // 关闭置顶
                             );
                             if (config.theme.window.open.panel.url) {
                                 // 打开指定的 URL

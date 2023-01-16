@@ -697,7 +697,7 @@ function FixWidth(selectid) {
 	button.setAttribute("custom-attr-name", "f");
 	button.setAttribute("custom-attr-value", "");
 
-	button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">页面宽度</span>`;
+	button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">默认宽度</span>`;
 	return button;
 }
 function AutoWidth(selectid) {
@@ -705,8 +705,8 @@ function AutoWidth(selectid) {
 	button.className = "b3-menu__item";
 	button.setAttribute("data-node-id", selectid);
 	button.setAttribute("custom-attr-name", "f");
-	button.setAttribute("custom-attr-value", "auto");
-	button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">自动宽度</span>`;
+	button.setAttribute("custom-attr-value", "full");
+	button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">页面宽度</span>`;
 	button.onclick = ViewMonitor;
 	return button;
 }
@@ -718,7 +718,7 @@ function Removeth(selectid) {
 	button.setAttribute("custom-attr-name", "t");
 	button.setAttribute("custom-attr-value", "biaotou");
 
-	button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">取消表头样式</span>`;
+	button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">取消表头</span>`;
 	return button;
 }
 function Defaultth(selectid) {
@@ -727,7 +727,7 @@ function Defaultth(selectid) {
 	button.setAttribute("data-node-id", selectid);
 	button.setAttribute("custom-attr-name", "t");
 	button.setAttribute("custom-attr-value", "");
-	button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">默认表头样式</span>`;
+	button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">默认表头</span>`;
 	button.onclick = ViewMonitor;
 	return button;
 }
