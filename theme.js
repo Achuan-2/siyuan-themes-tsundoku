@@ -36,7 +36,7 @@ function createHBuiderXToolbar() {
 	siYuanToolbar = getSiYuanToolbar();
 
 	HBuiderXToolbar = getHBuiderXToolbar();
-	var windowControls = document.getElementById("barSetting");
+	var windowControls = document.getElementById('barMode');
 
 	if (HBuiderXToolbar) siYuanToolbar.removeChild(HBuiderXToolbar);
 	HBuiderXToolbar = insertCreateAfter(

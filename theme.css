@@ -1897,3 +1897,12 @@ body > div#action {
 .protyle-wysiwyg [data-node-id][custom-riff-decks] {
     box-shadow: 4px 0px 0px -1px var(--b3-protyle-inline-mark-background);
 }
+/* HTML提示 */
+.fn__code, .b3-typography code:not(.hljs), .b3-typography span[data-type~=code], .protyle-wysiwyg code:not(.hljs), .protyle-wysiwyg span[data-type~=code]{
+    color: var(--b3-protyle-inline-code-color);
+    background-color: var(--b3-protyle-inline-code-background);
+}
+/* 顶栏的思源图标 */
+.toolbar #windowAppIcon{
+    color: var(--b3-theme-on-background);
+}
