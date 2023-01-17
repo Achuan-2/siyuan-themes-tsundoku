@@ -437,7 +437,7 @@ body {
     border:1px solid var(--b3-table-border-color); 
 }
 
-.protyle-wysiwyg table tr th:first-child,
+/* .protyle-wysiwyg table tr th:first-child,
 .protyle-wysiwyg table tr td:first-child,
 .b3-typography table tr th:first-child,
 .b3-typography table tr td:first-child {
@@ -449,7 +449,7 @@ body {
 .b3-typography table tr th:last-child,
 .b3-typography table tr td:last-child {
     border-right-width: 0px;
-}
+} */
 
 
 /* -------------------------------表格end------------------------------------- */
@@ -1918,4 +1918,12 @@ body > div#action {
 /* 表头和表行格式一致 */
 .protyle-wysiwyg [data-node-id][custom-t~=biaotou] table th {
     font-weight: normal !important;
+}
+
+/* 退出聚焦按钮 */
+.block__icon[data-type="exit-focus"] {
+    background-color: var(--b3-card-success-background);
+    color: var(--b3-card-success-color);
+    /* 加粗 */
+    font-weight: 600;
 }
