@@ -1,3 +1,10 @@
+## v1.5.2 / 2023.01.17
+
+* 💄 [对聚焦模式按钮的突出显示](https://github.com/Achuan-2/siyuan-themes-tsundoku-light/commit/93c240055a6066d4092d3a32dd4f526b94d3278f#diff-dff3ae40ade5d29630f230c063582d795566bbc4d4d9bace844e205e65325abb)
+* ✨ [加日历功能](https://github.com/Achuan-2/siyuan-themes-tsundoku-light/commit/93c240055a6066d4092d3a32dd4f526b94d3278f#diff-f4bfeae2710f9783955eea97fb11de8ecafde25eaedbaddde9d2122c24bf20d8)（注意：只支持“2023.01.17”类似的格式的检索）
+* 💄 [列表转导图对列表折叠的优化](https://github.com/Achuan-2/siyuan-themes-tsundoku-light/commit/9065998dfbe64d800ab323d19d86c44a11a288ca)
+* ✨ 支持[添加表格表头和宽度设置](https://github.com/Achuan-2/siyuan-themes-tsundoku-light/commit/6d7857e5eb8c2352c3d91f4256ae46fdcae5cdda)
+
 ## v.1.5.1/2023.01.13
 
 ​
