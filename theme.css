@@ -1901,6 +1901,7 @@ body > div#action {
 .fn__code, .b3-typography code:not(.hljs), .b3-typography span[data-type~=code], .protyle-wysiwyg code:not(.hljs), .protyle-wysiwyg span[data-type~=code]{
     color: var(--b3-protyle-inline-code-color);
     background-color: var(--b3-protyle-inline-code-background);
+    word-break: break-all !important;
 }
 /* 顶栏的思源图标 */
 .toolbar #windowAppIcon{

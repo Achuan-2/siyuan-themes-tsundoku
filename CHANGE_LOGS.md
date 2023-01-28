@@ -1,3 +1,8 @@
+## v1.5.3 / 2023.01.29
+
+- ✨ 日历功能完善，支持选择笔记本，支持根据dailynote路径模板自动检测日记，fork https://github.com/HowcanoeWang/calendar  
+
+
 ## v1.5.2 / 2023.01.17
 
 * 💄 [对聚焦模式按钮的突出显示](https://github.com/Achuan-2/siyuan-themes-tsundoku-light/commit/93c240055a6066d4092d3a32dd4f526b94d3278f#diff-dff3ae40ade5d29630f230c063582d795566bbc4d4d9bace844e205e65325abb)
