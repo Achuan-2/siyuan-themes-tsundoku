@@ -1,3 +1,10 @@
+## v1.5.4 / 2023.02.01
+
+- :lipstick: 适配顶栏Siyuan文字颜色
+- ✨ 更新 calendar【see https://github.com/HowcanoeWang/calendar/releases/tag/230201 】
+  - 使用/data/widgets/Calendar.config.json代替localstorage存储用户默认日记本配置
+  - 修复顶栏星期显示错误
+
 ## v1.5.3 / 2023.01.29
 
 - ✨ 日历功能完善，支持选择笔记本，支持根据dailynote路径模板自动检测日记，fork https://github.com/HowcanoeWang/calendar  

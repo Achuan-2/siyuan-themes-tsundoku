@@ -269,6 +269,7 @@
                         monthCurrent: undefined,
                         dayCurrent: undefined,
                         template_path: undefined,
+                        config_json_path: '/data/widgets/Calendar.config.json',
                     };
                 },
                 created() {
@@ -276,13 +277,13 @@
                     this.date = now.getDate(); //得到日期
                     var day = now.getDay(); //得到周几
                     var arr_week = new Array(
+                        '星期日',
                         '星期一',
                         '星期二',
                         '星期三',
                         '星期四',
                         '星期五',
-                        '星期六',
-                        '星期日'
+                        '星期六'
                     );
                     this.week = arr_week[day];
                 },
@@ -304,10 +305,7 @@
                             this.currentNotebook.name = e.target.getAttribute('data-name');
                             this.currentNotebook.id = e.target.getAttribute('data-id');
                             this.showNotebookList = false;
-                            localStorage.setItem(
-                                'calendar_current_notebook',
-                                JSON.stringify(this.currentNotebook)
-                            );
+                            await this.set_crt_nb();
 
                             // also refersh the template path
                             this.markArr = []; // 清除之前的日记缓存
@@ -344,15 +342,72 @@
                             }
                         });
                     },
+                    ////////////////////////////
+                    // 读写之前打开的笔记本记录 //
+                    ////////////////////////////
+                    // inspired from https://github.com/UFDXD/HBuilderX-Light/blob/main/theme.js
+
+                    async 写入文件(
+                        path,
+                        filedata,
+                        then = null,
+                        obj = null,
+                        isDir = false,
+                        modTime = Date.now()
+                    ) {
+                        let blob = new Blob([filedata]);
+                        let file = new File([blob], path.split('/').pop());
+                        let formdata = new FormData();
+                        formdata.append('path', path);
+                        formdata.append('file', file);
+                        formdata.append('isDir', isDir);
+                        formdata.append('modTime', modTime);
+                        await fetch('/api/file/putFile', {
+                            body: formdata,
+                            method: 'POST',
+                            headers: {
+                                Authorization: `Token ""`,
+                            },
+                        }).then(v => {
+                            setTimeout(() => {
+                                if (then) then(obj);
+                            }, 200);
+                        });
+                    },
+
+                    async get_crt_nb() {
+                        try {
+                            let r = { path: this.config_json_path };
+                            let calendar_config = await this.request('/api/file/getFile', r);
+                            this.currentNotebook = calendar_config;
+                        } catch (err) {
+                            console.log(
+                                '[日历插件][Error] 大概率是由于第一次启动，配置文件 [' +
+                                    this.config_json_path +
+                                    '] 未创建，文件不存在造成的404, 错误日志如下:\n',
+                                err
+                            );
+                            //大概率是文件没有创建，调用一下创建文件的命令即可
+                            await this.set_crt_nb();
+                        }
+                    },
+
+                    async set_crt_nb() {
+                        await this.写入文件(
+                            this.config_json_path,
+                            JSON.stringify(this.currentNotebook, undefined, 4)
+                        );
+                    },
+
+                    ////////////////////////////
+                    // 读写之前打开的笔记本记录 //
+                    ////////////////////////////
+
                     // initialize notebook data
                     async init_open_app() {
-                        // for testing the empty localstorage
-                        // localStorage.removeItem("calendar_current_notebook");
+                        await this.get_crt_nb();
 
-                        if (localStorage.getItem('calendar_current_notebook')) {
-                            this.currentNotebook = JSON.parse(
-                                localStorage.getItem('calendar_current_notebook')
-                            );
+                        if (this.currentNotebook.name !== '') {
                             console.log(
                                 '[日历插件][Info] currentNotebook is [' +
                                     this.currentNotebook.name +
@@ -376,15 +431,14 @@
                             // set the first notebook as default, to avoid undefined error
                             this.currentNotebook.name = this.notebookList[0].name;
                             this.currentNotebook.id = this.notebookList[0].id;
-                            localStorage.setItem(
-                                'calendar_current_notebook',
-                                JSON.stringify(this.currentNotebook)
-                            );
+
+                            await this.set_crt_nb();
 
                             // print log info
                             console.log(
-                                "[日历插件][Info] localStorage['calendar_current_notebook'] is empty, use [",
-                                this.currentNotebook.name + '] as default'
+                                '[日历插件][Info] 未在缓存中找到默认笔记本设置，使用笔记本[' +
+                                    this.currentNotebook.name +
+                                    ']作为默认'
                             );
                             let success_str = {
                                 msg:
