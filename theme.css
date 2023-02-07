@@ -1147,7 +1147,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     box-shadow: none !important;
 }
 /* hover页签背景色 */
-.layout-tab-bar .item:hover:not(.item--focus) {
+.layout-tab-bar .item:hover:not(.item--focus):not(.item--readonly) {
     background-color: var(--custom-tab-hover-background);
 }
 
@@ -1931,3 +1931,4 @@ body > div#action {
     /* 加粗 */
     font-weight: 600;
 }
+
