@@ -1,0 +1,942 @@
+:root {
+    /* 主色 */
+    /* 高亮 */
+    /* 菜单高亮、样式高亮、错误提示，确定删除 */
+    /* 动态加载调圆点、设置按钮圆点、打开图片的关闭按钮 */
+    --b3-theme-primary: #6bb481;
+    /* 设置按钮长条 */
+    --b3-theme-primary-light: #6ab4806e;
+    /* 动态加载调长条 */
+    --b3-theme-primary-lighter: #85ab95;
+    /* 编辑器点击大纲高亮 */
+    --b3-theme-primary-lightest: rgba(31, 138, 93, 0.12);
+
+    /* 订阅黄 */
+    --b3-theme-secondary: #faad14;
+    --b3-theme-background: #d5ead8;
+    /* 面包屑和标签页 */
+    --b3-theme-surface: #bcd7bf;
+    --b3-theme-error: #ec8d8e;
+
+    /* 文字颜色 */
+    --b3-theme-on-primary: #fff;
+    --b3-theme-on-secondary: #fff;
+    --b3-theme-on-background: #202124;
+    --b3-theme-background-light: #8ca98fad;
+    /* 主要图标颜色 */
+    --b3-theme-on-surface: #5f6368;
+    --b3-theme-on-error: #fff;
+
+    /* 字体 */
+    --b3-font-family: 'quote', 'Helvetica Neue', 'Luxi Sans', 'DejaVu Sans', 'Hiragino Sans GB',
+        'Microsoft Yahei', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji',
+        'Segoe UI Symbol', 'Android Emoji', 'EmojiSymbols';
+    --b3-font-family-code: 'JetBrainsMono-Regular', mononoki, Consolas, 'Liberation Mono', Menlo,
+        Courier, monospace, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji',
+        'Segoe UI Symbol', 'Android Emoji', 'EmojiSymbols';
+    --b3-font-family-graph: mononoki;
+    --b3-font-family-emoji: 'Segoe UI Emoji', 'Segoe UI Symbol', 'Segoe UI', 'Apple Color Emoji',
+        'Twemoji Mozilla', 'Noto Color Emoji', 'Android Emoji';
+    --b3-font-family-math: KaTeX_Math;
+    /* 顶部工具栏 */
+    --b3-toolbar-background: #bcd8bf;
+    --b3-toolbar-blur-background: #bcd8bf;
+    --b3-toolbar-color: #5f6368;
+    --b3-toolbar-hover: #9cb89f;
+    /* 线条 */
+    /* --b3-border-color: #dfe0e1; */
+    /* --b3-border-color: rgba(0, 0, 0, .1); */
+    --b3-border-color: #c7d9ca;
+
+    /* 滚动条 m */
+    /* --b3-scroll-color: rgba(0, 0, 0, .2); */
+    --b3-scroll-color: rgba(5, 50, 80, 0.2);
+
+    /* 列表 */
+    /* --b3-list-hover: rgba(0, 0, 0, 0.05); */
+    --b3-list-hover: transparent;
+    /* 页签 */
+    --b3-tab-background: #e7edf0;
+    --b3-tab-background-hover: #dee4e8;
+    /* 菜单 */
+    --b3-menu-background: #d5ead8;
+    /* 提示 */
+    --b3-tooltips-color: rgba(16, 63, 44, 0.5);
+
+    /* 卡片背景 */
+    --b3-card-error-color: rgb(97, 26, 21);
+    --b3-card-error-background: #f1c5beda;
+    --b3-card-warning-color: rgb(102, 60, 0);
+    --b3-card-warning-background: #f5dfc1e0;
+    --b3-card-info-color: rgb(13, 60, 97);
+    --b3-card-info-background: #a8dbf594;
+    --b3-card-success-color: rgb(30, 70, 32);
+    --b3-card-success-background: #c0e4c0da;
+
+    /* 自定义文字 */
+    --b3-font-color1: rgb(250, 118, 109);
+    --b3-font-color2: #f1781c;
+    --b3-font-color3: #2183ce;
+    --b3-font-color4: #11ad81;
+    --b3-font-color5: #8e8e8e;
+    --b3-font-color6: #52d4ca;
+    --b3-font-color7: var(--b3-theme-secondary);
+    --b3-font-color8: #d32a1b;
+    --b3-font-color9: #596ab7;
+    --b3-font-color10: #944194;
+    --b3-font-color11: #d447c5;
+    --b3-font-color12: #a3431f;
+    --b3-font-color13: var(--b3-theme-background);
+    --b3-font-background1: var(--b3-card-error-background);
+    --b3-font-background2: var(--b3-card-warning-background);
+    --b3-font-background3: var(--b3-card-info-background);
+    --b3-font-background4: var(--b3-card-success-background);
+    --b3-font-background5: #dfddddaf;
+    --b3-font-background6: #27e6ff42;
+    --b3-font-background7: #fff19598;
+    --b3-font-background8: #fe6567;
+    --b3-font-background9: #ccd3f3;
+    --b3-font-background10: #d2cbff;
+    --b3-font-background11: #f4d0f0;
+    --b3-font-background12: #edd9d2;
+    --b3-font-background13: var(--b3-theme-on-background);
+    /* PDF */
+    --b3-pdf-sidebar-width: 200px;
+    --b3-pdf-offset: 0;
+    --b3-pdf-background1: #e8e191;
+    --b3-pdf-background2: #8fd5bc;
+    --b3-pdf-background3: #8ed2e9;
+    --b3-pdf-background4: #e5b9b1;
+    --b3-pdf-background5: #e3cc84;
+    --b3-pdf-background6: #c2c5c5;
+    --b3-pdf-background7: #3eb9af;
+    /* 动画效果 */
+    --b3-transition: all 0.15s cubic-bezier(0, 0, 0.2, 1) 0ms;
+
+    /* 阴影 */
+    --b3-point-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+        0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+    --b3-dialog-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14),
+        0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+
+    /* diff */
+    --b3-diff-add: #dfd;
+    --b3-diff-add-surface: #97f295;
+    --b3-diff-del: #fee8e9;
+    --b3-diff-del-surface: #ffb6ba;
+
+    /* 图表颜色 */
+    --b3-graph-p-point: #076f7e;
+    --b3-graph-heading-point: #660e7a;
+    --b3-graph-math-point: #80ffa5;
+    --b3-graph-code-point: #00ddff;
+    --b3-graph-table-point: #37a2ff;
+    --b3-graph-list-point: #ff0087;
+    --b3-graph-todo-point: #ffbf00;
+    --b3-graph-olist-point: #b3005f;
+    --b3-graph-listitem-point: #f65b00;
+    --b3-graph-bq-point: #8d48e3;
+    --b3-graph-super-point: #dd79ff;
+    --b3-graph-doc-point: #202124;
+    --b3-graph-tag-point: #dbf32f;
+    --b3-graph-asset-point: #05c091;
+    --b3-graph-line: #5f6368;
+    --b3-graph-ref-line: #d23f31;
+    --b3-graph-tag-line: #5f6b06;
+    --b3-graph-tag-tag-line: #dbf32f;
+    --b3-graph-asset-line: #037457;
+    --b3-graph-hl-point: #f3a92f;
+    --b3-graph-hl-line: #4285f4;
+
+    /* 编辑器搜索颜色 */
+    --b3-protyle-search-background: #ffe955;
+    --b3-protyle-search-border-color: #f2e680;
+    --b3-protyle-search-current-background: #a5d3fe;
+
+    /* 代码片段背景 m */
+    --b3-protyle-code-background: #e2f4e4;
+
+    /* 所见即所得行内元素颜色 */
+    --b3-protyle-inline-strong-color: #202124;
+    --b3-protyle-inline-em-color: #202124;
+    --b3-protyle-inline-s-color: #202124;
+    --b3-protyle-inline-link-color: #0e5797d5;
+    --b3-protyle-inline-link-hover-color: #fa60a0;
+    --b3-protyle-inline-mark-background: rgba(62, 163, 155, 0.267);
+    --b3-protyle-inline-mark-color: #202124;
+    --b3-protyle-inline-tag-background: #378b8b;
+    --b3-protyle-inline-tag-color: #f8f9fa;
+    --b3-protyle-inline-code-color: #038296;
+    --b3-protyle-inline-code-background: #a0cc952d;
+    --b3-protyle-inline-blockref-color: #0e7a88;
+    --b3-protyle-inline-blockref-hover-color: #ff398b;
+    /* 表格 */
+    --b3-table-border-color: #93a597;
+    --b3-table-th-color: #91c39860;
+    --b3-table-trn-color: #d5ead8;
+    --b3-table-tr2n-color: #91c3982d;
+    /* 高亮 */
+    --b3-menu-highlight-color: #0d9d8f;
+    --b3-menu-highlight-focus-color: #34495e;
+    /* 文件树背景高亮颜色 */
+    --b3-menu-highlight-background: #a2c2a58c;
+    --custom-tab-background: #c4ddc89c;
+    --custom-tab-hover-background: #76878d38;
+    --custom-tab-border: #b1c2b87c;
+    --custom-tab-focus-top-border: #555f63;
+    /* 各级标题颜色 */
+    --custom-h1-color: #04393f;
+    --custom-h2-color: #396871;
+    --custom-h2-border-color: #1a241d26;
+    --custom-h3-color: #1a8080;
+    --custom-h4-color: #1e776f;
+    --custom-h5-color: #174b53d6;
+    --custom-h6-color: var(--b3-theme-on-background);
+    --custom-blockquote-border-color: #6bb481;
+    --custom-blockquote-background-color: #a9d6b248;
+    --custom-tag-hover-color: #3eadad;
+    --custom-link-bottom-color: #0a3a6418;
+}
+body {
+    background-color: transparent;
+}
+.render-node[data-subtype='graphviz'] .graph > polygon {
+    fill: transparent;
+}
+/* 背景纸张纹理 */
+#status,
+.protyle,
+.protyle-preview,
+.search__header .b3-text-field--text,
+/* .b3-typography .code-block, */
+.layout-tab-container,
+.block__icons,
+.dock,
+.toolbar,
+.layout-tab-bar,
+.layout-tab-bar .item,
+.layout__center,
+.b3-dialog__container,
+.b3-tab-container,
+.search__header .b3-text-filed--text,
+.b3-text-filed,
+.b3-tab-container .b3-select,
+.b3-card,
+.b3-dialog__container .b3-dialog__close,
+.config-account__center--text,
+.b3-typography table tbody tr,
+.protyle-wysiwyg table thead,
+.protyle-wysiwyg table tbody td,
+.protyle-wysiwyg table tbody tr,
+.protyle-wysiwyg [data-node-id] span[data-type='tag'],
+/* .protyle-wysiwyg .code-block, */
+div[style*="background-color: var" ],
+span[data-type="strong"][style*="background-color: var" ],
+.protyle-toolbar,
+span[data-type="mark"],
+.emojis,
+.b3-menu,
+.b3-menu__item,
+.vis-network,
+.layout__empty,
+.b3-list--background .b3-list-item--focus,
+.b3-list--files .b3-list-item--focus:not(.dragover),
+.b3-switch:after,
+.protyle-wysiwyg code:not(.hljs),
+.textLayer,
+.block__content,
+::-webkit-scrollbar-thumb {
+    background-image: url('/appearance/themes/Tsundoku/src/background/paper.png');
+}
+.b3-dialog__container {
+    background-color: #d1e4d4;
+}
+
+/* 最后一种背景色无纸张纹理 */
+span[data-type='strong'][style='background-color: var(--b3-font-background13);'],
+div[style='background-color: var(--b3-font-background13);'] {
+    background-image: none;
+}
+
+/* 主要背景色 */
+.status,
+.dock {
+    /* 侧边栏更改 */
+    background-color: #b6cfbb;
+}
+
+.layout-tab-container {
+    background-color: #c7dfca;
+    /* background-color: #c3ddc7af ; */
+}
+
+.block__icons {
+    background-color: #a7caad94 !important;
+}
+
+/* 集市动画 */
+.b3-dialog__container div[data-name='bazaar'] .b3-card:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 7px 7px 12px #929191;
+    transition: all 0.2s ease-in-out;
+}
+
+/* -------------------------------表格end------------------------------------- */
+
+/* 设置纹理背景 */
+
+.protyle-wysiwyg table tr th,
+.b3-typography table tr th {
+    background-image: url('/appearance/themes/Tsundoku/src/background/paper.png');
+}
+
+/* -------------------------------行内块字体样式-------------------------------------- */
+
+.protyle-wysiwyg [data-node-id].bq,
+.b3-typography blockquote {
+    background-color: var(--custom-blockquote-background-color);
+    background-image: url('/appearance/themes/Tsundoku/src/background/paper.png');
+}
+
+/* 块嵌入 */
+.protyle-wysiwyg [data-node-id].render-node[data-type='NodeBlockQueryEmbed'] {
+    box-shadow: 0px 0px 3px 2px rgba(59, 102, 93, 0.568);
+    border-left: 0px dashed #dfe0e1;
+    background-color: transparent;
+    /* margin: 10px -10px; */
+    padding: 4px 10px;
+    margin-bottom: 12px;
+    margin-top: 10px;
+}
+
+/* 嵌入块分割 */
+.protyle-wysiwyg
+    [data-node-id].render-node[data-type='NodeBlockQueryEmbed']
+    > .protyle-wysiwyg__embed {
+    border-top: 3px dashed #0e5d12d6;
+    position: relative;
+}
+
+/* 行内代码 */
+.b3-typography code:not(.hljs),
+.b3-typography span[data-type~='code'],
+.protyle-wysiwyg code:not(.hljs),
+.protyle-wysiwyg span[data-type~='code'] {
+    position: relative;
+    top: -0.1em;
+    background-image: url('/appearance/themes/Tsundoku/src/background/paper.png');
+    background-color: var(--b3-protyle-inline-code-background);
+    margin: 0px 2px;
+    border: 1px solid #5e756321;
+    color: #3f5d86;
+    font-size: 80%;
+}
+
+/* 调整列表间距 */
+
+.protyle .li {
+    padding: 0;
+    margin: 0px 0px 0px 0px;
+}
+
+.b3-typography ul li.protyle-task::before {
+    margin: 2px 2px 0px -2px;
+}
+
+/* 列表悬浮 */
+.protyle-wysiwyg [data-node-id].li > .protyle-action:hover:after {
+    /* 大圆背景 */
+    background-color: #a1b5bd9c !important;
+    opacity: 0.68;
+}
+.protyle-wysiwyg [data-node-id].li > .protyle-action:hover {
+    /* 小圆点 */
+    color: #476796bb;
+}
+/* 列表折叠 */
+.protyle-wysiwyg [data-node-id].li[fold='1'] > .protyle-action:after {
+    /* 大圆背景 */
+    background-color: #66a9a37d !important;
+    opacity: 0.68;
+}
+.protyle-wysiwyg [data-subtype='t'].li[fold='1'] > .protyle-action:after {
+    /* 大圆背景 */
+    background-color: #66a9a37d !important;
+    border-radius: 0.2em;
+    opacity: 0.68;
+    width: 1.2em;
+    height: 1.2em;
+    top: 0.93em;
+    left: 0.9em;
+}
+.protyle-wysiwyg [data-subtype='u'].li[fold='1'] > .protyle-action {
+    /* 小圆点 */
+    color: #479675;
+}
+/* ---------------------复选框（待办事项）Start------------------------------------------------ */
+.b3-typography .protyle-task input {
+    opacity: 0;
+}
+
+.protyle-wysiwyg [data-node-id].li > .protyle-action--task svg {
+    opacity: 0;
+}
+
+.protyle-wysiwyg [data-node-id].li > .protyle-action--task:hover:after {
+    background-color: transparent !important;
+    opacity: 0 !important;
+}
+
+/* 复选框样式 */
+.protyle-wysiwyg .protyle-action--task:before,
+.b3-typography .protyle-task:before {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    cursor: pointer;
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    text-align: center;
+    border: 1.7px solid #5f6368;
+    border-radius: 0.2em;
+    top: 0.65em;
+    font-size: 0.8em;
+}
+
+.b3-typography .protyle-task:before {
+    left: -1.2em;
+    top: 0.5em;
+}
+
+/* 复选框选中 */
+.protyle-task--done > .protyle-action--task:before,
+.b3-typography .protyle-task--done:before {
+    content: '\2713';
+    font-size: 0.8em;
+    font-weight: bold;
+    border: 1.7px solid #289aa2;
+    line-height: 1em;
+    color: #289aa2;
+    background-color: transparent;
+}
+
+/* 复选框鼠标悬停 */
+.protyle-wysiwyg [data-node-id].li > .protyle-action--task:hover:before {
+    content: '\2713';
+    font-size: 0.8em;
+    vertical-align: middle;
+    line-height: 1em;
+    color: #436681;
+}
+
+.protyle-task--done[fold='1'] > .protyle-action--task:before {
+    content: '\2713';
+    background-color: transparent;
+    color: #476796;
+}
+
+div[data-subtype='t'][data-type='NodeList'] {
+    position: relative;
+}
+
+/* 调整透明度 */
+.protyle-task--done {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.protyle-task--done .protyle-task--done {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.protyle-task--done div[data-type='NodeParagraph'],
+.protyle-task--done .protyle-action--task {
+    opacity: 1;
+}
+
+/* 菜单选中高亮 */
+.b3-menu__item:hover:not(.b3-menu__item--readonly):not(.b3-menu__item--custom),
+.b3-menu__item--current {
+    background-color: #bfdcc2;
+}
+
+/* 创建文件按钮 */
+.b3-button--text,
+.b3-button--cancel,
+.b3-button--outline {
+    color: #3f9264;
+    background-color: transparent;
+}
+
+.b3-button--text:hover,
+.b3-button--text:focus,
+.b3-button--cancel:hover,
+.b3-button--cancel:focus,
+.b3-button--outline:hover,
+.b3-button--outline:focus {
+    background-color: rgba(109, 165, 154, 0.24);
+    font-weight: 600;
+    transition: all 0.1s ease-in-out;
+}
+
+.protyle-toolbar__item--current,
+.protyle-toolbar__item--current:hover {
+    color: #29bad8;
+}
+
+/* 消息提示 */
+#message .b3-button {
+    color: #fff;
+    background-color: #3fb6be;
+    border-radius: 16x;
+    padding: 8px 8px;
+}
+.b3-snackbar__content {
+    color: #fff;
+    background-color: #3fb6be;
+}
+
+.b3-snackbar__close {
+    position: absolute;
+    color: #fff;
+    font-size: 50%;
+    padding: 4px;
+    /* background-color: bisque; */
+    background-color: #ec8d8deb;
+    border-radius: 16px;
+    cursor: pointer;
+    top: 2px;
+    background-image: url('/appearance/themes/Tsundoku/src/background/paper.png');
+}
+
+.b3-snackbar__content svg:hover {
+    color: #fff;
+    transform: scale(1.1);
+}
+
+/* 设置列表选中取消背景色 */
+.b3-list-item.b3-list-item--big:hover,
+.b3-list-item.b3-list-item--big.b3-list-item--focus {
+    font-size: 1.05em;
+    font-weight: bold;
+    color: var(--b3-menu-highlight-color);
+    transition: all 0.1s ease-in-out;
+}
+
+.b3-dialog__container .b3-list--background .b3-list-item--focus {
+    background-color: #bfdcc2 !important;
+    border-radius: 16px 10% 10% 16px;
+    /* border-radius: 10%; */
+}
+/* 调整设置的select按钮 */
+.b3-tab-container .b3-select {
+    background-color: #548a7744;
+}
+.b3-tab-container .b3-select option {
+    background-color: #def8e6;
+    border-radius: 10%;
+}
+.b3-tab-container .b3-select option:hover {
+    background-color: #dfe6ea !important;
+}
+
+/* 设置/搜索弹窗的链接 */
+.b3-dialog__container a {
+    outline: 0;
+
+    color: #588699;
+    font-weight: 500;
+}
+.b3-dialog__container a:hover,
+.b3-dialog__container .b3-card__info a:hover {
+    outline: 0;
+    text-decoration: underline;
+    color: var(--b3-menu-highlight-color);
+}
+.b3-dialog__container .b3-card__info a {
+    color: #34495e;
+    text-decoration: none;
+}
+
+/* 设置/搜索弹窗的关闭按钮 */
+
+.b3-dialog__container .b3-dialog__close {
+    color: #505964;
+    font-size: 50%;
+    cursor: pointer;
+    background-color: var(--b3-theme-surface);
+    border-radius: 16px;
+    padding: 4px;
+    margin-left: 22px;
+    height: 13px;
+    width: 13px;
+    transition: all 0.3s linear;
+    background-image: url('/appearance/themes/Tsundoku/src/background/paper.png');
+}
+.b3-dialog__container svg:hover {
+    color: var(--b3-menu-highlight-color);
+    background: transparent;
+    transform: scale(1.2);
+    transition: all 0.1s ease-in-out;
+}
+.b3-dialog__container svg {
+    transition: all 0.1s ease-in-out;
+}
+.b3-dialog__container .b3-dialog__close:hover {
+    background-color: var(--b3-theme-surface);
+    background-image: url('/appearance/themes/Tsundoku/src/background/paper.png');
+}
+.block__popover--open .fn__flex-column .protyle-wysiwyg {
+    /* 块引用预览背景颜色 */
+    background-color: #f3f7f8;
+    transition: background-color 0.5s linear;
+}
+
+.protyle-title__input,
+.layout__wnd--active .protyle-content,
+.layout__wnd--active .protyle-title .protyle-title__input {
+    /* 当前编辑窗口保持主背景色 */
+    background-color: transparent;
+}
+
+/* ----------------------------标签页、页签样式 Start----------------------------------------- */
+
+.layout-tab-bar {
+    background-color: #add4b1a9;
+}
+
+.b3-dialog__container .layout-tab-bar {
+    background-color: #d8ebda;
+}
+
+/* 已打开的标签页 */
+.layout-tab-bar .item--focus,
+.layout__wnd--active .layout-tab-bar .item--focus {
+    border-radius: 7px 7px 0px 0px;
+    border: 0px solid transparent;
+    border-top: 0px solid transparent;
+    font-weight: 400;
+    font-size: 15px;
+    background-color: #d3e6d6;
+    color: var(--b3-menu-highlight-focus-color);
+}
+
+.layout__wnd--active .layout-tab-bar .item--focus > .item__text {
+    color: var(--b3-menu-highlight-focus-color);
+}
+
+/* 多窗口foucs的标签页 */
+.layout__wnd--active .layout-tab-bar .item--focus,
+.b3-dialog__container .layout-tab-bar .item--focus {
+    /* font-weight: 600; */
+    box-shadow: inset 0 2px 0 0 var(--custom-tab-focus-top-border) !important;
+}
+.b3-dialog__container .layout-tab-bar .item--focus {
+    box-shadow: none !important;
+}
+
+/* hover页签背景色 */
+.layout-tab-bar .item:hover:not(.item--focus):not(.item--readonly) {
+    background-color: var(--custom-tab-hover-background);
+}
+
+/* siyuan 1.9.6增加的标签页focus shadow取消 */
+.layout__wnd--active .layout-tab-bar .item--focus {
+    box-shadow: inherit;
+}
+/* 如果页签文字太长避免出现隐藏掉的文字 */
+.layout-tab-bar .item__text {
+    padding: 4px 0px 0px 8px;
+}
+/* ----------------------------标签页、页签样式 END----------------------------------------- */
+
+.protyle-preview__action {
+    text-align: center;
+    padding: 10px;
+    background-color: transparent;
+}
+.protyle-preview__action button {
+    background-color: transparent;
+}
+.protyle-preview__action button.protyle-preview__action--current,
+.protyle-preview__action button:hover {
+    background-color: transparent;
+}
+
+/* 光标选中文本样式 */
+.protyle-wysiwyg ::selection {
+    background-color: rgba(70, 126, 211, 0.245);
+}
+/* 选中块 */
+.protyle-wysiwyg--select,
+.protyle-wysiwyg--select .hljs {
+    background-color: rgba(31, 138, 93, 0.12) !important;
+}
+/* 鼠标划选区域*/
+.protyle-select {
+    background-color: rgba(31, 138, 93, 0.12);
+}
+/* 图片大小调整手柄 */
+
+.protyle-wysiwyg [data-node-id] .img .protyle-action__drag {
+    width: 7px;
+    height: 50%;
+    background: #b4f0d7;
+    border-radius: 3px;
+    right: -1px;
+    box-shadow: 0 0 2px #415f86;
+    top: 25%;
+    opacity: 0;
+}
+.protyle-wysiwyg [data-node-id] .img .protyle-action__drag:hover {
+    background-color: #b4d9f0;
+    border-left: 2px solid #184563b5;
+    box-shadow: 0 0 2px #415f86;
+}
+
+/* 工具栏样式 */
+.protyle-toolbar {
+    background-color: #c2ddc5;
+}
+
+/* 调整kbd标签 */
+.b3-typography kbd,
+.protyle-wysiwyg kbd,
+.protyle-wysiwyg span[data-type~='kbd'] {
+    display: inline-flex;
+    padding: 2px 4px;
+    margin: 0px 2px;
+    font-size: 85%;
+    background-color: #d1e0d2c9;
+    box-shadow: 0 0 1px #415f86;
+    transform: translateY(-1.5px);
+}
+
+/* 更改空行提示 */
+.protyle-wysiwyg [data-node-id]:not(.code-block) > [spellcheck='false']:empty:after {
+    /* 避免代码块也出现空行提示  */
+    content: '';
+    color: #9fa5a675;
+}
+/* 空列表出现提示 */
+.protyle-wysiwyg [data-subtype='t'] > .li > .p:nth-of-type(2) > [spellcheck='false']:empty:after {
+    content: 'To-do';
+    color: #52968452;
+}
+
+.protyle-wysiwyg [data-subtype='u'] > .li > .p:nth-of-type(2) > [spellcheck='false']:empty:after,
+.protyle-wysiwyg [data-subtype='o'] > .li > .p:nth-of-type(2) > [spellcheck='false']:empty:after {
+    content: 'List';
+    color: #52968452;
+}
+
+.file-tree [data-type='new']:hover {
+    background-color: #d3e2e671;
+}
+
+/* pdf双链 */
+.protyle-wysiwyg [data-node-id] span[data-type='file-annotation-ref'] {
+    color: #086130;
+    padding-bottom: 0em;
+    box-sizing: border-box;
+    height: 1.5em;
+    opacity: 1;
+    border-bottom: 1px dashed #308b84;
+}
+
+/* pdf搜索高亮 */
+.textLayer .highlight.selected {
+    background-color: #ffa938b9;
+}
+
+/* 悬浮工具栏样式 */
+.pdf__util.b3-menu.pdf__util--hide {
+    padding: 2px 4px 5px;
+    border: 2px solid #454747;
+}
+.pdf__util.b3-menu .fn__flex {
+    padding: 4px 4px 0px !important;
+}
+
+.b3-color__square:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 1.5px 0.5px rgb(48, 100, 109) inset;
+}
+
+.pdf__util.b3-menu {
+    /* 阴影减小 */
+    box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+}
+.pdf__util.b3-menu .b3-color__square {
+    height: 25px;
+    width: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 0 2px #454747 inset;
+}
+/* pdf光标选中文本样式 */
+.pdf__outer ::selection {
+    /* 颜色不能加透明度，不然有叠加层  */
+    background-color: #afcdd3;
+}
+
+/* 区分侧栏聚焦和未聚焦状态 */
+.block__icons--active {
+    background-color: rgb(152 188 168 / 71%) !important;
+}
+
+/* 修复1.4.2 文件树列表focus高亮问题 */
+.b3-list--files .b3-list-item--focus:not(.dragover):not(.dragover__top):not(.dragover__bottom) {
+    background-color: var(--b3-menu-highlight-background) !important;
+}
+
+/* 前进后退disable颜色更改 */
+.toolbar__item--disabled,
+.toolbar__item--disabled:hover {
+    color: #b6cab9;
+    cursor: not-allowed;
+}
+
+.protyle-wysiwyg [data-node-id].li > [data-node-id]:before {
+    /* background-color:var(--b3-border-color); */
+    width: 0.95px;
+    border-left: 1px solid #a9cbaf;
+}
+
+.protyle-wysiwyg [data-node-id].hr > div {
+    border-bottom: 2px solid #97b19a75;
+}
+
+/* 搜索高亮 */
+.b3-list mark,
+.protyle-wysiwyg [data-node-id] span[data-type='search-mark'] {
+    background-color: #efc77dad;
+}
+/* emoji选中背景 */
+.emojis__item--current {
+    background: #439c598e;
+    border-radius: 4px;
+}
+
+/* 分割线 */
+
+.protyle-wysiwyg [data-node-id].hr > div,
+.b3-typography hr {
+    border-bottom: 2px dashed rgba(121, 132, 138, 0.46);
+    text-align: center;
+}
+.protyle-wysiwyg [data-node-id].hr > div::before {
+    content: '\2735';
+    position: absolute;
+    top: -10px;
+    width: 10px;
+    height: 10px;
+    visibility: visible;
+}
+.b3-typography hr {
+    display: block;
+    position: relative;
+    height: 13px;
+    overflow: visible;
+}
+.b3-typography hr::after {
+    content: '\2735';
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    width: 0px;
+    height: 0px;
+}
+
+/* 已关闭的笔记本样式 */
+.file-tree .b3-list.fn__flex-column.fn__flex-1 > .b3-list-item:first-child {
+    background-color: #c1c28fa3;
+}
+/* 滚动条 */
+::-webkit-scrollbar-thumb {
+    background-color: #bbd5be;
+    background-image: none;
+    border: none;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+    -webkit-box-shadow: inset 0 0 10px 10px #bbd5be;
+    box-shadow: inset 0 0 10px 10px #bbd5be;
+    background: unset;
+    border-left: solid 4px transparent;
+}
+::-webkit-scrollbar-thumb:hover {
+    border-radius: 0px;
+    -webkit-box-shadow: inset 0 0 10px 10px #bbd5be;
+    box-shadow: inset 0 0 10px 10px #bbd5be;
+    background: unset;
+    border-left: solid 4px transparent;
+}
+
+.layout__resize:after {
+    background-color: #bbd5be;
+}
+
+.fn__flex-column.fn__flex-1 {
+    background-color: #c7dfca;
+}
+.file-tree {
+    background-image: url(/appearance/themes/Tsundoku/src/background/paper.png);
+}
+.graph__loading {
+    background-color: rgb(196, 214, 212);
+}
+
+/* 折叠标题优化 */
+.protyle-wysiwyg div[fold='1'][data-type='NodeHeading'] {
+    opacity: 0.7;
+}
+.protyle-wysiwyg div[fold='1'][data-type='NodeHeading']:before {
+    background-color: transparent !important;
+    border-radius: 0px;
+    width: 0px !important;
+    height: 0px !important;
+    border-top: 6px solid transparent !important;
+    border-bottom: 6px solid transparent !important;
+    border-left: 6px solid #8bb6a5 !important;
+    left: -13px !important;
+    margin-top: -6px;
+}
+
+/* 设置备注样式 */
+.b3-typography span[data-type~='inline-memo'],
+.protyle-wysiwyg span[data-type~='inline-memo'] {
+    background-color: var(--b3-card-warning-background);
+    border-bottom: 2px solid var(--b3-font-color1);
+}
+.b3-typography span[data-type~='inline-memo']::after,
+.protyle-wysiwyg span[data-type~='inline-memo']::after {
+    content: '';
+    display: inline-block;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: 1em 1em;
+    top: 0em;
+    width: 1em;
+    height: 1em;
+    background-image: url('./src/memo.svg');
+}
+
+.tooltip--memo {
+    border-top: 3px solid #fff001;
+    background-color: #fffccf;
+    padding: 1rem 1rem;
+    font-size: 1rem;
+    color: var(--b3-theme-on-background);
+    min-width: 100px;
+}
+
+.toolbar {
+    background-color: var(--b3-toolbar-background);
+}
+
+
+#notionToolbar .toolbar__item:hover{
+	background-color: #b1cfb5;
+}
