@@ -1,19 +1,16 @@
-<h1 align="center">🌞Tsundoku(light): A Theme for SiYuan Note</h1>
+<h1 align="center">🌞Tsundoku: A Theme for SiYuan Note</h1>
 
 <p align="center">          
            <a title="Hits" target="_blank" href="https://github.com/Achuan-2/siyuan-themes-tsundoku-light"><img src="https://hits.b3log.org/Achuan-2/siyuan-themes-tsundoku-light.svg" ></a>
-           <a title="GitHub release (latest by date including pre-releases)" target="_blank" href="https://github.com/Achuan-2/siyuan-themes-tsundoku-light/releases/latest">
-                 <img src="https://img.shields.io/github/v/release/Achuan-2/siyuan-themes-tsundoku-light?include_prereleases&style=flat-square" >
+           <a title="GitHub release (latest by date including pre-releases)" target="_blank" href="https://github.com/Achuan-2/siyuan-themes-tsundoku/releases/latest">
+                 <img src="https://img.shields.io/github/v/release/Achuan-2/siyuan-themes-tsundoku?include_prereleases&style=flat-square" >
            </a>
-           <img src="https://img.shields.io/github/stars/Achuan-2/siyuan-themes-tsundoku-light" alt="stars">
-           <img src="https://img.shields.io/github/issues-raw/Achuan-2/siyuan-themes-tsundoku-light" alt="open-issues">
-           <img src="https://img.shields.io/github/issues-closed-raw/Achuan-2/siyuan-themes-tsundoku-light" alt="closed-issues">
-          <img src="https://img.shields.io/github/last-commit/Achuan-2/siyuan-themes-tsundoku-light" alt="GitHub last commit">
+           <img src="https://img.shields.io/github/stars/Achuan-2/siyuan-themes-tsundoku" alt="stars">
+           <img src="https://img.shields.io/github/issues-raw/Achuan-2/siyuan-themes-tsundoku" alt="open-issues">
+           <img src="https://img.shields.io/github/issues-closed-raw/Achuan-2/siyuan-themes-tsundoku" alt="closed-issues">
+          <img src="https://img.shields.io/github/last-commit/Achuan-2/siyuan-themes-tsundoku" alt="GitHub last commit">
 </p>
 
-<p align="center">中文介绍 |<a href="README_EN.md"> English</a></p>
-
-<p align="center"><a href="https://github.com/Achuan-2/siyuan-themes-tsundoku-dark"> 🌙Tsunoku Dark </a> |🌞Tsunoku Light |<a href="https://github.com/Achuan-2/siyuan-themes-tsundoku-green"> 🍃Tsunoku Green </a></p>
 
 ![](preview.png)
 
@@ -57,6 +54,9 @@ Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释
 - [HBuilderX-Light](https://github.com/UFDXD/HBuilderX-Light)的功能（copy）
   - 左右面板收起
   - 高亮文本显示
+- [Savor](https://github.com/royc01/notion-theme) 主题的功能（copy）
+  - 主题切换按钮
+- [日历面板](https://github.com/HowcanoeWang/calendar)（copy）
 - **添加了自定义块属性样式**
   - 使用方式：单击块标选择打开属性列表或Shift+Click打开，点击添加，输入属性名为f或function，并输入相应的属性值（hide或挖空）
   - 自定义块属性列表
@@ -75,10 +75,11 @@ Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释
     | title-num | true          | 标题自动编号   |
 
 ## 致谢
-借鉴了以下主题的功能
+借鉴了以下repo的功能
 - https://github.com/Zuoqiu-Yingyi/siyuan-theme-dark-plus
 - https://github.com/UFDXD/HBuilderX-Light
 - https://github.com/royc01/notion-theme
+- https://github.com/HowcanoeWang/calendar
 
 
 ## ☎️意见交流
