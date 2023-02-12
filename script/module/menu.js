@@ -53,7 +53,7 @@ function blockMenuCallback(mutationList, observer) {
     if (block_menu_observer.menuNode.querySelector(`#${config.theme.menu.block.items[0].id}`)) {
         observer.takeRecords();
         return;
-    }
+    };
 
     // 没有添加菜单项
     // console.log(mutationList);
@@ -62,46 +62,40 @@ function blockMenuCallback(mutationList, observer) {
         // console.log(mutation);
 
         // 块菜单已经加载完成
-        if (
-            mutation.addedNodes.length === 1 &&
-            mutation.addedNodes[0].classList.contains('b3-menu__item--readonly') &&
-            mutation.addedNodes[0].lastElementChild.childElementCount === 1 &&
-            mutation.previousSibling.classList?.contains('b3-menu__separator')
+        if (mutation.addedNodes.length === 1
+            && mutation.addedNodes[0].classList.contains('b3-menu__item--readonly')
+            && mutation.addedNodes[0].lastElementChild.childElementCount === 1
+            && mutation.previousSibling.classList?.contains('b3-menu__separator')
         ) {
             // 块菜单添加
             // console.log(mutation);
-            const block = getBlockSelected() || block_mark || null;
+            const block = block_mark || getBlockSelected() || null;
             if (block) {
                 const items = menuInit(
                     config.theme.menu.block.items,
                     block.id,
                     block.type,
-                    block.subtype
+                    block.subtype,
                 );
                 if (items) {
                     const menu = block_menu_observer.menuNode;
                     items.forEach(item => menu.insertBefore(item, mutation.previousSibling));
-                    const delta =
-                        menu.getBoundingClientRect().bottom -
-                        menu.parentElement.getBoundingClientRect().bottom;
+                    const delta = menu.getBoundingClientRect().bottom - menu.parentElement.getBoundingClientRect().bottom;
                     if (delta > 0) menu.style.top = `${parseFloat(menu.style.top) - delta}px`;
-                }
+                };
             }
             break;
         }
         // 页签项菜单已加载完成
-        else if (
-            mutation.addedNodes.length === 1 &&
-            mutation.addedNodes[0]?.firstChild?.firstChild?.getAttribute('xlink:href') ===
-                '#iconPin' &&
-            mutation.previousSibling?.firstChild?.firstChild?.getAttribute('xlink:href') ===
-                '#iconCopy'
+        else if (mutation.addedNodes.length === 1
+            && mutation.addedNodes[0]?.firstChild?.firstChild?.getAttribute('xlink:href') === '#iconPin'
+            && mutation.previousSibling?.firstChild?.firstChild?.getAttribute('xlink:href') === '#iconCopy'
         ) {
             const items = menuInit(config.theme.menu.tabbar.items);
             if (items) {
                 const menu = block_menu_observer.menuNode;
                 items.forEach(item => menu.appendChild(item));
-            }
+            };
             break;
         }
     }
@@ -113,90 +107,91 @@ function blockMenuEnable() {
         // 开启块菜单
         block_menu_observer.observe();
         block_menu_enable = true;
-    } else {
-        // 关闭块菜单
+    }
+    else {
+        // 关闭块菜单        
         block_menu_observer.disconnect();
         block_menu_observer.takeRecords();
         block_menu_enable = false;
     }
     // 更改菜单栏按钮状态
-    toolbarItemChangeStatu(config.theme.menu.block.toolbar.id, true, block_menu_enable, 'BUTTON');
+    toolbarItemChangeStatu(
+        config.theme.menu.block.toolbar.id,
+        true,
+        block_menu_enable,
+        'BUTTON',
+    );
 }
 
 /* 加载字体 */
 async function loadFonts(menuItems, fonts, mode) {
     switch (mode) {
         case 'custom-font-family':
-            fonts.forEach(font =>
-                menuItems.push({
-                    // 加载自定义字体
+            fonts.forEach(font => menuItems.push({ // 加载自定义字体
+                enable: true,
+                type: null,
+                mode: "button",
+                icon: "#iconFont",
+                label: {
+                    zh_CN: font,
+                    other: font,
+                    style: `font-family: '${font}'`,
+                },
+                accelerator: `font-family: '${font}'`,
+                click: {
                     enable: true,
-                    type: null,
-                    mode: 'button',
-                    icon: '#iconFont',
-                    label: {
-                        zh_CN: font,
-                        other: font,
-                        style: `font-family: "${font}"`,
-                    },
-                    accelerator: `font-family: "${font}"`,
-                    click: {
-                        enable: true,
-                        callback: null,
-                        tasks: [
-                            {
-                                type: 'attr-update',
-                                params: {
-                                    'custom-font-family': font,
-                                },
+                    callback: null,
+                    tasks: [
+                        {
+                            type: 'attr-update',
+                            params: {
+                                'custom-font-family': font,
                             },
-                        ],
-                    },
-                })
-            );
+                        },
+                    ],
+                },
+            }));
             break;
         case 'style':
-            fonts.forEach(font =>
-                menuItems.push({
-                    // 加载其他字体
+            fonts.forEach(font => menuItems.push({ // 加载其他字体
+                enable: true,
+                type: null,
+                mode: "button",
+                icon: "#iconFont",
+                label: {
+                    zh_CN: font,
+                    other: font,
+                    style: `font-family: '${font}'`,
+                },
+                accelerator: font,
+                click: {
                     enable: true,
-                    type: null,
-                    mode: 'button',
-                    icon: '#iconFont',
-                    label: {
-                        zh_CN: font,
-                        other: font,
-                        style: `font-family: '${font}'`,
-                    },
-                    accelerator: font,
-                    click: {
-                        enable: true,
-                        callback: null,
-                        tasks: [
-                            {
-                                type: 'attr-set',
-                                params: {
-                                    style: {
-                                        regexp: /\s*font-family:.*?;/g,
-                                        value: `font-family: "${font}";`,
-                                    },
+                    callback: null,
+                    tasks: [
+                        {
+                            type: 'attr-set',
+                            params: {
+                                'style': {
+                                    regexp: /\s*font-family:.*?;/g,
+                                    value: `font-family: '${font}';`,
                                 },
                             },
-                        ],
-                    },
-                })
-            );
+                        },
+                    ],
+                },
+            }));
             break;
         default:
     }
 }
 
 /* 加载字体菜单项 */
-async function loadFontsItem() {
+async function loadFontsItem(items, fontList) {
     let system_fonts = await getSysFonts();
     loadFonts(config.theme.menu.block.items[0].items, COMMON_FONTS, 'custom-font-family');
     loadFonts(config.theme.menu.block.items[1].items, system_fonts, 'style');
 }
+
 
 setTimeout(() => {
     try {
@@ -206,17 +201,23 @@ setTimeout(() => {
                 block_menu_observer = new CommonMenuObserver(blockMenuCallback);
                 const Fn_blockMenuEnable = toolbarItemInit(
                     config.theme.menu.block.toolbar,
-                    blockMenuEnable
+                    blockMenuEnable,
                 );
                 // 使用快捷键开启/关闭块菜单
-                globalEventHandler.addEventHandler('keyup', config.theme.hotkeys.menu.block, _ =>
-                    Fn_blockMenuEnable()
+                globalEventHandler.addEventHandler(
+                    'keyup',
+                    config.theme.hotkeys.menu.block,
+                    _ => Fn_blockMenuEnable(),
                 );
 
                 // 获取块标记 ID
-                globalEventHandler.addEventHandler('mouseup', null, e => {
-                    block_mark = getBlockMark(e.target);
-                });
+                globalEventHandler.addEventHandler(
+                    'mouseup',
+                    null,
+                    e => {
+                        block_mark = getBlockMark(e.target);
+                    },
+                );
             }
         }
     } catch (err) {

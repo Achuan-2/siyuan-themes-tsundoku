@@ -1,0 +1,290 @@
+
+
+/* ------------------- 折叠样式 Start------------------- */
+.protyle-wysiwyg [data-node-id][fold="1"]:not(.li,.sb){
+    overflow: visible !important;
+    /* font-size: inherit; */
+    /* line-height: inherit; */
+}
+.protyle-wysiwyg [data-node-id][fold="1"].list .li:not(:first-child){
+    display: none;
+}
+
+
+
+.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeIFrame"],
+.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeWidget"],
+.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeVideo"],
+.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeAudio"],
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="mindmap"],
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="mermaid"],
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="echarts"],
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="flowchart"],
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="plantuml"],
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="graphviz"],
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="abc"]{
+    text-align: left;
+}
+.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeBlockQueryEmbed"] div,
+.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeTable"] table tbody,
+.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeMathBlock"] div,
+.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeIFrame"] div,
+.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeWidget"] div,
+.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeVideo"] div,
+.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeAudio"] div,
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="mindmap"] div,
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="mermaid"] div,
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="echarts"] div,
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="flowchart"] div,
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="plantuml"] div,
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="graphviz"] div,
+.protyle-wysiwyg [data-node-id][fold="1"].p .img span,
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="abc"] div,
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="abc"] span{
+    display: none;
+}
+
+
+.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeMathBlock"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeMathBlock"] div:first-child:before{
+    content: "Math Block";
+}
+
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeIFrame"] div:first-child:before,
+.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeIFrame"]::before{
+    content: "IFrame";
+}
+.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeWidget"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeWidget"] div:first-child:before{
+    content:"Widget";
+}
+
+
+.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeVideo"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeVideo"] div:first-child:before{
+    content: "Video";
+}
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="plantuml"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="plantuml"] div:first-child:before{
+    content: "Plantuml";
+}
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="flowchart"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="flowchart"] div:first-child:before{
+    content: "Flowchart";
+}
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="echarts"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="echarts"] div:first-child:before{
+    content: "Echarts";
+}
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="graphviz"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="graphviz"] div:first-child:before{
+    content: "Graphviz";
+}
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="abc"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="abc"] div:first-child:before{
+    content: "Music";
+}
+
+.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeAudio"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeAudio"] div:first-child:before{
+    content: "Audio";
+}
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="mindmap"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="mindmap"] div:first-child:before{
+        content: "Mind Map";
+}
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="mermaid"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="mermaid"] div:first-child:before{
+        content: "Mermaid";
+}
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="mermaid"][data-content^="gantt"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="mermaid"][data-content^="gantt"] div:first-child:before {
+        content: "Gannt";
+}
+.protyle-wysiwyg [data-node-id][fold="1"].p .img::before{
+    content: "[Image]";
+}
+.protyle-wysiwyg [data-node-id][fold="1"].sb{
+    line-height: inherit;
+    height: 1.5em;
+}
+.protyle-wysiwyg [data-node-id][fold="1"]:not(.sb,.li,[data-type="NodeHeading"]) [contenteditable="true"] {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    white-space: normal !important;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    /* line-height: 1.2; */
+}
+/* .protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeHeading"] {
+    line-height: 1.2em;
+} */
+.protyle-wysiwyg [data-node-id][fold="1"].h3>div:first-child{
+    margin-top: 0.15em !important;
+}
+.protyle-wysiwyg [data-node-id][fold="1"]:not(.li,.code-block,[data-type="NodeHeading"])::after {
+    content: ".";
+    display: block;
+    position: absolute;
+    visibility: visible !important;
+    overflow: visible !important;
+    /* background-color: rgb(241, 16, 16); */
+    background-image: url(../src/fold.svg) !important;
+    background-size: 1.5rem;
+    background-repeat: no-repeat;
+    background-position: 0px 0px ;
+    border-radius: 50%;
+    top: 0.3em;
+    left: -1.5em;
+    font-size: 0.6em;
+    line-height: 2em;
+    color: transparent;
+    width: 2.5em;
+    z-index: 1;
+    transition: opacity 0.2s ease;
+}
+.protyle-wysiwyg [data-node-id][fold="1"].p::after {
+    left:-2em;
+    top:0.4em;
+    font-size:0.7em;
+}
+
+.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeBlockQueryEmbed"]::after {
+    top: 0.5rem;
+    left:-2em
+}
+.protyle-wysiwyg [data-node-id][fold="1"].list::after {
+    left:-2em;
+    top: 1em;
+}
+.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeMathBlock"]::after {
+    font-size: 0.7em;
+    top:0.5em;
+    left:-1.7em;
+}
+.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeWidget"]::after,
+.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeIFrame"]::after ,
+.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeVideo"]::after ,
+.protyle-wysiwyg [data-node-id][fold="1"][data-type="NodeAudio"]::after ,
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="mindmap"]::after ,
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="mermaid"]::after ,
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="echarts"]::after ,
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="flowchart"]::after ,
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="plantuml"]::after ,
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="graphviz"]::after ,
+.protyle-wysiwyg [data-node-id][fold="1"][data-subtype="abc"]::after  {
+    left:-2.35em;
+    top:0.5em; 
+}
+
+
+
+
+
+.protyle-wysiwyg [data-node-id][fold="1"].bq div,
+.protyle-wysiwyg [data-node-id][fold="1"].p div[contenteditable="true"]{
+    display: none;
+}
+.protyle-wysiwyg [data-node-id][fold="1"].bq{
+    border-width: 0px !important;
+    box-shadow: none !important;
+    background-color: unset;
+}
+.protyle-wysiwyg [data-node-id][fold="1"].bq>div:first-child{
+    display: block;
+}
+.protyle-wysiwyg [data-node-id][fold="1"].bq>div:first-child *{
+    display: none;
+}
+.protyle-wysiwyg [data-node-id][fold="1"].bq>div:first-child:before {
+    content: "Blockquote";
+    font-size: 1rem;
+    margin-left: -0.8em;
+}
+.protyle-wysiwyg [data-node-id][fold="1"].bq::after {
+    top: 0.8em;
+    left:-2em;
+}
+.protyle-wysiwyg [data-node-id][fold="1"].p::before {
+    content: "Text";
+}
+.protyle-wysiwyg .li [data-node-id][fold="1"].p::before {
+    content: "";
+}
+
+.protyle-wysiwyg .li [data-node-id][fold="1"].p div[contenteditable="true"]{
+    display: block;
+}
+
+
+.protyle-wysiwyg [data-node-id][fold="1"].table::after {
+    top: 1.1em;
+    left:-2.2em;
+}
+
+/* 代码块折叠 */
+.protyle-wysiwyg [data-node-id][fold="1"]:not(.li).code-block {
+    line-height: 1.625;
+    height: 1px;
+    opacity: 1 !important;
+    font-size: inherit !important;
+    overflow: visible !important;
+}
+
+.protyle-wysiwyg [data-node-id][fold="1"]:not(.li).code-block .hljs,
+.protyle-wysiwyg [data-node-id][fold="1"]:not(.li).code-block .protyle-linenumber__rows{
+    overflow: hidden !important;
+    display: none;
+}
+.protyle-wysiwyg [data-node-id][fold="1"]:not(.li).code-block::after{
+    display: block;
+    border-radius: 0px;
+
+}
+/* 列表折叠优化 */
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeMathBlock"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeIFrame"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeWidget"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeVideo"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeAudio"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="mindmap"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="mermaid"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="echarts"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="flowchart"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="plantuml"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="graphviz"]::before,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="abc"]::before {
+    content: "" !important;
+}
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeMathBlock"] div:first-child,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeIFrame"] div:first-child,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeWidget"] div:first-child,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeVideo"] div:first-child,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeAudio"] div:first-child,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="mindmap"]>div:first-child,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="mermaid"]>div:first-child,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="echarts"]>div:first-child,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="flowchart"]>div:first-child,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="plantuml"]>div:first-child,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="graphviz"]>div:first-child,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="abc"]>div:first-child{
+    display: block;
+}
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeMathBlock"] div *,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeIFrame"] div *,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeWidget"] div *,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeVideo"] div *,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-type="NodeAudio"] div *,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="mindmap"] div *,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="mermaid"] div *,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="echarts"] div *,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="flowchart"] div *,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="plantuml"] div *,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="graphviz"] div *,
+.protyle-wysiwyg .li [data-node-id][fold="1"][data-subtype="abc"] div *{
+    display: none;
+}
+
+/* -----------------------------折叠优化 End---------------- */

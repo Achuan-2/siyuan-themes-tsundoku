@@ -3,13 +3,13 @@
 import { merge } from './../utils/misc.js';
 import { getFile, putFile } from './../utils/api.js';
 
-const THEME_PATHNAME = '/appearance/themes/Tsundoku Light';
+const THEME_PATHNAME = '/appearance/themes/Tsundoku Green';
 
 export var config = {
     token: '', // API token, 无需填写
     custom: {
         // 自定义配置
-        path: '/appearance/themes/Tsundoku Light/custom.json', // 自定义配置文件路径
+        path: '/appearance/themes/Tsundoku Green/custom.json', // 自定义配置文件路径
     },
     theme: {
         regs: {

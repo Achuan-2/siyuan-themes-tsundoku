@@ -1,0 +1,155 @@
+:root {
+    --custom-code-background: #3b4f5b61;
+    --custom-code-hover: #5f7b8c;
+}
+/* 代码块 */
+.protyle-wysiwyg .code-block[fold='1'] .hljs {
+    opacity: 0;
+}
+.b3-typography .code-block,
+.protyle-wysiwyg .code-block {
+    padding: 0;
+    background: var(--b3-protyle-code-background);
+    border-radius: 4px;
+    box-shadow: 0 0 0 1px #1e25351a;
+}
+.b3-typography .hljs,
+.protyle-wysiwyg .hljs {
+    background-color:  var(--b3-protyle-code-background) !important;
+    padding: 34px 16px 22px 32px;
+}
+/* 代码行数 */
+.b3-typography .hljs.protyle-linenumber,
+.protyle-wysiwyg .hljs.protyle-linenumber {
+    padding-left: 0;
+    margin-left: 74px;
+}
+.b3-typography .protyle-linenumber__rows,
+.protyle-wysiwyg .protyle-linenumber__rows {
+    padding: 34px 0 22px;
+    width: 74px;
+    opacity: 0.7;
+    background-color: var(--b3-protyle-code-background);
+}
+.b3-typography .protyle-linenumber__rows span::before,
+.protyle-wysiwyg .protyle-linenumber__rows span::before {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+/* 代码语言选择框 */
+.protyle-wysiwyg .code-block .protyle-action .protyle-action__language {
+    /* 代码语言默认显示 */
+    opacity: 1;
+}
+
+.protyle-wysiwyg .code-block .protyle-action__language {
+    background-color: transparent;
+    transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    height: 20px;
+    line-height: 20px;
+    vertical-align: middle;
+    display: inline-flex;
+    text-transform: uppercase;
+    border-radius: 4px;
+    padding: 0 5px;
+    margin: 4px 0 0 26px !important;
+    font-size: 12px !important;
+}
+.protyle-wysiwyg .code-block .protyle-action__language:hover {
+    background-color: var(--custom-code-background);
+}
+.protyle-wysiwyg .code-block .protyle-action__language:active {
+    background-color: var(--custom-code-background);
+}
+/* 代码复制按钮和菜单 */
+.protyle-wysiwyg .code-block .protyle-action__copy {
+    display: inline-flex;
+    width: auto;
+}
+.protyle-wysiwyg .code-block .protyle-action__copy svg {
+    margin: 0;
+    width: 11px;
+    height: 11px;
+    padding: 0px 0px;
+    margin: auto 0;
+    margin-right: 6px;
+}
+.protyle-wysiwyg .code-block .protyle-action__copy::after {
+    opacity: 1;
+    transform: unset;
+    margin: 0;
+    padding: 0;
+    border: unset;
+    border-radius: unset;
+    box-shadow: unset;
+    outline: unset;
+    position: unset;
+    height: 25px;
+    line-height: 25px;
+    vertical-align: middle;
+    display: inline-flex;
+    font-size: 11px;
+    position: unset;
+    z-index: 0;
+}
+.protyle-wysiwyg .code-block .protyle-action__copy::after {
+    content: 'Copy';
+}
+.protyle-wysiwyg .code-block .protyle-action__copy,
+.protyle-wysiwyg .code-block .protyle-action__menu {
+    background-color: var(--custom-code-background);
+    transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.protyle-wysiwyg .code-block .protyle-action__copy:hover,
+.protyle-wysiwyg .code-block .protyle-action__menu:hover {
+    background-color: var(--custom-code-hover);
+}
+.protyle-wysiwyg .code-block .protyle-action__copy:active,
+.protyle-wysiwyg .code-block .protyle-action__menu:active {
+    background-color: var(--custom-code-hover);
+}
+.protyle-wysiwyg .code-block:hover.protyle-action__language {
+    opacity: 1;
+}
+.protyle-wysiwyg .code-block[fold='1'] {
+    height: 36px !important;
+}
+.protyle-wysiwyg .code-block[fold='1'] .protyle-icon {
+    margin-top: 1.5px !important;
+}
+
+
+
+
+/* ------代码语言栏居右--------- */
+/* .b3-typography .code-block .protyle-action,
+.protyle-wysiwyg [data-node-id].code-block .protyle-action {
+    left: auto;
+    right: 4px;
+} */
+
+/* ---------mac三点--------- */
+/* .code-block::after {
+    content: ' ';
+    position: absolute;
+    background: #fa625c;
+    box-shadow: 23px 0 #fdbc40, 45px 0 #35cd4b;
+    border-radius: 50%;
+    top: 10px;
+    left: 15px;
+    height: 12px;
+    width: 12px;
+    z-index: 1;
+} */
+
+
+
+/* 代码块添加margin bottom */
+.protyle-wysiwyg [data-node-id].li > [data-node-id].code-block {
+    margin-bottom: 10px;
+}
+
+.protyle-wysiwyg [data-node-id].li > [data-node-id].code-block:before {
+    height: calc(100% + 7px);
+}

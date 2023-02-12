@@ -119,7 +119,7 @@ window.theme.OS = (() => window.siyuan.config.system.os)();
 
 
 window.theme.ID_COLOR_STYLE = 'theme-color-style';
-
+window.theme.ID_CUSTOM_STYLE = 'custom-color-style';
 /**
  * 获取主题模式
  * @return {string} light 或 dark
@@ -165,10 +165,9 @@ window.theme.changeThemeMode = function (lightStyle, darkStyle) {
 };
 
 /* 根据当前主题模式加载样式配置文件(TODO) */
-
 window.theme.changeThemeMode(
-    `/appearance/themes/Tsundoku/style/theme/light.css`,
-    `/appearance/themes/Tsundoku/style/theme/dark.css`
+    `/appearance/themes/Tsundoku/theme.css`,
+    `/appearance/themes/Tsundoku/style/theme/Tsundoku_dark.css`
 );
 
 
@@ -381,6 +380,7 @@ function themeButton() {
         'buttonlight',
         'toolbar__item b3-tooltips b3-tooltips__se',
         '🌞 Light',
+        'light',
         () => {
             loadStyle(
                 '/appearance/themes/Tsundoku/style/theme/Tsundoku_light.css',
@@ -397,6 +397,7 @@ function themeButton() {
         'buttongreen',
         'toolbar__item b3-tooltips b3-tooltips__se',
         '🍃 Green',
+        'light',
         () => {
             loadStyle(
                 '/appearance/themes/Tsundoku/style/theme/Tsundoku_green.css',
@@ -413,6 +414,7 @@ function themeButton() {
         'buttondark',
         'toolbar__item b3-tooltips b3-tooltips__se',
         '🔮 Dark',
+        'dark',
         () => {
             loadStyle(
                 '/appearance/themes/Tsundoku/style/theme/Tsundoku_dark.css',
@@ -618,6 +620,7 @@ async function 写入文件(
  * @param {*} ButtonTitle 按钮作用提示文字。
  * @param {*} NoButtonSvg 按钮激活Svg图标路径
  * @param {*} OffButtonSvg 按钮未激活Svg图标路径
+ *  @param {*} Mode 是light主题还是dark主题
  * @param {*} NoClickRunFun 按钮开启执行函数
  * @param {*} OffClickRunFun 按钮关闭执行函数
  * @param {*} Memory 是否设置记忆状态 true为是留空或false为不设置记忆状态。
@@ -626,6 +629,7 @@ function notionThemeToolbarAddButton(
     ButtonID,
     ButtonTitle,
     ButtonLabel,
+    Mode,
     NoClickRunFun,
     OffClickRunFun,
     Memory
@@ -648,44 +652,60 @@ function notionThemeToolbarAddButton(
     var addButton = addinsertCreateElement(notionToolbar, 'div');
     addButton.style.float = 'top';
 
-
     addButton.id = ButtonID;
     addButton.setAttribute('class', ButtonTitle);
     addButton.setAttribute('aria-label', ButtonLabel);
 
-    var offNo = '0';
 
-    if (Memory == true) {
-        offNo = getItem(ButtonID);
-        if (offNo == '1') {
+
+    // 如果主题符合系统亮暗模式的话，才运行下面的参数
+    if (window.theme.themeMode == Mode) {
+        var offNo = '0';
+
+
+        
+        // 如果主题是暗色主题，默认选中样式
+        if (Mode == 'dark') {
             addButton.classList.add('active');
-            setItem(ButtonID, '0');
+            setItem('buttondark', '0');
             NoClickRunFun(addButton);
-            setItem(ButtonID, '1');
-        } else if (offNo != '0') {
-            offNo = '0';
-            setItem(ButtonID, '0');
+            setItem('buttondark', '1');
+        } else {
+
+            if (Memory == true) {
+                offNo = getItem(ButtonID);
+                if (offNo == '1') {
+                    addButton.classList.add('active');
+                    setItem(ButtonID, '0');
+                    NoClickRunFun(addButton);
+                    setItem(ButtonID, '1');
+                } else if (offNo != '0') {
+                    offNo = '0';
+                    setItem(ButtonID, '0');
+                }
+            }
+
+            // 绑定事件监听函数：只有符合当前外观模式才能点击，暗黑模式由于只有一个主题就不可以点击了
+            AddEvent(addButton, 'click', () => {
+                if (offNo == '0') {
+                    addButton.classList.add('active');
+                    NoClickRunFun(addButton);
+                    if (Memory != null) setItem(ButtonID, '1');
+                    offNo = '1';
+                    return;
+                }
+
+                if (offNo == '1') {
+                    addButton.classList.remove('active');
+                    addButton.style.filter = 'none';
+                    OffClickRunFun(addButton);
+                    if (Memory != null) setItem(ButtonID, '0');
+                    offNo = '0';
+                    return;
+                }
+            })
         }
     }
-
-    AddEvent(addButton, 'click', () => {
-        if (offNo == '0') {
-            addButton.classList.add('active');
-            NoClickRunFun(addButton);
-            if (Memory != null) setItem(ButtonID, '1');
-            offNo = '1';
-            return;
-        }
-
-        if (offNo == '1') {
-            addButton.classList.remove('active');
-            addButton.style.filter = 'none';
-            OffClickRunFun(addButton);
-            if (Memory != null) setItem(ButtonID, '0');
-            offNo = '0';
-            return;
-        }
-    });
 }
 
 function setItem(key, value) {
@@ -1348,7 +1368,7 @@ function addSidebarHoverButtonEven(fun) {
 
 /*SidebarHoverButton 按钮点击后执行事件*/
 function sidebarHoverButtonImplementEven() {
-    hx_loadStyle('/appearance/themes/Tsundoku/style/topbar.css', 'topbarCss');
+    hx_loadStyle('/appearance/themes/Tsundoku/style/func/topbar.css', 'topbarCss');
 
     /**获取区域主体 */
     var column = document.querySelectorAll('#layouts>div.fn__flex.fn__flex-1')[0];
@@ -1389,7 +1409,7 @@ function sidebarHoverButtonImplementEven() {
             flag = false;
             sidebarHoverButton.style.backgroundColor = 'var(--b3-theme-background-light)';
             sidebarHoverButton.style.backgroundImage =
-                'url(/appearance/themes/Tsundoku/src/sidebar.svg)';
+                'url(/appearance/themes/Tsundoku/src/theme/sidebar.svg)';
             // console.log(flag);
         } else {
             if (bar == '11') {
@@ -1410,7 +1430,7 @@ function sidebarHoverButtonImplementEven() {
             flag = true;
             sidebarHoverButton.style.backgroundColor = 'transparent';
             sidebarHoverButton.style.backgroundImage =
-                'url(/appearance/themes/Tsundoku/src/sidebar.svg)';
+                'url(/appearance/themes/Tsundoku/src/theme/sidebar.svg)';
             // console.log(flag);
         }
     };
@@ -1532,7 +1552,7 @@ function openRightPanel() {
 /**------------------高亮变隐藏按钮-----------------*/
 
 function createHighlightBecomesHidden() {
-    hx_loadStyle('/appearance/themes/Tsundoku/style/mark-display.css', 'markCss');
+    hx_loadStyle('/appearance/themes/Tsundoku/style/func/mark-display.css', 'markCss');
 
     highlightBecomesHiddenButton = addinsertCreateElement(
         HBuiderXToolbar,
@@ -1552,16 +1572,16 @@ function createHighlightBecomesHidden() {
 function highlightBecomesHiddenButtonClickEven() {
     var obj = document.getElementById('markCss');
 
-    if (obj.getAttribute('href') != '/appearance/themes/Tsundoku/style/mark-display.css') {
-        obj.setAttribute('href', '/appearance/themes/Tsundoku/style/mark-display.css');
+    if (obj.getAttribute('href') != '/appearance/themes/Tsundoku/style/func/mark-display.css') {
+        obj.setAttribute('href', '/appearance/themes/Tsundoku/style/func/mark-display.css');
         highlightBecomesHiddenButton.style.backgroundColor = 'transparent';
         highlightBecomesHiddenButton.style.backgroundImage =
-            'url(/appearance/themes/Tsundoku/src/highlight.svg)';
+            'url(/appearance/themes/Tsundoku/src/theme/highlight.svg)';
     } else {
-        obj.setAttribute('href', '/appearance/themes/Tsundoku/style/mark-hide.css');
+        obj.setAttribute('href', '/appearance/themes/Tsundoku/style/func/mark-hide.css');
         highlightBecomesHiddenButton.style.backgroundColor = 'var(--b3-theme-background-light)';
         highlightBecomesHiddenButton.style.backgroundImage =
-            'url(/appearance/themes/Tsundoku/src/highlight.svg)';
+            'url(/appearance/themes/Tsundoku/src/theme/highlight.svg)';
     }
 }
 
@@ -1742,49 +1762,6 @@ function hx_loadStyle(url, id) {
     headElement.appendChild(style);
 }
 
-/**
- *
- * @param {*} 内容块id
- * @param {*} 属性对象
- * @returns
- */
-async function 设置思源块属性(内容块id, 属性对象) {
-    let url = '/api/attr/setBlockAttrs';
-    return 解析响应体(
-        向思源请求数据(url, {
-            id: 内容块id,
-            attrs: 属性对象,
-        })
-    );
-}
-/**
- *
- * @param {*} url
- * @param {*} data
- * @returns
- */
-async function 向思源请求数据(url, data) {
-    let resData = null;
-    await fetch(url, {
-        body: JSON.stringify(data),
-        method: 'POST',
-        headers: {
-            Authorization: `Token ''`,
-        },
-    }).then(function (response) {
-        resData = response.json();
-    });
-    return resData;
-}
-/**
- *
- * @param {*} response
- * @returns
- */
-async function 解析响应体(response) {
-    let r = await response;
-    return r.code === 0 ? r.data : null;
-}
 
 /****各种列表转xx的UI****/
 function ViewSelect(selectid, selecttype) {
@@ -1987,7 +1964,7 @@ function ViewMonitor(event) {
 
             //  HowcanoeWang/calendar： https://github.com/HowcanoeWang/calendar
             initcalendar(); /*创建日历按钮 */
-            loadStyle('/appearance/themes/Tsundoku/style/topbar.css', 'topbarCss');
+            loadStyle('/appearance/themes/Tsundoku/style/func/topbar.css', 'topbarCss');
 
             //  royc01/notion-theme： https://github.com/royc01/notion-theme
             themeButton(); //主题
@@ -2010,6 +1987,9 @@ function ViewMonitor(event) {
         funs();
     }
 });
+
+
+
 
 
 const config = {
@@ -2047,10 +2027,7 @@ const config = {
 
 
 /* 加载 Dark+ 主题功能 */
-window.theme.loadScript(
-    '/appearance/themes/Tsundoku/script/module/html.js',
-    'text/javascript'
-);
+window.theme.loadScript('/appearance/themes/Tsundoku/script/module/html.js', 'text/javascript');
 
 window.theme.loadScript('/appearance/themes/Tsundoku/script/module/window.js');
 window.theme.loadScript('/appearance/themes/Tsundoku/script/module/doc.js');
@@ -2064,3 +2041,5 @@ window.theme.loadScript(
     undefined,
     true
 );
+
+

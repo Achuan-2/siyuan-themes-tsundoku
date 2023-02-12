@@ -1,3 +1,6 @@
+/* 导入代码块样式 */
+@import url('/appearance/themes/Tsundoku/style/func/code_block_dark.css');
+
 :root {
     /* 主色 */
     --b3-theme-primary: #3b7085;
@@ -288,10 +291,7 @@ span[data-type='text'][style='background-color: var(--b3-font-background13);'] {
     background-color: #3072d687 !important;
     border-radius: 0.2em;
     opacity: 0.68;
-    width: 1.2em;
-    height: 1.2em;
-    top: 0.93em;
-    left: 0.9em;
+
 }
 .protyle-wysiwyg [data-subtype='u'].li[fold='1'] > .protyle-action {
     /* 小圆点 */
@@ -808,18 +808,6 @@ div[data-subtype='t'][data-type='NodeList'] {
     border-bottom: 2px solid var(--b3-font-color2);
 }
 
-.b3-typography span[data-type~='inline-memo']::after,
-.protyle-wysiwyg span[data-type~='inline-memo']::after {
-    content: '';
-    display: inline-block;
-    position: relative;
-    background-repeat: no-repeat;
-    background-size: 1em 1em;
-    top: 0em;
-    width: 1em;
-    height: 1em;
-    background-image: url('./src/memo.svg');
-}
 
 .tooltip--memo {
     border-top: 3px solid #fff001;
@@ -843,9 +831,16 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 
 #sidebarHoverButton {
-    background-image: url(/appearance/themes/Tsundoku/src/theme/sidebar_dark.svg);
+    background-image: url(/appearance/themes/Tsundoku/src/theme/sidebar_dark.svg) !important;
 }
 
 #highlightBecomesHidden {
-    background-image: url(/appearance/themes/Tsundoku/src/theme/highlight_dark.svg);
+    background-image: url(/appearance/themes/Tsundoku/src/theme/highlight_dark.svg) !important;
+}
+
+
+#calendarPanel {
+    background-color: #fff!important;
+    filter: hue-rotate(180deg) invert(90%);
+    box-shadow: none!important;
 }

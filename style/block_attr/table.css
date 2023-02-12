@@ -1,0 +1,12 @@
+/*  ------------------------------表格属性  ------------------------------ */
+/*页面宽度*/
+.protyle-wysiwyg div.table[data-node-id][custom-f~=full] table {
+    width: 100%;
+    display: table;
+}
+
+/* 表头和表行格式一致 */
+.protyle-wysiwyg [data-node-id][custom-t~=biaotou] table th {
+    font-weight: normal !important;
+}
+

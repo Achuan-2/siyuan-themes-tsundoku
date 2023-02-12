@@ -1,0 +1,221 @@
+/* 调整列表下引述块小竖线 */
+.protyle-wysiwyg [data-node-id].li>.bq[style*="background-color:"] {
+    left: 4px !important;
+    top: -1px;
+}
+
+/* -------------------搬运语雀的提示区块 ---------Start----------------------------*/
+
+/* 卡片样式 */
+.bq[style*="background-color: var(--b3-card-error-background);"] {
+    /* border: 1px solid var(--b3-card-error-color) !important; */
+    /* border: 1px solid #deb8be !important; */
+    border: 1px solid var(--b3-font-color1) !important;
+    background-color: var(--b3-card-error-background) !important;
+}
+
+
+.bq[style*="background-color: var(--b3-card-warning-background);"]{
+    /* border: 1px solid var(--b3-card-warning-color) !important ; */
+    /* border: 1px solid #e0d1b1 !important ; */
+    border: 1px solid var(--b3-font-color2) !important;
+
+
+    background-color: var(--b3-card-warning-background)!important;
+}
+
+
+.bq[style*="background-color: var(--b3-card-info-background);"] 
+{
+    /* border: 1px solid var(--b3-card-info-color) !important; */
+        /* border: 1px solid #abd2da !important; */
+    border: 1px solid var(--b3-font-color3) !important;
+    background-color: var(--b3-card-info-background) !important;
+}
+
+
+.bq[style*="background-color: var(--b3-card-success-background);"] {
+    /* border: 1px solid var(--b3-card-success-color) !important; */
+    /* border: 1px solid #c2d2b5 !important; */
+    border: 1px solid var(--b3-font-color4) !important;
+    background-color: var(--b3-card-success-background) !important;
+}
+
+
+.bq[style*="background-color(--b3-card-warning-background);"] strong:not([style*="color: var(--b3"]) {
+    color:#98651d !important;
+}
+
+.bq[style*="background-color: var(--b3-card-success-background);"] strong:not([style*="color: var(--b3"]) {
+    color:#258c19 !important;
+}
+
+
+.bq[style*="background-color: var(--b3-card-error-background);"] strong:not([style*="color: var(--b3"]) {
+    color:#a75050 !important;
+}
+
+.bq[style*="background-color: var(--b3-card-info-background);"] strong:not([style*="color: var(--b3"]) {
+    color:#226892 !important;
+}
+
+/* 优化代码块和行内代码 */
+
+
+.bq[style*="background-color: var(--b3-card-error-background);"] kbd,
+.bq[style*="background-color: var(--b3-card-error-background);"] code{
+    background-color: #f0c4b959 !important;
+}
+.bq[style*="background-color: var(--b3-card-error-background);"] .code-block{
+    background-color: #f6d8d3;
+}
+.bq[style*="background-color: var(--b3-card-warning-background);"] kbd,
+.bq[style*="background-color: var(--b3-card-warning-background);"] code{
+    background-color: #f0dfb959 !important;
+}
+.bq[style*="background-color: var(--b3-card-warning-background);"] .code-block{
+    background-color: #f7e9d0;
+}
+.bq[style*="background-color: var(--b3-card-info-background);"] kbd,
+.bq[style*="background-color: var(--b3-card-info-background);"] code{
+    background-color: #bedaeb59 !important;
+}
+.bq[style*="background-color: var(--b3-card-info-background);"] .code-block{
+    background-color: #d2e6f4;
+}
+.bq[style*="background-color: var(--b3-card-success-background);"] kbd,
+.bq[style*="background-color: var(--b3-card-success-background);"] code{
+    background-color: #c7ebbe59 !important;
+}
+.bq[style*="background-color: var(--b3-card-success-background);"] .code-block{
+    background-color: #d9f4d6;
+}
+
+/* 优化列表线 */
+.bq[style*="background-color: var(--b3-card-error-background);"] [data-node-id].li>[data-node-id]:before{
+    border-left: 1px solid #debeb9 !important;
+}
+
+.bq[style*="background-color: var(--b3-card-warning-background);"] [data-node-id].li>[data-node-id]:before{
+    border-left: 1px solid #d6c0a3 !important;
+}
+.bq[style*="background-color: var(--b3-card-info-background);"] [data-node-id].li>[data-node-id]:before{
+    border-left: 1px solid #83a8c2 !important;
+}
+.bq[style*="background-color: var(--b3-card-success-background);"] [data-node-id].li>[data-node-id]:before{
+    border-left: 1px solid #a7c4b8 !important;
+}
+/* 块背景色 */
+.bq[style*="background-color: var(--b3-font-background1);"] {
+    border: 1px solid var(--b3-font-color1) !important;
+}
+
+.bq[style*="background-color: var(--b3-font-background2);"] {
+    border: 1px solid var(--b3-font-color2) !important;
+
+}
+
+.bq[style*="background-color: var(--b3-font-background3);"] {
+        border: 1px solid var(--b3-font-color3)  !important;
+}
+
+.bq[style*="background-color: var(--b3-font-background4);"] {
+    border: 1px solid var(--b3-font-color4) !important;
+}
+
+.bq[style*="background-color: var(--b3-font-background5);"] {
+    border: 1px solid var(--b3-font-color5) !important;
+}
+.bq[style*="background-color: var(--b3-font-background6);"] {
+    border: 1px solid var(--b3-font-color6) !important;
+}
+.bq[style*="background-color: var(--b3-font-background7);"] {
+    border: 1px solid var(--b3-font-color7) !important;
+}
+.bq[style*="background-color: var(--b3-font-background8);"] {
+    border: 1px solid var(--b3-font-color8) !important;
+}
+.bq[style*="background-color: var(--b3-font-background9);"] {
+    border: 1px solid var(--b3-font-color9) !important;
+}
+.bq[style*="background-color: var(--b3-font-background10);"] {
+    border: 1px solid var(--b3-font-color10) !important;
+}
+.bq[style*="background-color: var(--b3-font-background11);"] {
+    border: 1px solid var(--b3-font-color11) !important;
+}
+.bq[style*="background-color: var(--b3-font-background12);"] {
+    border: 1px solid var(--b3-font-color12) !important;
+}
+.bq[style*="background-color: var(--b3-font-background13);"] {
+    border: 1px solid var(--b3-font-color13) !important;
+}
+
+/* 选中块的优化 */
+.protyle-wysiwyg--select.bq[style*="background-color:"]>div{
+    background-color: rgba(31, 138, 93, 0.12) !important;
+
+}
+
+/* 表格适配 */
+.bq[style*="background-color: var("] .hljs{
+    background-color: #f6faf8a8 !important;
+}
+/* warning */
+.bq[style*="background-color: var(--b3-card-warning-background);"]   table thead tr{
+    background-color: #ccb494d2!important;
+}
+.bq[style*="background-color: var(--b3-card-warning-background);"]   table tbody tr:nth-child(2n + 1){
+    background-color: var(--b3-card-warning-background) !important;
+}
+.bq[style*="background-color: var(--b3-card-warning-background);"]   table tbody tr:nth-child(2n){
+    background-color: #f7e5cc !important;
+}
+.bq[style*="background-color: var(--b3-card-warning-background);"]  table tr td,
+.bq[style*="background-color: var(--b3-card-warning-background);"]  table tr th{
+    border: 0.9px solid #d6b482 !important;
+}
+
+/* success */
+.bq[style*="background-color: var(--b3-card-success-background);"]   table thead tr{
+    background-color: #9fcc94d2 !important;
+}
+.bq[style*="background-color: var(--b3-card-success-background);"]   table tbody tr:nth-child(2n + 1){
+    background-color: var(--b3-card-success-background) !important;
+}
+.bq[style*="background-color: var(--b3-card-success-background);"]   table tbody tr:nth-child(2n){
+    background-color: #bee2d0 !important;
+}
+.bq[style*="background-color: var(--b3-card-success-background);"]  table tr td,
+.bq[style*="background-color: var(--b3-card-success-background);"]  table tr th{
+    border: 0.9px solid #90cc92 !important;
+}
+/* info */
+.bq[style*="background-color: var(--b3-card-info-background);"]   table thead tr{
+    background-color: #9dccdad2!important;
+}
+.bq[style*="background-color: var(--b3-card-info-background);"]   table tbody tr:nth-child(2n + 1){
+    background-color: var(--b3-card-info-background) !important;
+}
+.bq[style*="background-color: var(--b3-card-info-background);"]   table tbody tr:nth-child(2n){
+    background-color: #bee0e2 !important;
+}
+.bq[style*="background-color: var(--b3-card-info-background);"]  table tr td,
+.bq[style*="background-color: var(--b3-card-info-background);"]  table tr th{
+    border: 0.9px solid #90c1cc !important;
+}
+/* error */
+.bq[style*="background-color: var(--b3-card-error-background);"]   table thead tr{
+    background-color: #dab09dd2!important;
+}
+.bq[style*="background-color: var(--b3-card-error-background);"]   table tbody tr:nth-child(2n + 1){
+    background-color: var(--b3-card-error-background) !important;
+}
+.bq[style*="background-color: var(--b3-card-error-background);"]   table tbody tr:nth-child(2n){
+    background-color: #f1d3cd !important;
+}
+.bq[style*="background-color: var(--b3-card-error-background);"]  table tr td,
+.bq[style*="background-color: var(--b3-card-error-background);"]  table tr th{
+    border: 0.9px solid #cc90a9 !important;
+}
+/* -------------------搬运语雀的提示区块 --END-----------------------------------*/

@@ -1,0 +1,149 @@
+/* 自定义有序列表样式
+可以从下面参数更改有序列表：
+16层级后默认为第一层级样式1.,2.
+*/
+div[data-subtype="o"].list {
+    --o1-style: counter(o1, decimal)".";
+    --o2-style: counter(o2, decimal)")";
+    --o3-style: counter(o3, upper-latin)".";
+    --o4-style: counter(o4, lower-latin)".";
+    --o5-style: counter(o5, lower-roman)".";
+}
+
+.protyle-wysiwyg [data-subtype="o"].li>.protyle-action:after {
+    margin: -12px 0 0 -12px !important;
+    line-height: 20px;
+}
+
+.list[data-subtype="o"]>.li[data-subtype="o"] .li[data-subtype="o"]>.protyle-action {
+    color: transparent !important;
+}
+
+.li[data-subtype="o"] .li[data-subtype="o"] .protyle-action::after {
+    color: #5f6368;
+}
+
+.li[data-subtype="o"][fold="1"] .protyle-action--order,
+.li[data-subtype="o"][fold="1"] .protyle-action:after {
+    color: #1757b5bb !important;
+}
+
+.li[data-subtype="o"]>.protyle-action::after {
+    padding: 3px 2px;
+    width: 24px;
+    display: flex;
+    justify-content: center;
+}
+
+.list[data-subtype="o"] {
+    counter-reset: o1 0 o2 0 o3 0 o4 0 o5 0;
+}
+
+/* 第1层级 */
+/* 保持默认，这样可以从任意序号开始编号 */
+
+/* 第2层级 */
+
+.list[data-subtype="o"]>.li[data-subtype="o"] .li[data-subtype="o"]>.protyle-action::after {
+    counter-increment: o2;
+    content: var(--o2-style);
+    position: absolute;
+}
+
+/* 第3层级 */
+.list[data-subtype="o"]>.li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"]>.protyle-action::after {
+    counter-increment: o3;
+    content: var(--o3-style);
+    position: absolute;
+}
+
+/* 第4层级 */
+.list[data-subtype="o"]>.li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"]>.protyle-action::after {
+    counter-increment: o4;
+    content: var(--o4-style);
+    position: absolute;
+}
+
+/* 第5层级 */
+.list[data-subtype="o"]>.li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"]>.protyle-action::after {
+    counter-increment: o5;
+    content: var(--o5-style);
+    position: absolute;
+}
+
+/* 第6层级 */
+.list[data-subtype="o"]>.li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"]>.protyle-action::after {
+    counter-increment: o1;
+    content: var(--o1-style);
+    position: absolute;
+}
+
+/* 第7层级 */
+.list[data-subtype="o"]>.li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"]>.protyle-action::after {
+    counter-increment: o2;
+    content: var(--o2-style);
+    position: absolute;
+}
+
+/* 第8层级 */
+.list[data-subtype="o"]>.li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"]>.protyle-action::after {
+    counter-increment: o3;
+    content: var(--o3-style);
+    position: absolute;
+}
+
+/* 第9层级 */
+.list[data-subtype="o"]>.li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"]>.protyle-action::after {
+    counter-increment: o4;
+    content: var(--o4-style);
+    position: absolute;
+}
+
+/* 第10层级 */
+.list[data-subtype="o"]>.li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"]>.protyle-action::after {
+    counter-increment: o5;
+    content: var(--o5-style);
+    position: absolute;
+}
+
+/* 第11层级 */
+.list[data-subtype="o"]>.li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"]>.protyle-action::after {
+    counter-increment: o1;
+    content: var(--o1-style);
+    position: absolute;
+}
+
+/* 第12层级 */
+.list[data-subtype="o"]>.li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"]>.protyle-action::after {
+    counter-increment: o2;
+    content: var(--o2-style);
+    position: absolute;
+}
+
+/* 第13层级 */
+.list[data-subtype="o"]>.li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"]>.protyle-action::after {
+    counter-increment: o3;
+    content: var(--o3-style);
+    position: absolute;
+}
+
+/* 第14层级 */
+.list[data-subtype="o"]>.li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"]>.protyle-action::after {
+    counter-increment: o4;
+    content: var(--o4-style);
+    position: absolute;
+}
+
+/* 第15层级 */
+.list[data-subtype="o"]>.li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"]>.protyle-action::after {
+    counter-increment: o5;
+    content: var(--o5-style);
+    position: absolute;
+}
+
+/* 第16层级 */
+.list[data-subtype="o"]>.li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"] .li[data-subtype="o"]>.protyle-action::after {
+    counter-increment: o1;
+    content: var(--o1-style);
+    position: absolute;
+}
