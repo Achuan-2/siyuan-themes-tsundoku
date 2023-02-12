@@ -734,7 +734,7 @@ export var config = {
             open: {
                 enable: true, // 打开窗口功能开关
                 panel: {
-                    enable: true, // 打开一个新窗口
+                    enable: false, // 打开一个新窗口
                     url: null, // 新窗口的 URL, 值 null 则为 '/stage/build/desktop/'
                     toolbar: {
                         // 菜单栏
