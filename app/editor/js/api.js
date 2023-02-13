@@ -2,6 +2,7 @@
 
 export {
     request,
+    version,
     getConf,
     getNotebookConf,
     getFullHPathByID,
@@ -11,6 +12,7 @@ export {
     getBlockKramdown,
     exportMdContent,
     getDocHistoryContent,
+    openRepoSnapshotDoc,
     getBlockDomByID,
     getDoc,
     getAsset,
@@ -31,10 +33,14 @@ async function request(url, data, token = config.token) {
             Authorization: `Token ${token}`,
         }
     }).then(r => {
-        if (r.status === 200)
+        if (r.ok)
             return r.json();
         else return null;
     });
+}
+
+async function version() {
+    return request('/api/system/version', {});
 }
 
 async function getConf() {
@@ -105,6 +111,12 @@ async function getDoc(id, mode = 0, size = 2147483647) {
         id,
         mode,
         size,
+    });
+}
+
+async function openRepoSnapshotDoc(id) {
+    return request('/api/repo/openRepoSnapshotDoc', {
+        id,
     });
 }
 

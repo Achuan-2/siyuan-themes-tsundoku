@@ -1704,17 +1704,6 @@ function myRemoveEvent(element, strType, fun) {
     }
 }
 
-/**
- * 加载脚本文件
- * @param {string} url 脚本地址
- * @param {string} type 脚本类型
- */
-function loadScript(url, type = 'module') {
-    let script = document.createElement('script');
-    if (type) script.setAttribute('type', type);
-    script.setAttribute('src', url);
-    document.head.appendChild(script);
-}
 
 /**
  * 得到思源toolbar
