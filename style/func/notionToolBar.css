@@ -5,7 +5,7 @@
 	border-radius:3px;
 	overflow:hidden;
 	background: url("/appearance/themes/Tsundoku/src/theme/setting.svg") no-repeat center; 
-    /* z-index: 999; */
+    z-index: 99;
 }
 #notionToolbar:hover{
 	overflow:visible;
