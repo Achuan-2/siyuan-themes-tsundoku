@@ -13,4 +13,10 @@
     transition: color 0.2s ease-in-out;
 }
 
+/* 设置导出样式并没有用 */
+/* #preview.protyle-wysiwyg span[data-type~='mark']{
+    color: transparent;
+    border-bottom: 2px solid var(--b3-font-color4);
+} */
+
 /* -------------如果希望取消挖空效果，请删除这段代码 END----------------------------------- */

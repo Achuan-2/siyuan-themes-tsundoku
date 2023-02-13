@@ -1,5 +1,6 @@
 /* 导入代码块样式 */
 @import url('/appearance/themes/Tsundoku/style/func/code_block_dark.css');
+@import url('/appearance/themes/Tsundoku/style/func/link_icon_dark.css');
 
 :root {
     /* 主色 */

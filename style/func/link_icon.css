@@ -195,12 +195,7 @@
 }
 
 
-[data-theme-mode="dark"] .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="http"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href ^="http"]::before,
-.b3-typography a[href ^="http"]::before{
-    content: "";
-    background-image: url('/appearance/themes/Tsundoku/src/link_icon/net2_dark.svg');
-}
+
 
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="cnblogs.com"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href *="cnblogs.com"]::before,
@@ -543,13 +538,7 @@
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/github_icon.svg') !important;
 }
 
-[data-theme-mode="dark"] .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="github.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="github.com"]::before,
-.b3-typography a[href *="github.com"]::before{
 
-    content: "";
-    background-image: url('/appearance/themes/Tsundoku/src/link_icon/github_icon_dark.png') !important;
-}
 
 
 

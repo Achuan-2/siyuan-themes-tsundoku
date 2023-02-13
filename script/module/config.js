@@ -1340,7 +1340,7 @@ export var config = {
                         items: [
                             // 子菜单项列表
                             {
-                                enable: true,
+                                enable: false,
                                 type: null,
                                 mode: 'button',
                                 icon: '#iconExport',
