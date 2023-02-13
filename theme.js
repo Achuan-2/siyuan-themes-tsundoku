@@ -1948,7 +1948,7 @@ function ViewMonitor(event) {
         setTimeout(() => {
             // UFDXD/HBuilderX-Light：https://github.com/UFDXD/HBuilderX-Light
             createHBuiderXToolbar(); /*创建HBuiderXToolbar*/
-            createSidebarMouseHoverExpandButton(); /*创建鼠标移动展开左右树面板按钮*/
+            // createSidebarMouseHoverExpandButton(); /*创建鼠标移动展开左右树面板按钮*/
             createHighlightBecomesHidden(); /*创建高亮变隐藏按钮 */
 
             //  HowcanoeWang/calendar： https://github.com/HowcanoeWang/calendar
