@@ -185,3 +185,8 @@ div *[custom-f="dt"]>[data-type="NodeListItem"]>[data-type="NodeParagraph"]>[spe
 }
 
 /*————————————————————————————————————————————————————————————————————————*/
+
+
+#preview .list[custom-f="dt"][data-node-id] .protyle-action svg {
+    left: 4px;
+}
