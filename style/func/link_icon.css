@@ -60,118 +60,119 @@
     content: "";
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/assets.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".zip"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".zip"]::before,
+
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][href ^="assets/"][data-href $=".zip"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".zip"]::before,
 .b3-typography a[href ^="assets/"][href $=".zip"]::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".tar"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".tar"]::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][href ^="assets/"][data-href $=".tar"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".tar"]::before,
 .b3-typography a[href ^="assets/"][href $=".tar"]::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".tar.gz"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".tar.gz"]::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][href ^="assets/"][data-href $=".tar.gz"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".tar.gz"]::before,
 .b3-typography a[href ^="assets/"][href $=".tar.gz"]::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".rar"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".rar"]::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][href ^="assets/"][data-href $=".rar"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".rar"]::before,
 .b3-typography a[href ^="assets/"][href $=".rar"]::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".gz"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".gz"]::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][href ^="assets/"][data-href $=".gz"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".gz"]::before,
 .b3-typography a[href ^="assets/"][href $=".gz"]::before{
     content: "";
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/compress.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".pdf"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".pdf"]::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][href ^="assets/"][data-href $=".pdf"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".pdf"]::before,
 .b3-typography [href ^="assets/"][href $=".pdf"]::before{
     content: "";
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/pdf.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".mp4"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".mp4"]::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][href ^="assets/"][data-href $=".mp4"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".mp4"]::before,
 .b3-typography [href ^="assets/"][href $=".mp4"]::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".flv"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $="flv"]::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][href ^="assets/"][data-href $=".flv"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $="flv"]::before,
 .b3-typography [href ^="assets/"][href $=".flv"]::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".mkv"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".mkv"]::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][href ^="assets/"][data-href $=".mkv"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".mkv"]::before,
 .b3-typography [href ^="assets/"][href $=".mkv"]::before {
     content: "";
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/videos.svg') !important;
 }
 
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".xlsx"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".xlsx"]::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][href ^="assets/"][data-href $=".xlsx"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".xlsx"]::before,
 .b3-typography [href ^="assets/"][href $=".xlsx"]::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".xls"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".xls"]::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][href ^="assets/"][data-href $=".xls"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".xls"]::before,
 .b3-typography [href ^="assets/"][href $=".xls"]::before{
     content: "";
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/excel_icon.svg')  !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".pptx"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".pptx"]::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][href ^="assets/"][data-href $=".pptx"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".pptx"]::before,
 .b3-typography [href ^="assets/"][href $=".pptx"]::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".ppt"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".ppt"]::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][href ^="assets/"][data-href $=".ppt"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".ppt"]::before,
 .b3-typography [href ^="assets/"][href $=".ppt"]::before{
     content: "";
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/powerpoint_icon.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".docx"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".docx"]::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][href ^="assets/"][data-href $=".docx"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".docx"]::before,
 .b3-typography [href ^="assets/"][href $=".docx"]::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".doc"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".doc"]::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][href ^="assets/"][data-href $=".doc"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".doc"]::before,
 .b3-typography [href ^="assets/"][href $=".doc"]::before{
     content: "";
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/word_icon.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".txt"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".txt"]::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][href ^="assets/"][data-href $=".txt"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".txt"]::before,
 .b3-typography [href ^="assets/"][href $=".txt"]::before{
     content: "";
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/txt.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".py"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".py"]::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][href ^="assets/"][data-href $=".py"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".py"]::before,
 .b3-typography [href ^="assets/"][href $=".py"]::before{
     content: "";
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/python_icon.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".R"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".R"]::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][href ^="assets/"][data-href $=".R"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".R"]::before,
 .b3-typography [href ^="assets/"][href $=".R"]::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".r"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".r"]::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][href ^="assets/"][data-href $=".r"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".r"]::before,
 .b3-typography [href ^="assets/"][href $=".r"]::before{
     content: "";
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/r_lang.svg') !important;
 }
 
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".js"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".js"]::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][href ^="assets/"][data-href $=".js"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".js"]::before,
 .b3-typography [href ^="assets/"][href $=".js"]::before{
     content: "";
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/js.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".html"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".html"]::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][href ^="assets/"][data-href $=".html"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".html"]::before,
 .b3-typography [href ^="assets/"][href $=".html"]::before{
     content: "";
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/html.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".css"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".css"]::before,
-.b3-typography [href ^="assets/"][href $=".css"]::before{
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][href ^="assets/"][data-href $=".css"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".css"]::before,
+.b3-typography [href ^="assets/"][href ^="assets/"][href $=".css"]::before{
     content: "";
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/css.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".md"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".md"]::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][href ^="assets/"][data-href $=".md"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".md"]::before,
 .b3-typography [href ^="assets/"][href $=".md"]::before{
     content: "";
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/logo-markdown.svg')  !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".ipynb"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".ipynb"]::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][href ^="assets/"][data-href $=".ipynb"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".ipynb"]::before,
 .b3-typography [href ^="assets/"][href $=".ipynb"]::before{
     content: "";
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/jupyter.svg') !important;
