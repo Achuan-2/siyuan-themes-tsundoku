@@ -50,7 +50,7 @@ Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释
 
 ## 😺 借鉴功能
 
-- [Dark+](https://github.com/Zuoqiu-Yingyi/siyuan-theme-dark-plus)主题的功能（copy）
+- [Dark+](https://github.com/Zuoqiu-Yingyi/siyuan-theme-dark-plus)主题的功能
   - 打开一个新窗口并置顶
   - 复制当前文档大纲为无序列表
   - 复制文档内容
@@ -58,14 +58,15 @@ Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释
   - 按alt+中键可以打开用monaco-editor以markdown样式打开当前块或文档
     - 打开文档需要在文档题头图那块点击
     - Ctrl+S才能从manaco编辑器保存内容
-- [HBuilderX-Light](https://github.com/UFDXD/HBuilderX-Light)的功能（copy）
+- [HBuilderX-Light](https://github.com/UFDXD/HBuilderX-Light)的功能
   - 左右面板收起
   - 高亮文本隐藏按钮：将Ctrl+E，设置为文本遮挡效果：默认显示文字，当点击顶栏【开启隐藏高亮文本按钮】时，隐藏高亮文本
   - 列表转脑图、表格
   - 表格设置是否显示表头和表宽度调整
-  
+- [Savor主题](https://github.com/royc01/notion-theme)
   - 主题切换按钮
-- [日历面板](https://github.com/HowcanoeWang/calendar)（copy）
+  - Ctrl+滚轮单独调整页面大小（使用开发者工具清除缓存可以复位）
+- [日历面板](https://github.com/HowcanoeWang/calendar)
   - 支持根据笔记本日记路径模板智能识别“2006.01.02”或“2006-01-02”格式（不支持更复杂的格式）
   - 支持点击查看已有日记以及提前新建未来日记
 
