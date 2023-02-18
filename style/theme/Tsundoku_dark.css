@@ -233,6 +233,7 @@ span[data-type='text'][style='background-color: var(--b3-font-background13);'] {
 
 /* ------------------------------块嵌入------------------------------ */
 .protyle-wysiwyg [data-node-id].render-node[data-type='NodeBlockQueryEmbed'] {
+    background-color: var(--b3-theme-surface);
     box-shadow: 0px 0px 7px 1px #386d79;
     border-left: 0px dashed #010e1b;
     padding: 4px 10px;

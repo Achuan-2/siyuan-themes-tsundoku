@@ -410,23 +410,6 @@ function themeButton() {
         },
         true
     );
-    notionThemeToolbarAddButton(
-        'buttondark',
-        'toolbar__item b3-tooltips b3-tooltips__se',
-        '🔮 Dark',
-        'dark',
-        () => {
-            loadStyle(
-                '/appearance/themes/Tsundoku/style/theme/Tsundoku_dark.css',
-                'dark主题'
-            ).setAttribute('topicfilter', 'buttondark');
-            qucuFiiter();
-        },
-        () => {
-            document.getElementById('dark主题').remove();
-        },
-        true
-    );
 }
 
 

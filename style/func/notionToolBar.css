@@ -75,7 +75,11 @@
 }
 
 
-[data-theme-mode="light"] #buttondark{
+/* [data-theme-mode="light"] #buttondark{
+    display: none;
+} */
+
+[data-theme-mode="dark"] #notionToolbar{
     display: none;
 }
 
