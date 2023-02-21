@@ -751,7 +751,6 @@ li[data-type='navigation-file'] .counter {
     box-sizing: border-box;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-    z-index: 20;
 }
 
 /* 标签#号 */
@@ -1150,7 +1149,6 @@ body > div#action {
     line-height: 70px; */
     text-align: center;
     font-family: var(--b3-font-family-emoji);
-    z-index: 1;
 }
 /* 文档图标文件树大小调整 */
 .file-tree .b3-list-item__icon svg,
@@ -1214,7 +1212,6 @@ body > div#action {
 /* ----------optimize-custom-emoji ---END---------*/
 /* 块标提示不被窗口线遮挡 */
 .protyle-gutters {
-    z-index: 3;
     /* 块标移动增加过渡 */
     transition: all 200ms ease-out;
 }
@@ -1852,4 +1849,11 @@ body
 /* 导出预览选项栏的背景色 */
 .protyle-preview__action{
     background-color: transparent;
+}
+
+
+/* 钉住的页签不倾斜 */
+.layout-tab-bar .item--pin.item--unupdate {
+    font-style: normal;
+    color: var(--b3-theme-on-surface);
 }
