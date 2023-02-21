@@ -1,3 +1,8 @@
+## v1.5.9 /  2023.02.21
+
+- 🐛 [悬浮面板时块标符号不消失](https://github.com/Achuan-2/siyuan-themes-tsundoku/issues/63)
+
+
 ## v1.5.8 / 2023.02.18
 
 * 🐛 Fix 后缀为html的网页link icon显示为html文件icon
