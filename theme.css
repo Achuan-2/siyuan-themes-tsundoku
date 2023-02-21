@@ -1857,3 +1857,28 @@ body
     font-style: normal;
     color: var(--b3-theme-on-surface);
 }
+
+
+/* 导出代码块优化 */
+#preview.protyle-wysiwyg .code-block{
+    /* 背景色透明 */
+    background-color: #fff;
+    /* 边框颜色 */
+    border: 1.5px solid #7a7a7a;
+    box-shadow: none;
+    border-radius: 0 !important;
+}
+#preview.protyle-wysiwyg .hljs{
+    /* 背景色透明 */
+    background-color: #fff !important;
+    padding: 20px 10px 20px 26px !important;
+}
+
+#preview.protyle-wysiwyg .code-block .protyle-action{
+    left: auto;
+    right: 4px;
+    opacity: 0;
+}
+#preview.protyle-wysiwyg .code-block .protyle-action .protyle-action__language{
+   opacity: 0;
+}
