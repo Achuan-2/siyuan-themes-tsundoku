@@ -1,6 +1,7 @@
 ## v1.5.9 /  2023.02.21
 
 - 🐛 [悬浮面板时块标符号不消失](https://github.com/Achuan-2/siyuan-themes-tsundoku/issues/63)
+-  :sparkles: 导出代码块优化
 
 
 ## v1.5.8 / 2023.02.18
