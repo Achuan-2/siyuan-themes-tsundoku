@@ -927,3 +927,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 	background-color: #b1cfb5;
 }
 
+/* 光标选中文本样式 */
+.protyle-wysiwyg ::selection {
+    background-color: rgba(70, 126, 211, 0.245);
+}

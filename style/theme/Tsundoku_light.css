@@ -1,3 +1,8 @@
 /* Tsundoku 特殊调整的样式放这里，通用的就放theme.css里就好 */
 
 
+/* 光标选中文本样式 */
+.protyle-wysiwyg ::selection {
+    background-color: rgba(7, 97, 214, 0.445);
+    color: white;
+}
