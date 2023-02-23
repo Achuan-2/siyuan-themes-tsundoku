@@ -1,7 +1,9 @@
 ## 1.6.0
 
-- :bug: link icon修复错误
-- :sparkles: link icon 支持显示file协议文件icon
+- 🐛 文件类型的link icon修复错误
+- ✨ link icon 支持显示file协议文件icon
+- 🐛 [修复无更新时间的块菜单不显示更多选项问题](https://github.com/Zuoqiu-Yingyi/siyuan-theme-dark-plus/issues/183)
+- 🐛 fix [选中高亮效果](https://github.com/Achuan-2/siyuan-themes-tsundoku/issues/64)
 
 ## v1.5.9 导出代码块优化 /  2023.02.21
 
