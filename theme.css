@@ -951,15 +951,22 @@ body > #action {
     background-color: transparent;
 }
 
-/* 导出的高亮样式 */
+/* 导出的高亮样式：高亮隐藏 */
 #preview.protyle-wysiwyg span[data-type~='mark']{
     color: transparent;
-    /* color: var(--b3-protyle-inline-mark-color); */
     transition: color 0.2s ease-in-out;
     background-color: transparent;
-    /* background-color: var(--b3-card-success-background); */
     border-bottom: 2px solid var(--b3-font-color4);
 }
+
+/* 导出的高亮样式：高亮不隐藏 */
+/* #preview.protyle-wysiwyg span[data-type~='mark']{
+    color: var(--b3-protyle-inline-mark-color);
+    transition: color 0.2s ease-in-out;
+    background-color: var(--b3-card-success-background);
+    border-bottom: 2px solid var(--b3-font-color4);
+} */
+
 
 
 #preview.protyle-wysiwyg .h1 {
@@ -1878,3 +1885,14 @@ body
 #preview.protyle-wysiwyg .code-block .protyle-action .protyle-action__language{
    opacity: 0;
 }
+
+
+/* 取消2.7.7 更新的待办列表完成样式 */
+.protyle-task--done>div:not([data-subtype=t]) {
+    /* color: var(--b3-theme-on-surface-light); */
+    /* text-decoration: line-through; */
+    text-decoration: none;
+    color: var(--b3-theme-on-background);
+}
+
+
