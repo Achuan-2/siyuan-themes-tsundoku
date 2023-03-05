@@ -737,7 +737,7 @@ li[data-type='navigation-file'] .counter {
 
 
 /* ------------------------------标签  ------------------------------*/
-.protyle-wysiwyg [data-node-id] span[data-type='tag']:not(:empty) {
+.protyle-wysiwyg [data-node-id] span[data-type~='tag']:not(:empty) {
     display: inline-flex;
     border-bottom: 0px solid var(--b3-protyle-inline-tag-color);
     font-size: 85%;
@@ -754,11 +754,11 @@ li[data-type='navigation-file'] .counter {
 }
 
 /* 标签#号 */
-.protyle-wysiwyg [data-node-id] span[data-type='tag']:not(:empty)::before {
+.protyle-wysiwyg [data-node-id] span[data-type~='tag']:not(:empty)::before {
     content: '#';
 }
 
-.protyle-wysiwyg [data-node-id] span[data-type='tag']:hover {
+.protyle-wysiwyg [data-node-id] span[data-type~='tag']:hover {
     background-color: var(--custom-tag-hover-color);
 }
 
