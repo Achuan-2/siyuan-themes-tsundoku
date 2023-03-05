@@ -104,3 +104,48 @@ Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释
 
 若主题存在样式的问题，欢迎在Github提issue或是通过邮箱联系我(achuan-2@outlook.com)。在提issue之前建议先切换为默认主题，确定是本主题特有的问题。
 
+
+## ❓FAQ
+
+### 导出pdf时，高亮文本是隐藏的，如何设置不隐藏？
+
+主题theme.css，搜索“导出的高亮样式”
+将
+```css
+/* 导出的高亮样式：高亮隐藏 */
+#preview.protyle-wysiwyg span[data-type~='mark']{
+    color: transparent;
+    transition: color 0.2s ease-in-out;
+    background-color: transparent;
+    border-bottom: 2px solid var(--b3-font-color4);
+}
+
+/* 导出的高亮样式：高亮不隐藏 */
+/* #preview.protyle-wysiwyg span[data-type~='mark']{
+    color: var(--b3-protyle-inline-mark-color);
+    transition: color 0.2s ease-in-out;
+    background-color: var(--b3-card-success-background);
+    border-bottom: 2px solid var(--b3-font-color4);
+} */
+
+```
+改为
+```css
+/* 导出的高亮样式：高亮隐藏 */
+/* #preview.protyle-wysiwyg span[data-type~='mark']{
+    color: transparent;
+    transition: color 0.2s ease-in-out;
+    background-color: transparent;
+    border-bottom: 2px solid var(--b3-font-color4);
+} */
+
+/* 导出的高亮样式：高亮不隐藏 */
+#preview.protyle-wysiwyg span[data-type~='mark']{
+    color: var(--b3-protyle-inline-mark-color);
+    transition: color 0.2s ease-in-out;
+    background-color: var(--b3-card-success-background);
+    border-bottom: 2px solid var(--b3-font-color4);
+}
+
+```
+> 建议开启【外观-自定义主题】，生成cutsom.css，将这段代码粘贴到custom.css中，这样可以避免每次更新主题时，这段代码被覆盖。
