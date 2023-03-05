@@ -1895,4 +1895,9 @@ body
     color: var(--b3-theme-on-background);
 }
 
+/* 超链接太长break all 换行 */
+.protyle-wysiwyg a, .b3-typography a{
+    word-break: break-all !important;
+}
+
 
