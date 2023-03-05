@@ -846,3 +846,9 @@ div[data-subtype='t'][data-type='NodeList'] {
     filter: hue-rotate(180deg) invert(90%);
     box-shadow: none!important;
 }
+
+
+/* 选项栏背景色 */
+.b3-select {
+    background-color: #2e424e;
+}
