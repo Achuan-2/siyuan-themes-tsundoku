@@ -601,12 +601,12 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 /* pdf双链 */
 .protyle-wysiwyg [data-node-id] span[data-type='file-annotation-ref'] {
-    color: #b1d5d8;
+    color: #d2757d;
     padding-bottom: 0em;
     box-sizing: border-box;
     height: 1.5em;
     opacity: 1;
-    border-bottom: 1px dashed #b1d5d8;
+    border-bottom: 1px dashed #d2757d;
 }
 /* 隐藏默认主题加的🔖，原因：我觉得很多余 */
 /* .protyle-wysiwyg [data-node-id] span[data-type='file-annotation-ref']::before {

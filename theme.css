@@ -852,13 +852,14 @@ li[data-type='navigation-file'] .counter {
 
 /*  ------------------------------pdf双链 ------------------------------ */
 
+
 .protyle-wysiwyg [data-node-id] span[data-type='file-annotation-ref'] {
-    color: #185666;
+    color: #d2757d;
     padding-bottom: 0em;
     box-sizing: border-box;
     height: 1.5em;
     opacity: 1;
-    border-bottom: 1px dashed #308b84;
+    border-bottom: 1px dashed #d2757d;
 }
 
 .protyle-wysiwyg [data-node-id] span[data-type='file-annotation-ref']:hover {
