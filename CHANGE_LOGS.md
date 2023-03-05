@@ -4,6 +4,9 @@
 - 💄 超链接太长break all 换行
 - ⚡️ 取消2.7.7 更新的待办列表完成样式
 - 📝 添加FAQ
+- 🐛 Dark主题字体大小选项栏背景色修复
+- 🐛 fix :标签样式被字体样式覆盖 [#66](https://github.com/Achuan-2/siyuan-themes-tsundoku/issues/66)
+  
 
 
 ## v1.6.0 修复缺陷/ 2023.02.23
