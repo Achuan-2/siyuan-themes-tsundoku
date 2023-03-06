@@ -245,6 +245,7 @@ span[data-type="mark"],
 .protyle-wysiwyg code:not(.hljs),
 .textLayer,
 .block__content,
+.config__tab-container,
 ::-webkit-scrollbar-thumb {
     background-image: url('/appearance/themes/Tsundoku/src/background/paper.png');
 }
@@ -929,4 +930,8 @@ div[data-subtype='t'][data-type='NodeList'] {
 /* 光标选中文本样式 */
 .protyle-wysiwyg ::selection {
     background-color: rgba(70, 126, 211, 0.245);
+}
+/* 选项栏背景色 */
+.b3-select {
+    background-color: #9dbeb5;
 }
