@@ -1332,7 +1332,12 @@ function createHBuiderXToolbar() {
     var windowControls = document.getElementById('barMode');
 
     if (HBuiderXToolbar) siYuanToolbar.removeChild(HBuiderXToolbar);
-    HBuiderXToolbar = insertCreateAfter(windowControls, 'div', HBuiderXToolbarID);
+    if (HBuiderXToolbar == null && windowControls != null) { //如果是编辑器则新建工具栏
+        HBuiderXToolbar = insertCreateAfter(windowControls, 'div', HBuiderXToolbarID);
+        return 1
+    } else { // 如果是新建窗口，则不新建
+        return 0;
+    }
 }
 
 
@@ -1930,20 +1935,23 @@ function ViewMonitor(event) {
     let funs = () => {
         setTimeout(() => {
             // UFDXD/HBuilderX-Light：https://github.com/UFDXD/HBuilderX-Light
-            createHBuiderXToolbar(); /*创建HBuiderXToolbar*/
-            // createSidebarMouseHoverExpandButton(); /*创建鼠标移动展开左右树面板按钮*/
-            createHighlightBecomesHidden(); /*创建高亮变隐藏按钮 */
+            var createSuccess = createHBuiderXToolbar(); /*创建HBuiderXToolbar*/
+            if (createSuccess) {
+                // createSidebarMouseHoverExpandButton(); /*创建鼠标移动展开左右树面板按钮*/
+                createHighlightBecomesHidden(); /*创建高亮变隐藏按钮 */
+                //  HowcanoeWang/calendar： https://github.com/HowcanoeWang/calendar
+                initcalendar(); /*创建日历按钮 */
+                loadStyle('/appearance/themes/Tsundoku/style/func/topbar.css', 'topbarCss');
+                
+                //  royc01/notion-theme： https://github.com/royc01/notion-theme
+                themeButton(); //主题
+            }
 
-            //  HowcanoeWang/calendar： https://github.com/HowcanoeWang/calendar
-            initcalendar(); /*创建日历按钮 */
-            loadStyle('/appearance/themes/Tsundoku/style/func/topbar.css', 'topbarCss');
-
-            //  royc01/notion-theme： https://github.com/royc01/notion-theme
-            themeButton(); //主题
             setTimeout(() => ClickMonitor(), 3000); //各种列表转xx
 
             console.log('==============>附加CSS和特性JS_已经执行<==============');
         }, 1000);
+            
     };
     if (v == null) {
         window.theme.config = { Tsundoku: 1 };
