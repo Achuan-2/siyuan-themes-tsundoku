@@ -459,6 +459,17 @@ div[data-subtype='t'][data-type='NodeList'] {
     background-color: #2d3d4e;
     border-radius: 10%;
 }
+.b3-select {
+    background-color: rgb(55 75 95 / 62%);
+}
+.b3-select option {
+    background-color: #10263c;
+    border-radius: 10%;
+}
+.b3-select option:hover {
+    background-color: rgba(65, 91, 117, 0.62) !important;
+}
+
 
 /* 设置/搜索弹窗的链接 */
 .b3-dialog__container a {
