@@ -249,6 +249,11 @@
     color: var(--custom-h1-color);
 }
 
+/* 列表中的一级标题不居中 */
+.protyle-wysiwyg .li >  [data-node-id].h1 {
+    text-align: left; 
+}
+
  /* 2. 二级标题样式setup */
 .protyle-wysiwyg [data-node-id].h2,
 .b3-typography h2 {
@@ -304,6 +309,14 @@
 /* 列表中h3特殊调整 */
 .protyle-wysiwyg .li > .h3 > div:first-child:before {
     margin-top: 0.27em !important;
+}
+.protyle-wysiwyg .li >  [data-node-id].h3 > div:first-child::before, .b3-typography h3:before{
+    /* 列表下三级标题竖线不显示 */
+    display: none !important;
+}
+.protyle-wysiwyg .li > .h3 > [spellcheck='false']:empty {
+    /* 调整h3空行时光标位置 */
+    padding-left: 0rem !important;
 }
 
  /* 4. 四级标题样式setup */
@@ -1889,10 +1902,10 @@ body
 
 
 /* 取消2.7.7 更新的待办列表完成样式 */
-.protyle-task--done>div:not([data-subtype=t]) {
+.protyle-wysiwyg .protyle-task--done>div:not([data-subtype=t]) {
     /* color: var(--b3-theme-on-surface-light); */
     /* text-decoration: line-through; */
-    text-decoration: none;
+    text-decoration: none !important;
     color: var(--b3-theme-on-background);
 }
 
@@ -1903,6 +1916,15 @@ body
 
 
 /* 取消搜索面板预览不展示link icon */
-/* #searchPreview .protyle-wysiwyg  [data-node-id] span[data-type~='a']:not(:empty)::before {
+#searchPreview .protyle-wysiwyg  [data-node-id] span[data-type~='a']:not(:empty)::before {
     display: none;
-} */
+}
+
+.b3-typography .img, .protyle-wysiwyg .img {
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    margin: 0 auto;
+}
+
+
