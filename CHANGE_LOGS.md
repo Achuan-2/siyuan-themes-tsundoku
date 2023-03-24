@@ -1,3 +1,13 @@
+## v1.6.3 新窗口打开支持 Green 主题 / 2023.03.24
+
+- ✨ [新窗口打开支持Green主题](https://github.com/Achuan-2/siyuan-themes-tsundoku/issues/69)
+- 🐛 dark 主题 select 按钮修复
+- 🐛 修复思源新功能【新窗口打开】console会报错的问题
+- 🐛 link icon 修复asset 文件样式
+- 💄 列表中不显示三级标题、一级标题不居中
+- 🔥 取消鼠标滚轮缩小功能
+- 🔥: 继续杀掉默认主题的待办列表完成样式
+
 ## v1.6.2 Green主题完善 / 2023.03.06
 - 🐛 Green 主题字体大小选项栏背景色修复
 -  💄 搜索面板预览不显示link icon
