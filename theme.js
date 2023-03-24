@@ -1964,37 +1964,6 @@ function ViewMonitor(event) {
 
 
 
-const config = {
-    theme: {
-        regs: {
-            // 正则表达式
-            fontsize:
-                /(?<=\.b3-typography|protyle-wysiwyg|protyle-title\s*\{\s*font-size\s*:\s*)(\d+)(?=px(?:\s+\!important)?(?:\s*;|\}))/,
-        },
-        wheel: {
-            enable: true, // 滚轮功能开关
-            zoom: {
-                enable: true, // 滚轮缩放功能开关
-                threshold: 100, // 滚轮缩放阈值
-                min: 9, // 最小字号(px)
-                max: 72, // 最大字号(px)
-            },
-        },
-        hotkeys: {
-            wheel: {
-                zoom: {
-                    // 鼠标滚轮缩放(Ctrl + wheel)
-                    enable: true,
-                    CtrlCmd: true,
-                    WinCtrl: false,
-                    Shift: false,
-                    Alt: false,
-                    type: 'mousewheel',
-                },
-            },
-        },
-    },
-};
 
 
 /**
@@ -2049,13 +2018,6 @@ function isEvent(event, key) {
     && (event.ctrlKey && event.metaKey) === key.WinCtrl
   )
 }
-
-document.addEventListener('mousewheel', e => {
-  if (isEvent(e, config.theme.hotkeys.wheel.zoom)) {
-    e.stopPropagation();
-    setTimeout(() => changeFontSize(e.wheelDeltaY), 0);
-  }
-}, true);
 
 
 
