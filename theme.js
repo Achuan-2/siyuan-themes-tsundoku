@@ -1946,10 +1946,25 @@ function ViewMonitor(event) {
                 //  royc01/notion-theme： https://github.com/royc01/notion-theme
                 themeButton(); //主题
             }
+            else {
+                // 新窗口模式也需要根据选择的主题进行变化，需要检测当前是亮主题还是暗主题
+                const htmlTag = document.querySelector('html');
+                const themeMode = htmlTag.getAttribute('data-theme-mode');
+                if (themeMode == 'light') {
+                    //  只对亮主题进行检测，green主题加载green.css，
+                    loadGreen = getItem('buttongreen');
+                    if (loadGreen == '1') {
+                        loadStyle(
+                            '/appearance/themes/Tsundoku/style/theme/Tsundoku_green.css',
+                            'green主题'
+                        ).setAttribute('topicfilter', 'buttongreen');
+                    }
 
+                }
+            }
             setTimeout(() => ClickMonitor(), 3000); //各种列表转xx
 
-            console.log('==============>附加CSS和特性JS_已经执行<==============');
+            // console.log('==============>附加CSS和特性JS_已经执行<==============');
         }, 1000);
             
     };
