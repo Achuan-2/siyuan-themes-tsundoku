@@ -96,7 +96,7 @@
 }
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="assets/"][data-href $=".pdf"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".pdf"]::before,
-.b3-typography a[href $=".pdf"]::before,
+.b3-typography a[href ^="assets/"][href $=".pdf"]::before,
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="file://"][data-href $=".pdf"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="file://"][href $=".pdf"]::before,
 .b3-typography [href ^="file://"][href $=".pdf"]::before{
@@ -105,13 +105,13 @@
 }
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="assets/"][data-href $=".mp4"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".mp4"]::before,
-.b3-typography a[href $=".mp4"]::before,
+.b3-typography a[href ^="assets/"][href $=".mp4"]::before,
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="assets/"][data-href $=".flv"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $="flv"]::before,
-.b3-typography a[href $=".flv"]::before,
+.b3-typography a[href ^="assets/"][href $=".flv"]::before,
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="assets/"][data-href $=".mkv"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".mkv"]::before,
-.b3-typography a[href $=".mkv"]::before,
+.b3-typography a[href ^="assets/"][href $=".mkv"]::before,
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="file://"][data-href $=".mp4"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="file://"][href $=".mp4"]::before,
 .b3-typography [href ^="file://"][href $=".mp4"]::before,
@@ -127,10 +127,10 @@
 
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="assets/"][data-href $=".xlsx"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".xlsx"]::before,
-.b3-typography a[href $=".xlsx"]::before,
+.b3-typography a[href ^="assets/"][href $=".xlsx"]::before,
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="assets/"][data-href $=".xls"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".xls"]::before,
-.b3-typography a[href $=".xls"]::before,
+.b3-typography a[href ^="assets/"][href $=".xls"]::before,
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="file://"][data-href $=".xlsx"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="file://"][href $=".xlsx"]::before,
 .b3-typography [href ^="file://"][href $=".xlsx"]::before,
@@ -142,10 +142,10 @@
 }
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="assets/"][data-href $=".pptx"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".pptx"]::before,
-.b3-typography a[href $=".pptx"]::before,
+.b3-typography a[href ^="assets/"][href $=".pptx"]::before,
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="assets/"][data-href $=".ppt"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".ppt"]::before,
-.b3-typography a[href $=".ppt"]::before,
+.b3-typography a[href ^="assets/"][href $=".ppt"]::before,
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="file://"][data-href $=".pptx"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="file://"][href $=".pptx"]::before,
 .b3-typography [href ^="file://"][href $=".pptx"]::before,
@@ -157,10 +157,10 @@
 }
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="assets/"][data-href $=".docx"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".docx"]::before,
-.b3-typography a[href $=".docx"]::before,
+.b3-typography a[href ^="assets/"][href $=".docx"]::before,
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="assets/"][data-href $=".doc"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".doc"]::before,
-.b3-typography a[href $=".doc"]::before,
+.b3-typography a[href ^="assets/"][href $=".doc"]::before,
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="file://"][data-href $=".docx"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="file://"][href $=".docx"]::before,
 .b3-typography [href ^="file://"][href $=".docx"]::before,
@@ -172,7 +172,7 @@
 }
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="assets/"][data-href $=".txt"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".txt"]::before,
-.b3-typography a[href $=".txt"]::before,
+.b3-typography a[href ^="assets/"][href $=".txt"]::before,
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="file://"][data-href $=".txt"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="file://"][href $=".txt"]::before,
 .b3-typography [href ^="file://"][href $=".txt"]::before{
@@ -181,7 +181,7 @@
 }
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="assets/"][data-href $=".py"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".py"]::before,
-.b3-typography a[href $=".py"]::before,
+.b3-typography a[href ^="assets/"][href $=".py"]::before,
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="file://"][data-href $=".py"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="file://"][href $=".py"]::before,
 .b3-typography [href ^="file://"][href $=".py"]::before{
@@ -190,10 +190,10 @@
 }
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="assets/"][data-href $=".R"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".R"]::before,
-.b3-typography a[href $=".R"]::before,
+.b3-typography a[href ^="assets/"][href $=".R"]::before,
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="assets/"][data-href $=".r"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".r"]::before,
-.b3-typography a[href $=".r"]::before,
+.b3-typography a[href ^="assets/"][href $=".r"]::before,
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="file://"][data-href $=".R"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="file://"][href $=".R"]::before,
 .b3-typography [href ^="file://"][href $=".R"]::before,
@@ -206,7 +206,7 @@
 
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="assets/"][data-href $=".js"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".js"]::before,
-.b3-typography a[href $=".js"]::before,
+.b3-typography a[href ^="assets/"][href $=".js"]::before,
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="file://"][data-href $=".js"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="file://"][href $=".js"]::before,
 .b3-typography [href ^="file://"][href $=".js"]::before{
@@ -215,7 +215,7 @@
 }
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="assets/"][data-href $=".html"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".html"]::before,
-.b3-typography a[href $=".html"]::before,
+.b3-typography a[href ^="assets/"][href $=".html"]::before,
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="file://"][data-href $=".html"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="file://"][href $=".html"]::before,
 .b3-typography [href ^="file://"][href $=".html"]::before{
@@ -233,7 +233,7 @@
 }
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="assets/"][data-href $=".md"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".md"]::before,
-.b3-typography a[href $=".md"]::before,
+.b3-typography a[href ^="assets/"][href $=".md"]::before,
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="file://"][data-href $=".md"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="file://"][href $=".md"]::before,
 .b3-typography [href ^="file://"][href $=".md"]::before{
@@ -242,7 +242,7 @@
 }
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="assets/"][data-href $=".ipynb"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".ipynb"]::before,
-.b3-typography a[href $=".ipynb"]::before,
+.b3-typography a[href ^="assets/"][href $=".ipynb"]::before,
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="file://"][data-href $=".ipynb"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="file://"][href $=".ipynb"]::before,
 .b3-typography [href ^="file://"][href $=".ipynb"]::before{
