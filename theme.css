@@ -277,7 +277,7 @@
 .b3-typography h3 {
     /* ⚙三级标题基本样式 */
     font-size: 1.35em !important;
-    color: var(--custom-h3-color);
+    color: var(--custom-h3-color) !important;
 }
 
 .protyle-wysiwyg:not([custom-title-num='true']) [data-node-id].h3 > div:first-child::before,
@@ -1908,6 +1908,8 @@ body
     text-decoration: none !important;
     color: var(--b3-theme-on-background);
 }
+
+
 
 /* 超链接太长break all 换行 */
 .protyle-wysiwyg a, .b3-typography a{
