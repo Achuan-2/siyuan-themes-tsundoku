@@ -1107,16 +1107,7 @@ body {
     word-break: break-all !important;
 }
 
-/* from Dark：在新窗口打开滚动条失效 */
-.protyle-scroll {
-    width: 15px;
-    right: 8px;
-    margin: 0 4px;
-    padding: 0;
-}
-.protyle-scroll .protyle-scroll__bar {
-    right: -98px;
-}
+
 
 /* 导出pdf右侧选项背景 */
 body > div#action {
