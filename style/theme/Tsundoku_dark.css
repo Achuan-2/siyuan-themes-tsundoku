@@ -854,3 +854,9 @@ div[data-subtype='t'][data-type='NodeList'] {
 .b3-select {
     background-color: #2e424e;
 }
+
+
+/* 折叠的有序列表调亮 */
+.li[data-subtype="o"][fold="1"] .protyle-action--order, .li[data-subtype="o"][fold="1"] .protyle-action:after {
+    color: #a0b1c6 !important;
+}
