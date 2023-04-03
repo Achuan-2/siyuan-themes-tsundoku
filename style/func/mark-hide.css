@@ -2,10 +2,10 @@
 /* 修改高亮为挖空效果，但是预览模式关闭（毕竟需要导出） */
 .protyle-wysiwyg mark,
 .protyle-wysiwyg span[data-type~=mark] {
-    color: transparent;
+    color: transparent !important;
     transition: color 2s ease-in-out;
-    background-color: transparent;
-    border-bottom: 2px solid var(--b3-font-color4);
+    background-color: transparent !important;
+    border-bottom: 2px solid var(--b3-font-color4) !important;
 }
 
 .protyle-wysiwyg  span[data-type~=mark]:hover {
