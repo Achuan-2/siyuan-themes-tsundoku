@@ -1632,16 +1632,7 @@ body
 /* 设置/搜索弹窗的关闭按钮 */
 
 .b3-dialog__container .b3-dialog__close {
-    color: #505964;
-    font-size: 50%;
-    cursor: pointer;
-    background: #fff;
-    border-radius: 16px;
-    padding: 4px;
-    margin-left: 22px;
-    height: 13px;
-    width: 13px;
-    transition: all 0.3s linear;
+    color: #a1adbc;
 }
 .b3-dialog__container svg:hover {
     color: var(--b3-menu-highlight-color);
@@ -1653,7 +1644,7 @@ body
     transition: all 0.1s ease-in-out;
 }
 .b3-dialog__container .b3-dialog__close:hover {
-    background: #fff;
+    color: #f3f7f8;
 }
 .block__popover--open .fn__flex-column .protyle-wysiwyg {
     /* 块引用预览背景颜色 */

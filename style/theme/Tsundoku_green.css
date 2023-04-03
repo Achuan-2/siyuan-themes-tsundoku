@@ -222,7 +222,6 @@ body {
 .b3-text-filed,
 .b3-tab-container .b3-select,
 .b3-card,
-.b3-dialog__container .b3-dialog__close,
 .config-account__center--text,
 .b3-typography table tbody tr,
 .protyle-wysiwyg table thead,
@@ -561,17 +560,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 /* 设置/搜索弹窗的关闭按钮 */
 
 .b3-dialog__container .b3-dialog__close {
-    color: #505964;
-    font-size: 50%;
-    cursor: pointer;
-    background-color: var(--b3-theme-surface);
-    border-radius: 16px;
-    padding: 4px;
-    margin-left: 22px;
-    height: 13px;
-    width: 13px;
-    transition: all 0.3s linear;
-    background-image: url('/appearance/themes/Tsundoku/src/background/paper.png');
+    color: #a1adbc;
 }
 .b3-dialog__container svg:hover {
     color: var(--b3-menu-highlight-color);
@@ -583,8 +572,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     transition: all 0.1s ease-in-out;
 }
 .b3-dialog__container .b3-dialog__close:hover {
-    background-color: var(--b3-theme-surface);
-    background-image: url('/appearance/themes/Tsundoku/src/background/paper.png');
+    color: var(--b3-theme-surface);
 }
 .block__popover--open .fn__flex-column .protyle-wysiwyg {
     /* 块引用预览背景颜色 */

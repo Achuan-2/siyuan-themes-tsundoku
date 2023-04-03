@@ -492,16 +492,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 /* 设置/搜索弹窗的关闭按钮 */
 
 .b3-dialog__container .b3-dialog__close {
-    color: #fff;
-    font-size: 50%;
-    cursor: pointer;
-    background: #2f4150;
-    border-radius: 16px;
-    padding: 4px;
-    margin-left: 22px;
-    height: 13px;
-    width: 13px;
-    transition: all 0.3s linear;
+    color: #44596b;
 }
 .b3-dialog__container svg:hover {
     color: var(--b3-menu-highlight-color);
@@ -513,7 +504,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     transition: all 0.1s ease-in-out;
 }
 .b3-dialog__container .b3-dialog__close:hover {
-    background: #2f4150;
+    color: #bccddb;
 }
 
 .protyle-title__input,
