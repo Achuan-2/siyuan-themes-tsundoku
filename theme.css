@@ -1912,3 +1912,7 @@ body
 }
 
 
+
+#preview.protyle-wysiwyg a {
+    color: var(--b3-protyle-inline-link-color);
+}

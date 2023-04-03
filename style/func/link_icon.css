@@ -15,7 +15,7 @@
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href^="siyuan://"],
 .protyle-wysiwyg [data-node-id] a[href^="siyuan://"],
 .b3-typography a[href^="siyuan://"] {
-    color: var(--b3-protyle-inline-blockref-color);
+    color: var(--b3-protyle-inline-blockref-color) !important;
 }
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href^="es://"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href^="es://"]::before,
