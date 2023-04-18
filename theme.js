@@ -290,7 +290,7 @@ function MenuShow() {
 }
 
 function InsertMenuItem(selectid, selecttype) {
-    let commonMenu = document.getElementById('commonMenu');
+    let commonMenu = document.querySelector(".b3-menu__items")
     let readonly = commonMenu.querySelector('.b3-menu__item--readonly');
     let selectview = commonMenu.querySelector('[id="viewselect"]');
     if (readonly) {
@@ -1901,7 +1901,7 @@ function MenuShow() {
 }
 
 function InsertMenuItem(selectid, selecttype) {
-    let commonMenu = document.getElementById('commonMenu');
+    let commonMenu = document.querySelector(".b3-menu__items")
     let readonly = commonMenu.querySelector('.b3-menu__item--readonly');
     let selectview = commonMenu.querySelector('[id="viewselect"]');
     if (readonly) {
@@ -1940,7 +1940,7 @@ function ViewMonitor(event) {
                 // createSidebarMouseHoverExpandButton(); /*创建鼠标移动展开左右树面板按钮*/
                 createHighlightBecomesHidden(); /*创建高亮变隐藏按钮 */
                 //  HowcanoeWang/calendar： https://github.com/HowcanoeWang/calendar
-                initcalendar(); /*创建日历按钮 */
+                // initcalendar(); /*创建日历按钮 */
                 loadStyle('/appearance/themes/Tsundoku/style/func/topbar.css', 'topbarCss');
                 
                 //  royc01/notion-theme： https://github.com/royc01/notion-theme
