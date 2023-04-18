@@ -12,6 +12,7 @@
 @import url('style/block_attr/list2board.css');
 @import url('style/block_attr/list2map.css');
 @import url('style/block_attr/list2table.css');
+@import url('style/block_attr/table.css');
 
 /* 导入主题切换按钮选项 */
 @import url('style/func/notionToolBar.css');
