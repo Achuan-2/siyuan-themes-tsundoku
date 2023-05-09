@@ -1,23 +1,32 @@
-name: Release
+name: CI
 
 on:
   push:
-    tags:
-    - 'v*'
+    tags: 
+      - 'v*'
 
 jobs:
-  release:
-    name: Create Release
+  build:
+  
     runs-on: ubuntu-latest
-    steps:
     
-    - name: Create Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: ${{ github.ref }}
-        release_name: ${{ github.ref }}
-        draft: false
-        prerelease: false
+    permissions:
+      contents: write
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name : jq theme.json
+        run: |
+          cat theme.json | jq .version
+          
+      - name: package
+        run: |
+          find . -not -path '*/\.*' -type f -print | zip package.zip -@
+      
+      - uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: true
+          artifactErrorsFailBuild: true
+          artifacts: "package.zip"
+          token: ${{ secrets.GITHUB_TOKEN }}
