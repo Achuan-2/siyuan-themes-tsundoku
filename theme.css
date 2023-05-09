@@ -1917,3 +1917,7 @@ body
 #preview.protyle-wysiwyg a {
     color: var(--b3-protyle-inline-link-color);
 }
+
+#configBazaarReadme .block__icons {
+    background-color: transparent !important;
+}
