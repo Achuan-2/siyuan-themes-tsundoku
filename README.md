@@ -11,6 +11,7 @@
           <img src="https://img.shields.io/github/last-commit/Achuan-2/siyuan-themes-tsundoku" alt="GitHub last commit">
 </p>
 
+![中文](./README_zh_CN.md)  
 
 ![](preview.png)
 
