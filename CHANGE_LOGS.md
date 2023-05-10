@@ -1,3 +1,7 @@
+## v1.7.0 / 2023.05.10
+
+- 更改打赏地址为：https://afdian.net/a/achuan-2
+
 ## v1.6.9 / 2023.05.09
 
 - 删除 package.zip 文件

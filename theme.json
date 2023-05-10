@@ -2,7 +2,7 @@
   "name": "siyuan-themes-tsundoku",
   "author": "Achuan-2",
   "url": "https://github.com/Achuan-2/siyuan-themes-tsundoku",
-  "version": "1.6.9",
+  "version": "1.7.0",
   "displayName": {
     "default": "Tsundoku",
     "zh_CN": "Tsundoku"
@@ -24,7 +24,7 @@
     "patreon": "",
     "github": "",
     "custom": [
-      "https://cdn.staticaly.com/gh/Achuan-2/PicBed@pic/assets/打赏-2023-05-09.png"
+      "https://afdian.net/a/achuan-2"
     ]
   },
   "modes": [
