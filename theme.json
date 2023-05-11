@@ -1,11 +1,11 @@
 {
-  "name": "siyuan-themes-tsundoku",
+  "name": "Tsundoku",
   "author": "Achuan-2",
   "url": "https://github.com/Achuan-2/siyuan-themes-tsundoku",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "displayName": {
     "default": "Tsundoku",
-    "zh_CN": "Tsundoku"
+    "zh_CN": "積読"
   },
   "description": {
     "default": "Tsundoku is acquiring reading materials but letting them pile up in one's home without reading them",
@@ -24,7 +24,7 @@
     "patreon": "",
     "github": "",
     "custom": [
-      "https://afdian.net/a/achuan-2"
+      "https://sourl.cn/fcvxjT"
     ]
   },
   "modes": [
