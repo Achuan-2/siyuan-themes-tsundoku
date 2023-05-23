@@ -24,7 +24,7 @@ English  | [中文](./README_zh_CN.md)
 
 ## 🚀 CHANGLOGS
 
-See [📃Tsundoku 主题更新日志](https://www.yuque.com/achuan-2/siyuan/bkq4s2)
+See [CHANGE_LOGS](./CHANGE_LOGS.md)
 
 
 ## 💌 Origin
@@ -42,7 +42,7 @@ The biggest obstacle to using a tool is "unclear requirements". If you don't kno
 I use this name to wake myself up, hoping to make good use of Siyuan notes, help me form the habit of daily recording and reviewing the answers regularly, better master knowledge and skills, strive to do meaningful projects and become a better person, instead of taking notes for the sake of taking notes, so that the note-taking software can become a dust box to relieve knowledge anxiety and satisfy abnormal digital hoarding.
 
 
-## 🐯 主题特色功能  
+## 🐯 Features
 
 - ✨ **The theme is three-in-one, which supports both bright mode and dark mode.**（Tsundoku Light、Tsundoku Green、Tsundoku Dark）【Ref：[Savor](https://github.com/royc01/notion-theme) 】  
   - Siyuan note bright mode only supports the selection of light and green, while dark mode only supports the selection of dark theme.
@@ -52,27 +52,23 @@ I use this name to wake myself up, hoping to make good use of Siyuan notes, help
 - 🧊 **Introduction of finch cue block**：Add a block background color to the reference block blockquote, and the style will be automatically applied. See [Que Hint Block Style](https://www.yuque.com/achuan-2/siyuan/obxpvr) for details.
   ![20220131165233_2022-01-31](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220131165233_2022-01-31.png)
 
-## 😺 借鉴功能
+## 😺 Referenced features
 
-- [Dark+](https://github.com/Zuoqiu-Yingyi/siyuan-theme-dark-plus)主题的功能（copy）
-  - 打开一个新窗口并置顶
-  - 复制当前文档大纲为无序列表
-  - 复制文档内容
-  - 剪切文档内容
-  - 按alt+中键可以打开用monaco-editor以markdown样式打开当前块或文档
-    - 打开文档需要在文档题头图那块点击
-    - Ctrl+S才能从manaco编辑器保存内容
-- [HBuilderX-Light](https://github.com/UFDXD/HBuilderX-Light)的功能（copy）
-  - 左右面板收起
-  - 高亮文本隐藏按钮：将Ctrl+E，设置为文本遮挡效果：默认显示文字，当点击顶栏【开启隐藏高亮文本按钮】时，隐藏高亮文本。
-主题的功能（copy）
-  - 主题切换按钮
-- [日历面板](https://github.com/HowcanoeWang/calendar)（copy）
-  - 支持根据笔记本日记路径模板智能识别“2006.01.02”或“2006-01-02”格式（不支持更复杂的格式）
-  - 支持点击查看已有日记以及提前新建未来日记
+- [Dark+](https://github.com/Zuoqiu-Yingyi/siyuan-theme-dark-plus)
+  - Open a new window and bring it to the front
+  - Copy the current document outline as an unordered list
+  - Copy the document content
+  - Cut the document content
+  - Press Alt + middle mouse button to open the current block or document in markdown style using monaco-editor
+    - To open the document, click on the header image of the document
+    - Use Ctrl + S to save content from the monaco editor.
+- [HBuilderX-Light](https://github.com/UFDXD/HBuilderX-Light)
+  - Highlight text hide button: Set Ctrl+E as the text masking effect. By default, the text is displayed. When clicking on the "Enable Highlight Text Hide Button" in the top bar, the highlighted text will be hidden.
+  - Theme switch button: A button that allows users to switch between different themes.
 
 
-## 🐭自定义属性
+
+## 🐭Custom attributes
 
 
 - Usage: Click on the block tag to open the attribute list, or Shift + Click to open it. Click "Add", enter the attribute name "f" or "function", and enter the corresponding attribute value (hide or hollow).
