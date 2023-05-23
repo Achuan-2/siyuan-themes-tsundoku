@@ -1,7 +1,4 @@
-
 /* theme.css 只放导出的样式，以及各个主题统一的样式，具体每个主题特殊的样式会放到各自主题的css中 */
-
-
 
 /* 导入文档属性 */
 @import url('style/doc_attr.css');
@@ -28,7 +25,6 @@
 @import url('style/func/link_icon.css');
 /* 导入语雀提示区块样式 */
 @import url('style/func/yuque.css');
-
 
 :root {
     /* 主色 */
@@ -226,24 +222,21 @@
     --custom-link-bottom-color: #bacbd650;
 }
 
-
 .render-node[data-subtype='graphviz'] .graph > polygon {
     fill: transparent;
 }
-
 
 /* --------------------------------------------------------------------------------------------- */
 /* ------------------------------------块样式设置：Start-------------------------------------- */
 /* --------------------------------------------------------------------------------------------- */
 
-
 /* -------------------------------标题样式------------------------------------- */
 
- /* 1. 一级标题样式setup */
+/* 1. 一级标题样式setup */
 .protyle-wysiwyg [data-node-id].h1,
 .b3-typography h1 {
     /* ⚙一级标题基本样式*/
-    text-align: center;  /* 标题居中，如果不需要可以取消 */
+    text-align: center; /* 标题居中，如果不需要可以取消 */
     border-bottom-width: 0px;
     font-size: 1.75em !important;
     padding: 0.3em 4px;
@@ -251,11 +244,11 @@
 }
 
 /* 列表中的一级标题不居中 */
-.protyle-wysiwyg .li >  [data-node-id].h1 {
-    text-align: left; 
+.protyle-wysiwyg .li > [data-node-id].h1 {
+    text-align: left;
 }
 
- /* 2. 二级标题样式setup */
+/* 2. 二级标题样式setup */
 .protyle-wysiwyg [data-node-id].h2,
 .b3-typography h2 {
     /* ⚙二级标题基本样式 */
@@ -272,9 +265,9 @@
     border-bottom: 0px solid transparent !important;
 }
 
- /* 3. 三级标题样式setup */
+/* 3. 三级标题样式setup */
 
- .protyle-wysiwyg [data-node-id].h3,
+.protyle-wysiwyg [data-node-id].h3,
 .b3-typography h3 {
     /* ⚙三级标题基本样式 */
     font-size: 1.35em !important;
@@ -311,7 +304,8 @@
 .protyle-wysiwyg .li > .h3 > div:first-child:before {
     margin-top: 0.27em !important;
 }
-.protyle-wysiwyg .li >  [data-node-id].h3 > div:first-child::before, .b3-typography h3:before{
+.protyle-wysiwyg .li > [data-node-id].h3 > div:first-child::before,
+.b3-typography h3:before {
     /* 列表下三级标题竖线不显示 */
     display: none !important;
 }
@@ -320,30 +314,29 @@
     padding-left: 0rem !important;
 }
 
- /* 4. 四级标题样式setup */
+/* 4. 四级标题样式setup */
 .protyle-wysiwyg [data-node-id].h4,
 .b3-typography h4 {
     font-size: 1.2em !important;
     color: var(--custom-h4-color);
 }
- /* 5. 五级标题样式setup */
+/* 5. 五级标题样式setup */
 .protyle-wysiwyg [data-node-id].h5,
 .b3-typography h5 {
     font-size: 1.1em !important;
     color: var(--custom-h5-color);
 }
 
- /* 6. 六级标题样式setup */
+/* 6. 六级标题样式setup */
 .protyle-wysiwyg [data-node-id].h6,
 .b3-typography h6 {
     font-size: 1.1em !important;
     color: var(--custom-h6-color);
 }
 
-
 /* 💄标题加粗样式 */
 
- /*加粗显示 */
+/*加粗显示 */
 /* .protyle-wysiwyg [data-type="NodeHeading"] span[data-type="strong"] {
     text-shadow: 1px 1px 1px #002636b8;
 } */
@@ -363,10 +356,7 @@
     color: inherit;
 }
 
-
-
 /* -------------------------------表格样式------------------------------------- */
-
 
 /* 表格背景设置 */
 
@@ -392,9 +382,9 @@
     border-collapse: collapse;
     border: 1px solid var(--b3-table-border-color);
 }
-.b3-typography  table tr td,
-.protyle-wysiwyg table tr td { 
-    border:1px solid var(--b3-table-border-color); 
+.b3-typography table tr td,
+.protyle-wysiwyg table tr td {
+    border: 1px solid var(--b3-table-border-color);
 }
 
 /* -----------------------块嵌入----------------------- */
@@ -417,7 +407,6 @@
 }
 
 /* -----------------------blockquote 引述块----------------------- */
-
 
 .protyle-wysiwyg [data-node-id].bq,
 .b3-typography blockquote {
@@ -463,8 +452,6 @@
 .b3-typography blockquote  blockquote {
     margin-left: 1em;
 }
-
-
 
 /*  ------------------------------图片 ------------------------------ */
 .protyle-wysiwyg img,
@@ -523,13 +510,11 @@
     background-color: #667ea97d !important;
     border-radius: 0.2em;
     opacity: 0.68;
-
 }
 .protyle-wysiwyg [data-subtype='u'].li[fold='1'] > .protyle-action {
     /* 小圆点 */
     color: #476796;
 }
-
 
 /*  ------------------------------复选框（待办事项） ------------------------------ */
 .b3-typography .protyle-task input {
@@ -586,7 +571,6 @@
     line-height: 1em;
     color: #436681;
 }
-
 
 .protyle-task--done[fold='1'] > .protyle-action--task:before {
     content: '\2713';
@@ -656,13 +640,9 @@ div[data-subtype='t'][data-type='NodeList'] {
 /* ------------------------------------块样式设置：End-------------------------------------- */
 /* --------------------------------------------------------------------------------------------- */
 
-
-
-
 /* --------------------------------------------------------------------------------------------- */
 /* ------------------------------------行内块字体样式-------------------------------------- */
 /* --------------------------------------------------------------------------------------------- */
-
 
 /* -----------------------高亮----------------------- */
 
@@ -675,7 +655,6 @@ mark {
 span[data-type='strong'] {
     color: inherit;
 }
-
 
 /* -----------------------块引用----------------------- */
 .protyle-wysiwyg [data-node-id] span[data-type~='block-ref'] {
@@ -690,7 +669,6 @@ span[data-type='strong'] {
     color: var(--b3-protyle-inline-blockref-hover-color); /*更改鼠标悬浮的颜色*/
     border-bottom: 1px dashed var(--b3-protyle-inline-blockref-hover-color); /*下划线可以去掉*/
 }
-
 
 /* 块引用悬浮动画 */
 .block__popover.block__popover--move.block__popover--open {
@@ -726,7 +704,6 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
     font-weight: 800;
 }
 
-
 /* 文件树中区别文件数和引用数 */
 li[data-type='navigation-file'] .counter {
     color: var(--b3-protyle-inline-blockref-color);
@@ -747,8 +724,6 @@ li[data-type='navigation-file'] .counter {
     font-weight: 600;
     cursor: pointer;
 }
-
-
 
 /* ------------------------------标签  ------------------------------*/
 .protyle-wysiwyg [data-node-id] span[data-type~='tag']:not(:empty) {
@@ -785,14 +760,11 @@ li[data-type='navigation-file'] .counter {
     transform: scale(1.1);
 }
 
-
-
 /*  ------------------------------行内代码 ------------------------------ */
 .b3-typography code:not(.hljs),
 .b3-typography span[data-type~='code'],
 .protyle-wysiwyg code:not(.hljs),
 .protyle-wysiwyg span[data-type~='code'] {
-
     margin: 0px 2px 0px;
     top: -0.1em;
     color: var(--b3-protyle-inline-code-color);
@@ -822,12 +794,10 @@ li[data-type='navigation-file'] .counter {
     word-break: break-all;
 }
 
-
 .b3-typography a {
     word-break: break-all;
     color: var(--b3-protyle-inline-link-color);
 }
-
 
 .protyle-wysiwyg [data-node-id] span[data-type~='a']:hover {
     color: var(--b3-protyle-inline-link-hover-color);
@@ -836,7 +806,6 @@ li[data-type='navigation-file'] .counter {
 .protyle-wysiwyg [data-node-id] span[data-type~='a']:hover code {
     color: var(--b3-protyle-inline-link-hover-color);
 }
-
 
 /*  ------------------------------下划线 ------------------------------ */
 
@@ -853,7 +822,6 @@ li[data-type='navigation-file'] .counter {
     border-bottom: 2px solid #fff001;
 }
 
-
 .tooltip--memo {
     border-top: 3px solid #fff001;
     background-color: #fffccf;
@@ -863,9 +831,7 @@ li[data-type='navigation-file'] .counter {
     min-width: 100px;
 }
 
-
 /*  ------------------------------pdf双链 ------------------------------ */
-
 
 .protyle-wysiwyg [data-node-id] span[data-type='file-annotation-ref'] {
     color: #d2757d;
@@ -939,13 +905,9 @@ li[data-type='navigation-file'] .counter {
     border-width: 3px !important;
 }
 
-
-
 /* --------------------------------------------------------------------------------------------- */
 /* ------------------------------------行内块字体样式：End-------------------------------------- */
 /* --------------------------------------------------------------------------------------------- */
-
-
 
 /* ----------------------导出样式------------------- */
 
@@ -967,7 +929,7 @@ body > #action {
 }
 
 /* 导出的高亮样式：高亮隐藏 */
-#preview.protyle-wysiwyg span[data-type~='mark']{
+#preview.protyle-wysiwyg span[data-type~='mark'] {
     color: transparent;
     transition: color 0.2s ease-in-out;
     background-color: transparent;
@@ -981,8 +943,6 @@ body > #action {
     background-color: var(--b3-card-success-background);
     border-bottom: 2px solid var(--b3-font-color4);
 } */
-
-
 
 #preview.protyle-wysiwyg .h1 {
     text-align: center !important;
@@ -999,15 +959,12 @@ body > #action {
     }
 }
 
-
-
 /* --------------------------------------------------------------------------------------------- */
 /* ------------------------------------基本外观设置：Start-------------------------------------- */
 /* --------------------------------------------------------------------------------------------- */
 body {
     font-size: 15.5px;
 }
-
 
 /* 主要背景色 */
 .status,
@@ -1034,7 +991,6 @@ body {
     background-color: rgb(235 239 243);
 }
 
-
 /* ---------------编辑器内容两侧宽度设置 Start ————————————————————————*/
 /* 已放弃调整即时编辑内容两侧宽度，只调整预览模式 */
 /* 目前这种方式的弊端就是滑块位置往右了 */
@@ -1044,11 +1000,7 @@ body {
     max-width: 1000px;
 }
 
-
 /* ---------------编辑器内容两侧宽度设置 END ———————————————————————— */
-
-
-
 
 /* 选中块 */
 .protyle-wysiwyg--select,
@@ -1071,9 +1023,6 @@ body {
     border-left: 1px solid #dfe0e1;
 }
 
-
-
-
 /*  ------------------------------更改空行提示------------------------------ */
 .protyle-wysiwyg [data-node-id]:not(.code-block) > [spellcheck='false']:empty:after {
     /* 避免代码块也出现空行提示  */
@@ -1092,9 +1041,8 @@ body {
     color: #9fa5a675;
 }
 
-
 /* 顶栏颜色 */
-.toolbar__text{
+.toolbar__text {
     color: var(--b3-theme-on-background);
 }
 /* 闪卡 */
@@ -1102,13 +1050,15 @@ body {
     box-shadow: 4px 0px 0px -1px var(--b3-protyle-inline-mark-background);
 }
 /* HTML提示 */
-.fn__code, .b3-typography code:not(.hljs), .b3-typography span[data-type~=code], .protyle-wysiwyg code:not(.hljs), .protyle-wysiwyg span[data-type~=code]{
+.fn__code,
+.b3-typography code:not(.hljs),
+.b3-typography span[data-type~='code'],
+.protyle-wysiwyg code:not(.hljs),
+.protyle-wysiwyg span[data-type~='code'] {
     color: var(--b3-protyle-inline-code-color);
     background-color: var(--b3-protyle-inline-code-background);
     word-break: break-all !important;
 }
-
-
 
 /* 导出pdf右侧选项背景 */
 body > div#action {
@@ -1194,7 +1144,6 @@ body > div#action {
     background-color: #d3e2e671;
 }
 
-
 /* 调整内容中标题左侧文档图标大小 */
 .protyle-title.protyle-wysiwyg--attr span svg {
     height: 20px;
@@ -1244,33 +1193,39 @@ body > div#action {
 /* 区分大纲中的各级标题 */
 
 .file-tree ul.b3-list.b3-list--background [data-subtype='h1'] .b3-list-item__text,
+.file-tree ul.b3-list.b3-list--background [data-subtype='h1'] .b3-list-item__graphic,
 .file-tree ul.b3-list.b3-list--background [data-subtype='h1'] {
     font-weight: 600;
     opacity: 1;
     color: var(--custom-h1-color) !important;
 }
 .file-tree ul.b3-list.b3-list--background [data-subtype='h2'] .b3-list-item__text,
+.file-tree ul.b3-list.b3-list--background [data-subtype='h2'] .b3-list-item__graphic,
 .file-tree ul.b3-list.b3-list--background [data-subtype='h2'] {
     opacity: 1;
     font-weight: 600;
     color: var(--custom-h2-color) !important;
 }
 .file-tree ul.b3-list.b3-list--background [data-subtype='h3'] .b3-list-item__text,
+.file-tree ul.b3-list.b3-list--background [data-subtype='h3'] .b3-list-item__graphic,
 .file-tree ul.b3-list.b3-list--background [data-subtype='h3'] {
     /* opacity: 1; */
     font-weight: 600;
     color: var(--custom-h3-color) !important;
 }
 .file-tree ul.b3-list.b3-list--background [data-subtype='h4'] .b3-list-item__text,
+.file-tree ul.b3-list.b3-list--background [data-subtype='h4'] .b3-list-item__graphic,
 .file-tree ul.b3-list.b3-list--background [data-subtype='h4'] {
     color: var(--custom-h4-color);
 }
 .file-tree ul.b3-list.b3-list--background [data-subtype='h5'] .b3-list-item__text,
+.file-tree ul.b3-list.b3-list--background [data-subtype='h5'] .b3-list-item__graphic,
 .file-tree ul.b3-list.b3-list--background [data-subtype='h5'] {
     opacity: 1;
     color: var(--custom-h5-color);
 }
 .file-tree ul.b3-list.b3-list--background [data-subtype='h6'] .b3-list-item__text,
+.file-tree ul.b3-list.b3-list--background [data-subtype='h6'] .b3-list-item__graphic,
 .file-tree ul.b3-list.b3-list--background [data-subtype='h6'] {
     opacity: 1;
     color: var(--custom-h6-color);
@@ -1310,10 +1265,6 @@ body > div#action {
     cursor: not-allowed;
 }
 
-
-
-
-
 .layout__resize--lr:after {
     width: 2px;
 }
@@ -1337,7 +1288,6 @@ body > div#action {
     background-color: rgb(196, 214, 212);
 }
 
-
 .b3-typography span[data-type='em'],
 .protyle-wysiwyg span[data-type='em'],
 .protyle-wysiwyg span[data-type='strong'],
@@ -1352,23 +1302,6 @@ body > div#action {
 }
 
 
-
-
-/* 折叠标题优化 */
-.protyle-wysiwyg div[fold='1'][data-type='NodeHeading'] {
-    opacity: 0.7;
-}
-.protyle-wysiwyg div[fold='1'][data-type='NodeHeading']:before {
-    background-color: transparent !important;
-    border-radius: 0px;
-    width: 0px !important;
-    height: 0px !important;
-    border-top: 6px solid transparent !important;
-    border-bottom: 6px solid transparent !important;
-    border-left: 6px solid #a9b5ca !important;
-    left: -13px !important;
-    margin-top: -6px;
-}
 
 /* 修复一些按钮出现滚轮 */
 .b3-label .fn__flex-1 {
@@ -1401,22 +1334,12 @@ body
     background-color: var(--b3-theme-surface);
 }
 
-
-
 /* 聚焦面包屑高亮 */
 .protyle-breadcrumb__item:hover,
 .protyle-breadcrumb__item--active {
     color: var(--b3-menu-highlight-color);
     background-color: var(--b3-menu-highlight-background);
 }
-
-
-
-
-
-
-
-
 
 /* 文档树 */
 .b3-list--files .b3-list-item--focus:not(.dragover) {
@@ -1530,7 +1453,6 @@ body
     background-color: #89aba33d;
     font-weight: 600;
     transition: all 0.1s ease-in-out;
-
 }
 /* 悬浮工具栏 */
 .protyle-toolbar__item:hover {
@@ -1547,7 +1469,6 @@ body
     background-color: var(--b3-theme-error);
     color: var(--b3-theme-on-error);
 }
-
 
 /* 消息提示 */
 #message .b3-button {
@@ -1588,7 +1509,6 @@ body
 
 .b3-dialog__container .b3-list--background .b3-list-item--focus {
     background-color: #d8e0e5c7 !important;
-
 }
 
 /* 调整设置的select按钮 */
@@ -1664,7 +1584,6 @@ body
     -webkit-mask-image: none;
 }
 
-
 /* 钉住添加图标 */
 .item.item--pin::before {
     content: '📌';
@@ -1675,7 +1594,6 @@ body
     font-size: 0.7em;
     opacity: 0.7;
 }
-
 
 /* ----------------------------标签页、页签样式 Start----------------------------------------- */
 
@@ -1736,8 +1654,6 @@ body
     transition: all 0.2s ease-in-out;
 }
 
-
-
 /* 块添加圆角 */
 .protyle-wysiwyg [data-node-id] {
     border-radius: 4px !important;
@@ -1788,7 +1704,6 @@ body
     opacity: 1;
 }
 
-
 /* emoji选中背景 */
 .emojis__item--current {
     background: rgba(103, 182, 235, 0.658);
@@ -1821,36 +1736,27 @@ body
     box-shadow: 0 -2px 0 rgba(44, 160, 255, 0.726), inset 0px 2px 0 rgba(44, 160, 255, 0.726);
 }
 
-
-
 /* 区分侧栏聚焦和未聚焦状态 */
 .block__icons--active {
     background-color: #c0d0daf8 !important;
 }
 
-
-
 /* 退出聚焦按钮 */
-.block__icon[data-type="exit-focus"] {
+.block__icon[data-type='exit-focus'] {
     background-color: var(--b3-card-success-background);
     color: var(--b3-card-success-color);
     /* 加粗 */
     font-weight: 600;
 }
 
-
-
-
 /* --------------------------------------------------------------------------------------------- */
 /* ------------------------------------基本外观设置：End-------------------------------------- */
 /* --------------------------------------------------------------------------------------------- */
 
-
 /* 导出预览选项栏的背景色 */
-.protyle-preview__action{
+.protyle-preview__action {
     background-color: transparent;
 }
-
 
 /* 钉住的页签不倾斜 */
 .layout-tab-bar .item--pin.item--unupdate {
@@ -1858,9 +1764,8 @@ body
     color: var(--b3-theme-on-surface);
 }
 
-
 /* 导出代码块优化 */
-#preview.protyle-wysiwyg .code-block{
+#preview.protyle-wysiwyg .code-block {
     /* 背景色透明 */
     background-color: #fff;
     /* 边框颜色 */
@@ -1868,51 +1773,47 @@ body
     box-shadow: none;
     border-radius: 0 !important;
 }
-#preview.protyle-wysiwyg .hljs{
+#preview.protyle-wysiwyg .hljs {
     /* 背景色透明 */
     background-color: #fff !important;
     padding: 20px 10px 20px 26px !important;
 }
 /* 待改进：暂时全部隐藏 */
-#preview.protyle-wysiwyg .code-block .protyle-action{
+#preview.protyle-wysiwyg .code-block .protyle-action {
     left: auto;
     right: 4px;
     opacity: 0;
 }
-#preview.protyle-wysiwyg .code-block .protyle-action .protyle-action__language{
-   opacity: 0;
+#preview.protyle-wysiwyg .code-block .protyle-action .protyle-action__language {
+    opacity: 0;
 }
 
-
 /* 取消2.7.7 更新的待办列表完成样式 */
-.protyle-wysiwyg .protyle-task--done>div:not([data-subtype=t]) {
+.protyle-wysiwyg .protyle-task--done > div:not([data-subtype='t']) {
     /* color: var(--b3-theme-on-surface-light); */
     /* text-decoration: line-through; */
     text-decoration: none !important;
     color: var(--b3-theme-on-background);
 }
 
-
-
 /* 超链接太长break all 换行 */
-.protyle-wysiwyg a, .b3-typography a{
+.protyle-wysiwyg a,
+.b3-typography a {
     word-break: break-all !important;
 }
 
-
 /* 取消搜索面板预览不展示link icon */
-#searchPreview .protyle-wysiwyg  [data-node-id] span[data-type~='a']:not(:empty)::before {
+#searchPreview .protyle-wysiwyg [data-node-id] span[data-type~='a']:not(:empty)::before {
     display: none;
 }
 
-.b3-typography .img, .protyle-wysiwyg .img {
+.b3-typography .img,
+.protyle-wysiwyg .img {
     display: inline-block;
     text-align: center;
     vertical-align: top;
     margin: 0 auto;
 }
-
-
 
 #preview.protyle-wysiwyg a {
     color: var(--b3-protyle-inline-link-color);
@@ -1921,7 +1822,6 @@ body
 #configBazaarReadme .block__icons {
     background-color: transparent !important;
 }
-
 
 .b3-dialog__container .b3-list-item {
     padding: 4px 4px;
