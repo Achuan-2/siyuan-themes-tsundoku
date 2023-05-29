@@ -1938,7 +1938,7 @@ function ViewMonitor(event) {
             var createSuccess = createHBuiderXToolbar(); /*创建HBuiderXToolbar*/
             if (createSuccess) {
                 // createSidebarMouseHoverExpandButton(); /*创建鼠标移动展开左右树面板按钮*/
-                createHighlightBecomesHidden(); /*创建高亮变隐藏按钮 */
+                // createHighlightBecomesHidden(); /*创建高亮变隐藏按钮 */
                 //  HowcanoeWang/calendar： https://github.com/HowcanoeWang/calendar
                 initcalendar(); /*创建日历按钮 */
                 loadStyle('/appearance/themes/Tsundoku/style/func/topbar.css', 'topbarCss');
