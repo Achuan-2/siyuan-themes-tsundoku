@@ -49,7 +49,7 @@ export var config = {
             id: 'custom-toolbar', // 工具栏 ID
             more: {
                 id: 'custom-toolbar-more',
-                enable: true,
+                enable: false,
                 status: {
                     default: 'fold',
                     fold: {
@@ -335,7 +335,7 @@ export var config = {
                     },
                 },
                 u: {
-                    enable: true, // 无序列表
+                    enable: false, // 无序列表
                     toolbar: {
                         // 菜单栏
                         enable: true,
@@ -394,7 +394,7 @@ export var config = {
                 empty: '-', // 大纲空块显示内容
             },
             copy: {
-                enable: true, // 是否启用当前文档全文复制功能
+                enable: false, // 是否启用当前文档全文复制功能
                 toolbar: {
                     // 菜单栏
                     enable: true,
@@ -436,7 +436,7 @@ export var config = {
                 },
             },
             cut: {
-                enable: true, // 是否启用当前文档全文剪切功能
+                enable: false, // 是否启用当前文档全文剪切功能
                 toolbar: {
                     // 菜单栏
                     enable: true,
@@ -924,7 +924,7 @@ export var config = {
                 toolbar: {
                     // 菜单栏
                     enable: true,
-                    display: true,
+                    display: false,
                     id: 'toolbar-theme-menu-block',
                     hotkey: () => config.theme.hotkeys.menu.block,
                     label: {

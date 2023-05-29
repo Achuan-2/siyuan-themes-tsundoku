@@ -1826,3 +1826,8 @@ body
 .b3-dialog__container .b3-list-item {
     padding: 4px 4px;
 }
+
+
+#custom-toolbar-more {
+    display: none;
+}
