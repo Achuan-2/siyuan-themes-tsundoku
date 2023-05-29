@@ -28,7 +28,6 @@ window.theme.updateStyle = function (id, href) {
     }
 };
 
-
 /**
  * 静态资源请求 URL 添加参数
  * @params {string} url 资源请求 URL
@@ -117,7 +116,6 @@ window.theme.languageMode = (() => window.siyuan.config.lang)();
  */
 window.theme.OS = (() => window.siyuan.config.system.os)();
 
-
 window.theme.ID_COLOR_STYLE = 'theme-color-style';
 window.theme.ID_CUSTOM_STYLE = 'custom-color-style';
 /**
@@ -170,7 +168,6 @@ window.theme.changeThemeMode(
     `/appearance/themes/Tsundoku/style/theme/Tsundoku_dark.css`
 );
 
-
 /*HBuiderX主题功能*/
 
 const HBuiderXToolbarID = 'HBuiderXToolbar';
@@ -200,11 +197,6 @@ var left_fn__flex_column_Width_Str = null;
 var right_fn__flex_column_Width_Str = null;
 var flag = true;
 var bar = null;
-
-
-
-
-
 
 /*----------------------------------创建notion主题工具栏区域----------------------------------
 function createnotionToolbar() {
@@ -244,7 +236,6 @@ async function 解析响应体(response) {
     let r = await response;
     return r.code === 0 ? r.data : null;
 }
-
 
 /* 操作 */
 
@@ -290,7 +281,7 @@ function MenuShow() {
 }
 
 function InsertMenuItem(selectid, selecttype) {
-    let commonMenu = document.querySelector(".b3-menu__items")
+    let commonMenu = document.querySelector('.b3-menu__items');
     let readonly = commonMenu.querySelector('.b3-menu__item--readonly');
     let selectview = commonMenu.querySelector('[id="viewselect"]');
     if (readonly) {
@@ -412,8 +403,6 @@ function themeButton() {
     );
 }
 
-
-
 //去除主题所有滤镜还原按钮状态
 function qucuFiiter() {
     var Topicfilters = document.querySelectorAll('head [topicfilter]');
@@ -425,9 +414,6 @@ function qucuFiiter() {
         }
     });
 }
-
-
-
 
 /*----------------日历面板----------------*/
 function initcalendar() {
@@ -639,14 +625,10 @@ function notionThemeToolbarAddButton(
     addButton.setAttribute('class', ButtonTitle);
     addButton.setAttribute('aria-label', ButtonLabel);
 
-
-
     // 如果主题符合系统亮暗模式的话，才运行下面的参数
     if (window.theme.themeMode == Mode) {
         var offNo = '0';
 
-
-        
         // 如果主题是暗色主题，默认选中样式
         if (Mode == 'dark') {
             addButton.classList.add('active');
@@ -654,7 +636,6 @@ function notionThemeToolbarAddButton(
             NoClickRunFun(addButton);
             setItem('buttondark', '1');
         } else {
-
             if (Memory == true) {
                 offNo = getItem(ButtonID);
                 if (offNo == '1') {
@@ -686,14 +667,17 @@ function notionThemeToolbarAddButton(
                     offNo = '0';
                     return;
                 }
-            })
+            });
         }
     }
 }
 
 function setItem(key, value) {
     window.theme.config[key] = value;
-    写入文件('/data/snippets/Tsundoku.config.json', JSON.stringify(window.theme.config, undefined, 4));
+    写入文件(
+        '/data/snippets/Tsundoku.config.json',
+        JSON.stringify(window.theme.config, undefined, 4)
+    );
 }
 
 function getItem(key) {
@@ -702,7 +686,10 @@ function getItem(key) {
 
 function removeItem(key) {
     delete window.theme.config[key];
-    写入文件('/data/snippets/Tsundoku.config.json', JSON.stringify(window.theme.config, undefined, 4));
+    写入文件(
+        '/data/snippets/Tsundoku.config.json',
+        JSON.stringify(window.theme.config, undefined, 4)
+    );
 }
 /**
  * 在DIV光标位置插入内容
@@ -1320,10 +1307,6 @@ function WhileSafety(fun, frequency = 99999) {
     }
 }
 
-
-
-
-
 /*创建HBuiderX主题工具栏区域*/
 function createHBuiderXToolbar() {
     siYuanToolbar = getSiYuanToolbar();
@@ -1332,14 +1315,15 @@ function createHBuiderXToolbar() {
     var windowControls = document.getElementById('barMode');
 
     if (HBuiderXToolbar) siYuanToolbar.removeChild(HBuiderXToolbar);
-    if (HBuiderXToolbar == null && windowControls != null) { //如果是编辑器则新建工具栏
+    if (HBuiderXToolbar == null && windowControls != null) {
+        //如果是编辑器则新建工具栏
         HBuiderXToolbar = insertCreateAfter(windowControls, 'div', HBuiderXToolbarID);
-        return 1
-    } else { // 如果是新建窗口，则不新建
+        return 1;
+    } else {
+        // 如果是新建窗口，则不新建
         return 0;
     }
 }
-
 
 /**------------------边栏鼠标悬浮展开按钮-----------------*/
 /*创建边栏鼠标悬浮展开按钮*/
@@ -1692,7 +1676,6 @@ function myRemoveEvent(element, strType, fun) {
     }
 }
 
-
 /**
  * 得到思源toolbar
  * @returns
@@ -1738,7 +1721,6 @@ function hx_loadStyle(url, id) {
     style.setAttribute('href', url);
     headElement.appendChild(style);
 }
-
 
 /****各种列表转xx的UI****/
 function ViewSelect(selectid, selecttype) {
@@ -1901,7 +1883,7 @@ function MenuShow() {
 }
 
 function InsertMenuItem(selectid, selecttype) {
-    let commonMenu = document.querySelector(".b3-menu__items")
+    let commonMenu = document.querySelector('.b3-menu__items');
     let readonly = commonMenu.querySelector('.b3-menu__item--readonly');
     let selectview = commonMenu.querySelector('[id="viewselect"]');
     if (readonly) {
@@ -1925,11 +1907,6 @@ function ViewMonitor(event) {
     设置思源块属性(id, attrs);
 }
 
-
-
-
-
-
 /**++++++++++++++++++++++++++++++++主题功能执行：按需调用++++++++++++++++++++++++++++++ */
 获取文件('/data/snippets/Tsundoku.config.json', v => {
     let funs = () => {
@@ -1940,13 +1917,12 @@ function ViewMonitor(event) {
                 // createSidebarMouseHoverExpandButton(); /*创建鼠标移动展开左右树面板按钮*/
                 // createHighlightBecomesHidden(); /*创建高亮变隐藏按钮 */
                 //  HowcanoeWang/calendar： https://github.com/HowcanoeWang/calendar
-                initcalendar(); /*创建日历按钮 */
-                loadStyle('/appearance/themes/Tsundoku/style/func/topbar.css', 'topbarCss');
-                
+                //initcalendar(); /*创建日历按钮 */
+
                 //  royc01/notion-theme： https://github.com/royc01/notion-theme
                 themeButton(); //主题
-            }
-            else {
+                loadStyle('/appearance/themes/Tsundoku/style/func/topbar.css', 'topbarCss');
+            } else {
                 // 新窗口模式也需要根据选择的主题进行变化，需要检测当前是亮主题还是暗主题
                 const htmlTag = document.querySelector('html');
                 const themeMode = htmlTag.getAttribute('data-theme-mode');
@@ -1959,14 +1935,12 @@ function ViewMonitor(event) {
                             'green主题'
                         ).setAttribute('topicfilter', 'buttongreen');
                     }
-
                 }
             }
             setTimeout(() => ClickMonitor(), 3000); //各种列表转xx
 
             // console.log('==============>附加CSS和特性JS_已经执行<==============');
         }, 1000);
-            
     };
     if (v == null) {
         window.theme.config = { Tsundoku: 1 };
@@ -1983,67 +1957,80 @@ function ViewMonitor(event) {
     }
 });
 
-
-
-
-
-
-
 /**
-* 设置编辑器字号
-* REF https://github.com/siyuan-note/siyuan/blob/7fbae2f7438a313837218e419468e0b189163c6a/app/src/util/assets.ts#L120-L145
-* @param {number} fontSize 字号
-* @return {number} 设置后的字号
-* @return {null} 没有找到字号
-*/
+ * 设置编辑器字号
+ * REF https://github.com/siyuan-note/siyuan/blob/7fbae2f7438a313837218e419468e0b189163c6a/app/src/util/assets.ts#L120-L145
+ * @param {number} fontSize 字号
+ * @return {number} 设置后的字号
+ * @return {null} 没有找到字号
+ */
 function setFontSize(fontSize) {
-  let style = document.getElementById('editorFontSize');
-  if (style) {
-    const height = Math.floor(fontSize * 1.625);
-    style.innerHTML = `
+    let style = document.getElementById('editorFontSize');
+    if (style) {
+        const height = Math.floor(fontSize * 1.625);
+        style.innerHTML = `
 .b3-typography, .protyle-wysiwyg, .protyle-title {font-size:${fontSize}px !important}
-.b3-typography code:not(.hljs), .protyle-wysiwyg span[data-type~=code] { font-variant-ligatures: ${window.siyuan.config.editor.codeLigatures ? "normal" : "none"} }
+.b3-typography code:not(.hljs), .protyle-wysiwyg span[data-type~=code] { font-variant-ligatures: ${
+            window.siyuan.config.editor.codeLigatures ? 'normal' : 'none'
+        } }
 .li > .protyle-action {height:${height + 8}px;line-height: ${height + 8}px}
-.protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h1, .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h2, .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h3, .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h4, .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h5, .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h6 {line-height:${height + 8}px;}
-.protyle-wysiwyg [data-node-id].li > .protyle-action:after {height: ${fontSize}px;width: ${fontSize}px;margin:-${fontSize / 2}px 0 0 -${fontSize / 2}px}
+.protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h1, .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h2, .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h3, .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h4, .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h5, .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h6 {line-height:${
+            height + 8
+        }px;}
+.protyle-wysiwyg [data-node-id].li > .protyle-action:after {height: ${fontSize}px;width: ${fontSize}px;margin:-${
+            fontSize / 2
+        }px 0 0 -${fontSize / 2}px}
 .protyle-wysiwyg [data-node-id].li > .protyle-action svg {height: ${Math.max(14, fontSize - 8)}px}
 .protyle-wysiwyg [data-node-id] [spellcheck="false"] {min-height:${height}px}
 .protyle-wysiwyg .li {min-height:${height + 8}px}
 .protyle-gutters button svg {height:${height}px}
 .protyle-wysiwyg img.emoji, .b3-typography img.emoji {width:${height - 8}px}
-.protyle-wysiwyg .h1 img.emoji, .b3-typography h1 img.emoji {width:${Math.floor(fontSize * 1.75 * 1.25)}px}
-.protyle-wysiwyg .h2 img.emoji, .b3-typography h2 img.emoji {width:${Math.floor(fontSize * 1.55 * 1.25)}px}
-.protyle-wysiwyg .h3 img.emoji, .b3-typography h3 img.emoji {width:${Math.floor(fontSize * 1.38 * 1.25)}px}
-.protyle-wysiwyg .h4 img.emoji, .b3-typography h4 img.emoji {width:${Math.floor(fontSize * 1.25 * 1.25)}px}
-.protyle-wysiwyg .h5 img.emoji, .b3-typography h5 img.emoji {width:${Math.floor(fontSize * 1.13 * 1.25)}px}
+.protyle-wysiwyg .h1 img.emoji, .b3-typography h1 img.emoji {width:${Math.floor(
+            fontSize * 1.75 * 1.25
+        )}px}
+.protyle-wysiwyg .h2 img.emoji, .b3-typography h2 img.emoji {width:${Math.floor(
+            fontSize * 1.55 * 1.25
+        )}px}
+.protyle-wysiwyg .h3 img.emoji, .b3-typography h3 img.emoji {width:${Math.floor(
+            fontSize * 1.38 * 1.25
+        )}px}
+.protyle-wysiwyg .h4 img.emoji, .b3-typography h4 img.emoji {width:${Math.floor(
+            fontSize * 1.25 * 1.25
+        )}px}
+.protyle-wysiwyg .h5 img.emoji, .b3-typography h5 img.emoji {width:${Math.floor(
+            fontSize * 1.13 * 1.25
+        )}px}
 .protyle-wysiwyg .h6 img.emoji, .b3-typography h6 img.emoji {width:${Math.floor(fontSize * 1.25)}px}
-.b3-typography:not(.b3-typography--default), .protyle-wysiwyg,.protyle,.p, .protyle-title, .protyle-title__input{font-family: "${window.siyuan.config.editor.fontFamily}",  "D-DIN","MiSans","quote", "Helvetica Neue", "Luxi Sans", "DejaVu Sans", "Hiragino Sans GB", "Microsoft Yahei", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols" !important;}
+.b3-typography:not(.b3-typography--default), .protyle-wysiwyg,.protyle,.p, .protyle-title, .protyle-title__input{font-family: "${
+            window.siyuan.config.editor.fontFamily
+        }",  "D-DIN","MiSans","quote", "Helvetica Neue", "Luxi Sans", "DejaVu Sans", "Hiragino Sans GB", "Microsoft Yahei", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols" !important;}
 `;
-    return parseInt(config.theme.regs.fontsize.exec(style.innerHTML));
-  }
-  return null;
+        return parseInt(config.theme.regs.fontsize.exec(style.innerHTML));
+    }
+    return null;
 }
 
 /* 字号更改 */
 function changeFontSize(delta) {
-  let size = delta / config.theme.wheel.zoom.threshold | 0;
-  let old_size = window.siyuan.config.editor.fontSize;
-  let new_size = Math.max(Math.min(old_size + size, config.theme.wheel.zoom.max), config.theme.wheel.zoom.min);
-  new_size = setFontSize(new_size);
-  if (new_size) window.siyuan.config.editor.fontSize = new_size;
+    let size = (delta / config.theme.wheel.zoom.threshold) | 0;
+    let old_size = window.siyuan.config.editor.fontSize;
+    let new_size = Math.max(
+        Math.min(old_size + size, config.theme.wheel.zoom.max),
+        config.theme.wheel.zoom.min
+    );
+    new_size = setFontSize(new_size);
+    if (new_size) window.siyuan.config.editor.fontSize = new_size;
 }
 
 function isEvent(event, key) {
-  return (event.type === key.type
-    && event.altKey === key.Alt
-    && event.shiftKey === key.Shift
-    && (event.ctrlKey || event.metaKey) === key.CtrlCmd
-    && (event.ctrlKey && event.metaKey) === key.WinCtrl
-  )
+    return (
+        event.type === key.type &&
+        event.altKey === key.Alt &&
+        event.shiftKey === key.Shift &&
+        (event.ctrlKey || event.metaKey) === key.CtrlCmd &&
+        (event.ctrlKey && event.metaKey) === key.WinCtrl
+    );
 }
-
-
-
 
 /* 加载 Dark+ 主题功能 */
 window.theme.loadScript('/appearance/themes/Tsundoku/script/module/html.js', 'text/javascript');
@@ -2060,5 +2047,3 @@ window.theme.loadScript(
     undefined,
     true
 );
-
-
