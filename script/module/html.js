@@ -7,19 +7,53 @@ window.theme.runcmd = function (commands) {
             commands = `start powershell -c ${commands.replaceAll('\n', '; ')}pause`;
             require('child_process').exec(commands, null);
         }
-    }
-    catch (err) {
+    } catch (err) {
         console.warn(err);
     }
-}
+};
+
+/**
+ * HTML 块中的脚本获取当前 shadow-root 的 host
+ * REF [思源笔记折腾记录 -html 块 - 链接卡片 - 链滴](https://ld246.com/article/1682099979843)
+ * @params {HTMLElement} element: HTML 块中的 DOM 节点
+ * @return {object}:
+ *      {string} id: 当前 HTML 块 ID
+ *      {HTMLElement} block: 当前 HTML 块
+ *      {HTMLElement} shadowRoot: 当前 HTML 块 shadowRoot
+ * @return {null} null 当前 HTML 块不存在
+ */
+window.theme.THIS = function (element) {
+    try {
+        if (element) {
+            return null;
+        }
+
+        if (element.host) {
+            element = element.host;
+            if (element?.parentElement?.parentElement?.dataset.nodeId) {
+                return {
+                    id: element.parentElement.parentElement.dataset.nodeId,
+                    block: element.parentElement.parentElement,
+                    shadowRoot: element.shadowRoot,
+                };
+            }
+        }
+
+        return this(element.parentNode);
+    } catch (e) {
+        console.log(e);
+        return null;
+    }
+};
 
 /**
  * HTML 块中的脚本获取当前块
- * @param {string} customID 内部定义的 ID
- * @returns {string} id 当前 HTML 块 ID
- * @returns {HTMLElement} block 当前 HTML 块
- * @returns {HTMLElement} shadowRoot 当前 HTML 块 shadowRoot
- * @returns {null} null 当前 HTML 块不存在
+ * @params {string} customID 内部定义的 ID
+ * @return {object}:
+ *      {string} id: 当前 HTML 块 ID
+ *      {HTMLElement} block: 当前 HTML 块
+ *      {HTMLElement} shadowRoot: 当前 HTML 块 shadowRoot
+ * @return {null}: 当前 HTML 块不存在
  */
 window.theme.This = function (customID) {
     let protyle = document.querySelector(`protyle-html[data-content*="${customID}"]`);
@@ -30,9 +64,8 @@ window.theme.This = function (customID) {
             block: block,
             shadowRoot: protyle.shadowRoot,
         };
-    }
-    else return null;
-}
+    } else return null;
+};
 
 /**
  * URL 格式化
@@ -40,10 +73,14 @@ window.theme.This = function (customID) {
  * @reutrn {URL}: URL 对象
  */
 window.theme.urlFormat = function (url, ssl = true) {
-    switch (true) { // 格式化 URL
+    switch (
+        true // 格式化 URL
+    ) {
         case url.startsWith('assets/'):
         case url.startsWith('widgets/'):
         case url.startsWith('emojies/'):
+        case url.startsWith('history/'):
+        case url.startsWith('snippets/'):
         case url.startsWith('appearance/'):
         case url.startsWith('export/'):
             return new URL(`${window.location.origin}/${url}`);
@@ -51,28 +88,29 @@ window.theme.urlFormat = function (url, ssl = true) {
             return new URL(`${ssl ? 'https' : 'http'}:${url}`);
         case url.startsWith('/'):
             return new URL(`${window.location.origin}${url}`);
+        case url.startsWith('file://'):
         case url.startsWith('http://'):
         case url.startsWith('https://'):
             return new URL(url);
         default:
             return new URL(`${ssl ? 'https' : 'http'}://${url}`);
     }
-}
+};
 
 /**
  * 新窗口打开
- * @mode (string): 打开窗口模式('app', 'desktop', 'mobile')
- * @url (string): URL
- * @urlParams (object): URL 参数
- * @windowParams (object): 窗体参数
- * @menuTemplate (object): 窗口菜单栏模板
- * @pathname (string): URL 路径名
- * @hash (string): URL hash
- * @consoleMessageCallback (function): 子窗口控制台输出回调
- * @closeCallback (function): 关闭窗口时的回调函数
- * @windowEventHandlers (array): 一组窗口的事件处理器
- * @contentsEventHandlers (array): 一组内容的事件处理器
- * @return (BrowserWindow): 窗口对象
+ * @params {string} mode: 打开窗口模式('app', 'desktop', 'mobile')
+ * @params {string} url: URL
+ * @params {object} urlParams: URL 参数
+ * @params {object} windowParams: 窗体参数
+ * @params {object} menuTemplate: 窗口菜单栏模板
+ * @params {string} pathname: URL 路径名
+ * @params {string} hash: URL hash
+ * @params {function} consoleMessageCallback: 子窗口控制台输出回调
+ * @params {function} closeCallback: 关闭窗口时的回调函数
+ * @params {array} windowEventHandlers: 一组窗口的事件处理器
+ * @params {array} contentsEventHandlers: 一组内容的事件处理器
+ * @return {BrowserWindow}: 窗口对象
  */
 window.theme.openNewWindow = function (
     mode = 'mobile',
@@ -90,11 +128,17 @@ window.theme.openNewWindow = function (
     consoleMessageCallback = null,
     closeCallback = null,
     windowEventHandlers = [],
-    contentsEventHandlers = [],
+    contentsEventHandlers = []
 ) {
     try {
         // 优化思源内部 URL
         url = window.theme.urlFormat(url);
+
+        // 设置窗口位置
+        if (window.theme.coords?.screenX && window.theme.coords?.screenY) {
+            windowParams.x = window.theme.coords.screenX;
+            windowParams.y = window.theme.coords.screenY;
+        }
 
         // 设置窗口模式
         if (mode) {
@@ -106,8 +150,13 @@ window.theme.openNewWindow = function (
                     url.pathname = `/stage/build/${mode.toLowerCase()}/`;
                     break;
                 case 'editor':
+                    windowParams = JSON.parse(JSON.stringify(windowParams));
+                    windowParams.webPreferences.contextIsolation = true;
                     break;
                 default:
+                    windowParams = JSON.parse(JSON.stringify(windowParams));
+                    windowParams.webPreferences.nodeIntegration = false;
+                    windowParams.webPreferences.contextIsolation = true;
                     break;
             }
         }
@@ -119,13 +168,24 @@ window.theme.openNewWindow = function (
         }
         // 打开新窗口
         try {
-            const {
-                BrowserWindow,
-                Menu,
-            } = require('@electron/remote');
+            const { BrowserWindow, Menu } = require('@electron/remote');
             // 新建窗口(Electron 环境)
             var newWin = new BrowserWindow(windowParams);
             const menu = Menu.buildFromTemplate(menuTemplate);
+
+            switch (mode.toLowerCase()) {
+                case 'app':
+                case 'desktop':
+                case 'mobile':
+                case 'editor':
+                    // require('@electron/remote/main').initialize();
+                    require('@electron/remote')
+                        .require('@electron/remote/main')
+                        .enable(newWin.webContents);
+                    break;
+                default:
+                    break;
+            }
 
             // console.log(menu);
             console.log(url.href);
@@ -137,7 +197,9 @@ window.theme.openNewWindow = function (
             // REF [Event: 'console-message'​](https://www.electronjs.org/docs/latest/api/web-contents#event-console-message)
             newWin.webContents.on('console-message', (event, level, message, line, sourceId) => {
                 if (level === 0) {
-                    switch (message) { // 通用的命令
+                    switch (
+                        message // 通用的命令
+                    ) {
                         case 'WINDOW-SWITCH-PIN': // 切换窗口置顶状态
                             // REF [win.setAlwaysOnTop(flag[, level][, relativeLevel])​](https://www.electronjs.org/zh/docs/latest/api/browser-window#winsetalwaysontopflag-level-relativelevel)
                             newWin.setAlwaysOnTop(!newWin.isAlwaysOnTop());
@@ -146,7 +208,10 @@ window.theme.openNewWindow = function (
                             break;
                     }
                 }
-                consoleMessageCallback && setTimeout(async () => consoleMessageCallback(newWin, event, level, message, line, sourceId));
+                consoleMessageCallback &&
+                    setTimeout(async () =>
+                        consoleMessageCallback(newWin, event, level, message, line, sourceId)
+                    );
             });
             if (mode) {
                 switch (mode.toLowerCase()) {
@@ -164,15 +229,16 @@ window.theme.openNewWindow = function (
                 newWin.on(handler.event, (...args) => handler.callback(newWin, ...args));
             }
             for (const handler of contentsEventHandlers) {
-                newWin.webContents.on(handler.event, (...args) => handler.callback(newWin, ...args));
+                newWin.webContents.on(handler.event, (...args) =>
+                    handler.callback(newWin, ...args)
+                );
             }
             newWin.on('closed', () => {
                 closeCallback && setTimeout(async () => closeCallback(newWin), 0);
                 newWin = null;
-            })
+            });
             return newWin;
-        }
-        catch (err) {
+        } catch (err) {
             console.warn(err);
             // 新建标签页(Web 环境)
             // window.open(url.href, "_blank");
@@ -185,13 +251,14 @@ window.theme.openNewWindow = function (
                     popup = true,
                     width = ${windowParams.width},
                     height = ${windowParams.height},
-                `,
+                    left = ${windowParams.x},
+                    top = ${windowParams.y},
+                `
             );
             return newWin;
         }
-    }
-    catch (err) {
+    } catch (err) {
         console.error(err);
         return null;
     }
-}
+};
