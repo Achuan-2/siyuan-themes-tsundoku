@@ -861,4 +861,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     color: #a0b1c6 !important;
 }
 
-
+/* /💄dark主题pdf工具栏颜色调整 */
+.pdf__toolbar {
+    background-color: #0b1b2a;
+}
