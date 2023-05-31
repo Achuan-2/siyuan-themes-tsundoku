@@ -935,20 +935,20 @@ body > #action {
 }
 
 /* 导出的高亮样式：高亮隐藏 */
-#preview.protyle-wysiwyg span[data-type~='mark'] {
+/* #preview.protyle-wysiwyg span[data-type~='mark'] {
     color: transparent;
     transition: color 0.2s ease-in-out;
     background-color: transparent;
     border-bottom: 2px solid var(--b3-font-color4);
-}
+} */
 
 /* 导出的高亮样式：高亮不隐藏 */
-/* #preview.protyle-wysiwyg span[data-type~='mark']{
+#preview.protyle-wysiwyg span[data-type~='mark']{
     color: var(--b3-protyle-inline-mark-color);
     transition: color 0.2s ease-in-out;
     background-color: var(--b3-card-success-background);
     border-bottom: 2px solid var(--b3-font-color4);
-} */
+}
 
 #preview.protyle-wysiwyg .h1 {
     text-align: center !important;
