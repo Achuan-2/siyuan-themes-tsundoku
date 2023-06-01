@@ -16,9 +16,6 @@ English  | [中文](./README_zh_CN.md)
 
 ![](preview.png)
 
-> Tip in the front row: Postgraduates in Brain Transformation Institute of Fudan University are studying ing, and their life is much busier than I expected. Now, updating the theme is often just to relax (fishing), so the theme will only focus on perfecting and fixing defects and adapting to the new version in the future. There are also many excellent themes in Siyuan Community, and you are welcome to use other themes.  
-> ——Achuan-2 was released on December 10, 2022.
-
 
 **Introduction**: [Siyuan] (https://github.com/Siyuan-Note/Siyuan) is a local priority personal knowledge management system, which supports completely offline use and end-to-end encryption synchronization. Combine blocks, outlines and two-way links to build your eternal digital garden. This theme is a personal original theme, specially designed for Siyuan notes.
 
