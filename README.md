@@ -52,13 +52,7 @@ I use this name to wake myself up, hoping to make good use of Siyuan notes, help
 ## 😺 Referenced features
 
 - [Dark+](https://github.com/Zuoqiu-Yingyi/siyuan-theme-dark-plus)
-  - Open a new window and bring it to the front
-  - Copy the current document outline as an unordered list
-  - Copy the document content
-  - Cut the document content
-  - Press Alt + middle mouse button to open the current block or document in markdown style using monaco-editor
-    - To open the document, click on the header image of the document
-    - Use Ctrl + S to save content from the monaco editor.
+  - open the current block or document in markdown style using monaco-editor
 - [HBuilderX-Light](https://github.com/UFDXD/HBuilderX-Light)
   - Highlight text hide button: Set Ctrl+E as the text masking effect. By default, the text is displayed. When clicking on the "Enable Highlight Text Hide Button" in the top bar, the highlighted text will be hidden.
   - Theme switch button: A button that allows users to switch between different themes.

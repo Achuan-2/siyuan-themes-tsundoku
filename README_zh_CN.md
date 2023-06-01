@@ -50,21 +50,12 @@ Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释
 ## 😺 借鉴功能
 
 - [Dark+主题](https://github.com/Zuoqiu-Yingyi/siyuan-theme-dark-plus)
-  - 打开一个新窗口并置顶
-  - 复制当前文档大纲为无序列表
-  - 复制文档内容
-  - 剪切文档内容
-  - 按alt+中键可以打开用monaco-editor以markdown样式打开当前块或文档
-    - 打开文档需要在文档题头图那块点击
-    - Ctrl+S才能从manaco编辑器保存内容
+  - 右键块菜单可以用monaco-editor以markdown样式打开当前块或文档，方便批量编辑，支持 Ctrl+S 保存内容
 - [HBuilderX-Light主题](https://github.com/UFDXD/HBuilderX-Light)
-  - 左右面板收起
-  - 高亮文本隐藏按钮：将Ctrl+E，设置为文本遮挡效果：默认显示文字，当点击顶栏【开启隐藏高亮文本按钮】时，隐藏高亮文本
   - 列表转脑图、表格
   - 表格设置是否显示表头和表宽度调整
 - [Savor主题](https://github.com/royc01/notion-theme)
   - 主题切换按钮
-  - Ctrl+滚轮单独调整页面大小（使用开发者工具清除缓存可以复位）
 - [日历面板](https://github.com/HowcanoeWang/calendar)
   - 支持根据笔记本日记路径模板智能识别“2006.01.02”或“2006-01-02”格式（不支持更复杂的格式）
   - 支持点击查看已有日记以及提前新建未来日记
@@ -103,54 +94,3 @@ Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释
 
 若主题存在样式的问题，欢迎在Github提issue或是通过邮箱联系我(achuan-2@outlook.com)。在提issue之前建议先切换为默认主题，确定是本主题特有的问题。
 
-
-## ❓FAQ
-
-### 导出pdf时，高亮文本是隐藏的，如何设置不隐藏？
-
-主题theme.css，搜索“导出的高亮样式”
-将
-```css
-/* 导出的高亮样式：高亮隐藏 */
-#preview.protyle-wysiwyg span[data-type~='mark']{
-    color: transparent;
-    transition: color 0.2s ease-in-out;
-    background-color: transparent;
-    border-bottom: 2px solid var(--b3-font-color4);
-}
-
-/* 导出的高亮样式：高亮不隐藏 */
-/* #preview.protyle-wysiwyg span[data-type~='mark']{
-    color: var(--b3-protyle-inline-mark-color);
-    transition: color 0.2s ease-in-out;
-    background-color: var(--b3-card-success-background);
-    border-bottom: 2px solid var(--b3-font-color4);
-} */
-
-```
-改为
-```css
-/* 导出的高亮样式：高亮隐藏 */
-/* #preview.protyle-wysiwyg span[data-type~='mark']{
-    color: transparent;
-    transition: color 0.2s ease-in-out;
-    background-color: transparent;
-    border-bottom: 2px solid var(--b3-font-color4);
-} */
-
-/* 导出的高亮样式：高亮不隐藏 */
-#preview.protyle-wysiwyg span[data-type~='mark']{
-    color: var(--b3-protyle-inline-mark-color);
-    transition: color 0.2s ease-in-out;
-    background-color: var(--b3-card-success-background);
-    border-bottom: 2px solid var(--b3-font-color4);
-}
-
-```
-> 建议开启【外观-自定义主题】，生成cutsom.css，将这段代码粘贴到custom.css中，这样可以避免每次更新主题时，这段代码被覆盖。
-
-
-### 明明更新了主题，但是界面和功能都是原来的
-
-1. 缓存问题：Ctrl+Shift+i 打开开发者工具，在Network面板勾选Disable cache，在Console面板按f5刷新看看
-2. 自定义主题问题：检测主题是否开启了自定义外观，自定义外观中是否直接就是旧版theme.css的拷贝。
