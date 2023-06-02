@@ -132,25 +132,25 @@ function toolbarItemListPush(item) {
             });
 
             /* 分割线 */
-            let divider_before = document.createElement('div');
-            let divider_after = document.createElement('div');
-            divider_before.className = 'protyle-toolbar__divider';
-            divider_after.className = 'protyle-toolbar__divider';
+            // let divider_before = document.createElement('div');
+            // let divider_after = document.createElement('div');
+            // divider_before.className = 'protyle-toolbar__divider';
+            // divider_after.className = 'protyle-toolbar__divider';
 
-            itemStateLoad(config.theme.toolbar.more.id, custom.theme.toolbar, more);
+            // itemStateLoad(config.theme.toolbar.more.id, custom.theme.toolbar, more);
 
-            if (windowControls) {
-                toolbar.insertBefore(divider_before, windowControls);
-                toolbar.insertBefore(more, windowControls);
-                toolbar.insertBefore(custom_toolbar, windowControls);
-                if (windowControls.childElementCount > 0) // 存在窗口控制按钮, 插入分割线
-                    toolbar.insertBefore(divider_after, windowControls);
-            }
-            else {
-                toolbar.appendChild(divider_before);
-                toolbar.appendChild(more);
-                toolbar.appendChild(custom_toolbar);
-            }
+            // if (windowControls) {
+            //     toolbar.insertBefore(divider_before, windowControls);
+            //     toolbar.insertBefore(more, windowControls);
+            //     toolbar.insertBefore(custom_toolbar, windowControls);
+            //     if (windowControls.childElementCount > 0) // 存在窗口控制按钮, 插入分割线
+            //         toolbar.insertBefore(divider_after, windowControls);
+            // }
+            // else {
+            //     toolbar.appendChild(divider_before);
+            //     toolbar.appendChild(more);
+            //     toolbar.appendChild(custom_toolbar);
+            // }
         }
 
         toolbarItemList = toolbarItemList.sort((a, b) => a.index - b.index);
