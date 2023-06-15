@@ -1,65 +1,73 @@
-#notionToolbar{
-	width:26px;
-	height:26px;
-	margin:4px 0px 4px 0px;
-	border-radius:3px;
-	overflow:hidden;
-	background: url("/appearance/themes/Savor/img/setting.svg") no-repeat center; 
+#notionToolbar {
+    width: 26px;
+    height: 26px;
+    margin: 4px 0px 4px 0px;
+    border-radius: 3px;
+    overflow: hidden;
+    background: url('/appearance/themes/Savor/img/setting.svg') no-repeat center;
     z-index: 999;
-}
-#notionToolbar:hover{
-	overflow:visible;
-	background-color:var(--b3-toolbar-item-hover);
-}
-
-#notionToolbar div{
-	border-radius:0;
-}
-#notionToolbar div:first-child{
-	border-radius:5px 5px 0 0;
-}
-#notionToolbar div:last-child{
-	border-radius:0 0 5px 5px;
-}
-#buttonlight,#buttongreen,#buttondark{
-	/* height:32px; */
-	margin:0;
-	border:6px solid var(--b3-theme-background);
-	border-bottom:0;
-	width:128px;
-	background-color:var(--b3-theme-background);
-}
-#topBar{
-	height:38px;
-	border-bottom:6px solid var(--b3-theme-background);
-}
-#buttonlight{
-	margin-top:26px;
-}
-#buttonlight{
-		opacity:0;
 
 }
-#notionToolbar:hover #buttonlight{
-	opacity:1;
-}
-#buttonlight::after,#buttongreen::after,#buttondark::after{
-	font-size:14px;
-	line-height:18px;
-	transform:none;
-	opacity:1;
-	color:#000;
-	background-color:transparent;
-	position:static;
-	margin:0;
-	padding:0 0 0 24px;
-}
-#buttonlight::before,#topBar::before,#buttongreen::before,#buttondark::before{
-	display:none;
+#notionToolbar:hover {
+    overflow: visible;
+    background-color: var(--b3-toolbar-item-hover);
+	cursor: pointer !important;
 }
 
-#buttonlight:hover,#buttongreen:hover,#buttondark:hover{
-	background-color:var(--b3-theme-background-light);
+#notionToolbar div {
+    border-radius: 0;
+}
+#notionToolbar div:first-child {
+    border-radius: 5px 5px 0 0;
+}
+#notionToolbar div:last-child {
+    border-radius: 0 0 5px 5px;
+}
+#buttonlight,
+#buttongreen,
+#buttondark {
+    /* height:32px; */
+    margin: 0;
+    border: 6px solid var(--b3-theme-background);
+    border-bottom: 0;
+    width: 128px;
+    background-color: var(--b3-theme-background);
+}
+#topBar {
+    height: 38px;
+    border-bottom: 6px solid var(--b3-theme-background);
+}
+#buttonlight {
+    margin-top: 26px;
+}
+#buttonlight {
+    opacity: 0;
+}
+#notionToolbar:hover #buttonlight {
+    opacity: 1;
+}
+#buttonlight::after,
+#buttongreen::after,
+#buttondark::after {
+    font-size: 14px;
+    line-height: 18px;
+    transform: none;
+    opacity: 1;
+    color: #000;
+    background-color: transparent;
+    position: static;
+    margin: 0;
+    padding: 0 0 0 24px;
+}
+#buttonlight::before,
+#topBar::before,
+#buttongreen::before,
+#buttondark::before {
+    display: none;
 }
 
-
+#buttonlight:hover,
+#buttongreen:hover,
+#buttondark:hover {
+    background-color: var(--b3-theme-background-light);
+}
