@@ -1295,9 +1295,9 @@ body > div#action {
 }
 
 .b3-typography span[data-type='em'],
-.protyle-wysiwyg span[data-type='em'],
-.protyle-wysiwyg span[data-type='strong'],
-.b3-typography span[data-type='strong'] {
+.protyle-wysiwyg span[data-type='em']{
+/* .protyle-wysiwyg span[data-type='strong'], */
+/* .b3-typography span[data-type='strong'] { */
     color: inherit;
 }
 
