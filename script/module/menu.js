@@ -94,7 +94,7 @@ function blockMenuCallback(mutationList, observer) {
             }
             break;
         } else if (
-            /* 页签右键菜单已加载完成 */
+        /* 页签右键菜单已加载完成 */
             mutation.addedNodes.length === 1 &&
             mutation.addedNodes[0]?.firstChild?.firstChild?.getAttribute('xlink:href') ===
                 '#iconPin' &&
@@ -185,16 +185,14 @@ function menuOverride() {
                         menu.append(menu_item_last_origin);
                     }
                 }
-            } else if (
-                /* 添加页签菜单项 */
-                menu_item_last_origin?.firstChild?.firstChild?.getAttribute('xlink:href') ===
-                '#iconOpenWindow'
-            ) {
-                const items = menuInit(config.theme.menu.tabbar.items);
-                if (items) {
-                    items.forEach(item => menu.append(item));
-                }
             }
+            /* 添加页签菜单项 */
+            // else if (menu_item_last_origin?.firstChild?.firstChild?.getAttribute('xlink:href') === '#iconOpenWindow') {
+            //     const items = menuInit(config.theme.menu.tabbar.items);
+            //     if (items) {
+            //         items.forEach(item => menu.append(item));
+            //     };
+            // }
         }
         menu.__proto__.popup.call(this, ...args);
     };
@@ -207,7 +205,7 @@ async function loadFonts(menuItems, fonts, mode) {
             fonts.forEach(font =>
                 menuItems.push({
                     // 加载自定义字体
-                    enable: false,
+                    enable: true,
                     type: null,
                     mode: 'button',
                     icon: '#iconFont',
@@ -236,7 +234,7 @@ async function loadFonts(menuItems, fonts, mode) {
             fonts.forEach(font =>
                 menuItems.push({
                     // 加载其他字体
-                    enable: false,
+                    enable: true,
                     type: null,
                     mode: 'button',
                     icon: '#iconFont',
@@ -281,7 +279,7 @@ setTimeout(() => {
     try {
         if (config.theme.menu.enable) {
             if (config.theme.menu.block.enable) {
-                //setTimeout(loadFontsItem, 0);
+                // setTimeout(loadFontsItem, 0);
 
                 // block_menu_observer = new CommonMenuObserver(blockMenuCallback);
                 menuOverride();
