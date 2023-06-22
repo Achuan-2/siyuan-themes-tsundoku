@@ -19,6 +19,15 @@ English  | [中文](./README_zh_CN.md)
 
 **Introduction**: [Siyuan] (https://github.com/Siyuan-Note/Siyuan) is a local priority personal knowledge management system, which supports completely offline use and end-to-end encryption synchronization. Combine blocks, outlines and two-way links to build your eternal digital garden. This theme is a personal original theme, specially designed for Siyuan notes.
 
+<img src="https://cdn.staticaly.com/gh/Achuan-2/PicBed@pic/assets/202306221442856.png" alt="">
+<center>Light</center>
+
+<img src="https://cdn.staticaly.com/gh/Achuan-2/PicBed@pic/assets/202306221441869.png" alt="">
+<center>Green</center>
+
+<img src="https://cdn.staticaly.com/gh/Achuan-2/PicBed@pic/assets/202306221442278.png" alt="">
+<center>Dark</center>
+
 ## 🚀 CHANGLOGS
 
 See [CHANGE_LOGS](./CHANGE_LOGS.md)
