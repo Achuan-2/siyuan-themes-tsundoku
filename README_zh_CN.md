@@ -19,6 +19,15 @@
 
 **简介**：[思源笔记(Siyuan)](https://github.com/siyuan-note/siyuan)是一款本地优先的个人知识管理系统，支持完全离线使用，同时也支持端到端加密同步。融合块、大纲和双向链接，构建你永恒的数字花园。本主题为个人原创主题，专为思源笔记设计。
 
+![](https://cdn.staticaly.com/gh/Achuan-2/PicBed@pic/assets/202306221442856.png)
+<center>Light 主题</center>
+
+![](https://cdn.staticaly.com/gh/Achuan-2/PicBed@pic/assets/202306221441869.png)
+<center>Green 主题</center>
+
+![](https://cdn.staticaly.com/gh/Achuan-2/PicBed@pic/assets/202306221442278.png)
+<center>Dark 主题</center>
+
 ## 🚀更新情况
 
 见[📃Tsundoku 主题更新日志](https://www.yuque.com/achuan-2/siyuan/bkq4s2)
