@@ -1770,20 +1770,6 @@ body
     color: var(--b3-theme-on-surface);
 }
 
-/* 导出代码块优化 */
-#preview.protyle-wysiwyg .code-block {
-    /* 背景色透明 */
-    background-color: #fff;
-    /* 边框颜色 */
-    border: 1.5px solid #7a7a7a;
-    box-shadow: none;
-    border-radius: 0 !important;
-}
-#preview.protyle-wysiwyg .hljs {
-    /* 背景色透明 */
-    background-color: #fff !important;
-    padding: 20px 10px 20px 26px !important;
-}
 /* 待改进：暂时全部隐藏 */
 #preview.protyle-wysiwyg .code-block .protyle-action {
     left: auto;
@@ -1792,6 +1778,20 @@ body
 }
 #preview.protyle-wysiwyg .code-block .protyle-action .protyle-action__language {
     opacity: 0;
+}
+/* 导出代码块优化 */
+[data-theme-mode="light"] #preview.protyle-wysiwyg:not(.export-img) .code-block {
+    /* 背景色透明 */
+    background-color: var(--b3-theme-background);
+    /* 边框颜色 */
+    border: 1.5px solid #7a7a7a;
+    box-shadow: none;
+    border-radius: 0 !important;
+}
+[data-theme-mode="light"] #preview.protyle-wysiwyg:not(.export-img) .hljs {
+    /* 背景色透明 */
+    background-color: var(--b3-theme-background) !important;
+    padding: 20px 10px 20px 26px !important;
 }
 
 /* 取消2.7.7 更新的待办列表完成样式 */
