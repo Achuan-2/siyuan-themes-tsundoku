@@ -789,9 +789,6 @@ div[data-subtype='t'][data-type='NodeList'] {
     border-left: 1px solid #a9cbaf;
 }
 
-.protyle-wysiwyg [data-node-id].hr > div {
-    border-bottom: 2px solid #97b19a75;
-}
 
 /* 搜索高亮 */
 .b3-list mark,
@@ -806,7 +803,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 /* 分割线 */
 
-.protyle-wysiwyg [data-node-id].hr > div,
+/* .protyle-wysiwyg [data-node-id].hr > div,
 .b3-typography hr {
     border-bottom: 2px dashed rgba(121, 132, 138, 0.46);
     text-align: center;
@@ -818,7 +815,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     width: 10px;
     height: 10px;
     visibility: visible;
-}
+} */
 .b3-typography hr {
     display: block;
     position: relative;
