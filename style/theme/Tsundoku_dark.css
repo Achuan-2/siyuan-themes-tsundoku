@@ -862,3 +862,6 @@ div[data-subtype='t'][data-type='NodeList'] {
 .pdf__toolbar {
     background-color: #0b1b2a;
 }
+::selection {
+    background-color: #84aef347;
+}
