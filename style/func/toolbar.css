@@ -26,7 +26,7 @@
 #buttonlight,
 #buttongreen,
 #buttondark {
-    /* height:32px; */
+    height:32px;
     margin: 0;
     border: 6px solid var(--b3-theme-background);
     border-bottom: 0;
