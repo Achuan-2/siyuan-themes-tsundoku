@@ -1,3 +1,10 @@
+## v1.7.7 / 2023.07.11 重构主题切换按钮
+
+-  ✨ 参考pinkroom主题，改善主题按钮 ( Fix https://github.com/Achuan-2/siyuan-themes-tsundoku/issues/81)
+-  💄 dark 主题分割线调亮
+-  💄 修改tooltips color和background (adapt to https://github.com/siyuan-note/siyuan/issues/8686)
+-  💄分割线样式修复 (Fix https://github.com/Achuan-2/siyuan-themes-tsundoku/issues/80)
+
 ## v1.7.6 / 2023.06.22
 - 💄 图片导出代码块优化：颜色适配light、green、dark主题；图片导出代码块样式跟随编辑样式，pdf导出代码块模仿latex样式
 - 📝  Readme添加三个主图的预览图
