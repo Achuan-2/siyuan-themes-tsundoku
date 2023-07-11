@@ -866,3 +866,9 @@ div[data-subtype='t'][data-type='NodeList'] {
 ::selection {
     background-color: #84aef347;
 } 
+
+/* 修改分割线 hr 颜色 */
+.protyle-wysiwyg [data-node-id].hr>div:after {
+    background-color: #5e829b;
+
+}
