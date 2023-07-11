@@ -78,7 +78,7 @@
 .protyle-wysiwyg .code-block .protyle-action__copy::after {
     opacity: 1;
     transform: unset;
-    margin: 0;
+    margin: -4px 0px;
     padding: 0;
     border: unset;
     border-radius: unset;
