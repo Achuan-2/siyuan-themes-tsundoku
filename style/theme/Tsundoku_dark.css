@@ -54,7 +54,8 @@
     /* 菜单 */
     --b3-menu-background: #16232f;
     /* 提示 */
-    --b3-tooltips-color: #07899d9f;
+    --b3-tooltips-color: var(--b3-theme-on-surface-light);
+    --b3-tooltips-background: #07899d9f;
 
     /* 卡片背景 */
     --b3-card-error-color: rgb(243, 153, 147);
@@ -492,7 +493,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 /* 设置/搜索弹窗的关闭按钮 */
 
 .b3-dialog__container .b3-dialog__close {
-    color: #44596b;
+    color: #aec0cf;
 }
 .b3-dialog__container svg:hover {
     color: var(--b3-menu-highlight-color);
@@ -864,4 +865,4 @@ div[data-subtype='t'][data-type='NodeList'] {
 }
 ::selection {
     background-color: #84aef347;
-}
+} 

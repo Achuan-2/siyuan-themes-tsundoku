@@ -61,7 +61,8 @@
     /* 菜单 */
     --b3-menu-background: #d5ead8;
     /* 提示 */
-    --b3-tooltips-color: rgba(16, 63, 44, 0.5);
+    --b3-tooltips-color: #fff;
+    --b3-tooltips-background: rgba(16, 63, 44, 0.5);
 
     /* 卡片背景 */
     --b3-card-error-color: rgb(97, 26, 21);
@@ -364,7 +365,6 @@ div[style='background-color: var(--b3-font-background13);'] {
     background-color: #66a9a37d !important;
     border-radius: 0.2em;
     opacity: 0.68;
-
 }
 .protyle-wysiwyg [data-subtype='u'].li[fold='1'] > .protyle-action {
     /* 小圆点 */
@@ -560,7 +560,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 /* 设置/搜索弹窗的关闭按钮 */
 
 .b3-dialog__container .b3-dialog__close {
-    color: #a1adbc;
+    color: #58a16f;
 }
 .b3-dialog__container svg:hover {
     color: var(--b3-menu-highlight-color);
@@ -572,7 +572,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     transition: all 0.1s ease-in-out;
 }
 .b3-dialog__container .b3-dialog__close:hover {
-    color: var(--b3-theme-surface);
+    color: #2bb176;
 }
 .block__popover--open .fn__flex-column .protyle-wysiwyg {
     /* 块引用预览背景颜色 */
@@ -789,7 +789,6 @@ div[data-subtype='t'][data-type='NodeList'] {
     border-left: 1px solid #a9cbaf;
 }
 
-
 /* 搜索高亮 */
 .b3-list mark,
 .protyle-wysiwyg [data-node-id] span[data-type='search-mark'] {
@@ -893,7 +892,6 @@ div[data-subtype='t'][data-type='NodeList'] {
     border-bottom: 2px solid var(--b3-font-color1);
 }
 
-
 .tooltip--memo {
     border-top: 3px solid #fff001;
     background-color: #fffccf;
@@ -907,9 +905,8 @@ div[data-subtype='t'][data-type='NodeList'] {
     background-color: var(--b3-toolbar-background);
 }
 
-
-#notionToolbar .toolbar__item:hover{
-	background-color: #b1cfb5;
+#notionToolbar .toolbar__item:hover {
+    background-color: #b1cfb5;
 }
 
 /* 光标选中文本样式 */

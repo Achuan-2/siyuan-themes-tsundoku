@@ -84,7 +84,7 @@
     /* 菜单 */
     --b3-menu-background: #fff;
     /* 提示 */
-    --b3-tooltips-color: var(--b3-theme-background-light);
+    --b3-tooltips-color: #fff;
     --b3-tooltips-background: #335c7396;
 
     /* 卡片背景 */
@@ -652,7 +652,7 @@ mark {
     color: var(--b3-protyle-inline-mark-color);
 }
 
-.protyle-wysiwyg span[data-type~=mark]{
+.protyle-wysiwyg span[data-type~='mark'] {
     color: var(--b3-protyle-inline-mark-color);
     transition: color 0.2s ease-in-out;
     background-color: var(--b3-card-success-background);
@@ -944,7 +944,7 @@ body > #action {
 } */
 
 /* 导出的高亮样式：高亮不隐藏 */
-#preview.protyle-wysiwyg span[data-type~='mark']{
+#preview.protyle-wysiwyg span[data-type~='mark'] {
     color: var(--b3-protyle-inline-mark-color);
     transition: color 0.2s ease-in-out;
     background-color: var(--b3-card-success-background);
@@ -1296,9 +1296,9 @@ body > div#action {
 }
 
 .b3-typography span[data-type='em'],
-.protyle-wysiwyg span[data-type='em']{
-/* .protyle-wysiwyg span[data-type='strong'], */
-/* .b3-typography span[data-type='strong'] { */
+.protyle-wysiwyg span[data-type='em'] {
+    /* .protyle-wysiwyg span[data-type='strong'], */
+    /* .b3-typography span[data-type='strong'] { */
     color: inherit;
 }
 
@@ -1307,8 +1307,6 @@ body > div#action {
     color: inherit !important;
     opacity: 0.5;
 }
-
-
 
 /* 修复一些按钮出现滚轮 */
 .b3-label .fn__flex-1 {
@@ -1551,7 +1549,10 @@ body
 /* 设置/搜索弹窗的关闭按钮 */
 
 .b3-dialog__container .b3-dialog__close {
-    color: #a1adbc;
+    color: #8493a6;
+}
+.b3-dialog__container .b3-dialog__close:hover {
+    color: #225494;
 }
 .b3-dialog__container svg:hover {
     color: var(--b3-menu-highlight-color);
@@ -1562,9 +1563,7 @@ body
 .b3-dialog__container svg {
     transition: all 0.1s ease-in-out;
 }
-.b3-dialog__container .b3-dialog__close:hover {
-    color: #f3f7f8;
-}
+
 .block__popover--open .fn__flex-column .protyle-wysiwyg {
     /* 块引用预览背景颜色 */
     background-color: #f3f7f8;
@@ -1781,7 +1780,7 @@ body
     opacity: 0;
 }
 /* 导出代码块优化 */
-[data-theme-mode="light"] #preview.protyle-wysiwyg:not(.export-img) .code-block {
+[data-theme-mode='light'] #preview.protyle-wysiwyg:not(.export-img) .code-block {
     /* 背景色透明 */
     background-color: var(--b3-theme-background);
     /* 边框颜色 */
@@ -1789,7 +1788,7 @@ body
     box-shadow: none;
     border-radius: 0 !important;
 }
-[data-theme-mode="light"] #preview.protyle-wysiwyg:not(.export-img) .hljs {
+[data-theme-mode='light'] #preview.protyle-wysiwyg:not(.export-img) .hljs {
     /* 背景色透明 */
     background-color: var(--b3-theme-background) !important;
     padding: 20px 10px 20px 26px !important;
@@ -1833,7 +1832,6 @@ body
 .b3-dialog__container .b3-list-item {
     padding: 4px 4px;
 }
-
 
 #custom-toolbar-more {
     display: none;
