@@ -1,7 +1,11 @@
+## v1.7.8 / 2023.07.30 
+
+- 💄 优化代码块复制按钮：更改回默认
+- 💄优化消息提示背景色
+
 ## v1.7.7 / 2023.07.11 重构主题切换按钮
 
 -  ✨ 参考pinkroom主题，改善主题按钮 ( Fix https://github.com/Achuan-2/siyuan-themes-tsundoku/issues/81)
--  💄 dark 主题分割线调亮
 -  💄 修改tooltips color和background (adapt to https://github.com/siyuan-note/siyuan/issues/8686)
 -  💄分割线样式修复 (Fix https://github.com/Achuan-2/siyuan-themes-tsundoku/issues/80)
 
