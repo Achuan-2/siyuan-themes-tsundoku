@@ -30,7 +30,7 @@
 
 ## 🚀更新情况
 
-见[📃Tsundoku 主题更新日志](https://www.yuque.com/achuan-2/siyuan/bkq4s2)
+见 [CHANGE_LOGS](./CHANGE_LOGS.md)
 
 
 ## 💌 缘起
