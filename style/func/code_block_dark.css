@@ -65,7 +65,7 @@
     background-color: var(--custom-code-background);
 }
 /* 代码复制按钮和菜单 */
-.protyle-wysiwyg .code-block .protyle-action__copy {
+/* .protyle-wysiwyg .code-block .protyle-action__copy {
     display: inline-flex;
     width: auto;
 }
@@ -97,7 +97,7 @@
 }
 .protyle-wysiwyg .code-block .protyle-action__copy::after {
     content: 'Copy';
-}
+} */
 .protyle-wysiwyg .code-block .protyle-action__copy,
 .protyle-wysiwyg .code-block .protyle-action__menu {
     background-color: var(--custom-code-background);

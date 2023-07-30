@@ -1,5 +1,5 @@
 :root {
-    --custom-code-background: #3b4f5b61;
+    --custom-code-background: #a3acb0;
     --custom-code-hover: #5f7b8c;
 }
 /* 代码块 */
@@ -63,7 +63,7 @@
     background-color: var(--custom-code-background);
 }
 /* 代码复制按钮和菜单 */
-.protyle-wysiwyg .code-block .protyle-action__copy {
+/* .protyle-wysiwyg .code-block .protyle-action__copy {
     display: inline-flex;
     width: auto;
 }
@@ -74,8 +74,8 @@
     padding: 0px 0px;
     margin: auto 0;
     margin-right: 6px;
-}
-.protyle-wysiwyg .code-block .protyle-action__copy::after {
+} */
+/* .protyle-wysiwyg .code-block .protyle-action__copy::after {
     opacity: 1;
     transform: unset;
     margin: -4px 0px;
@@ -92,10 +92,10 @@
     font-size: 11px;
     position: unset;
     z-index: 0;
-}
-.protyle-wysiwyg .code-block .protyle-action__copy::after {
+} */
+/* .protyle-wysiwyg .code-block .protyle-action__copy::after {
     content: 'Copy';
-}
+} */
 .protyle-wysiwyg .code-block .protyle-action__copy,
 .protyle-wysiwyg .code-block .protyle-action__menu {
     background-color: var(--custom-code-background);
