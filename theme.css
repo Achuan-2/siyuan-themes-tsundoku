@@ -1471,7 +1471,7 @@ body
 
 /* 警告 */
 .b3-snackbar--error {
-    background-color: var(--b3-theme-error);
+    /* background-color: var(--b3-theme-error); */
     color: var(--b3-theme-on-error);
 }
 
