@@ -213,7 +213,7 @@ span[data-type='text'][style='background-color: var(--b3-font-background13);'] {
     background-color: #16232f;
 }
 
-.block__icons {
+.fn__flex-1.fn__flex-column>.block__icons {
     background-color: #041f29 !important;
 }
 
@@ -674,7 +674,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 }
 
 /* 区分侧栏聚焦和未聚焦状态 */
-.block__icons--active {
+.fn__flex-1.fn__flex-column>.block__icons--active {
     background-color: rgba(63, 103, 136, 0.12) !important;
 }
 

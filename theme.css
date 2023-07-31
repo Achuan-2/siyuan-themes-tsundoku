@@ -985,14 +985,11 @@ body {
 .layout-tab-container {
     background-color: #fff;
 }
-.block__icons {
-    /* box-shadow: rgb(0 0 0 / 30%) 0px 1px 2px; */
+.fn__flex-1.fn__flex-column>.block__icons {
     background-color: #d5dde2;
 }
 
-.block__icons {
-    background-color: #d5dde2 !important;
-}
+
 /* 工具栏样式 */
 .protyle-toolbar {
     background-color: rgb(235 239 243);
@@ -1743,7 +1740,7 @@ body
 }
 
 /* 区分侧栏聚焦和未聚焦状态 */
-.block__icons--active {
+.fn__flex-1.fn__flex-column> .block__icons--active {
     background-color: #c0d0daf8 !important;
 }
 
