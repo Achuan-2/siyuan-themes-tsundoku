@@ -677,6 +677,9 @@ span[data-type='strong'] {
     border-bottom: 1px dashed var(--b3-protyle-inline-blockref-hover-color); /*下划线可以去掉*/
 }
 
+
+
+
 /* 块引用悬浮动画 */
 .block__popover.block__popover--move.block__popover--open {
     animation: showBlock 0.4s ease;
@@ -794,6 +797,7 @@ li[data-type='navigation-file'] .counter {
 }
 
 /*  ------------------------------超链接 ------------------------------ */
+
 .protyle-wysiwyg [data-node-id] span[data-type~='a'] {
     color: var(--b3-protyle-inline-link-color);
     cursor: pointer;
@@ -985,8 +989,11 @@ body {
 .layout-tab-container {
     background-color: #fff;
 }
-.fn__flex-1.fn__flex-column>.block__icons {
+.block__icons {
     background-color: #d5dde2;
+}
+[data-type="NodeAttributeView"] .block__icons {
+    background-color: transparent !important;
 }
 
 
@@ -1740,7 +1747,7 @@ body
 }
 
 /* 区分侧栏聚焦和未聚焦状态 */
-.fn__flex-1.fn__flex-column> .block__icons--active {
+ .block__icons--active {
     background-color: #c0d0daf8 !important;
 }
 
@@ -1832,4 +1839,11 @@ body
 
 #custom-toolbar-more {
     display: none;
+}
+
+
+/* 图片导出 */
+/* 超链接添加下划线 */
+.export-img.protyle-wysiwyg a{
+        border-bottom: 1px solid var(--b3-protyle-inline-blockref-color);
 }

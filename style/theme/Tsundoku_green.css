@@ -211,7 +211,7 @@ body {
 .search__header .b3-text-field--text,
 /* .b3-typography .code-block, */
 .layout-tab-container,
-.fn__flex-1.fn__flex-column>.block__icons,
+.block__icons,
 .dock,
 .toolbar,
 .layout-tab-bar,
@@ -271,7 +271,7 @@ div[style='background-color: var(--b3-font-background13);'] {
     /* background-color: #c3ddc7af ; */
 }
 
-.fn__flex-1.fn__flex-column>.block__icons {
+.block__icons {
     background-color: #a7caad94 !important;
 }
 
@@ -767,7 +767,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 }
 
 /* 区分侧栏聚焦和未聚焦状态 */
-.fn__flex-1.fn__flex-column>.block__icons--active {
+.block__icons--active {
     background-color: rgb(152 188 168 / 71%) !important;
 }
 

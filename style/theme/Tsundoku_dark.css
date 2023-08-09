@@ -213,9 +213,11 @@ span[data-type='text'][style='background-color: var(--b3-font-background13);'] {
     background-color: #16232f;
 }
 
-.fn__flex-1.fn__flex-column>.block__icons {
+.block__icons {
     background-color: #041f29 !important;
 }
+
+
 
 /* 搜索项页面名称背景 */
 .spread-search__path {
