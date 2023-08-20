@@ -466,20 +466,12 @@
 }
 /* 图片大小调整手柄 */
 .protyle-wysiwyg [data-node-id] .img .protyle-action__drag {
-    width: 7px;
     height: 50%;
-    background: #b4d9f0;
-    border-radius: 3px;
-    right: -1px;
-    box-shadow: 0 0 2px #415f86;
     top: 25%;
-    opacity: 0.5;
+    background: var(--b3-theme-surface);
 }
-.protyle-wysiwyg [data-node-id] .img .protyle-action__drag:hover {
-    background-color: #b4d9f0;
-    border-left: 2px solid #184563b5;
-    box-shadow: 0 0 2px #415f86;
-}
+
+
 /*  ------------------------------列表 ------------------------------ */
 /* 调整列表间距 */
 .protyle .li {

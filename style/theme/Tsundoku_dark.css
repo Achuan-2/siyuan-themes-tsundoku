@@ -551,18 +551,10 @@ div[data-subtype='t'][data-type='NodeList'] {
 /* 图片大小调整手柄 */
 .protyle-wysiwyg [data-node-id] .img .protyle-action__drag {
     height: 50%;
-    width: 7px;
     background: #5dd3bf;
-    border-radius: 3px;
     top: 25%;
-    border: 1px solid #000000;
-    /* opacity:0.5; */
 }
-.protyle-wysiwyg [data-node-id] .img .protyle-action__drag:hover {
-    background-color: #f5dcad;
-    box-shadow: 0 0 2px #415f86;
-    border-left: 2px solid #000000b5;
-}
+
 
 /* 调整kbd */
 .b3-typography kbd,
