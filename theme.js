@@ -775,18 +775,4 @@ setTimeout(() => {
     create_theme_button();
 }, 0);
 
-/* 加载 Dark+ 主题功能 */
-window.theme.loadScript('/appearance/themes/Tsundoku/script/module/html.js', 'text/javascript');
 
-window.theme.loadScript('/appearance/themes/Tsundoku/script/module/window.js');
-window.theme.loadScript('/appearance/themes/Tsundoku/script/module/doc.js');
-window.theme.loadScript(
-    window.theme.addURLParam('/appearance/themes/Tsundoku/script/module/goto.js'),
-    undefined,
-    true
-);
-window.theme.loadScript(
-    window.theme.addURLParam('/appearance/themes/Tsundoku/script/module/menu.js'),
-    undefined,
-    true
-);
