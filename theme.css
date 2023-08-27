@@ -1841,3 +1841,9 @@ body
 .export-img.protyle-wysiwyg a {
     border-bottom: 1px solid var(--b3-protyle-inline-blockref-color);
 }
+
+
+/* 退出聚焦按钮添加背景色 */
+.protyle-breadcrumb__icon[data-type="exit-focus"]{
+    background-color: var(--b3-card-success-background);
+}
