@@ -471,7 +471,6 @@
     background: var(--b3-theme-surface);
 }
 
-
 /*  ------------------------------列表 ------------------------------ */
 /* 调整列表间距 */
 .protyle .li {
@@ -669,8 +668,13 @@ span[data-type='strong'] {
     border-bottom: 1px dashed var(--b3-protyle-inline-blockref-hover-color); /*下划线可以去掉*/
 }
 
-
-
+/* 块引用前后添加[[ ]] */
+.protyle-wysiwyg [data-node-id] span[data-type~='block-ref']::before {
+    content: '[[';
+}
+.protyle-wysiwyg [data-node-id] span[data-type~='block-ref']::after {
+    content: ']]';
+}
 
 /* 块引用悬浮动画 */
 .block__popover.block__popover--move.block__popover--open {
@@ -984,10 +988,9 @@ body {
 .block__icons {
     background-color: #d5dde2;
 }
-[data-type="NodeAttributeView"] .block__icons {
+[data-type='NodeAttributeView'] .block__icons {
     background-color: transparent !important;
 }
-
 
 /* 工具栏样式 */
 .protyle-toolbar {
@@ -1739,7 +1742,7 @@ body
 }
 
 /* 区分侧栏聚焦和未聚焦状态 */
- .block__icons--active {
+.block__icons--active {
     background-color: #c0d0daf8 !important;
 }
 
@@ -1833,12 +1836,8 @@ body
     display: none;
 }
 
-
 /* 图片导出 */
 /* 超链接添加下划线 */
-.export-img.protyle-wysiwyg a{
-        border-bottom: 1px solid var(--b3-protyle-inline-blockref-color);
+.export-img.protyle-wysiwyg a {
+    border-bottom: 1px solid var(--b3-protyle-inline-blockref-color);
 }
-
-
-
