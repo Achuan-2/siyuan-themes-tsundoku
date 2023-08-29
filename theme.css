@@ -1849,3 +1849,7 @@ body
     background-color: var(--b3-card-success-background);
 }
 
+/* 调整反链面板颜色 */
+.protyle-wysiwyg [data-node-id] .def--mark {
+    background-color: var(--b3-card-success-background);
+}
