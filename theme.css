@@ -668,13 +668,15 @@ span[data-type='strong'] {
     border-bottom: 1px dashed var(--b3-protyle-inline-blockref-hover-color); /*下划线可以去掉*/
 }
 
-/* 块引用前后添加[[ ]] */
-.protyle-wysiwyg [data-node-id] span[data-type~='block-ref']::before {
-    content: '[[';
+/* 块引用前后添加符号 */
+/* .protyle-wysiwyg [data-node-id] span[data-type~='block-ref']::before {
+    content: '⸢';
+    color: var(---b3-font-color3);
 }
 .protyle-wysiwyg [data-node-id] span[data-type~='block-ref']::after {
-    content: ']]';
-}
+    content: '⸥';
+    color: var(---b3-font-color3);
+} */
 
 /* 块引用悬浮动画 */
 .block__popover.block__popover--move.block__popover--open {
@@ -1842,8 +1844,8 @@ body
     border-bottom: 1px solid var(--b3-protyle-inline-blockref-color);
 }
 
-
 /* 退出聚焦按钮添加背景色 */
-.protyle-breadcrumb__icon[data-type="exit-focus"]{
+.protyle-breadcrumb__icon[data-type='exit-focus'] {
     background-color: var(--b3-card-success-background);
 }
+
