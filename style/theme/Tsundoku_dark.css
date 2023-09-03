@@ -866,3 +866,10 @@ div[data-subtype='t'][data-type='NodeList'] {
     background-color: #5e829b;
 
 }
+
+
+/* dark 主题图片背景设置为白色，防止透明图片难以看清内容 */
+.b3-typography img, .protyle-wysiwyg img {
+    max-width: 100%;
+    background-color: #fff;
+}
