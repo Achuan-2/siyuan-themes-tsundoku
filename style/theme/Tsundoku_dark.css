@@ -54,12 +54,12 @@
     /* 菜单 */
     --b3-menu-background: #041f29;
     /* 提示 */
-    --b3-tooltips-color: var(--b3-theme-on-surface-light);
+    --b3-tooltips-color: #f5f4f4;
     --b3-tooltips-background: #07899d9f;
 
     /* 卡片背景 */
-    --b3-card-error-color: rgb(243, 153, 147);
-    --b3-card-error-background: #cc352d3d;
+    --b3-card-error-color: #fda8a2;
+    --b3-card-error-background: #ec777163;
     --b3-card-warning-color: rgb(255, 213, 153);
     --b3-card-warning-background: #be8b585d;
     --b3-card-info-color: rgb(166, 213, 250);
@@ -72,16 +72,16 @@
     --b3-font-color2: var(--b3-card-warning-color);
     --b3-font-color3: #7ac4ff;
     --b3-font-color4: #9bfbb7;
-    --b3-font-color5: var(--b3-theme-on-surface);
+    --b3-font-color5: #b4b4b4;
     --b3-font-color6: #6cf9ee;
     --b3-font-color7: var(--b3-theme-secondary);
     --b3-font-color8: #eb5042;
-    --b3-font-color9: #899fff;
+    --b3-font-color9: #0d0d0f;
     --b3-font-color10: #ca98ff;
     --b3-font-color11: #d90ec5;
     --b3-font-color12: #f5822e;
     --b3-font-color13: var(--b3-theme-background);
-    --b3-font-background1: #ff8f89c9;
+    --b3-font-background1: #ff8f8999;
     --b3-font-background2: #e5aa57c0;
     --b3-font-background3: rgba(54, 171, 248, 0.521);
     --b3-font-background4: #8fe7b277;
@@ -217,8 +217,6 @@ span[data-type='text'][style='background-color: var(--b3-font-background13);'] {
     background-color: #041f29 !important;
 }
 
-
-
 /* 搜索项页面名称背景 */
 .spread-search__path {
     padding: 8px 16px;
@@ -296,7 +294,6 @@ span[data-type='text'][style='background-color: var(--b3-font-background13);'] {
     background-color: #3072d687 !important;
     border-radius: 0.2em;
     opacity: 0.68;
-
 }
 .protyle-wysiwyg [data-subtype='u'].li[fold='1'] > .protyle-action {
     /* 小圆点 */
@@ -473,7 +470,6 @@ div[data-subtype='t'][data-type='NodeList'] {
     background-color: rgba(65, 91, 117, 0.62) !important;
 }
 
-
 /* 设置/搜索弹窗的链接 */
 .b3-dialog__container a {
     outline: 0;
@@ -554,7 +550,6 @@ div[data-subtype='t'][data-type='NodeList'] {
     background: #5dd3bf;
     top: 25%;
 }
-
 
 /* 调整kbd */
 .b3-typography kbd,
@@ -668,7 +663,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 }
 
 /* 区分侧栏聚焦和未聚焦状态 */
-.fn__flex-1.fn__flex-column>.block__icons--active {
+.fn__flex-1.fn__flex-column > .block__icons--active {
     background-color: rgba(63, 103, 136, 0.12) !important;
 }
 
@@ -709,7 +704,6 @@ div[data-subtype='t'][data-type='NodeList'] {
     border-left: 1px solid #4f565e;
     width: 0.95px;
 }
-
 
 /* emoji选中背景 */
 .emojis__item--current {
@@ -804,7 +798,6 @@ div[data-subtype='t'][data-type='NodeList'] {
     border-bottom: 2px solid var(--b3-font-color2);
 }
 
-
 .tooltip--memo {
     border-top: 3px solid #fff001;
     background-color: #616963;
@@ -814,17 +807,15 @@ div[data-subtype='t'][data-type='NodeList'] {
     min-width: 100px;
 }
 
-
-#notionToolbar{
-	width:26px;
-	height:26px;
-	margin:4px 0px 4px 0px;
-	border-radius:3px;
-	overflow:hidden;
-	background: url("/appearance/themes/Tsundoku/src/theme/setting_dark.svg") no-repeat center; 
+#notionToolbar {
+    width: 26px;
+    height: 26px;
+    margin: 4px 0px 4px 0px;
+    border-radius: 3px;
+    overflow: hidden;
+    background: url('/appearance/themes/Tsundoku/src/theme/setting_dark.svg') no-repeat center;
     z-index: 999;
 }
-
 
 #sidebarHoverButton {
     background-image: url(/appearance/themes/Tsundoku/src/theme/sidebar_dark.svg) !important;
@@ -834,22 +825,20 @@ div[data-subtype='t'][data-type='NodeList'] {
     background-image: url(/appearance/themes/Tsundoku/src/theme/highlight_dark.svg) !important;
 }
 
-
 #calendarPanel {
-    background-color: #fff!important;
+    background-color: #fff !important;
     filter: hue-rotate(180deg) invert(90%);
-    box-shadow: none!important;
+    box-shadow: none !important;
 }
-
 
 /* 选项栏背景色 */
 .b3-select {
     background-color: #2e424e;
 }
 
-
 /* 折叠的有序列表调亮 */
-.li[data-subtype="o"][fold="1"] .protyle-action--order, .li[data-subtype="o"][fold="1"] .protyle-action:after {
+.li[data-subtype='o'][fold='1'] .protyle-action--order,
+.li[data-subtype='o'][fold='1'] .protyle-action:after {
     color: #a0b1c6 !important;
 }
 
@@ -859,17 +848,16 @@ div[data-subtype='t'][data-type='NodeList'] {
 }
 ::selection {
     background-color: #84aef347;
-} 
-
-/* 修改分割线 hr 颜色 */
-.protyle-wysiwyg [data-node-id].hr>div:after {
-    background-color: #5e829b;
-
 }
 
+/* 修改分割线 hr 颜色 */
+.protyle-wysiwyg [data-node-id].hr > div:after {
+    background-color: #5e829b;
+}
 
 /* dark 主题图片背景设置为白色，防止透明图片难以看清内容 */
-.b3-typography img, .protyle-wysiwyg img {
+.b3-typography img,
+.protyle-wysiwyg img {
     max-width: 100%;
     background-color: #fff;
 }
