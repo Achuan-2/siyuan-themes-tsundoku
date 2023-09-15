@@ -2,43 +2,48 @@
 
 .protyle-wysiwyg [data-node-id] span[data-type~='a']:not(:empty)::before,
 .b3-typography a::before,
-.protyle-wysiwyg [data-node-id] a::before{
+.protyle-wysiwyg [data-node-id] a::before {
     display: inline-block;
     position: relative;
     background-repeat: no-repeat;
     background-size: 1.1em 1.1em;
     top: 0.2em;
-    width:1.1em;
+    width: 1.1em;
     height: 1.1em;
     margin-right: 0.2em;
 }
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href^="siyuan://"],
 .protyle-wysiwyg [data-node-id] a[href^="siyuan://"],
-.b3-typography a[href^="siyuan://"] {
+.b3-typography a[href^="siyuan://"]
+{
     color: var(--b3-protyle-inline-blockref-color) !important;
 }
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href^="es://"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href^="es://"]::before,
-.b3-typography a[href^="es://"]::before{
-    content: "";
+.b3-typography a[href^="es://"]::before
+{
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/everything.svg') !important;
 }
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href^="zotero://"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href^="zotero://"]::before,
-.b3-typography a[href^="zotero://"]::before{
-    content: "";
+.b3-typography a[href^="zotero://"]::before
+{
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/zotero.ico') !important;
 }
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href^="bookxnotepro://"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href^="bookxnotepro://"]::before,
-.b3-typography a[href^="bookxnotepro://"]::before{
-    content: "";
+.b3-typography a[href^="bookxnotepro://"]::before
+{
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/bookxnote.ico') !important;
 }
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href^="file://"][data-href $="/"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href^="file://"][data-href $="/"]::before,
-.b3-typography a[href^="file://"][data-href $="/"]::before{
-    content: "";
+.b3-typography a[href^="file://"][data-href $="/"]::before
+{
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/folder.svg') !important;
     opacity: 0.9;
     background-size: 1.2em 1.2em;
@@ -49,15 +54,16 @@
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="assets/"]:not(:empty)::before,
 .b3-typography a[href ^="assets/"]::before,
 .protyle-wysiwyg [data-node-id] a[href^="http://127.0.0.1:6806/assets/"]::before,
-.protyle-wysiwyg [data-node-id] a[href^="assets/"]::before{
-    content: "";
+.protyle-wysiwyg [data-node-id] a[href^="assets/"]::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/unknown.svg') !important;
 }
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="assets"][data-href $="/"]:not(:empty)::before,
 .b3-typography a[href ^="assets"][href $="/"]::before,
 .protyle-wysiwyg [data-node-id] a[href^="assets/"][href $="/"]::before,
-.protyle-wysiwyg [data-node-id] a[href^="http://127.0.0.1:6806/assets/"][href $="/"]::before{
-    content: "";
+.protyle-wysiwyg [data-node-id] a[href^="http://127.0.0.1:6806/assets/"][href $="/"]::before
+{
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/assets.svg') !important;
 }
 
@@ -90,8 +96,9 @@
 .b3-typography a[href ^="file://"][href $=".rar"]::before,
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="file://"][data-href $=".gz"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="file://"][href $=".gz"]::before,
-.b3-typography a[href ^="file://"][href $=".gz"]::before{
-    content: "";
+.b3-typography a[href ^="file://"][href $=".gz"]::before
+{
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/compress.svg') !important;
 }
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="assets/"][data-href $=".pdf"]:not(:empty)::before,
@@ -99,8 +106,9 @@
 .b3-typography a[href ^="assets/"][href $=".pdf"]::before,
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="file://"][data-href $=".pdf"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="file://"][href $=".pdf"]::before,
-.b3-typography [href ^="file://"][href $=".pdf"]::before{
-    content: "";
+.b3-typography [href ^="file://"][href $=".pdf"]::before
+{
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/pdf.svg') !important;
 }
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="assets/"][data-href $=".mp4"]:not(:empty)::before,
@@ -120,8 +128,9 @@
 .b3-typography [href ^="file://"][href $=".flv"]::before,
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="file://"][data-href $=".mkv"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="file://"][href $=".mkv"]::before,
-.b3-typography [href ^="file://"][href $=".mkv"]::before {
-    content: "";
+.b3-typography [href ^="file://"][href $=".mkv"]::before
+{
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/videos.svg') !important;
 }
 
@@ -136,9 +145,10 @@
 .b3-typography [href ^="file://"][href $=".xlsx"]::before,
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="file://"][data-href $=".xls"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="file://"][href $=".xls"]::before,
-.b3-typography [href ^="file://"][href $=".xls"]::before{
-    content: "";
-    background-image: url('/appearance/themes/Tsundoku/src/link_icon/excel_icon.svg')  !important;
+.b3-typography [href ^="file://"][href $=".xls"]::before
+{
+    content: '';
+    background-image: url('/appearance/themes/Tsundoku/src/link_icon/excel_icon.svg') !important;
 }
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="assets/"][data-href $=".pptx"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".pptx"]::before,
@@ -151,8 +161,9 @@
 .b3-typography [href ^="file://"][href $=".pptx"]::before,
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="file://"][data-href $=".ppt"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="file://"][href $=".ppt"]::before,
-.b3-typography [href ^="file://"][href $=".ppt"]::before{
-    content: "";
+.b3-typography [href ^="file://"][href $=".ppt"]::before
+{
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/powerpoint_icon.svg') !important;
 }
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="assets/"][data-href $=".docx"]:not(:empty)::before,
@@ -166,8 +177,9 @@
 .b3-typography [href ^="file://"][href $=".docx"]::before,
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="file://"][data-href $=".doc"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="file://"][href $=".doc"]::before,
-.b3-typography [href ^="file://"][href $=".doc"]::before{
-    content: "";
+.b3-typography [href ^="file://"][href $=".doc"]::before
+{
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/word_icon.svg') !important;
 }
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="assets/"][data-href $=".txt"]:not(:empty)::before,
@@ -175,8 +187,9 @@
 .b3-typography a[href ^="assets/"][href $=".txt"]::before,
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="file://"][data-href $=".txt"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="file://"][href $=".txt"]::before,
-.b3-typography [href ^="file://"][href $=".txt"]::before{
-    content: "";
+.b3-typography [href ^="file://"][href $=".txt"]::before
+{
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/txt.svg') !important;
 }
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="assets/"][data-href $=".py"]:not(:empty)::before,
@@ -184,8 +197,9 @@
 .b3-typography a[href ^="assets/"][href $=".py"]::before,
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="file://"][data-href $=".py"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="file://"][href $=".py"]::before,
-.b3-typography [href ^="file://"][href $=".py"]::before{
-    content: "";
+.b3-typography [href ^="file://"][href $=".py"]::before
+{
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/python_icon.svg') !important;
 }
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="assets/"][data-href $=".R"]:not(:empty)::before,
@@ -199,8 +213,9 @@
 .b3-typography [href ^="file://"][href $=".R"]::before,
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="file://"][data-href $=".r"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="file://"][href $=".r"]::before,
-.b3-typography [href ^="file://"][href $=".r"]::before{
-    content: "";
+.b3-typography [href ^="file://"][href $=".r"]::before
+{
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/r_lang.svg') !important;
 }
 
@@ -209,8 +224,9 @@
 .b3-typography a[href ^="assets/"][href $=".js"]::before,
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="file://"][data-href $=".js"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="file://"][href $=".js"]::before,
-.b3-typography [href ^="file://"][href $=".js"]::before{
-    content: "";
+.b3-typography [href ^="file://"][href $=".js"]::before
+{
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/js.svg') !important;
 }
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="assets/"][data-href $=".html"]:not(:empty)::before,
@@ -218,8 +234,9 @@
 .b3-typography a[href ^="assets/"][href $=".html"]::before,
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="file://"][data-href $=".html"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="file://"][href $=".html"]::before,
-.b3-typography [href ^="file://"][href $=".html"]::before{
-    content: "";
+.b3-typography [href ^="file://"][href $=".html"]::before
+{
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/html.svg') !important;
 }
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="assets/"][data-href $=".css"]:not(:empty)::before,
@@ -227,8 +244,9 @@
 .b3-typography a[href ^="assets/"][href $=".css"]::before,
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="file://"][data-href $=".css"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="file://"][href $=".css"]::before,
-.b3-typography [href ^="file://"][href $=".css"]::before{
-    content: "";
+.b3-typography [href ^="file://"][href $=".css"]::before
+{
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/css.svg') !important;
 }
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="assets/"][data-href $=".md"]:not(:empty)::before,
@@ -236,850 +254,829 @@
 .b3-typography a[href ^="assets/"][href $=".md"]::before,
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="file://"][data-href $=".md"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="file://"][href $=".md"]::before,
-.b3-typography [href ^="file://"][href $=".md"]::before{
-    content: "";
-    background-image: url('/appearance/themes/Tsundoku/src/link_icon/logo-markdown.svg')  !important;
+.b3-typography [href ^="file://"][href $=".md"]::before
+{
+    content: '';
+    background-image: url('/appearance/themes/Tsundoku/src/link_icon/logo-markdown.svg') !important;
 }
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="assets/"][data-href $=".ipynb"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="assets/"][href $=".ipynb"]::before,
 .b3-typography a[href ^="assets/"][href $=".ipynb"]::before,
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="file://"][data-href $=".ipynb"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="file://"][href $=".ipynb"]::before,
-.b3-typography [href ^="file://"][href $=".ipynb"]::before{
-    content: "";
+.b3-typography [href ^="file://"][href $=".ipynb"]::before
+{
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/jupyter.svg') !important;
 }
 
-.protyle-wysiwyg [data-node-id] span[data-type="a"][data-href^="备注"],
-.protyle-wysiwyg [data-node-id] a[href^="备注"],
-.b3-typography [href ^="备注"],
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="note"],
-.protyle-wysiwyg [data-node-id] a[href ^="note"],
-.b3-typography [href ^="note"]{
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href^='备注'],
+.protyle-wysiwyg [data-node-id] a[href^='备注'],
+.b3-typography [href^='备注'],
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href^='note'],
+.protyle-wysiwyg [data-node-id] a[href^='note'],
+.b3-typography [href^='note'] {
     background-color: var(--b3-card-warning-background);
     border-bottom: 2px solid var(--b3-font-color2);
     color: inherit;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="http"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href ^="http"]::before,
-.b3-typography a[href ^="http"]::before{
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href^='http']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href^='http']::before,
+.b3-typography a[href^='http']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/net2.svg');
 }
 
-
-
-
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="cnblogs.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="cnblogs.com"]::before,
-.b3-typography a[href *="cnblogs.com"]::before{
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='cnblogs.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='cnblogs.com']::before,
+.b3-typography a[href*='cnblogs.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/cnblogs.ico') !important;
-
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="b23.tv"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="b23.tv"]::before,
-.b3-typography a[href *="b23.tv"]::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="bilibili.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="bilibili.com"]::before,
-.b3-typography a[href *="bilibili.com"]::before{
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='b23.tv']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='b23.tv']::before,
+.b3-typography a[href*='b23.tv']::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='bilibili.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='bilibili.com']::before,
+.b3-typography a[href*='bilibili.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/bilibili.svg') !important;
-
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="zhihu.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="zhihu.com"]::before,
-.b3-typography a[href *="zhihu.com"]::before{
-
-    content: "";
-    background-image: url('/appearance/themes/Tsundoku/src/link_icon/zhihu.svg') !important;
-
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='zhihu.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='zhihu.com']::before,
+.b3-typography a[href*='zhihu.com']::before {
+    content: '';
+    background-image: url('/appearance/themes/Tsundoku/src/link_icon/zhihu.ico') !important;
 }
 
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="microsoft.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="microsoft.com"]::before,
-.b3-typography a[href *="microsoft.com"]::before{
-
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type~='a'][data-href*='microsoft.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='microsoft.com']::before,
+.b3-typography a[href*='microsoft.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/microsoft.svg') !important;
 }
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="https://ld246.com"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="https://ld246.com"]::before,
-.b3-typography a[href ^="https://ld246.com"]::before{
-
-    content: "";
+.b3-typography a[href ^="https://ld246.com"]::before
+{
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/ld246.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="google.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="google.com"]::before,
-.b3-typography a[href *="google.com"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='google.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='google.com']::before,
+.b3-typography a[href*='google.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/logo_google_icon.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="chrome.google.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="chrome.google.com"]::before,
-.b3-typography a[href *="chrome.google.com"]::before{
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type~='a'][data-href*='chrome.google.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='chrome.google.com']::before,
+.b3-typography a[href*='chrome.google.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/chrome-web-store.svg') !important;
     background-size: 1.2em 1.2em;
-
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="taobao.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="taobao.com"]::before,
-.b3-typography a[href *="taobao.com"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='taobao.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='taobao.com']::before,
+.b3-typography a[href*='taobao.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/taobao.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="jd.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="jd.com"]::before,
-.b3-typography a[href *="jd.com"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='jd.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='jd.com']::before,
+.b3-typography a[href*='jd.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/jd.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="xiaohongshu.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="xiaohongshu.com"]::before,
-.b3-typography a[href *="xiaohongshu.com"]::before{
-
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type~='a'][data-href*='xiaohongshu.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='xiaohongshu.com']::before,
+.b3-typography a[href*='xiaohongshu.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/xiaohongshu.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="pinduoduo.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="pinduoduo.com"]::before,
-.b3-typography a[href *="pinduoduo.com"]::before{
-
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type~='a'][data-href*='pinduoduo.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='pinduoduo.com']::before,
+.b3-typography a[href*='pinduoduo.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/pinduoduo.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="alibaba.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="alibaba.com"]::before,
-.b3-typography a[href *="alibaba.com"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='alibaba.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='alibaba.com']::before,
+.b3-typography a[href*='alibaba.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/alibaba.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="tmall.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="tmall.com"]::before,
-.b3-typography a[href *="tmall.com"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='tmall.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='tmall.com']::before,
+.b3-typography a[href*='tmall.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/tianmao.png') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="amazon.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="amazon.com"]::before,
-.b3-typography a[href *="amazon.com"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='amazon.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='amazon.com']::before,
+.b3-typography a[href*='amazon.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/amazon.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="iq.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="iq.com"]::before,
-.b3-typography a[href *="iq.com"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='iq.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='iq.com']::before,
+.b3-typography a[href*='iq.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/aiqiyi.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="youku.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="youku.com"]::before,
-.b3-typography a[href *="youku.com"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='youku.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='youku.com']::before,
+.b3-typography a[href*='youku.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/youku.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="lanzoui.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="lanzoui.com"]::before,
-.b3-typography a[href *="lanzoui.com"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='lanzoui.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='lanzoui.com']::before,
+.b3-typography a[href*='lanzoui.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/lanzouyun.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="aliyundrive.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="aliyundrive.com"]::before,
-.b3-typography a[href *="aliyundrive.com"]::before{
-
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type~='a'][data-href*='aliyundrive.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='aliyundrive.com']::before,
+.b3-typography a[href*='aliyundrive.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/aliyundrive.png') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="cloud.189.cn"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="cloud.189.cn"]::before,
-.b3-typography a[href *="cloud.189.cn"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='cloud.189.cn']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='cloud.189.cn']::before,
+.b3-typography a[href*='cloud.189.cn']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/tianyiyun.png') !important;
     background-size: 1.6em 1em;
     background-position: left -0.2em top 0.1em;
     width: 1.1em;
     height: 1.1em;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="1drv.ms"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="1drv.ms"]::before,
-.b3-typography a[href *="1drv.ms"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='1drv.ms']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='1drv.ms']::before,
+.b3-typography a[href*='1drv.ms']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/onedrive.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="sharepoint.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="sharepoint.com"]::before,
-.b3-typography a[href *="sharepoint.com"]::before{
-
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type~='a'][data-href*='sharepoint.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='sharepoint.com']::before,
+.b3-typography a[href*='sharepoint.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/sharepoint.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="weiyun.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="weiyun.com"]::before,
-.b3-typography a[href *="weiyun.com"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='weiyun.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='weiyun.com']::before,
+.b3-typography a[href*='weiyun.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/weiyun.svg') !important;
 }
 
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="baidu.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="baidu.com"]::before,
-.b3-typography a[href *="baidu.com"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='baidu.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='baidu.com']::before,
+.b3-typography a[href*='baidu.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/baidu.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="pan.baidu.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="pan.baidu.com"]::before,
-.b3-typography a[href *="pan.baidu.com"]::before{
-
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type~='a'][data-href*='pan.baidu.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='pan.baidu.com']::before,
+.b3-typography a[href*='pan.baidu.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/baiduwangpan.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="tieba.baidu.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="tieba.baidu.com"]::before,
-.b3-typography a[href *="tieba.baidu.com"]::before{
-
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type~='a'][data-href*='tieba.baidu.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='tieba.baidu.com']::before,
+.b3-typography a[href*='tieba.baidu.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/logo_baidu_tieba_logo.svg') !important;
 }
 
-
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="obsidian.md"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="obsidian.md"]::before,
-.b3-typography a[href *="obsidian.md"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='obsidian.md']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='obsidian.md']::before,
+.b3-typography a[href*='obsidian.md']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/obsidian.ico') !important;
 }
 
-
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="yuque.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="yuque.com"]::before,
-.b3-typography a[href *="yuque.com"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='yuque.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='yuque.com']::before,
+.b3-typography a[href*='yuque.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/yuque.svg') !important;
 }
 
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="blog.csdn.net"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="blog.csdn.net"]::before,
-.b3-typography a[href *="blog.csdn.net"]::before{
-
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type~='a'][data-href*='blog.csdn.net']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='blog.csdn.net']::before,
+.b3-typography a[href*='blog.csdn.net']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/csdn.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="jianshu.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="jianshu.com"]::before,
-.b3-typography a[href *="jianshu.com"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='jianshu.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='jianshu.com']::before,
+.b3-typography a[href*='jianshu.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/jianshu.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="gitee.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="gitee.com"]::before,
-.b3-typography a[href *="gitee.com"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='gitee.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='gitee.com']::before,
+.b3-typography a[href*='gitee.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/gitee.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="wikipedia.org"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="wikipedia.org"]::before,
-.b3-typography a[href *="wikipedia.org"]::before{
-
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type~='a'][data-href*='wikipedia.org']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='wikipedia.org']::before,
+.b3-typography a[href*='wikipedia.org']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/wikipedia.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="weixin.qq.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="weixin.qq.com"]::before,
-.b3-typography a[href *="weixin.qq.com"]::before{
-
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type~='a'][data-href*='weixin.qq.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='weixin.qq.com']::before,
+.b3-typography a[href*='weixin.qq.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/wechat.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="y.qq.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="y.qq.com"]::before,
-.b3-typography a[href *="y.qq.com"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='y.qq.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='y.qq.com']::before,
+.b3-typography a[href*='y.qq.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/qqmusic.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="v.qq.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="v.qq.com"]::before,
-.b3-typography a[href *="v.qq.com"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='v.qq.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='v.qq.com']::before,
+.b3-typography a[href*='v.qq.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/qqvideo.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="news.qq.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="news.qq.com"]::before,
-.b3-typography a[href *="news.qq.com"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='news.qq.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='news.qq.com']::before,
+.b3-typography a[href*='news.qq.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/newsqq.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="163.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="163.com"]::before,
-.b3-typography a[href *="163.com"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='163.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='163.com']::before,
+.b3-typography a[href*='163.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/news163.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="music.163.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="music.163.com"]::before,
-.b3-typography a[href *="music.163.com"]::before{
-
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type~='a'][data-href*='music.163.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='music.163.com']::before,
+.b3-typography a[href*='music.163.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/netease_music.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="sohu.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="sohu.com"]::before,
-.b3-typography a[href *="sohu.com"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='sohu.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='sohu.com']::before,
+.b3-typography a[href*='sohu.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/souhu.svg') !important;
 }
 
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="guancha.cn"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="guancha.cn"]::before,
-.b3-typography a[href *="guancha.cn"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='guancha.cn']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='guancha.cn']::before,
+.b3-typography a[href*='guancha.cn']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/guancha.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="thepaper.cn"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="thepaper.cn"]::before,
-.b3-typography a[href *="thepaper.cn"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='thepaper.cn']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='thepaper.cn']::before,
+.b3-typography a[href*='thepaper.cn']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/thepaper.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="toutiao.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="toutiao.com"]::before,
-.b3-typography a[href *="toutiao.com"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='toutiao.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='toutiao.com']::before,
+.b3-typography a[href*='toutiao.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/toutiao.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="facebook.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="facebook.com"]::before,
-.b3-typography a[href *="facebook.com"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='facebook.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='facebook.com']::before,
+.b3-typography a[href*='facebook.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/facebook.png') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="cctv.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="cctv.com"]::before,
-.b3-typography a[href *="cctv.com"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='cctv.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='cctv.com']::before,
+.b3-typography a[href*='cctv.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/cctv.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="sspai.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="sspai.com"]::before,
-.b3-typography a[href *="sspai.com"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='sspai.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='sspai.com']::before,
+.b3-typography a[href*='sspai.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/sspai.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="weibo.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="weibo.com"]::before,
-.b3-typography a[href *="weibo.com"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='weibo.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='weibo.com']::before,
+.b3-typography a[href*='weibo.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/logo_weibo_icon.svg') !important;
 }
 
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="github.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="github.com"]::before,
-.b3-typography a[href *="github.com"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='github.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='github.com']::before,
+.b3-typography a[href*='github.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/github_icon.svg') !important;
 }
 
-
-
-
-
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="bing.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="bing.com"]::before,
-.b3-typography a[href *="bing.com"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='bing.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='bing.com']::before,
+.b3-typography a[href*='bing.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/bing.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="sogou.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="sogou.com"]::before,
-.b3-typography a[href *="sogou.com"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='sogou.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='sogou.com']::before,
+.b3-typography a[href*='sogou.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/sogou.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="so.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="so.com"]::before,
-.b3-typography a[href *="so.com"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='so.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='so.com']::before,
+.b3-typography a[href*='so.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/so.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="stackoverflow.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="stackoverflow.com"]::before,
-.b3-typography a[href *="stackoverflow.com"]::before{
-
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type~='a'][data-href*='stackoverflow.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='stackoverflow.com']::before,
+.b3-typography a[href*='stackoverflow.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/stack-overflow.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="icourse163.org"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="icourse163.org"]::before,
-.b3-typography a[href *="icourse163.org"]::before{
-
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type~='a'][data-href*='icourse163.org']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='icourse163.org']::before,
+.b3-typography a[href*='icourse163.org']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/mooc.png') !important;
     background-size: 0.9em;
-    width:0.9em;
+    width: 0.9em;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="imooc.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="imooc.com"]::before,
-.b3-typography a[href *="imooc.com"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='imooc.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='imooc.com']::before,
+.b3-typography a[href*='imooc.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/imooc.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="pornhub.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="pornhub.com"]::before,
-.b3-typography a[href *="pornhub.com"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='pornhub.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='pornhub.com']::before,
+.b3-typography a[href*='pornhub.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/pornhub.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="twitter.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="twitter.com"]::before,
-.b3-typography a[href *="twitter.com"]::before{
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='twitter.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='twitter.com']::before,
+.b3-typography a[href*='twitter.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/logo_twitter.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="youtube.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="youtube.com"]::before,
-.b3-typography a[href *="youtube.com"]::before{
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='youtube.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='youtube.com']::before,
+.b3-typography a[href*='youtube.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/logo_youtube_play_video_icon.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="wolai.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="wolai.com"]::before,
-.b3-typography a[href *="wolai.com"]::before{
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='wolai.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='wolai.com']::before,
+.b3-typography a[href*='wolai.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/logo_wolai_logo.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="notion."]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="notion."]:not(:empty)::before,
-.b3-typography a[href *="notion."]::before{
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='notion.']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='notion.']:not(:empty)::before,
+.b3-typography a[href*='notion.']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/logo_notion-logo.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="douban.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="douban.com"]::before,
-.b3-typography a[href *="douban.com"]::before{
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='douban.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='douban.com']::before,
+.b3-typography a[href*='douban.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/social-douban.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="ncbi.nlm.nih.gov"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="ncbi.nlm.nih.gov"]::before,
-.b3-typography a[href *="ncbi.nlm.nih.gov"]::before{
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type~='a'][data-href*='ncbi.nlm.nih.gov']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='ncbi.nlm.nih.gov']::before,
+.b3-typography a[href*='ncbi.nlm.nih.gov']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/ncbi.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="pubmed.ncbi.nlm.nih.gov"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="pubmed.ncbi.nlm.nih.gov"]::before,
-.b3-typography a[href *="pubmed.ncbi.nlm.nih.gov"]::before{
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type~='a'][data-href*='pubmed.ncbi.nlm.nih.gov']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='pubmed.ncbi.nlm.nih.gov']::before,
+.b3-typography a[href*='pubmed.ncbi.nlm.nih.gov']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/pubmed.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="cell.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="cell.com"]::before,
-.b3-typography a[href *="cell.com"]::before{
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='cell.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='cell.com']::before,
+.b3-typography a[href*='cell.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/cell.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="nature.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="nature.com"]::before,
-.b3-typography a[href *="nature.com"]::before{
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='nature.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='nature.com']::before,
+.b3-typography a[href*='nature.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/nature.png') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="discord."]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="discord."]:not(:empty)::before,
-.b3-typography a[href *="discord."]::before{
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='discord.']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='discord.']:not(:empty)::before,
+.b3-typography a[href*='discord.']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/discord.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="hust.edu.cn"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="hust.edu.cn"]::before,
-.b3-typography a[href *="hust.edu.cn"]::before{
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='hust.edu.cn']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='hust.edu.cn']::before,
+.b3-typography a[href*='hust.edu.cn']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/hust.jpg') !important;
     background-size: 1.4em 1.3em;
     width: 1.3em;
     height: 1.1em;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="coursera.org"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="coursera.org"]::before,
-.b3-typography a[href *="coursera.org"]::before{
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='coursera.org']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='coursera.org']::before,
+.b3-typography a[href*='coursera.org']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/coursera.svg') !important;
-
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="runoob.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="runoob.com"]::before,
-.b3-typography a[href *="runoob.com"]::before{
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='runoob.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='runoob.com']::before,
+.b3-typography a[href*='runoob.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/runoob.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="liaoxuefeng.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="liaoxuefeng.com"]::before,
-.b3-typography a[href *="liaoxuefeng.com"]::before{
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type~='a'][data-href*='liaoxuefeng.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='liaoxuefeng.com']::before,
+.b3-typography a[href*='liaoxuefeng.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/liaoxuefeng.png') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="juejin.cn"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="juejin.cn"]::before,
-.b3-typography a[href *="juejin.cn"]::before{
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='juejin.cn']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='juejin.cn']::before,
+.b3-typography a[href*='juejin.cn']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/juejin.png') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="vue"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="vue"]:not(:empty)::before,
-.b3-typography a[href *="liaoxuefeng.com"]::before{
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='vue']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='vue']:not(:empty)::before,
+.b3-typography a[href*='liaoxuefeng.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/vue.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="52pojie.cn"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="52pojie.cn"]::before,
-.b3-typography a[href *="52pojie.cn"]::before{
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='52pojie.cn']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='52pojie.cn']::before,
+.b3-typography a[href*='52pojie.cn']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/52pojie.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="douyin.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="douyin.com"]::before,
-.b3-typography a[href *="douyin.com"]::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="tiktok.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="tiktok.com"]::before,
-.b3-typography a[href *="tiktok.com"]::before{
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='douyin.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='douyin.com']::before,
+.b3-typography a[href*='douyin.com']::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='tiktok.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='tiktok.com']::before,
+.b3-typography a[href*='tiktok.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/douyin.png') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="segmentfault.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="segmentfault.com"]::before,
-.b3-typography a[href *="segmentfault.com"]::before{
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type~='a'][data-href*='segmentfault.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='segmentfault.com']::before,
+.b3-typography a[href*='segmentfault.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/segmentfault.ico') !important;
 }
 
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="51cto.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="51cto.com"]::before,
-.b3-typography a[href *="51cto.com"]::before{
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='51cto.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='51cto.com']::before,
+.b3-typography a[href*='51cto.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/52cto.ico') !important;
-    
 }
 
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="cloud.tencent.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="cloud.tencent.com"]::before,
-.b3-typography a[href *="cloud.tencent.com"]::before{
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type~='a'][data-href*='cloud.tencent.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='cloud.tencent.com']::before,
+.b3-typography a[href*='cloud.tencent.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/tencentcloud.png') !important;
-
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="aliyun.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="aliyun.com"]::before,
-.b3-typography a[href *="aliyun.com"]::before{
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='aliyun.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='aliyun.com']::before,
+.b3-typography a[href*='aliyun.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/aliyun.ico') !important;
-
 }
 
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="oschina.net"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="oschina.net"]::before,
-.b3-typography a[href *="oschina.net"]::before{
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='oschina.net']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='oschina.net']::before,
+.b3-typography a[href*='oschina.net']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/oschina.svg') !important;
-
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="v2ex.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="v2ex.com"]::before,
-.b3-typography a[href *="v2ex.com"]::before{
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='v2ex.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='v2ex.com']::before,
+.b3-typography a[href*='v2ex.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/v2ex.ico') !important;
-
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="iconfont.cn"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="iconfont.cn"]::before,
-.b3-typography a[href *="iconfont.cn"]::before{
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='iconfont.cn']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='iconfont.cn']::before,
+.b3-typography a[href*='iconfont.cn']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/iconfont.svg') !important;
-
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="ruanyifeng.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="ruanyifeng.com"]::before,
-.b3-typography a[href *="ruanyifeng.com"]::before{
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type~='a'][data-href*='ruanyifeng.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='ruanyifeng.com']::before,
+.b3-typography a[href*='ruanyifeng.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/ruanyifeng.png') !important;
-
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="getquicker.net"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="getquicker.net"]::before,
-.b3-typography a[href *="getquicker.net"]::before{
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type~='a'][data-href*='getquicker.net']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='getquicker.net']::before,
+.b3-typography a[href*='getquicker.net']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/Quicker.svg') !important;
-
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="visualstudio.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="visualstudio.com"]::before,
-.b3-typography a[href *="visualstudio.com"]::before{
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type~='a'][data-href*='visualstudio.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='visualstudio.com']::before,
+.b3-typography a[href*='visualstudio.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/vsvisual-studio-code.svg') !important;
-
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="mediatrack.cn"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="mediatrack.cn"]::before,
-.b3-typography a[href *="mediatrack.cn"]::before{
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type~='a'][data-href*='mediatrack.cn']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='mediatrack.cn']::before,
+.b3-typography a[href*='mediatrack.cn']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/mediatrack.ico') !important;
-
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="xinpianchang.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="xinpianchang.com"]::before,
-.b3-typography a[href *="xinpianchang.com"]::before{
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type~='a'][data-href*='xinpianchang.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='xinpianchang.com']::before,
+.b3-typography a[href*='xinpianchang.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/xinpianchang.ico') !important;
-
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="zhangxinxu.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="zhangxinxu.com"]::before,
-.b3-typography a[href *="xinpianchang.com"]::before{
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type~='a'][data-href*='zhangxinxu.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='zhangxinxu.com']::before,
+.b3-typography a[href*='xinpianchang.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/zhangxinxu.ico') !important;
 }
 
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="w3school.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="w3school.com"]::before,
-.b3-typography a[href *="xinpianchang.com"]::before{
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='w3school.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='w3school.com']::before,
+.b3-typography a[href*='xinpianchang.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/w3school.png') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="rcsb.org"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="rcsb.org"]::before,
-.b3-typography a[href *="rcsb.org"]::before{
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='rcsb.org']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='rcsb.org']::before,
+.b3-typography a[href*='rcsb.org']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/pdb.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="ghxi.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="ghxi.com"]::before,
-.b3-typography a[href *="ghxi.com"]::before{
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='ghxi.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='ghxi.com']::before,
+.b3-typography a[href*='ghxi.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/ghxi.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="sciencenet.cn"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="sciencenet.cn"]::before,
-.b3-typography a[href *="sciencenet.cn"]::before{
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type~='a'][data-href*='sciencenet.cn']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='sciencenet.cn']::before,
+.b3-typography a[href*='sciencenet.cn']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/sciencenet.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="deepl.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="deepl.com"]::before,
-.b3-typography a[href *="deepl.com"]::before{
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='deepl.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='deepl.com']::before,
+.b3-typography a[href*='deepl.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/deepl.png') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="flomoapp.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="flomoapp.com"]::before,
-.b3-typography a[href *="flomoapp.com"]::before{
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='flomoapp.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='flomoapp.com']::before,
+.b3-typography a[href*='flomoapp.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/flomo.png') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="weread.qq.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="weread.qq.com"]::before,
-.b3-typography a[href *="weread.qq.com"]::before{
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type~='a'][data-href*='weread.qq.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='weread.qq.com']::before,
+.b3-typography a[href*='weread.qq.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/weread.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="docs.qq.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="docs.qq.com"]::before,
-.b3-typography a[href *="docs.qq.com"]::before{
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='docs.qq.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='docs.qq.com']::before,
+.b3-typography a[href*='docs.qq.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/qqdocs.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="zh.javascript.info"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="zh.javascript.info"]::before,
-.b3-typography a[href *="zh.javascript.info"]::before{
-
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type~='a'][data-href*='zh.javascript.info']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='zh.javascript.info']::before,
+.b3-typography a[href*='zh.javascript.info']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/zhjavascript.png') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="qiime2.org"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="qiime2.org"]::before,
-.b3-typography a[href *="qiime2.org"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='qiime2.org']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='qiime2.org']::before,
+.b3-typography a[href*='qiime2.org']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/qiime2.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="developer.mozilla.org"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="developer.mozilla.org"]::before,
-.b3-typography a[href *="developer.mozilla.org"]::before{
-
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type~='a'][data-href*='developer.mozilla.org']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='developer.mozilla.org']::before,
+.b3-typography a[href*='developer.mozilla.org']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/developermozilla.png') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="bbs.huaweicloud.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="bbs.huaweicloud.com"]::before,
-.b3-typography a[href *="bbs.huaweicloud.com"]::before{
-
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type~='a'][data-href*='bbs.huaweicloud.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='bbs.huaweicloud.com']::before,
+.b3-typography a[href*='bbs.huaweicloud.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/bbshuaweicloud.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="b3log.org"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="b3log.org"]::before,
-.b3-typography a[href *="b3log.org"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='b3log.org']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='b3log.org']::before,
+.b3-typography a[href*='b3log.org']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/b3log.png') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="b3log.org/siyuan"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="b3log.org/siyuan"]::before,
-.b3-typography a[href *="b3log.org/siyuan"]::before {
-
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type~='a'][data-href*='b3log.org/siyuan']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='b3log.org/siyuan']::before,
+.b3-typography a[href*='b3log.org/siyuan']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/siyuan.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="b3log.org/siyuan"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="b3log.org/siyuan"]::before,
-.b3-typography a[href *="b3log.org/siyuan"]::before {
-
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type~='a'][data-href*='b3log.org/siyuan']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='b3log.org/siyuan']::before,
+.b3-typography a[href*='b3log.org/siyuan']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/siyuan.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="qun.qq.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="qun.qq.com"]::before,
-.b3-typography a[href *="qun.qq.com"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='qun.qq.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='qun.qq.com']::before,
+.b3-typography a[href*='qun.qq.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/QQ.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="pythonav.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="pythonav.com"]::before,
-.b3-typography a[href *="pythonav.com"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='pythonav.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='pythonav.com']::before,
+.b3-typography a[href*='pythonav.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/pythonav.png') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="pypi.org"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="pypi.org"]::before,
-.b3-typography a[href *="pypi.org"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='pypi.org']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='pypi.org']::before,
+.b3-typography a[href*='pypi.org']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/pypi.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="electronjs.org"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="electronjs.org"]::before,
-.b3-typography a[href *="electronjs.org"]::before{
-
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type~='a'][data-href*='electronjs.org']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='electronjs.org']::before,
+.b3-typography a[href*='electronjs.org']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/electronjs.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="biostars.org"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="biostars.org"]::before,
-.b3-typography a[href *="biostars.org"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='biostars.org']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='biostars.org']::before,
+.b3-typography a[href*='biostars.org']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/biostars.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="mubu.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="mubu.com"]::before,
-.b3-typography a[href *="mubu.com"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='mubu.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='mubu.com']::before,
+.b3-typography a[href*='mubu.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/mubu.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="jianguoyun.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="jianguoyun.com"]::before,
-.b3-typography a[href *="jianguoyun.com"]::before{
-
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type~='a'][data-href*='jianguoyun.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='jianguoyun.com']::before,
+.b3-typography a[href*='jianguoyun.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/jianguoyun.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="cnki.net"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="cnki.net"]::before,
-.b3-typography a[href *="cnki.net"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='cnki.net']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='cnki.net']::before,
+.b3-typography a[href*='cnki.net']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/cnki.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="flowus.cn"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="flowus.cn"]::before,
-.b3-typography a[href *="flowus.cn"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='flowus.cn']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='flowus.cn']::before,
+.b3-typography a[href*='flowus.cn']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/flowus.png') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="logseq.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="logseq.com"]::before,
-.b3-typography a[href *="logseq.com"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='logseq.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='logseq.com']::before,
+.b3-typography a[href*='logseq.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/logseq.png') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="hub.docker.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="hub.docker.com"]::before,
-.b3-typography a[href *="hub.docker.com"]::before{
-
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type~='a'][data-href*='hub.docker.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='hub.docker.com']::before,
+.b3-typography a[href*='hub.docker.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/hubdocker.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="dida365.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="dida365.com"]::before,
-.b3-typography a[href *="dida365.com"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='dida365.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='dida365.com']::before,
+.b3-typography a[href*='dida365.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/dida365.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="leetcode.cn"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="leetcode.cn"]::before,
-.b3-typography a[href *="leetcode.cn"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href*='leetcode.cn']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='leetcode.cn']::before,
+.b3-typography a[href*='leetcode.cn']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/leetcode.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="docs.python.org"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="docs.python.org"]::before,
-.b3-typography a[href *="docs.python.org"]::before{
-
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type~='a'][data-href*='docs.python.org']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='docs.python.org']::before,
+.b3-typography a[href*='docs.python.org']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/docspython.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="mathworks.com"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="mathworks.com"]::before,
-.b3-typography a[href *="mathworks.com"]::before{
-
-    content: "";
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href*='mathworks.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='mathworks.com']::before,
+.b3-typography a[href*='mathworks.com']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/mathworks.ico') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href *="ww2.mathworks.cn"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href *="ww2.mathworks.cn"]::before,
-.b3-typography a[href *="ww2.mathworks.cn"]::before{
-
-    content: "";
+.protyle-wysiwyg
+    [data-node-id]
+    span[data-type='a'][data-href*='ww2.mathworks.cn']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='ww2.mathworks.cn']::before,
+.b3-typography a[href*='ww2.mathworks.cn']::before {
+    content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/ww2mathworks.ico') !important;
 }
