@@ -30,8 +30,13 @@
 
 ## 🚀更新情况
 
-见 [CHANGE_LOGS](./CHANGE_LOGS.md)
+最近更新： v1.8.2 / 2023.09.18
 
+- 💄 优化 Dark 主题的配色
+- 💄 优化link icon中的知乎图标，使其导出图片正常显示
+- 💄 dark 主题图片背景设置为白色，防止透明图片难以看清内容
+
+更新日志见 [CHANGE_LOGS](./CHANGE_LOGS.md)
 
 ## 💌 缘起
 
