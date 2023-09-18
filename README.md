@@ -17,7 +17,7 @@ English  | [中文](./README_zh_CN.md)
 ![](preview.png)
 
 
-**Introduction**: [Siyuan] (https://github.com/Siyuan-Note/Siyuan) is a local priority personal knowledge management system, which supports completely offline use and end-to-end encryption synchronization. Combine blocks, outlines and two-way links to build your eternal digital garden. This theme is a personal original theme, specially designed for Siyuan notes.
+**Introduction**: [Siyuan](https://github.com/Siyuan-Note/Siyuan) is a local priority personal knowledge management system, which supports completely offline use and end-to-end encryption synchronization. Combine blocks, outlines and two-way links to build your eternal digital garden. This theme is a personal original theme, specially designed for Siyuan notes.
 
 <img src="https://cdn.staticaly.com/gh/Achuan-2/PicBed@pic/assets/202306221442856.png" alt="">
 <center>Light</center>
@@ -61,8 +61,6 @@ I use this name to wake myself up, hoping to make good use of Siyuan notes, help
 
 ## 😺 Referenced features
 
-- [Dark+](https://github.com/Zuoqiu-Yingyi/siyuan-theme-dark-plus)
-  - open the current block or document in markdown style using monaco-editor
 - [HBuilderX-Light](https://github.com/UFDXD/HBuilderX-Light)
   - Highlight text hide button: Set Ctrl+E as the text masking effect. By default, the text is displayed. When clicking on the "Enable Highlight Text Hide Button" in the top bar, the highlighted text will be hidden.
   - Theme switch button: A button that allows users to switch between different themes.

@@ -63,8 +63,6 @@ Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释
 
 ## 😺 借鉴功能
 
-- [Dark+主题](https://github.com/Zuoqiu-Yingyi/siyuan-theme-dark-plus)
-  - 右键块菜单可以用monaco-editor以markdown样式打开当前块或文档，方便批量编辑，支持 Ctrl+S 保存内容
 - [HBuilderX-Light主题](https://github.com/UFDXD/HBuilderX-Light)
   - 列表转脑图、表格
   - 表格设置是否显示表头和表宽度调整
