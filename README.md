@@ -19,13 +19,13 @@ English  | [中文](./README_zh_CN.md)
 
 **Introduction**: [Siyuan](https://github.com/Siyuan-Note/Siyuan) is a local priority personal knowledge management system, which supports completely offline use and end-to-end encryption synchronization. Combine blocks, outlines and two-way links to build your eternal digital garden. This theme is a personal original theme, specially designed for Siyuan notes.
 
-<img src="https://cdn.staticaly.com/gh/Achuan-2/PicBed@pic/assets/202306221442856.png" alt="">
+<img src="https:/cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/202306221442856.png" alt="">
 <center>Light</center>
 
-<img src="https://cdn.staticaly.com/gh/Achuan-2/PicBed@pic/assets/202306221441869.png" alt="">
+<img src="https:/cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/202306221441869.png" alt="">
 <center>Green</center>
 
-<img src="https://cdn.staticaly.com/gh/Achuan-2/PicBed@pic/assets/202306221442278.png" alt="">
+<img src="https:/cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/202306221442278.png" alt="">
 <center>Dark</center>
 
 ## 🚀 CHANGLOGS
@@ -48,7 +48,8 @@ The biggest obstacle to using a tool is "unclear requirements". If you don't kno
 
 I use this name to wake myself up, hoping to make good use of Siyuan notes, help me form the habit of daily recording and reviewing the answers regularly, better master knowledge and skills, strive to do meaningful projects and become a better person, instead of taking notes for the sake of taking notes, so that the note-taking software can become a dust box to relieve knowledge anxiety and satisfy abnormal digital hoarding.
 
-
+![1695625149328](README/1695625149328.png)
+![](https://raw.githubusercontent.com/Achuan-2/PicBed/pic/assets/20230925145915-2023-09-25.png)
 ## 🐯 Features
 
 - ✨ **The theme is three-in-one, which supports both bright mode and dark mode.**（Tsundoku Light、Tsundoku Green、Tsundoku Dark）【Ref：[Savor](https://github.com/royc01/notion-theme) 】  

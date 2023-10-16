@@ -59,7 +59,7 @@
     --b3-tab-background: #e7edf0;
     --b3-tab-background-hover: #dee4e8;
     /* 菜单 */
-    --b3-menu-background: #d5ead8 ;
+    --b3-menu-background: #d5ead8;
     /* 提示 */
     --b3-tooltips-color: #fff;
     --b3-tooltips-background: rgba(16, 63, 44, 0.5);
@@ -672,7 +672,6 @@ div[data-subtype='t'][data-type='NodeList'] {
     background: #b4f0d7;
 }
 
-
 /* 工具栏样式 */
 .protyle-toolbar {
     background-color: #c2ddc5;
@@ -907,4 +906,15 @@ div[data-subtype='t'][data-type='NodeList'] {
 /* 选项栏背景色 */
 .b3-select {
     background-color: #9dbeb5;
+}
+
+/* database 表格框线 */
+.av__cell,
+.av__row--header,
+.av__row {
+    border-color: #96a198;
+}
+
+.av__row--header, .av__row--footer{
+    background-color: inherit !important;
 }
