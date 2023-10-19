@@ -24,7 +24,7 @@
 /* 导入超链接图标样式 */
 @import url('style/func/link_icon.css');
 /* 导入语雀提示区块样式 */
-@import url('style/func/yuque.css');
+@import url('style/func/Admonition.css');
 
 :root {
     /* 主色 */
@@ -1784,7 +1784,7 @@ body
 [data-theme-mode='light'] #preview.protyle-wysiwyg:not(.export-img) .hljs {
     /* 背景色透明 */
     background-color: var(--b3-theme-background) !important;
-    padding: 20px 10px 20px 26px !important;
+    /* padding: 20px 10px 20px 26px !important; */
 }
 
 /* 取消2.7.7 更新的待办列表完成样式 */
