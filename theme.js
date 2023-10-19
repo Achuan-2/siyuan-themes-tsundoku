@@ -455,7 +455,7 @@ function initcalendar() {
         var barSearch = document.getElementById('barSync');
         barSearch.insertAdjacentHTML(
             'afterend',
-            '<div id="calendar"class="toolbar__item b3-tooltips b3-tooltips__se" aria-label="日历" ></div>'
+            '<div id="calendar"class="toolbar__item ariaLabel" aria-label="日历" ></div>'
         );
         let calendarIcon = document.getElementById('calendar');
 
@@ -765,14 +765,66 @@ function ViewMonitor(event) {
 }
 
 /**++++++++++++++++++++++++++++++++主题功能执行：按需调用++++++++++++++++++++++++++++++ */
-//各种列表转xx
-setTimeout(() => ClickMonitor(), 1000);
 
-setTimeout(() => {
+// setTimeout(() => ClickMonitor(), 1000);
+
+(async () => {
+    //各种列表转xx
+    ClickMonitor();
     /*创建日历按钮 */
     initcalendar();
     /*创建主题按钮 */
     create_theme_button();
-}, 0);
+    bulletMain();
+    console.log('加载子弹线成功');
+})();
 
+/**
+ * 获得指定块位于的编辑区
+ * @params {HTMLElement}
+ * @return {HTMLElement} 光标所在块位于的编辑区
+ * @return {null} 光标不在块内
+ */
+function getTargetEditor(block) {
+    while (block != null && !block.classList.contains('protyle-wysiwyg')) block = block.parentElement;
+    return block;
+}
+/* REF https://github.com/svchord/Rem-Craft */
+/**
+ * 获得焦点所在的块
+ * @return {HTMLElement} 光标所在块
+ * @return {null} 光标不在块内
+ */
+function getFocusedBlock() {
+    if (document.activeElement.classList.contains('protyle-wysiwyg')) {
+        let block = window.getSelection()?.focusNode?.parentElement; // 当前光标
+        while (block != null && block.dataset.nodeId == null) block = block.parentElement;
+        return block;
+    }
+}
 
+function focusHandler() {
+    /* 获取当前编辑区 */
+    let block = getFocusedBlock(); // 当前光标所在块
+    /* 当前块已经设置焦点 */
+    if (block?.classList.contains(`block-focus`)) return;
+
+    /* 当前块未设置焦点 */
+    const editor = getTargetEditor(block); // 当前光标所在块位于的编辑区
+    if (editor) {
+        editor.querySelectorAll(`.block-focus`).forEach((element) => element.classList.remove(`block-focus`));
+        block.classList.add(`block-focus`);
+        // setSelector(block);
+    }
+}
+
+function bulletMain() {
+    // 跟踪当前所在块
+    window.addEventListener('mouseup', focusHandler, true);
+    window.addEventListener('keyup', focusHandler, true);
+}
+
+(async () => {
+    bulletMain();
+    console.log('加载子弹线成功')
+})();

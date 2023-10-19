@@ -23,9 +23,9 @@
 @import url('style/func/fold.css');
 /* 导入超链接图标样式 */
 @import url('style/func/link_icon.css');
-/* 导入语雀提示区块样式 */
+/* 导入Admonition样式 */
 @import url('style/func/Admonition.css');
-
+@import url('style/func//bullet-threading.css');
 :root {
     /* 主色 */
     /* 高亮 */
@@ -1771,7 +1771,6 @@ body
     color: var(--b3-theme-on-surface);
 }
 
-
 /* 导出代码块优化 */
 [data-theme-mode='light'] #preview.protyle-wysiwyg:not(.export-img) .code-block {
     /* 背景色透明 */
@@ -1844,4 +1843,9 @@ body
 /* 调整反链面板颜色 */
 .protyle-wysiwyg [data-node-id] .def--mark {
     background-color: var(--b3-card-success-background);
+}
+
+#dockBottom,
+#status {
+    border-top: none;
 }
