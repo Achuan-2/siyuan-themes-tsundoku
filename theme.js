@@ -180,7 +180,7 @@ function create_theme_button() {
     if (drag && themeStyle) {
         const button_change_color = document.createElement('button'); // 切换主题颜色按钮
         button_change_color.id = window.theme.IDs.BUTTON_TOOLBAR_CHANGE_COLOR;
-        button_change_color.className = 'toolbar__item b3-tooltips b3-tooltips__sw';
+        button_change_color.className = 'toolbar__item ariaLabel';
         button_change_color.ariaLabel = '切换主题颜色';
         button_change_color.innerHTML = `<svg><use xlink:href="#iconTheme"></use></svg>`;
         button_change_color.addEventListener('click', e => {
