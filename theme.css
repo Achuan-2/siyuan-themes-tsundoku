@@ -98,10 +98,10 @@
     --b3-card-success-background: #e0f9e0d2;
 
     /* 自定义文字 */
-    --b3-font-color1: #e1694e;
-    --b3-font-color2: #f1781c;
-    --b3-font-color3: #007aaa;
-    --b3-font-color4: #11ad81;
+    --b3-font-color1: var(--b3-card-error-color: ); /*#e1694e;*/
+    --b3-font-color2: var(--b3-card-warning-color); /*#f1781c;*/
+    --b3-font-color3: var(--b3-card-info-color); /*#007aaa;*/
+    --b3-font-color4: var(--b3-card-success-color); /*#11ad81;*/
     --b3-font-color5: #8e8e8e;
     --b3-font-color6: #52d4ca;
     --b3-font-color7: var(--b3-theme-secondary);
@@ -1771,15 +1771,7 @@ body
     color: var(--b3-theme-on-surface);
 }
 
-/* 待改进：暂时全部隐藏 */
-#preview.protyle-wysiwyg .code-block .protyle-action {
-    left: auto;
-    right: 4px;
-    opacity: 0;
-}
-#preview.protyle-wysiwyg .code-block .protyle-action .protyle-action__language {
-    opacity: 0;
-}
+
 /* 导出代码块优化 */
 [data-theme-mode='light'] #preview.protyle-wysiwyg:not(.export-img) .code-block {
     /* 背景色透明 */
