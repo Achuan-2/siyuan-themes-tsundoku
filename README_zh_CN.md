@@ -30,11 +30,15 @@
 
 ## 🚀更新情况
 
-最近更新： v1.8.2 / 2023.09.18
+最近更新：v1.8.3 / 2023.10.19
 
-- 💄 优化 Dark 主题的配色
-- 💄 优化link icon中的知乎图标，使其导出图片正常显示
-- 💄 dark 主题图片背景设置为白色，防止透明图片难以看清内容
+-  ✨ 参考[Rem-Craft](https://github.com/svchord/Rem-Craft)主题，添加列表子弹线
+- 💄 优化 Green 主题的Database框线
+-  🐛 调整代码块导出pdf时代码块语言与主体太近的问题
+-  🐛  图片导出没有代码块语言
+-  🐛  Admonition 块文字加粗为黑色
+-  🐛 修复切换主题按钮和日历按钮的aria-label不显示的问题
+-  🐛 优化列表转表格样式
 
 更新日志见 [CHANGE_LOGS](./CHANGE_LOGS.md)
 
@@ -58,8 +62,14 @@ Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释
   
 - 📎**为超链接添加了icon**：区别不同的本地链接和网络链接，详见[超链接图标介绍](https://www.yuque.com/achuan-2/siyuan/gar358)
   ![20220131165215_2022-01-31](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220131165215_2022-01-31.png)
-- 🧊 **引入语雀提示区块**：给引述块blockquote添加块背景颜色，就会自动应用样式，详见[语雀提示区块样式](https://www.yuque.com/achuan-2/siyuan/obxpvr)
-  ![20220131165233_2022-01-31](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220131165233_2022-01-31.png)
+- 🧊 **Admonition 块**：给引述块blockquote添加块背景颜色，就会自动应用样式
+  推荐使用模板添加emoji以及调整标题字体大小和加粗
+  ```markdown
+  > **🔔 标题**{: style="font-size: 24px;"}
+  >
+  > 内容
+  ```
+  ![](https://raw.githubusercontent.com/Achuan-2/PicBed/pic/assets/20231019132056-2023-10-19.png)
 
 ## 😺 借鉴功能
 
@@ -71,6 +81,8 @@ Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释
 - [日历面板](https://github.com/HowcanoeWang/calendar)
   - 支持根据笔记本日记路径模板智能识别“2006.01.02”或“2006-01-02”格式（不支持更复杂的格式）
   - 支持点击查看已有日记以及提前新建未来日记
+- [Rem-Craft主题](https://github.com/svchord/Rem-Craft)
+    - 列表子弹线
 
 
 ## 🐭自定义属性
