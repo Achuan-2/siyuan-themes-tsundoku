@@ -1,13 +1,9 @@
 /* -----------------------------------------------列表转化为表格------------------------------------------- */
 .list[data-node-id][data-type="NodeList"][custom-f="bg"]{
-	--b3-layout-resize: var(--b3-border-color);
-}
-
-
-.list[data-node-id][data-type="NodeList"][custom-f="bg"]{
-	display:table;
+	display:grid;
 	width: calc(100% - 8px);
-	padding:15px 0px 15px 5px;
+	padding:15px 5px 15px 5px;
+	overflow-x: auto;
 }
 /* ————————————————————所有子项目的表格（除去第一列其余的列），包含溢出的空白部分，所以才会有边框—————————————————————— */
 
@@ -15,14 +11,16 @@
     padding: 0px;
     margin: 0px !important;
 	width:100%;
-    outline: 1px solid var(--b3-layout-resize);
+    outline: 1px solid #383e3e;
+	border-radius: 0px !important;
 }
 
 /* ————————————————————对所有子列表项设置格式———————————————————— */
 .protyle-wysiwyg *[custom-f="bg"] .li {
 	display: flex;
-    outline:  1px solid var(--b3-layout-resize);
-    background-color: transparent;
+    outline:  1px solid #383e3e;
+    background-color: var(--b3-theme-background);
+	border-radius: 0px !important;
 }
 
 /* ————————————————————调整每个子列表项右侧边距———————————————————— */
@@ -49,7 +47,7 @@
 }
 .protyle-wysiwyg *[custom-f="bg"] .li>.list>.li {
     outline: none !important;
-    border-top:1px solid var(--b3-layout-resize);
+    border-top:1px solid #383e3e;
 }
 .protyle-wysiwyg *[custom-f="bg"] .li>.list>.li:first-of-type {
     border-top: none;
@@ -64,7 +62,7 @@
     position: absolute;
     top: 50%;
     transform: translate(0, -50%);
-	opacity:0.3;
+	opacity:1;
 }
 /*单子项居中*/
 
@@ -74,7 +72,7 @@
 	height:100%;
 }
 
-.protyle-wysiwyg *[custom-f="bg"] .li [data-type="NodeHeading"]>[spellcheck="false"]:after{
+.protyle-wysiwyg *[custom-f="bg"] .li [data-type="NodeHeading"]>[spellcheck]:after{
 	display:none;
 }/*取消标题层级提示*/
 
