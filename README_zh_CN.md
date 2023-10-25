@@ -30,15 +30,10 @@
 
 ## 🚀更新情况
 
-最近更新：v1.8.3 / 2023.10.19
+最近更新：v1.8.4/ 2023.10.25
 
--  ✨ 参考[Rem-Craft](https://github.com/svchord/Rem-Craft)主题，添加列表子弹线
-- 💄 优化 Green 主题的Database框线
--  🐛 调整代码块导出pdf时代码块语言与主体太近的问题
--  🐛  图片导出没有代码块语言
--  🐛  Admonition 块文字加粗为黑色
--  🐛 修复切换主题按钮和日历按钮的aria-label不显示的问题
--  🐛 优化列表转表格样式
+- 🔥 移除子弹线JS和CSS，需要可以参考这篇文章https://ld246.com/article/1693238082034，添加代码片段以启用
+
 
 更新日志见 [CHANGE_LOGS](./CHANGE_LOGS.md)
 
@@ -81,8 +76,7 @@ Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释
 - [日历面板](https://github.com/HowcanoeWang/calendar)
   - 支持根据笔记本日记路径模板智能识别“2006.01.02”或“2006-01-02”格式（不支持更复杂的格式）
   - 支持点击查看已有日记以及提前新建未来日记
-- [Rem-Craft主题](https://github.com/svchord/Rem-Craft)
-    - 列表子弹线
+
 
 
 ## 🐭自定义属性
