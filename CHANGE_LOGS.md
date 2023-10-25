@@ -1,3 +1,8 @@
+## v1.8.4/ 2023.10.25
+
+- 🔥 移除子弹线JS和CSS，需要可以参考这篇文章https://ld246.com/article/1693238082034，添加代码片段以启用
+
+
 ## v1.8.3 / 2023.10.19
 
 -  ✨ 参考[Rem-Craft](https://github.com/svchord/Rem-Craft)主题，添加列表子弹线
