@@ -23,7 +23,7 @@
 .b3-typography .hljs.protyle-linenumber,
 .protyle-wysiwyg .hljs.protyle-linenumber {
     padding-left: 0;
-    margin-left: 74px;
+    /* margin-left: 74px; */
 }
 .b3-typography .protyle-linenumber__rows,
 .protyle-wysiwyg .protyle-linenumber__rows {
