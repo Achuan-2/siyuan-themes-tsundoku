@@ -54,29 +54,33 @@
 
 /* 优化代码块和行内代码 */
 
-.bq[style*='background-color: var(--b3-card-error-background);'] kbd,
-.bq[style*='background-color: var(--b3-card-error-background);'] code {
+.bq[style*='background-color: var(--b3-card-error-background);'] span[data-type~='kbd'],
+.bq[style*='background-color: var(--b3-card-error-background);'] span[data-type~='code'] {
+    color: var(--b3-card-error-color) !important;
     background-color: #f0c4b959 !important;
 }
 .bq[style*='background-color: var(--b3-card-error-background);'] .code-block {
     background-color: #f6d8d3;
 }
-.bq[style*='background-color: var(--b3-card-warning-background);'] kbd,
-.bq[style*='background-color: var(--b3-card-warning-background);'] code {
+.bq[style*='background-color: var(--b3-card-warning-background);'] span[data-type~='kbd'],
+.bq[style*='background-color: var(--b3-card-warning-background);'] span[data-type~='code'] {
+    color: var(--b3-card-warning-color) !important;
     background-color: #f0dfb959 !important;
 }
 .bq[style*='background-color: var(--b3-card-warning-background);'] .code-block {
     background-color: #f7e9d0;
 }
-.bq[style*='background-color: var(--b3-card-info-background);'] kbd,
-.bq[style*='background-color: var(--b3-card-info-background);'] code {
+.bq[style*='background-color: var(--b3-card-info-background);'] span[data-type~='kbd'],
+.bq[style*='background-color: var(--b3-card-info-background);'] span[data-type~='code'] {
+    color: var(--b3-card-info-color) !important;
     background-color: #bedaeb59 !important;
 }
 .bq[style*='background-color: var(--b3-card-info-background);'] .code-block {
     background-color: #d2e6f4;
 }
-.bq[style*='background-color: var(--b3-card-success-background);'] kbd,
-.bq[style*='background-color: var(--b3-card-success-background);'] code {
+.bq[style*='background-color: var(--b3-card-success-background);'] span[data-type~='kbd'],
+.bq[style*='background-color: var(--b3-card-success-background);'] span[data-type~='code'] {
+    color: var(--b3-card-success-color) !important;
     background-color: #c7ebbe59 !important;
 }
 .bq[style*='background-color: var(--b3-card-success-background);'] .code-block {
