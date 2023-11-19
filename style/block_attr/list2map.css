@@ -86,15 +86,15 @@
 
 /*圆点符号居中对齐*/
 .protyle-content *[custom-f~=dt] [data-subtype="u"][data-node-id].li>div.protyle-action {
-	top:50%;
+	top:50% !important;
 	margin-left:-18px;
 }/*无序列表*/
 .protyle-content *[custom-f~=dt] [data-subtype="o"][data-node-id].li>div.protyle-action {
-	top:calc(50% + 1px);
+	top:calc(50% + 1px) !important;
 	margin-left:17px;
 }/*有序列表*/
 .list[custom-f="dt"][data-node-id] .li>.protyle-action{
-    top:calc(50% + 1px);
+    top:calc(50% + 1px) !important;
 	left:3px;
     position: absolute;
     transform: translate(0, -50%);
@@ -111,10 +111,10 @@
 .protyle-wysiwyg *[custom-f="dt"] .li::before,.protyle-wysiwyg *[custom-f="dt"] .li[fold="1"]::before{   
     content: '';   
     position: absolute;  
-	top: 50%;   
+	top: 50% !important;   
     border-top:var(--b3-border-daotu);    
     width: 20px;  
-	height: 50%;     
+	height: 50% !important;      
 }
 
 /*上竖线*/
@@ -134,7 +134,7 @@
 	bottom: 50%;   
     border-left:var(--b3-border-daotu);  
     width: 20px;  
-	height: 50%; 
+	height: 50% !important; 
 }
 /*单个子项直线*/
 .protyle-wysiwyg *[custom-f="dt"] .list>.li:first-child:nth-last-child(2)::after{   
@@ -148,7 +148,7 @@
 }
 /*单子项居中*/
 .protyle-wysiwyg *[custom-f="dt"] .list>.li:first-child:nth-last-child(2){
-    top: 50%;
+    top: 50% !important;
     transform: translate(0, -50%);
 }
 /*取消多余线条*/
@@ -169,10 +169,10 @@
     content: '';   
     position: absolute; 
 	left: 0; 
-	top: 50%;   
+	top: 50% !important;   
     border-top:var(--b3-border-daotu);   
     width: 20px; 
-	height: 0;  
+	height: 0 !important;  
 }
 /*取消根目录线*/
 /* div *[custom-f="dt"]>[data-type="NodeListItem"]::before,
