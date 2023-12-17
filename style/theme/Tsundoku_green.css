@@ -208,10 +208,10 @@ body {
 #status,
 .protyle,
 .protyle-preview,
-.search__header .b3-text-field--text,
 /* .b3-typography .code-block, */
 .layout-tab-container,
-.block__icons,
+.block__popover .block__icons,
+.layout-tab-container .block__icons
 .dock,
 .toolbar,
 .layout-tab-bar,
@@ -271,7 +271,8 @@ div[style='background-color: var(--b3-font-background13);'] {
     /* background-color: #c3ddc7af ; */
 }
 
-.block__icons {
+.block__popover .block__icons,
+.layout-tab-container .block__icons {
     background-color: #a7caad94 !important;
 }
 

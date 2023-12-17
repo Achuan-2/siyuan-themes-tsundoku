@@ -993,6 +993,7 @@ body {
 .layout-tab-container {
     background-color: #fff;
 }
+.block__popover .block__icons,
 .layout-tab-container .block__icons {
     background-color: #d5dde2;
 }

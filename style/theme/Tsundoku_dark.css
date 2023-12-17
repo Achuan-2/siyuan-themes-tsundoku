@@ -213,7 +213,8 @@ span[data-type='text'][style='background-color: var(--b3-font-background13);'] {
     background-color: #16232f;
 }
 
-.block__icons {
+.block__popover .block__icons,
+.layout-tab-container .block__icons{
     background-color: #041f29 !important;
 }
 
