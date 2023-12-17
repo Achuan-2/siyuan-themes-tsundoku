@@ -36,6 +36,8 @@ v1.8.7 / 2023.12.17
 - 💄 ui(font): 代码字体首选Monaspace Neon
 - 💄 ui: 优化h3-h6样式、数据库资源链接样式
 - 💄 ui(link_icon): 适配数据库资源和链接列
+- 💄 ui: search panel优化样式 [#92](https://github.com/Achuan-2/siyuan-themes-tsundoku/issues/92)
+- 💄 ui(link_icon): 结尾为.html 的网页错误显示html图标
 
 
 所有更新日志见 [CHANGE_LOGS](./CHANGE_LOGS.md)
