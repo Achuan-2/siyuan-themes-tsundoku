@@ -1,3 +1,11 @@
+
+## v1.8.7 / 2023.12.17
+- 🐛 fix(list2map): 列表转思维导图错位
+- 💄 ui(font): 代码字体首选Monaspace Neon
+- 💄 ui: 优化h3-h6样式、数据库资源链接样式
+- 💄 ui(link_icon): 适配数据库资源和链接列
+
+
 ## v1.8.6 / 2023.11.3
 - 💄 ui(Admonition): fix 行内代码颜色
 
