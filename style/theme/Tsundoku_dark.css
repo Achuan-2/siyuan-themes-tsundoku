@@ -496,8 +496,11 @@ div[data-subtype='t'][data-type='NodeList'] {
 .b3-dialog__container svg:hover {
     color: var(--b3-menu-highlight-color);
     background: transparent;
-    transform: scale(1.2);
+    /* transform: scale(1.2); */
     transition: all 0.1s ease-in-out;
+}
+.b3-dialog__container svg.b3-dialog__close:hover {
+    transform: scale(1.2);
 }
 .b3-dialog__container svg {
     transition: all 0.1s ease-in-out;
