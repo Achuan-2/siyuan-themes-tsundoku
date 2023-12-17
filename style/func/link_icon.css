@@ -624,21 +624,13 @@
 }
 
 
-html[data-theme-mode="dark"] .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="github.com"]:not(:empty)::before,
-html[data-theme-mode="dark"] .protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href *="github.com"]:not(:empty)::before,
-html[data-theme-mode="dark"] .protyle-wysiwyg [data-node-id] a[href *="github.com"]::before,
-html[data-theme-mode="dark"] .b3-typography a[href *="github.com"]::before{
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="github.com"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href *="github.com"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href *="github.com"]::before,
+.b3-typography a[href *="github.com"]::before{
 
     content: "";
-    background-image: url('/appearance/themes/tsundoku/src/link_icon/github_icon-inwhite.png');
-}
-html[data-theme-mode="light"] .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="github.com"]:not(:empty)::before,
-html[data-theme-mode="light"] .protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href *="github.com"]:not(:empty)::before,
-html[data-theme-mode="light"] .protyle-wysiwyg [data-node-id] a[href *="github.com"]::before,
-html[data-theme-mode="light"] .b3-typography a[href *="github.com"]::before{
-
-    content: "";
-    background-image: url('/appearance/themes/tsundoku/src/link_icon/github_icon-inblack.png');
+    background-image: url('/appearance/themes/tsundoku/src/link_icon/github_icon.svg');
 }
 
 
