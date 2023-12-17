@@ -1,5 +1,7 @@
 /* theme.css 只放导出的样式，以及各个主题统一的样式，具体每个主题特殊的样式会放到各自主题的css中 */
 
+/* 导入数据库属性 */
+@import url('style/database.css');
 /* 导入文档属性 */
 @import url('style/doc_attr.css');
 /* 导入块自定义属性 */
@@ -255,7 +257,7 @@
     /* ⚙二级标题基本样式 */
     border-bottom: 1px solid var(--custom-h2-border-color) !important;
     font-size: 1.55em !important;
-    color: var(--custom-h2-color);
+    /* color: var(--custom-h2-color); */
     border-radius: 0px;
 }
 
@@ -272,12 +274,14 @@
 .b3-typography h3 {
     /* ⚙三级标题基本样式 */
     font-size: 1.35em !important;
-    color: var(--custom-h3-color) !important;
+    /* color: var(--custom-h3-color) !important; */
+    color: var(--b3-card-info-color);
+    background-color: var(--b3-card-info-background);
 }
 
-.protyle-wysiwyg:not([custom-title-num='true']) [data-node-id].h3 > div:first-child::before,
+/* 三级标题前面添加竖线*/
+/* .protyle-wysiwyg:not([custom-title-num='true']) [data-node-id].h3 > div:first-child::before,
 .b3-typography h3:before {
-    /* 三级标题前面添加竖线*/
     content: '';
     display: block;
     float: left;
@@ -287,10 +291,10 @@
     margin-right: 8px;
     margin-top: 0.07em;
     background: var(--custom-h3-color);
-}
+} */
 
-.protyle-wysiwyg .h3 > [spellcheck='false']:empty {
-    /* 调整h3空行时光标位置 */
+/* 调整h3空行时光标位置 */
+/* .protyle-wysiwyg .h3 > [spellcheck='false']:empty {
     padding-left: 1rem;
 }
 .protyle-wysiwyg .h3 > [spellcheck='false']:empty:before {
@@ -299,27 +303,29 @@
     height: 0.15em;
     margin-top: -0.3em;
     margin-left: -1rem;
-}
+} */
 
 /* 列表中h3特殊调整 */
-.protyle-wysiwyg .li > .h3 > div:first-child:before {
+/* .protyle-wysiwyg .li > .h3 > div:first-child:before {
     margin-top: 0.27em !important;
-}
-.protyle-wysiwyg .li > [data-node-id].h3 > div:first-child::before,
+} */
+/* 列表下三级标题竖线不显示 */
+/* .protyle-wysiwyg .li > [data-node-id].h3 > div:first-child::before,
 .b3-typography h3:before {
-    /* 列表下三级标题竖线不显示 */
     display: none !important;
-}
-.protyle-wysiwyg .li > .h3 > [spellcheck='false']:empty {
-    /* 调整h3空行时光标位置 */
+} */
+/* 调整h3空行时光标位置 */
+/* .protyle-wysiwyg .li > .h3 > [spellcheck='false']:empty {
     padding-left: 0rem !important;
-}
+} */
 
 /* 4. 四级标题样式setup */
 .protyle-wysiwyg [data-node-id].h4,
 .b3-typography h4 {
     font-size: 1.2em !important;
-    color: var(--custom-h4-color);
+    /* color: var(--custom-h4-color); */
+    color: var(--b3-card-success-color);
+    background-color: var(--b3-card-success-background);
 }
 /* 5. 五级标题样式setup */
 .protyle-wysiwyg [data-node-id].h5,
@@ -1832,7 +1838,8 @@ body
 /* 图片导出 */
 /* 超链接添加下划线 */
 .export-img.protyle-wysiwyg a {
-    border-bottom: 1px solid var(--b3-protyle-inline-blockref-color);
+    /* border-bottom: 1px solid var(--b3-protyle-inline-blockref-color); */
+    text-decoration: underline;
 }
 
 /* 退出聚焦按钮添加背景色 */
@@ -1849,6 +1856,14 @@ body
 #status {
     border-top: none;
 }
+
+
+
+/* 去除图片后的多余空行 CSS片段 */
+:is(.b3-typography,.protyle-wysiwyg) .img:not([style]) {
+   display:inline-block;
+}  
+ 
 
 
 

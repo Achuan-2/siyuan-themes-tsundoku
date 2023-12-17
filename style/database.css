@@ -1,0 +1,13 @@
+/* 资源列链接悬浮样式 */
+.av__celltext--url:hover {
+    color: var(--b3-protyle-inline-link-hover-color);
+    border-bottom: 1px solid var(--b3-protyle-inline-link-hover-color) !important;
+}
+
+
+
+
+
+
+
+
