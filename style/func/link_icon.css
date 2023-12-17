@@ -195,9 +195,9 @@
     content: "";
     background-image: url('/appearance/themes/tsundoku/src/link_icon/js.svg') !important;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".html"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href $=".html"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".html"]::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="assets"][data-href $=".html"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href ^="assets"][data-href $=".html"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[data-href ^="assets"][href $=".html"]::before,
 .b3-typography [href ^="assets/"][href $=".html"]::before{
     content: "";
     background-image: url('/appearance/themes/tsundoku/src/link_icon/html.svg') !important;
