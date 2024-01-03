@@ -1,3 +1,8 @@
+/* 添加颜色的引述块四周添加圆角 */
+.protyle-wysiwyg [data-node-id].bq[style*='background-color:'] {
+    border-radius: 4px !important;
+}
+
 /* 调整列表下引述块小竖线 */
 .protyle-wysiwyg [data-node-id].li > .bq[style*='background-color:'] {
     left: 4px !important;
@@ -84,7 +89,7 @@
     background-color: #c7ebbe59 !important;
 }
 .bq[style*='background-color: var(--b3-card-success-background);'] .code-block {
-    background-color: #d9f4d6;
+    background-color: #d9f4d6 !important;
 }
 
 /* 优化列表线 */
