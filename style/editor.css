@@ -200,7 +200,7 @@
     /* border: 1px solid var(--blockquote-border-color); */
     border: 1px solid var(--custom-blockquote-border-color);
     border-radius:  10px  !important;
-    color: #818181;
+    color: #6a6969;
     background-color: var(--custom-blockquote-background-color);
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
