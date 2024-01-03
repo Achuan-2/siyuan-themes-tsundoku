@@ -1,4 +1,17 @@
 
+## v1.8.8 / 2024.01.02
+- 💄 ui(databse): databse 右上方新建添加背景色
+- 💄 ui(blockquote): 美化引述块样式
+  - ![1704267070002Snipaste_2024-01-03_15-30-39.png](https://fastly.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/1704267070002Snipaste_2024-01-03_15-30-39.png)
+  - ![1704266965998Snipaste_2024-01-03_15-29-22.png](https://fastly.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/1704266965998Snipaste_2024-01-03_15-29-22.png)
+  - ![1704267082034Snipaste_2024-01-03_15-31-20.png](https://fastly.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/1704267082034Snipaste_2024-01-03_15-31-20.png)
+- 🐛 fix(js): 去除子弹线残余代码
+- 💄 ui(css): 提取块样式和行内样式到style/editor.css
+- ✨ feat(calendar): 日历支持解析dailynote模板
+    > 本来想已经有插件[顶栏日历](https://github.com/svchord/siyuan-arco-calendar)了，主题要不就把内置的日历功能去除了，可惜这个插件每次点击日历都要重新检索，很不好用，所以还是继续保留内置日历了，并且把日历功能进行了完善，目前已经可以解析更复杂的dailynote路径模板了，比如`/diary/{{now | date "2006/2006.01"}}/{{now | date "2006.01.02 Mon"}}``
+- ✨ feat(link_icon): 完善link icon
+
+
 ## v1.8.7 / 2023.12.17
 - 🐛 fix(list2map): 列表转思维导图错位
 - 💄 ui(font): 代码字体首选Monaspace Neon

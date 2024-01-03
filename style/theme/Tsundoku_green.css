@@ -193,7 +193,7 @@
     --custom-h4-color: #1e776f;
     --custom-h5-color: #174b53d6;
     --custom-h6-color: var(--b3-theme-on-background);
-    --custom-blockquote-border-color: #6bb481;
+    --custom-blockquote-border-color: #6bb48133;
     --custom-blockquote-background-color: #a9d6b248;
     --custom-tag-hover-color: #3eadad;
     --custom-link-bottom-color: #0a3a6418;
@@ -224,10 +224,6 @@ body {
 .b3-tab-container .b3-select,
 .b3-card,
 .config-account__center--text,
-.b3-typography table tbody tr,
-.protyle-wysiwyg table thead,
-.protyle-wysiwyg table tbody td,
-.protyle-wysiwyg table tbody tr,
 .protyle-wysiwyg [data-node-id] span[data-type='tag'],
 /* .protyle-wysiwyg .code-block, */
 div[style*="background-color: var" ],
