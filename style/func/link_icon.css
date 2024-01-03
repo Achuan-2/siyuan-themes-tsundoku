@@ -67,175 +67,128 @@
 .protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href ^="file://"][data-href *="."]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href ^="assets/"][data-href *="."]:not(:empty)::before,
 .b3-typography a[href ^="assets/"][data-href *="."]::before,
-.protyle-wysiwyg [data-node-id] a[href^="http://127.0.0.1:6806/assets/"][data-href *="."]::before,
 .protyle-wysiwyg [data-node-id] a[href^="assets/"][data-href *="."]::before {
     content: "";
     background-image: url('/appearance/themes/tsundoku/src/link_icon/file.svg');
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".zip"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href $=".zip"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".zip"]::before,
-.b3-typography a[href ^="assets/"][href $=".zip"]::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".tar"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href $=".tar"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".tar"]::before,
-.b3-typography a[href ^="assets/"][href $=".tar"]::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".tar.gz"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href $=".tar.gz"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".tar.gz"]::before,
-.b3-typography a[href ^="assets/"][href $=".tar.gz"]::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".gz"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href $=".gz"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".gz"]::before,
-.b3-typography a[href ^="assets/"][href $=".gz"]::before,
-.av__celltext--url[data-url $=".zip"]::before,
-.av__celltext--url[data-url $=".tar"]::before,
-.av__celltext--url[data-url $=".tar.gz"]::before,
-.av__celltext--url[data-url $=".rar"]::before,
-.av__celltext--url[data-url $=".gz"]::before,
-.av__celltext--url[data-url $=".7z"]::before,
-.av__celltext--url[data-url $=".bz2"]::before{
+
+
+.protyle-wysiwyg [data-node-id] span[data-type~='a']:is([data-href ^="assets/"], [data-href ^="file://"]):is([data-href $=".zip"],[data-href $=".tar"],[data-href $=".rar"],):not(:empty)::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='url']:is([data-href ^="assets/"], [data-href ^="file://"]):is([data-href $=".zip"],[data-href $=".tar"],[data-href $=".rar"]):not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a:is([href ^="assets/"], [href ^="file://"]):is([href $=".zip"],[href $=".tar"],[href $=".rar"])::before,
+.b3-typography a:is([href ^="assets/"], [href ^="file://"]):is([href $=".zip"],[href $=".tar"],[href $=".rar"])::before,
+.av__celltext--url:is([data-url $=".zip"],[data-url $=".tar"],[data-url $=".rar"])::before{
     content: "";
-    background-image: url('/appearance/themes/tsundoku/src/link_icon/compress.svg') !important;
+    background-image: url('/appearance/themes/tsundoku/src/link_icon/compress.svg') ;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".pdf"]:not(:empty)::before,
-.av__celltext--url[data-url$=".pdf"]::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href $=".pdf"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".pdf"]::before,
-.b3-typography [href ^="assets/"][href $=".pdf"]::before{
+
+.protyle-wysiwyg [data-node-id] span[data-type~='a']:is([data-href ^="assets/"], [data-href ^="file://"])[data-href $=".pdf"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='url']:is([data-href ^="assets/"], [data-href ^="file://"])[data-href $=".pdf"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a:is([href ^="assets/"], [href ^="file://"])[href $=".pdf"]::before,
+.b3-typography a:is([href ^="assets/"], [href ^="file://"])[href $=".pdf"]::before,
+.av__celltext--url:is([data-url $=".pdf"])::before{
     content: "";
-    background-image: url('/appearance/themes/tsundoku/src/link_icon/pdf.svg') !important;
+    background-image: url('/appearance/themes/tsundoku/src/link_icon/pdf.svg');
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".mp4"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href $=".mp4"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".mp4"]::before,
-.b3-typography [href ^="assets/"][href $=".mp4"]::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".flv"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href $=".flv"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $="flv"]::before,
-.b3-typography [href ^="assets/"][href $=".flv"]::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".mkv"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href $=".mkv"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".mkv"]::before,
-.b3-typography [href ^="assets/"][href $=".mkv"]::before {
+.protyle-wysiwyg [data-node-id] span[data-type~='a']:is([data-href ^="assets/"], [data-href ^="file://"]):is([data-href $=".mp4"],[data-href $=".flv"],[data-href $=".mkv"]):not(:empty)::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='url']:is([data-href ^="assets/"], [data-href ^="file://"]):is([data-href $=".mp4"],[data-href $=".flv"],[data-href $=".mkv"]):not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a:is([href ^="assets/"], [href ^="file://"]):is([href $=".mp4"],[href $=".flv"],[href $=".mkv"])::before,
+.b3-typography a:is([href ^="assets/"], [href ^="file://"]):is([href $=".mp4"],[href $=".flv"],[href $=".mkv"])::before,
+.av__celltext--url:is([data-url $=".mp4"],[data-url $=".flv"],[data-url $=".mkv"])::before {
     content: "";
-    background-image: url('/appearance/themes/tsundoku/src/link_icon/videos.svg') !important;
+    background-image: url('/appearance/themes/tsundoku/src/link_icon/videos.svg');
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".xlsx"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href $=".xlsx"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".xlsx"]::before,
-.b3-typography [href ^="assets/"][href $=".xlsx"]::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".xls"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href $=".xls"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".xls"]::before,
-.b3-typography [href ^="assets/"][href $=".xls"]::before,
-.av__celltext--url[data-url $=".xlsx"]::before,
-.av__celltext--url[data-url $=".xls"]::before{
+.protyle-wysiwyg [data-node-id] span[data-type~='a']:is([data-href ^="assets/"], [data-href ^="file://"]):is([data-href $=".xlsx"],[data-href $=".xls"]):not(:empty)::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='url']:is([data-href ^="assets/"], [data-href ^="file://"]):is([data-href $=".xlsx"],[data-href $=".xls"]):not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a:is([href ^="assets/"], [href ^="file://"]):is([href $=".xlsx"],[href $=".xls"])::before,
+.b3-typography a:is([href ^="assets/"], [href ^="file://"]):is([href $=".xlsx"],[href $=".xls"])::before,
+.av__celltext--url:is([data-url $=".xlsx"],[data-url $=".xls"])::before{
     content: "";
-    background-image: url('/appearance/themes/tsundoku/src/link_icon/excel_icon.svg') !important;
+    background-image: url('/appearance/themes/tsundoku/src/link_icon/excel_icon.svg') ;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".pptx"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href $=".pptx"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".pptx"]::before,
-.b3-typography [href ^="assets/"][href $=".pptx"]::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".ppt"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href $=".ppt"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".ppt"]::before,
-.b3-typography [href ^="assets/"][href $=".ppt"]::before,
-.av__celltext--url[data-url $=".pptx"]::before,
-.av__celltext--url[data-url $=".ppt"]::before {
+
+.protyle-wysiwyg [data-node-id] span[data-type~='a']:is([data-href ^="assets/"], [data-href ^="file://"]):is([data-href $=".pptx"],[data-href $=".ppt"]):not(:empty)::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='url']:is([data-href ^="assets/"], [data-href ^="file://"]):is([data-href $=".pptx"],[data-href $=".ppt"]):not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a:is([href ^="assets/"], [href ^="file://"]):is([href $=".pptx"],[href $=".ppt"])::before,
+.b3-typography a:is([href ^="assets/"], [href ^="file://"]):is([href $=".pptx"],[href $=".ppt"])::before,
+.av__celltext--url:is([data-url $=".pptx"],[data-url $=".ppt"])::before{
     content: "";
-    background-image: url('/appearance/themes/tsundoku/src/link_icon/powerpoint_icon.svg') !important;
+    background-image: url('/appearance/themes/tsundoku/src/link_icon/powerpoint_icon.svg');
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".docx"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href $=".docx"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".docx"]::before,
-.b3-typography [href ^="assets/"][href $=".docx"]::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".doc"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href $=".doc"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".doc"]::before,
-.b3-typography [href ^="assets/"][href $=".doc"]::before,
-.av__celltext--url[data-url $=".docx"]::before,
-.av__celltext--url[data-url $=".doc"]::before{
+
+.protyle-wysiwyg [data-node-id] span[data-type~='a']:is([data-href ^="assets/"], [data-href ^="file://"]):is([data-href $=".docx"],[data-href $=".doc"]):not(:empty)::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='url']:is([data-href ^="assets/"], [data-href ^="file://"]):is([data-href $=".docx"],[data-href $=".doc"]):not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a:is([href ^="assets/"], [href ^="file://"]):is([href $=".docx"],[href $=".doc"])::before,
+.b3-typography a:is([href ^="assets/"], [href ^="file://"]):is([href $=".docx"],[href $=".doc"])::before,
+.av__celltext--url:is([data-url $=".docx"],[data-url $=".doc"])::before{
     content: "";
-    background-image: url('/appearance/themes/tsundoku/src/link_icon/word_icon.svg') !important;
+    background-image: url('/appearance/themes/tsundoku/src/link_icon/word_icon.svg');
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".txt"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href $=".txt"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".txt"]::before,
-.b3-typography [href ^="assets/"][href $=".txt"]::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='a']:is([data-href ^="assets/"], [data-href ^="file://"])[data-href $=".txt"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='url']:is([data-href ^="assets/"], [data-href ^="file://"])[data-href $=".txt"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a:is([href ^="assets/"], [href ^="file://"])[href $=".txt"]::before,
+.b3-typography a:is([href ^="assets/"], [href ^="file://"])[href $=".txt"]::before,
 .av__celltext--url[data-url $=".txt"]::before{
     content: "";
-    background-image: url('/appearance/themes/tsundoku/src/link_icon/txt.svg') !important;
+    background-image: url('/appearance/themes/tsundoku/src/link_icon/txt.svg') ;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".py"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href $=".py"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".py"]::before,
-.b3-typography [href ^="assets/"][href $=".py"]::before{
+.protyle-wysiwyg [data-node-id] span[data-type~='a']:is([data-href ^="assets/"], [data-href ^="file://"])[data-href $=".py"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='url']:is([data-href ^="assets/"], [data-href ^="file://"])[data-href $=".py"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a:is([href ^="assets/"], [href ^="file://"])[href $=".py"]::before,
+.b3-typography a:is([href ^="assets/"], [href ^="file://"])[href $=".py"]::before{
     content: "";
-    background-image: url('/appearance/themes/tsundoku/src/link_icon/python_icon.svg') !important;
+    background-image: url('/appearance/themes/tsundoku/src/link_icon/python_icon.svg') ;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".R"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href $=".R"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".R"]::before,
-.b3-typography [href ^="assets/"][href $=".R"]::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".r"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".r"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href $=".r"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".r"]::before,
-.b3-typography [href ^="assets/"][href $=".r"]::before{
+.protyle-wysiwyg [data-node-id] span[data-type~='a']:is([data-href ^="assets/"], [data-href ^="file://"]):is([data-href $=".R"],[data-href $=".r"]):not(:empty)::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='url']:is([data-href ^="assets/"], [data-href ^="file://"]):is([data-href $=".R"],[data-href $=".r"]):not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a:is([href ^="assets/"], [href ^="file://"]):is([href $=".R"],[href $=".r"])::before,
+.b3-typography a:is([href ^="assets/"], [href ^="file://"]):is([href $=".R"],[href $=".r"])::before{
     content: "";
-    background-image: url('/appearance/themes/tsundoku/src/link_icon/r_lang.svg') !important;
+    background-image: url('/appearance/themes/tsundoku/src/link_icon/r_lang.svg') ;
 }
 
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".js"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href $=".js"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".js"]::before,
-.b3-typography [href ^="assets/"][href $=".js"]::before{
+.protyle-wysiwyg [data-node-id] span[data-type~='a']:is([data-href ^="assets/"], [data-href ^="file://"])[data-href $=".js"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='url']:is([data-href ^="assets/"], [data-href ^="file://"])[data-href $=".js"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a:is([href ^="assets/"], [href ^="file://"])[href $=".js"]::before,
+.b3-typography a:is([href ^="assets/"], [href ^="file://"])[href $=".js"]::before{
     content: "";
-    background-image: url('/appearance/themes/tsundoku/src/link_icon/js.svg') !important;
-}
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="assets"][data-href $=".html"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href ^="assets"][data-href $=".html"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[data-href ^="assets"][href $=".html"]::before,
-.b3-typography [href ^="assets/"][href $=".html"]::before{
-    content: "";
-    background-image: url('/appearance/themes/tsundoku/src/link_icon/html.svg') !important;
-}
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".css"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href $=".css"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".css"]::before,
-.b3-typography [href ^="assets/"][href $=".css"]::before{
-    content: "";
-    background-image: url('/appearance/themes/tsundoku/src/link_icon/css.svg') !important;
-}
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".md"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href $=".md"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".md"]::before,
-.b3-typography [href ^="assets/"][href $=".md"]::before{
-    content: "";
-    background-image: url('/appearance/themes/tsundoku/src/link_icon/logo-markdown.svg') !important;
-}
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href $=".ipynb"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href $=".ipynb"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href $=".ipynb"]::before,
-.b3-typography [href ^="assets/"][href $=".ipynb"]::before{
-    content: "";
-    background-image: url('/appearance/themes/tsundoku/src/link_icon/jupyter.svg') !important;
+    background-image: url('/appearance/themes/tsundoku/src/link_icon/js.svg') ;
 }
 
-.protyle-wysiwyg [data-node-id] span[data-type="a"][data-href^="备注"],
-.protyle-wysiwyg [data-node-id] span[data-type="url"][data-href^="备注"],
-.protyle-wysiwyg [data-node-id] a[href^="备注"],
-.b3-typography [href ^="备注"],
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="note"],
-.protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href ^="note"],
-.protyle-wysiwyg [data-node-id] a[href ^="note"],
-.b3-typography [href ^="note"]{
-    background-color: var(--b3-card-warning-background);
-    border-bottom: 2px solid var(--b3-font-color2);
-    color: inherit;
+.protyle-wysiwyg [data-node-id] span[data-type~='a']:is([data-href ^="assets/"], [data-href ^="file://"])[data-href $=".html"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='url']:is([data-href ^="assets/"], [data-href ^="file://"])[data-href $=".html"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a:is([href ^="assets/"], [href ^="file://"])[href $=".html"]::before,
+.b3-typography a:is([href ^="assets/"], [href ^="file://"])[href $=".html"]::before{
+    content: "";
+    background-image: url('/appearance/themes/tsundoku/src/link_icon/html.svg') ;
 }
+.protyle-wysiwyg [data-node-id] span[data-type~='a']:is([data-href ^="assets/"], [data-href ^="file://"])[data-href $=".css"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='url']:is([data-href ^="assets/"], [data-href ^="file://"])[data-href $=".css"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a:is([href ^="assets/"], [href ^="file://"])[href $=".css"]::before,
+.b3-typography a:is([href ^="assets/"], [href ^="file://"])[href $=".css"]::before{
+    content: "";
+    background-image: url('/appearance/themes/tsundoku/src/link_icon/css.svg') ;
+}
+
+
+.protyle-wysiwyg [data-node-id] span[data-type~='a']:is([data-href ^="assets/"], [data-href ^="file://"])[data-href $=".md"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='url']:is([data-href ^="assets/"], [data-href ^="file://"])[data-href $=".md"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a:is([href ^="assets/"], [href ^="file://"])[href $=".md"]::before,
+.b3-typography a:is([href ^="assets/"], [href ^="file://"])[href $=".md"]::before{
+    content: "";
+    background-image: url('/appearance/themes/tsundoku/src/link_icon/logo-markdown.svg') ;
+}
+.protyle-wysiwyg [data-node-id] span[data-type~='a']:is([data-href ^="assets/"], [data-href ^="file://"])[data-href $=".ipynb"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='url']:is([data-href ^="assets/"], [data-href ^="file://"])[data-href $=".ipynb"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a:is([href ^="assets/"], [href ^="file://"])[href $=".ipynb"]::before,
+.b3-typography a:is([href ^="assets/"], [href ^="file://"])[href $=".ipynb"]::before{
+    content: "";
+    background-image: url('/appearance/themes/tsundoku/src/link_icon/jupyter.svg');
+}
+
+
+
+/* website link icon */
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="http"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href ^="http"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a[href ^="http"]::before,
@@ -270,7 +223,7 @@
 .b3-typography a[href *="zhihu.com"]::before{
 
     content: "";
-    background-image: url('/appearance/themes/tsundoku/src/link_icon/zhihu.svg');
+    background-image: url('/appearance/themes/tsundoku/src/link_icon/zhihu.ico');
 
 }
 
