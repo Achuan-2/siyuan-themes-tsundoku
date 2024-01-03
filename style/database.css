@@ -4,10 +4,12 @@
     border-bottom: 1px solid var(--b3-protyle-inline-link-hover-color) !important;
 }
 
-
-
-
-
-
-
+span[data-type='av-add-more'] {
+    background-color: #58b3f0;
+    color: #fff;
+}
+span[data-type='av-add-more']:hover {
+    background-color: #3498db !important;
+    color: #fff !important;
+}
 
