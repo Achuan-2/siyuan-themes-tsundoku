@@ -198,8 +198,9 @@
 .protyle-wysiwyg [data-node-id].bq,
 .b3-typography blockquote {
     /* border: 1px solid var(--blockquote-border-color); */
-    border-left: 0.2em solid var(--custom-blockquote-border-color);
-    border-radius: 0px 4px 4px 0px !important;
+    border: 1px solid var(--custom-blockquote-border-color);
+    border-radius:  10px  !important;
+    color: #818181;
     background-color: var(--custom-blockquote-background-color);
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -442,7 +443,7 @@ mark {
     border-bottom: 2px solid var(--b3-font-color4);
 }
 /* -----------------------加粗----------------------- */
-span[data-type='strong'] {
+.protyle-wysiwyg span[data-type~=strong]{
     color: inherit;
 }
 
