@@ -9,8 +9,6 @@
 @import url('style/func/fold.css');
 /* 导入超链接图标样式 */
 @import url('style/func/link_icon.css');
-/* 导入Admonition样式 */
-@import url('style/func/Admonition.css');
 /* 导入数据库样式 */
 @import url('style/database.css');
 /* 导入文档属性 */
