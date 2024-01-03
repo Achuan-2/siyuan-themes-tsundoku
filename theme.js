@@ -140,7 +140,6 @@ window.theme.updateStyle = function (id, href) {
 };
 
 function create_theme_button() {
-
     // light 主题下更新样式：为了新建窗口也能自动加载样式
     const drag = document.getElementById('drag'); // 标题栏
     const themeStyle = document.getElementById('themeStyle'); // 当前主题引用路径
@@ -154,7 +153,7 @@ function create_theme_button() {
             window.theme.updateStyle(window.theme.IDs.STYLE_COLOR, `${THEME_ROOT}${color}`);
             return;
         }
-        
+
         /* 通过颜色配置文件列表生成完整 URL 路径 */
         window.theme.lightColors.forEach(color => colors_href.push(`${THEME_ROOT}${color}`));
         window.theme.iter = window.theme.Iterator(colors_href);
@@ -775,7 +774,4 @@ function ViewMonitor(event) {
     initcalendar();
     /*创建主题按钮 */
     create_theme_button();
-    bulletMain();
-    console.log('加载子弹线成功');
 })();
-
