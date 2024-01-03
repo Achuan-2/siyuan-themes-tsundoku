@@ -1,0 +1,71 @@
+
+
+/* -------------------搬运语雀的提示区块 ---------Start----------------------------*/
+
+
+/* 优化代码块和行内代码 */
+
+.bq[style*='background-color: var(--b3-card-error-background);'] span[data-type~='kbd'],
+.bq[style*='background-color: var(--b3-card-error-background);'] span[data-type~='code'] {
+    color: var(--b3-card-error-color) !important;
+    background-color: #f0c4b959 !important;
+}
+[data-theme-mode="light"] .bq[style*='background-color: var(--b3-card-error-background);'] .hljs {
+    background-color: #f6d8d382 !important;
+}
+.bq[style*='background-color: var(--b3-card-warning-background);'] span[data-type~='kbd'],
+.bq[style*='background-color: var(--b3-card-warning-background);'] span[data-type~='code'] {
+    color: var(--b3-card-warning-color) !important;
+    background-color: #f0dfb959 !important;
+}
+[data-theme-mode="light"]  .bq[style*='background-color: var(--b3-card-warning-background);'] .hljs {
+    background-color: #f7e9d08a !important;
+}
+.bq[style*='background-color: var(--b3-card-info-background);'] span[data-type~='kbd'],
+.bq[style*='background-color: var(--b3-card-info-background);'] span[data-type~='code'] {
+    color: var(--b3-card-info-color) !important;
+    background-color: #bedaeb59 !important;
+}
+[data-theme-mode="light"]  .bq[style*='background-color: var(--b3-card-info-background);'] .hljs {
+    background-color: #d2e6f4b0 !important;
+}
+.bq[style*='background-color: var(--b3-card-success-background);'] span[data-type~='kbd'],
+.bq[style*='background-color: var(--b3-card-success-background);'] span[data-type~='code'] {
+    color: var(--b3-card-success-color) !important;
+    background-color: #c7ebbe59 !important;
+}
+[data-theme-mode="light"]  .bq[style*='background-color: var(--b3-card-success-background);'] .hljs {
+    background-color: #d9f4d6c7 !important;
+}
+
+/* 优化列表线 */
+.bq[style*='background-color: var(--b3-card-error-background);']
+    [data-node-id].li
+    > [data-node-id]:before {
+    border-left: 1px solid #debeb9 !important;
+}
+
+.bq[style*='background-color: var(--b3-card-warning-background);']
+    [data-node-id].li
+    > [data-node-id]:before {
+    border-left: 1px solid #d6c0a3 !important;
+}
+.bq[style*='background-color: var(--b3-card-info-background);']
+    [data-node-id].li
+    > [data-node-id]:before {
+    border-left: 1px solid #83a8c2 !important;
+}
+.bq[style*='background-color: var(--b3-card-success-background);']
+    [data-node-id].li
+    > [data-node-id]:before {
+    border-left: 1px solid #a7c4b8 !important;
+}
+
+/* 选中块的优化 */
+.protyle-wysiwyg--select.bq[style*='background-color:'] > div {
+    background-color: rgba(31, 138, 93, 0.12) !important;
+}
+
+
+/* -------------------搬运语雀的提示区块 --END-----------------------------------*/
+	

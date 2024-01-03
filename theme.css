@@ -13,6 +13,8 @@
 @import url('style/database.css');
 /* 导入文档属性 */
 @import url('style/doc_attr.css');
+/* 导入Admonition样式 */
+@import url('style/func/Admonition.css');
 /* 导入块自定义属性 */
 @import url('style/attr.css');
 /* 导入列表转换样式 */
