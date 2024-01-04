@@ -1,3 +1,7 @@
+## v1.8.9 / 2024.01.04
+- 💄 ui( 标题): 上下增加间距
+- 💄 ui(blockquote): 字体颜色调粗
+- 💄 ui(数据库): 默认不隐藏按钮
 
 ## v1.8.8 / 2024.01.02
 - 💄 ui(databse): databse 右上方新建添加背景色
@@ -8,7 +12,7 @@
 - 🐛 fix(js): 去除子弹线残余代码
 - 💄 ui(css): 提取块样式和行内样式到style/editor.css
 - ✨ feat(calendar): 日历支持解析dailynote模板
-    > 本来想已经有插件[顶栏日历](https://github.com/svchord/siyuan-arco-calendar)了，主题要不就把内置的日历功能去除了，可惜这个插件每次点击日历都要重新检索，很不好用，所以还是继续保留内置日历了，并且把日历功能进行了完善，目前已经可以解析更复杂的dailynote路径模板了，比如`/diary/{{now | date "2006/2006.01"}}/{{now | date "2006.01.02 Mon"}}``
+    > 本来想已经有插件[顶栏日历](https://github.com/svchord/siyuan-arco-calendar)了，主题要不就把内置的日历功能去除了，可惜这个插件每次点击日历都要重新检索，不是很好用，所以还是继续保留内置日历了，并且把日历功能进行了完善，目前已经可以解析更复杂的dailynote路径模板了，比如 `/diary/{{now | date "2006/2006.01"}}/{{now | date "2006.01.02 Mon"}}`
 - ✨ feat(link_icon): 完善link icon
 
 
