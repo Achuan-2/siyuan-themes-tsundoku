@@ -128,7 +128,8 @@
 .protyle-wysiwyg [data-node-id].h5,
 .b3-typography h5 {
     font-size: 1.1em !important;
-    color: var(--custom-h5-color);
+    /* color: var(--custom-h5-color); */
+    background-color: #bec6e891;
 }
 
 /* 6. 六级标题样式setup */
