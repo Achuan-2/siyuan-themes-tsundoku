@@ -3,6 +3,34 @@
 /* --------------------------------------------------------------------------------------------- */
 
 /* -------------------------------标题样式------------------------------------- */
+/* 标题上下增加间距 */
+.b3-typography .h1,
+.b3-typography h1,
+.b3-typography .h2,
+.b3-typography h2,
+.b3-typography .h3,
+.b3-typography h3,
+.b3-typography .h4,
+.b3-typography h4,
+.b3-typography .h5,
+.b3-typography h5,
+.b3-typography .h6,
+.b3-typography h6,
+.protyle-wysiwyg .h1,
+.protyle-wysiwyg h1,
+.protyle-wysiwyg .h2,
+.protyle-wysiwyg h2,
+.protyle-wysiwyg .h3,
+.protyle-wysiwyg h3,
+.protyle-wysiwyg .h4,
+.protyle-wysiwyg h4,
+.protyle-wysiwyg .h5,
+.protyle-wysiwyg h5,
+.protyle-wysiwyg .h6,
+.protyle-wysiwyg h6 {
+    margin: 10px 0;
+}
+
 
 /* 1. 一级标题样式setup */
 .protyle-wysiwyg [data-node-id].h1,
@@ -714,3 +742,5 @@ li[data-type='navigation-file'] .counter {
 /* --------------------------------------------------------------------------------------------- */
 /* ------------------------------------行内块字体样式：End-------------------------------------- */
 /* --------------------------------------------------------------------------------------------- */
+
+
