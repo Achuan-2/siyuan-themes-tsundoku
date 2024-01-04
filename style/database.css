@@ -13,3 +13,7 @@ span[data-type='av-add-more']:hover {
     color: #fff !important;
 }
 
+/* 数据库默认不隐藏按钮 */
+.av .av__views .block__icon {
+    opacity: 1;
+}
