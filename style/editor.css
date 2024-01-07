@@ -73,7 +73,8 @@
     font-size: 1.35em !important;
     /* color: var(--custom-h3-color) !important; */
     color: var(--b3-card-info-color);
-    background-color: var(--b3-card-info-background);
+    background-color: #d1ecf7;
+    box-shadow: 2px 2px 2px var( --b3-table-border-color);
 }
 
 /* 三级标题前面添加竖线*/
@@ -122,7 +123,9 @@
     font-size: 1.2em !important;
     /* color: var(--custom-h4-color); */
     color: var(--b3-card-success-color);
-    background-color: var(--b3-card-success-background);
+    background-color: #D8F9E6;
+    box-shadow: 2px 2px 2px var( --b3-table-border-color);
+
 }
 /* 5. 五级标题样式setup */
 .protyle-wysiwyg [data-node-id].h5,
@@ -130,6 +133,7 @@
     font-size: 1.1em !important;
     /* color: var(--custom-h5-color); */
     background-color: #bec6e891;
+    box-shadow: 2px 2px 2px var(--b3-table-border-color);
 }
 
 /* 6. 六级标题样式setup */

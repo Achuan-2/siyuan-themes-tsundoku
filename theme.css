@@ -1,20 +1,22 @@
 /* theme.css 只放导出的样式，以及各个主题统一的样式，具体每个主题特殊的样式会放到各自主题的css中 */
 /* 导入编辑器基础块和行内样式 */
 @import url('style/editor.css');
+/* 导入标题样式 */
+@import url('style/module/h-reminder.css');
 /* 导入代码块样式 */
-@import url('style/func/code_block.css');
+@import url('style/module/code_block.css');
 /* 导入自定义有序列表样式 */
-@import url('style/func/ol.css');
+@import url('style/module/ol.css');
 /* 导入折叠样式css */
-@import url('style/func/fold.css');
+@import url('style/module/fold.css');
 /* 导入超链接图标样式 */
-@import url('style/func/link_icon.css');
+@import url('style/module/link_icon.css');
 /* 导入数据库样式 */
 @import url('style/database.css');
 /* 导入文档属性 */
 @import url('style/doc_attr.css');
 /* 导入Admonition样式 */
-@import url('style/func/Admonition.css');
+@import url('style/module/Admonition.css');
 /* 导入块自定义属性 */
 @import url('style/attr.css');
 /* 导入列表转换样式 */
@@ -24,7 +26,7 @@
 @import url('style/block_attr/table.css');
 
 /* 导入主题切换按钮选项 */
-@import url('style/func/notionToolBar.css');
+@import url('style/module/notionToolBar.css');
 
 :root {
     /* 主色 */
@@ -104,24 +106,24 @@
     --b3-font-color5: #8e8e8e;
     --b3-font-color6: #52d4ca;
     --b3-font-color7: var(--b3-theme-secondary);
-    --b3-font-color8: #6a0b03;
+    --b3-font-color8: #a3431f;
     --b3-font-color9: #596ab7;
     --b3-font-color10: #944194;
     --b3-font-color11: #d447c5;
-    --b3-font-color12: #a3431f;
+    --b3-font-color12: #6a0b03;
     --b3-font-color13: var(--b3-theme-background);
     --b3-font-background1: var(--b3-card-error-background);
     --b3-font-background2: var(--b3-card-warning-background);
     --b3-font-background3: var(--b3-card-info-background);
     --b3-font-background4: var(--b3-card-success-background);
-    --b3-font-background5: #f2f2f2;
-    --b3-font-background6: #19e4ff2b;
-    --b3-font-background7: #fff19598;
-    --b3-font-background8: #ff9697;
-    --b3-font-background9: #bec6e891;
-    --b3-font-background10: #d2cbff;
-    --b3-font-background11: #d2cbffa8;
-    --b3-font-background12: #edd9d2;
+    --b3-font-background5: #e2e3e4;
+    --b3-font-background6: #D8FAFF;
+    --b3-font-background7: #FEF7D2;
+    --b3-font-background8: #F0EDE0;
+    --b3-font-background9: #E9E9FF;
+    --b3-font-background10: #E5DAFF;
+    --b3-font-background11: #f5c7f0;
+    --b3-font-background12: #ff9697;
     --b3-font-background13: var(--b3-theme-on-background);
     /* PDF */
     --b3-pdf-sidebar-width: 200px;
