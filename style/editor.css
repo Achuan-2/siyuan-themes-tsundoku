@@ -196,10 +196,13 @@
     border: 1px solid var(--b3-table-border-color);
 }
 
-/* 表格文字不换行 */
+/* 表格文字换行 */
 .protyle-wysiwyg div.table[data-node-id] table {
-    width: auto;
     word-wrap: break-word;
+}
+/* 设置表格每列默认宽度 */
+.protyle-wysiwyg div.table[data-node-id] table tr td{
+    max-width: 620px; 
 }
 /* 表格默认居中 */
 .protyle-wysiwyg div.table {
@@ -230,7 +233,6 @@
 
 .protyle-wysiwyg [data-node-id].bq,
 .b3-typography blockquote {
-    /* border: 1px solid var(--blockquote-border-color); */
     border: 1px solid var(--custom-blockquote-border-color);
     border-radius:  10px  !important;
     color: #6a6969;
@@ -599,7 +601,7 @@ li[data-type='navigation-file'] .counter {
 .b3-typography span[data-type~='code'],
 .protyle-wysiwyg code:not(.hljs),
 .protyle-wysiwyg span[data-type~='code'] {
-    margin: 0px 2px 0px;
+    /* margin: 0px 2px 0px; */
     top: -0.1em;
     color: var(--b3-protyle-inline-code-color);
     font-size: 80%;

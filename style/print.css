@@ -1,0 +1,25 @@
+
+#preview.protyle-wysiwyg .h1 {
+    text-align: center !important;
+}
+
+#preview.protyle-wysiwyg .h1:not(:first-child, :nth-child(2)) {
+    /* h1标题前分页，但不选择文档中的第一个标题 */
+    page-break-before: always;
+}
+
+#preview.protyle-wysiwyg .h1 + .h1 {
+    /* 两个h1连着后面的h1不分页，有些人可能文档标题下第一个标题就是h1 */
+    page-break-before: auto;
+}
+
+/* 设置导出样式 */
+@media print {
+    :root {
+        font-family: var(--b3-font-family);
+    }
+}
+/* 导出的链接样式 */
+#preview.protyle-wysiwyg a {
+    color: var(--b3-protyle-inline-link-color);
+}

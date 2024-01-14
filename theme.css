@@ -28,6 +28,9 @@
 /* 导入主题切换按钮选项 */
 @import url('style/module/notionToolBar.css');
 
+/* 导出样式 */
+@import url('style/print.css');
+
 :root {
     /* 主色 */
     /* 高亮 */
@@ -91,13 +94,13 @@
 
     /* 卡片背景 */
     --b3-card-error-color: #b93128;
-    --b3-card-error-background: #FDEAEC;
+    --b3-card-error-background: #fdeaec;
     --b3-card-warning-color: rgb(102, 60, 0);
-    --b3-card-warning-background: #FCE4D2;
+    --b3-card-warning-background: #fce4d2;
     --b3-card-info-color: rgb(13, 60, 97);
-    --b3-card-info-background: #DEEEFA;
+    --b3-card-info-background: #deeefa;
     --b3-card-success-color: rgb(30, 70, 32);
-    --b3-card-success-background: #E5FAE5;
+    --b3-card-success-background: #e5fae5;
     /* 自定义文字 */
     --b3-font-color1: var(--b3-card-error-color: ); /*#e1694e;*/
     --b3-font-color2: var(--b3-card-warning-color); /*#f1781c;*/
@@ -117,11 +120,11 @@
     --b3-font-background3: var(--b3-card-info-background);
     --b3-font-background4: var(--b3-card-success-background);
     --b3-font-background5: #e2e3e4;
-    --b3-font-background6: #D8FAFF;
-    --b3-font-background7: #FEF7D2;
-    --b3-font-background8: #F0EDE0;
-    --b3-font-background9: #E9E9FF;
-    --b3-font-background10: #E5DAFF;
+    --b3-font-background6: #d8faff;
+    --b3-font-background7: #fef7d2;
+    --b3-font-background8: #f0ede0;
+    --b3-font-background9: #e9e9ff;
+    --b3-font-background10: #e5daff;
     --b3-font-background11: #f5c7f0;
     --b3-font-background12: #ff9697;
     --b3-font-background13: var(--b3-theme-on-background);
@@ -218,8 +221,8 @@
     --custom-h4-color: #2c99a2;
     --custom-h5-color: #421768;
     --custom-h6-color: var(--b3-theme-on-background);
-    --custom-blockquote-border-color: #d8d8d8;
-    --custom-blockquote-background-color: #f7f8f8;
+    --custom-blockquote-border-color: #efeded;
+    --custom-blockquote-background-color: #f7f9f9;
     --custom-tag-hover-color: #559898;
     --custom-link-bottom-color: #bacbd650;
 }
@@ -245,37 +248,6 @@ body > #action {
 .protyle-preview__action button.protyle-preview__action--current,
 .protyle-preview__action button:hover {
     background-color: transparent;
-}
-
-/* 导出的高亮样式：高亮隐藏 */
-/* #preview.protyle-wysiwyg span[data-type~='mark'] {
-    color: transparent;
-    transition: color 0.2s ease-in-out;
-    background-color: transparent;
-    border-bottom: 2px solid var(--b3-font-color4);
-} */
-
-/* 导出的高亮样式：高亮不隐藏 */
-#preview.protyle-wysiwyg span[data-type~='mark'] {
-    color: var(--b3-protyle-inline-mark-color);
-    transition: color 0.2s ease-in-out;
-    background-color: var(--b3-card-success-background);
-    border-bottom: 2px solid var(--b3-font-color4);
-}
-
-#preview.protyle-wysiwyg .h1 {
-    text-align: center !important;
-}
-
-#preview.protyle-wysiwyg .h1:not(:first-child, :nth-child(2)) {
-    page-break-before: always;
-}
-
-/* 设置导出样式 */
-@media print {
-    :root {
-        font-family: var(--b3-font-family);
-    }
 }
 
 /* --------------------------------------------------------------------------------------------- */
@@ -1106,10 +1078,6 @@ body
     margin: 0 auto;
 }
 
-#preview.protyle-wysiwyg a {
-    color: var(--b3-protyle-inline-link-color);
-}
-
 #configBazaarReadme .block__icons {
     background-color: transparent !important;
 }
@@ -1143,5 +1111,11 @@ body
 #status {
     border-top: none;
 }
-/* 页签钉住添加背景色 */
 
+/* .export-img.protyle-wysiwyg span[data-type~='code']{
+    margin: 0;
+} */
+
+.protyle-wysiwyg [data-node-id].li:before {
+    border-left: 0.5px solid #dfe0e1 !important;
+}

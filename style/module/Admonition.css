@@ -1,7 +1,65 @@
 
 
 /* -------------------搬运语雀的提示区块 ---------Start----------------------------*/
+/* 添加border */
+/* .bq[style*='background-color: var(--b3-card-error-background);'] {
+    border: 1px solid var(--b3-font-color1) !important;
+}
 
+.bq[style*='background-color: var(--b3-card-warning-background);'] {
+    border: 1px solid var(--b3-font-color2) !important;
+}
+
+.bq[style*='background-color: var(--b3-card-info-background);'] {
+    border: 1px solid var(--b3-font-color3) !important;
+}
+
+.bq[style*='background-color: var(--b3-card-success-background);'] {
+    border: 1px solid var(--b3-font-color4) !important;
+}
+.bq[style*='background-color: var(--b3-font-background1);'] {
+    border: 1px solid var(--b3-font-color1) !important;
+}
+
+.bq[style*='background-color: var(--b3-font-background2);'] {
+    border: 1px solid var(--b3-font-color2) !important;
+}
+
+.bq[style*='background-color: var(--b3-font-background3);'] {
+    border: 1px solid var(--b3-font-color3) !important;
+}
+
+.bq[style*='background-color: var(--b3-font-background4);'] {
+    border: 1px solid var(--b3-font-color4) !important;
+}
+
+.bq[style*='background-color: var(--b3-font-background5);'] {
+    border: 1px solid var(--b3-font-color5) !important;
+}
+.bq[style*='background-color: var(--b3-font-background6);'] {
+    border: 1px solid var(--b3-font-color6) !important;
+}
+.bq[style*='background-color: var(--b3-font-background7);'] {
+    border: 1px solid var(--b3-font-color7) !important;
+}
+.bq[style*='background-color: var(--b3-font-background8);'] {
+    border: 1px solid var(--b3-font-color8) !important;
+}
+.bq[style*='background-color: var(--b3-font-background9);'] {
+    border: 1px solid var(--b3-font-color9) !important;
+}
+.bq[style*='background-color: var(--b3-font-background10);'] {
+    border: 1px solid var(--b3-font-color10) !important;
+}
+.bq[style*='background-color: var(--b3-font-background11);'] {
+    border: 1px solid var(--b3-font-color11) !important;
+}
+.bq[style*='background-color: var(--b3-font-background12);'] {
+    border: 1px solid var(--b3-font-color12) !important;
+}
+.bq[style*='background-color: var(--b3-font-background13);'] {
+    border: 1px solid var(--b3-font-color13) !important;
+} */
 
 /* 优化代码块和行内代码 */
 
