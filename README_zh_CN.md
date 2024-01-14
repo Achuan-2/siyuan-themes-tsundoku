@@ -30,6 +30,13 @@
 
 ## 🚀最近更新
 
+v1.9.2 / 2023.01.14
+* 💄列表竖线颜色调整，适配导出pdf
+* 🎨 导出样式放在print.css
+* 💄blockquote样式优化
+* 📝 从这一版开始会开始更新英文README和CHANGELOG.md
+* 🔥取消表格宽度调整
+
 v1.9.0 / 2023.01.07
 - 💄 ui(自定义颜色): 调整配色
 - 💄 ui( 标题): 更改样式，改了下背景色、添加了一点阴影、添加了savor的标题提示
@@ -39,16 +46,8 @@ v1.8.9 / 2024.01.04
 - 💄 ui(blockquote): 字体颜色调粗
 - 💄 ui(数据库): 默认不隐藏按钮
 
-v1.8.8 / 2024.01.02
-- 💄 ui(databse): databse 右上方新建添加背景色
-- 💄 ui(blockquote): 美化引述块样式
-- 🐛 fix(js): 去除子弹线残余代码
-- 💄 ui(css): 提取块样式和行内样式到style/editor.css
-- ✨ feat(calendar): 日历支持解析dailynote模板
-    > 本来想已经有插件[顶栏日历](https://github.com/svchord/siyuan-arco-calendar)了，主题要不就把内置的日历功能去除了，可惜这个插件每次点击日历都要重新检索，不是很好用，所以还是继续保留内置日历了，并且把日历功能进行了完善，目前已经可以解析更复杂的dailynote路径模板了，比如 `/diary/{{now | date "2006/2006.01"}}/{{now | date "2006.01.02 Mon"}}`
-- ✨ feat(link_icon): 完善link icon
 
-全部更新日志请见 [CHANGE_LOGS](./CHANGE_LOGS.md)
+全部更新日志请见 [CHANGELOG](./CHANGELOG.md)
 
 ## 💌 缘起
 
@@ -65,7 +64,7 @@ Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释
 
 ## 🐯 主题特色功能  
 
-- ✨ **主题三合一，同时支持明亮模式和暗黑模式**（Tsundoku Light、Tsundoku Green、Tsundoku Dark）【主题切换按钮参考自[Savor主题](https://github.com/royc01/notion-theme) 】  
+- ✨ **主题三合一，同时支持明亮模式和暗黑模式**（Tsundoku Light、Tsundoku Green、Tsundoku Dark）
   - 思源笔记明亮模式只支持选择light和green，暗黑模式只支持选择dark主题
   - **如果明亮模式和暗黑模式都设置为使用Tsundoku主题**：从暗黑模式切换为明亮模式，根据之前的明亮模式选择自动更改为green主题/light主题；从明亮模式切换为暗黑模式，自动更改为dark主题
   
@@ -87,7 +86,7 @@ Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释
 
 - [HBuilderX-Light主题](https://github.com/UFDXD/HBuilderX-Light)
   - 列表转脑图、表格
-  - 表格设置是否显示表头和表宽度调整
+  - 表格设置是否显示表头和表格宽度调整
 - [Savor主题](https://github.com/royc01/notion-theme)
   - 主题切换按钮
 - [日历面板](https://github.com/HowcanoeWang/calendar)

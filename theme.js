@@ -599,8 +599,6 @@ function SubMenu(selectid, selecttype, className = 'b3-menu__submenu') {
         node.appendChild(DefaultView(selectid));
     }
     if (selecttype == 'NodeTable') {
-        node.appendChild(FixWidth(selectid));
-        node.appendChild(AutoWidth(selectid));
         node.appendChild(Removeth(selectid));
         node.appendChild(Defaultth(selectid));
     }

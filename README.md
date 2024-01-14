@@ -17,20 +17,37 @@ English  | [中文](./README_zh_CN.md)
 ![](preview.png)
 
 
-**Introduction**: [Siyuan](https://github.com/Siyuan-Note/Siyuan) is a local priority personal knowledge management system, which supports completely offline use and end-to-end encryption synchronization. Combine blocks, outlines and two-way links to build your eternal digital garden. This theme is a personal original theme, specially designed for Siyuan notes.
+**Introduction**: [Siyuan](https://github.com/Siyuan-Note/Siyuan)  is a privacy-first personal knowledge management system, support fine-grained block-level reference and Markdown WYSIWYG. This theme is a personal original theme, specially designed for Siyuan notes.
 
-<img src="https:/cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/202306221442856.png" alt="">
+![Light](https://fastly.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/1704370183771Clip_2024-01-04_20-09-39.png)
 <center>Light</center>
 
-<img src="https:/cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/202306221441869.png" alt="">
+![Green](https://fastly.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/1704370137769Clip_2024-01-04_20-07-57.png)
 <center>Green</center>
 
-<img src="https:/cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/202306221442278.png" alt="">
+![Dark](https://fastly.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/1704370028776Clip_2024-01-04_20-07-02.png)
 <center>Dark</center>
 
 ## 🚀 CHANGLOGS
 
-See [CHANGE_LOGS](./CHANGE_LOGS.md)
+v1.9.2 / 2023.01.14
+* 💄 Adjusted the color of the vertical lines in the list to adapt for PDF export.
+* 🎨 Placed export styles in print.css
+* 💄 Optimized blockquote style
+* 📝 Starting from this version, the English README and CHANGELOG.md will be updated.
+* 🔥Cancel th adjustment of table width.
+
+v1.9.0 / 2023.01.07
+- 💄 ui(custom colors): Adjusted color matching
+- 💄 ui(title): Changed the style, modified the background color, added some shadows, and included a title prompt for savor
+
+v1.8.9 / 2024.01.04
+- 💄 ui(title): Increased spacing above and below
+- 💄 ui(blockquote): Made font color bolder
+- 💄 ui(database): Default buttons are not hidden
+
+
+Please see [CHANGELOG](./CHANGELOG.md) for the full update log.
 
 
 
@@ -48,24 +65,35 @@ The biggest obstacle to using a tool is "unclear requirements". If you don't kno
 
 I use this name to wake myself up, hoping to make good use of Siyuan notes, help me form the habit of daily recording and reviewing the answers regularly, better master knowledge and skills, strive to do meaningful projects and become a better person, instead of taking notes for the sake of taking notes, so that the note-taking software can become a dust box to relieve knowledge anxiety and satisfy abnormal digital hoarding.
 
-![1695625149328](README/1695625149328.png)
-![](https://raw.githubusercontent.com/Achuan-2/PicBed/pic/assets/20230925145915-2023-09-25.png)
+
 ## 🐯 Features
 
-- ✨ **The theme is three-in-one, which supports both bright mode and dark mode.**（Tsundoku Light、Tsundoku Green、Tsundoku Dark）【Ref：[Savor](https://github.com/royc01/notion-theme) 】  
+- ✨ **The theme is three-in-one, which supports both bright mode and dark mode.**（Tsundoku Light、Tsundoku Green、Tsundoku Dark）
   - Siyuan note bright mode only supports the selection of light and green, while dark mode only supports the selection of dark theme.
   - **If both bright mode and dark mode are set to use Tsundoku theme**：Switch from dark mode to bright mode, and automatically change to green theme /light theme according to the previous bright mode selection; Switch from bright mode to dark mode and automatically change to dark theme.
 - 📎**Added icon to hyperlink.**：See [Introduction to Hyperlink Icons](https://www.yuque.com/Achuan-2/siyuan/gar358) for the difference between different local links and network links.
   ![20220131165215_2022-01-31](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220131165215_2022-01-31.png)
-- 🧊 **Introduction of finch cue block**：Add a block background color to the reference block blockquote, and the style will be automatically applied. See [Que Hint Block Style](https://www.yuque.com/achuan-2/siyuan/obxpvr) for details.
-  ![20220131165233_2022-01-31](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220131165233_2022-01-31.png)
+- 🧊 **Introduction of finch cue block**：Add a block background color to the reference block blockquote, and the style will be automatically applied. 
+  ![1704370779797Clip_2024-01-04_20-15-14.png](https://fastly.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/1704370779797Clip_2024-01-04_20-15-14.png)
+
+    Recommend using a template to add emojis and adjust the title font size and boldness. Here is an example.
+  ```markdown
+  > **💡  标题**{: style="font-size: 24px;"}
+  >
+  > 内容
+  {: id="20231019114031-5bqqmpr" style="background-color: var(--b3-card-error-background); color: var(--b3-card-error-color);"}
+  ```
 
 ## 😺 Referenced features
 
-- [HBuilderX-Light](https://github.com/UFDXD/HBuilderX-Light)
-  - Highlight text hide button: Set Ctrl+E as the text masking effect. By default, the text is displayed. When clicking on the "Enable Highlight Text Hide Button" in the top bar, the highlighted text will be hidden.
-  - Theme switch button: A button that allows users to switch between different themes.
-
+- [HBuilderX-Light Theme](https://github.com/UFDXD/HBuilderX-Light)
+  - Convert a list to mind map, table
+  - Table settings including the display of table headers
+- [Savor Theme](https://github.com/royc01/notion-theme)
+  - Theme switch button
+- [Calendar Panel](https://github.com/HowcanoeWang/calendar)
+  - Supports intelligent recognition of dates in the "2006.01.02" or "2006-01-02" format based on notebook diary path templates. The original version does not support more complex formats. With my modifications, it now supports parsing complex diary path templates, such as `/diary/{{now | date "2006/2006.01"}}/{{now | date "2006.01.02 Mon"}}`
+  - Supports clicking to view existing diaries and creating future diaries in advance
 
 
 ## 🐭Custom attributes
