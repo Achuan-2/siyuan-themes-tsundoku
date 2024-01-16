@@ -30,6 +30,25 @@
 
 ## 🚀最近更新
 
+v1.9.3 / 2023.01.16
+- 🐛 fix(字体自定义): 修复Green主题和Dark主题不支持代码片段中的字体自定义
+  现在主题可以通过把字体放在plugins文件夹下，并在代码片段如下片段，设置全局字体，并且手机端也能使用该字体了
+   ```css
+   @font-face {
+  font-family: "汉仪空山楷";
+  font-style: normal;
+  src: url("plugins/custom-fonts/汉仪空山楷.ttf");
+  }
+
+  :root {
+  --b3-font-family: "汉仪空山楷", "Helvetica Neue", "Luxi Sans", "DejaVu Sans", "Hiragino Sans GB", "Microsoft Yahei", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols";
+
+  }
+   ```
+- 🐛 fix(数据库): 数据库选中单元格不显示背景色
+- 🐛 fix(Dark主题): 修复没有加载特定link icon和代码块样式
+- 💄 ui(外观): 修改 b3-theme-primary-lightest 颜色
+
 v1.9.2 / 2023.01.14
 * 💄列表竖线颜色调整，适配导出pdf
 * 🎨 导出样式放在print.css
@@ -40,11 +59,6 @@ v1.9.2 / 2023.01.14
 v1.9.0 / 2023.01.07
 - 💄 ui(自定义颜色): 调整配色
 - 💄 ui( 标题): 更改样式，改了下背景色、添加了一点阴影、添加了savor的标题提示
-
-v1.8.9 / 2024.01.04
-- 💄 ui( 标题): 上下增加间距
-- 💄 ui(blockquote): 字体颜色调粗
-- 💄 ui(数据库): 默认不隐藏按钮
 
 
 全部更新日志请见 [CHANGELOG](./CHANGELOG.md)
@@ -110,7 +124,6 @@ Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释
     | f         | kb          | 列表转看板                 | Ref：notion主题 |
     | f         | dt          | 列表转脑图                 | Ref：notion主题 |
     | f         | dg          | 列表转表格                 | Ref：notion主题 |
-    | f         | full        | 表格宽度为页面宽度         | Ref：notion主题 |
     | f         | biaotou     | 表格表头不加粗             | Ref：notion主题 |
     
   - 自定义文档属性

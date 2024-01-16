@@ -30,6 +30,23 @@ English  | [中文](./README_zh_CN.md)
 
 ## 🚀 CHANGLOGS
 
+ v1.9.3 / 2023.01.16
+- 🐛 fix (font customization): Fixed the issue where the Green and Dark themes did not support font customization in code snippets. Now, the themes can support global font settings by placing the font in the plugins folder and using the following code snippet, allowing the font to be used on mobile devices as well:
+  ```css
+  @font-face {
+    font-family: "HanYiKongShanKai";
+    font-style: normal;
+    src: url("plugins/custom-fonts/HanYiKongShanKai.ttf");
+  }
+
+  :root {
+    --b3-font-family: "HanYiKongShanKai", "Helvetica Neue", "Luxi Sans", "DejaVu Sans", "Hiragino Sans GB", "Microsoft Yahei", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols";
+  }
+  ```
+- 🐛 fix (database): Fixed the issue where the selected cell in the database did not display the background color.
+- 🐛 fix (Dark theme): Fixed the issue where specific link icons and code block styles were not loaded.
+- 💄 ui (appearance): Modified the color of `b3-theme-primary-lightest`.
+
 v1.9.2 / 2023.01.14
 * 💄 Adjusted the color of the vertical lines in the list to adapt for PDF export.
 * 🎨 Placed export styles in print.css
@@ -40,11 +57,6 @@ v1.9.2 / 2023.01.14
 v1.9.0 / 2023.01.07
 - 💄 ui(custom colors): Adjusted color matching
 - 💄 ui(title): Changed the style, modified the background color, added some shadows, and included a title prompt for savor
-
-v1.8.9 / 2024.01.04
-- 💄 ui(title): Increased spacing above and below
-- 💄 ui(blockquote): Made font color bolder
-- 💄 ui(database): Default buttons are not hidden
 
 
 Please see [CHANGELOG](./CHANGELOG.md) for the full update log.
@@ -109,7 +121,6 @@ I use this name to wake myself up, hoping to make good use of Siyuan notes, help
    | f             | kb              | Convert list to kanban board                         | Ref: Notion theme |
    | f             | dt              | Convert list to mind map                             | Ref: Notion theme |
    | f             | dg              | Convert list to table                                | Ref: Notion theme |
-   | f             | full            | Set table width to page width                        | Ref: Notion theme |
    | f             | biaotou         | Remove bold formatting from table headers            | Ref: Notion theme |
 
 

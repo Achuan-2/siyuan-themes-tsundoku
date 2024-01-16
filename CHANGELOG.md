@@ -1,3 +1,41 @@
+## v1.9.3 / 2023.01.16
+- 🐛 fix(字体自定义): 修复Green主题和Dark主题不支持代码片段中的字体自定义
+  现在主题可以通过把字体放在plugins文件夹下，并在代码片段如下片段，设置全局字体，并且手机端也能使用该字体了
+   ```css
+   @font-face {
+  font-family: "汉仪空山楷";
+  font-style: normal;
+  src: url("plugins/custom-fonts/汉仪空山楷.ttf");
+  }
+
+  :root {
+  --b3-font-family: "汉仪空山楷", "Helvetica Neue", "Luxi Sans", "DejaVu Sans", "Hiragino Sans GB", "Microsoft Yahei", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols";
+
+  }
+   ```
+- 🐛 fix(数据库): 数据库选中单元格不显示背景色
+- 🐛 fix(Dark主题): 修复没有加载特定link icon和代码块样式
+- 💄 ui(外观): 修改 b3-theme-primary-lightest 颜色
+
+---
+
+- 🐛 fix (font customization): Fixed the issue where the Green and Dark themes did not support font customization in code snippets. Now, the themes can support global font settings by placing the font in the plugins folder and using the following code snippet, allowing the font to be used on mobile devices as well:
+  ```css
+  @font-face {
+    font-family: "HanYiKongShanKai";
+    font-style: normal;
+    src: url("plugins/custom-fonts/HanYiKongShanKai.ttf");
+  }
+
+  :root {
+    --b3-font-family: "HanYiKongShanKai", "Helvetica Neue", "Luxi Sans", "DejaVu Sans", "Hiragino Sans GB", "Microsoft Yahei", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols";
+  }
+  ```
+- 🐛 fix (database): Fixed the issue where the selected cell in the database did not display the background color.
+- 🐛 fix (Dark theme): Fixed the issue where specific link icons and code block styles were not loaded.
+- 💄 ui (appearance): Modified the color of `b3-theme-primary-lightest`.
+
+
 ## v1.9.2 / 2023.01.14
 
 * 💄列表竖线颜色调整，适配导出pdf
