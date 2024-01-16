@@ -235,33 +235,6 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 }
 
 
-.protyle-wysiwyg [data-node-id][custom-function="kaiti"],
-.protyle-wysiwyg [data-node-id][custom-f="kaiti"]{
-        font-family: kaiti;
-}
-
-.protyle-wysiwyg [data-node-id][custom-function="quote"],
-.protyle-wysiwyg [data-node-id][custom-f="quote"] {
-    background-color: var(--b3-card-success-background);
-    padding-left: 10px;
-    padding-right: 10px;
-}
-.protyle-wysiwyg [data-node-id][custom-function="quote"]:before,
-.protyle-wysiwyg [data-node-id][custom-f="quote"]:before {
-    content:"📌";
-    display: inline-block;
-    position: relative;
-    top: 0px;
-    
-}
-.protyle-wysiwyg [data-node-id][custom-function="quote"] [contenteditable="true"],
-.protyle-wysiwyg [data-node-id][custom-f="quote"] [contenteditable="true"]{
-        display: inline-block;
-        margin-top: 0px;
-        margin-left: 1em;
-        /* width:calc(100% - 40px); */
-}
-
 /* f:scroll 表格和代码块控制宽度------------------------------------------ */
 .protyle-wysiwyg:not([id="preview"])  [data-node-id][custom-f~=scroll].code-block::-webkit-scrollbar-thumb,
 .protyle-wysiwyg:not([id="preview"]) [data-node-id][custom-f~=scroll][data-type="NodeTable"]  ::-webkit-scrollbar-thumb{
