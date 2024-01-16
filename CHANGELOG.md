@@ -1,4 +1,12 @@
-## v1.9.3 / 2023.01.16
+## v1.9.4 / 2024.01.16
+
+- 🐛 fix(外观)修复更改列表竖线之后，列表转导图样式问题
+
+---
+
+- 🐛 After fixing the appearance change of the list vertical line, there are issues with the list conversion diagram style.
+
+## v1.9.3 / 2024.01.16
 - 🐛 fix(字体自定义): 修复Green主题和Dark主题不支持代码片段中的字体自定义
   现在主题可以通过把字体放在plugins文件夹下，并在代码片段如下片段，设置全局字体，并且手机端也能使用该字体了
    ```css
@@ -36,7 +44,7 @@
 - 💄 ui (appearance): Modified the color of `b3-theme-primary-lightest`.
 
 
-## v1.9.2 / 2023.01.14
+## v1.9.2 / 2024.01.14
 
 * 💄列表竖线颜色调整，适配导出pdf
 * 🎨 导出样式放在print.css
@@ -50,12 +58,12 @@
 * 📝 Starting from this version, the English README and CHANGELOG.md will be updated.
 * 🔥Cancel th adjustment of table width.
 
-## v1.9.1 / 2023.01.07
+## v1.9.1 / 2024.01.07
 
 - 📝 修复README最近更新错位
 ---
 - 📝 Fixing typos in the README file
-## v1.9.0 / 2023.01.07
+## v1.9.0 / 2024.01.07
 
 - 💄 ui(自定义颜色): 调整配色
 - 💄 ui(标题): 更改样式，改了下背景色、添加了一点阴影、添加了savor的标题提示
