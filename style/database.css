@@ -17,3 +17,8 @@ span[data-type='av-add-more']:hover {
 .av .av__views .block__icon {
     opacity: 1;
 }
+
+/* 数据库单元格选中背景色 */
+.av__cell--active {
+    background-color: var(--b3-theme-primary-lightest);
+}
