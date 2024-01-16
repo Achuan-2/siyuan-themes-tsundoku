@@ -1,6 +1,6 @@
 /* 导入代码块样式 */
-@import url('/appearance/themes/Tsundoku/style/func/code_block_dark.css');
-@import url('/appearance/themes/Tsundoku/style/func/link_icon_dark.css');
+@import url('/appearance/themes/Tsundoku/style/module/code_block_dark.css');
+@import url('/appearance/themes/Tsundoku/style/module/link_icon_dark.css');
 
 :root {
     /* 主色 */
@@ -21,17 +21,6 @@
     --b3-theme-on-surface: #9aa0a6;
     --b3-theme-on-error: #fff;
 
-    /* 字体 */
-    --b3-font-family: 'quote', 'Helvetica Neue', 'Luxi Sans', 'DejaVu Sans', 'Hiragino Sans GB',
-        'Microsoft Yahei', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji',
-        'Segoe UI Symbol', 'Android Emoji', 'EmojiSymbols';
-    --b3-font-family-code: 'Monaspace Neon', 'JetBrainsMono-Regular', mononoki, Consolas,
-        'Liberation Mono', Menlo, Courier, monospace, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Noto Color Emoji', 'Segoe UI Symbol', 'Android Emoji', 'EmojiSymbols';
-    --b3-font-family-graph: mononoki;
-    --b3-font-family-emoji: 'Win11 Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Segoe UI',
-        'Apple Color Emoji', 'Twemoji Mozilla', 'Noto Color Emoji', 'Android Emoji';
-    --b3-font-family-math: KaTeX_Math;
     /* 顶部工具栏 */
     --b3-toolbar-background: #031c25;
     --b3-toolbar-blur-background: #031c25;
@@ -220,7 +209,6 @@ span[data-type='text'][style='background-color: var(--b3-font-background13);'] {
 
 /* 搜索项页面名称背景 */
 .spread-search__path {
-    padding: 8px 16px;
     background-color: #1f2d3b;
     border-top: 1px solid #03030363;
     /* border-bottom: 1px solid #0303034f; */
@@ -238,9 +226,6 @@ span[data-type='text'][style='background-color: var(--b3-font-background13);'] {
     background-color: var(--b3-theme-surface);
     box-shadow: 0px 0px 7px 1px #386d79;
     border-left: 0px dashed #010e1b;
-    padding: 4px 10px;
-    margin-bottom: 12px;
-    margin-top: 10px;
 }
 /* 调整列表下嵌入块小竖线*/
 
@@ -248,8 +233,6 @@ span[data-type='text'][style='background-color: var(--b3-font-background13);'] {
     [data-node-id].render-node[data-type='NodeBlockQueryEmbed']
     > .protyle-wysiwyg__embed {
     border-top: 3px dashed #10d6d69c;
-    position: relative;
-    margin: 10px 0px;
 }
 
 /* ------------------------------行内代码------------------------------ */
@@ -318,33 +301,14 @@ span[data-type='text'][style='background-color: var(--b3-font-background13);'] {
 /* 复选框样式 */
 .protyle-wysiwyg .protyle-action--task:before,
 .b3-typography .protyle-task:before {
-    content: '';
-    position: absolute;
-    display: inline-block;
-    cursor: pointer;
-    width: 1em;
-    height: 1em;
-    vertical-align: middle;
-    text-align: center;
     border: 1.7px solid #a0b1c6;
-    border-radius: 0.2em;
-    top: 0.65em;
-    font-size: 0.8em;
 }
 
-.b3-typography .protyle-task:before {
-    left: -1.2em;
-    top: 0.5em;
-}
 
 /* 复选框选中 */
 .protyle-task--done > .protyle-action--task:before,
 .b3-typography .protyle-task--done:before {
-    content: '\2713';
-    font-size: 0.8em;
-    font-weight: bold;
     border: 1.7px solid #289aa2;
-    line-height: 1em;
     color: #289aa2;
     background-color: transparent;
 }
@@ -352,22 +316,11 @@ span[data-type='text'][style='background-color: var(--b3-font-background13);'] {
 /* 复选框鼠标悬停 */
 .protyle-wysiwyg [data-node-id].li > .protyle-action--task:hover:before {
     content: '\2713';
-    font-size: 0.8em;
-    vertical-align: middle;
-    line-height: 1em;
     color: #436681;
 }
 
-/* 复选框完成 */
-/* .protyle-task--done [data-type="NodeParagraph"]>div:first-child,
-.protyle-task--done p {
-    text-decoration: line-through;
-    opacity: 0.5;
-    transition: all 0.5s ease-in-out;
-} */
 
 .protyle-task--done[fold='1'] > .protyle-action--task:before {
-    content: '\2713';
     background-color: transparent;
     color: #476796;
 }
@@ -376,21 +329,6 @@ div[data-subtype='t'][data-type='NodeList'] {
     position: relative;
 }
 
-/* 调整透明度 */
-.protyle-task--done {
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.protyle-task--done .protyle-task--done {
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.protyle-task--done div[data-type='NodeParagraph'],
-.protyle-task--done .protyle-action--task {
-    opacity: 1;
-}
 
 /* 菜单选中高亮 */
 .b3-menu__item:hover:not(.b3-menu__item--readonly):not(.b3-menu__item--custom),
@@ -412,8 +350,6 @@ div[data-subtype='t'][data-type='NodeList'] {
 .b3-button--outline:hover,
 .b3-button--outline:focus {
     background-color: #1b3a4d;
-    font-weight: 600;
-    transition: all 0.1s ease-in-out;
     filter: drop-shadow(2px 2px 2px #272e3c);
 }
 
@@ -422,8 +358,6 @@ div[data-subtype='t'][data-type='NodeList'] {
 #message .b3-button {
     color: #fff;
     background-color: #4db999;
-    border-radius: 16x;
-    padding: 8px 8px;
 }
 .b3-snackbar__content {
     color: #fff;
@@ -431,15 +365,8 @@ div[data-subtype='t'][data-type='NodeList'] {
 }
 
 .b3-snackbar__close {
-    position: absolute;
     color: #fff;
-    font-size: 50%;
-    padding: 4px;
-    /* background-color: bisque; */
     background: #4db999;
-    border-radius: 16px;
-    cursor: pointer;
-    top: 2px;
 }
 
 .b3-snackbar__content svg:hover {
@@ -449,8 +376,6 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 .b3-dialog__container .b3-list--background .b3-list-item--focus {
     background-color: #293241 !important;
-    border-radius: 16px 10% 10% 16px;
-    /* border-radius: 10%; */
 }
 /* 调整设置的select按钮 */
 .b3-tab-container .b3-select {
@@ -811,23 +736,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     min-width: 100px;
 }
 
-#notionToolbar {
-    width: 26px;
-    height: 26px;
-    margin: 4px 0px 4px 0px;
-    border-radius: 3px;
-    overflow: hidden;
-    background: url('/appearance/themes/Tsundoku/src/theme/setting_dark.svg') no-repeat center;
-    z-index: 999;
-}
 
-#sidebarHoverButton {
-    background-image: url(/appearance/themes/Tsundoku/src/theme/sidebar_dark.svg) !important;
-}
-
-#highlightBecomesHidden {
-    background-image: url(/appearance/themes/Tsundoku/src/theme/highlight_dark.svg) !important;
-}
 
 #calendarPanel {
     background-color: #fff !important;
@@ -873,9 +782,13 @@ div[data-subtype='t'][data-type='NodeList'] {
 }
 
 
+
+
+
+    /* ⚙三级标题基本样式 */
 .protyle-wysiwyg [data-node-id].h3,
 .b3-typography h3 {
-    /* ⚙三级标题基本样式 */
+
     font-size: 1.35em !important;
     /* color: var(--custom-h3-color) !important; */
     color: var(--b3-card-info-color);

@@ -27,17 +27,7 @@
     --b3-theme-on-surface: #5f6368;
     --b3-theme-on-error: #fff;
 
-    /* 字体 */
-    --b3-font-family: 'quote', 'Helvetica Neue', 'Luxi Sans', 'DejaVu Sans', 'Hiragino Sans GB',
-        'Microsoft Yahei', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji',
-        'Segoe UI Symbol', 'Android Emoji', 'EmojiSymbols';
-    --b3-font-family-code: 'Monaspace Neon', 'JetBrainsMono-Regular', mononoki, Consolas,
-        'Liberation Mono', Menlo, Courier, monospace, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Noto Color Emoji', 'Segoe UI Symbol', 'Android Emoji', 'EmojiSymbols';
-    --b3-font-family-graph: mononoki;
-    --b3-font-family-emoji: 'Segoe UI Emoji', 'Segoe UI Symbol', 'Segoe UI', 'Apple Color Emoji',
-        'Twemoji Mozilla', 'Noto Color Emoji', 'Android Emoji';
-    --b3-font-family-math: KaTeX_Math;
+
     /* 顶部工具栏 */
     --b3-toolbar-background: #bcd8bf;
     --b3-toolbar-blur-background: #bcd8bf;
@@ -952,4 +942,9 @@ div[data-subtype='t'][data-type='NodeList'] {
     /* color: var(--custom-h5-color); */
     background-color: #bec6e891;
     box-shadow: none;
+}
+
+
+.protyle-wysiwyg [data-node-id].li:before {
+    border-left: 0.5px solid var(--b3-theme-background-light) !important;
 }
