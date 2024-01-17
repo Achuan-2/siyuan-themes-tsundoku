@@ -30,6 +30,12 @@ English  | [中文](./README_zh_CN.md)
 
 ## 🚀 CHANGLOGS
 
+
+v1.9.4 / 2024.01.16
+
+- 🐛 fix (appearance): change of the list vertical line, there are issues with the list conversion diagram style.
+
+
  v1.9.3 / 2023.01.16
 - 🐛 fix (font customization): Fixed the issue where the Green and Dark themes did not support font customization in code snippets. Now, the themes can support global font settings by placing the font in the plugins folder and using the following code snippet, allowing the font to be used on mobile devices as well:
   ```css

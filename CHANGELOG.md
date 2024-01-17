@@ -1,10 +1,10 @@
 ## v1.9.4 / 2024.01.16
 
-- 🐛 fix(外观)修复更改列表竖线之后，列表转导图样式问题
+- 🐛 fix(外观)：修复更改列表竖线border color之后，列表转导图样式问题
 
 ---
 
-- 🐛 After fixing the appearance change of the list vertical line, there are issues with the list conversion diagram style.
+- 🐛 fix (appearance): change of the list vertical line, there are issues with the list conversion diagram style.
 
 ## v1.9.3 / 2024.01.16
 - 🐛 fix(字体自定义): 修复Green主题和Dark主题不支持代码片段中的字体自定义
