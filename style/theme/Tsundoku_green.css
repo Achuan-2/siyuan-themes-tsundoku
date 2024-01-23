@@ -213,6 +213,7 @@ body {
 .b3-text-filed,
 .b3-tab-container .b3-select,
 .b3-card,
+.b3-card__info,
 .config-account__center--text,
 .protyle-wysiwyg [data-node-id] span[data-type='tag'],
 /* .protyle-wysiwyg .code-block, */
@@ -263,10 +264,14 @@ div[style='background-color: var(--b3-font-background13);'] {
 }
 
 /* 集市动画 */
+.b3-card,.b3-card__info{
+    background-color: #c7dfca;
+}
 .b3-dialog__container div[data-name='bazaar'] .b3-card:hover {
     transform: translateY(-8px) scale(1.05);
     box-shadow: 7px 7px 12px #929191;
     transition: all 0.2s ease-in-out;
+    background-color: #c7dfca;
 }
 
 /* -------------------------------表格end------------------------------------- */
