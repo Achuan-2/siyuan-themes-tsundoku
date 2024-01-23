@@ -16,6 +16,7 @@
     --b3-theme-background: #d5ead8;
     /* 面包屑和标签页 */
     --b3-theme-surface: #bcd7bf;
+    --b3-theme-surface-light: rgba(243, 243, 243, 0.86);
     --b3-theme-error: #ec8d8e;
 
     /* 文字颜色 */
@@ -26,7 +27,6 @@
     /* 主要图标颜色 */
     --b3-theme-on-surface: #5f6368;
     --b3-theme-on-error: #fff;
-
 
     /* 顶部工具栏 */
     --b3-toolbar-background: #bcd8bf;
@@ -65,7 +65,7 @@
     --b3-card-success-background: #c0e4c0da;
 
     /* 自定义文字 */
-    --b3-font-color1: rgb(250, 118, 109);
+    --b3-font-color1: #fa766d;
     --b3-font-color2: #f1781c;
     --b3-font-color3: #2183ce;
     --b3-font-color4: #11ad81;
@@ -83,11 +83,11 @@
     --b3-font-background3: var(--b3-card-info-background);
     --b3-font-background4: var(--b3-card-success-background);
     --b3-font-background5: #e2e3e4;
-    --b3-font-background6: #D8FAFF;
+    --b3-font-background6: #d8faff;
     --b3-font-background7: #fff7d1;
     --b3-font-background8: #e7e3c5;
-    --b3-font-background9: #E9E9FF;
-    --b3-font-background10: #E5DAFF;
+    --b3-font-background9: #e9e9ff;
+    --b3-font-background10: #e5daff;
     --b3-font-background11: #f5c7f0;
     --b3-font-background12: #ff9697;
     --b3-font-background13: var(--b3-theme-on-background);
@@ -214,6 +214,7 @@ body {
 .b3-tab-container .b3-select,
 .b3-card,
 .b3-card__info,
+.b3-card__actions,
 .config-account__center--text,
 .protyle-wysiwyg [data-node-id] span[data-type='tag'],
 /* .protyle-wysiwyg .code-block, */
@@ -264,7 +265,8 @@ div[style='background-color: var(--b3-font-background13);'] {
 }
 
 /* 集市动画 */
-.b3-card,.b3-card__info{
+.b3-card,
+.b3-card__info {
     background-color: #c7dfca;
 }
 .b3-dialog__container div[data-name='bazaar'] .b3-card:hover {
@@ -590,7 +592,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 }
 
 .b3-dialog__container .layout-tab-bar {
-    background-color: #d8ebda;
+    background-color: var(--b3-theme-background);
 }
 
 /* 已打开的标签页 */
@@ -901,7 +903,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 }
 /* 选项栏背景色 */
 .b3-select {
-    background-color: #9dbeb5;
+    background-color: #b5cfbb;
 }
 
 /* database 表格框线 */
@@ -916,9 +918,8 @@ div[data-subtype='t'][data-type='NodeList'] {
     background-color: inherit !important;
 }
 
-
-
-/* 3. 三级标题样式setup */
+/* 标题样式设置 */
+/* 三级标题样式 */
 
 .protyle-wysiwyg [data-node-id].h3,
 .b3-typography h3 {
@@ -930,7 +931,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     box-shadow: none;
 }
 
-/* 4. 四级标题样式setup */
+/* 四级标题样式 */
 .protyle-wysiwyg [data-node-id].h4,
 .b3-typography h4 {
     font-size: 1.2em !important;
@@ -938,9 +939,8 @@ div[data-subtype='t'][data-type='NodeList'] {
     color: var(--b3-card-success-color);
     background-color: #b2e2c6;
     box-shadow: none;
-
 }
-/* 5. 五级标题样式setup */
+/* 五级标题样式 */
 .protyle-wysiwyg [data-node-id].h5,
 .b3-typography h5 {
     font-size: 1.1em !important;
@@ -949,7 +949,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     box-shadow: none;
 }
 
-
+/* 列表竖线设置 */
 .protyle-wysiwyg [data-node-id].li:before {
     border-left: 0.5px solid var(--b3-theme-background-light) !important;
 }
