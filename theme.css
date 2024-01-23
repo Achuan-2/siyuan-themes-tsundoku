@@ -1,7 +1,7 @@
 /* theme.css 只放导出的样式，以及各个主题统一的样式，具体每个主题特殊的样式会放到各自主题的css中 */
 /* 导入编辑器基础块和行内样式 */
 @import url('style/editor.css');
-/* 导入标题样式 */
+/* 导入标题后缀提示样式 */
 @import url('style/module/h-reminder.css');
 /* 导入代码块样式 */
 @import url('style/module/code_block.css');
@@ -25,11 +25,8 @@
 @import url('style/block_attr/list2table.css');
 @import url('style/block_attr/table.css');
 
-/* 导入主题切换按钮选项 */
-@import url('style/module/notionToolBar.css');
-
 /* 导出样式 */
-@import url('style/print.css');
+@import url('style/export.css');
 
 :root {
     /* 主色 */
@@ -102,10 +99,10 @@
     --b3-card-success-color: rgb(30, 70, 32);
     --b3-card-success-background: #e5fae5;
     /* 自定义文字 */
-    --b3-font-color1: var(--b3-card-error-color: ); /*#e1694e;*/
-    --b3-font-color2: var(--b3-card-warning-color); /*#f1781c;*/
-    --b3-font-color3: var(--b3-card-info-color); /*#007aaa;*/
-    --b3-font-color4: var(--b3-card-success-color); /*#11ad81;*/
+    --b3-font-color1: #fa766d;
+    --b3-font-color2: #f1781c;
+    --b3-font-color3: #2183ce;
+    --b3-font-color4: #11ad81;
     --b3-font-color5: #8e8e8e;
     --b3-font-color6: #52d4ca;
     --b3-font-color7: var(--b3-theme-secondary);
