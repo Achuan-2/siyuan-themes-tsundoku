@@ -16,6 +16,8 @@ English  | [中文](./README_zh_CN.md)
 
 ![](preview.png)
 
+>If you like this topic, welcome to [AFDIAN]（ https://afdian.net/a/achuan-2 ）to sponsor me, it will motivate me to update and improve this theme
+
 
 **Introduction**: [Siyuan](https://github.com/Siyuan-Note/Siyuan)  is a privacy-first personal knowledge management system, support fine-grained block-level reference and Markdown WYSIWYG. This theme is a personal original theme, specially designed for Siyuan notes.
 
