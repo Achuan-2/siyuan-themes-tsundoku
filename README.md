@@ -32,7 +32,7 @@ English  | [中文](./README_zh_CN.md)
 
 ## 🚀 CHANGLOGS
 
- v1.9.5 / 2024.01.24
+ v1.9.6 / 2024.01.24
 
 - 💄  UI (Light Theme): Custom font style optimization: Adjust the four font colors of red, green, blue, and orange
 - 💄  UI (Green Theme): Set Style Beautification
