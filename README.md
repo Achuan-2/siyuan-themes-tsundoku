@@ -30,6 +30,12 @@ English  | [中文](./README_zh_CN.md)
 
 ## 🚀 CHANGLOGS
 
+ v1.9.5 / 2024.01.24
+
+- 💄  UI (Light Theme): Custom font style optimization: Adjust the four font colors of red, green, blue, and orange
+- 💄  UI (Green Theme): Set Style Beautification
+- 🔥  Considering that the calendar plugin has been improved, remove the theme calendar function
+
 
 v1.9.4 / 2024.01.16
 
@@ -59,10 +65,6 @@ v1.9.2 / 2023.01.14
 * 💄 Optimized blockquote style
 * 📝 Starting from this version, the English README and CHANGELOG.md will be updated.
 * 🔥Cancel th adjustment of table width.
-
-v1.9.0 / 2023.01.07
-- 💄 ui(custom colors): Adjusted color matching
-- 💄 ui(title): Changed the style, modified the background color, added some shadows, and included a title prompt for savor
 
 
 Please see [CHANGELOG](./CHANGELOG.md) for the full update log.
@@ -109,9 +111,7 @@ I use this name to wake myself up, hoping to make good use of Siyuan notes, help
   - Table settings including the display of table headers
 - [Savor Theme](https://github.com/royc01/notion-theme)
   - Theme switch button
-- [Calendar Panel](https://github.com/HowcanoeWang/calendar)
-  - Supports intelligent recognition of dates in the "2006.01.02" or "2006-01-02" format based on notebook diary path templates. The original version does not support more complex formats. With my modifications, it now supports parsing complex diary path templates, such as `/diary/{{now | date "2006/2006.01"}}/{{now | date "2006.01.02 Mon"}}`
-  - Supports clicking to view existing diaries and creating future diaries in advance
+
 
 
 ## 🐭Custom attributes

@@ -1,3 +1,15 @@
+## v1.9.5 / 2024.01.24
+- 💄 ui(Light Theme): 自定义字体样式优化：调整红绿蓝橙四个字体颜色
+- 💄 ui(Green Theme): 设置样式美化
+- 🔥 鉴于日历插件已经完善，删除主题日历功能
+
+---
+
+- 💄  UI (Light Theme): Custom font style optimization: Adjust the four font colors of red, green, blue, and orange
+- 💄  UI (Green Theme): Set Style Beautification
+- 🔥  Considering that the calendar plugin has been improved, remove the theme calendar function
+
+
 ## v1.9.4 / 2024.01.16
 
 - 🐛 fix(外观)：修复更改列表竖线border color之后，列表转导图样式问题
