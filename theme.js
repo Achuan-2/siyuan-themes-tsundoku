@@ -769,7 +769,7 @@ function ViewMonitor(event) {
     //各种列表转xx
     ClickMonitor();
     /*创建日历按钮 */
-    initcalendar();
+    // initcalendar();
     /*创建主题按钮 */
     create_theme_button();
 })();
