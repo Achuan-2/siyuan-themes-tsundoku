@@ -954,8 +954,6 @@ div[data-subtype='t'][data-type='NodeList'] {
     border-left: 0.5px solid var(--b3-theme-background-light) !important;
 }
 
-
-
 .config__tab-container .b3-label:not(.b3-label--inner) {
     box-shadow: none;
 }

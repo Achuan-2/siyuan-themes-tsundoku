@@ -103,9 +103,6 @@ Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释
   ```
 
 
-## ❤️ 推荐字体
-
-- 汉仪空山楷
 
 ## 😺 借鉴功能
 
@@ -137,15 +134,51 @@ Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释
     | linkicon | no          | 超链接取消icon   |
     | title-num | true          | 标题自动编号   |
 
+## ⚙️ 一些关于主题的设置
+
+### 主题推荐字体
+
+汉仪空山楷，这是本人目前最喜欢的字体
+
+如果希望手机端和电脑端都是用同一字体，可以遵循以下步骤
+1. 字体文件放在思源笔记工作空间的`data/plugins`文件夹，使字体可以被同步到手机端，举例，我放在`plugins/custom-fonts/`文件夹
+2. 在思源笔记【**设置-外观-代码片段**】添加如下代码片段（注：如果使用不同的字体，记得更改字体路径和名称）
+    ```css
+    @font-face {
+    font-family: "汉仪空山楷";
+    font-style: normal;
+    src: url("plugins/custom-fonts/汉仪空山楷.ttf");
+    }
+
+    :root {
+    --b3-font-family: "汉仪空山楷", "Helvetica Neue", "Luxi Sans", "DejaVu Sans", "Hiragino Sans GB", "Microsoft Yahei", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols";
+
+    }
+    ```
+
+### Green 主题如何关闭纹理背景
+在思源笔记【**设置-外观-代码片段**】添加如下代码片段：
+```css
+.protyle-wysiwyg * {
+background-image:none !important;
+
+}
+
+body * {
+background-image:none !important;
+
+}
+```
+
 ## ❤ 致谢
 
 - https://github.com/Zuoqiu-Yingyi/siyuan-theme-dark-plus
 - https://github.com/UFDXD/HBuilderX-Light
 - https://github.com/royc01/notion-theme
-- https://github.com/HowcanoeWang/calendar
+
 
 
 ## ☎️意见交流
 
-若主题存在样式的问题，欢迎在Github提issue或是通过邮箱联系我(achuan-2@outlook.com)。在提issue之前建议先切换为默认主题，确定是本主题特有的问题。
+若主题存在样式的问题，欢迎在[Github](https://github.com/Achuan-2/siyuan-themes-tsundoku)提issue或是通过邮箱联系我(achuan-2@outlook.com)。在提issue之前建议先切换为默认主题，确定是本主题特有的问题。
 
