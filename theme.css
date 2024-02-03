@@ -266,10 +266,13 @@ body {
 .layout-tab-container {
     background-color: #fff;
 }
+
 .block__popover .block__icons,
-.layout-tab-container .block__icons {
+.layout__dockl .layout-tab-container .block__icons,
+.layout__dockr .layout-tab-container .block__icons {
     background-color: #d5dde2;
 }
+
 [data-type='NodeAttributeView'] .block__icons {
     background-color: transparent !important;
 }
@@ -1115,4 +1118,16 @@ body
 
 [data-theme-mode='light'] .protyle-wysiwyg [data-node-id].li:before {
     border-left: 0.5px solid #dfe0e1;
+}
+
+
+[xlink\:href*="#iconCheck"] {
+    color: yellow !important;
+}
+
+
+
+/* 数据库勾选框 */
+.av__cell.av__cell-check svg {
+    color:#289aa2;
 }

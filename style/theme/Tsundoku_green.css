@@ -17,6 +17,7 @@
     /* 面包屑和标签页 */
     --b3-theme-surface: #bcd7bf;
     --b3-theme-surface-light: rgba(243, 243, 243, 0.86);
+    --b3-theme-surface-lighter: #b2bfb4;
     --b3-theme-error: #ec8d8e;
 
     /* 文字颜色 */
@@ -175,6 +176,10 @@
     --custom-tab-hover-background: #76878d38;
     --custom-tab-border: #b1c2b87c;
     --custom-tab-focus-top-border: #555f63;
+
+    /* 数据库 */
+    --b3-av-hover: #728f7a38;
+    --b3-av-background-hl: #81bba6a3;
     /* 各级标题颜色 */
     --custom-h1-color: #04393f;
     --custom-h2-color: #396871;
@@ -260,7 +265,8 @@ div[style='background-color: var(--b3-font-background13);'] {
 }
 
 .block__popover .block__icons,
-.layout-tab-container .block__icons {
+.layout__dockl .layout-tab-container .block__icons,
+.layout__dockr .layout-tab-container .block__icons {
     background-color: #a7caad94 !important;
 }
 
@@ -906,18 +912,6 @@ div[data-subtype='t'][data-type='NodeList'] {
     background-color: #b5cfbb;
 }
 
-/* database 表格框线 */
-.av__cell,
-.av__row--header,
-.av__row {
-    border-color: #96a198;
-}
-
-.av__row--header,
-.av__row--footer {
-    background-color: inherit !important;
-}
-
 /* 标题样式设置 */
 /* 三级标题样式 */
 
@@ -956,4 +950,20 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 .config__tab-container .b3-label:not(.b3-label--inner) {
     box-shadow: none;
+}
+
+span[data-type='av-add-more'] {
+    background-color: #8caf94;
+    color: #fff;
+}
+
+/* database 表格框线 */
+/* .av__cell,
+.av__row {
+    border-color: #96a198;
+} */
+
+.av__row--header {
+    background-color: var(--b3-theme-background);
+    background-image: url('/appearance/themes/Tsundoku/src/background/paper.png');
 }
