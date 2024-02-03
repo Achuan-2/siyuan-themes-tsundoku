@@ -10,8 +10,8 @@ window.theme.darkColors = ['style/theme/Tsundoku_dark.css'];
 
 /* DOM 节点 ID */
 window.theme.IDs = {
-    STYLE_COLOR: 'custom-id-style-theme-color',
-    BUTTON_TOOLBAR_CHANGE_COLOR: 'custom-id-button-toolbar-change-color',
+    STYLE_COLOR: 'Tsundoku-theme-css',
+    BUTTON_TOOLBAR_CHANGE_COLOR: 'Tsundoku-theme-button',
     LOCAL_STORAGE_COLOR_HREF: 'tsundoku-color-href',
 };
 
@@ -763,13 +763,27 @@ function ViewMonitor(event) {
 
 /**++++++++++++++++++++++++++++++++主题功能执行：按需调用++++++++++++++++++++++++++++++ */
 
-// setTimeout(() => ClickMonitor(), 1000);
+window.destroyTheme = () => {
+    // 删除主题切换按钮
+    const themeButton = document.getElementById(window.theme.IDs.BUTTON_TOOLBAR_CHANGE_COLOR);
+    if (themeButton) {
+        themeButton.remove();
+        console.log('Tsundoku主题切换按钮删除！');
+    }
+    // 删除主题加载的额外配色css
+    const css_link = document.getElementById(window.theme.IDs.STYLE_COLOR);
+    if (css_link) {
+        css_link.remove();
+    }
+    // 删除列表转导图功能
+    window.removeEventListener('mouseup', MenuShow);
+};
 
 (async () => {
-    //各种列表转xx
-    ClickMonitor();
     /*创建日历按钮 */
     // initcalendar();
+    //各种列表转xx
+    ClickMonitor();
     /*创建主题按钮 */
     create_theme_button();
 })();
