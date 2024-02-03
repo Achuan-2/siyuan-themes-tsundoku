@@ -32,6 +32,14 @@ English  | [中文](./README_zh_CN.md)
 
 ## 🚀 CHANGLOGS
 
+v1.9.7 / 2024.02.03
+
+- ✨ feat(JS): Adapted theme switching without refreshing 
+- 📝 docs(README): Add some introduction to theme settings
+- 💄 ui(database): Optimze Green Theme style
+- 💄 ui(database): checkbox column distinguish between checked and unchecked states
+
+
  v1.9.6 / 2024.01.24
 
 - 💄  UI (Light Theme): Custom font style optimization: Adjust the four font colors of red, green, blue, and orange

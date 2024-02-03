@@ -1,3 +1,16 @@
+## v1.9.7 / 2024.02.02
+
+- ✨ feat(JS): 适配思源笔记推出的主题切换不刷新
+- 📝 docs(README): 添加一些主题设置介绍
+- 💄 ui(database): 优化Green主题的数据库样式
+- 💄 ui(database): 勾选框区分勾选和未勾选状态
+
+---
+- ✨ feat(JS): Adapted theme switching without refreshing 
+- 📝 docs(README): Add some introduction to theme settings
+- 💄 ui(database): Optimze Green Theme style
+- 💄 ui(database): checkbox column distinguish between checked and unchecked states
+
 ## v1.9.6 / 2024.01.24
 - 💄 ui(Light Theme): 自定义字体样式优化：调整红绿蓝橙四个字体颜色
 - 💄 ui(Green Theme): 设置样式美化
