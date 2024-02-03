@@ -22,3 +22,8 @@ span[data-type='av-add-more']:hover {
 .av__cell--active {
     background-color: var(--b3-theme-primary-lightest);
 }
+
+/* 数据库勾选框 */
+.av__cell.av__cell-check svg {
+    color:#289aa2;
+}
