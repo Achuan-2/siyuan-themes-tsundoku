@@ -334,18 +334,6 @@ window.theme.root = (() => {
  */
 window.theme.lute = window.Lute.New();
 
-/*HBuiderX主题功能*/
-const HBuiderXToolbarID = 'HBuiderXToolbar';
-const SiYuanToolbarID = 'toolbar';
-
-const SidebarHoverButtonID = 'sidebarHoverButton';
-const HighlightBecomesHiddenID = 'highlightBecomesHidden';
-
-var siYuanToolbar = null;
-var HBuiderXToolbar = null;
-var sidebarHoverButton = null;
-var highlightBecomesHiddenButton = null;
-
 /****************************思源API操作**************************/
 async function 设置思源块属性(内容块id, 属性对象) {
     let url = '/api/attr/setBlockAttrs';
@@ -768,13 +756,13 @@ window.destroyTheme = () => {
     const themeButton = document.getElementById(window.theme.IDs.BUTTON_TOOLBAR_CHANGE_COLOR);
     if (themeButton) {
         themeButton.remove();
-        console.log('Tsundoku主题切换按钮删除！');
     }
     // 删除主题加载的额外配色css
-    const css_link = document.getElementById(window.theme.IDs.STYLE_COLOR);
+    let css_link = document.getElementById(window.theme.IDs.STYLE_COLOR);
     if (css_link) {
         css_link.remove();
     }
+
     // 删除列表转导图功能
     window.removeEventListener('mouseup', MenuShow);
 };
