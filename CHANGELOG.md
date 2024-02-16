@@ -1,3 +1,8 @@
+## v1.9.8 / 2024.02.16
+- 🐛 fix(适配思源主题切换): 修复亮暗主题切换错误问题
+---
+- 🐛 fix (adapting to theme switching): Fixed the issue of incorrect switching between light and dark themes.
+
 ## v1.9.7 / 2024.02.02
 
 - ✨ feat(JS): 适配思源笔记推出的主题切换不刷新

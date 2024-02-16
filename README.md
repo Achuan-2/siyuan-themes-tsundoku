@@ -32,6 +32,10 @@ English  | [中文](./README_zh_CN.md)
 
 ## 🚀 CHANGLOGS
 
+v1.9.8 / 2024.02.16
+
+- 🐛 fix (adapting to theme switching): Fixed the issue of incorrect switching between light and dark themes.
+
 v1.9.7 / 2024.02.03
 
 - ✨ feat(JS): Adapted theme switching without refreshing 
