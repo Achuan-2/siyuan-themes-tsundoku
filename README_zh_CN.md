@@ -182,6 +182,16 @@ background-image:none !important;
 }
 ```
 
+### h1 主题如何默认居中，如何居左
+
+在思源笔记【**设置-外观-代码片段**】添加如下代码片段：
+```css
+.protyle-wysiwyg .h1 {
+text-align:left !important;
+}
+```
+
+
 ## ❤ 致谢
 
 - https://github.com/Zuoqiu-Yingyi/siyuan-theme-dark-plus
