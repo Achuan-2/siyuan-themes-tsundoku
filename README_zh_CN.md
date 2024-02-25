@@ -30,6 +30,12 @@
 
 ## 🚀最近更新
 
+ v1.9.9 / 2024.02.25
+- 📝 docs: h1 主题如何默认居中，如何居左
+- 💄 ui(database): 自定义属性窗口背景色设置为编辑器背景
+- 🐛 fix(导出): 导出图片标签拆分为一个个文字 [#101](https://github.com/Achuan-2/siyuan-themes-tsundoku/issues/101)
+
+
 v1.9.8 / 2024.02.16
 
 - 🐛 fix(适配思源主题切换): 修复亮暗主题切换错误问题
@@ -71,12 +77,7 @@ v1.9.3 / 2024.01.16
 - 🐛 fix(Dark主题): 修复没有加载特定link icon和代码块样式
 - 💄 ui(外观): 修改 b3-theme-primary-lightest 颜色
 
-v1.9.2 / 2024.01.14
-* 💄列表竖线颜色调整，适配导出pdf
-* 🎨 导出样式放在print.css
-* 💄blockquote样式优化
-* 📝 从这一版开始会开始更新英文README和CHANGELOG.md
-* 🔥取消表格宽度调整
+
 
 
 
