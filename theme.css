@@ -1092,7 +1092,7 @@ body
 
 /* 图片导出 */
 /* 超链接添加下划线 */
-.export-img.protyle-wysiwyg a {
+.export-img .protyle-wysiwyg a {
     /* border-bottom: 1px solid var(--b3-protyle-inline-blockref-color); */
     text-decoration: underline;
 }
@@ -1127,7 +1127,7 @@ body
 
 
 
-/* 数据库勾选框 */
-.av__cell.av__cell-check svg {
-    color:#289aa2;
+/* 自定义属性 */
+[data-key="dialog-attr"] .fn__flex-1:has(.custom-attr[data-type="NodeAttributeView"]){
+    background-color: var(--b3-theme-background);
 }
