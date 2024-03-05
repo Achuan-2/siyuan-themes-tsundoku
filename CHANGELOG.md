@@ -1,11 +1,11 @@
 ## v1.9.9 / 2024.02.25
-- 📝 docs: h1 主题如何默认居中，如何居左
+- 📝 docs: h1 主题默认居中，如何改为居左
 - 💄 ui(database): 自定义属性窗口背景色设置为编辑器背景
 - 🐛 fix(导出): 导出图片标签拆分为一个个文字 [#101](https://github.com/Achuan-2/siyuan-themes-tsundoku/issues/101)
 
 ---
 
-- 📝 docs: How to center the h1 theme by default, how to align it to the left
+- 📝 docs: center the h1 theme by default, how to align it to the left
 - 💄 ui(database): Set the background color of the custom attribute window to match the editor background
 - 🐛 fix(export): Split export image tags into individual words [#101](https://github.com/Achuan-2/siyuan-themes-tsundoku/issues/101)
 

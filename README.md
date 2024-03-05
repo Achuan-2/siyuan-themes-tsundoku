@@ -33,7 +33,7 @@ English  | [中文](./README_zh_CN.md)
 ## 🚀 CHANGLOGS
 
  v1.9.9 / 2024.02.25
-- 📝 docs: How to center the h1 theme by default, how to align it to the left
+- 📝 docs: center the h1 theme by default, how to align it to the left
 - 💄 ui(database): Set the background color of the custom attribute window to match the editor background
 - 🐛 fix(export): Split export image tags into individual words [#101](https://github.com/Achuan-2/siyuan-themes-tsundoku/issues/101)
 

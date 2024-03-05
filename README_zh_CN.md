@@ -31,7 +31,7 @@
 ## 🚀最近更新
 
  v1.9.9 / 2024.02.25
-- 📝 docs: h1 主题如何默认居中，如何居左
+- 📝 docs: h1 主题默认居中，如何改为居左
 - 💄 ui(database): 自定义属性窗口背景色设置为编辑器背景
 - 🐛 fix(导出): 导出图片标签拆分为一个个文字 [#101](https://github.com/Achuan-2/siyuan-themes-tsundoku/issues/101)
 
@@ -183,7 +183,7 @@ background-image:none !important;
 }
 ```
 
-### h1 主题如何默认居中，如何居左
+### h1 主题默认居中，如何居左
 
 在思源笔记【**设置-外观-代码片段**】添加如下代码片段：
 ```css
