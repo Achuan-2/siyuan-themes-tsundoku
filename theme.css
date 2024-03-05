@@ -79,7 +79,7 @@
 
     /* 列表 */
     /* --b3-list-hover: rgba(0, 0, 0, 0.05); */
-    --b3-list-hover: transparent;
+    --b3-list-hover: #eaeeef;
     /* 页签 */
     --b3-tab-background: #e7edf0;
     --b3-tab-background-hover: #dee4e8;
@@ -186,7 +186,7 @@
     --b3-protyle-inline-em-color: #202124;
     --b3-protyle-inline-s-color: #9ba0ad;
     --b3-protyle-inline-link-color: #408bba;
-    --b3-protyle-inline-link-hover-color: #fa60a0;
+    --b3-protyle-inline-link-hover-color: #289be3;
     --b3-protyle-inline-mark-background: #f8e8cb;
     --b3-protyle-inline-mark-color: #202124;
     --b3-protyle-inline-tag-background: #70b3ca;
@@ -1121,13 +1121,8 @@ body
 }
 
 
-[xlink\:href*="#iconCheck"] {
-    color: yellow !important;
-}
-
-
 
 /* 自定义属性 */
-[data-key="dialog-attr"] .fn__flex-1:has(.custom-attr[data-type="NodeAttributeView"]){
+[data-key='dialog-attr'] .fn__flex-1:has(.custom-attr[data-type='NodeAttributeView']) {
     background-color: var(--b3-theme-background);
 }
