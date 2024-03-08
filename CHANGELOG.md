@@ -1,3 +1,11 @@
+## v2.0.0 / 2024.03.08
+
+- 🐛 表格现在默认居中，无法根据块标菜单的布局设置居左
+
+---
+
+- 🐛 Tables are now default to center, cannot be aligned to the left according to the block menu's layout setting
+
 ## v1.9.9 / 2024.02.25
 - 📝 docs: h1 主题默认居中，如何改为居左
 - 💄 ui(database): 自定义属性窗口背景色设置为编辑器背景

@@ -204,8 +204,7 @@
 }
 /* 表格默认居中 */
 .protyle-wysiwyg div.table {
-    display: flex;
-    justify-content: center; /* 水平居中 */
+    text-align: center; /* 水平居中 */
 }
 
 /* -----------------------块嵌入----------------------- */

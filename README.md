@@ -32,6 +32,10 @@ English  | [中文](./README_zh_CN.md)
 
 ## 🚀 CHANGLOGS
 
+v2.0.0 / 2024.03.08
+
+- 🐛 Tables are now default to center, cannot be aligned to the left according to the block menu's layout setting
+
  v1.9.9 / 2024.02.25
 - 📝 docs: center the h1 theme by default, how to align it to the left
 - 💄 ui(database): Set the background color of the custom attribute window to match the editor background
