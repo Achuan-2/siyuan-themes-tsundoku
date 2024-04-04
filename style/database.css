@@ -25,7 +25,11 @@ span[data-type='av-add-more']:hover {
 
 /* 数据库勾选框 */
 .av__cell.av__cell-check svg {
-    color:#289aa2;
+    color: #289aa2;
 }
 
-
+/* 块属性面板的数据库hover时添加背景色 */
+.custom-attr__avvalue:hover,
+.custom-attr .b3-text-field--text:hover {
+    background-color: var(--b3-list-hover);
+}
