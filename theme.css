@@ -218,8 +218,8 @@
     --custom-h4-color: #2c99a2;
     --custom-h5-color: #421768;
     --custom-h6-color: var(--b3-theme-on-background);
-    --custom-blockquote-border-color: #efeded;
-    --custom-blockquote-background-color: #f7f9f9;
+    --custom-blockquote-border-color: #edefedbd;
+    --custom-blockquote-background-color: #f5f8f8ab;
     --custom-tag-hover-color: #559898;
     --custom-link-bottom-color: #bacbd650;
 }
@@ -1119,8 +1119,6 @@ body
 [data-theme-mode='light'] .protyle-wysiwyg [data-node-id].li:before {
     border-left: 0.5px solid #dfe0e1;
 }
-
-
 
 /* 自定义属性 */
 [data-key='dialog-attr'] .fn__flex-1:has(.custom-attr[data-type='NodeAttributeView']) {
