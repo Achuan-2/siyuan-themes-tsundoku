@@ -141,8 +141,16 @@ window.theme.updateStyle = function (id, href) {
 
 function create_theme_button() {
     // light 主题下更新样式：为了新建窗口也能自动加载样式
-    const drag = document.getElementById('barMode'); // 标题栏
+    let drag;
+    console.log(window.theme.clientMode);
+    if (window.theme.clientMode == 'mobile') {
+        drag = document.getElementsByClassName('.toolbar--border'); // 标题栏
+    } else {
+
+        drag = document.getElementById('barMode'); // 标题栏
+    }
     const themeStyle = document.getElementById('themeStyle'); // 当前主题引用路径
+
     if (themeStyle) {
         const THEME_ROOT = new URL(themeStyle.href).pathname.replace('theme.css', ''); // 当前主题根目录
         const colors_href = [];
@@ -768,8 +776,6 @@ window.destroyTheme = () => {
 };
 
 (async () => {
-    /*创建日历按钮 */
-    // initcalendar();
     //各种列表转xx
     ClickMonitor();
     /*创建主题按钮 */

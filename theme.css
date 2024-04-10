@@ -1126,6 +1126,18 @@ body
 }
 
 /* 集市样式调整 */
-.config-bazaar__readme .item__img {
-    margin: 150px auto 28px;
+#configBazaarReadme .item__side {
+    padding: 16px;
+    justify-content: center;
+}
+
+.config-bazaar__panel[data-type=downloaded] .config-bazaar__content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+    gap: 20px;
+    margin: 10px 20px 20px;
+    width: auto;
+}
+.config-bazaar__panel[data-type=downloaded] .b3-card {
+    margin: 5px;
 }
