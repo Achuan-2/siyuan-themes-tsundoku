@@ -1130,7 +1130,19 @@ body
     padding: 16px;
     justify-content: center;
 }
+#configBazaarReadme .item__side>div:last-child {
+    flex-grow: 0;
+}
+#configBazaarReadme .item__side>div:first-child{
+        position: absolute;
+    top: 16px;
+}
 
+#configBazaarReadme .item__main {
+    margin-left: 0;
+    padding: 0;
+    background-color: var(--b3-theme-background);
+}
 .config-bazaar__panel[data-type=downloaded] .config-bazaar__content {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
