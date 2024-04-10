@@ -219,7 +219,7 @@
     --custom-h5-color: #421768;
     --custom-h6-color: var(--b3-theme-on-background);
     --custom-blockquote-border-color: #edefedbd;
-    --custom-blockquote-background-color: #f5f8f8ab;
+    --custom-blockquote-background-color: #f5f7f87d;
     --custom-tag-hover-color: #559898;
     --custom-link-bottom-color: #bacbd650;
 }
@@ -1123,4 +1123,9 @@ body
 /* 自定义属性 */
 [data-key='dialog-attr'] .fn__flex-1:has(.custom-attr[data-type='NodeAttributeView']) {
     background-color: var(--b3-theme-background);
+}
+
+/* 集市样式调整 */
+.config-bazaar__readme .item__img {
+    margin: 150px auto 28px;
 }

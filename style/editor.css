@@ -72,8 +72,8 @@
     font-size: 1.35em !important;
     /* color: var(--custom-h3-color) !important; */
     color: var(--b3-card-info-color);
-    background-color: #d1ecf7;
-    box-shadow: 2px 2px 2px var(--b3-table-border-color);
+    /* background-color: #d1ecf7; */
+    /* box-shadow: 2px 2px 2px var(--b3-table-border-color); */
 }
 
 /* 三级标题前面添加竖线*/
@@ -122,16 +122,16 @@
     font-size: 1.2em !important;
     /* color: var(--custom-h4-color); */
     color: var(--b3-card-success-color);
-    background-color: #d8f9e6;
-    box-shadow: 2px 2px 2px var(--b3-table-border-color);
+    /* background-color: #d8f9e6; */
+    /* box-shadow: 2px 2px 2px var(--b3-table-border-color); */
 }
 /* 5. 五级标题样式setup */
 .protyle-wysiwyg [data-node-id].h5,
 .b3-typography h5 {
     font-size: 1.1em !important;
-    /* color: var(--custom-h5-color); */
-    background-color: #bec6e891;
-    box-shadow: 2px 2px 2px var(--b3-table-border-color);
+    color: var(--custom-h5-color);
+    /* background-color: #bec6e891; */
+    /* box-shadow: 2px 2px 2px var(--b3-table-border-color); */
 }
 
 /* 6. 六级标题样式setup */
@@ -228,9 +228,10 @@
 
 /* -----------------------blockquote 引述块----------------------- */
 
+.b3-typography blockquote,
 .protyle-wysiwyg [data-node-id].bq:not([style*='background-color']) {
     border: 1px solid var(--custom-blockquote-border-color);
-    border-left: 0.25em solid #c6d6de;
+    border-left: 0.25em solid #bec9cf;
     border-radius: 5px !important;
     color: #6a6969;
     background-color: var(--custom-blockquote-background-color);
@@ -240,7 +241,7 @@
 }
 .protyle-wysiwyg [data-node-id].bq[style*='background-color'] {
     border: 1px solid var(--custom-blockquote-border-color) !important;
-    border-radius: 10px !important;
+    border-radius: 7px !important;
 }
 
 /* blockquote 缩进调整 */

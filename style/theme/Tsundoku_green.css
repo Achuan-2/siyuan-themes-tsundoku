@@ -186,7 +186,7 @@
     --custom-h2-border-color: #1a241d26;
     --custom-h3-color: #1a8080;
     --custom-h4-color: #1e776f;
-    --custom-h5-color: #174b53d6;
+    --custom-h5-color: #381753c9;
     --custom-h6-color: var(--b3-theme-on-background);
     --custom-blockquote-border-color: #6bb48133;
     --custom-blockquote-background-color: #a9d6b248;
@@ -921,8 +921,8 @@ div[data-subtype='t'][data-type='NodeList'] {
     font-size: 1.35em !important;
     /* color: var(--custom-h3-color) !important; */
     color: var(--b3-card-info-color);
-    background-color: #afd8e8;
-    box-shadow: none;
+    /* background-color: #afd8e8; */
+    /* box-shadow: none; */
 }
 
 /* 四级标题样式 */
@@ -931,15 +931,15 @@ div[data-subtype='t'][data-type='NodeList'] {
     font-size: 1.2em !important;
     /* color: var(--custom-h4-color); */
     color: var(--b3-card-success-color);
-    background-color: #b2e2c6;
-    box-shadow: none;
+    /* background-color: #b2e2c6; */
+    /* box-shadow: none; */
 }
 /* 五级标题样式 */
 .protyle-wysiwyg [data-node-id].h5,
 .b3-typography h5 {
     font-size: 1.1em !important;
-    /* color: var(--custom-h5-color); */
-    background-color: #bec6e891;
+    color: var(--custom-h5-color);
+    /* background-color: #bec6e891; */
     box-shadow: none;
 }
 
@@ -966,4 +966,10 @@ span[data-type='av-add-more'] {
 .av__row--header {
     background-color: var(--b3-theme-background);
     background-image: url('/appearance/themes/Tsundoku/src/background/paper.png');
+}
+/* 引述块 */
+.b3-typography blockquote,
+.protyle-wysiwyg [data-node-id].bq:not([style*='background-color']) {
+    border-left: 0.25em solid #8cae9b;
+    color: #6a6969;
 }
