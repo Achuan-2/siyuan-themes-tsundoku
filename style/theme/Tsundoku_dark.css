@@ -781,7 +781,10 @@ div[data-subtype='t'][data-type='NodeList'] {
     color: #a79d9d;
 }
 
-
+.b3-typography blockquote,
+.protyle-wysiwyg [data-node-id].bq:not([style*='background-color']) {
+    border-left: 0.25em solid #98bac0 !important;
+}
 
 
 
