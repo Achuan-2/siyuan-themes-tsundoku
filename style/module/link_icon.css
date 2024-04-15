@@ -197,10 +197,10 @@
     background-image: url('/appearance/themes/tsundoku/src/link_icon/net2.svg');
 }
 /* website link icon */
-.protyle-wysiwyg[data-theme-mode="dark"] [data-node-id] span[data-type~='a'][data-href ^="http"]:not(:empty)::before,
-.protyle-wysiwyg[data-theme-mode="dark"] [data-node-id] span[data-type~='url'][data-href ^="http"]:not(:empty)::before,
-.protyle-wysiwyg[data-theme-mode="dark"] [data-node-id] a[href ^="http"]::before,
-.b3-typography a[href ^="http"]::before{
+[data-theme-mode="dark"]  .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href ^="http"]:not(:empty)::before,
+[data-theme-mode="dark"]  .protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href ^="http"]:not(:empty)::before,
+[data-theme-mode="dark"]  .protyle-wysiwyg[data-theme-mode="dark"] [data-node-id] a[href ^="http"]::before,
+[data-theme-mode="dark"]  .b3-typography a[href ^="http"]::before{
     content: "";
     background-image: url('/appearance/themes/tsundoku/src/link_icon/net2_dark.svg');
 }
@@ -592,10 +592,10 @@
     content: "";
     background-image: url('/appearance/themes/tsundoku/src/link_icon/github_icon.svg');
 }
-.protyle-wysiwyg[data-theme-mode="dark"] [data-node-id] span[data-type~='a'][data-href *="github.com"]:not(:empty)::before,
-.protyle-wysiwyg[data-theme-mode="dark"] [data-node-id] span[data-type~='url'][data-href *="github.com"]:not(:empty)::before,
-.protyle-wysiwyg[data-theme-mode="dark"] [data-node-id] a[href *="github.com"]::before,
-.b3-typography a[href *="github.com"]::before{
+[data-theme-mode="dark"]  .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href *="github.com"]:not(:empty)::before,
+[data-theme-mode="dark"]  .protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href *="github.com"]:not(:empty)::before,
+[data-theme-mode="dark"]  .protyle-wysiwyg [data-node-id] a[href *="github.com"]::before,
+[data-theme-mode="dark"] .b3-typography a[href *="github.com"]::before{
     content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/github_icon_dark.png') !important;
 }
