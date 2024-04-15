@@ -170,7 +170,7 @@
     --custom-h1-color: #4ef7e0;
     --custom-h2-color: #34e7e4;
     --custom-h2-border-color: #596169;
-    --custom-h3-color: #72f4c2;
+    --custom-h3-color: #76ebff;
     --custom-h4-color: #ffd2a1;
     --custom-h5-color: #f2a1ff;
     --custom-h6-color: var(--b3-theme-on-background);
@@ -790,10 +790,10 @@ div[data-subtype='t'][data-type='NodeList'] {
 .b3-typography h3 {
 
     font-size: 1.35em !important;
-    /* color: var(--custom-h3-color) !important; */
-    color: var(--b3-card-info-color);
-    background-color: #30677d;
-    box-shadow: 2px 2px 5px #36393c;
+    color: var(--custom-h3-color) !important;
+    /* color: var(--b3-card-info-color) !important; */
+    /* background-color: #30677d; */
+    /* box-shadow: 2px 2px 5px #36393c; */
 }
 /* 4. 四级标题样式setup */
 .protyle-wysiwyg [data-node-id].h4,
@@ -801,15 +801,15 @@ div[data-subtype='t'][data-type='NodeList'] {
     font-size: 1.2em !important;
     /* color: var(--custom-h4-color); */
     color: var(--b3-card-success-color);
-    background-color: #406e53;
-    box-shadow: 2px 2px 5px #36393c;
+    /* background-color: #406e53; */
+    /* box-shadow: 2px 2px 5px #36393c; */
 
 }
 /* 5. 五级标题样式setup */
 .protyle-wysiwyg [data-node-id].h5,
 .b3-typography h5 {
     font-size: 1.1em !important;
-    /* color: var(--custom-h5-color); */
-    background-color: #bec6e891;
-    box-shadow: 2px 2px 5px #36393c;
+    color: var(--custom-h5-color);
+    /* background-color: #bec6e891; */
+    /* box-shadow: 2px 2px 5px #36393c; */
 }

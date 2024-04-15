@@ -919,8 +919,8 @@ div[data-subtype='t'][data-type='NodeList'] {
 .b3-typography h3 {
     /* ⚙三级标题基本样式 */
     font-size: 1.35em !important;
-    /* color: var(--custom-h3-color) !important; */
-    color: var(--b3-card-info-color);
+    color: var(--custom-h3-color) !important;
+    /* color: var(--b3-card-info-color); */
     /* background-color: #afd8e8; */
     /* box-shadow: none; */
 }
