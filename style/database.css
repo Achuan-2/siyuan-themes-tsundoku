@@ -33,3 +33,8 @@ span[data-type='av-add-more']:hover {
 .custom-attr .b3-text-field--text:hover {
     background-color: var(--b3-list-hover);
 }
+
+/* 块右上方的数据库角标添加颜色：绿色 */
+.protyle-attr--av svg{
+        color: var(--b3-font-color4);
+}
