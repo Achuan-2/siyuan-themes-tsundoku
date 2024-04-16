@@ -14,9 +14,9 @@ span[data-type='av-add-more']:hover {
 }
 
 /* 数据库默认不隐藏按钮 */
-.av .av__views .block__icon {
+/* .av .av__views .block__icon {
     opacity: 1;
-}
+} */
 
 /* 数据库单元格选中背景色 */
 .av__cell--active {
@@ -34,7 +34,29 @@ span[data-type='av-add-more']:hover {
     background-color: var(--b3-list-hover);
 }
 
-/* 块右上方的数据库角标添加颜色：绿色 */
-.protyle-attr--av svg{
+/* 优化块右上角所属数据库的样式 */
+/* .protyle-attr--av svg{
         color: var(--b3-font-color4);
+} */
+.protyle-attr--av > span {
+    border-radius: 4px;
+}
+.protyle-attr--av > span:nth-child(4n + 1) {
+    color: var(--b3-card-success-color); /* 每组的第1个 */
+    background-color: var(--b3-card-success-background);
+}
+
+.protyle-attr--av > span:nth-child(4n + 2) {
+    color: var(--b3-card-info-color); /* 每组的第2个 */
+    background-color: var(--b3-card-info-background);
+}
+
+.protyle-attr--av > span:nth-child(4n + 3) {
+    color: var(--b3-card-warning-color); /* 每组的第3个 */
+    background-color: var(--b3-card-warning-background);
+}
+
+.protyle-attr--av > span:nth-child(4n) {
+    color: var(--b3-card-error-color); /* 每组的第4个 */
+    background-color: var(--b3-card-error-background);
 }
