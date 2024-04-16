@@ -35,28 +35,34 @@ span[data-type='av-add-more']:hover {
 }
 
 /* 优化块右上角所属数据库的样式 */
-/* .protyle-attr--av svg{
-        color: var(--b3-font-color4);
-} */
+.protyle-attr--av svg {
+    /* 去除数据库svg */
+    display: none;
+}
 .protyle-attr--av > span {
+    /* 添加圆角 */
     border-radius: 4px;
 }
 .protyle-attr--av > span:nth-child(4n + 1) {
-    color: var(--b3-card-success-color); /* 每组的第1个 */
+    /* 每组的第1个 */
+    color: var(--b3-card-success-color);
     background-color: var(--b3-card-success-background);
 }
 
 .protyle-attr--av > span:nth-child(4n + 2) {
-    color: var(--b3-card-info-color); /* 每组的第2个 */
+    /* 每组的第2个 */
+    color: var(--b3-card-info-color);
     background-color: var(--b3-card-info-background);
 }
 
 .protyle-attr--av > span:nth-child(4n + 3) {
-    color: var(--b3-card-warning-color); /* 每组的第3个 */
+    /* 每组的第3个 */
+    color: var(--b3-card-warning-color);
     background-color: var(--b3-card-warning-background);
 }
 
 .protyle-attr--av > span:nth-child(4n) {
-    color: var(--b3-card-error-color); /* 每组的第4个 */
+    /* 每组的第4个 */
+    color: var(--b3-card-error-color);
     background-color: var(--b3-card-error-background);
 }
