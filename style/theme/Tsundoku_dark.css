@@ -239,19 +239,9 @@ span[data-type='text'][style='background-color: var(--b3-font-background13);'] {
 .b3-typography span[data-type~='code'],
 .protyle-wysiwyg code:not(.hljs),
 .protyle-wysiwyg span[data-type~='code'] {
-    top: -0.1em;
-    padding: 0em 0.4em;
-    margin: 0px 2px;
-    font-size: 85%;
-    border-radius: 3px;
-    font-family: var(--b3-font-family-code);
-    word-break: break-all;
-    background-size: 20px 20px;
-    white-space: pre-wrap;
     color: var(--b3-protyle-inline-code-color);
     background-color: var(--b3-protyle-inline-code-background);
     box-shadow: #0993a580 0px 0px 3px 1px inset;
-    font-size: 80%;
 }
 
 /*  ------------------------------列表 ------------------------------ */
