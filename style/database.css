@@ -41,7 +41,8 @@ span[data-type='av-add-more']:hover {
 }
 .protyle-attr--av > span {
     /* 添加圆角 */
-    border-radius: 4px;
+    padding: 0 0.5em;
+    border-radius: 0.5em;
 }
 .protyle-attr--av > span:nth-child(4n + 1) {
     /* 每组的第1个 */
