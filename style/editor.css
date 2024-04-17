@@ -53,7 +53,7 @@
     /* ⚙二级标题基本样式 */
     border-bottom: 1px solid var(--custom-h2-border-color) !important;
     font-size: 1.55em !important;
-    /* color: var(--custom-h2-color); */
+    color: var(--custom-h2-color);
     border-radius: 0px;
 }
 
@@ -120,8 +120,7 @@
 .protyle-wysiwyg [data-node-id].h4,
 .b3-typography h4 {
     font-size: 1.2em !important;
-    /* color: var(--custom-h4-color); */
-    color: var(--b3-card-success-color);
+    color: var(--custom-h4-color);
     /* background-color: #d8f9e6; */
     /* box-shadow: 2px 2px 2px var(--b3-table-border-color); */
 }

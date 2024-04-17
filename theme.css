@@ -215,7 +215,7 @@
     --custom-h2-color: #18697d;
     --custom-h2-border-color: #dfe0e1;
     --custom-h3-color: #15aabf;
-    --custom-h4-color: #2c99a2;
+    --custom-h4-color: #49896a;
     --custom-h5-color: #421768;
     --custom-h6-color: var(--b3-theme-on-background);
     --custom-blockquote-border-color: #edefedbd;
@@ -1142,3 +1142,6 @@ body
     margin-left: 0;
     padding: 0;
 }
+
+    
+

@@ -152,6 +152,36 @@ text-align:left !important;
 }
 ```
 
+### h3-h5 添加背景色
+
+在思源笔记【**设置-外观-代码片段**】添加如下代码片段：
+```css
+.protyle-wysiwyg [data-node-id].h3,
+.b3-typography h3 {
+    /* h3标题基本样式 */
+    font-size: 1.35em !important;
+    color: var(--b3-card-info-color);
+    background-color: var(--b3-card-info-background);
+    box-shadow: 2px 2px 2px var(--b3-table-border-color);
+}
+.protyle-wysiwyg [data-node-id].h4,
+.b3-typography h4 {
+    /* h5标题基本样式 */
+    font-size: 1.2em !important;
+    color: var(--b3-card-success-color);
+    background-color: var(--b3-card-success-background);
+    box-shadow: 2px 2px 2px var(--b3-table-border-color);
+}
+.protyle-wysiwyg [data-node-id].h5,
+.b3-typography h5 {
+    /* h6标题基本样式 */
+    font-size: 1.1em !important;
+    color: var(--custom-h5-color);
+    background-color: var(--b3-font-background9);
+    box-shadow: 2px 2px 2px var(--b3-table-border-color);
+}
+
+```
 
 ## ❤ 致谢
 
