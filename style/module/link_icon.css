@@ -12,6 +12,12 @@
     height: 1em;
     margin-right: 0.2em !important;
 }
+/* 上标不显示link icon */
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-type~='sup']:not(:empty)::before{
+    display: none !important;
+    content: none !important;
+    background-image: none !important;
+}
 
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href^="siyuan://"],
 .protyle-wysiwyg [data-node-id] a[href^="siyuan://"],

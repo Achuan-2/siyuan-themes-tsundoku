@@ -227,7 +227,7 @@
 .b3-typography blockquote,
 .protyle-wysiwyg [data-node-id].bq:not([style*='background-color']) {
     /* border: 1px solid var(--custom-blockquote-border-color); */
-    padding: 0px 4px;
+    padding: 2px 4px;
     border-left: 0.3em solid #D0D7DE;
     border-radius: 0px 7px 7px 0px !important;
     color: #6a6969;
