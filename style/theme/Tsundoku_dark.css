@@ -143,7 +143,7 @@
     --b3-protyle-inline-s-color: #c9d1d991;
     --b3-protyle-inline-link-color: #57a2d4;
     --b3-protyle-inline-link-hover-color: #fa60a0;
-    --b3-protyle-inline-mark-background: #4b817c;
+    --b3-protyle-inline-mark-background: #31a97b;
     --b3-protyle-inline-mark-color: #cdd1d6;
     --b3-protyle-inline-tag-background: #65c8eccc;
     --b3-protyle-inline-tag-color: #f8f9fa;
@@ -805,3 +805,4 @@ div[data-subtype='t'][data-type='NodeList'] {
     /* background-color: #bec6e891; */
     /* box-shadow: 2px 2px 5px #36393c; */
 }
+

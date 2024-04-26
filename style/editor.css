@@ -202,7 +202,6 @@
     max-width: 620px;
 }
 
-
 /* -----------------------块嵌入----------------------- */
 
 .protyle-wysiwyg [data-node-id].render-node[data-type='NodeBlockQueryEmbed'] {
@@ -228,7 +227,7 @@
 .protyle-wysiwyg [data-node-id].bq:not([style*='background-color']) {
     /* border: 1px solid var(--custom-blockquote-border-color); */
     padding: 2px 4px;
-    border-left: 0.3em solid #D0D7DE;
+    border-left: 0.3em solid #d0d7de;
     border-radius: 0px 7px 7px 0px !important;
     color: #6a6969;
     background-color: transparent;
@@ -468,12 +467,27 @@ mark {
     background-color: var(--b3-protyle-inline-mark-background);
     color: var(--b3-protyle-inline-mark-color);
 }
-
-.protyle-wysiwyg span[data-type~='mark'] {
+/* 搜索高亮 */
+[data-theme-mode="dark"] .b3-list mark,
+[data-theme-mode="dark"] .protyle-wysiwyg [data-node-id] span[data-type~=search-mark]{
+    background-color: var(--b3-protyle-inline-mark-background);
     color: var(--b3-protyle-inline-mark-color);
+}
+[data-theme-mode="light"] .b3-list mark,
+[data-theme-mode="light"] .protyle-wysiwyg [data-node-id] span[data-type~=search-mark]{
+    background-color: #ffdb98;
+    color: var(--b3-protyle-inline-mark-color);
+}
+/* 编辑器高亮 */
+.protyle-wysiwyg span[data-type~='mark'] {
+    /* color: var(--b3-protyle-inline-mark-color);
     transition: color 0.2s ease-in-out;
     background-color: var(--b3-card-success-background);
-    border-bottom: 2px solid var(--b3-font-color4);
+    border-bottom: 2px solid var(--b3-font-color4); */
+    background: transparent;
+    box-shadow: 0 -0.3em 0 0 inset var(--b3-protyle-inline-mark-background),
+        0 0.1em 0 0 var(--b3-protyle-inline-mark-background);
+    color: inherit;
 }
 /* -----------------------加粗----------------------- */
 .protyle-wysiwyg span[data-type~='strong'] {
@@ -764,7 +778,7 @@ li[data-type='navigation-file'] .counter {
 /* --------------------------------------------------------------------------------------------- */
 
 /* 分割线 */
-.protyle-wysiwyg [data-node-id].hr>div:after {
+.protyle-wysiwyg [data-node-id].hr > div:after {
     height: 2px;
     border-radius: 2px;
 }
