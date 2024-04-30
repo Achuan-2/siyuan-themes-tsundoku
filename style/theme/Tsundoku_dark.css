@@ -64,18 +64,18 @@
     --b3-font-color6: #6cf9ee;
     --b3-font-color7: var(--b3-theme-secondary);
     --b3-font-color8: #f5822e;
-    --b3-font-color9: #0d0d0f;
+    --b3-font-color9: #9f9ff8;
     --b3-font-color10: #ca98ff;
     --b3-font-color11: #d90ec5;
     --b3-font-color12: #eb5042;
     --b3-font-color13: var(--b3-theme-background);
     --b3-font-background1: #ff8f8999;
-    --b3-font-background2: #e5aa57c0;
+    --b3-font-background2: #e5aa5752;
     --b3-font-background3: rgba(54, 171, 248, 0.521);
     --b3-font-background4: #8fe7b277;
     --b3-font-background5: #6f8ca38f;
     --b3-font-background6: #09a1b873;
-    --b3-font-background7: #f3a82fbd;
+    --b3-font-background7: #f3a82f63;
     --b3-font-background8: #a35b28ce;
     --b3-font-background9: #324272;
     --b3-font-background10: #a979d683;
@@ -143,7 +143,7 @@
     --b3-protyle-inline-s-color: #c9d1d991;
     --b3-protyle-inline-link-color: #57a2d4;
     --b3-protyle-inline-link-hover-color: #fa60a0;
-    --b3-protyle-inline-mark-background: #31a97b;
+    --b3-protyle-inline-mark-background: #31a97bc7;
     --b3-protyle-inline-mark-color: #cdd1d6;
     --b3-protyle-inline-tag-background: #65c8eccc;
     --b3-protyle-inline-tag-color: #f8f9fa;
@@ -174,7 +174,7 @@
     --custom-h5-color: #f2a1ff;
     --custom-h6-color: var(--b3-theme-on-background);
     --custom-blockquote-border-color: #6d9a9a29;
-    --custom-blockquote-background-color: #26333e;
+    --custom-blockquote-background-color: #50beff1a;
     --custom-tag-hover-color: #0892c3cc;
     --custom-link-bottom-color: #39464b96;
 }
@@ -326,12 +326,12 @@ div[data-subtype='t'][data-type='NodeList'] {
 }
 
 /* 创建文件按钮 */
-.b3-button--text,
+/* .b3-button--text,
 .b3-button--cancel,
 .b3-button--outline {
     color: #6bb6c9;
     background-color: transparent;
-}
+} */
 .b3-button--text:hover,
 .b3-button--text:focus,
 .b3-button--cancel:hover,
@@ -712,7 +712,6 @@ div[data-subtype='t'][data-type='NodeList'] {
 /* 设置备注样式 */
 .b3-typography span[data-type~='inline-memo'],
 .protyle-wysiwyg span[data-type~='inline-memo'] {
-    background-color: var(--b3-card-warning-background);
     border-bottom: 2px solid var(--b3-font-color2);
 }
 
@@ -772,37 +771,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 .b3-typography blockquote,
 .protyle-wysiwyg [data-node-id].bq:not([style*='background-color']) {
+    /* border: 1px solid var(--custom-blockquote-border-color); */
     border-left: 0.25em solid #456c74 !important;
-}
-
-
-
-    /* ⚙三级标题基本样式 */
-.protyle-wysiwyg [data-node-id].h3,
-.b3-typography h3 {
-
-    font-size: 1.35em !important;
-    color: var(--custom-h3-color) !important;
-    /* color: var(--b3-card-info-color) !important; */
-    /* background-color: #30677d; */
-    /* box-shadow: 2px 2px 5px #36393c; */
-}
-/* 4. 四级标题样式setup */
-.protyle-wysiwyg [data-node-id].h4,
-.b3-typography h4 {
-    font-size: 1.2em !important;
-    /* color: var(--custom-h4-color); */
-    color: var(--b3-card-success-color);
-    /* background-color: #406e53; */
-    /* box-shadow: 2px 2px 5px #36393c; */
-
-}
-/* 5. 五级标题样式setup */
-.protyle-wysiwyg [data-node-id].h5,
-.b3-typography h5 {
-    font-size: 1.1em !important;
-    color: var(--custom-h5-color);
-    /* background-color: #bec6e891; */
-    /* box-shadow: 2px 2px 5px #36393c; */
 }
 

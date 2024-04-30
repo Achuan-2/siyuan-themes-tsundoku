@@ -191,7 +191,7 @@
     --custom-blockquote-border-color: #6bb48133;
     --custom-blockquote-background-color: #a9d6b248;
     --custom-tag-hover-color: #3eadad;
-    --custom-link-bottom-color: #0a3a6418;
+    --custom-link-bottom-color: #4576a1;
 }
 body {
     background-color: transparent;
@@ -460,12 +460,12 @@ div[data-subtype='t'][data-type='NodeList'] {
 }
 
 /* 创建文件按钮 */
-.b3-button--text,
+/* .b3-button--text,
 .b3-button--cancel,
 .b3-button--outline {
     color: #3f9264;
     background-color: transparent;
-}
+} */
 
 .b3-button--text:hover,
 .b3-button--text:focus,
@@ -882,8 +882,8 @@ div[data-subtype='t'][data-type='NodeList'] {
 /* 设置备注样式 */
 .b3-typography span[data-type~='inline-memo'],
 .protyle-wysiwyg span[data-type~='inline-memo'] {
-    background-color: var(--b3-card-warning-background);
-    border-bottom: 2px solid var(--b3-font-color1);
+    background-color: transparent;
+    border-bottom: 3px solid var(--b3-font-color1);
 }
 
 .tooltip--memo {
@@ -972,4 +972,10 @@ span[data-type='av-add-more'] {
 .protyle-wysiwyg [data-node-id].bq:not([style*='background-color']) {
     border-left: 0.25em solid #8cae9b;
     color: #6a6969;
+}
+
+[data-theme-mode="light"]  .protyle-wysiwyg [data-node-id] span[data-type~='a']:hover {
+    color: var(--b3-protyle-inline-link-hover-color);
+    border-bottom: 2px solid var(--b3-protyle-inline-link-hover-color);
+    background-color: #c1eccb6e;
 }

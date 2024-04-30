@@ -1,6 +1,118 @@
-#preview .h1 {
-    text-align: center !important;
+
+
+/* ---------------------------------------导出微信文章和pdf样式-----------------------------------*/
+/* 导出微信文章设置默认字体 */
+.protyle-preview>.b3-typography {
+    font-size: 14px !important;
 }
+
+
+[data-theme-mode="light"] .protyle-preview>.b3-typography h1,
+#preview .protyle-wysiwyg .h1{
+    font-weight: bold;
+    border-bottom: 2px solid rgba(15, 76, 129, 1);
+    text-align: center;
+    color: rgba(15, 76, 129, 1);
+
+}
+.protyle-preview>.b3-typography h1{
+    font-size: 24px  !important;
+}
+[data-theme-mode="dark"] .protyle-preview>.b3-typography h2{
+    display: table; 
+    text-align: center;
+    margin: 40px auto 40px;
+}
+[data-theme-mode="light"] .protyle-preview>.b3-typography h2,
+#preview .protyle-wysiwyg .h2 {
+    display: table; 
+    text-align: center;
+    border-bottom: 1px solid #dfe0e1 !important;
+    color:  #083256;
+    border-radius: 0px;
+    line-height: 1.75;
+    margin: 40px auto 40px;
+}
+[data-theme-mode="light"] .protyle-preview>.b3-typography h2{
+    font-size: 20px !important;
+
+}
+
+[data-theme-mode="light"] .protyle-preview>.b3-typography h3,
+#preview .protyle-wysiwyg .h3 {
+
+    text-align: left;
+    font-weight: bold;
+    margin: 1em 8px 0.75em 0;
+    padding-left: 8px;
+    border-left: 4px solid rgba(15, 76, 129, 1);
+    color: rgba(15, 76, 129, 1) !important;
+    border-radius: 0px !important;
+}
+[data-theme-mode="light"] .protyle-preview>.b3-typography h3{
+    font-size: 16px  !important;
+}
+
+[data-theme-mode="light"] .protyle-preview  .b3-typography h4,
+#preview .protyle-wysiwyg .h4 {
+    font-weight: bold;
+    color: #1c849e;
+}
+[data-theme-mode="light"] .protyle-preview  .b3-typography h4{
+    font-size: 15px !important;
+}
+[data-theme-mode="light"] .protyle-preview>.b3-typography h5,
+#preview .protyle-wysiwyg .h5 {
+    font-weight: bold;
+    color: rgba(15, 76, 129, 1);
+}
+[data-theme-mode="light"] .protyle-preview>.b3-typography h5{
+    font-size: 14px !important;
+}
+[data-theme-mode="light"] .protyle-preview>.b3-typography h6,
+#preview .protyle-wysiwyg .h6{
+    font-size: 14px !important;
+    font-weight: bold;
+}
+[data-theme-mode="light"] .protyle-preview>.b3-typography h6{
+    font-size: 14px !important;
+}
+/* 图片居中 */
+#preview .protyle-wysiwyg .p:has(span.img),
+[data-theme-mode="light"] .protyle-preview>.b3-typography  p:has(span.img:only-child) { 
+text-align:center;
+}
+/* 超链接 */
+[data-theme-mode="light"] .protyle-preview>.b3-typography a {
+    color: #338dd6;
+    /* text-decoration: underline; */
+
+}
+/* 行内代码 */
+[data-theme-mode="light"] .protyle-preview>.b3-typography span[data-type~='code']{
+    color:#3779b3;
+    background-color:#f3f4f4;
+}
+/* 代码块 */
+[data-theme-mode="light"] .protyle-preview>.b3-typography .hljs {
+    background-color: #f8f9fa;
+}
+/* 表格框线 */
+[data-theme-mode="light"] .protyle-preview>.b3-typography table tr th,
+[data-theme-mode="light"] .protyle-preview>.b3-typography table tr td{
+    border-color: #d1d3d6;
+}
+
+/* 引述块 */
+[data-theme-mode="light"] .protyle-preview>.b3-typography blockquote,
+#preview.protyle-wysiwyg  blockquote{
+    border-left: 0em solid #4c6778;
+    background-color: #73a8c70f;
+    border: 1px solid rgb(224 239 249);
+    border-radius: 7px !important;
+}
+
+/* ---------------------------------------导出pdf-----------------------------------*/
 
 
 /* 设置导出样式 */
@@ -9,11 +121,46 @@
         font-family: var(--b3-font-family);
     }
 }
-/* 导出的链接样式 */
-#preview a {
-    color: var(--b3-protyle-inline-link-color);
-}
+    
 
+/* 导出pdf设置默认字体 */
+#preview .protyle-wysiwyg{
+    font-size: 17px !important;
+}
+/* 去除导出pdf的列表竖线 */
 #preview .protyle-wysiwyg [data-node-id].li:before {
     border-left: 0.5px solid transparent;
+}
+/* pdf的a标签 */
+#preview .protyle-wysiwyg a {
+    color: var(--b3-protyle-inline-link-color);
+    text-decoration: none;
+    border-bottom: 1px solid var(--custom-link-bottom-color);
+}
+/* 代码块 */
+#preview .protyle-wysiwyg .code-block {
+    padding: 0;
+    background: var(--b3-protyle-code-background);
+    border-radius: 4px;
+    box-shadow: none;
+}
+
+/* ---------------------------------------导出图片-----------------------------------*/
+/* 行内代码优化 */
+.export-img  .protyle-wysiwyg span[data-type~='code']{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.export-img  .protyle-wysiwyg span[data-type~='code']:first-child{
+    margin-left: 0.4em;
+}
+.export-img  .protyle-wysiwyg span[data-type~='code']:last-child{
+
+    margin-right: 0.4em;
+}
+/* 超链接样式 */
+.export-img .protyle-wysiwyg a {
+    color: var(--b3-protyle-inline-link-color);
+    text-decoration: none;
+    border-bottom: 1px solid var(--custom-link-bottom-color);
 }

@@ -40,6 +40,9 @@
     font-size: 1.75em !important;
     padding: 0.3em 4px;
     color: var(--custom-h1-color);
+    border-bottom: 2px solid var(--custom-h1-color);
+    border-radius: 0px !important;
+    margin-bottom: 1.5em;
 }
 
 /* 列表中的一级标题不居中 */
@@ -65,56 +68,32 @@
 }
 
 /* 3. 三级标题样式setup */
-
-.protyle-wysiwyg [data-node-id].h3,
-.b3-typography h3 {
-    /* ⚙三级标题基本样式 */
-    font-size: 1.35em !important;
+.protyle-wysiwyg [data-node-id].h3, .b3-typography h3{
+    font-size: 1.35em;
     color: var(--custom-h3-color);
-    /* color: var(--b3-card-info-color); */
-    /* background-color: #d1ecf7; */
-    /* box-shadow: 2px 2px 2px var(--b3-table-border-color); */
+    text-align: left;
+    font-weight: bold;
+    padding-left: 8px;
+    border-left: 5px solid var(--custom-h3-color);
+    border-radius: 0px !important;
+    /* 控制竖线高度 */
+    line-height: 1.25; 
+    height: 1.25 em;
 }
 
-/* 三级标题前面添加竖线*/
-/* .protyle-wysiwyg:not([custom-title-num='true']) [data-node-id].h3 > div:first-child::before,
-.b3-typography h3:before {
-    content: '';
-    display: block;
-    float: left;
-    height: 0.75em;
-    width: 0.125em;
-    font-size: 1.35em !important;
-    margin-right: 8px;
-    margin-top: 0.07em;
-    background: var(--custom-h3-color);
-} */
-
-/* 调整h3空行时光标位置 */
-/* .protyle-wysiwyg .h3 > [spellcheck='false']:empty {
-    padding-left: 1rem;
+.protyle-wysiwyg .h3 > [spellcheck='false']:empty {
+    /* empty的高度需要等于line-height */
+    height: 1.25em;
 }
-.protyle-wysiwyg .h3 > [spellcheck='false']:empty:before {
-    content: '';
-    display: block;
-    height: 0.15em;
-    margin-top: -0.3em;
-    margin-left: -1rem;
-} */
-
-/* 列表中h3特殊调整 */
-/* .protyle-wysiwyg .li > .h3 > div:first-child:before {
-    margin-top: 0.27em !important;
-} */
-/* 列表下三级标题竖线不显示 */
-/* .protyle-wysiwyg .li > [data-node-id].h3 > div:first-child::before,
-.b3-typography h3:before {
-    display: none !important;
-} */
-/* 调整h3空行时光标位置 */
-/* .protyle-wysiwyg .li > .h3 > [spellcheck='false']:empty {
-    padding-left: 0rem !important;
-} */
+/* 列表下适配 */
+.protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h3{
+    line-height: 1.5 !important;
+    height: 1.5em !important;
+}
+.protyle-wysiwyg .li > .h3 > [spellcheck='false']:empty {
+    /* empty的高度需要等于line-height */
+    height: 1.5em;
+}
 
 /* 4. 四级标题样式setup */
 .protyle-wysiwyg [data-node-id].h4,
@@ -227,14 +206,13 @@
 .protyle-wysiwyg [data-node-id].bq:not([style*='background-color']) {
     /* border: 1px solid var(--custom-blockquote-border-color); */
     padding: 2px 4px;
-    border-left: 0.3em solid #d0d7de;
-    border-radius: 0px 7px 7px 0px !important;
+    border-left: 0em solid #4c6778;
+    background-color: #73a8c70f;
+    border: 1px solid var(--custom-blockquote-border-color);
+    border-radius: 7px !important;
     color: #6a6969;
-    background-color: transparent;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
 }
+
 .protyle-wysiwyg [data-node-id].bq[style*='background-color'] {
     border: 1px solid var(--custom-blockquote-border-color) !important;
     border-radius: 7px !important;
@@ -628,14 +606,16 @@ li[data-type='navigation-file'] .counter {
 .b3-typography span[data-type~='code'],
 .protyle-wysiwyg code:not(.hljs),
 .protyle-wysiwyg span[data-type~='code'] {
-    /* margin: 0px 2px 0px; */
+    margin: 0px 2px 0px;
     top: -0.1em;
     color: var(--b3-protyle-inline-code-color);
     font-size: 80%;
     word-break: break-all;
     background-color: var(--b3-protyle-inline-code-background);
 }
-
+#preview .protyle-wysiwyg span[data-type~='code'] {
+    margin: 0px;
+}
 /* 调整kbd标签 */
 .b3-typography kbd,
 .protyle-wysiwyg kbd,
@@ -665,7 +645,10 @@ li[data-type='navigation-file'] .counter {
 
 .protyle-wysiwyg [data-node-id] span[data-type~='a']:hover {
     color: var(--b3-protyle-inline-link-hover-color);
-    border-bottom: 1px solid var(--b3-protyle-inline-link-hover-color);
+    border-bottom: 2px solid var(--b3-protyle-inline-link-hover-color);
+}
+[data-theme-mode="light"] .protyle-wysiwyg [data-node-id] span[data-type~='a']:hover {
+    background-color: #f1f9ff;
 }
 .protyle-wysiwyg [data-node-id] span[data-type~='a']:hover code {
     color: var(--b3-protyle-inline-link-hover-color);
@@ -686,13 +669,13 @@ li[data-type='navigation-file'] .counter {
 /*  ------------------------------设置备注样式 ------------------------------ */
 .b3-typography span[data-type~='inline-memo'],
 .protyle-wysiwyg span[data-type~='inline-memo'] {
-    background-color: #fffccf;
-    border-bottom: 2px solid #fff001;
+    background-color: transparent;
+    border-bottom: 3px solid var(--b3-font-color1);
 }
 
 .tooltip--memo {
-    border-top: 3px solid #fff001;
-    background-color: #fffccf;
+    border-top: 3px solid #eec175;
+    background-color: #ffedcf;
     padding: 1rem 1rem;
     font-size: 1rem;
     color: var(--b3-theme-on-background);

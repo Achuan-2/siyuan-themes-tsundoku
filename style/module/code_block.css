@@ -2,21 +2,33 @@
     --custom-code-background: #a3acb0;
     --custom-code-hover: #5f7b8c;
 }
+/* 代码块最大高度 */
+/* .b3-typography .hljs, */
+.protyle-wysiwyg .hljs  {
+    max-height: 800px;
+    overflow: auto;
+}
+#preview .protyle-wysiwyg .hljs  {
+    max-height: none;
+}
 /* 代码块 */
 .protyle-wysiwyg .code-block[fold='1'] .hljs {
     opacity: 0;
 }
-.b3-typography .code-block,
+/* .b3-typography .code-block, */
 .protyle-wysiwyg .code-block {
     padding: 0;
     background: var(--b3-protyle-code-background);
     border-radius: 4px;
     box-shadow: 0 0 0 1px #1e25351a;
 }
-.b3-typography .hljs,
+/* .b3-typography .hljs, */
 .protyle-wysiwyg .hljs {
     background-color:  var(--b3-protyle-code-background) !important;
-    padding: 34px 16px 22px 32px;
+    padding: 34px 15px 15px 15px;
+}
+.b3-typography .hljs{
+    padding: 15px 15px 15px 15px;
 }
 /* 代码行数 */
 .b3-typography .hljs.protyle-linenumber,
@@ -27,7 +39,6 @@
 .b3-typography .protyle-linenumber__rows,
 .protyle-wysiwyg .protyle-linenumber__rows {
     padding: 34px 0 22px;
-    width: 74px;
     opacity: 0.7;
     background-color: var(--b3-protyle-code-background);
 }
@@ -53,7 +64,7 @@
     text-transform: uppercase;
     border-radius: 4px;
     padding: 0 5px;
-    margin: 4px 0 0 26px !important;
+    margin-left:0.5em;
     font-size: 12px !important;
 }
 .protyle-wysiwyg .code-block .protyle-action__language:hover {

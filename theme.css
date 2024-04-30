@@ -2,7 +2,7 @@
 /* 导入编辑器基础块和行内样式 */
 @import url('style/editor.css');
 /* 导入标题后缀提示样式 */
-@import url('style/module/h-reminder.css');
+/* @import url('style/module/h-reminder.css'); */
 /* 导入代码块样式 */
 @import url('style/module/code_block.css');
 /* 导入自定义有序列表样式 */
@@ -10,7 +10,7 @@
 /* 导入折叠样式css */
 @import url('style/module/fold.css');
 /* 导入超链接图标样式 */
-@import url('style/module/link_icon.css');
+/* @import url('style/module/link_icon.css'); */
 /* 导入数据库样式 */
 @import url('style/database.css');
 /* 导入文档属性 */
@@ -185,14 +185,14 @@
     --b3-protyle-inline-strong-color: #202124;
     --b3-protyle-inline-em-color: #202124;
     --b3-protyle-inline-s-color: #9ba0ad;
-    --b3-protyle-inline-link-color: #408bba;
-    --b3-protyle-inline-link-hover-color: #289be3;
-    --b3-protyle-inline-mark-background: #86e19a;
+    --b3-protyle-inline-link-color: #3375ab;
+    --b3-protyle-inline-link-hover-color: #2094f3;
+    --b3-protyle-inline-mark-background: #82d695a8;
     --b3-protyle-inline-mark-color: #202124;
     --b3-protyle-inline-tag-background: #70b3ca;
     --b3-protyle-inline-tag-color: #fff;
-    --b3-protyle-inline-code-color: #207e7d;
-    --b3-protyle-inline-code-background: #f0f0f0;
+    --b3-protyle-inline-code-color: #3779b3;
+    --b3-protyle-inline-code-background: #F3F4F4;
     --b3-protyle-inline-blockref-color: #0e7a88;
     --b3-protyle-inline-blockref-hover-color: #ff398b;
 
@@ -211,17 +211,17 @@
     --custom-tab-border: #d3dae27c;
     --custom-tab-focus-top-border: #435f6b;
     /* 各级标题颜色 */
-    --custom-h1-color: #04393f;
-    --custom-h2-color: #18697d;
+    --custom-h1-color: rgba(15, 76, 129, 1);
+    --custom-h2-color: #083256;
     --custom-h2-border-color: #dfe0e1;
-    --custom-h3-color: #15aabf;
-    --custom-h4-color: #49896a;
-    --custom-h5-color: #421768;
+    --custom-h3-color: rgba(15, 76, 129, 1);
+    --custom-h4-color: #1c849e;
+    --custom-h5-color: #000000;
     --custom-h6-color: var(--b3-theme-on-background);
-    --custom-blockquote-border-color: #edefedbd;
-    --custom-blockquote-background-color: #f5f7f87d;
+    --custom-blockquote-border-color: #d0e2ee;
+    --custom-blockquote-background-color: #eaf7ff59;
     --custom-tag-hover-color: #559898;
-    --custom-link-bottom-color: #bacbd650;
+    --custom-link-bottom-color: #3375ab;
 }
 
 .render-node[data-subtype='graphviz'] .graph > polygon {
@@ -388,18 +388,7 @@ body > div#action {
 }
 
 /* 文档图标标题上方大小调整win10 emoji */
-.protyle-background__icon {
-    height: 80px;
-    width: 80px;
-    transition: var(--b3-transition);
-    position: absolute;
-    /* bottom: -40px; */
-    cursor: pointer;
-    /* font-size: 70px;
-    line-height: 70px; */
-    text-align: center;
-    font-family: var(--b3-font-family-emoji);
-}
+
 /* 文档图标文件树大小调整 */
 .file-tree .b3-list-item__icon svg,
 .file-tree .b3-list-item__icon img {
@@ -727,21 +716,19 @@ body
 }
 
 /* 创建文件按钮 */
-.b3-button--text,
+/* .b3-button--text,
 .b3-button--cancel,
 .b3-button--outline {
     color: #6b9ac9;
     background-color: transparent;
-}
+} */
 .b3-button--text:hover,
 .b3-button--text:focus,
 .b3-button--cancel:hover,
 .b3-button--cancel:focus,
 .b3-button--outline:hover,
 .b3-button--outline:focus {
-    background-color: #89aba33d;
-    font-weight: 600;
-    transition: all 0.1s ease-in-out;
+    background-color: #848b8c3d;
 }
 /* 悬浮工具栏 */
 .protyle-toolbar__item:hover {
@@ -887,7 +874,6 @@ body
     font-size: 0.7em;
     opacity: 0.7;
 }
-
 /* ----------------------------标签页、页签样式 Start----------------------------------------- */
 
 .layout-tab-bar {
@@ -936,6 +922,7 @@ body
 
 /* ----------------------------标签页、页签样式 END----------------------------------------- */
 
+
 .protyle-breadcrumb {
     background-color: transparent;
 }
@@ -948,9 +935,9 @@ body
 }
 
 /* 块添加圆角 */
-.protyle-wysiwyg [data-node-id] {
+/* .protyle-wysiwyg [data-node-id] {
     border-radius: 4px !important;
-}
+} */
 
 /* 文件树文档图标悬浮放大 */
 .b3-list--files .b3-list-item__icon {
@@ -1090,12 +1077,8 @@ body
     display: none;
 }
 
-/* 图片导出 */
-/* 超链接添加下划线 */
-.export-img .protyle-wysiwyg a {
-    /* border-bottom: 1px solid var(--b3-protyle-inline-blockref-color); */
-    text-decoration: underline;
-}
+
+
 
 /* 退出聚焦按钮添加背景色 */
 .protyle-breadcrumb__icon[data-type='exit-focus'] {
@@ -1143,5 +1126,18 @@ body
     padding: 0;
 }
 
-    
+
+
+
+/* 思源v3.0.12的文档添加标签、emoji样式调整 */
+.protyle-background__action .b3-button svg {
+    height: 13px;
+    width: 13px;
+    margin-right: 4px;
+    flex-shrink: 0;
+}
+.protyle-background__action .b3-button{
+    font-size: 14px;
+
+}
 
