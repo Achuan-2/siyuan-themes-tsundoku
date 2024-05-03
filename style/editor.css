@@ -760,8 +760,14 @@ li[data-type='navigation-file'] .counter {
 /* ------------------------------------行内块字体样式：End-------------------------------------- */
 /* --------------------------------------------------------------------------------------------- */
 
-/* 分割线 */
-.protyle-wysiwyg [data-node-id].hr > div:after {
-    height: 2px;
-    border-radius: 2px;
+
+
+/* 分割线设置不要占满编辑器宽度 */
+.protyle-wysiwyg [data-node-id].hr {
+    margin: 20px 32%;
+}
+/* 分割线样式 */
+.protyle-wysiwyg [data-node-id].hr>div:after{
+    height: 1px;
+    background-color: var(--b3-table-border-color) !important;
 }

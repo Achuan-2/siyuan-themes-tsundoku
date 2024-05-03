@@ -118,7 +118,12 @@ text-align:center;
     border: 1px solid rgb(224 239 249);
     border-radius: 7px !important;
 }
-
+/* 分割线 */
+.b3-typography hr {
+    border: 0;
+    border-bottom: 1px solid #d1d3d6;
+    margin: 21px 213px;
+}
 /* ---------------------------------------导出pdf-----------------------------------*/
 
 
