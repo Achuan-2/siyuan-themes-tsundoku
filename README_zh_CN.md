@@ -15,7 +15,7 @@
 
 ![](preview.png)
 
-> 如果你喜欢本主题，欢迎在[爱发电](https://afdian.net/a/achuan-2)给我买包辣条，这会激励我更新和完善主题
+> 如果你喜欢本主题，欢迎[给我买包辣条](https://cdn.nlark.com/yuque/0/2024/jpeg/1408046/1714754573393-9c7f70b0-05ec-489e-b5a2-1a37fb681f6f.jpeg?x-oss-process=image%2Fformat%2Cwebp)，这会激励我更新和完善主题
 
 **简介**：[思源笔记(Siyuan)](https://github.com/siyuan-note/siyuan)是一款本地优先的个人知识管理系统，支持完全离线使用，同时也支持端到端加密同步。融合块、大纲和双向链接，构建你永恒的数字花园。本主题为个人原创主题，专为思源笔记设计。
 
@@ -205,3 +205,4 @@ text-align:left !important;
 
 若主题存在样式的问题，欢迎在[Github](https://github.com/Achuan-2/siyuan-themes-tsundoku)提issue或是通过邮箱联系我(achuan-2@outlook.com)。在提issue之前建议先切换为默认主题，确定是本主题特有的问题。
 
+![](https://cdn.nlark.com/yuque/0/2024/jpeg/1408046/1714754573393-9c7f70b0-05ec-489e-b5a2-1a37fb681f6f.jpeg?x-oss-process=image%2Fformat%2Cwebp)
