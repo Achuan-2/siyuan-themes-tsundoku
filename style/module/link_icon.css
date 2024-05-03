@@ -24,6 +24,7 @@
 .b3-typography a[href^="siyuan://"]
 {
     color: var(--b3-protyle-inline-blockref-color);
+    border-bottom: 1px solid var(--b3-protyle-inline-blockref-color);
 }
 
 .protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href^="es://"]:not(:empty)::before,
