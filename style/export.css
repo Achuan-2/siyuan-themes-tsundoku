@@ -137,7 +137,7 @@ text-align:center;
 
 /* 导出pdf设置默认字体 */
 #preview .protyle-wysiwyg{
-    font-size: 17px !important;
+    font-size: 19px !important;
 }
 /* 去除导出pdf的列表竖线 */
 #preview .protyle-wysiwyg [data-node-id].li:before {

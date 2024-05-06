@@ -30,6 +30,10 @@
 
 ## 🚀最近更新
 
+v2.0.8 / 2024.05.06
+- ✨ 代码块设置最大高度优化：适配行号
+
+
 v2.0.7 / 2024.05.03
 
 - ⏪ 还是加回链接图标功能吧，集市的[链接图标]插件好像没有怎么更新维护了
@@ -205,4 +209,7 @@ text-align:left !important;
 
 若主题存在样式的问题，欢迎在[Github](https://github.com/Achuan-2/siyuan-themes-tsundoku)提issue或是通过邮箱联系我(achuan-2@outlook.com)。在提issue之前建议先切换为默认主题，确定是本主题特有的问题。
 
-![](https://cdn.nlark.com/yuque/0/2024/jpeg/1408046/1714754573393-9c7f70b0-05ec-489e-b5a2-1a37fb681f6f.jpeg?x-oss-process=image%2Fformat%2Cwebp)
+
+<div align="center">
+  <img src="https://cdn.nlark.com/yuque/0/2024/jpeg/1408046/1714754573393-9c7f70b0-05ec-489e-b5a2-1a37fb681f6f.jpeg?x-oss-process=image%2Fformat%2Cwebp" width="250" />
+</div>
