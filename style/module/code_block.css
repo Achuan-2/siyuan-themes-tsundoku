@@ -14,12 +14,17 @@
 .protyle-wysiwyg .hljs,
 .protyle-linenumber__rows{
     height:max-content;
+    margin-top: 10px;
 }
 .protyle-wysiwyg .code-block .protyle-attr {
     top: -2px;
 }
 
-#preview .protyle-wysiwyg .hljs  {
+.protyle-wysiwyg .code-block .protyle-action .b3-tooltips__nw {
+    top: 25px;
+}
+
+#preview .protyle-wysiwyg .code-block {
     max-height: none;
 }
 /* 代码块 */
