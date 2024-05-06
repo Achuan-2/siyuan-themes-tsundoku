@@ -4,10 +4,21 @@
 }
 /* 代码块最大高度 */
 /* .b3-typography .hljs, */
-.protyle-wysiwyg .hljs  {
+
+
+.protyle-wysiwyg .code-block{
     max-height: 800px;
     overflow: auto;
+
 }
+.protyle-wysiwyg .hljs,
+.protyle-linenumber__rows{
+    height:max-content;
+}
+.protyle-wysiwyg .code-block .protyle-attr {
+    top: -2px;
+}
+
 #preview .protyle-wysiwyg .hljs  {
     max-height: none;
 }
