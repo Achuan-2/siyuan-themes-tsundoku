@@ -1,3 +1,4 @@
+
 <h1 align="center">🌞Tsundoku: A Theme for SiYuan Note</h1>
 
 <p align="center">          
@@ -15,20 +16,14 @@
 
 ![](preview.png)
 
-> 如果你喜欢本主题，欢迎[给我买包辣条](https://cdn.nlark.com/yuque/0/2024/jpeg/1408046/1714754573393-9c7f70b0-05ec-489e-b5a2-1a37fb681f6f.jpeg?x-oss-process=image%2Fformat%2Cwebp)，这会激励我更新和完善主题
+> 如果你喜欢本主题，欢迎[给我买包辣条](https://afdian.net/a/achuan-2)，这会激励我更新和完善主题
 
 **简介**：[思源笔记(Siyuan)](https://github.com/siyuan-note/siyuan)是一款本地优先的个人知识管理系统，支持完全离线使用，同时也支持端到端加密同步。融合块、大纲和双向链接，构建你永恒的数字花园。本主题为个人原创主题，专为思源笔记设计。
 
-![Light 主题](https://fastly.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/1704370183771Clip_2024-01-04_20-09-39.png)
-<center>Light 主题</center>
-
-![Green 主题](https://fastly.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/1704370137769Clip_2024-01-04_20-07-57.png)
-<center>Green 主题</center>
-
-![Dark 主题](https://fastly.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/1704370028776Clip_2024-01-04_20-07-02.png)
-<center>Dark 主题</center>
-
 ## 🚀最近更新
+
+v2.0.8 / 2024.05.07
+- 💄 修改卡片字体和背景色样式
 
 v2.0.8 / 2024.05.06
 - ✨ 代码块设置最大高度优化：适配行号
@@ -79,7 +74,7 @@ Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释
 - 📎**为超链接添加了icon**：区别不同的本地链接和网络链接
   ![20220131165215_2022-01-31](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220131165215_2022-01-31.png)
 - 🧊 **Callout 块**：给引述块blockquote添加块背景颜色，就会自动应用样式
-  ![1704370779797Clip_2024-01-04_20-15-14.png](https://fastly.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/1704370779797Clip_2024-01-04_20-15-14.png)
+  ![1704370779797Clip_2024-01-04_20-15-14.png](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/1704370779797Clip_2024-01-04_20-15-14.png)
   
   推荐使用模板添加emoji以及调整标题字体大小和加粗，下面是一个例子
   ```markdown
@@ -138,9 +133,11 @@ Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释
     }
 
     :root {
-    --b3-font-family: "汉仪空山楷", "Helvetica Neue", "Luxi Sans", "DejaVu Sans", "Hiragino Sans GB", "Microsoft Yahei", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols";
+    --b3-font-family: "汉仪空山楷", "Helvetica Neue", "Luxi Sans", "DejaVu Sans", "Hiragino Sans GB", "Microsoft Yahei", "sans-serif","Twitter Emoji","Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols" !important;
 
     }
+
+
     ```
 
 ### Green 主题如何关闭纹理背景
@@ -157,7 +154,7 @@ background-image:none !important;
 }
 ```
 
-### h1 主题默认居中，如何居左
+### h1 主题默认居中，如何改为居左
 
 在思源笔记【**设置-外观-代码片段**】添加如下代码片段：
 ```css
@@ -211,5 +208,5 @@ text-align:left !important;
 
 
 <div align="center">
-  <img src="https://cdn.nlark.com/yuque/0/2024/jpeg/1408046/1714754573393-9c7f70b0-05ec-489e-b5a2-1a37fb681f6f.jpeg?x-oss-process=image%2Fformat%2Cwebp" width="250" />
+  <img src="donate.webp" width="250" />
 </div>

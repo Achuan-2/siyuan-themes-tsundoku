@@ -16,18 +16,18 @@ English  | [中文](./README_zh_CN.md)
 
 ![](preview.png)
 
->If you like this topic, welcome to [AFDIAN]（ https://afdian.net/a/achuan-2 ）to sponsor me, it will motivate me to update and improve this theme
+>If you like this topic, welcome to [AFDIAN](https://afdian.net/a/achuan-2 )to sponsor me, it will motivate me to update and improve this theme
 
 
 **Introduction**: [Siyuan](https://github.com/Siyuan-Note/Siyuan)  is a privacy-first personal knowledge management system, support fine-grained block-level reference and Markdown WYSIWYG. This theme is a personal original theme, specially designed for Siyuan notes.
 
-![Light](https://fastly.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/1704370183771Clip_2024-01-04_20-09-39.png)
+![Light](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/1704370183771Clip_2024-01-04_20-09-39.png)
 <center>Light</center>
 
-![Green](https://fastly.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/1704370137769Clip_2024-01-04_20-07-57.png)
+![Green](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/1704370137769Clip_2024-01-04_20-07-57.png)
 <center>Green</center>
 
-![Dark](https://fastly.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/1704370028776Clip_2024-01-04_20-07-02.png)
+![Dark](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/1704370028776Clip_2024-01-04_20-07-02.png)
 <center>Dark</center>
 
 ## 🚀 CHANGLOGS
@@ -117,7 +117,7 @@ I use this name to wake myself up, hoping to make good use of Siyuan notes, help
 - 📎**Added icon to hyperlink.**：See [Introduction to Hyperlink Icons](https://www.yuque.com/Achuan-2/siyuan/gar358) for the difference between different local links and network links.
   ![20220131165215_2022-01-31](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220131165215_2022-01-31.png)
 - 🧊 **Introduction of finch cue block**：Add a block background color to the reference block blockquote, and the style will be automatically applied. 
-  ![1704370779797Clip_2024-01-04_20-15-14.png](https://fastly.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/1704370779797Clip_2024-01-04_20-15-14.png)
+  ![1704370779797Clip_2024-01-04_20-15-14.png](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/1704370779797Clip_2024-01-04_20-15-14.png)
 
     Recommend using a template to add emojis and adjust the title font size and boldness. Here is an example.
   ```markdown

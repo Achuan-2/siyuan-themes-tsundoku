@@ -57,7 +57,7 @@
     --b3-font-family: 'Helvetica Neue', 'Luxi Sans', 'DejaVu Sans', 'Hiragino Sans GB',
         'Microsoft Yahei', sans-serif, 'Apple Color Emoji', 'Noto Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Android Emoji', 'EmojiSymbols';
-    --b3-font-family-code: 'Monaspace Neon', 'JetBrainsMono-Regular', mononoki, Consolas,
+    --b3-font-family-code: 'JetBrainsMono-Regular', mononoki, Consolas,
         'Liberation Mono', Menlo, Courier, monospace, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Noto Color Emoji', 'Segoe UI Symbol', 'Android Emoji', 'EmojiSymbols';
     --b3-font-family-graph: mononoki;
@@ -90,13 +90,13 @@
     --b3-tooltips-background: #335c7396;
 
     /* 卡片背景 */
-    --b3-card-error-color: #b93128;
+    --b3-card-error-color: var(--b3-font-color1);
     --b3-card-error-background: #fdeaec;
-    --b3-card-warning-color: rgb(102, 60, 0);
+    --b3-card-warning-color: var(--b3-font-color2);
     --b3-card-warning-background: #fce4d2;
-    --b3-card-info-color: rgb(13, 60, 97);
+    --b3-card-info-color: var(--b3-font-color3);
     --b3-card-info-background: #deeefa;
-    --b3-card-success-color: rgb(30, 70, 32);
+    --b3-card-success-color: var(--b3-font-color4);
     --b3-card-success-background: #e5fae5;
     /* 自定义文字 */
     --b3-font-color1: #fa766d;
@@ -218,7 +218,7 @@
     --custom-h4-color: #1c849e;
     --custom-h5-color: #000000;
     --custom-h6-color: var(--b3-theme-on-background);
-    --custom-blockquote-border-color: #d0e2ee;
+    --custom-blockquote-border-color: #e8e8e8;
     --custom-blockquote-background-color: #eaf7ff59;
     --custom-tag-hover-color: #559898;
     --custom-link-bottom-color: #3375ab;
@@ -1140,5 +1140,8 @@ body
     font-size: 14px;
 
 }
+
+
+
 
 

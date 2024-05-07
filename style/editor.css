@@ -208,7 +208,7 @@
     padding: 2px 4px;
     border-left: 0em solid #4c6778;
     background-color: #73a8c70f;
-    border: 1px solid var(--custom-blockquote-border-color);
+    border: 1px solid #d0e2ee;
     border-radius: 7px !important;
     color: #6a6969;
 }
@@ -473,6 +473,9 @@ mark {
 }
 
 /* -----------------------块引用----------------------- */
+.protyle-wysiwyg [data-node-id] span[data-type~=block-ref]:not(.av__celltext), .protyle-wysiwyg [data-node-id] span[data-type~=file-annotation-ref]{
+    opacity: 1;
+}
 .protyle-wysiwyg [data-node-id] span[data-type~='block-ref'] {
     color: var(--b3-protyle-inline-blockref-color); /*更改颜色*/
     padding-bottom: 0em;
