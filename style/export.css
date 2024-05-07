@@ -84,6 +84,13 @@
 [data-theme-mode="light"] .protyle-preview>.b3-typography h6{
     font-size: 14px !important;
 }
+
+/* 加粗文字为深蓝色 */
+[data-theme-mode="light"] .protyle-preview >.b3-typography span[data-type~=strong],
+[data-theme-mode="light"] .protyle-preview >.b3-typography strong{
+    font-weight: bold;
+    color: rgb(16 78 126);
+}
 /* 图片居中 */
 #preview .protyle-wysiwyg .p:has(span.img),
 [data-theme-mode="light"] .protyle-preview>.b3-typography  p:has(span.img:only-child) { 
@@ -94,6 +101,10 @@ text-align:center;
     color: #338dd6;
     /* text-decoration: underline; */
 
+}
+/* 预览模式不显示超链接link icon */
+[data-theme-mode="light"] .protyle-preview>.b3-typography a::before{
+    display: none;
 }
 /* 行内代码 */
 [data-theme-mode="light"] .protyle-preview>.b3-typography span[data-type~='code']{

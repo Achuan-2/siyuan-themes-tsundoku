@@ -90,13 +90,13 @@
     --b3-tooltips-background: #335c7396;
 
     /* 卡片背景 */
-    --b3-card-error-color: var(--b3-font-color1);
+    --b3-card-error-color: #b93128;
     --b3-card-error-background: #fdeaec;
-    --b3-card-warning-color: var(--b3-font-color2);
+    --b3-card-warning-color: rgb(102, 60, 0);
     --b3-card-warning-background: #fce4d2;
-    --b3-card-info-color: var(--b3-font-color3);
+    --b3-card-info-color: rgb(13, 60, 97);
     --b3-card-info-background: #deeefa;
-    --b3-card-success-color: var(--b3-font-color4);
+    --b3-card-success-color: rgb(30, 70, 32);
     --b3-card-success-background: #e5fae5;
     /* 自定义文字 */
     --b3-font-color1: #fa766d;

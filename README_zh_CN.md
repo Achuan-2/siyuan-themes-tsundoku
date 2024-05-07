@@ -22,20 +22,18 @@
 
 ## 🚀最近更新
 
-v2.0.8 / 2024.05.07
-- 💄 修改卡片字体和背景色样式
+## v2.1.0 / 2024.05.07
+- 📝  README 添加列表小圆点和无序列表层级样式的代码片段
+- 💄 调整代码块样式
+- 💄 导出预览模式复制到微信公众号，加粗文字颜色设置为蓝色
 
 v2.0.8 / 2024.05.06
 - ✨ 代码块设置最大高度优化：适配行号
 
 
-v2.0.7 / 2024.05.03
-
-- ⏪ 还是加回链接图标功能吧，集市的[链接图标]插件好像没有怎么更新维护了
 
 v2.0.6 / 2024.04.30
 - ✨ 思源笔记预览模式直接复制到微信公众号适配
-- 🔥 取消link icon,需要的可用集市的[链接图标]插件
 - 💄 超链接样式调整
 - 💄 备注样式调整，取消背景色，变为橙色下划线
 - 💄 适配思源v3.0.12的图标样式
@@ -193,6 +191,167 @@ text-align:left !important;
 }
 
 ```
+
+### 无序列表添加层级样式
+
+在思源笔记【**设置-外观-代码片段**】添加如下代码片段：
+```css
+[data-subtype="u"]>.li[data-subtype="u"]>.protyle-action svg{
+	color:transparent;
+}
+
+[data-subtype="u"]>.li[data-subtype="u"]>.protyle-action::before {
+    font-size: 1.5em;
+    line-height: 1;
+    margin-bottom: 0px;
+	margin-left:13px;
+    font-family: Arial;
+	content: "•";
+}
+
+[data-subtype="u"]>[data-subtype="u"] .li[data-subtype="u"]>.protyle-action::before{
+	content: "◦";
+}
+[data-subtype="u"]>[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action::before{
+	content: "▪";
+}
+[data-subtype="u"]>[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action::before{
+	content: "•";
+}
+[data-subtype="u"]>[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action::before{
+	content: "◦";
+}
+[data-subtype="u"]>[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action::before{
+	content: "▪";
+}
+[data-subtype="u"]>[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action::before{
+	content: "•";
+}
+[data-subtype="u"]>[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action::before{
+	content: "◦";
+}
+[data-subtype="u"]>[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action::before{
+	content: "▪";
+}
+[data-subtype="u"]>[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action::before{
+	content: "•";
+}
+[data-subtype="u"]>[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action::before{
+	content: "◦";
+}
+[data-subtype="u"]>[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"] .li[data-subtype="u"]>.protyle-action::before{
+	content: "▪";
+}
+
+```
+
+
+### 标题后添加小圆点
+
+在思源笔记【**设置-外观-代码片段**】添加如下代码片段：
+```css
+
+:root {
+    --h1-list-graphic: #eb8383;
+	--h2-list-graphic: #ae9acb;
+	--h3-list-graphic: #63a4c1;
+	--h4-list-graphic: #71a796;
+	--h5-list-graphic: #3b51a4;
+	--h6-list-graphic: #dda36a;
+}
+
+
+.protyle-wysiwyg .h1>[spellcheck]:not(:empty)::after{
+	content:"";
+	position:absolute;
+	float:left;
+	margin-left:5px;
+	height:0.45em;
+	width:0.15em;
+	bottom:0.5em;
+	border-radius:3px;
+	background-color:var(--h1-list-graphic);
+	opacity:0.5;
+}
+.protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h1>[spellcheck]::after{
+	bottom:0.2em;
+}
+
+.protyle-wysiwyg .h2>[spellcheck]:not(:empty)::after{
+	content:"";
+	position:absolute;
+	float:left;
+	margin-left:5px;
+	height:0.16em;
+	width:0.16em;
+	bottom:0.76em;
+	border-radius:3px;
+	background-color:var(--h2-list-graphic);
+	opacity:0.5;
+	box-shadow: 0.25em 0.25em 0 0 var(--h2-list-graphic);
+}
+.protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h2>[spellcheck]::after{
+	bottom:0.5em;
+}
+
+.protyle-wysiwyg .h3>[spellcheck]:not(:empty)::after{
+	content:"";
+	position:absolute;
+	float:left;
+	margin-left:5px;
+	height:0.16em;
+	width:0.16em;
+	bottom:0.62em;
+	border-radius:3px;
+	background-color:var(--h3-list-graphic);
+	opacity:0.5;
+	box-shadow: 0.25em 0.25em 0 0 var(--h3-list-graphic),0 0.25em 0 0 var(--h3-list-graphic);
+}
+
+.protyle-wysiwyg .h4>[spellcheck]:not(:empty)::after{
+	content:"";
+	position:absolute;
+	float:left;
+	margin-left:5px;
+	height:0.15em;
+	width:0.15em;
+	bottom:0.68em;
+	border-radius:3px;
+	background-color:var(--h4-list-graphic);
+	opacity:0.5;
+	box-shadow: 0.25em 0.25em 0 0 var(--h4-list-graphic),0 0.25em 0 0 var(--h4-list-graphic),0.25em 0 0 0 var(--h4-list-graphic);
+}
+
+.protyle-wysiwyg .h5>[spellcheck]:not(:empty)::after{
+	content:"";
+	position:absolute;
+	float:left;
+	margin-left:5px;
+	height:0.15em;
+	width:0.15em;
+	bottom:0.8em;
+	border-radius:3px;
+	background-color:var(--h5-list-graphic);
+	opacity:0.5;
+	box-shadow: 0.25em 0.25em 0 0 var(--h5-list-graphic),0 0.25em 0 0 var(--h5-list-graphic),0.25em 0 0 0 var(--h5-list-graphic),0 -0.25em 0 0 var(--h5-list-graphic);
+}
+
+.protyle-wysiwyg .h6>[spellcheck]:not(:empty)::after{
+	content:"";
+	position:absolute;
+	float:left;
+	margin-left:5px;
+	height:0.15em;
+	width:0.15em;
+	bottom:0.9em;
+	border-radius:3px;
+	background-color:var(--h6-list-graphic);
+	opacity:0.5;
+	box-shadow: 0.25em 0.25em 0 0 var(--h6-list-graphic),0 0.25em 0 0 var(--h6-list-graphic),0.25em 0 0 0 var(--h6-list-graphic),0 -0.25em 0 0 var(--h6-list-graphic),0.25em -0.25em 0 0 var(--h6-list-graphic);
+}
+
+```
+
 
 ## ❤ 致谢
 
