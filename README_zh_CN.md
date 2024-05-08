@@ -140,6 +140,10 @@ Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释
 
 ### Green 主题如何关闭纹理背景
 在思源笔记【**设置-外观-代码片段**】添加如下代码片段：
+
+<details>
+  <summary>Green 主题如何关闭纹理背景</summary>
+
 ```css
 .protyle-wysiwyg * {
 background-image:none !important;
@@ -151,19 +155,29 @@ background-image:none !important;
 
 }
 ```
+</details>
+
 
 ### h1 主题默认居中，如何改为居左
 
 在思源笔记【**设置-外观-代码片段**】添加如下代码片段：
+<details>
+  <summary> h1 主题改为居左</summary>
+
 ```css
 .protyle-wysiwyg .h1 {
 text-align:left !important;
+border-bottom: none;
 }
 ```
+</details>
 
 ### h3-h5 添加背景色
 
 在思源笔记【**设置-外观-代码片段**】添加如下代码片段：
+<details>
+  <summary>h3-h5 添加背景色</summary>
+
 ```css
 .protyle-wysiwyg [data-node-id].h3,
 .b3-typography h3 {
@@ -191,10 +205,17 @@ text-align:left !important;
 }
 
 ```
+</details>
+
+
 
 ### 无序列表添加层级样式
 
 在思源笔记【**设置-外观-代码片段**】添加如下代码片段：
+
+<details>
+  <summary>无序列表添加层级样式代码</summary>
+
 ```css
 [data-subtype="u"]>.li[data-subtype="u"]>.protyle-action svg{
 	color:transparent;
@@ -246,9 +267,16 @@ text-align:left !important;
 ```
 
 
+</details>
+
 ### 标题后添加小圆点
 
 在思源笔记【**设置-外观-代码片段**】添加如下代码片段：
+
+
+<details>
+  <summary>标题后添加小圆点</summary>
+
 ```css
 
 :root {
@@ -351,6 +379,10 @@ text-align:left !important;
 }
 
 ```
+</details>
+
+
+
 
 
 ## ❤ 致谢
