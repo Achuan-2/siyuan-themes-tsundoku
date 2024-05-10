@@ -170,12 +170,10 @@
     margin-bottom: 10px;
 }
 
-.protyle-wysiwyg [data-node-id].li>[data-node-id].code-block:before {
-    height: calc(100% + 7px);
-}
 
 
-/* 代码块限制最大行号 */
+
+/* ---------------------------代码块限制最大高度------------------------------*/
 /* 限制代码块高度，设置超过高度，出现滚动条 */
 .protyle-wysiwyg .code-block {
     max-height: 800px;
@@ -243,3 +241,4 @@
 #preview .protyle-wysiwyg .code-block {
     max-height: none;
 }
+/* ---------------------------代码块限制最大高度------------------------------*/
