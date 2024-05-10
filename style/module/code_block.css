@@ -30,7 +30,8 @@
 
 .protyle-wysiwyg .code-block .protyle-action {
     /* 为了代码块复制按钮可以sticky，需要设置高度 */
-    height: 94%;
+    height: 100%;
+    top:0px !important;
     /* 需要禁止鼠标点击，否则浮在上面代码块上无法点击 */
     pointer-events: none !important;
 }
