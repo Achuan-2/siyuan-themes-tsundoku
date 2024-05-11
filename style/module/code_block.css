@@ -14,7 +14,7 @@
     padding: 0;
     background: var(--b3-protyle-code-background);
     border-radius: 4px;
-    box-shadow: 0 0 0 1px #1e25351a;
+    /* box-shadow: 0 0 0 1px #1e25351a; */
 }
 
 /* .b3-typography .hljs, */
