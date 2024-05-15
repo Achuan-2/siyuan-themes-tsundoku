@@ -970,7 +970,7 @@ span[data-type='av-add-more'] {
 /* 引述块 */
 .b3-typography blockquote,
 .protyle-wysiwyg [data-node-id].bq:not([style*='background-color']) {
-    border-left: 0.25em solid #8cae9b;
+    border-left: 0.3em solid #8cae9b;
     color: #6a6969;
 }
 

@@ -772,6 +772,6 @@ div[data-subtype='t'][data-type='NodeList'] {
 .b3-typography blockquote,
 .protyle-wysiwyg [data-node-id].bq:not([style*='background-color']) {
     border: 1px solid var(--custom-blockquote-border-color);
-    border-left: 0.25em solid #456c74 !important;
+    border-left: 0.3em solid #456c74 !important;
 }
 

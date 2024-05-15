@@ -124,9 +124,10 @@ text-align:center;
 /* 引述块 */
 [data-theme-mode="light"] .protyle-preview>.b3-typography blockquote,
 #preview.protyle-wysiwyg  blockquote{
-    border-left: 0em solid #4c6778;
+    border-left: 0em solid #a4b1ba;
     background-color: #F7FAFC;
-    border: 1px solid rgb(224 239 249);
+    border: 0px solid transparent;
+    border-left: 0.3em solid #a4b1ba;
     border-radius: 7px !important;
 }
 /* 分割线 */
@@ -134,6 +135,22 @@ text-align:center;
     border: 0;
     border-bottom: 1px solid #d1d3d6;
     margin: 21px 213px;
+}
+/* 表格 */
+.b3-typography table {
+    border-collapse: collapse;
+    font-size: 14px !important;
+    margin: 1em auto;
+}
+.b3-typography table thead{
+    background: rgba(0, 0, 0, 0.05);
+}
+.b3-typography table tr th{
+        border: 1px solid #eceded;
+}
+.b3-typography table td,
+.b3-typography table th{
+        font-size: 13px !important;
 }
 /* ---------------------------------------导出pdf-----------------------------------*/
 
@@ -169,6 +186,11 @@ text-align:center;
 }
 #preview .protyle-wysiwyg .code-block .protyle-action .protyle-action__copy{
     display: none;
+}
+
+/* 表格居中 */
+#preview .protyle-wysiwyg .table{
+    margin:auto;
 }
 /* ---------------------------------------导出图片-----------------------------------*/
 /* 行内代码优化 */
