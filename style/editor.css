@@ -665,9 +665,10 @@ li[data-type='navigation-file'] .counter {
 
 /* 下划线加粗 */
 .b3-typography u,
-.protyle-wysiwyg u {
-    text-decoration: none;
-    border-bottom: 2px solid var(--b3-theme-on-background);
+.b3-typography span[data-type~=u],
+.protyle-wysiwyg u,
+.protyle-wysiwyg span[data-type~=u] {
+    border-bottom: 2px solid;
 }
 /*  ------------------------------设置备注样式 ------------------------------ */
 .b3-typography span[data-type~='inline-memo'],

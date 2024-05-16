@@ -172,3 +172,7 @@
 
 
 
+/* 代码块不设置语言，不显示语言内容 */
+.protyle-wysiwyg[data-readonly=false] .code-block .protyle-action .protyle-action__language:empty::after {
+    opacity: 0 !important;
+}
