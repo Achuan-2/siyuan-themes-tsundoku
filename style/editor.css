@@ -41,13 +41,16 @@
     padding: 0.3em 4px;
     color: var(--custom-h1-color);
     border-bottom: 2px solid var(--custom-h1-color);
-    border-radius: 0px !important;
-    margin-bottom: 1.5em;
+    /* margin-bottom: 1.5em; */
 }
 
 /* 列表中的一级标题不居中 */
 .protyle-wysiwyg .li > [data-node-id].h1 {
     text-align: left;
+}
+/* 标题1加背景色的样式调整 */
+.protyle-wysiwyg [data-node-id].h1[style*="background-color"] {
+    border-bottom: 0px solid transparent !important;
 }
 
 /* 2. 二级标题样式setup */
@@ -57,7 +60,6 @@
     border-bottom: 1px solid var(--custom-h2-border-color) !important;
     font-size: 1.55em !important;
     color: var(--custom-h2-color);
-    border-radius: 0px;
 }
 
 .protyle-wysiwyg .sb .h2,
@@ -75,7 +77,6 @@
     font-weight: bold;
     padding-left: 8px;
     border-left: 5px solid var(--custom-h3-color);
-    border-radius: 0px !important;
     /* 控制竖线高度 */
     line-height: 1.25; 
     height: 1.25 em;
@@ -85,6 +86,7 @@
     /* empty的高度需要等于line-height */
     height: 1.25em;
 }
+
 /* 列表下适配 */
 .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h3{
     line-height: 1.5 !important;
@@ -94,7 +96,10 @@
     /* empty的高度需要等于line-height */
     height: 1.5em;
 }
-
+/* 标题3加背景色的样式调整 */
+.protyle-wysiwyg [data-node-id].h3[style*="background-color"] {
+    border-left: 0px solid transparent !important;
+}
 /* 4. 四级标题样式setup */
 .protyle-wysiwyg [data-node-id].h4,
 .b3-typography h4 {
@@ -213,7 +218,8 @@
     color: #6a6969;
 }
 
-.protyle-wysiwyg [data-node-id].bq[style*='background-color'] {
+.protyle-wysiwyg [data-node-id].bq[style*='background-color'] ,
+.b3-typography blockquote[style*='background-color']{
     border: 1px solid var(--custom-blockquote-border-color) !important;
     border-radius: 7px !important;
 }
