@@ -52,6 +52,9 @@
 .protyle-wysiwyg [data-node-id].h1[style*="background-color"] {
     border-bottom: 0px solid transparent !important;
 }
+.protyle-wysiwyg [data-node-id].h1:not([style*="background-color"]) {
+    border-radius: 0px !important;
+}
 
 /* 2. 二级标题样式setup */
 .protyle-wysiwyg [data-node-id].h2,
@@ -99,6 +102,9 @@
 /* 标题3加背景色的样式调整 */
 .protyle-wysiwyg [data-node-id].h3[style*="background-color"] {
     border-left: 0px solid transparent !important;
+}
+.protyle-wysiwyg [data-node-id].h3:not([style*="background-color"]) {
+    border-radius: 0px !important;
 }
 /* 4. 四级标题样式setup */
 .protyle-wysiwyg [data-node-id].h4,

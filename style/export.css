@@ -54,7 +54,6 @@
     padding-left: 8px;
     border-left: 4px solid rgba(15, 76, 129, 1);
     color: rgba(15, 76, 129, 1) !important;
-    border-radius: 0px !important;
 }
 [data-theme-mode="light"] .protyle-preview>.b3-typography h3{
     font-size: 16px  !important;
@@ -85,12 +84,12 @@
     font-size: 14px !important;
 }
 
-/* 加粗文字为深蓝色 */
-[data-theme-mode="light"] .protyle-preview >.b3-typography span[data-type~=strong],
+/* 加粗文字颜色 */
+/* [data-theme-mode="light"] .protyle-preview >.b3-typography span[data-type~=strong],
 [data-theme-mode="light"] .protyle-preview >.b3-typography strong{
     font-weight: bold;
-    color: rgb(16 78 126);
-}
+    color: #fa5151;
+} */
 /* 图片居中 */
 #preview .protyle-wysiwyg .p:has(span.img),
 [data-theme-mode="light"] .protyle-preview>.b3-typography  p:has(span.img:only-child) { 
@@ -129,6 +128,17 @@ text-align:center;
     border: 0px solid transparent;
     border-left: 0.3em solid #a4b1ba;
     border-radius: 7px !important;
+}
+.protyle-preview .b3-typography blockquote[style*='background-color'] {
+    border: 1px solid var(--custom-blockquote-border-color) !important;
+    border-radius: 7px !important;
+}
+.protyle-preview .b3-typography blockquote[style*='background-color:']{
+    background-color: #fce4d2 !important;
+    color: rgb(102, 60, 0) !important;
+}
+.protyle-preview .b3-typography blockquote[style*='background-color'] span[data-type~=strong]{
+    color: rgb(102, 60, 0) ;
 }
 /* 分割线 */
 .b3-typography hr {
