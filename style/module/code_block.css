@@ -135,9 +135,6 @@
     height: 36px !important;
 }
 
-.protyle-wysiwyg .code-block[fold='1'] .protyle-icon {
-    margin-top: 1.5px !important;
-}
 
 
 
@@ -175,4 +172,7 @@
 /* 代码块不设置语言，不显示语言内容 */
 .protyle-wysiwyg[data-readonly=false] .code-block .protyle-action .protyle-action__language:empty::after {
     opacity: 0 !important;
+}
+.protyle-wysiwyg [data-node-id][fold="1"]:not(.li):not([data-type=NodeHeading]).code-block .protyle-action__language{
+    margin-top: 3px;
 }
