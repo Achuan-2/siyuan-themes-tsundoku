@@ -67,3 +67,13 @@ span[data-type='av-add-more']:hover {
     color: var(--b3-card-error-color);
     background-color: var(--b3-card-error-background);
 }
+
+
+/* 数据库表头添加border */
+.av__cell--header {
+    padding: 5px 8px;
+    display: flex;
+    align-items: center;
+    overflow: inherit;
+    border-right-color: var(--b3-theme-surface-lighter);
+}

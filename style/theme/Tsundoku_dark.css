@@ -81,7 +81,7 @@
     --b3-font-background10: #a979d683;
     --b3-font-background11: #98268b;
     --b3-font-background12: #a7443cd3;
-    --b3-font-background13: var(--b3-theme-on-background);
+    --b3-font-background13: #000000;
     /* PDF */
     --b3-pdf-sidebar-width: 200px;
     --b3-pdf-offset: 0;

@@ -1131,7 +1131,13 @@ body
 
 }
 
-
-
-
-
+.protyle-background__img img {
+    -webkit-mask-image: linear-gradient(to top, transparent 2%, rgba(0, 0, 0, 0.03) 10%, rgba(0, 0, 0, 0.1) 18%, rgba(0, 0, 0, 0.25) 33%, rgba(0, 0, 0, 0.95) 92%, black 99%), linear-gradient(to top, black, black);
+    mask-image: linear-gradient(to top, transparent 2%, rgba(0, 0, 0, 0.03) 10%, rgba(0, 0, 0, 0.1) 18%, rgba(0, 0, 0, 0.25) 33%, rgba(0, 0, 0, 0.95) 92%, black 99%), linear-gradient(to top, black, black);
+    -webkit-mask-size: auto 90%, auto 11%;
+    mask-size: auto 90%, auto 11%;
+    -webkit-mask-position: bottom, top;
+    mask-position: bottom, top;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+}
