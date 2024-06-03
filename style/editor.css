@@ -327,7 +327,10 @@
 .b3-typography .protyle-task input {
     opacity: 0;
 }
-
+/* 待办事项的鼠标光标为点击 */
+.protyle-wysiwyg [data-node-id].li>.protyle-action--task{
+    cursor: pointer;
+}
 .protyle-wysiwyg [data-node-id].li > .protyle-action--task svg {
     opacity: 0;
 }
