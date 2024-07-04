@@ -273,9 +273,7 @@ body {
     background-color: #d5dde2;
 }
 
-[data-type='NodeAttributeView'] .block__icons {
-    background-color: transparent !important;
-}
+
 
 /* 工具栏样式 */
 .protyle-toolbar {
