@@ -77,3 +77,8 @@ span[data-type='av-add-more']:hover {
     overflow: inherit;
     border-right-color: var(--b3-theme-surface-lighter);
 }
+
+/*  数据库新增列按钮背景色设置为透明 */
+.protyle-wysiwyg [data-type='NodeAttributeView'] .block__icons {
+    background-color: transparent !important;
+}
