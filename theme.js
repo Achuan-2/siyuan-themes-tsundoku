@@ -757,7 +757,40 @@ function ViewMonitor(event) {
     设置思源块属性(id, attrs);
 }
 
+function link_icon_filter() {
+    let spans = document.querySelectorAll('span[data-type="a"]');
+    spans.forEach(span => {
+        const isWrappedInBracketsOrNumber = /\[.+?\]|^\d+$/.test(span.textContent);
+        if (span.textContent === '*' ||  isWrappedInBracketsOrNumber) {
+            span.setAttribute('custom-link-icon', 'true');
+        }
+        else {
+            span.removeAttribute('custom-link-icon');
+        }
+    });
+}
+
 /**++++++++++++++++++++++++++++++++主题功能执行：按需调用++++++++++++++++++++++++++++++ */
+window.theme.timerIds = [];
+
+(async () => {
+    // 各种列表转 xx
+    ClickMonitor();
+    /* 创建主题按钮 */
+    create_theme_button();
+
+    const linkIconFilterInterval = setInterval(link_icon_filter, 100);
+    window.theme.timerIds.push(linkIconFilterInterval);
+
+})();
+
+function clearAllTimers() {
+    window.theme.timerIds.forEach(timerId => {
+        clearInterval(timerId);
+    });
+    // 清空数组
+    window.theme.timerIds.length = 0;
+}
 
 window.destroyTheme = () => {
     // 删除主题切换按钮
@@ -765,7 +798,7 @@ window.destroyTheme = () => {
     if (themeButton) {
         themeButton.remove();
     }
-    // 删除主题加载的额外配色css
+    // 删除主题加载的额外配色 css
     let css_link = document.getElementById(window.theme.IDs.STYLE_COLOR);
     if (css_link) {
         css_link.remove();
@@ -773,11 +806,7 @@ window.destroyTheme = () => {
 
     // 删除列表转导图功能
     window.removeEventListener('mouseup', MenuShow);
-};
 
-(async () => {
-    //各种列表转xx
-    ClickMonitor();
-    /*创建主题按钮 */
-    create_theme_button();
-})();
+    clearAllTimers();
+
+};

@@ -1,4 +1,4 @@
-.protyle-wysiwyg [data-node-id] span[data-type~='a']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='a']:not([custom-link-icon='true']):not(:empty)::before,
 .protyle-wysiwyg [data-node-id] span[data-type~='url']:not(:empty)::before,
 .av__celltext--url::before,
 .b3-typography a:not(:empty)::before,
