@@ -821,3 +821,13 @@ div[data-subtype='t'][data-type='NodeList'] {
     background-color: #77a0b36b;
     transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
+
+
+/* 优化黑色主题透明图片大图预览 */
+.viewer-canvas>img {
+    height: auto;
+    margin: 15px auto;
+    max-width: 90% !important;
+    width: auto;
+    background-color: #fff;
+}

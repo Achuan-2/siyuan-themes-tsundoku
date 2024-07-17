@@ -68,6 +68,7 @@
     border-bottom: 1px solid var(--custom-h2-border-color) !important;
     font-size: 1.55em !important;
     color: var(--custom-h2-color);
+    border-radius: 0px !important;
 }
 
 .protyle-wysiwyg .sb .h2,
