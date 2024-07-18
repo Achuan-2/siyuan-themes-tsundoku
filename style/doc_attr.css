@@ -4,10 +4,7 @@
     margin: 0 auto;
 }
 
-/* 不显示linkicon */
-.protyle-wysiwyg[custom-linkicon='no'] [data-node-id] span[data-type~='a']:not(:empty)::before {
-    display: none !important;
-}
+
 
 /* -------------各级标题 标题自动编号----------------------- */
 /* body {

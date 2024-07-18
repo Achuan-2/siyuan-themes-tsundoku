@@ -757,18 +757,20 @@ function ViewMonitor(event) {
     设置思源块属性(id, attrs);
 }
 
+
 function link_icon_filter() {
     let spans = document.querySelectorAll('span[data-type="a"]');
     spans.forEach(span => {
         const isWrappedInBracketsOrNumber = /\[.+?\]|^\d+$/.test(span.textContent);
-        if (span.textContent === '*' ||  isWrappedInBracketsOrNumber) {
-            span.setAttribute('custom-link-icon', 'true');
+        if (span.textContent === '*' || isWrappedInBracketsOrNumber) {
+            span.setAttribute('custom-linkicon', 'false');
         }
         else {
-            span.removeAttribute('custom-link-icon');
+            span.removeAttribute('custom-linkicon');
         }
     });
 }
+linkIconFilterInterval = setInterval(link_icon_filter, 100);
 
 /**++++++++++++++++++++++++++++++++主题功能执行：按需调用++++++++++++++++++++++++++++++ */
 window.theme.timerIds = [];
