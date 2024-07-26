@@ -9,7 +9,6 @@
 <a title="wechat" target="_blank" href="https://mp.weixin.qq.com/s/j2Vp46qRgs5J5maiObvXvg"><img alt="Static Badge" src="https://img.shields.io/badge/Wechat-07C160?logo=wechat&logoColor=fff"></a>
 <a title="bilibili" target="_blank" href="https://space.bilibili.com/349243695"><img  src="https://img.shields.io/badge/Bilibili-E57492?logo=data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAD7ElEQVR4nO2dW9WrMBCFK6ESkFAJSKiESqgEHCABCZWAhEpAAhL2ecik5dDc%2FpXLBDLfWnlqy0xmJ5BMQnq5CIIgCIIgCIIgCIIgCEIBAHQAemYfrgCunD6wAKAHsEKxALgx%2BbCQD8%2FS9tmgVqeDr1lLigDgZvDhXso%2BK9TyTBQRwRJ8AHjntl0Flh5QRAQK%2FmKxPeayWx2OXpBNBKiHvi34b7T2MC4pAvW6twR%2FRwkRKPizBN8CgEcuESj4Lwm%2BBwBjahEk%2BH8EwJRKhOaCDzW8e1JLfkUUH1NgmR3XmHffHR1l%2B72BSs8d7w8U%2BJDAnZERQMcV%2BCtUi7dNqFqibB4J7vtrq7xKCuAasbTMXCL4T%2B5aVk6%2B2xHUrWdhruAR6HIJcOeu2UHI8zyAe2ytWfEdWz9PVvQ8YAmIQ5dDAB9LFsMVAv8oMO2zAGrC5WNIarRiAuKR9jYEd9pY08aa6uUzIHGRdkgKd8pY0yc1WjEBAqypDYoAG0QAZkQAZkQAZkQAZk4vANQenjsSzS3I%2FwcSbXU5jQBUkRtdf4Rar90v8kSv3%2BI3ffCCSpk8I%2Fw%2BlgDkdI%2Fv2rEp2CaiWm1AsDQLlDAD%2BdlFXLMeAaCSeLZdaSFE5VUQNot38cKuEeBgAsSuG0flVZBmEanbXfNQAsS0fgBYIn2fIu3%2FBBMHEyBmDXlFfA8IzeHb%2BEms4WAChKykrVA9ZfsQTL57jXzRg4A5wC%2FA8N4ADiZAZwm2XjW75Qh2KOTfA0p4kygPw28OJcCVgn3nDnYo2EwEYRgGH0qAMyICMCMCMCMCMCMCMCMCMCMCfP3qwHDOQ4AAUekTk8FaBRihJnZdYbvtCGC7LvmkM63GjVDINPFrQgCq5ETXfmMzI90FXzPvfqt7x4rEu%2FZaEcCUxFvgz2zO%2BBUn6UkoaEEAsptiMSX5e8FoRYCN7cVgb4Vq7U%2FH50Pq4JNP7Qiw8UFnJwcK%2BtXy%2BWj6PLEvPgHSHv5UgwA1IQIwwyFAyLJin9RoxYgAzAQIkPwNmf26busC%2BOIx5TDqo5nDT%2BF%2FSS%2F9CYzwb%2BNo49zNy2evkYv0LywGGAXUvp6eSneycqOic0w20k7CNgKE7jJunSGLACTCxF27ylmQc98T5MQUH49swd%2BI0HPXslLKnT0N%2BwnkrTKi9JZL%2FL9i1SorMmdeQ4TQQ7OFMxIMzGD45w8nUL1im7efENZLJpgPSw0pfz0cdt4U3230Td%2FTvx2R6d2FrHhEWLkq5PELOMsRPHCPnAZGv1xJteL7jbJiaW3sB2nDvPC%2FosSYvjRQz4cJ6n7KO3rYQL7M%2BL6nVtfDVRAEQRAEQRAEQRAEIZ5%2FSAXmdfXaoQsAAAAASUVORK5CYII%3D"></a>
 <a title="xiaohongshu" target="_blank" href="https://www.xiaohongshu.com/user/profile/62bf331f000000001b02a6f0"><img alt="Static Badge" src="https://img.shields.io/badge/%E5%B0%8F%E7%BA%A2%E4%B9%A6-FF2442"></a>
-<a title="aifadian" target="_blank" href="https://afdian.net/a/achuan-2"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.swo.moe%2Fstats%2Fafdian%2Fachuan-2&query=count&color=282c34&label=%E7%88%B1%E5%8F%91%E7%94%B5&labelColor=946ce6&suffix=+%E5%8F%91%E7%94%B5%E4%BA%BA%E6%AC%A1+%2F+%E6%9C%88&cacheSeconds=3600">
 </a>
 </p>
 
@@ -28,7 +27,7 @@
 
 ![](preview.png)
 
-> 如果你喜欢本主题，欢迎[给我买包辣条](https://afdian.net/a/achuan-2)，这会激励我更新和完善主题
+> 如果你喜欢本主题，欢迎[给我买包辣条](https://www.yuque.com/achuan-2)，这会激励我更新和完善主题
 
 **简介**：[思源笔记(Siyuan)](https://github.com/siyuan-note/siyuan)是一款本地优先的个人知识管理系统，支持完全离线使用，同时也支持端到端加密同步。融合块、大纲和双向链接，构建你永恒的数字花园。本主题为个人原创主题，专为思源笔记设计。
 
