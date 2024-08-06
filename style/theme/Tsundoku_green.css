@@ -865,7 +865,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 /* 折叠标题优化 */
 .protyle-wysiwyg div[fold='1'][data-type='NodeHeading'] {
-    opacity: 0.7;
+    opacity: 0.85;
 }
 .protyle-wysiwyg div[fold='1'][data-type='NodeHeading']:before {
     background-color: transparent !important;
