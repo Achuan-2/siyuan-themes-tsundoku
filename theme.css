@@ -533,12 +533,12 @@ body > div#action {
     cursor: not-allowed;
 }
 
-.layout__resize--lr:after {
-    width: 2px;
+/* .layout__resize--lr:after {
+    width: 1px;
 }
 .layout__resize:after {
     background-color: #d5dde2;
-}
+} */
 
 .layout-tab-container {
     background-color: #f5f7f8;
