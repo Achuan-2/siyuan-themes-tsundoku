@@ -517,7 +517,7 @@ function ViewSelect(selectid, selecttype) {
     button.id = 'viewselect';
     button.className = 'b3-menu__item';
     button.innerHTML =
-        '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconGlobalGraph"></use></svg><span class="b3-menu__label" style="">视图选择</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="null"><use xlink:href="#iconRight"></use></svg></button>';
+        '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconGlobalGraph"></use></svg><span class="b3-menu__label" style="">主题块样式更改</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="null"><use xlink:href="#iconRight"></use></svg></button>';
     button.appendChild(SubMenu(selectid, selecttype));
     return button;
 }
@@ -538,6 +538,7 @@ function SubMenu(selectid, selecttype, className = 'b3-menu__submenu') {
     }
     if (selecttype == 'NodeCodeBlock') {
         node.appendChild(setCodeOutput(selectid));
+        node.appendChild(cancelCodeOutput(selectid));
     }
     return node;
 }
@@ -552,6 +553,19 @@ function setCodeOutput(selectid) {
     button.onclick = ViewMonitor;
     return button;
 }
+function cancelCodeOutput(selectid) {
+    let button = document.createElement('button');
+    button.className = 'b3-menu__item';
+    button.setAttribute('data-node-id', selectid);
+    button.setAttribute('custom-attr-name', 'code');
+    button.setAttribute('custom-attr-value', '');
+
+    button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFiles"></use></svg><span class="b3-menu__label">取消代码块输出样式</span>`;
+    button.onclick = ViewMonitor;
+    return button;
+}
+
+
 
 function GraphView(selectid) {
     let button = document.createElement('button');
