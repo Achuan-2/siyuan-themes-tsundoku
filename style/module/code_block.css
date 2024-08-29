@@ -36,7 +36,6 @@
 
 .b3-typography .protyle-linenumber__rows,
 .protyle-wysiwyg .protyle-linenumber__rows {
-    padding: 34px 0 22px;
     opacity: 0.7;
     background-color: var(--b3-protyle-code-background);
 }
