@@ -82,3 +82,8 @@ span[data-type='av-add-more']:hover {
 .protyle-wysiwyg [data-type='NodeAttributeView'] .block__icons {
     background-color: transparent !important;
 }
+
+/* 数据库页签 */
+.av__header .layout-tab-bar .item {
+    padding-right: 10px;
+}
