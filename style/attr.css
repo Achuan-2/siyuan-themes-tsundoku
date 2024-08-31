@@ -269,5 +269,6 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 .protyle-wysiwyg .code-block[custom-code="output"] .hljs{
     background-color: transparent !important;
     padding: 5px 15px 10px 15px;
+    padding-top: 0px !important;
 
 }
