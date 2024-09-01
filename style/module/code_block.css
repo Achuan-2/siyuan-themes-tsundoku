@@ -37,7 +37,7 @@
 .b3-typography .protyle-linenumber__rows,
 .protyle-wysiwyg .protyle-linenumber__rows {
     opacity: 0.7;
-    background-color: var(--b3-protyle-code-background);
+    /* background-color: var(--b3-protyle-code-background); */
 }
 
 .b3-typography .protyle-linenumber__rows span::before,
