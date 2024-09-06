@@ -19,7 +19,8 @@
 
 /* .b3-typography .hljs, */
 .protyle-wysiwyg .hljs {
-    background-color: var(--b3-protyle-code-background) !important;
+    /* background-color: var(--b3-protyle-code-background) !important; */
+    background-color: transparent !important;
     /* padding: 34px 15px 15px 15px; */
 }
 
