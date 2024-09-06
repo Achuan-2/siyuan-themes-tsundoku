@@ -27,7 +27,8 @@
 
 /* 导出样式 */
 @import url('style/export.css');
-
+/* 搜索样式 */
+@import url('style/module/ctrlp.css');
 :root {
     /* 主色 */
     /* 高亮 */
