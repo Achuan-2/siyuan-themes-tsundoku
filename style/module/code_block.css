@@ -20,7 +20,7 @@
 /* .b3-typography .hljs, */
 .protyle-wysiwyg .hljs {
     background-color: var(--b3-protyle-code-background) !important;
-    padding: 34px 15px 15px 15px;
+    /* padding: 34px 15px 15px 15px; */
 }
 
 .b3-typography .hljs {
@@ -50,7 +50,7 @@
 /* 代码语言选择框 */
 .protyle-wysiwyg .code-block .protyle-action .protyle-action__language {
     /* 代码语言默认显示 */
-    opacity: 1;
+    opacity: 1 !important;
     background: var(--b3-protyle-code-background);
 }
 
@@ -174,4 +174,10 @@
 }
 .protyle-wysiwyg [data-node-id][fold="1"]:not(.li):not([data-type=NodeHeading]).code-block .protyle-action__language{
     margin-top: 3px;
+}
+
+
+.protyle-wysiwyg .code-block .protyle-action .protyle-action__language {
+    opacity: 1;
+    background: transparent;
 }

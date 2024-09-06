@@ -260,14 +260,14 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 
 /* 代码块输出code output */
 .protyle-wysiwyg .code-block[custom-code="output"] .protyle-action .protyle-action__language{
-    opacity: 0;
+    opacity: 0 !important;
 }
 .protyle-wysiwyg .code-block[custom-code="output"]{
     background-color: transparent;
     margin: 0 0 1em 0 !important;
+    padding: 0.6em 1em 0.6em !important;
 }
 .protyle-wysiwyg .code-block[custom-code="output"] .hljs{
     background-color: transparent !important;
-    padding: 10px 15px !important;
 
 }
