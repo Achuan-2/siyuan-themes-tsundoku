@@ -10,6 +10,9 @@
 }
 
 /* .b3-typography .code-block, */
+.protyle-wysiwyg .code-block:not(pre) {
+    padding: 2em 1em 0.6em ;
+}
 .protyle-wysiwyg .code-block {
     padding: 0;
     background: var(--b3-protyle-code-background);
