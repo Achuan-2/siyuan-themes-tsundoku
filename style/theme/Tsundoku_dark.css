@@ -812,7 +812,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 
 .protyle-wysiwyg span[data-type~='strong'] {
-    color: #81ebcf !important;
+    color: #81ebcf ;
 }
 
 /* 代码块复制按钮背景色 */

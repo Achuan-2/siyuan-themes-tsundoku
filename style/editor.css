@@ -525,7 +525,7 @@ mark {
 }
 
 [data-theme-mode="dark"] .protyle-wysiwyg span[data-type~='strong'] {
-    color: #81ebcf !important;
+    color: #81ebcf;
 }
 
 /* -----------------------块引用----------------------- */
