@@ -200,7 +200,7 @@ function create_theme_button() {
         drag.insertAdjacentElement('afterend', button_change_color);
     }
 }
-setTimeout(() => {}, 0);
+setTimeout(() => { }, 0);
 
 /**
  * 发送API请求
@@ -381,7 +381,7 @@ async function 解析响应体(response) {
  *     subtype: string, // 块子类型(若没有则为 null)
  * }
  * @returns {null} 没有找到块 ID */
-function        getBlockSelected() {
+function getBlockSelected() {
     let node_list = document.querySelectorAll('.protyle-wysiwyg--select');
     if (node_list.length === 1 && node_list[0].dataset.nodeId != null)
         return {
@@ -405,7 +405,7 @@ function MenuShow() {
             if (
                 selecttype == 'NodeList' ||
                 selecttype == 'NodeTable' ||
-                selecttype == 'NodeBlockquote' ||
+                // selecttype == 'NodeBlockquote' ||
                 selecttype == 'NodeCodeBlock'
             ) {
                 setTimeout(() => InsertMenuItem(selectid, selecttype), 0);
@@ -414,30 +414,7 @@ function MenuShow() {
     }, 0);
 }
 
-function InsertMenuItem(selectid, selecttype) {
-    let commonMenu = document.querySelector('.b3-menu__items');
-    let readonly = commonMenu.querySelector('.b3-menu__item--readonly');
-    let selectview = commonMenu.querySelector('[id="viewselect"]');
-    if (readonly) {
-        if (!selectview) {
-            commonMenu.insertBefore(ViewSelect(selectid, selecttype), readonly);
-            commonMenu.insertBefore(MenuSeparator(), readonly);
-        }
-    }
-}
 
-function ViewMonitor(event) {
-    let id = event.currentTarget.getAttribute('data-node-id');
-    let attrName = 'custom-' + event.currentTarget.getAttribute('custom-attr-name');
-    let attrValue = event.currentTarget.getAttribute('custom-attr-value');
-    let blocks = document.querySelectorAll(`.protyle-wysiwyg [data-node-id="${id}"]`);
-    if (blocks) {
-        blocks.forEach(block => block.setAttribute(attrName, attrValue));
-    }
-    let attrs = {};
-    attrs[attrName] = attrValue;
-    设置思源块属性(id, attrs);
-}
 
 setTimeout(() => ClickMonitor(), 1000);
 
@@ -517,7 +494,7 @@ function ViewSelect(selectid, selecttype) {
     button.id = 'viewselect';
     button.className = 'b3-menu__item';
     button.innerHTML =
-        '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconGlobalGraph"></use></svg><span class="b3-menu__label" style="">主题块样式更改</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="null"><use xlink:href="#iconRight"></use></svg></button>';
+        '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconGlobalGraph"></use></svg><span class="b3-menu__label" style="">主题块样式更改</span><svg class="b3-menu__icon b3-menu__icon--small" style="null"><use xlink:href="#iconRight"></use></svg></button>';
     button.appendChild(SubMenu(selectid, selecttype));
     return button;
 }
@@ -525,7 +502,7 @@ function ViewSelect(selectid, selecttype) {
 function SubMenu(selectid, selecttype, className = 'b3-menu__submenu') {
     let node = document.createElement('div');
     node.className = className;
-    console.log(selecttype); 
+    console.log(selecttype);
     if (selecttype == 'NodeList') {
         node.appendChild(GraphView(selectid));
         node.appendChild(TableView(selectid));
@@ -685,27 +662,16 @@ function ClickMonitor() {
     window.addEventListener('mouseup', MenuShow);
 }
 
-function MenuShow() {
-    setTimeout(() => {
-        let selectinfo = getBlockSelected();
-        if (selectinfo) {
-            let selecttype = selectinfo.type;
-            let selectid = selectinfo.id;
-            if (selecttype == 'NodeList' || selecttype == 'NodeTable' || selecttype == 'NodeCodeBlock') {
-                setTimeout(() => InsertMenuItem(selectid, selecttype), 0);
-            }
-        }
-    }, 0);
-}
 
 function InsertMenuItem(selectid, selecttype) {
     let commonMenu = document.querySelector('.b3-menu__items');
-    let readonly = commonMenu.querySelector('.b3-menu__item--readonly');
+    let target = commonMenu.querySelector('.b3-menu__separator[data-id="separator_5"]');
     let selectview = commonMenu.querySelector('[id="viewselect"]');
-    if (readonly) {
+    if (target) {
+        console.log('test');
         if (!selectview) {
-            commonMenu.insertBefore(ViewSelect(selectid, selecttype), readonly);
-            commonMenu.insertBefore(MenuSeparator(), readonly);
+            // 在 target 元素后插入  ViewSelect
+            target.insertAdjacentElement('afterend', ViewSelect(selectid, selecttype));
         }
     }
 }
