@@ -1,7 +1,6 @@
 .protyle-wysiwyg .list[custom-f~=kb]{
     --kbline-boarditem-minwidth: 14rem;
     /*看板卡片的最小宽度*/
-    --kb--li--background:#ffffff;
 }
 /*————————————————————列表转看板————————————————————*/
 
@@ -31,8 +30,8 @@
     border-radius: 3px;
     padding: 0.4em 0 0.1em 0 ;
     margin-bottom: 6px; 
-	background-color:var(--kb--li--background);
-	box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 2px 4px;
+	background-color:var(--b3-theme-background);
+	box-shadow: var(--b3-point-shadow);
 }
 
 /*只处理每个列表的第一行*/
