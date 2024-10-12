@@ -349,10 +349,10 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 /* 消息提示 */
 /* 消息提示 */
-#message .b3-button {
+/* #message .b3-button {
     color: #fff;
     background-color: #4db999;
-}
+} */
 
 .b3-snackbar__content {
     color: #fff;

@@ -736,12 +736,12 @@ body
 }
 
 /* 消息提示 */
-#message .b3-button {
+/* #message .b3-button {
     color: #fff;
     background-color: #3fb6be;
     border-radius: 16x;
     padding: 8px 8px;
-}
+} */
 .b3-snackbar__content {
     color: #fff;
     background-color: #3fb6be;
