@@ -33,8 +33,14 @@
 
 ## 🚀最近更新
 
-V2.2.6 / 2024.09.12
-- 🐛 Dark主题无法修改加粗文字
+v2.2.9 / 2024.10.12
+- 💄 消息已读按钮取消背景色
+- 💄 更改blockquote样式
+
+v2.2.8 /2024.10.10
+- 🐛 黑暗模式下看板视图的文字对比度问题
+- 💄light 主题的红色调深
+
 
 v2.2.5 / 2024.09.11
 - 💄 适配思源笔记v3.1.6 代码块样式
@@ -415,7 +421,9 @@ border-bottom: none;
 
 若主题存在样式的问题，欢迎在[Github](https://github.com/Achuan-2/siyuan-themes-tsundoku)提issue或是通过邮箱联系我(achuan-2@outlook.com)。在提issue之前建议先切换为默认主题，确定是本主题特有的问题。
 
+## 用爱发电
 
+如果觉得主题好用，欢迎点个star或者给我买包辣条🙏
 <div align="center">
   <img src="donate.webp" width="250" />
 </div>
