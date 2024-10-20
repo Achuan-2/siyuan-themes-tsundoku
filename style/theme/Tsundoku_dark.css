@@ -793,7 +793,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 /* dark 主题图片背景设置为白色，防止透明图片难以看清内容 */
 .b3-typography img,
-.protyle-wysiwyg img {
+.protyle-wysiwyg img:not(.emoji) {
     max-width: 100%;
     background-color: #fff;
 }
