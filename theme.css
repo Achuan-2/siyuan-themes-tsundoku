@@ -111,9 +111,9 @@
     --b3-font-color9: #596ab7;
     --b3-font-color10: #944194;
     --b3-font-color11: #d447c5;
-    --b3-font-color12: #6a0b03;
+    --b3-font-color12: #ee2e68;
     --b3-font-color13: var(--b3-theme-background);
-    --b3-font-background1: var(--b3-card-error-background);
+    --b3-font-background1: #FEDADE;
     --b3-font-background2: var(--b3-card-warning-background);
     --b3-font-background3: var(--b3-card-info-background);
     --b3-font-background4: var(--b3-card-success-background);
@@ -124,7 +124,7 @@
     --b3-font-background9: #e9e9ff;
     --b3-font-background10: #e5daff;
     --b3-font-background11: #f5c7f0;
-    --b3-font-background12: #ff9697;
+    --b3-font-background12: #FFD8E4;
     --b3-font-background13: var(--b3-theme-on-background);
     /* PDF */
     --b3-pdf-sidebar-width: 200px;
@@ -1145,4 +1145,12 @@ body
     mask-repeat: no-repeat;
 }
 
-
+/* 减少使用边框 */
+.toolbar,
+.dock,
+.status {
+    border-left: none !important;
+    border-right: none !important;
+    border-top: none !important;
+    border-bottom: none !important;
+}

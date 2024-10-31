@@ -230,12 +230,12 @@
 
 .b3-typography blockquote,
 .protyle-wysiwyg [data-node-id].bq:not([style*='background-color']) {
-    /* border: 1px solid var(--custom-blockquote-border-color); */
+    border: 1px solid var(--custom-blockquote-border-color);
     padding: 2px 4px;
-    background-color: #73a8c70f;
-    border: 0px solid transparent;
-    border-left: 0.3em solid #a2bfd0;
-    border-radius: 0px 7px 7px 0px !important;
+    background-color: #edf3f87d;
+    /* border: 0px solid transparent; */
+    /* border-left: 0.3em solid #a2bfd0; */
+    border-radius: 7px 7px 7px 7px !important;
     color: #6a6969;
 }
 
@@ -542,14 +542,16 @@ mark {
     opacity: 1;
     border-bottom: 1px dashed var(--b3-protyle-inline-blockref-color);
 }
+
 /* 静态锚文本块引样式    */
 .protyle-wysiwyg [data-node-id] span[data-type~='block-ref'][data-subtype="s"] {
     border-bottom: 1px dotted var(--b3-protyle-inline-blockref-color);
 }
+
 .protyle-wysiwyg [data-node-id] span[data-type~='block-ref']:hover {
     color: var(--b3-protyle-inline-blockref-hover-color);
     /*更改鼠标悬浮的颜色*/
-    border-bottom-color:var(--b3-protyle-inline-blockref-hover-color);
+    border-bottom-color: var(--b3-protyle-inline-blockref-hover-color);
     /*下划线可以去掉*/
 }
 
@@ -863,10 +865,12 @@ li[data-type='navigation-file'] .counter {
     display: flex;
     justify-content: center;
 }
+
 .protyle-wysiwyg [data-node-id].hr>div {
-        width: 50%;
-        padding-left: 0%;
+    width: 50%;
+    padding-left: 0%;
 }
+
 /* 分割线样式 */
 .protyle-wysiwyg [data-node-id].hr>div:after {
     height: 2px;

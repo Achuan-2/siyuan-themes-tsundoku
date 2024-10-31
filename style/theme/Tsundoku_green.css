@@ -66,7 +66,7 @@
     --b3-card-success-background: #c0e4c0da;
 
     /* 自定义文字 */
-    --b3-font-color1: #fa766d;
+    --b3-font-color1: #ff1201;
     --b3-font-color2: #f1781c;
     --b3-font-color3: #2183ce;
     --b3-font-color4: #11ad81;
@@ -77,20 +77,20 @@
     --b3-font-color9: #596ab7;
     --b3-font-color10: #944194;
     --b3-font-color11: #d447c5;
-    --b3-font-color12: #6a0b03;
+    --b3-font-color12: #ee2e68;
     --b3-font-color13: var(--b3-theme-background);
-    --b3-font-background1: var(--b3-card-error-background);
+    --b3-font-background1: #ffc4cb;
     --b3-font-background2: var(--b3-card-warning-background);
     --b3-font-background3: var(--b3-card-info-background);
     --b3-font-background4: var(--b3-card-success-background);
     --b3-font-background5: #e2e3e4;
     --b3-font-background6: #d8faff;
-    --b3-font-background7: #fff7d1;
-    --b3-font-background8: #e7e3c5;
+    --b3-font-background7: #fef7d2;
+    --b3-font-background8: #f0ede0;
     --b3-font-background9: #e9e9ff;
     --b3-font-background10: #e5daff;
     --b3-font-background11: #f5c7f0;
-    --b3-font-background12: #ff9697;
+    --b3-font-background12: #FFD8E4;
     --b3-font-background13: var(--b3-theme-on-background);
     /* PDF */
     --b3-pdf-sidebar-width: 200px;
@@ -228,8 +228,6 @@ span[data-type="strong"][style*="background-color: var" ],
 .protyle-toolbar,
 span[data-type="mark"],
 .emojis,
-.b3-menu,
-.b3-menu__item,
 .vis-network,
 .layout__empty,
 .b3-list--background .b3-list-item--focus,
@@ -970,7 +968,7 @@ span[data-type='av-add-more'] {
 /* 引述块 */
 .b3-typography blockquote,
 .protyle-wysiwyg [data-node-id].bq:not([style*='background-color']) {
-    border-left: 0.3em solid #8cae9b;
+    background-color: #d4eccf8c;
     color: #6a6969;
 }
 
@@ -978,4 +976,8 @@ span[data-type='av-add-more'] {
     color: var(--b3-protyle-inline-link-hover-color);
     border-bottom: 2px solid var(--b3-protyle-inline-link-hover-color);
     background-color: #c1eccb6e;
+}
+/* 数据库单选、多选颜色被背景色被遮盖 */
+html[data-theme-mode=light] .av__panel .b3-menu__item[draggable=true] {
+    mix-blend-mode: normal;
 }

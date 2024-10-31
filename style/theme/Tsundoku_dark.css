@@ -56,7 +56,7 @@
     --b3-card-success-background: #85d0a34d;
 
     /* 自定义文字 */
-    --b3-font-color1: var(--b3-card-error-color);
+    --b3-font-color1: #f06e64;
     --b3-font-color2: var(--b3-card-warning-color);
     --b3-font-color3: #7ac4ff;
     --b3-font-color4: #9bfbb7;
@@ -67,20 +67,20 @@
     --b3-font-color9: #9f9ff8;
     --b3-font-color10: #ca98ff;
     --b3-font-color11: #d90ec5;
-    --b3-font-color12: #eb5042;
+    --b3-font-color12: #ef2d69;
     --b3-font-color13: #3999f2;
-    --b3-font-background1: #ff8f8999;
+    --b3-font-background1: #ff8f894f;
     --b3-font-background2: #e2a7534a;
     --b3-font-background3: #36abf833;
-    --b3-font-background4: #8fe7b277;
+    --b3-font-background4: #8fe7b242;
     --b3-font-background5: #6f8ca38f;
     --b3-font-background6: #09a1b873;
     --b3-font-background7: #f3a82f63;
-    --b3-font-background8: #a35b28ce;
+    --b3-font-background8: #a35b2894;
     --b3-font-background9: #324272;
     --b3-font-background10: #a979d683;
-    --b3-font-background11: #98268b;
-    --b3-font-background12: #a7443cd3;
+    --b3-font-background11: #ad339f61;
+    --b3-font-background12: #9d315291;
     --b3-font-background13: #000000;
     /* PDF */
     --b3-pdf-sidebar-width: 200px;
@@ -807,7 +807,9 @@ div[data-subtype='t'][data-type='NodeList'] {
 .b3-typography blockquote,
 .protyle-wysiwyg [data-node-id].bq:not([style*='background-color']) {
     border: 1px solid var(--custom-blockquote-border-color);
-    border-left: 0.3em solid #456c74 !important;
+    /* border-left: 0.3em solid #456c74 !important; */
+    background-color: #3e72852b;
+
 }
 
 
