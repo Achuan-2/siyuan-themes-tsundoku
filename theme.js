@@ -693,15 +693,19 @@ function ViewMonitor(event) {
 function link_icon_filter() {
     let spans = document.querySelectorAll('span[data-type="a"]');
     spans.forEach(span => {
-        const isWrappedInBracketsOrNumber = /\[.+?\]|^\d+$/.test(span.textContent);
-        if (span.textContent === '*' || isWrappedInBracketsOrNumber) {
+        const textContent = span.textContent.trim();
+        // 检查文本是否完全被方括号包裹或是否为纯数字
+        const isFullyWrappedInBrackets = /^\[.*\]$/.test(textContent);
+        const isNumber = /^\d+$/.test(textContent);
+
+        if (textContent === '*' || isFullyWrappedInBrackets || isNumber) {
             span.setAttribute('custom-linkicon', 'false');
-        }
-        else {
+        } else {
             span.removeAttribute('custom-linkicon');
         }
     });
 }
+
 linkIconFilterInterval = setInterval(link_icon_filter, 100);
 
 /**++++++++++++++++++++++++++++++++主题功能执行：按需调用++++++++++++++++++++++++++++++ */
