@@ -87,3 +87,18 @@ span[data-type='av-add-more']:hover {
 .av__header .layout-tab-bar .item {
     padding-right: 10px;
 }
+
+/* 数据库图片全宽展示 */
+img.av__cellassetimg {
+    max-height: inherit;
+    border-radius: var(--b3-border-radius);
+    margin: 1px 2px;
+    max-width: none;
+    vertical-align: top;
+    font-size: inherit;
+    width: 100%;
+}
+
+.custom-attr .av__cellassetimg {
+    max-height: none;
+}

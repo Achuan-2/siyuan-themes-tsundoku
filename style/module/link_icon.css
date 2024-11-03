@@ -61,11 +61,18 @@
     content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/bookxnote.ico');
 }
-.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href^="file://"][data-href $="/"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href^="file://"][data-href $="/"]:not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a[href^="file://"][data-href $="/"]::before,
-.b3-typography a[href^="file://"][data-href $="/"]::before
-{
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href^="file://"]:not([data-href*='.']):not(:empty)::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href^="file://"][data-href$="/"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='a'][data-href^="file://"][data-href$="\\"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href^="file://"]:not([data-href*='.']):not(:empty)::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href^="file://"][data-href$="/"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='url'][data-href^="file://"][data-href$="\\"]:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href^="file://"]:not([data-href*='.']):not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href^="file://"][data-href$="/"]::before,
+.protyle-wysiwyg [data-node-id] a[href^="file://"][data-href$="\\"]::before,
+.b3-typography a[href^="file://"]:not([data-href*='.']):not(:empty)::before,
+.b3-typography a[href^="file://"][data-href$="/"]::before,
+.b3-typography a[href^="file://"][data-href$="\\"]::before {
     content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/folder.svg');
     opacity: 0.9;
