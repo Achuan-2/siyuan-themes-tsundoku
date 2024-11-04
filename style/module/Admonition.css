@@ -1,68 +1,65 @@
 
 
 /* -------------------搬运语雀的提示区块 ---------Start----------------------------*/
-/* 添加border */
-/* .bq[style*='background-color: var(--b3-card-error-background);'] {
-    border: 1px solid var(--b3-font-color1) !important;
+
+/* 优化引述块 */
+
+.protyle-wysiwyg .bq[style*='background-color: var(--b3-font-background1);'] {
+    color: var(--b3-font-color5);
 }
 
-.bq[style*='background-color: var(--b3-card-warning-background);'] {
-    border: 1px solid var(--b3-font-color2) !important;
+.protyle-wysiwyg .bq[style*='background-color: var(--b3-font-background2);'] {
+    color: var(--b3-font-color2);
 }
 
-.bq[style*='background-color: var(--b3-card-info-background);'] {
-    border: 1px solid var(--b3-font-color3) !important;
+.protyle-wysiwyg .bq[style*='background-color: var(--b3-font-background3);'] {
+    color: var(--b3-font-color3);
 }
 
-.bq[style*='background-color: var(--b3-card-success-background);'] {
-    border: 1px solid var(--b3-font-color4) !important;
-}
-.bq[style*='background-color: var(--b3-font-background1);'] {
-    border: 1px solid var(--b3-font-color1) !important;
+.protyle-wysiwyg .bq[style*='background-color: var(--b3-font-background4);'] {
+    color: var(--b3-font-color4);
 }
 
-.bq[style*='background-color: var(--b3-font-background2);'] {
-    border: 1px solid var(--b3-font-color2) !important;
+.protyle-wysiwyg .bq[style*='background-color: var(--b3-font-background5);'] {
+    color: var(--b3-font-color5);
 }
 
-.bq[style*='background-color: var(--b3-font-background3);'] {
-    border: 1px solid var(--b3-font-color3) !important;
+.protyle-wysiwyg .bq[style*='background-color: var(--b3-font-background6);'] {
+    color: var(--b3-font-color6);
 }
 
-.bq[style*='background-color: var(--b3-font-background4);'] {
-    border: 1px solid var(--b3-font-color4) !important;
+.protyle-wysiwyg .bq[style*='background-color: var(--b3-font-background7);'] {
+    color: var(--b3-font-color7);
 }
 
-.bq[style*='background-color: var(--b3-font-background5);'] {
-    border: 1px solid var(--b3-font-color5) !important;
+.protyle-wysiwyg .bq[style*='background-color: var(--b3-font-background8);'] {
+    color: var(--b3-font-color8);
 }
-.bq[style*='background-color: var(--b3-font-background6);'] {
-    border: 1px solid var(--b3-font-color6) !important;
+
+.protyle-wysiwyg .bq[style*='background-color: var(--b3-font-background9);'] {
+    color: var(--b3-font-color9);
 }
-.bq[style*='background-color: var(--b3-font-background7);'] {
-    border: 1px solid var(--b3-font-color7) !important;
+
+.protyle-wysiwyg .bq[style*='background-color: var(--b3-font-background10);'] {
+    color: var(--b3-font-color10);
 }
-.bq[style*='background-color: var(--b3-font-background8);'] {
-    border: 1px solid var(--b3-font-color8) !important;
+
+.protyle-wysiwyg .bq[style*='background-color: var(--b3-font-background11);'] {
+    color: var(--b3-font-color11);
 }
-.bq[style*='background-color: var(--b3-font-background9);'] {
-    border: 1px solid var(--b3-font-color9) !important;
-}
-.bq[style*='background-color: var(--b3-font-background10);'] {
-    border: 1px solid var(--b3-font-color10) !important;
-}
-.bq[style*='background-color: var(--b3-font-background11);'] {
-    border: 1px solid var(--b3-font-color11) !important;
-}
+
+
 .bq[style*='background-color: var(--b3-font-background12);'] {
-    border: 1px solid var(--b3-font-color12) !important;
+    color: var(--b3-font-color12);
 }
+
 .bq[style*='background-color: var(--b3-font-background13);'] {
-    border: 1px solid var(--b3-font-color13) !important;
-} */
+    color:  var(--b3-font-color13);
+}
+
 
 /* 优化代码块和行内代码 */
-[data-theme-mode="light"] .bq[style*='background-color'] .code-block {
+.bq[style*='background-color'] .code-block {
       /* 添加阴影 */
         box-shadow: 0 0 0 1px #1e25351a;
 }
@@ -73,7 +70,7 @@
     color: var(--b3-card-error-color) !important;
     background-color: #f0c4b959 !important;
 }
-[data-theme-mode="light"] .bq[style*='background-color: var(--b3-card-error-background);'] .code-block {
+.bq[style*='background-color: var(--b3-card-error-background);'] .code-block {
     background-color: #f6d8d382 !important;
 }
 .bq[style*='background-color: var(--b3-card-warning-background);'] span[data-type~='kbd'],
@@ -81,7 +78,7 @@
     color: var(--b3-card-warning-color) !important;
     background-color: #f0dfb959 !important;
 }
-[data-theme-mode="light"]  .bq[style*='background-color: var(--b3-card-warning-background);'] .code-block {
+ .bq[style*='background-color: var(--b3-card-warning-background);'] .code-block {
     background-color: #f7e9d08a !important;
 }
 .bq[style*='background-color: var(--b3-card-info-background);'] span[data-type~='kbd'],
@@ -89,17 +86,19 @@
     color: var(--b3-card-info-color) !important;
     background-color: #bedaeb59 !important;
 }
-[data-theme-mode="light"]  .bq[style*='background-color: var(--b3-card-info-background);'] .code-block {
+ .bq[style*='background-color: var(--b3-card-info-background);'] .code-block {
     background-color: #d2e6f4b0 !important;
 }
+
 .bq[style*='background-color: var(--b3-card-success-background);'] span[data-type~='kbd'],
 .bq[style*='background-color: var(--b3-card-success-background);'] span[data-type~='code'] {
     color: var(--b3-card-success-color) !important;
     background-color: #c7ebbe59 !important;
 }
-[data-theme-mode="light"]  .bq[style*='background-color: var(--b3-card-success-background);'] .code-block {
+ .bq[style*='background-color: var(--b3-card-success-background);'] .code-block {
     background-color: #d9f4d6c7 !important;
 }
+
 
 /* 优化列表线 */
 .bq[style*='background-color: var(--b3-card-error-background);']
@@ -128,6 +127,226 @@
 .protyle-wysiwyg--select.bq[style*='background-color:'] > div {
     background-color: rgba(31, 138, 93, 0.12) !important;
 }
+
+
+/* --------------------------------------优化引述块内引述块------------------------------ */
+/* 引述块添加背景色，嵌套引述块的border颜色为对应颜色 */
+
+.bq[style*='background-color: var(--b3-card-success-background);'] .bq {
+    border-radius: 0px !important;
+    border-left: 0.3em solid var(--b3-font-color4) !important;
+}
+
+.bq[style*='background-color: var(--b3-card-warning-background);'] .bq {
+    border-radius: 0px !important;
+    border-left: 0.3em solid var(--b3-font-color2) !important;
+}
+
+.bq[style*='background-color: var(--b3-card-info-background);'] .bq {
+    border-radius: 0px !important;
+    border-left: 0.3em solid var(--b3-font-color3) !important;
+}
+
+.bq[style*='background-color: var(--b3-card-error-background);'] .bq {
+    border-radius: 0px !important;
+    border-left: 0.3em solid var(--b3-font-color1) !important;
+}
+
+.bq[style*='background-color: var(--b3-font-background1);'] .bq {
+    border-radius: 0px !important;
+    border-left: 0.3em solid var(--b3-font-color1) !important;
+}
+
+
+.bq[style*='background-color: var(--b3-font-background2);'] .bq {
+    border-radius: 0px !important;
+    border-left: 0.3em solid var(--b3-font-color2) !important;
+}
+
+.bq[style*='background-color: var(--b3-font-background3);'] .bq {
+    border-radius: 0px !important;
+    border-left: 0.3em solid var(--b3-font-color3) !important;
+}
+
+.bq[style*='background-color: var(--b3-font-background4);'] .bq {
+    border-radius: 0px !important;
+    border-left: 0.3em solid var(--b3-font-color4) !important;
+}
+
+.bq[style*='background-color: var(--b3-font-background5);'] .bq {
+    border-radius: 0px !important;
+    border-left: 0.3em solid var(--b3-font-color5) !important;
+}
+
+
+.bq[style*='background-color: var(--b3-font-background6);'] .bq {
+    border-radius: 0px !important;
+    border-left: 0.3em solid var(--b3-font-color6) !important;
+}
+
+.bq[style*='background-color: var(--b3-font-background7);'] .bq {
+    border-radius: 0px !important;
+    border-left: 0.3em solid var(--b3-font-color7) !important;
+}
+
+.bq[style*='background-color: var(--b3-font-background8);'] .bq {
+    border-radius: 0px !important;
+    border-left: 0.3em solid var(--b3-font-color8) !important;
+}
+
+.bq[style*='background-color: var(--b3-font-background9);'] .bq {
+    border-radius: 0px !important;
+    border-left: 0.3em solid var(--b3-font-color9) !important;
+}
+
+.bq[style*='background-color: var(--b3-font-background10);'] .bq {
+    border-radius: 0px !important;
+    border-left: 0.3em solid var(--b3-font-color10) !important;
+}
+
+.bq[style*='background-color: var(--b3-font-background11);'] .bq {
+    border-radius: 0px !important;
+    border-left: 0.3em solid var(--b3-font-color11) !important;
+}
+
+
+.bq[style*='background-color: var(--b3-font-background12);'] .bq {
+    border-radius: 0px !important;
+    border-left: 0.3em solid var(--b3-font-color12) !important;
+}
+
+.bq[style*='background-color: var(--b3-font-background13);'] .bq {
+    border-radius: 0px !important;
+    border-left: 0.3em solid var(--b3-font-color13) !important;
+}
+
+/* 引述块添加卡片背景色，嵌套引述块的border颜色可以进一步修改*/
+[data-node-id].bq .bq[style*='background-color: var(--b3-card-error-background);'] {
+    border: 0 !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    border-left: 0.3em solid var(--b3-font-color1) !important;
+}
+
+[data-node-id].bq .bq[style*='background-color: var(--b3-card-warning-background);'] {
+    border: 0 !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    border-left: 0.3em solid var(--b3-font-color2) !important;
+}
+
+[data-node-id].bq .bq[style*='background-color: var(--b3-card-info-background);'] {
+    border: 0 !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    border-left: 0.3em solid var(--b3-font-color3) !important;
+}
+
+[data-node-id].bq .bq[style*='background-color: var(--b3-card-success-background);'] {
+    border: 0 !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    border-left: 0.3em solid var(--b3-font-color4) !important;
+}
+
+[data-node-id].bq .bq[style*='background-color: var(--b3-font-background1);'] {
+    border: 0 !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    border-left: 0.3em solid var(--b3-font-color1) !important;
+}
+
+[data-node-id].bq .bq[style*='background-color: var(--b3-font-background2);'] {
+    border: 0 !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    border-left: 0.3em solid var(--b3-font-color2) !important;
+}
+
+[data-node-id].bq .bq[style*='background-color: var(--b3-font-background3);'] {
+    border: 0 !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    border-left: 0.3em solid var(--b3-font-color3) !important;
+}
+
+[data-node-id].bq .bq[style*='background-color: var(--b3-font-background4);'] {
+    border: 0 !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    border-left: 0.3em solid var(--b3-font-color4) !important;
+}
+
+[data-node-id].bq .bq[style*='background-color: var(--b3-font-background5);'] {
+    border: 0 !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    border-left: 0.3em solid var(--b3-font-color5) !important;
+}
+
+[data-node-id].bq .bq[style*='background-color: var(--b3-font-background6);'] {
+    border: 0 !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    border-left: 0.3em solid var(--b3-font-color6) !important;
+}
+
+[data-node-id].bq .bq[style*='background-color: var(--b3-font-background7);'] {
+    border: 0 !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    border-left: 0.3em solid var(--b3-font-color7) !important;
+}
+
+[data-node-id].bq .bq[style*='background-color: var(--b3-font-background8);'] {
+    border: 0 !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    border-left: 0.3em solid var(--b3-font-color8) !important;
+}
+
+[data-node-id].bq .bq[style*='background-color: var(--b3-font-background9);'] {
+    border: 0 !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    border-left: 0.3em solid var(--b3-font-color9) !important;
+}
+
+[data-node-id].bq .bq[style*='background-color: var(--b3-font-background10);'] {
+    border: 0 !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    border-left: 0.3em solid var(--b3-font-color10) !important;
+}
+
+
+[data-node-id].bq .bq[style*='background-color: var(--b3-font-background11);'] {
+    border: 0 !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    border-left: 0.3em solid var(--b3-font-color11) !important;
+}
+
+
+[data-node-id].bq .bq[style*='background-color: var(--b3-font-background12);'] {
+    border: 0 !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    border-left: 0.3em solid var(--b3-font-color12) !important;
+}
+
+
+[data-node-id].bq .bq[style*='background-color: var(--b3-font-background13);'] {
+    border: 0 !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    border-left: 0.3em solid var(--b3-font-background13) !important;
+}
+[data-theme-mode="light"] [data-node-id].bq .bq[style*='background-color: var(--b3-font-background13);'] {
+    color: var(--b3-theme-on-background) !important;
+}
+
+
 
 
 /* -------------------搬运语雀的提示区块 --END-----------------------------------*/

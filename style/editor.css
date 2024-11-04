@@ -239,6 +239,14 @@
     color: #6a6969;
 }
 
+
+.protyle-wysiwyg [data-node-id].bq > .bq {
+    border: none;
+    border-left: 0.3em solid #6c6d6d;
+    border-radius: 0px !important;
+    background: transparent !important;
+}
+
 .protyle-wysiwyg [data-node-id].bq[style*='background-color'],
 .b3-typography blockquote[style*='background-color'] {
     border: 1px solid var(--custom-blockquote-border-color) !important;

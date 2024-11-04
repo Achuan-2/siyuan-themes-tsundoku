@@ -68,7 +68,7 @@
     --b3-font-color10: #ca98ff;
     --b3-font-color11: #d90ec5;
     --b3-font-color12: #ef2d69;
-    --b3-font-color13: #3999f2;
+    --b3-font-color13: #fff;
     --b3-font-background1: #ff8f894f;
     --b3-font-background2: #e2a7534a;
     --b3-font-background3: #36abf833;
@@ -800,15 +800,10 @@ div[data-subtype='t'][data-type='NodeList'] {
 }
 
 
-[data-theme-mode="dark"] .protyle-wysiwyg [data-node-id].bq,
-.b3-typography blockquote {
-    color: #a79d9d !important;
-}
 
 .b3-typography blockquote,
 .protyle-wysiwyg [data-node-id].bq:not([style*='background-color']) {
-    border: 1px solid var(--custom-blockquote-border-color);
-    /* border-left: 0.3em solid #456c74 !important; */
+    color: #a79d9d;
     background-color: #3e72852b;
 
 }
