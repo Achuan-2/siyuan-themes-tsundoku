@@ -77,7 +77,7 @@
     --b3-font-background6: #09a1b873;
     --b3-font-background7: #f3a82f63;
     --b3-font-background8: #a35b2894;
-    --b3-font-background9: #324272;
+    --b3-font-background9: #324272e8;
     --b3-font-background10: #a979d683;
     --b3-font-background11: #ad339f61;
     --b3-font-background12: #9d315291;
@@ -811,6 +811,9 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 .protyle-wysiwyg span[data-type~='strong'] {
     color: #81ebcf ;
+}
+.protyle-wysiwyg .bq[style*='background-color'] span[data-type~='strong'] {
+    color: inherit;
 }
 
 /* 代码块复制按钮背景色 */

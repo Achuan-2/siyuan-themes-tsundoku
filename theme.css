@@ -104,8 +104,8 @@
     --b3-font-color2: #f1781c;
     --b3-font-color3: #2183ce;
     --b3-font-color4: #11ad81;
-    --b3-font-color5: #8e8e8e;
-    --b3-font-color6: #52d4ca;
+    --b3-font-color5: #878484;
+    --b3-font-color6: #3fada5;
     --b3-font-color7: var(--b3-theme-secondary);
     --b3-font-color8: #a3431f;
     --b3-font-color9: #596ab7;
@@ -1154,3 +1154,5 @@ body
     border-top: none !important;
     border-bottom: none !important;
 }
+
+

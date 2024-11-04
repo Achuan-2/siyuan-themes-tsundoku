@@ -528,13 +528,11 @@ mark {
 }
 
 /* -----------------------加粗----------------------- */
-.protyle-wysiwyg span[data-type~='strong'] {
+.protyle-wysiwyg  span[data-type~='strong'] {
     color: inherit;
 }
 
-[data-theme-mode="dark"] .protyle-wysiwyg span[data-type~='strong'] {
-    color: #81ebcf;
-}
+
 
 /* -----------------------块引用----------------------- */
 .protyle-wysiwyg [data-node-id] span[data-type~=block-ref]:not(.av__celltext),
