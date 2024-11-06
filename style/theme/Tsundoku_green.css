@@ -291,11 +291,6 @@ div[style='background-color: var(--b3-font-background13);'] {
 
 /* -------------------------------行内块字体样式-------------------------------------- */
 
-.protyle-wysiwyg [data-node-id].bq,
-.b3-typography blockquote {
-    background-color: var(--custom-blockquote-background-color);
-    background-image: url('/appearance/themes/Tsundoku/src/background/paper.png');
-}
 
 /* 块嵌入 */
 .protyle-wysiwyg [data-node-id].render-node[data-type='NodeBlockQueryEmbed'] {
@@ -968,8 +963,7 @@ span[data-type='av-add-more'] {
 /* 引述块 */
 .b3-typography blockquote,
 .protyle-wysiwyg [data-node-id].bq:not([style*='background-color']) {
-    background-color: #d4eccf8c;
-    color: #6a6969;
+    background-image: url('/appearance/themes/Tsundoku/src/background/paper.png');
 }
 
 [data-theme-mode="light"]  .protyle-wysiwyg [data-node-id] span[data-type~='a']:hover {

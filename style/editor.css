@@ -232,19 +232,23 @@
 .protyle-wysiwyg [data-node-id].bq:not([style*='background-color']) {
     border: 1px solid var(--custom-blockquote-border-color);
     padding: 2px 4px;
-    background-color: #ebeee8;
+    background-color: var(--b3-card-info-background);
+    color:var(--b3-card-info-color);
     /* border: 0px solid transparent; */
     /* border-left: 0.3em solid #a2bfd0; */
     border-radius: 7px 7px 7px 7px !important;
-    color: #6a6969;
+    /* color: #6a6969; */
 }
 
 
 .protyle-wysiwyg [data-node-id].bq > .bq {
     border: none;
-    border-left: 0.3em solid #6c6d6d;
+    border-left: 0.3em solid var(--b3-font-color3);
     border-radius: 0px !important;
     background: transparent !important;
+}
+.bq .code-block {
+    background: var(--b3-font-background3) !important;
 }
 
 .protyle-wysiwyg [data-node-id].bq[style*='background-color'],

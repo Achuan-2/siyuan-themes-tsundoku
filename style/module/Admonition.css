@@ -63,7 +63,7 @@
       /* 添加阴影 */
         box-shadow: 0 0 0 1px #1e25351a;
 }
-[data-theme-mode="dark"] .bq[style*='background-color'] .code-block {
+[data-theme-mode="dark"] .bq .code-block {
     /* 添加阴影 */
     box-shadow: 0 0 0 1px #4042463d;
 }
