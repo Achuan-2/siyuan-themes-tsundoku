@@ -232,7 +232,7 @@
 .protyle-wysiwyg [data-node-id].bq:not([style*='background-color']) {
     border: 1px solid var(--custom-blockquote-border-color);
     padding: 2px 4px;
-    background-color: #edf3f87d;
+    background-color: #ebeee8;
     /* border: 0px solid transparent; */
     /* border-left: 0.3em solid #a2bfd0; */
     border-radius: 7px 7px 7px 7px !important;
@@ -293,10 +293,7 @@
 }
 
 /*  ------------------------------图片 ------------------------------ */
-.protyle-wysiwyg img,
-.b3-typography img {
-    border-radius: 5px;
-}
+
 
 .protyle-wysiwyg img:hover,
 .p [contenteditable='true']:focus>.img:first-child img {
