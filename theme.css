@@ -901,3 +901,8 @@ body>div.b3-dialog--open>div>div.b3-dialog__container.undefined>div.b3-dialog__b
     background-color: #ff0087 !important;
 }
 
+
+/* 页签颜色 */
+.layout-tab-bars--drag>.layout-tab-bar {
+    background-color: transparent;
+}
