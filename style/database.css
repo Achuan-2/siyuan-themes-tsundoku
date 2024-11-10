@@ -99,6 +99,9 @@ img.av__cellassetimg {
     width: 100%;
 }
 
+.plugin-panel  img.av__cellassetimg{
+        width: 50%;
+}
 .custom-attr .av__cellassetimg {
     max-height: none;
 }

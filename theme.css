@@ -37,7 +37,7 @@
     --b3-theme-primary: #3ca3ce;
     --b3-theme-primary-light: #b9d7e4;
     --b3-theme-primary-lighter: #98dbf8;
-    --b3-theme-primary-lightest: #daf4ff52;
+    --b3-theme-primary-lightest: #3c7bf11f;
     /* 订阅黄 */
     --b3-theme-secondary: #faad14;
     --b3-theme-background: #fff;
@@ -283,10 +283,10 @@ body {
 
 
 /* 选中块 */
-.protyle-wysiwyg--select,
+/* .protyle-wysiwyg--select,
 .protyle-wysiwyg--select .hljs {
-    background-color: #91d5ff38 !important;
-}
+    background-color: #91d7ffd3 !important;
+} */
 /* 鼠标划选区域*/
 .protyle-select {
     background-color: #91d5ff42;
@@ -1053,7 +1053,7 @@ body
 .b3-typography .img,
 .protyle-wysiwyg .img {
     display: inline-block;
-    text-align: center;
+    /* text-align: center; */
     vertical-align: top;
     margin: 0 auto;
 }
@@ -1161,3 +1161,8 @@ body
 .layout-tab-bar .item__icon>svg{
     border-radius: 0;
 }
+
+body>div.b3-dialog--open>div>div.b3-dialog__container.undefined>div.b3-dialog__body>div>div.emojis__tabbody>div:nth-child(2)>div.fn__flex.emoji__dynamic-color>div:nth-child(1){
+    background-color: #ff0087 !important;
+}
+

@@ -7,7 +7,7 @@
     /* 设置按钮长条 */
     --b3-theme-primary-light: #6ab4806e;
     /* 动态加载调长条 */
-    --b3-theme-primary-lighter: #85ab95;
+    --b3-theme-primary-lighter: #85ab955b;
     /* 编辑器点击大纲高亮 */
     --b3-theme-primary-lightest: rgba(31, 138, 93, 0.12);
 
@@ -652,11 +652,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 .protyle-wysiwyg ::selection {
     background-color: rgba(70, 126, 211, 0.245);
 }
-/* 选中块 */
-.protyle-wysiwyg--select,
-.protyle-wysiwyg--select .hljs {
-    background-color: rgba(31, 138, 93, 0.12) !important;
-}
+
 /* 鼠标划选区域*/
 .protyle-select {
     background-color: rgba(31, 138, 93, 0.12);
