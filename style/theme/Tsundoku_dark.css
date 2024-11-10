@@ -801,12 +801,12 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 
 
-.b3-typography blockquote,
+/* .b3-typography blockquote,
 .protyle-wysiwyg [data-node-id].bq:not([style*='background-color']) {
     color: #a79d9d;
     background-color: #3e72852b;
 
-}
+} */
 
 
 .protyle-wysiwyg span[data-type~='strong'] {
