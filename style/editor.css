@@ -66,7 +66,7 @@
 .b3-typography h2 {
     /* ⚙二级标题基本样式 */
     border-bottom: 1px solid var(--custom-h2-border-color) !important;
-    font-size: 1.55em !important;
+    font-size: 1.45em !important;
     color: var(--custom-h2-color);
     border-radius: 0px !important;
 }
