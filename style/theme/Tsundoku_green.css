@@ -61,7 +61,7 @@
     --b3-card-warning-color: rgb(102, 60, 0);
     --b3-card-warning-background: #f5dfc1e0;
     --b3-card-info-color: rgb(13, 60, 97);
-    --b3-card-info-background: #a8dbf594;
+    --b3-card-info-background: #daecf5;
     --b3-card-success-color: rgb(30, 70, 32);
     --b3-card-success-background: #c0e4c0da;
 
@@ -970,4 +970,9 @@ span[data-type='av-add-more'] {
 /* 数据库单选、多选颜色被背景色被遮盖 */
 html[data-theme-mode=light] .av__panel .b3-menu__item[draggable=true] {
     mix-blend-mode: normal;
+}
+
+[data-theme-mode="light"] .protyle-wysiwyg [data-node-id].bq:not([style*='background-color']) {
+    background-color: var(--b3-card-success-background);
+    color: var(--b3-card-success-color);
 }

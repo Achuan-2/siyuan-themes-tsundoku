@@ -66,7 +66,7 @@
     --b3-card-warning-color: rgb(102, 60, 0);
     --b3-card-warning-background: #fce4d2;
     --b3-card-info-color: rgb(13, 60, 97);
-    --b3-card-info-background: #deeefa;
+    --b3-card-info-background: #F0F4F9;
     --b3-card-success-color: rgb(30, 70, 32);
     --b3-card-success-background: #e5fae5;
     /* 自定义文字 */
@@ -291,3 +291,4 @@
     background-color: #f3f7f8;
     transition: background-color 0.5s linear;
 }
+
