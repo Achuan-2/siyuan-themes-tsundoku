@@ -139,9 +139,13 @@
 	display:none;
 }
 
-#criteria .b3-chip--current{
-	box-shadow: 0 0 0 2px var(--S-list-background) inset;
+#criteria .b3-chips .b3-chip.b3-chip--current {
+	margin-top: 3px;
+	background: var(--b3-menu-highlight-focus-color);
+	color: var(--b3-theme-background);
+	box-shadow: 0 0 0 2px var(--b3-theme-primary) inset;
 }
+
 #criteria .b3-button--small{
 	padding: 2px 8px;
 	font-size: 14px;
