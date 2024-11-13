@@ -897,12 +897,10 @@ body
     border-radius: 0;
 }
 
-body>div.b3-dialog--open>div>div.b3-dialog__container.undefined>div.b3-dialog__body>div>div.emojis__tabbody>div:nth-child(2)>div.fn__flex.emoji__dynamic-color>div:nth-child(1){
-    background-color: #ff0087 !important;
-}
-
 
 /* 页签颜色 */
 .layout-tab-bars--drag>.layout-tab-bar {
     background-color: transparent;
 }
+
+

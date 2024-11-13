@@ -165,6 +165,18 @@
     color: inherit;
 }
 
+/* 添加背景色的标题改进 */
+.protyle-wysiwyg [data-node-id].h2[style*='background-color'] {
+    border-bottom: none !important;
+    border-radius: 5px !important;
+
+}
+
+/* 引述块的标题样式改进 */
+.protyle-wysiwyg .bq [data-node-id].h2 {
+    border-bottom: none !important;
+}
+
 /* -------------------------------表格样式------------------------------------- */
 
 /* 表格背景设置 */
@@ -239,6 +251,7 @@
     border-radius: 7px 7px 7px 7px !important;
     /* color: #6a6969; */
 }
+
 
 
 .protyle-wysiwyg [data-node-id].bq > .bq {
