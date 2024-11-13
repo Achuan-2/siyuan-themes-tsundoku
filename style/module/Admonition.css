@@ -73,25 +73,25 @@
     color: var(--b3-card-error-color) !important;
     background-color: #f0c4b959 !important;
 }
-.bq[style*='background-color: var(--b3-card-error-background);'] .code-block {
+/* .bq[style*='background-color: var(--b3-card-error-background);'] .code-block {
     background-color: #f6d8d382 !important;
-}
+} */
 .bq[style*='background-color: var(--b3-card-warning-background);'] span[data-type~='kbd'],
 .bq[style*='background-color: var(--b3-card-warning-background);'] span[data-type~='code'] {
     color: var(--b3-card-warning-color) !important;
     background-color: #f0dfb959 !important;
 }
- .bq[style*='background-color: var(--b3-card-warning-background);'] .code-block {
+ /* .bq[style*='background-color: var(--b3-card-warning-background);'] .code-block {
     background-color: #f7e9d08a !important;
-}
+} */
 .bq[style*='background-color: var(--b3-card-info-background);'] span[data-type~='kbd'],
 .bq[style*='background-color: var(--b3-card-info-background);'] span[data-type~='code'] {
     color: var(--b3-card-info-color) !important;
     background-color: #bedaeb59 !important;
 }
- .bq[style*='background-color: var(--b3-card-info-background);'] .code-block {
+ /* .bq[style*='background-color: var(--b3-card-info-background);'] .code-block {
     background-color: #d2e6f4b0 !important;
-}
+} */
 
 .bq[style*='background-color: var(--b3-card-success-background);'] span[data-type~='kbd'],
 .bq[style*='background-color: var(--b3-card-success-background);'] span[data-type~='code'] {
@@ -99,6 +99,8 @@
     background-color: #c7ebbe59 !important;
 }
 
+
+/* 
 .bq[style*='background-color: var(--b3-card-error-background);'] .code-block {
     background-color: var(--b3-card-error-background) !important;
 }
@@ -166,13 +168,14 @@
     background-color: var(--b3-font-background12) !important;
 }
 
+
+ */
 .bq[style*='background-color: var(--b3-font-background13);'] .code-block {
     background-color: #c4c6cc !important;
 }
 [data-theme-mode="dark"] .bq[style*='background-color: var(--b3-font-background13);'] .code-block {
-    background-color: var(--b3-font-background13)!important;
+    background-color: var(--b3-font-background13) !important;
 }
-
 /* 优化列表线 */
 .bq[style*='background-color: var(--b3-card-error-background);']
     [data-node-id].li
@@ -306,7 +309,7 @@
 .protyle-wysiwyg .bq[style*='background-color: var(--b3-font-background13);'] .bq {
     border-radius: 0px !important;
     border-left: 0.3em solid var(--b3-font-color13) !important;
-    color: var(--b3-font-color13);
+    color: var(--b3-font-color13) !important;
 }
 
 /* 引述块添加卡片背景色，嵌套引述块的border颜色可以进一步修改*/

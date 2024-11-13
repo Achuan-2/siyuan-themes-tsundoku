@@ -146,7 +146,7 @@
     --b3-protyle-search-current-background: #a5d3fe;
 
     /* 代码片段背景 m */
-    --b3-protyle-code-background: #e2f4e4;
+    --b3-protyle-code-background: #e2f4e480;
 
     /* 所见即所得行内元素颜色 */
     --b3-protyle-inline-strong-color: #202124;
@@ -657,6 +657,11 @@ div[data-subtype='t'][data-type='NodeList'] {
 .protyle-select {
     background-color: rgba(31, 138, 93, 0.12);
 }
+/* 选择块 */
+.protyle-wysiwyg--select:after,
+.protyle-wysiwyg--hl:after {
+    background-color: #228be629;
+}
 /* 图片大小调整手柄 */
 
 .protyle-wysiwyg [data-node-id] .img .protyle-action__drag {
@@ -972,7 +977,20 @@ html[data-theme-mode=light] .av__panel .b3-menu__item[draggable=true] {
     mix-blend-mode: normal;
 }
 
-[data-theme-mode="light"] .protyle-wysiwyg [data-node-id].bq:not([style*='background-color']) {
+.protyle-wysiwyg [data-node-id].bq:not([style*='background-color']) {
     background-color: var(--b3-card-success-background);
     color: var(--b3-card-success-color);
 }
+.protyle-wysiwyg [data-node-id].bq>.bq {
+    border: none;
+    border-left: 0.3em solid var(--b3-font-color4);
+    border-radius: 0px !important;
+    background: transparent !important;
+}
+
+/* 引述块内的代码块 */
+.bq .code-block {
+    background: #e2f4e43d !important;
+}
+
+

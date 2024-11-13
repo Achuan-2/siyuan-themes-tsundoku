@@ -832,3 +832,9 @@ div[data-subtype='t'][data-type='NodeList'] {
     width: auto;
     background-color: #fff;
 }
+
+
+/* 引述块内的代码块 */
+.bq .code-block {
+    background: #0f1d2a57 !important;
+}

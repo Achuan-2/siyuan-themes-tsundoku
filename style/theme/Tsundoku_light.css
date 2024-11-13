@@ -149,7 +149,7 @@
     --b3-protyle-search-border-color: #f2e680;
     --b3-protyle-search-current-background: #a5d3fe;
 
-    /* 代码片段背景 m */
+    /* 代码块背景 m */
     --b3-protyle-code-background: #f6f8fa;
 
     /* 所见即所得行内元素颜色 */
@@ -292,3 +292,13 @@
     transition: background-color 0.5s linear;
 }
 
+/* 引述块行内代码样式优化 */
+.protyle-wysiwyg [data-node-id].bq  span[data-type~='kbd'],
+.protyle-wysiwyg [data-node-id].bq  span[data-type~='code'] {
+    color: var(--b3-card-info-color);
+    background-color: #bedaeb52
+}
+/* 引述块内的代码块 */
+.bq .code-block {
+    background: #f6f8fa66 !important;
+}

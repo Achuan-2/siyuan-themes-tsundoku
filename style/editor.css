@@ -260,9 +260,9 @@
     border-radius: 0px !important;
     background: transparent !important;
 }
-.bq .code-block {
-    background: var(--b3-font-background3) !important;
-}
+/* .bq .code-block {
+    background: #f6f8fa66 !important;
+} */
 
 .protyle-wysiwyg [data-node-id].bq[style*='background-color'],
 .b3-typography blockquote[style*='background-color'] {
