@@ -48,17 +48,17 @@
     --b3-font-color4: #11ad81;
     --b3-font-color5: #878484;
     --b3-font-color6: #3fada5;
-    --b3-font-color7: var(--b3-theme-secondary);
+    --b3-font-color7: #faad14;
     --b3-font-color8: #a3431f;
     --b3-font-color9: #596ab7;
     --b3-font-color10: #944194;
     --b3-font-color11: #d447c5;
     --b3-font-color12: #ee2e68;
-    --b3-font-color13: var(--b3-theme-background);
+    --b3-font-color13: #fff;
     --b3-font-background1: #FEDADE;
-    --b3-font-background2: var(--b3-card-warning-background);
-    --b3-font-background3: var(--b3-card-info-background);
-    --b3-font-background4: var(--b3-card-success-background);
+    --b3-font-background2: #fce4d2;
+    --b3-font-background3: #F0F4F9;
+    --b3-font-background4: #e5fae5;
     --b3-font-background5: #e2e3e4;
     --b3-font-background6: #d8faff;
     --b3-font-background7: #fef7d2;
@@ -67,7 +67,7 @@
     --b3-font-background10: #e5daff;
     --b3-font-background11: #f5c7f0;
     --b3-font-background12: #FFD8E4;
-    --b3-font-background13: var(--b3-theme-on-background);
+    --b3-font-background13: #202124;
     /* PDF */
     --b3-pdf-sidebar-width: 200px;
     --b3-pdf-offset: 0;
@@ -130,8 +130,8 @@
     --b3-protyle-inline-s-color: #9ba0ad;
     --b3-protyle-inline-link-color: #3375ab;
     --b3-protyle-inline-link-hover-color: #2094f3;
-    --b3-protyle-inline-mark-background: #82d695a8;
-    --b3-protyle-inline-mark-color: #202124;
+    --b3-protyle-inline-mark-background: #C9EDD1;
+    --b3-protyle-inline-mark-color:#202124;
     --b3-protyle-inline-tag-background: #70b3ca;
     --b3-protyle-inline-tag-color: #fff;
     --b3-protyle-inline-code-color: #3779b3;

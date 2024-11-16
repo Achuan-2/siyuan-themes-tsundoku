@@ -165,6 +165,18 @@ border-radius: 6px;
      font-weight: bold;
      color: inherit;
  }
+ /* 高亮 */
+ .b3-typography mark,
+ .b3-typography span[data-type~=mark] {
+     background-color: #C9EDD1;
+     box-shadow: none;
+     border-bottom: 2px solid #37be35;
+     color: #000;
+ }
+ .b3-typography code:not(.hljs),
+ .b3-typography span[data-type~=code]{
+     border-radius: 6px;
+ }
 /* 分割线 */
 .b3-typography hr {
     border: 0;
@@ -187,6 +199,9 @@ border-radius: 6px;
 .b3-typography table th{
         font-size: 13px !important;
 }
+
+
+
 /* ---------------------------------------导出pdf-----------------------------------*/
 
 
@@ -248,4 +263,245 @@ border-radius: 6px;
     color: var(--b3-protyle-inline-link-color);
     text-decoration: none;
     border-bottom: 1px solid var(--custom-link-bottom-color);
+}
+
+
+
+/* 导出到微信公众号引述块优化 */
+.protyle-preview>.b3-typography blockquote[style*='background-color: #fdeaec;']>blockquote {
+    border-left: 0.3em solid #e21e11 !important;
+    color: #b93128;
+}
+
+.protyle-preview>.b3-typography blockquote[style*='background-color: #fce4d2;']>blockquote {
+    border-radius: 0px !important;
+    border-left: 0.3em solid #f1781c !important;
+    color: rgb(102, 60, 0);
+}
+
+.protyle-preview>.b3-typography blockquote[style*='background-color: #F0F4F9']>blockquote {
+    border-left: 0.3em solid #2183ce !important;
+    color: rgb(13, 60, 97);
+}
+
+
+
+.protyle-preview>.b3-typography blockquote[style*='background-color: #e5fae5']>blockquote {
+    border-radius: 0px !important;
+    border-left: 0.3em solid #11ad81 !important;
+    color: rgb(30, 70, 32);
+}
+
+
+
+.protyle-preview>.b3-typography blockquote[style*='background-color: #e2e3e4;']>blockquote {
+    border-radius: 0px !important;
+    border-left: 0.3em solid #878484 !important;
+    color: #878484;
+}
+
+.protyle-preview>.b3-typography blockquote[style*='background-color: #d8faff;']>blockquote {
+    border-radius: 0px !important;
+    border-left: 0.3em solid #3fada5 !important;
+    color: #3fada5;
+}
+
+.protyle-preview>.b3-typography blockquote[style*='background-color: #fef7d2;']>blockquote {
+    border-radius: 0px !important;
+    border-left: 0.3em solid #faad14 !important;
+    color: #faad14;
+}
+
+.protyle-preview>.b3-typography blockquote[style*='background-color: #f0ede0;']>blockquote {
+    border-radius: 0px !important;
+    border-left: 0.3em solid #a3431f !important;
+    color: #a3431f;
+}
+
+.protyle-preview>.b3-typography blockquote[style*='background-color: #e9e9ff;']>blockquote {
+    border-radius: 0px !important;
+    border-left: 0.3em solid #596ab7 !important;
+    color: #596ab7;
+}
+
+.protyle-preview>.b3-typography blockquote[style*='background-color: #e5daff;']>blockquote {
+    border-radius: 0px !important;
+    border-left: 0.3em solid #944194 !important;
+    color: #944194;
+}
+
+.protyle-preview>.b3-typography blockquote[style*='background-color: #f5c7f0;']>blockquote {
+    border-radius: 0px !important;
+    border-left: 0.3em solid #d447c5 !important;
+    color: #d447c5;
+}
+
+.protyle-preview>.b3-typography blockquote[style*='background-color: #FFD8E4;']>blockquote {
+    border-radius: 0px !important;
+    border-left: 0.3em solid #ee2e68 !important;
+    color: #ee2e68;
+}
+
+.protyle-preview>.b3-typography blockquote[style*='background-color: #202124;']>blockquote {
+    border-radius: 0px !important;
+    border-left: 0.3em solid #fff !important;
+    color: #fff !important;
+}
+
+/* 引述块添加卡片背景色，嵌套引述块的border颜色可以进一步修改*/
+.protyle-preview>.b3-typography blockquote blockquote[style*='background-color: #fdeaec'] {
+    border: 0 !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    border-left: 0.3em solid #e21e11 !important;
+    color: #e21e11 !important;
+}
+
+.protyle-preview>.b3-typography blockquote blockquote[style*='background-color: #fce4d2;'] {
+    border: 0 !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    border-left: 0.3em solid #f1781c !important;
+    color: #f1781c !important;
+}
+
+.protyle-preview>.b3-typography blockquote blockquote[style*='background-color: #F0F4F9;'] {
+    border: 0 !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    border-left: 0.3em solid #2183ce !important;
+    color: #2183ce !important;
+}
+
+.protyle-preview>.b3-typography blockquote blockquote[style*='background-color: #e5fae5;'] {
+    border: 0 !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    border-left: 0.3em solid #11ad81 !important;
+    color: #11ad81 !important;
+}
+
+.protyle-preview>.b3-typography blockquote blockquote[style*='background-color: #e2e3e4;'] {
+    border: 0 !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    border-left: 0.3em solid #878484 !important;
+    color: #878484 !important;
+}
+
+.protyle-preview>.b3-typography blockquote blockquote[style*='background-color: #d8faff;'] {
+    border: 0 !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    border-left: 0.3em solid #3fada5 !important;
+    color: #3fada5 !important;
+}
+
+.protyle-preview>.b3-typography blockquote blockquote[style*='background-color: #fef7d2;'] {
+    border: 0 !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    border-left: 0.3em solid #faad14 !important;
+    color: #faad14 !important;
+}
+
+.protyle-preview>.b3-typography blockquote blockquote[style*='background-color: #f0ede0;'] {
+    border: 0 !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    border-left: 0.3em solid #a3431f !important;
+    color: #a3431f !important;
+}
+
+.protyle-preview>.b3-typography blockquote blockquote[style*='background-color: #e9e9ff;'] {
+    border: 0 !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    border-left: 0.3em solid #596ab7 !important;
+    color: #596ab7 !important;
+}
+
+.protyle-preview>.b3-typography blockquote blockquote[style*='background-color: #e5daff;'] {
+    border: 0 !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    border-left: 0.3em solid #944194 !important;
+    color: #944194 !important;
+}
+
+.protyle-preview>.b3-typography blockquote blockquote[style*='background-color: #f5c7f0;'] {
+    border: 0 !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    border-left: 0.3em solid #d447c5 !important;
+    color: #d447c5 !important;
+}
+
+.protyle-preview>.b3-typography blockquote blockquote[style*='background-color: #FFD8E4;'] {
+    border: 0 !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    border-left: 0.3em solid #ee2e68 !important;
+    color: #ee2e68 !important;
+}
+
+.protyle-preview>.b3-typography blockquote blockquote[style*='background-color: #202124;'] {
+    border: 0 !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    border-left: 0.3em solid #202124 !important;
+    color: #202124 !important;
+}
+
+/* 引述块颜色 */
+.protyle-preview>.b3-typography blockquote[style*='background-color: #fdeaec'] {
+    color: #e21e11 !important;
+}
+
+.protyle-preview>.b3-typography blockquote[style*='background-color: #fce4d2;'] {
+    color: #f1781c !important;
+}
+
+.protyle-preview>.b3-typography blockquote[style*='background-color: #F0F4F9;'] {
+    color: #2183ce !important;
+}
+
+.protyle-preview>.b3-typography blockquote[style*='background-color: #e5fae5;'] {
+    color: #11ad81 !important;
+}
+
+.protyle-preview>.b3-typography blockquote[style*='background-color: #e2e3e4;'] {
+    color: #878484 !important;
+}
+
+.protyle-preview>.b3-typography blockquote[style*='background-color: #d8faff;'] {
+    color: #3fada5 !important;
+}
+
+.protyle-preview>.b3-typography blockquote[style*='background-color: #fef7d2;'] {
+    color: #faad14 !important;
+}
+
+.protyle-preview>.b3-typography blockquote[style*='background-color: #f0ede0;'] {
+    color: #a3431f !important;
+}
+
+.protyle-preview>.b3-typography blockquote[style*='background-color: #e9e9ff;'] {
+    color: #596ab7 !important;
+}
+
+.protyle-preview>.b3-typography blockquote[style*='background-color: #e5daff;'] {
+    color: #944194 !important;
+}
+
+.protyle-preview>.b3-typography blockquote[style*='background-color: #f5c7f0;'] {
+    color: #d447c5 !important;
+}
+
+.protyle-preview>.b3-typography blockquote[style*='background-color: #FFD8E4;'] {
+    color: #ee2e68 !important;
+}
+
+.protyle-preview>.b3-typography blockquote[style*='background-color: #202124;'] {
+    color: #202124 !important;
 }
