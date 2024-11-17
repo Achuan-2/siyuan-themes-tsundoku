@@ -254,6 +254,13 @@
 }
 
 
+/* 3.1.12 引述块有了before元素 */
+.b3-typography blockquote:before,
+.b3-typography .bq:before,
+.protyle-wysiwyg blockquote:before,
+.protyle-wysiwyg .bq:before {
+    display: none;
+}
 
 .protyle-wysiwyg [data-node-id].bq > .bq {
     border: none;
@@ -898,4 +905,5 @@ li[data-type='navigation-file'] .counter {
     height: 2px;
     background-color: var(--b3-table-border-color) !important;
 }
+
 
