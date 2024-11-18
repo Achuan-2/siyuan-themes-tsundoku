@@ -253,7 +253,7 @@
 /* 前进后退disable颜色更改 */
 .toolbar__item--disabled,
 .toolbar__item--disabled:hover {
-    color: #acb7b7;
+    color: #929d9d;
     cursor: not-allowed;
 }
 

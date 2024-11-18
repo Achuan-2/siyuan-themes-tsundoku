@@ -767,7 +767,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 /* 前进后退disable颜色更改 */
 .toolbar__item--disabled,
 .toolbar__item--disabled:hover {
-    color: #b6cab9;
+    color: #758e79;
     cursor: not-allowed;
 }
 
