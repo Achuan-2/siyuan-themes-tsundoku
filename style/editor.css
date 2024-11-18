@@ -532,6 +532,7 @@ mark {
 }
 
 [data-theme-mode="light"] .b3-list mark,
+[data-theme-mode="light"] .protyle-wysiwyg [data-node-id] .def--mark,
 [data-theme-mode="light"] .protyle-wysiwyg [data-node-id] span[data-type~=search-mark] {
     background-color: #ffdb98;
     color: var(--b3-protyle-inline-mark-color);
