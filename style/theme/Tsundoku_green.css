@@ -488,18 +488,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     background-color: #3fb6be;
 }
 
-.b3-snackbar__close {
-    position: absolute;
-    color: #fff;
-    font-size: 50%;
-    padding: 4px;
-    /* background-color: bisque; */
-    background-color: #ec8d8deb;
-    border-radius: 16px;
-    cursor: pointer;
-    top: 2px;
-    background-image: url('/appearance/themes/Tsundoku/src/background/paper.png');
-}
+
 
 .b3-snackbar__content svg:hover {
     color: #fff;
