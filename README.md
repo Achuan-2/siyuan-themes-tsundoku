@@ -7,7 +7,7 @@
 <a title="wechat" target="_blank" href="https://mp.weixin.qq.com/s/j2Vp46qRgs5J5maiObvXvg"><img alt="Static Badge" src="https://img.shields.io/badge/Wechat-07C160?logo=wechat&logoColor=fff"></a>
 <a title="bilibili" target="_blank" href="https://space.bilibili.com/349243695"><img  src="https://img.shields.io/badge/Bilibili-E57492?logo=data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAD7ElEQVR4nO2dW9WrMBCFK6ESkFAJSKiESqgEHCABCZWAhEpAAhL2ecik5dDc%2FpXLBDLfWnlqy0xmJ5BMQnq5CIIgCIIgCIIgCIIgCEIBAHQAemYfrgCunD6wAKAHsEKxALgx%2BbCQD8%2FS9tmgVqeDr1lLigDgZvDhXso%2BK9TyTBQRwRJ8AHjntl0Flh5QRAQK%2FmKxPeayWx2OXpBNBKiHvi34b7T2MC4pAvW6twR%2FRwkRKPizBN8CgEcuESj4Lwm%2BBwBjahEk%2BH8EwJRKhOaCDzW8e1JLfkUUH1NgmR3XmHffHR1l%2B72BSs8d7w8U%2BJDAnZERQMcV%2BCtUi7dNqFqibB4J7vtrq7xKCuAasbTMXCL4T%2B5aVk6%2B2xHUrWdhruAR6HIJcOeu2UHI8zyAe2ytWfEdWz9PVvQ8YAmIQ5dDAB9LFsMVAv8oMO2zAGrC5WNIarRiAuKR9jYEd9pY08aa6uUzIHGRdkgKd8pY0yc1WjEBAqypDYoAG0QAZkQAZkQAZkQAZk4vANQenjsSzS3I%2FwcSbXU5jQBUkRtdf4Rar90v8kSv3%2BI3ffCCSpk8I%2Fw%2BlgDkdI%2Fv2rEp2CaiWm1AsDQLlDAD%2BdlFXLMeAaCSeLZdaSFE5VUQNot38cKuEeBgAsSuG0flVZBmEanbXfNQAsS0fgBYIn2fIu3%2FBBMHEyBmDXlFfA8IzeHb%2BEms4WAChKykrVA9ZfsQTL57jXzRg4A5wC%2FA8N4ADiZAZwm2XjW75Qh2KOTfA0p4kygPw28OJcCVgn3nDnYo2EwEYRgGH0qAMyICMCMCMCMCMCMCMCMCMCMCfP3qwHDOQ4AAUekTk8FaBRihJnZdYbvtCGC7LvmkM63GjVDINPFrQgCq5ETXfmMzI90FXzPvfqt7x4rEu%2FZaEcCUxFvgz2zO%2BBUn6UkoaEEAsptiMSX5e8FoRYCN7cVgb4Vq7U%2FH50Pq4JNP7Qiw8UFnJwcK%2BtXy%2BWj6PLEvPgHSHv5UgwA1IQIwwyFAyLJin9RoxYgAzAQIkPwNmf26busC%2BOIx5TDqo5nDT%2BF%2FSS%2F9CYzwb%2BNo49zNy2evkYv0LywGGAXUvp6eSneycqOic0w20k7CNgKE7jJunSGLACTCxF27ylmQc98T5MQUH49swd%2BI0HPXslLKnT0N%2BwnkrTKi9JZL%2FL9i1SorMmdeQ4TQQ7OFMxIMzGD45w8nUL1im7efENZLJpgPSw0pfz0cdt4U3230Td%2FTvx2R6d2FrHhEWLkq5PELOMsRPHCPnAZGv1xJteL7jbJiaW3sB2nDvPC%2FosSYvjRQz4cJ6n7KO3rYQL7M%2BL6nVtfDVRAEQRAEQRAEQRAEIZ5%2FSAXmdfXaoQsAAAAASUVORK5CYII%3D"></a>
 <a title="xiaohongshu" target="_blank" href="https://www.xiaohongshu.com/user/profile/62bf331f000000001b02a6f0"><img alt="Static Badge" src="https://img.shields.io/badge/%E5%B0%8F%E7%BA%A2%E4%B9%A6-FF2442"></a>
-<a title="aifadian" target="_blank" href="https://afdian.net/a/achuan-2"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.swo.moe%2Fstats%2Fafdian%2Fachuan-2&query=count&color=282c34&label=%E7%88%B1%E5%8F%91%E7%94%B5&labelColor=946ce6&suffix=+%E5%8F%91%E7%94%B5%E4%BA%BA%E6%AC%A1+%2F+%E6%9C%88&cacheSeconds=3600">
+
 </a>
 </p>
 
@@ -43,64 +43,6 @@ English  | [中文](./README_zh_CN.md)
 <center>Dark</center>
 
 ## 🚀 CHANGLOGS
-
-v2.0.0 / 2024.03.08
-
-- 🐛 Tables are now default to center, cannot be aligned to the left according to the block menu's layout setting
-
- v1.9.9 / 2024.02.25
-- 📝 docs: center the h1 theme by default, how to align it to the left
-- 💄 ui(database): Set the background color of the custom attribute window to match the editor background
-- 🐛 fix(export): Split export image tags into individual words [#101](https://github.com/Achuan-2/siyuan-themes-tsundoku/issues/101)
-
-v1.9.8 / 2024.02.16
-
-- 🐛 fix (adapting to theme switching): Fixed the issue of incorrect switching between light and dark themes.
-
-v1.9.7 / 2024.02.03
-
-- ✨ feat(JS): Adapted theme switching without refreshing 
-- 📝 docs(README): Add some introduction to theme settings
-- 💄 ui(database): Optimze Green Theme style
-- 💄 ui(database): checkbox column distinguish between checked and unchecked states
-
-
- v1.9.6 / 2024.01.24
-
-- 💄  UI (Light Theme): Custom font style optimization: Adjust the four font colors of red, green, blue, and orange
-- 💄  UI (Green Theme): Set Style Beautification
-- 🔥  Considering that the calendar plugin has been improved, remove the theme calendar function
-
-
-v1.9.4 / 2024.01.16
-
-- 🐛 fix (appearance): change of the list vertical line, there are issues with the list conversion diagram style.
-
-
- v1.9.3 / 2023.01.16
-- 🐛 fix (font customization): Fixed the issue where the Green and Dark themes did not support font customization in code snippets. Now, the themes can support global font settings by placing the font in the plugins folder and using the following code snippet, allowing the font to be used on mobile devices as well:
-  ```css
-  @font-face {
-    font-family: "HanYiKongShanKai";
-    font-style: normal;
-    src: url("plugins/custom-fonts/HanYiKongShanKai.ttf");
-  }
-
-  :root {
-    --b3-font-family: "HanYiKongShanKai", "Helvetica Neue", "Luxi Sans", "DejaVu Sans", "Hiragino Sans GB", "Microsoft Yahei", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols";
-  }
-  ```
-- 🐛 fix (database): Fixed the issue where the selected cell in the database did not display the background color.
-- 🐛 fix (Dark theme): Fixed the issue where specific link icons and code block styles were not loaded.
-- 💄 ui (appearance): Modified the color of `b3-theme-primary-lightest`.
-
-v1.9.2 / 2023.01.14
-* 💄 Adjusted the color of the vertical lines in the list to adapt for PDF export.
-* 🎨 Placed export styles in print.css
-* 💄 Optimized blockquote style
-* 📝 Starting from this version, the English README and CHANGELOG.md will be updated.
-* 🔥Cancel th adjustment of table width.
-
 
 Please see [CHANGELOG](./CHANGELOG.md) for the full update log.
 
