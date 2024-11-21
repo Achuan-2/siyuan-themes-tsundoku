@@ -168,7 +168,7 @@ border-radius: 6px;
  /* 高亮 */
  .b3-typography mark,
  .b3-typography span[data-type~=mark] {
-     background-color: #C9EDD1;
+     background-color: none;
      box-shadow: none;
      border-bottom: 2px solid #37be35;
      color: #000;

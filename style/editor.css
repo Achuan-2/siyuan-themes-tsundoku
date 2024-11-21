@@ -544,7 +544,7 @@ mark {
     transition: color 0.2s ease-in-out;
     background-color: var(--b3-card-success-background);
     border-bottom: 2px solid var(--b3-font-color4); */
-    background: var(--b3-protyle-inline-mark-background);
+    background: none;
     /* box-shadow: 0 -0.3em 0 0 inset var(--b3-protyle-inline-mark-background),
         0 0.1em 0 0 var(--b3-protyle-inline-mark-background); */
     border-bottom: 2px solid var(--b3-font-color4);
