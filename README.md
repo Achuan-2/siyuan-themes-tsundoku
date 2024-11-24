@@ -125,5 +125,5 @@ I use this name to wake myself up, hoping to make good use of Siyuan notes, help
 ## ☎️ Contact
 
 
-If the theme has style problems, please mention the issue in Github or contact me by email (achuan-2@outlook.com). Before raising issue, it is suggested to switch to the default theme, and make sure it is a unique problem of this theme.
+If the theme has style problems, please mention the issue in Github. Before raising issue, it is suggested to switch to the default theme, and make sure it is a unique problem of this theme.
 

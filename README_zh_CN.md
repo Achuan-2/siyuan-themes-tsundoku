@@ -406,7 +406,7 @@ border-bottom: none;
 
 ## ☎️意见交流
 
-若主题存在样式的问题，欢迎在[Github](https://github.com/Achuan-2/siyuan-themes-tsundoku)提issue或是通过邮箱联系我(achuan-2@outlook.com)。在提issue之前建议先切换为默认主题，确定是本主题特有的问题。
+若主题存在样式的问题，欢迎在[Github](https://github.com/Achuan-2/siyuan-themes-tsundoku)提issue。在提issue之前建议先切换为默认主题，确定是本主题特有的问题。
 
 ## 用爱发电
 
