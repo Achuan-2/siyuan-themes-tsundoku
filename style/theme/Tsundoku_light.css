@@ -59,6 +59,8 @@
     /* 提示 */
     --b3-tooltips-color: #fff;
     --b3-tooltips-background: #335c7396;
+    --b3-tooltips-second-color: #fff;
+    --b3-tooltips-shadow: 0 2px 8px rgba(0, 0, 0, .1);
 
     /* 卡片背景 */
     --b3-card-error-color: #b93128;
@@ -133,15 +135,15 @@
     --b3-graph-listitem-point: #f65b00;
     --b3-graph-bq-point: #8d48e3;
     --b3-graph-super-point: #dd79ff;
-    --b3-graph-doc-point: #202124;
+    --b3-graph-doc-point: #888888;
     --b3-graph-tag-point: #dbf32f;
     --b3-graph-asset-point: #05c091;
     --b3-graph-line: #5f6368;
-    --b3-graph-ref-line: #d23f31;
+    --b3-graph-ref-line: #1da1aa;
     --b3-graph-tag-line: #5f6b06;
     --b3-graph-tag-tag-line: #dbf32f;
     --b3-graph-asset-line: #037457;
-    --b3-graph-hl-point: #f3a92f;
+    --b3-graph-hl-point: #4dc362;
     --b3-graph-hl-line: #4285f4;
 
     /* 编辑器搜索颜色 */

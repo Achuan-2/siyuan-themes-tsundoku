@@ -44,6 +44,7 @@
     /* 提示 */
     --b3-tooltips-color: #f5f4f4;
     --b3-tooltips-background: #07899d9f;
+    --b3-tooltips-second-color: #f5f4f4;
 
     /* 卡片背景 */
     --b3-card-error-color: #fda8a2;

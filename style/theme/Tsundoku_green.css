@@ -54,6 +54,8 @@
     /* 提示 */
     --b3-tooltips-color: #fff;
     --b3-tooltips-background: rgba(16, 63, 44, 0.5);
+    --b3-tooltips-second-color: #fff;
+    --b3-tooltips-shadow: 0 2px 8px rgba(0, 0, 0, .1);
 
     /* 卡片背景 */
     --b3-card-error-color: rgb(97, 26, 21);
