@@ -891,7 +891,7 @@ li[data-type='navigation-file'] .counter {
 
 
 /* 分割线设置不要占满编辑器宽度 */
-.protyle-wysiwyg [data-node-id].hr {
+/* .protyle-wysiwyg [data-node-id].hr {
     display: flex;
     justify-content: center;
 }
@@ -899,7 +899,7 @@ li[data-type='navigation-file'] .counter {
 .protyle-wysiwyg [data-node-id].hr>div {
     width: 50%;
     padding-left: 0%;
-}
+} */
 
 /* 分割线样式 */
 .protyle-wysiwyg [data-node-id].hr>div:after {
