@@ -131,7 +131,7 @@
     --b3-protyle-inline-link-color: #3375ab;
     --b3-protyle-inline-link-hover-color: #2094f3;
     --b3-protyle-inline-mark-background: #C9EDD1;
-    --b3-protyle-inline-mark-color:#202124;
+    --b3-protyle-inline-mark-color: #202124;
     --b3-protyle-inline-tag-background: #70b3ca;
     --b3-protyle-inline-tag-color: #fff;
     --b3-protyle-inline-code-color: #3779b3;
@@ -167,14 +167,14 @@
     --custom-link-bottom-color: #3375ab;
 }
 
-.render-node[data-subtype='graphviz'] .graph > polygon {
+.render-node[data-subtype='graphviz'] .graph>polygon {
     fill: transparent;
 }
 
 /* ----------------------导出样式------------------- */
 
 /* 导出pdf右侧的面板 */
-body > #action {
+body>#action {
     width: 200px;
     background: #dde4e873;
     padding: 16px;
@@ -184,6 +184,7 @@ body > #action {
     overflow: auto;
     bottom: 0;
 }
+
 .protyle-preview__action button,
 .protyle-preview__action button.protyle-preview__action--current,
 .protyle-preview__action button:hover {
@@ -199,19 +200,20 @@ body {
 
 
 /*  ------------------------------更改空行提示------------------------------ */
-.protyle-wysiwyg [data-node-id]:not(.code-block) > [spellcheck='false']:empty:after {
+.protyle-wysiwyg [data-node-id]:not(.code-block)>[spellcheck='false']:empty:after {
     /* 避免代码块也出现空行提示  */
     content: '';
     color: #9fa5a675;
 }
+
 /* 空列表出现提示 */
-.protyle-wysiwyg [data-subtype='t'] > .li > .p:nth-of-type(2) > [spellcheck='false']:empty:after {
+.protyle-wysiwyg [data-subtype='t']>.li>.p:nth-of-type(2)>[spellcheck='false']:empty:after {
     content: 'To-do';
     color: #9fa5a675;
 }
 
-.protyle-wysiwyg [data-subtype='u'] > .li > .p:nth-of-type(2) > [spellcheck='false']:empty:after,
-.protyle-wysiwyg [data-subtype='o'] > .li > .p:nth-of-type(2) > [spellcheck='false']:empty:after {
+.protyle-wysiwyg [data-subtype='u']>.li>.p:nth-of-type(2)>[spellcheck='false']:empty:after,
+.protyle-wysiwyg [data-subtype='o']>.li>.p:nth-of-type(2)>[spellcheck='false']:empty:after {
     content: 'List';
     color: #9fa5a675;
 }
@@ -220,10 +222,12 @@ body {
 .toolbar__text {
     color: var(--b3-theme-on-background);
 }
+
 /* 闪卡 */
 .protyle-wysiwyg [data-node-id][custom-riff-decks] {
     box-shadow: 4px 0px 0px -1px var(--b3-protyle-inline-mark-background);
 }
+
 /* HTML提示 */
 .fn__code,
 .b3-typography code:not(.hljs),
@@ -236,18 +240,18 @@ body {
 }
 
 /* 导出pdf右侧选项背景 */
-body > div#action {
+body>div#action {
     background: var(--b3-theme-background) !important;
 }
 
 /* Optimize the style of closed notebooks */
-.file-tree__close > li {
+.file-tree__close>li {
     opacity: 0.6;
     /* font-weight: bolder; */
     /* text-shadow: 0 0 1px #202124; */
 }
 
-.file-tree__close.fn__flex-1 > li {
+.file-tree__close.fn__flex-1>li {
     opacity: 1;
     border-top: 1px solid var(--b3-border-color);
 }
@@ -266,6 +270,7 @@ body > div#action {
     background-color: transparent;
     border-radius: 0px;
 }
+
 .b3-list--files .b3-list-item__icon:hover::after,
 .b3-list--files .b3-list-item__icon:hover::before {
     opacity: 0;
@@ -304,6 +309,7 @@ body > div#action {
     background-repeat: no-repeat;
     background-position: left 1px top 4px;
 }
+
 .file-tree [data-type='new']:hover {
     background-color: #d3e2e671;
 }
@@ -343,6 +349,7 @@ body > div#action {
     font-weight: 600;
     color: var(--b3-menu-highlight-focus-color);
 }
+
 /* 加强笔记本强调 */
 
 .b3-list--files [data-type='navigation-root'] .b3-list-item__text,
@@ -350,6 +357,7 @@ body > div#action {
     font-weight: 600;
     color: var(--b3-menu-highlight-focus-color);
 }
+
 .b3-list--files [data-type='navigation-root'] .b3-list-item__toggle {
     color: var(--b3-menu-highlight-focus-color);
 }
@@ -363,6 +371,7 @@ body > div#action {
     opacity: 1;
     color: var(--custom-h1-color) !important;
 }
+
 .file-tree ul.b3-list.b3-list--background [data-subtype='h2'] .b3-list-item__text,
 .file-tree ul.b3-list.b3-list--background [data-subtype='h2'] .b3-list-item__graphic,
 .file-tree ul.b3-list.b3-list--background [data-subtype='h2'] {
@@ -370,6 +379,7 @@ body > div#action {
     font-weight: 600;
     color: var(--custom-h2-color) !important;
 }
+
 .file-tree ul.b3-list.b3-list--background [data-subtype='h3'] .b3-list-item__text,
 .file-tree ul.b3-list.b3-list--background [data-subtype='h3'] .b3-list-item__graphic,
 .file-tree ul.b3-list.b3-list--background [data-subtype='h3'] {
@@ -377,26 +387,31 @@ body > div#action {
     font-weight: 600;
     color: var(--custom-h3-color) !important;
 }
+
 .file-tree ul.b3-list.b3-list--background [data-subtype='h4'] .b3-list-item__text,
 .file-tree ul.b3-list.b3-list--background [data-subtype='h4'] .b3-list-item__graphic,
 .file-tree ul.b3-list.b3-list--background [data-subtype='h4'] {
     color: var(--custom-h4-color);
 }
+
 .file-tree ul.b3-list.b3-list--background [data-subtype='h5'] .b3-list-item__text,
 .file-tree ul.b3-list.b3-list--background [data-subtype='h5'] .b3-list-item__graphic,
 .file-tree ul.b3-list.b3-list--background [data-subtype='h5'] {
     opacity: 1;
     color: var(--custom-h5-color);
 }
+
 .file-tree ul.b3-list.b3-list--background [data-subtype='h6'] .b3-list-item__text,
 .file-tree ul.b3-list.b3-list--background [data-subtype='h6'] .b3-list-item__graphic,
 .file-tree ul.b3-list.b3-list--background [data-subtype='h6'] {
     opacity: 1;
     color: var(--custom-h6-color);
 }
+
 .file-tree .b3-list--background .b3-list-item .b3-list-item__text:hover {
     color: var(--b3-menu-highlight-color) !important;
 }
+
 .file-tree .b3-list--background .b3-list-item--focus .b3-list-item__text {
     color: inherit !important;
     opacity: 1 !important;
@@ -407,6 +422,7 @@ body > div#action {
     transform: scale(1.2);
     transition: all 0.1s ease-in-out;
 }
+
 /* -------------------主题增强面板区分度-------------------- */
 
 /* 修复1.4.2 文件树列表focus高亮问题 */
@@ -418,6 +434,7 @@ body > div#action {
 .file-tree .dragover__bottom {
     box-shadow: 0 2px 0 rgba(44, 160, 255, 0.726), inset 0px -2px 0 rgba(44, 160, 255, 0.726);
 }
+
 .file-tree .dragover__top {
     box-shadow: 0 -2px 0 rgba(44, 160, 255, 0.726), inset 0px 2px 0 rgba(44, 160, 255, 0.726);
 }
@@ -456,15 +473,7 @@ body > div#action {
 }
 
 /* Ctrl的搜索设置按钮  */
-body
-    > div.b3-dialog--open
-    > div
-    > div.b3-dialog__container
-    > div:nth-child(3)
-    > div
-    > div.fn__flex-column
-    > div.fn__flex.b3-form__space--small
-    > span.b3-tooltips.b3-tooltips__nw.fn__flex-center {
+body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.fn__flex-column>div.fn__flex.b3-form__space--small>span.b3-tooltips.b3-tooltips__nw.fn__flex-center {
     font-size: 50%;
 }
 
@@ -498,6 +507,7 @@ body
     color: var(--b3-menu-highlight-color);
     background-color: transparent;
 }
+
 .b3-list--files .b3-list-item:hover .b3-list-item__text,
 .b3-list--files .b3-list-item:hover .b3-list-item__graphic {
     color: var(--b3-menu-highlight-color);
@@ -510,6 +520,7 @@ body
     /* font-weight: bold; */
     transition: all 0.1s ease-in-out;
 }
+
 .b3-list--files .b3-list-item--focus .b3-list-item__text {
     color: var(--b3-menu-highlight-focus-color);
     font-weight: bold;
@@ -517,6 +528,7 @@ body
 
     /* border-radius: 15px 15px 15px 15px; */
 }
+
 .b3-list--files .b3-list-item--focus .b3-list-item__graphic {
     color: var(--b3-menu-highlight-focus-color);
 }
@@ -530,6 +542,7 @@ body
     color: var(--b3-menu-highlight-color);
     background-color: var(--b3-list-hover);
 }
+
 .b3-list--background .b3-list-item:hover .b3-list-item__text,
 .b3-list--background .b3-list-item:hover .b3-list-item__graphic {
     color: var(--b3-menu-highlight-color);
@@ -541,10 +554,12 @@ body
     color: var(--b3-menu-highlight-focus-color);
     font-weight: bold;
 }
+
 .b3-list--background .b3-list-item--focus .b3-list-item__text {
     color: var(--b3-menu-highlight-focus-color);
     font-weight: bold;
 }
+
 .b3-list--background .b3-list-item--focus .b3-list-item__graphic {
     color: var(--b3-menu-highlight-focus-color);
 }
@@ -576,10 +591,10 @@ body
 .b3-menu__item--current {
     background-color: #cddce3;
 }
-.b3-menu__item:hover:not(.b3-menu__item--readonly):not(.b3-menu__item--custom) > .b3-menu__label,
-.b3-menu__item:hover:not(.b3-menu__item--readonly):not(.b3-menu__item--custom) > .b3-menu__icon,
-.b3-menu__item:hover:not(.b3-menu__item--readonly):not(.b3-menu__item--custom)
-    > .b3-menu__accelerator {
+
+.b3-menu__item:hover:not(.b3-menu__item--readonly):not(.b3-menu__item--custom)>.b3-menu__label,
+.b3-menu__item:hover:not(.b3-menu__item--readonly):not(.b3-menu__item--custom)>.b3-menu__icon,
+.b3-menu__item:hover:not(.b3-menu__item--readonly):not(.b3-menu__item--custom)>.b3-menu__accelerator {
     color: var(--b3-menu-highlight-focus-color);
     /* font-weight: 600; */
 }
@@ -599,11 +614,13 @@ body
 .b3-button--outline:focus {
     background-color: #848b8c3d;
 }
+
 /* 悬浮工具栏 */
 .protyle-toolbar__item:hover {
     background-color: var(--b3-menu-highlight-background);
     color: var(--b3-menu-highlight-color);
 }
+
 .protyle-toolbar__item--current,
 .protyle-toolbar__item--current:hover {
     color: #04a0bf;
@@ -626,6 +643,7 @@ body
     color: #fff;
     background-color: #3fb6be;
 }
+
 .b3-snackbar--error .b3-snackbar__content {
     background-color: var(--b3-theme-error);
     color: var(--b3-theme-on-error);
@@ -654,10 +672,12 @@ body
 .b3-select {
     background-color: #d8e0e5;
 }
+
 .b3-select option {
     background-color: #f3f5f7;
     border-radius: 10%;
 }
+
 .b3-select option:hover {
     background-color: #dfe6ea !important;
 }
@@ -669,12 +689,14 @@ body
     color: #588699;
     font-weight: 500;
 }
+
 .b3-dialog__container a:hover,
 .b3-dialog__container .b3-card__info a:hover {
     outline: 0;
     text-decoration: underline;
     color: var(--b3-menu-highlight-color);
 }
+
 .b3-dialog__container .b3-card__info a {
     color: #34495e;
     text-decoration: none;
@@ -685,18 +707,22 @@ body
 .b3-dialog__container .b3-dialog__close {
     color: #8493a6;
 }
+
 .b3-dialog__container .b3-dialog__close:hover {
     color: #225494;
 }
+
 .b3-dialog__container svg:hover {
     color: var(--b3-menu-highlight-color);
     background: transparent;
     /* transform: scale(1.2); */
     transition: all 0.1s ease-in-out;
 }
+
 .b3-dialog__container svg.b3-dialog__close:hover {
     transform: scale(1.2);
 }
+
 .b3-dialog__container svg {
     transition: all 0.1s ease-in-out;
 }
@@ -705,12 +731,14 @@ body
     /* 块引用预览背景颜色 */
     transition: background-color 0.5s linear;
 }
+
 .protyle-title__input,
 .layout__wnd--active .protyle-content,
 .layout__wnd--active .protyle-title .protyle-title__input {
     /* 当前编辑窗口保持主背景色 */
     background-color: transparent;
 }
+
 /* 如果页签文字太长避免出现隐藏掉的文字 */
 .layout-tab-bar .item__text {
     padding: 4px 0px 0px 8px;
@@ -736,6 +764,7 @@ body
     font-size: 0.7em;
     opacity: 0.7;
 }
+
 /* ----------------------------标签页、页签样式 Start----------------------------------------- */
 
 .layout-tab-bar {
@@ -758,7 +787,7 @@ body
     color: var(--b3-menu-highlight-focus-color);
 }
 
-.layout__wnd--active .layout-tab-bar .item--focus > .item__text {
+.layout__wnd--active .layout-tab-bar .item--focus>.item__text {
     color: var(--b3-menu-highlight-focus-color);
 }
 
@@ -775,6 +804,7 @@ body
 .b3-dialog__container .layout-tab-bar .item--focus {
     box-shadow: none !important;
 }
+
 /* hover页签背景色 */
 .layout-tab-bar .item:hover:not(.item--focus):not(.item--readonly) {
     background-color: var(--custom-tab-hover-background);
@@ -808,16 +838,19 @@ body
 .b3-list--files .b3-list-item__icon {
     transition: all 0.1s ease-in-out;
 }
+
 .b3-list--files .b3-list-item__icon:hover {
     transform: scale(1.2);
     transition: all 0.1s ease-in-out;
 }
+
 /* dock栏和顶部图标放大动效 */
 .dock--vertical .dock__item:hover svg,
 .toolbar__item:hover svg {
     transform: scale(1.1);
     transition: all 0.1s ease-in-out;
 }
+
 .block__icon:hover svg {
     transform: scale(0.9) !important;
 }
@@ -827,14 +860,17 @@ body
 .block__icon svg {
     transition: all 0.1s ease-in-out;
 }
+
 /* 文档树文字放大 */
 .b3-list--files .b3-list-item__text:hover {
     /* transform: scale(1.01); */
     transition: all 0.1s ease-in-out;
 }
+
 .b3-list--files .b3-list-item__text {
     transition: all 0.1s ease-in-out;
 }
+
 /* 文档树区分有子文档和无子文档的文档 */
 .b3-list-item.b3-list-item--hide-action .b3-list-item__toggle.fn__hidden::before {
     content: '✧';
@@ -844,6 +880,7 @@ body
     transition: var(--b3-transition);
     margin-bottom: 2px;
 }
+
 /* 取消默认的隐藏效果 */
 .file-tree--leave .b3-list-item__graphic--arrow:not(.fn__hidden) {
     opacity: 1;
@@ -860,12 +897,14 @@ body
 #configBazaarReadme a::before {
     content: none !important;
 }
+
 /* 代码块样式 */
 #configBazaarReadme code.hljs {
     background-color: var(--b3-protyle-code-background);
     box-shadow: 0 0 0 1px rgb(0 0 0 / 8%);
     border: 2px solid rgb(0 0 0 / 8%);
 }
+
 /* ------------集市Readme-End----------*/
 
 
@@ -874,6 +913,7 @@ body
 .file-tree .dragover__bottom {
     box-shadow: 0 2px 0 rgba(44, 160, 255, 0.726), inset 0px -2px 0 rgba(44, 160, 255, 0.726);
 }
+
 .file-tree .dragover__top {
     box-shadow: 0 -2px 0 rgba(44, 160, 255, 0.726), inset 0px 2px 0 rgba(44, 160, 255, 0.726);
 }
@@ -904,7 +944,7 @@ body
 }
 
 /* 取消2.7.7 更新的待办列表完成样式 */
-.protyle-wysiwyg .protyle-task--done > div:not([data-subtype='t']) {
+.protyle-wysiwyg .protyle-task--done>div:not([data-subtype='t']) {
     /* color: var(--b3-theme-on-surface-light); */
     /* text-decoration: line-through; */
     text-decoration: none !important;
@@ -966,11 +1006,13 @@ body
     padding: 16px;
     justify-content: center;
 }
+
 #configBazaarReadme .item__side>div:last-child {
     flex-grow: 0;
 }
-#configBazaarReadme .item__side>div:first-child{
-        position: absolute;
+
+#configBazaarReadme .item__side>div:first-child {
+    position: absolute;
     top: 16px;
 }
 
@@ -989,7 +1031,8 @@ body
     margin-right: 4px;
     flex-shrink: 0;
 }
-.protyle-background__action .b3-button{
+
+.protyle-background__action .b3-button {
     font-size: 14px;
 
 }
@@ -1018,7 +1061,7 @@ body
 
 /* 文档图标取消圆角 */
 .layout-tab-bar .item__icon>img,
-.layout-tab-bar .item__icon>svg{
+.layout-tab-bar .item__icon>svg {
     border-radius: 0;
 }
 
@@ -1027,5 +1070,4 @@ body
 .layout-tab-bars--drag>.layout-tab-bar {
     background-color: transparent;
 }
-
 
