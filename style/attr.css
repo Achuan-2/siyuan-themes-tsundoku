@@ -263,11 +263,17 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
     opacity: 0 !important;
 }
 .protyle-wysiwyg .code-block[custom-code="output"]{
+    width: 98%;
     background-color: transparent;
-    margin: 0 0 1em 0 !important;
-    padding: 0.6em 1em 0.6em !important;
+    margin: 0 auto 1em auto !important;
+    padding: 0;
 }
 .protyle-wysiwyg .code-block[custom-code="output"] .hljs{
     background-color: transparent !important;
+    padding: 0.6em 1em 0.6em !important;
 
+}
+
+.protyle-wysiwyg .code-block[custom-code="output"] .hljs[contenteditable="true"]{
+        word-break: break-all !important;
 }

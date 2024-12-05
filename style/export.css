@@ -136,6 +136,7 @@
     border: 1px solid #e8e8e8;
     color: rgb(13, 60, 97);
     border-radius: 7px !important;
+    margin: 0.5em 0;
 }
 
 .protyle-preview>.b3-typography blockquote>blockquote {
