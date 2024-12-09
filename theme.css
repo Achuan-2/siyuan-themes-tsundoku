@@ -1071,8 +1071,3 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
     background-color: transparent;
 }
 
-
-.protyle-wysiwyg::highlight(search-mark){
-    background-color: red !important;
-    box-shadow: 0 0 0 .5px var(--b3-theme-on-background);
-}
