@@ -952,9 +952,9 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
 }
 
 /* 取消搜索面板预览不展示link icon */
-#searchPreview .protyle-wysiwyg [data-node-id] span[data-type~='a']:not(:empty)::before {
+/* #searchPreview .protyle-wysiwyg [data-node-id] span[data-type~='a']:not(:empty)::before {
     display: none;
-}
+} */
 
 .b3-typography .img,
 .protyle-wysiwyg .img {
@@ -1071,3 +1071,8 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
     background-color: transparent;
 }
 
+
+.protyle-wysiwyg::highlight(search-mark){
+    background-color: red !important;
+    box-shadow: 0 0 0 .5px var(--b3-theme-on-background);
+}
