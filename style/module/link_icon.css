@@ -100,11 +100,11 @@
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/file.svg');
 }
 
-.protyle-wysiwyg [data-node-id] span[data-type~='a']:is([data-href ^="assets/"], [data-href ^="file://"]):is([data-href $=".zip"],[data-href $=".tar"],[data-href $=".rar"],):not(:empty)::before,
-.protyle-wysiwyg [data-node-id] span[data-type~='url']:is([data-href ^="assets/"], [data-href ^="file://"]):is([data-href $=".zip"],[data-href $=".tar"],[data-href $=".rar"]):not(:empty)::before,
-.protyle-wysiwyg [data-node-id] a:is([href ^="assets/"], [href ^="file://"]):is([href $=".zip"],[href $=".tar"],[href $=".rar"])::before,
-.b3-typography a:is([href ^="assets/"], [href ^="file://"]):is([href $=".zip"],[href $=".tar"],[href $=".rar"])::before,
-.av__celltext--url:is([data-url $=".zip"],[data-url $=".tar"],[data-url $=".rar"])::before {
+.protyle-wysiwyg [data-node-id] span[data-type~='a']:is([data-href ^="assets/"], [data-href ^="file://"]):is([data-href $=".zip"],[data-href $=".tar"],[data-href $=".rar"],[data-href $=".7z"]):not(:empty)::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='url']:is([data-href ^="assets/"], [data-href ^="file://"]):is([data-href $=".zip"],[data-href $=".tar"],[data-href $=".rar"],[data-href $=".7z"]):not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a:is([href ^="assets/"], [href ^="file://"]):is([href $=".zip"],[href $=".tar"],[href $=".rar"],[href $=".7z"])::before,
+.b3-typography a:is([href ^="assets/"], [href ^="file://"]):is([href $=".zip"],[href $=".tar"],[href $=".rar"],[href $=".7z"])::before,
+.av__celltext--url:is([data-url $=".zip"],[data-url $=".tar"],[data-url $=".rar"],[data-url $=".7z"])::before {
     content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/compress.svg');
 }
