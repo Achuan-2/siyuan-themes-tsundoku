@@ -508,7 +508,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 .b3-dialog__container .b3-list--background .b3-list-item--focus {
     background-color: #bfdcc2 !important;
-    border-radius: 16px 10% 10% 16px;
+    /* border-radius: 16px 10% 10% 16px; */
     /* border-radius: 10%; */
 }
 /* 调整设置的select按钮 */
