@@ -89,7 +89,7 @@ span[data-type='av-add-more']:hover {
 }
 
 /* 数据库图片全宽展示 */
-img.av__cellassetimg {
+/* img.av__cellassetimg {
     max-height: inherit;
     border-radius: var(--b3-border-radius);
     margin: 1px 2px;
@@ -104,4 +104,22 @@ img.av__cellassetimg {
 }
 .custom-attr .av__cellassetimg {
     max-height: none;
+} */
+
+.av__cell[data-dtype="mAsset"] {
+    display: flex;
+    flex-wrap: nowrap;
+    /* 防止图片换行 */
+    align-items: center;
+    /* 垂直居中 */
+}
+
+.av__cell[data-dtype="mAsset"] .av__cellassetimg {
+    flex: 1;
+    max-height: none;
+    /* 平均分配宽度 */
+    height: auto;
+    /* 保持图片宽高比 */
+    max-width: 100%;
+    /* 防止图片超出容器宽度 */
 }
