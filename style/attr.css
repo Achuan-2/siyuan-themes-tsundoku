@@ -262,12 +262,16 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 .protyle-wysiwyg .code-block[custom-code="output"] .protyle-action .protyle-action__language{
     opacity: 0 !important;
 }
-.protyle-wysiwyg .code-block[custom-code="output"]{
+
+.protyle-wysiwyg .code-block[custom-code="output"] {
     width: 98%;
     background-color: transparent;
-    margin: 0 auto 1em auto !important;
+    /* margin: 0 auto 1em auto !important; */
+    margin-top: 0 !important;
     padding: 0;
+    margin-bottom: 1em !important;
 }
+
 .protyle-wysiwyg .code-block[custom-code="output"] .hljs{
     background-color: transparent !important;
     padding: 0.6em 1em 0.6em !important;
