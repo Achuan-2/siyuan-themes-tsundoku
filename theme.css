@@ -435,13 +435,14 @@ body>div#action {
 }
 
 /* 文件树拖拽增强 */
-.file-tree .dragover__bottom {
+/* .file-tree .dragover__bottom {
     box-shadow: 0 2px 0 rgba(44, 160, 255, 0.726), inset 0px -2px 0 rgba(44, 160, 255, 0.726);
 }
 
 .file-tree .dragover__top {
     box-shadow: 0 -2px 0 rgba(44, 160, 255, 0.726), inset 0px 2px 0 rgba(44, 160, 255, 0.726);
-}
+    
+} */
 
 /* 前进后退disable颜色更改 */
 .toolbar__item--disabled,
@@ -906,13 +907,13 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
 
 
 /* 文件树拖拽增强 */
-.file-tree .dragover__bottom {
+/* .file-tree .dragover__bottom {
     box-shadow: 0 2px 0 rgba(44, 160, 255, 0.726), inset 0px -2px 0 rgba(44, 160, 255, 0.726);
 }
 
 .file-tree .dragover__top {
     box-shadow: 0 -2px 0 rgba(44, 160, 255, 0.726), inset 0px 2px 0 rgba(44, 160, 255, 0.726);
-}
+} */
 
 
 
