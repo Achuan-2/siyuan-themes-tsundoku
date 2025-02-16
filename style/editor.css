@@ -289,7 +289,7 @@
 }
 
 .protyle-wysiwyg [data-node-id].bq div.code-block {
-    margin-left: 1rem;
+    /* margin-left: 1rem; */
 }
 
 .protyle-wysiwyg [data-node-id].li .bq>.list {
