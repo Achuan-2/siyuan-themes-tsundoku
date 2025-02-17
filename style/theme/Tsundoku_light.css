@@ -296,3 +296,12 @@
 .bq .code-block {
     background: #f6f8fa66 !important;
 }
+
+/* 透明图片查看大图的背景为白色 */
+.viewer-canvas>img {
+    height: auto;
+    margin: 15px auto;
+    max-width: 90% !important;
+    width: auto;
+    background: #fff;
+}
