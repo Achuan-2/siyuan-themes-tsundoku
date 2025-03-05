@@ -1,4 +1,10 @@
 
+## v2.5.2 / 2025.03.05
+- ✨feat(linkicon): 添加drawio、png、、jpg、jpeg、tif图片后缀
+
+---
+- ✨feat(linkicon): add drawio, png, jpg, jpeg, tif image suffix
+
 ## v2.5.1 / 2025.02.16
 - ✨ Tsundoku主题列表三级标题字数太长会错乱
 - 🐛fix：拖拽文档树和标题出现多余的高亮
