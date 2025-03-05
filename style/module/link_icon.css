@@ -109,6 +109,25 @@
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/compress.svg');
 }
 
+/* 添加drawio文件图标 */
+.protyle-wysiwyg [data-node-id] span[data-type~='a']:is([data-href ^="assets/"], [data-href ^="file://"]):is([data-href $=".drawio"],[data-href $=".drawio.svg"],[data-href $=".drawio.png"]):not(:empty)::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='url']:is([data-href ^="assets/"], [data-href ^="file://"]):is([data-href $=".drawio"],[data-href $=".drawio.svg"],[data-href $=".drawio.png"]):not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a:is([href ^="assets/"], [href ^="file://"]):is([href $=".drawio"],[href $=".drawio.svg"],[href $=".drawio.png"])::before,
+.b3-typography a:is([href ^="assets/"], [href ^="file://"]):is([href $=".drawio"],[href $=".drawio.svg"],[href $=".drawio.png"])::before,
+.av__celltext--url:is([data-url $=".drawio"],[data-url $=".drawio.svg"],[data-url $=".drawio.png"])::before {
+    content: '';
+    background-image: url('/appearance/themes/Tsundoku/src/link_icon/drawio.svg');
+}
+/* 添加jpg、png、jpeg、tif文件图标 */
+.protyle-wysiwyg [data-node-id] span[data-type~='a']:is([data-href ^="assets/"], [data-href ^="file://"]):is([data-href $=".jpg"],[data-href $=".jpeg"],[data-href $=".png"],[data-href $=".tif"]):not(:empty)::before,
+.protyle-wysiwyg [data-node-id] span[data-type~='url']:is([data-href ^="assets/"], [data-href ^="file://"]):is([data-href $=".jpg"],[data-href $=".jpeg"],[data-href $=".png"],[data-href $=".tif"]):not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a:is([href ^="assets/"], [href ^="file://"]):is([href $=".jpg"],[href $=".jpeg"],[href $=".png"],[href $=".tif"])::before,
+.b3-typography a:is([href ^="assets/"], [href ^="file://"]):is([href $=".jpg"],[href $=".jpeg"],[href $=".png"],[href $=".tif"])::before,
+.av__celltext--url:is([data-url $=".jpg"],[data-url $=".jpeg"],[data-url $=".png"],[data-url $=".tif"])::before {
+    content: '';
+    background-image: url('/appearance/themes/Tsundoku/src/link_icon/img.svg');
+}
+/* 添加pdf文件图标 */
 .protyle-wysiwyg [data-node-id] span[data-type~='a']:is([data-href ^="assets/"], [data-href ^="file://"])[data-href $=".pdf"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] span[data-type~='url']:is([data-href ^="assets/"], [data-href ^="file://"])[data-href $=".pdf"]:not(:empty)::before,
 .protyle-wysiwyg [data-node-id] a:is([href ^="assets/"], [href ^="file://"])[href $=".pdf"]::before,
