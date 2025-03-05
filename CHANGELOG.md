@@ -1,9 +1,13 @@
 
 ## v2.5.2 / 2025.03.05
 - ✨feat(linkicon): 添加drawio、png、、jpg、jpeg、tif图片后缀
+- 💄 style(列表转导图)：优化任务列表样式
+- 💄 style(编辑器): 透明图片查看大图的背景为白色
 
 ---
 - ✨feat(linkicon): add drawio, png, jpg, jpeg, tif image suffix
+- 💄 style(list2map): optimize task list style
+- 💄 style(editor): the background of the large image view of the transparent image is white
 
 ## v2.5.1 / 2025.02.16
 - ✨ Tsundoku主题列表三级标题字数太长会错乱
