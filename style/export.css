@@ -199,12 +199,7 @@
     border-radius: 6px;
 }
 
-/* 分割线 */
-.b3-typography hr {
-    border: 0;
-    border-bottom: 1px solid #d1d3d6;
-    margin: 21px 213px;
-}
+
 
 /* 表格 */
 .b3-typography table {
