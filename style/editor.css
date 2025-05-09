@@ -505,9 +505,17 @@ div[data-subtype='t'][data-type='NodeList'] {
 /* 调整超级块的块间距  END*/
 
 /* -----------------------分割线----------------------- */
-/* .protyle-wysiwyg [data-node-id].hr > div {
-    border-bottom: 2.5px solid #bbc1c18c;
-} */
+.protyle-wysiwyg [data-node-id].hr>div{
+    text-align: center;
+}
+.protyle-wysiwyg [data-node-id].hr>div:after {
+    height: 8px !important;
+    background-color: transparent!important;
+    background-image: url(/appearance/themes/Tsundoku/src/hr/hr.png);
+    background-repeat: no-repeat;
+    /* 让背景居中 */
+    background-position: center;
+}
 
 /* --------------------------------------------------------------------------------------------- */
 /* ------------------------------------块样式设置：End-------------------------------------- */
@@ -901,10 +909,5 @@ li[data-type='navigation-file'] .counter {
     padding-left: 0%;
 } */
 
-/* 分割线样式 */
-.protyle-wysiwyg [data-node-id].hr>div:after {
-    height: 2px;
-    background-color: var(--b3-table-border-color) !important;
-}
 
 
