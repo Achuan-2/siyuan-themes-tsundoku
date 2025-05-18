@@ -1,4 +1,12 @@
 
+## v2.5.3 / 2025.05.18
+- 💄style(editor): 添加回标记样式的背景样式
+- 🔥 style(theme): 取消light主题鼠标划选字体变白样式，会造成代码块文字隐藏
+- 💄style(editor): 修改分割线样式，设置背景图
+- ✨ 数据库资源列支持显示链接icon
+
+
+
 ## v2.5.2 / 2025.03.05
 - ✨feat(linkicon): 添加drawio、png、、jpg、jpeg、tif图片后缀
 - 💄 style(列表转导图)：优化任务列表样式
