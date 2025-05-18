@@ -200,17 +200,16 @@
 }
 
 /* 分割线 */
-.b3-typography hr {
+/* .b3-typography hr {
     border: 0;
     width: 100%;
     height: 8px !important;
     background-color: transparent !important;
     background-image: url(https://i0.hdslb.com/bfs/article/71bf2cd56882a2e97f8b3477c9256f8b09f361d3.png);
     background-repeat: no-repeat;
-    /* 让背景居中 */
     background-position: center;
     margin: auto;
-}
+} */
 
 /* 表格 */
 .b3-typography table {

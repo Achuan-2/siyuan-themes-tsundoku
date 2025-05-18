@@ -511,7 +511,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 .protyle-wysiwyg [data-node-id].hr>div:after {
     height: 8px !important;
     background-color: transparent!important;
-    background-image: url(/appearance/themes/Tsundoku/src/hr/hr.png);
+    background-image: url(/appearance/themes/Tsundoku/src/hr/hr2.png);
     background-repeat: no-repeat;
     /* 让背景居中 */
     background-position: center;
