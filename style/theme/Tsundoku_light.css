@@ -237,10 +237,10 @@
 
 
 /* 鼠标划选区域*/
-.protyle-wysiwyg ::selection {
+/* .protyle-wysiwyg ::selection {
     background-color: rgba(7, 97, 214, 0.445);
     color: white;
-}
+} */
 
 /* 前进后退disable颜色更改 */
 .toolbar__item--disabled,
