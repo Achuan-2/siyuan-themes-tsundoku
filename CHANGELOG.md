@@ -3,6 +3,7 @@
 - 💄style(theme): 更新主题颜色变量 --b3-theme-primary-lighter 的透明度值
 - 💄style(theme): 去除Green主题标签页上方的box shadow
 - 💄style(theme): Dark主题添加 --b3-theme-surface-lighter 变量，适配任务笔记管理插件
+- ✨feat(linkicon): 添加cloudflare网址图标 [pr by musnows](https://github.com/Achuan-2/siyuan-themes-tsundoku/pull/133)
 
 
 ## v2.5.3 / 2025.05.18
