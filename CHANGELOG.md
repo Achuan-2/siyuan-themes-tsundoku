@@ -1,7 +1,13 @@
+## v2.5.4 / 2025.06.17
+- 📢公告：由于开发主题几乎没有获得赞赏收益以及思源主题越来越丰富，主题进入维护阶段，并不再回复用户问题和需求，只根据个人需要进行随缘更新
+- 💄style(theme): 更新主题颜色变量 --b3-theme-primary-lighter 的透明度值
+- 💄style(theme): 去除Green主题标签页上方的box shadow
+- 💄style(theme): Dark主题添加 --b3-theme-surface-lighter 变量，适配任务笔记管理插件
+
 
 ## v2.5.3 / 2025.05.18
 - 💄style(editor): 添加回标记样式的背景样式
-- 🔥 style(theme): 取消light主题鼠标划选字体变白样式，会造成代码块文字隐藏
+- 🔥style(theme): 取消light主题鼠标划选字体变白样式，会造成代码块文字隐藏
 - 💄style(editor): 修改分割线样式，设置背景图
 - ✨ 数据库资源列支持显示链接icon
 
