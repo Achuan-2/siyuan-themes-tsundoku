@@ -1330,3 +1330,12 @@
     content: '';
     background-image: url('/appearance/themes/Tsundoku/src/link_icon/ww2mathworks.ico') !important;
 }
+
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href*='cloudflare.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] span[data-type='url'][data-href*='cloudflare.com']:not(:empty)::before,
+.protyle-wysiwyg [data-node-id] a[href*='cloudflare.com']::before,
+.b3-typography a[href*='cloudflare.com']::before,
+.av__celltext--url[data-url*='cloudflare.com']::before {
+    content: '';
+    background-image: url('/appearance/themes/Tsundoku/src/link_icon/cloudflare.ico') !important;
+}
