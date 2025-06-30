@@ -381,7 +381,7 @@
 
 /*  ------------------------------复选框（待办事项） ------------------------------ */
 .b3-typography .protyle-task input {
-    opacity: 0;
+    opacity: 1;
 }
 
 /* 待办事项的鼠标光标为点击 */
@@ -399,8 +399,7 @@
 }
 
 /* 复选框样式 */
-.protyle-wysiwyg .protyle-action--task:before,
-.b3-typography .protyle-task:before {
+.protyle-wysiwyg .protyle-action--task:before {
     content: '';
     position: absolute;
     display: inline-block;
@@ -421,8 +420,7 @@
 }
 
 /* 复选框选中 */
-.protyle-task--done>.protyle-action--task:before,
-.b3-typography .protyle-task--done:before {
+.protyle-task--done>.protyle-action--task:before {
     content: '\2713';
     font-size: 0.8em;
     font-weight: bold;
@@ -908,6 +906,5 @@ li[data-type='navigation-file'] .counter {
     width: 50%;
     padding-left: 0%;
 } */
-
 
 

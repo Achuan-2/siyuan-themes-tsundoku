@@ -151,12 +151,26 @@
     border-radius: 7px !important;
 }
 
-.protyle-preview .b3-typography blockquote .code-block {
+.protyle-preview .b3-typography blockquote .code-block,
+.protyle-preview .b3-typography  section .code-block {
     background-color: #f6f8fa66 !important;
     box-shadow: 0 0 0 1px #1e25351a;
 }
+.b3-typography section>p,
+.b3-typography section .code-block,
+.b3-typography section ul,
+.b3-typography section section{
+    margin-left: 1em;
+}
+.protyle-preview>.b3-typography section>blockquote{
+    border: none;
+    border-left: 0.3em solid #2183ce;
+    border-radius: 0px !important;
+    background: transparent !important;
+}
 
-.protyle-preview .b3-typography blockquote .hljs {
+.protyle-preview .b3-typography blockquote .hljs,
+.protyle-preview .b3-typography section .hljs {
     background-color: transparent !important;
 }
 
