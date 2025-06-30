@@ -1069,3 +1069,7 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
 }
 
 
+/* 页签关闭按钮的右padding调小 */
+.layout-tab-bar .item__close {
+    padding: 13px 1px 13px 0;
+}
