@@ -106,7 +106,7 @@ span[data-type='av-add-more']:hover {
     max-height: none;
 } */
 
-.av__cell[data-dtype="mAsset"] {
+.av__scroll .av__cell[data-dtype="mAsset"] {
     display: flex;
     flex-wrap: nowrap;
     /* 防止图片换行 */
@@ -114,7 +114,7 @@ span[data-type='av-add-more']:hover {
     /* 垂直居中 */
 }
 
-.av__cell[data-dtype="mAsset"] .av__cellassetimg {
+.av__scroll .av__cell[data-dtype="mAsset"] .av__cellassetimg {
     flex: 1;
     max-height: none;
     /* 平均分配宽度 */
