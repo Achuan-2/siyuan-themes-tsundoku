@@ -1,3 +1,10 @@
+## v2.5.6 / 2025.07.03
+- 💄style(editor): 适配思源v3.2.0，调整h3标题居中和列表下h3样式
+- 💄style(export): 优化导出样式和代码块显示
+- 💄style(tab-bar): 调整页签关闭按钮的右padding
+- 💄style(gallery): 💄适配画廊视图的资源列图片样式
+
+
 ## v2.5.5 / 2025.06.23
 - 💄style(theme): Dark主题菜单边框减淡
 
