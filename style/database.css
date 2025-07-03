@@ -123,3 +123,9 @@ span[data-type='av-add-more']:hover {
     max-width: 100%;
     /* 防止图片超出容器宽度 */
 }
+
+/* 数据库预览字体减小 */
+.av__gallery-content div[data-type="NodeHeading"] {
+    margin: 0 !important;
+    zoom: 0.8;
+}
