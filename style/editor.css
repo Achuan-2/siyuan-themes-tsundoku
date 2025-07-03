@@ -89,7 +89,7 @@
     padding-left: 8px;
     border-left: 5px solid var(--custom-h3-color);
     /* 控制竖线高度 */
-    line-height: 1.25;
+    /* line-height: 1.25; */
     height: 1.25 em;
 }
 
@@ -100,7 +100,8 @@
 
 /* 列表下适配 */
 .protyle-wysiwyg [data-node-id].li>.protyle-action~.h3 {
-    line-height: 1.5 !important;
+    line-height: 1.2 !important;
+    margin-bottom: 5px;
     /* height: 1.5em !important; */
 }
 
@@ -246,7 +247,7 @@
     border: 1px solid var(--custom-blockquote-border-color);
     padding: 2px 4px;
     background-color: var(--b3-card-info-background);
-    color:var(--b3-card-info-color);
+    color: var(--b3-card-info-color);
     /* border: 0px solid transparent; */
     /* border-left: 0.3em solid #a2bfd0; */
     border-radius: 7px 7px 7px 7px !important;
@@ -262,12 +263,13 @@
     display: none;
 }
 
-.protyle-wysiwyg [data-node-id].bq > .bq {
+.protyle-wysiwyg [data-node-id].bq>.bq {
     border: none;
     border-left: 0.3em solid var(--b3-font-color3);
     border-radius: 0px !important;
     background: transparent !important;
 }
+
 /* .bq .code-block {
     background: #f6f8fa66 !important;
 } */
@@ -503,12 +505,13 @@ div[data-subtype='t'][data-type='NodeList'] {
 /* 调整超级块的块间距  END*/
 
 /* -----------------------分割线----------------------- */
-.protyle-wysiwyg [data-node-id].hr>div{
+.protyle-wysiwyg [data-node-id].hr>div {
     text-align: center;
 }
+
 .protyle-wysiwyg [data-node-id].hr>div:after {
     height: 8px !important;
-    background-color: transparent!important;
+    background-color: transparent !important;
     background-image: url(/appearance/themes/Tsundoku/src/hr/hr2.png);
     background-repeat: no-repeat;
     /* 让背景居中 */
@@ -558,7 +561,7 @@ mark {
 }
 
 /* -----------------------加粗----------------------- */
-.protyle-wysiwyg  span[data-type~='strong'] {
+.protyle-wysiwyg span[data-type~='strong'] {
     color: inherit;
 }
 
@@ -906,5 +909,3 @@ li[data-type='navigation-file'] .counter {
     width: 50%;
     padding-left: 0%;
 } */
-
-
