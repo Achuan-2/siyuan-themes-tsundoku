@@ -342,32 +342,35 @@ window.theme.root = (() => {
  */
 window.theme.lute = window.Lute.New();
 
-/****************************思源API操作**************************/
-async function 设置思源块属性(内容块id, 属性对象) {
-    let url = '/api/attr/setBlockAttrs';
-    return 解析响应体(
-        向思源请求数据(url, {
-            id: 内容块id,
-            attrs: 属性对象,
-        })
-    );
-}
-async function 向思源请求数据(url, data) {
-    let resData = null;
-    await fetch(url, {
-        body: JSON.stringify(data),
-        method: 'POST',
-        headers: {
-            Authorization: `Token ''`,
-        },
-    }).then(function (response) {
-        resData = response.json();
+/**
+ * 等待元素存在的通用函数
+ * @param {string|function} selector 选择器或返回元素的函数
+ * @param {Document|Element} node 查找的根节点
+ * @param {number} timeout 超时时间（毫秒）
+ * @returns {Promise<Element|null>} 返回找到的元素或null
+ */
+function whenElementExist(selector, node = document, timeout = 5000) {
+    return new Promise((resolve, reject) => {
+        const start = Date.now();
+        function check() {
+            let el;
+            try {
+                el = typeof selector === 'function'
+                    ? selector()
+                    : node.querySelector(selector);
+            } catch (err) {
+                return resolve(null);
+            }
+            if (el) {
+                resolve(el);
+            } else if (Date.now() - start >= timeout) {
+                resolve(null);
+            } else {
+                requestAnimationFrame(check);
+            }
+        }
+        check();
     });
-    return resData;
-}
-async function 解析响应体(response) {
-    let r = await response;
-    return r.code === 0 ? r.data : null;
 }
 
 /* 操作 */
@@ -408,85 +411,40 @@ function MenuShow() {
                 // selecttype == 'NodeBlockquote' ||
                 selecttype == 'NodeCodeBlock'
             ) {
-                setTimeout(() => InsertMenuItem(selectid, selecttype), 0);
+                // 使用 whenElementExist 等待菜单完全渲染
+                waitForMenuAndInsert(selectid, selecttype);
             }
         }
-    }, 0);
+    }, 50);
+}
+
+/**
+ * 等待菜单完全渲染后插入菜单项
+ * @param {string} selectid 选中块的ID
+ * @param {string} selecttype 选中块的类型
+ */
+async function waitForMenuAndInsert(selectid, selecttype) {
+    // 使用 whenElementExist 等待菜单和分隔符出现
+    const menu = await whenElementExist('.b3-menu__items', document, 2000);
+    if (!menu) {
+        console.log('未找到菜单容器');
+        return;
+    }
+    
+    const separator = await whenElementExist('.b3-menu__separator[data-id="separator_5"]', menu, 2000);
+    if (!separator) {
+        console.log('未找到菜单分隔符');
+        return;
+    }
+    
+    // 菜单已完全渲染，插入菜单项
+    InsertMenuItem(selectid, selecttype);
 }
 
 
 
 setTimeout(() => ClickMonitor(), 1000);
 
-//+++++++++++++++++++++++++++++++++思源API++++++++++++++++++++++++++++++++++++
-//思源官方API文档  https://github.com/siyuan-note/siyuan/blob/master/API_zh_CN.md
-
-/**
- *
- * @param {*} 内容块id
- * @param {*} 回调函数
- * @param {*} 传递对象
- */
-async function 根据ID获取人类可读路径(内容块id, then, obj = null) {
-    await 向思源请求数据('/api/filetree/getHPathByID', {
-        id: 内容块id,
-    }).then(v => then(v.data, obj));
-}
-
-async function 以id获取文档聚焦内容(id, then, obj = null) {
-    await 向思源请求数据('/api/filetree/getDoc', {
-        id: id,
-        k: '',
-        mode: 0,
-        size: 36,
-    }).then(v => then(v.data, obj));
-}
-
-async function 更新块(id, dataType, data, then = null, obj = null) {
-    await 向思源请求数据('/api/block/updateBlock', {
-        id: id,
-        dataType: dataType,
-        data: data,
-    }).then(v => {
-        if (then) then(v.data, obj);
-    });
-}
-
-async function 设置思源块属性(内容块id, 属性对象) {
-    let url = '/api/attr/setBlockAttrs';
-    return 解析响应体(
-        向思源请求数据(url, {
-            id: 内容块id,
-            attrs: 属性对象,
-        })
-    );
-}
-
-async function 获取块属性(内容块id, then = null, obj = null) {
-    let url = '/api/attr/getBlockAttrs';
-    return 向思源请求数据(url, {
-        id: 内容块id,
-    }).then(v => {
-        if (then) then(v.data, obj);
-    });
-}
-
-async function 向思源请求数据(url, data) {
-    const response = await fetch(url, {
-        body: JSON.stringify(data),
-        method: 'POST',
-        headers: {
-            Authorization: `Token ''`,
-        },
-    });
-    if (response.status === 200) return await response.json();
-    else return null;
-}
-
-async function 解析响应体(response) {
-    let r = await response;
-    return r.code === 0 ? r.data : null;
-}
 
 /****各种列表转xx的UI****/
 function ViewSelect(selectid, selecttype) {
@@ -665,14 +623,17 @@ function ClickMonitor() {
 
 function InsertMenuItem(selectid, selecttype) {
     let commonMenu = document.querySelector('.b3-menu__items');
-    let target = commonMenu.querySelector('.b3-menu__separator[data-id="separator_5"]');
-    let selectview = commonMenu.querySelector('[id="viewselect"]');
-    if (target) {
-        console.log('test');
+    let target = commonMenu?.querySelector('.b3-menu__separator[data-id="separator_5"]');
+    let selectview = commonMenu?.querySelector('[id="viewselect"]');
+    
+    if (target && commonMenu) {
+        console.log('插入主题菜单项');
         if (!selectview) {
-            // 在 target 元素后插入  ViewSelect
+            // 在 target 元素后插入 ViewSelect
             target.insertAdjacentElement('afterend', ViewSelect(selectid, selecttype));
         }
+    } else {
+        console.log('未找到菜单目标位置');
     }
 }
 
