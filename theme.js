@@ -201,7 +201,23 @@ function create_theme_button() {
     }
 }
 setTimeout(() => { }, 0);
-
+/**
+ * 设置思源块属性
+ * @param {string} blockId 块ID
+ * @param {object} attrs 属性对象
+ */
+async function 设置思源块属性(blockId, attrs) {
+    let url = '/api/attr/setBlockAttrs';
+    let data = {
+        id: blockId,
+        attrs: attrs
+    };
+    try {
+        await postRequest(data, url);
+    } catch (error) {
+        console.error('设置块属性失败:', error);
+    }
+}
 /**
  * 发送API请求
  * @param {*} data
@@ -430,13 +446,13 @@ async function waitForMenuAndInsert(selectid, selecttype) {
         console.log('未找到菜单容器');
         return;
     }
-    
+
     const separator = await whenElementExist('.b3-menu__separator[data-id="separator_5"]', menu, 2000);
     if (!separator) {
         console.log('未找到菜单分隔符');
         return;
     }
-    
+
     // 菜单已完全渲染，插入菜单项
     InsertMenuItem(selectid, selecttype);
 }
@@ -625,7 +641,7 @@ function InsertMenuItem(selectid, selecttype) {
     let commonMenu = document.querySelector('.b3-menu__items');
     let target = commonMenu?.querySelector('.b3-menu__separator[data-id="separator_5"]');
     let selectview = commonMenu?.querySelector('[id="viewselect"]');
-    
+
     if (target && commonMenu) {
         console.log('插入主题菜单项');
         if (!selectview) {
