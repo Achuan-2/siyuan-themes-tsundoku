@@ -13,6 +13,7 @@ window.theme.IDs = {
     STYLE_COLOR: 'Tsundoku-theme-css',
     BUTTON_TOOLBAR_CHANGE_COLOR: 'Tsundoku-theme-button',
     LOCAL_STORAGE_COLOR_HREF: 'tsundoku-color-href',
+    LOCAL_STORAGE_VERTICAL_TAB: 'tsundoku-vertical-tab', // 添加垂直页签状态存储key
 };
 
 /* 循环迭代器 */
@@ -184,21 +185,7 @@ function create_theme_button() {
         /* 加载配色文件 */
         window.theme.updateStyle(window.theme.IDs.STYLE_COLOR, color_href);
     }
-    if (drag && themeStyle) {
-        const button_change_color = document.createElement('button'); // 切换主题颜色按钮
-        button_change_color.id = window.theme.IDs.BUTTON_TOOLBAR_CHANGE_COLOR;
-        button_change_color.className = 'toolbar__item ariaLabel';
-        button_change_color.ariaLabel = '切换主题颜色';
-        button_change_color.innerHTML = `<svg><use xlink:href="#iconTheme"></use></svg>`;
-        button_change_color.addEventListener('click', e => {
-            color_href = window.theme.iter.next().value;
-            localStorage.setItem(window.theme.IDs.LOCAL_STORAGE_COLOR_HREF, color_href);
-            setLocalStorageVal(window.theme.IDs.LOCAL_STORAGE_COLOR_HREF, color_href);
-            window.theme.updateStyle(window.theme.IDs.STYLE_COLOR, color_href);
-        });
-        // REF [JS DOM 编程复习笔记 -- insertAdjacentHTML（九） - 知乎](https://zhuanlan.zhihu.com/p/425616377)
-        drag.insertAdjacentElement('afterend', button_change_color);
-    }
+
 }
 setTimeout(() => { }, 0);
 /**
@@ -685,7 +672,299 @@ function link_icon_filter() {
 
 linkIconFilterInterval = setInterval(link_icon_filter, 100);
 
-/**++++++++++++++++++++++++++++++++主题功能执行：按需调用++++++++++++++++++++++++++++++ */
+
+/**---------------------------------------------------------垂直页签宽度调节-------------------------------------------------------------- */
+// 垂直页签宽度调节相关变量
+let tabbarResizer = null;
+let isResizing = false;
+let startX = 0;
+let startWidth = 0;
+const MIN_WIDTH = 150; // 最小宽度
+const MAX_WIDTH = 400; // 最大宽度
+
+/**
+ * 初始化垂直页签宽度调节器
+ */
+function initTabbarResizer() {
+    // 如果已经存在调节器，先移除
+    removeTabbarResizer();
+
+    // 获取垂直页签容器 - 修正选择器以获取正确的页签容器
+    const tabContainer = document.querySelector('.layout__center .layout-tab-bar');
+    if (!tabContainer) return;
+
+    // 创建调节器元素
+    tabbarResizer = document.createElement('div');
+    tabbarResizer.id = 'tabbar-resizer';
+    tabbarResizer.className = 'tabbar-resizer';
+    tabbarResizer.style.cssText = `
+        position: absolute;
+        top: 0;
+        right: -5px;
+        width: 10px;
+        height: 100%;
+        cursor: col-resize;
+        z-index: 100;
+    `;
+    // 添加调节器到页签容器
+    tabContainer.style.position = 'relative';
+    tabContainer.appendChild(tabbarResizer);
+
+    // 添加事件监听
+    tabbarResizer.addEventListener('mousedown', startResize);
+    document.addEventListener('mousemove', resizeTabbar);
+    document.addEventListener('mouseup', stopResize);
+}
+
+/**
+ * 开始调整大小
+ * @param {MouseEvent} e - 鼠标事件
+ */
+function startResize(e) {
+    e.preventDefault();
+    isResizing = true;
+    startX = e.clientX;
+
+    // 修正选择器以获取正确的页签容器
+    const tabContainer = document.querySelector('.layout__center .layout-tab-bar');
+    startWidth = tabContainer.offsetWidth;
+
+    // 添加调整中的样式
+    document.body.classList.add('tabbar-resizing');
+}
+
+/**
+ * 调整页签宽度
+ * @param {MouseEvent} e - 鼠标事件
+ */
+function resizeTabbar(e) {
+    if (!isResizing) return;
+
+    // 修正选择器以获取正确的页签容器
+    const tabContainer = document.querySelector('.layout__center .layout-tab-bar');
+    if (!tabContainer) return;
+
+    const deltaX = e.clientX - startX;
+    let newWidth = startWidth + deltaX;
+
+    // 限制宽度范围
+    newWidth = Math.max(MIN_WIDTH, Math.min(newWidth, MAX_WIDTH));
+
+    // 应用新宽度
+    tabContainer.style.width = `${newWidth}px`;
+}
+
+/**
+ * 停止调整大小
+ */
+function stopResize() {
+    if (!isResizing) return;
+
+    isResizing = false;
+    document.body.classList.remove('tabbar-resizing');
+}
+
+/**
+ * 移除垂直页签宽度调节器
+ */
+function removeTabbarResizer() {
+    // 移除事件监听
+    document.removeEventListener('mousemove', resizeTabbar);
+    document.removeEventListener('mouseup', stopResize);
+
+    // 移除调节器元素
+    const existingResizer = document.getElementById('tabbar-resizer');
+    if (existingResizer) {
+        existingResizer.parentNode.removeChild(existingResizer);
+    }
+
+    // 移除调整中的样式
+    document.body.classList.remove('tabbar-resizing');
+
+    tabbarResizer = null;
+    isResizing = false;
+}
+function loadStyle(href, id = null) {
+    let style = document.getElementById(id);
+    if (style) {
+        return style;
+    }
+    style = document.createElement('link');
+    if (id) style.id = id;
+    style.type = 'text/css';
+    style.rel = 'stylesheet';
+    style.href = href;
+    document.head.appendChild(style);
+    return style;
+}
+
+
+function create_theme_button2() {
+    const commonMenuObserver = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'data-name') {
+                const commonMenu = document.getElementById('commonMenu');
+                if (commonMenu && commonMenu.getAttribute('data-name') === 'barmode') {
+                    initThemeToolbar(commonMenu);
+                }
+            }
+        });
+    });
+
+    const commonMenu = document.getElementById('commonMenu');
+    if (commonMenu) {
+        commonMenuObserver.observe(commonMenu, { attributes: true, attributeFilter: ['data-name'] });
+        if (commonMenu.getAttribute('data-name') === 'barmode') {
+            initThemeToolbar(commonMenu);
+        }
+    } else {
+        const menuWaitObserver = new MutationObserver((mutations, obs) => {
+            const commonMenu = document.getElementById('commonMenu');
+            if (commonMenu) {
+                commonMenuObserver.observe(commonMenu, { attributes: true, attributeFilter: ['data-name'] });
+                if (commonMenu.getAttribute('data-name') === 'barmode') {
+                    initThemeToolbar(commonMenu);
+                }
+                obs.disconnect();
+            }
+        });
+        menuWaitObserver.observe(document.body, { childList: true, subtree: true });
+    }
+}
+
+async function initThemeToolbar(commonMenu) {
+    if (document.getElementById('tsundoku-vertical-tab-button') || document.getElementById('tsundoku-theme-color-button')) return;
+
+    const menuItems = commonMenu.querySelector('.b3-menu__items');
+    if (!menuItems) return;
+
+    // 创建分割线
+    const separator = document.createElement('div');
+    separator.className = 'b3-menu__separator';
+
+    // 创建主题切换按钮
+    const themeColorButton = document.createElement('button');
+    themeColorButton.id = 'tsundoku-theme-color-button';
+    themeColorButton.className = 'b3-menu__item';
+    themeColorButton.innerHTML = `
+        <svg class="b3-menu__icon"><use xlink:href="#iconTheme"></use></svg>
+        <span class="b3-menu__label">切换主题颜色</span>
+    `;
+
+    // 只在light模式下显示主题切换按钮
+    if (window.theme.themeMode === 'light' && window.theme.iter) {
+        themeColorButton.onclick = () => {
+            const color_href = window.theme.iter.next().value;
+            localStorage.setItem(window.theme.IDs.LOCAL_STORAGE_COLOR_HREF, color_href);
+            setLocalStorageVal(window.theme.IDs.LOCAL_STORAGE_COLOR_HREF, color_href);
+            window.theme.updateStyle(window.theme.IDs.STYLE_COLOR, color_href);
+        };
+    } else {
+        themeColorButton.style.display = 'none';
+    }
+
+    // 创建垂直页签按钮
+    const verticalTabButton = document.createElement('button');
+    verticalTabButton.id = 'tsundoku-vertical-tab-button';
+    verticalTabButton.className = 'b3-menu__item';
+    verticalTabButton.innerHTML = `
+        <svg class="b3-menu__icon"><use xlink:href="#iconLayout"></use></svg>
+        <span class="b3-menu__label">垂直页签</span>
+        <span class="b3-menu__accelerator"></span>
+    `;
+
+    // 初始化垂直页签状态
+    const isVerticalTabActive = await initVerticalTabState();
+    verticalTabButton.querySelector('.b3-menu__accelerator').textContent = isVerticalTabActive ? 'ON' : 'OFF';
+
+    verticalTabButton.onclick = async () => {
+        const isActive = await toggleVerticalTab();
+        verticalTabButton.querySelector('.b3-menu__accelerator').textContent = isActive ? 'ON' : 'OFF';
+    };
+
+    // 添加到菜单末尾，顺序：分割线 -> 主题切换 -> 垂直页签
+    const existingSeparator = menuItems.querySelector('.b3-menu__separator');
+    if (existingSeparator) {
+        existingSeparator.before(separator);
+        separator.after(themeColorButton);
+        themeColorButton.after(verticalTabButton);
+    } else {
+        menuItems.appendChild(separator);
+        menuItems.appendChild(themeColorButton);
+        menuItems.appendChild(verticalTabButton);
+    }
+}
+
+/**
+ * 切换垂直页签状态
+ */
+async function toggleVerticalTab() {
+    const styleId = 'tsundoku-vertical-tab-css';
+    const styleElement = document.getElementById(styleId);
+    let isActive = false;
+
+    if (styleElement) {
+        styleElement.remove();
+        removeTabbarResizer();
+        isActive = false;
+    } else {
+        loadStyle('/appearance/themes/Tsundoku/style/module/tab-bar-vertical.css', styleId);
+        setTimeout(initTabbarResizer, 300);
+        isActive = true;
+    }
+
+    // 保存状态到本地存储
+    await setLocalStorageVal(window.theme.IDs.LOCAL_STORAGE_VERTICAL_TAB, isActive ? 'true' : 'false');
+
+    return isActive;
+}
+
+/**
+ * 初始化垂直页签状态
+ */
+async function initVerticalTabState() {
+    // 从本地存储读取状态
+    let storedState = window.siyuan?.storage[window.theme.IDs.LOCAL_STORAGE_VERTICAL_TAB];
+    if (!storedState) {
+        storedState = localStorage.getItem(window.theme.IDs.LOCAL_STORAGE_VERTICAL_TAB);
+    }
+
+    if (storedState === 'true') {
+        const styleId = 'tsundoku-vertical-tab-css';
+        if (!document.getElementById(styleId)) {
+            loadStyle('/appearance/themes/Tsundoku/style/module/tab-bar-vertical.css', styleId);
+            setTimeout(initTabbarResizer, 300);
+        }
+        return true;
+    }
+    return false;
+}
+
+/**
+ * 自动初始化垂直页签（在主题启动时调用）
+ */
+async function autoInitVerticalTab() {
+    // 等待页面基本元素加载完成
+    await whenElementExist('.layout__center .layout-tab-bar');
+
+    // 从本地存储读取状态
+    let storedState = window.siyuan?.storage[window.theme.IDs.LOCAL_STORAGE_VERTICAL_TAB];
+    if (!storedState) {
+        storedState = localStorage.getItem(window.theme.IDs.LOCAL_STORAGE_VERTICAL_TAB);
+    }
+
+    if (storedState === 'true') {
+        const styleId = 'tsundoku-vertical-tab-css';
+        if (!document.getElementById(styleId)) {
+            console.log('自动启用垂直页签');
+            loadStyle('/appearance/themes/Tsundoku/style/module/tab-bar-vertical.css', styleId);
+            // 等待样式加载后初始化调节器
+            setTimeout(initTabbarResizer, 500);
+        }
+    }
+}
+
+/**++++++++++++++++++++++++++++++++主题功能执行：按需调用+++++++++++++++++++++++++++ */
 window.theme.timerIds = [];
 
 (async () => {
@@ -693,6 +972,10 @@ window.theme.timerIds = [];
     ClickMonitor();
     /* 创建主题按钮 */
     create_theme_button();
+    create_theme_button2();
+
+    // 自动初始化垂直页签状态
+    await autoInitVerticalTab();
 
     const linkIconFilterInterval = setInterval(link_icon_filter, 100);
     window.theme.timerIds.push(linkIconFilterInterval);
@@ -719,6 +1002,16 @@ window.destroyTheme = () => {
         css_link.remove();
     }
 
+    // 删除新的主题功能按钮
+    const themeColorButton = document.getElementById('tsundoku-theme-color-button');
+    if (themeColorButton) {
+        themeColorButton.remove();
+    }
+
+    const verticalTabButton = document.getElementById('tsundoku-vertical-tab-button');
+    if (verticalTabButton) {
+        verticalTabButton.remove();
+    }
     // 删除列表转导图功能
     window.removeEventListener('mouseup', MenuShow);
 
