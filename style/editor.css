@@ -42,7 +42,7 @@
     border-bottom-width: 0px;
     font-size: 1.75em !important;
     padding: 0.3em 4px;
-    color: var(--custom-h1-color);
+    color: var(--custom-h1-color) !important;
     border-bottom: 2px solid var(--custom-h1-color);
     /* margin-bottom: 1.5em; */
 }
@@ -67,7 +67,7 @@
     /* ⚙二级标题基本样式 */
     border-bottom: 1px solid var(--custom-h2-border-color) !important;
     font-size: 1.45em !important;
-    color: var(--custom-h2-color);
+    color: var(--custom-h2-color) !important;
     border-radius: 0px !important;
 }
 
@@ -83,7 +83,7 @@
 .protyle-wysiwyg [data-node-id].h3,
 .b3-typography h3 {
     font-size: 1.35em;
-    color: var(--custom-h3-color);
+    color: var(--custom-h3-color) !important;
     text-align: left;
     font-weight: bold;
     padding-left: 8px;
@@ -123,7 +123,7 @@
 .protyle-wysiwyg [data-node-id].h4,
 .b3-typography h4 {
     font-size: 1.2em !important;
-    color: var(--custom-h4-color);
+    color: var(--custom-h4-color) !important;
     /* background-color: #d8f9e6; */
     /* box-shadow: 2px 2px 2px var(--b3-table-border-color); */
 }
@@ -132,7 +132,7 @@
 .protyle-wysiwyg [data-node-id].h5,
 .b3-typography h5 {
     font-size: 1.1em !important;
-    color: var(--custom-h5-color);
+    color: var(--custom-h5-color) !important;
     /* background-color: #bec6e891; */
     /* box-shadow: 2px 2px 2px var(--b3-table-border-color); */
 }
@@ -141,7 +141,8 @@
 .protyle-wysiwyg [data-node-id].h6,
 .b3-typography h6 {
     font-size: 1.1em !important;
-    color: var(--custom-h6-color);
+    color: var(--custom-h6-color) !important;
+    text-decoration: underline wavy;
 }
 
 /* 💄标题加粗样式 */
