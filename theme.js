@@ -2,8 +2,15 @@ window.theme = {
     element: {
         themeScript: document.getElementById('themeScript') ?? document.currentScript,
     },
+    // 垂直页签宽度调节相关变量
+    tabbarResizer: null,
+    isResizing: false,
+    startX: 0,
+    startWidth: 0,
+    MIN_WIDTH: 150, // 最小宽度
+    MAX_WIDTH: 400, // 最大宽度
+    linkIconFilterInterval: null, // 链接图标过滤定时器
 };
-
 /* 颜色配置文件列表 */
 window.theme.lightColors = ['style/theme/Tsundoku_light.css', 'style/theme/Tsundoku_green.css'];
 window.theme.darkColors = ['style/theme/Tsundoku_dark.css'];
@@ -674,13 +681,6 @@ linkIconFilterInterval = setInterval(link_icon_filter, 100);
 
 
 /**---------------------------------------------------------垂直页签宽度调节-------------------------------------------------------------- */
-// 垂直页签宽度调节相关变量
-let tabbarResizer = null;
-let isResizing = false;
-let startX = 0;
-let startWidth = 0;
-const MIN_WIDTH = 150; // 最小宽度
-const MAX_WIDTH = 400; // 最大宽度
 
 /**
  * 初始化垂直页签宽度调节器
@@ -694,10 +694,10 @@ function initTabbarResizer() {
     if (!tabContainer) return;
 
     // 创建调节器元素
-    tabbarResizer = document.createElement('div');
-    tabbarResizer.id = 'tabbar-resizer';
-    tabbarResizer.className = 'tabbar-resizer';
-    tabbarResizer.style.cssText = `
+    window.theme.tabbarResizer = document.createElement('div');
+    window.theme.tabbarResizer.id = 'tabbar-resizer';
+    window.theme.tabbarResizer.className = 'tabbar-resizer';
+    window.theme.tabbarResizer.style.cssText = `
         position: absolute;
         top: 0;
         right: -5px;
@@ -708,10 +708,10 @@ function initTabbarResizer() {
     `;
     // 添加调节器到页签容器
     tabContainer.style.position = 'relative';
-    tabContainer.appendChild(tabbarResizer);
+    tabContainer.appendChild(window.theme.tabbarResizer);
 
     // 添加事件监听
-    tabbarResizer.addEventListener('mousedown', startResize);
+    window.theme.tabbarResizer.addEventListener('mousedown', startResize);
     document.addEventListener('mousemove', resizeTabbar);
     document.addEventListener('mouseup', stopResize);
 }
@@ -722,12 +722,12 @@ function initTabbarResizer() {
  */
 function startResize(e) {
     e.preventDefault();
-    isResizing = true;
-    startX = e.clientX;
+    window.theme.isResizing = true;
+    window.theme.startX = e.clientX;
 
     // 修正选择器以获取正确的页签容器
     const tabContainer = document.querySelector('.layout__center .layout-tab-bar');
-    startWidth = tabContainer.offsetWidth;
+    window.theme.startWidth = tabContainer.offsetWidth;
 
     // 添加调整中的样式
     document.body.classList.add('tabbar-resizing');
@@ -738,17 +738,17 @@ function startResize(e) {
  * @param {MouseEvent} e - 鼠标事件
  */
 function resizeTabbar(e) {
-    if (!isResizing) return;
+    if (!window.theme.isResizing) return;
 
     // 修正选择器以获取正确的页签容器
     const tabContainer = document.querySelector('.layout__center .layout-tab-bar');
     if (!tabContainer) return;
 
-    const deltaX = e.clientX - startX;
-    let newWidth = startWidth + deltaX;
+    const deltaX = e.clientX - window.theme.startX;
+    let newWidth = window.theme.startWidth + deltaX;
 
     // 限制宽度范围
-    newWidth = Math.max(MIN_WIDTH, Math.min(newWidth, MAX_WIDTH));
+    newWidth = Math.max(window.theme.MIN_WIDTH, Math.min(newWidth, window.theme.MAX_WIDTH));
 
     // 应用新宽度
     tabContainer.style.width = `${newWidth}px`;
@@ -758,9 +758,9 @@ function resizeTabbar(e) {
  * 停止调整大小
  */
 function stopResize() {
-    if (!isResizing) return;
+    if (!window.theme.isResizing) return;
 
-    isResizing = false;
+    window.theme.isResizing = false;
     document.body.classList.remove('tabbar-resizing');
 }
 
@@ -781,8 +781,8 @@ function removeTabbarResizer() {
     // 移除调整中的样式
     document.body.classList.remove('tabbar-resizing');
 
-    tabbarResizer = null;
-    isResizing = false;
+    window.theme.tabbarResizer = null;
+    window.theme.isResizing = false;
 }
 function loadStyle(href, id = null) {
     let style = document.getElementById(id);
