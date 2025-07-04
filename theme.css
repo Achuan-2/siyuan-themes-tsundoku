@@ -776,7 +776,7 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
     background-color: var(--b3-theme-surface);
 
 }
-.layout__center .layout-tab-bar{
+#layouts>div.fn__flex.fn__flex-1>div.layout__center.fn__flex.fn__flex-1>div>div>div.fn__flex>ul.fn__flex.layout-tab-bar{
     zoom: 0.85;
 }
 
@@ -1076,4 +1076,5 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
 .layout-tab-bar .item__close {
     padding: 13px 1px 13px 0;
 }
+
 
