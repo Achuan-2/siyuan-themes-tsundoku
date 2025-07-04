@@ -73,3 +73,6 @@ body:not(.body--mobile,.body--window) .layout__center [data-type='wnd'][data-id]
     background-color: var(--Sv-layout--resize-hover)!important;
     transition: all 0.2s ease;
 }
+#commonMenu[data-name="tabList"] .b3-menu__item:last-child{
+    display: none;
+}

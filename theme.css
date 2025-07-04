@@ -29,8 +29,7 @@
 @import url('style/export.css');
 /* 搜索样式 */
 @import url('style/module/ctrlp.css');
-/* 搜索样式 */
-@import url('style/module/h-reminder.css');
+/* @import url('style/module/h-reminder.css'); */
 :root {
 
     /* 卡片背景 */

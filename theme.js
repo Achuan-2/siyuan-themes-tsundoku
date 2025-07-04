@@ -22,6 +22,7 @@ window.theme.IDs = {
     BUTTON_TOOLBAR_CHANGE_COLOR: 'Tsundoku-theme-button',
     LOCAL_STORAGE_COLOR_HREF: 'tsundoku-color-href',
     LOCAL_STORAGE_VERTICAL_TAB: 'tsundoku-vertical-tab', // 添加垂直页签状态存储key
+    LOCAL_STORAGE_H_REMINDER: 'tsundoku-h-reminder', // 添加标题小圆点状态存储key
 };
 
 /* 循环迭代器 */
@@ -714,6 +715,11 @@ function initTabbarResizer() {
     `;
     // 添加调节器到页签容器
     tabContainer.style.position = 'relative';
+    // tabbarResizer添加<span class="item__text"></span><span class="item__icon"></span>
+    window.theme.tabbarResizer.innerHTML = `
+        <span class="item__text"></span>
+        <span class="item__icon"></span>
+    `;
     tabContainer.appendChild(window.theme.tabbarResizer);
 
     // 添加事件监听
@@ -862,8 +868,9 @@ async function initThemeToolbar(commonMenu) {
     // 更严格的检查：确保按钮不存在且菜单是正确的barmode菜单
     const existingThemeButton = document.getElementById('tsundoku-theme-color-button');
     const existingVerticalTabButton = document.getElementById('tsundoku-vertical-tab-button');
+    const existingHReminderButton = document.getElementById('tsundoku-h-reminder-button');
 
-    if ((existingThemeButton || existingVerticalTabButton) ||
+    if ((existingThemeButton || existingVerticalTabButton || existingHReminderButton) ||
         !commonMenu ||
         commonMenu.getAttribute('data-name') !== 'barmode') {
         return;
@@ -877,7 +884,7 @@ async function initThemeToolbar(commonMenu) {
     if (existingSeparators.length > 0) {
         const lastSeparator = existingSeparators[existingSeparators.length - 1];
         const nextElement = lastSeparator.nextElementSibling;
-        if (nextElement && (nextElement.id === 'tsundoku-theme-color-button' || nextElement.id === 'tsundoku-vertical-tab-button')) {
+        if (nextElement && (nextElement.id === 'tsundoku-theme-color-button' || nextElement.id === 'tsundoku-vertical-tab-button' || nextElement.id === 'tsundoku-h-reminder-button')) {
             return; // 已经添加过了
         }
     }
@@ -927,10 +934,30 @@ async function initThemeToolbar(commonMenu) {
         verticalTabButton.querySelector('.b3-menu__accelerator').textContent = isActive ? 'ON' : 'OFF';
     };
 
+    // 创建标题小圆点按钮
+    const hReminderButton = document.createElement('button');
+    hReminderButton.id = 'tsundoku-h-reminder-button';
+    hReminderButton.className = 'b3-menu__item';
+    hReminderButton.innerHTML = `
+        <svg class="b3-menu__icon"><use xlink:href="#iconDot"></use></svg>
+        <span class="b3-menu__label">标题小圆点</span>
+        <span class="b3-menu__accelerator"></span>
+    `;
+
+    // 初始化标题小圆点状态
+    const isHReminderActive = await initHReminderState();
+    hReminderButton.querySelector('.b3-menu__accelerator').textContent = isHReminderActive ? 'ON' : 'OFF';
+
+    hReminderButton.onclick = async () => {
+        const isActive = await toggleHReminder();
+        hReminderButton.querySelector('.b3-menu__accelerator').textContent = isActive ? 'ON' : 'OFF';
+    };
+
     // 添加到菜单末尾
     menuItems.appendChild(separator);
     menuItems.appendChild(themeColorButton);
     menuItems.appendChild(verticalTabButton);
+    menuItems.appendChild(hReminderButton);
 }
 
 /**
@@ -1004,6 +1031,409 @@ async function autoInitVerticalTab() {
     }
 }
 
+/**
+ * 切换标题小圆点状态
+ */
+async function toggleHReminder() {
+    const styleId = 'snippetCSS-tsundoku-h-reminder';
+    const styleElement = document.getElementById(styleId);
+    let isActive = false;
+
+    if (styleElement) {
+        styleElement.remove();
+        isActive = false;
+    } else {
+        // 创建style标签并直接写入CSS内容
+        const style = document.createElement('style');
+        style.id = styleId;
+        style.type = 'text/css';
+        style.textContent = `
+:root {
+	--h1-list-graphic: var(--custom-h1-color, #0f4c81);
+	--h2-list-graphic: var(--custom-h2-color, #083256);
+	--h3-list-graphic: var(--custom-h3-color, #63a4c1);
+	--h4-list-graphic: var(--custom-h4-color, #71a796);
+	--h5-list-graphic: var(--custom-h5-color, #3b51a4);
+	--h6-list-graphic: var(--custom-h6-color, #dda36a);
+}
+
+.protyle-wysiwyg .h1>[spellcheck]:not(:empty)::after {
+	content: "";
+	position: absolute;
+	float: left;
+	margin-left: 5px;
+	height: 0.45em;
+	width: 0.15em;
+	bottom: 40%;
+	border-radius: 3px;
+	background-color: var(--h1-list-graphic);
+	opacity: 0.5;
+}
+
+.protyle-wysiwyg [data-node-id].li>.protyle-action~.h1>[spellcheck]::after {
+	bottom: 40%;
+}
+
+.protyle-wysiwyg .h2>[spellcheck]:not(:empty)::after {
+	content: "";
+	position: absolute;
+	float: left;
+	margin-left: 5px;
+	height: 0.16em;
+	width: 0.16em;
+	bottom: 40%;
+	border-radius: 3px;
+	background-color: var(--h2-list-graphic);
+	opacity: 0.5;
+	box-shadow: 0.25em 0.25em 0 0 var(--h2-list-graphic);
+}
+
+.protyle-wysiwyg [data-node-id].li>.protyle-action~.h2>[spellcheck]::after {
+	bottom: 40%;
+}
+
+.protyle-wysiwyg .h3>[spellcheck]:not(:empty)::after {
+	content: "";
+	position: absolute;
+	float: left;
+	margin-left: 5px;
+	height: 0.16em;
+	width: 0.16em;
+	bottom: 40%;
+	border-radius: 3px;
+	background-color: var(--h3-list-graphic);
+	opacity: 0.5;
+	box-shadow: 0.25em 0.25em 0 0 var(--h3-list-graphic), 0 0.25em 0 0 var(--h3-list-graphic);
+}
+
+.protyle-wysiwyg .h4>[spellcheck]:not(:empty)::after {
+	content: "";
+	position: absolute;
+	float: left;
+	margin-left: 5px;
+	height: 0.15em;
+	width: 0.15em;
+	bottom: 40%;
+	border-radius: 3px;
+	background-color: var(--h4-list-graphic);
+	opacity: 0.5;
+	box-shadow: 0.25em 0.25em 0 0 var(--h4-list-graphic), 0 0.25em 0 0 var(--h4-list-graphic), 0.25em 0 0 0 var(--h4-list-graphic);
+}
+
+.protyle-wysiwyg .h5>[spellcheck]:not(:empty)::after {
+	content: "";
+	position: absolute;
+	float: left;
+	margin-left: 5px;
+	height: 0.15em;
+	width: 0.15em;
+	bottom: 40%;
+	border-radius: 3px;
+	background-color: var(--h5-list-graphic);
+	opacity: 0.5;
+	box-shadow: 0.25em 0.25em 0 0 var(--h5-list-graphic), 0 0.25em 0 0 var(--h5-list-graphic), 0.25em 0 0 0 var(--h5-list-graphic), 0 -0.25em 0 0 var(--h5-list-graphic);
+}
+
+.protyle-wysiwyg .h6>[spellcheck]:not(:empty)::after {
+	content: "";
+	position: absolute;
+	float: left;
+	margin-left: 5px;
+	height: 0.15em;
+	width: 0.15em;
+	bottom: 40%;
+	border-radius: 3px;
+	background-color: var(--h6-list-graphic);
+	opacity: 0.5;
+	box-shadow: 0.25em 0.25em 0 0 var(--h6-list-graphic), 0 0.25em 0 0 var(--h6-list-graphic), 0.25em 0 0 0 var(--h6-list-graphic), 0 -0.25em 0 0 var(--h6-list-graphic), 0.25em -0.25em 0 0 var(--h6-list-graphic);
+}
+
+.h-reminder-disabled .protyle-wysiwyg .h1>[spellcheck]:not(:empty)::after,
+.h-reminder-disabled .protyle-wysiwyg .h2>[spellcheck]:not(:empty)::after,
+.h-reminder-disabled .protyle-wysiwyg .h3>[spellcheck]:not(:empty)::after,
+.h-reminder-disabled .protyle-wysiwyg .h4>[spellcheck]:not(:empty)::after,
+.h-reminder-disabled .protyle-wysiwyg .h5>[spellcheck]:not(:empty)::after,
+.h-reminder-disabled .protyle-wysiwyg .h6>[spellcheck]:not(:empty)::after {
+    display: none !important;
+}
+`;
+        document.head.appendChild(style);
+        isActive = true;
+    }
+
+    // 保存状态到本地存储
+    await setLocalStorageVal(window.theme.IDs.LOCAL_STORAGE_H_REMINDER, isActive ? 'true' : 'false');
+
+    return isActive;
+}
+
+/**
+ * 初始化标题小圆点状态
+ */
+async function initHReminderState() {
+    // 从本地存储读取状态
+    let storedState = window.siyuan?.storage[window.theme.IDs.LOCAL_STORAGE_H_REMINDER];
+    if (!storedState) {
+        storedState = localStorage.getItem(window.theme.IDs.LOCAL_STORAGE_H_REMINDER);
+    }
+
+    if (storedState === 'true') {
+        const styleId = 'snippetCSS-tsundoku-h-reminder';
+        if (!document.getElementById(styleId)) {
+            // 创建style标签并直接写入CSS内容
+            const style = document.createElement('style');
+            style.id = styleId;
+            style.type = 'text/css';
+            style.textContent = `
+:root {
+	--h1-list-graphic: var(--custom-h1-color, #0f4c81);
+	--h2-list-graphic: var(--custom-h2-color, #083256);
+	--h3-list-graphic: var(--custom-h3-color, #63a4c1);
+	--h4-list-graphic: var(--custom-h4-color, #71a796);
+	--h5-list-graphic: var(--custom-h5-color, #3b51a4);
+	--h6-list-graphic: var(--custom-h6-color, #dda36a);
+}
+
+.protyle-wysiwyg .h1>[spellcheck]:not(:empty)::after {
+	content: "";
+	position: absolute;
+	float: left;
+	margin-left: 5px;
+	height: 0.45em;
+	width: 0.15em;
+	bottom: 40%;
+	border-radius: 3px;
+	background-color: var(--h1-list-graphic);
+	opacity: 0.5;
+}
+
+.protyle-wysiwyg [data-node-id].li>.protyle-action~.h1>[spellcheck]::after {
+	bottom: 40%;
+}
+
+.protyle-wysiwyg .h2>[spellcheck]:not(:empty)::after {
+	content: "";
+	position: absolute;
+	float: left;
+	margin-left: 5px;
+	height: 0.16em;
+	width: 0.16em;
+	bottom: 40%;
+	border-radius: 3px;
+	background-color: var(--h2-list-graphic);
+	opacity: 0.5;
+	box-shadow: 0.25em 0.25em 0 0 var(--h2-list-graphic);
+}
+
+.protyle-wysiwyg [data-node-id].li>.protyle-action~.h2>[spellcheck]::after {
+	bottom: 40%;
+}
+
+.protyle-wysiwyg .h3>[spellcheck]:not(:empty)::after {
+	content: "";
+	position: absolute;
+	float: left;
+	margin-left: 5px;
+	height: 0.16em;
+	width: 0.16em;
+	bottom: 40%;
+	border-radius: 3px;
+	background-color: var(--h3-list-graphic);
+	opacity: 0.5;
+	box-shadow: 0.25em 0.25em 0 0 var(--h3-list-graphic), 0 0.25em 0 0 var(--h3-list-graphic);
+}
+
+.protyle-wysiwyg .h4>[spellcheck]:not(:empty)::after {
+	content: "";
+	position: absolute;
+	float: left;
+	margin-left: 5px;
+	height: 0.15em;
+	width: 0.15em;
+	bottom: 40%;
+	border-radius: 3px;
+	background-color: var(--h4-list-graphic);
+	opacity: 0.5;
+	box-shadow: 0.25em 0.25em 0 0 var(--h4-list-graphic), 0 0.25em 0 0 var(--h4-list-graphic), 0.25em 0 0 0 var(--h4-list-graphic);
+}
+
+.protyle-wysiwyg .h5>[spellcheck]:not(:empty)::after {
+	content: "";
+	position: absolute;
+	float: left;
+	margin-left: 5px;
+	height: 0.15em;
+	width: 0.15em;
+	bottom: 40%;
+	border-radius: 3px;
+	background-color: var(--h5-list-graphic);
+	opacity: 0.5;
+	box-shadow: 0.25em 0.25em 0 0 var(--h5-list-graphic), 0 0.25em 0 0 var(--h5-list-graphic), 0.25em 0 0 0 var(--h5-list-graphic), 0 -0.25em 0 0 var(--h5-list-graphic);
+}
+
+.protyle-wysiwyg .h6>[spellcheck]:not(:empty)::after {
+	content: "";
+	position: absolute;
+	float: left;
+	margin-left: 5px;
+	height: 0.15em;
+	width: 0.15em;
+	bottom: 40%;
+	border-radius: 3px;
+	background-color: var(--h6-list-graphic);
+	opacity: 0.5;
+	box-shadow: 0.25em 0.25em 0 0 var(--h6-list-graphic), 0 0.25em 0 0 var(--h6-list-graphic), 0.25em 0 0 0 var(--h6-list-graphic), 0 -0.25em 0 0 var(--h6-list-graphic), 0.25em -0.25em 0 0 var(--h6-list-graphic);
+}
+
+.h-reminder-disabled .protyle-wysiwyg .h1>[spellcheck]:not(:empty)::after,
+.h-reminder-disabled .protyle-wysiwyg .h2>[spellcheck]:not(:empty)::after,
+.h-reminder-disabled .protyle-wysiwyg .h3>[spellcheck]:not(:empty)::after,
+.h-reminder-disabled .protyle-wysiwyg .h4>[spellcheck]:not(:empty)::after,
+.h-reminder-disabled .protyle-wysiwyg .h5>[spellcheck]:not(:empty)::after,
+.h-reminder-disabled .protyle-wysiwyg .h6>[spellcheck]:not(:empty)::after {
+    display: none !important;
+}
+`;
+            document.head.appendChild(style);
+        }
+        return true;
+    }
+    return false;
+}
+
+/**
+ * 自动初始化标题小圆点（在主题启动时调用）
+ */
+async function autoInitHReminder() {
+    // 从本地存储读取状态
+    let storedState = window.siyuan?.storage[window.theme.IDs.LOCAL_STORAGE_H_REMINDER];
+    if (!storedState) {
+        storedState = localStorage.getItem(window.theme.IDs.LOCAL_STORAGE_H_REMINDER);
+    }
+
+    if (storedState === 'true') {
+        const styleId = 'snippetCSS-tsundoku-h-reminder';
+        if (!document.getElementById(styleId)) {
+            console.log('自动启用标题小圆点');
+            // 创建style标签并直接写入CSS内容
+            const style = document.createElement('style');
+            style.id = styleId;
+            style.type = 'text/css';
+            style.textContent = `
+:root {
+	--h1-list-graphic: var(--custom-h1-color, #0f4c81);
+	--h2-list-graphic: var(--custom-h2-color, #083256);
+	--h3-list-graphic: var(--custom-h3-color, #63a4c1);
+	--h4-list-graphic: var(--custom-h4-color, #71a796);
+	--h5-list-graphic: var(--custom-h5-color, #3b51a4);
+	--h6-list-graphic: var(--custom-h6-color, #dda36a);
+}
+
+.protyle-wysiwyg .h1>[spellcheck]:not(:empty)::after {
+	content: "";
+	position: absolute;
+	float: left;
+	margin-left: 5px;
+	height: 0.45em;
+	width: 0.15em;
+	bottom: 40%;
+	border-radius: 3px;
+	background-color: var(--h1-list-graphic);
+	opacity: 0.5;
+}
+
+.protyle-wysiwyg [data-node-id].li>.protyle-action~.h1>[spellcheck]::after {
+	bottom: 40%;
+}
+
+.protyle-wysiwyg .h2>[spellcheck]:not(:empty)::after {
+	content: "";
+	position: absolute;
+	float: left;
+	margin-left: 5px;
+	height: 0.16em;
+	width: 0.16em;
+	bottom: 40%;
+	border-radius: 3px;
+	background-color: var(--h2-list-graphic);
+	opacity: 0.5;
+	box-shadow: 0.25em 0.25em 0 0 var(--h2-list-graphic);
+}
+
+.protyle-wysiwyg [data-node-id].li>.protyle-action~.h2>[spellcheck]::after {
+	bottom: 40%;
+}
+
+.protyle-wysiwyg .h3>[spellcheck]:not(:empty)::after {
+	content: "";
+	position: absolute;
+	float: left;
+	margin-left: 5px;
+	height: 0.16em;
+	width: 0.16em;
+	bottom: 40%;
+	border-radius: 3px;
+	background-color: var(--h3-list-graphic);
+	opacity: 0.5;
+	box-shadow: 0.25em 0.25em 0 0 var(--h3-list-graphic), 0 0.25em 0 0 var(--h3-list-graphic);
+}
+
+.protyle-wysiwyg .h4>[spellcheck]:not(:empty)::after {
+	content: "";
+	position: absolute;
+	float: left;
+	margin-left: 5px;
+	height: 0.15em;
+	width: 0.15em;
+	bottom: 40%;
+	border-radius: 3px;
+	background-color: var(--h4-list-graphic);
+	opacity: 0.5;
+	box-shadow: 0.25em 0.25em 0 0 var(--h4-list-graphic), 0 0.25em 0 0 var(--h4-list-graphic), 0.25em 0 0 0 var(--h4-list-graphic);
+}
+
+.protyle-wysiwyg .h5>[spellcheck]:not(:empty)::after {
+	content: "";
+	position: absolute;
+	float: left;
+	margin-left: 5px;
+	height: 0.15em;
+	width: 0.15em;
+	bottom: 40%;
+	border-radius: 3px;
+	background-color: var(--h5-list-graphic);
+	opacity: 0.5;
+	box-shadow: 0.25em 0.25em 0 0 var(--h5-list-graphic), 0 0.25em 0 0 var(--h5-list-graphic), 0.25em 0 0 0 var(--h5-list-graphic), 0 -0.25em 0 0 var(--h5-list-graphic);
+}
+
+.protyle-wysiwyg .h6>[spellcheck]:not(:empty)::after {
+	content: "";
+	position: absolute;
+	float: left;
+	margin-left: 5px;
+	height: 0.15em;
+	width: 0.15em;
+	bottom: 40%;
+	border-radius: 3px;
+	background-color: var(--h6-list-graphic);
+	opacity: 0.5;
+	box-shadow: 0.25em 0.25em 0 0 var(--h6-list-graphic), 0 0.25em 0 0 var(--h6-list-graphic), 0.25em 0 0 0 var(--h6-list-graphic), 0 -0.25em 0 0 var(--h6-list-graphic), 0.25em -0.25em 0 0 var(--h6-list-graphic);
+}
+
+.h-reminder-disabled .protyle-wysiwyg .h1>[spellcheck]:not(:empty)::after,
+.h-reminder-disabled .protyle-wysiwyg .h2>[spellcheck]:not(:empty)::after,
+.h-reminder-disabled .protyle-wysiwyg .h3>[spellcheck]:not(:empty)::after,
+.h-reminder-disabled .protyle-wysiwyg .h4>[spellcheck]:not(:empty)::after,
+.h-reminder-disabled .protyle-wysiwyg .h5>[spellcheck]:not(:empty)::after,
+.h-reminder-disabled .protyle-wysiwyg .h6>[spellcheck]:not(:empty)::after {
+    display: none !important;
+}
+`;
+            document.head.appendChild(style);
+        }
+    }
+}
+
 /**++++++++++++++++++++++++++++++++主题功能执行：按需调用+++++++++++++++++++++++++++ */
 window.theme.timerIds = [];
 
@@ -1016,6 +1446,9 @@ window.theme.timerIds = [];
 
     // 自动初始化垂直页签状态
     await autoInitVerticalTab();
+
+    // 自动初始化标题小圆点状态
+    await autoInitHReminder();
 
     const linkIconFilterInterval = setInterval(link_icon_filter, 100);
     window.theme.timerIds.push(linkIconFilterInterval);
@@ -1053,6 +1486,12 @@ window.destroyTheme = () => {
         verticalTabButton.remove();
     }
 
+    // 删除标题小圆点按钮
+    const hReminderButton = document.getElementById('tsundoku-h-reminder-button');
+    if (hReminderButton) {
+        hReminderButton.remove();
+    }
+
     // 删除我们添加的分割线
     const themeSeparator = document.querySelector('.b3-menu__separator[data-tsundoku="theme-separator"]');
     if (themeSeparator) {
@@ -1064,6 +1503,12 @@ window.destroyTheme = () => {
     const verticalTabCSS = document.getElementById('tsundoku-vertical-tab-css');
     if (verticalTabCSS) {
         verticalTabCSS.remove();
+    }
+
+    // 删除标题小圆点CSS
+    const hReminderCSS = document.getElementById('snippetCSS-tsundoku-h-reminder');
+    if (hReminderCSS) {
+        hReminderCSS.remove();
     }
 
     // 删除观察器

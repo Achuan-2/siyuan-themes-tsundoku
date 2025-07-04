@@ -98,3 +98,13 @@
 	opacity: 0.5;
 	box-shadow: 0.25em 0.25em 0 0 var(--h6-list-graphic), 0 0.25em 0 0 var(--h6-list-graphic), 0.25em 0 0 0 var(--h6-list-graphic), 0 -0.25em 0 0 var(--h6-list-graphic), 0.25em -0.25em 0 0 var(--h6-list-graphic);
 }
+
+/* 添加一个可选的隐藏类，当需要临时禁用时使用 */
+.h-reminder-disabled .protyle-wysiwyg .h1>[spellcheck]:not(:empty)::after,
+.h-reminder-disabled .protyle-wysiwyg .h2>[spellcheck]:not(:empty)::after,
+.h-reminder-disabled .protyle-wysiwyg .h3>[spellcheck]:not(:empty)::after,
+.h-reminder-disabled .protyle-wysiwyg .h4>[spellcheck]:not(:empty)::after,
+.h-reminder-disabled .protyle-wysiwyg .h5>[spellcheck]:not(:empty)::after,
+.h-reminder-disabled .protyle-wysiwyg .h6>[spellcheck]:not(:empty)::after {
+	display: none !important;
+}
