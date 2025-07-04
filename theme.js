@@ -800,7 +800,12 @@ function loadStyle(href, id = null) {
 
 
 function create_theme_button2() {
-    const commonMenuObserver = new MutationObserver((mutations) => {
+    // 避免重复创建观察器
+    if (window.theme.commonMenuObserver) {
+        return;
+    }
+
+    window.theme.commonMenuObserver = new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {
             if (mutation.type === 'attributes' && mutation.attributeName === 'data-name') {
                 const commonMenu = document.getElementById('commonMenu');
@@ -813,34 +818,56 @@ function create_theme_button2() {
 
     const commonMenu = document.getElementById('commonMenu');
     if (commonMenu) {
-        commonMenuObserver.observe(commonMenu, { attributes: true, attributeFilter: ['data-name'] });
+        window.theme.commonMenuObserver.observe(commonMenu, { attributes: true, attributeFilter: ['data-name'] });
         if (commonMenu.getAttribute('data-name') === 'barmode') {
             initThemeToolbar(commonMenu);
         }
     } else {
-        const menuWaitObserver = new MutationObserver((mutations, obs) => {
-            const commonMenu = document.getElementById('commonMenu');
-            if (commonMenu) {
-                commonMenuObserver.observe(commonMenu, { attributes: true, attributeFilter: ['data-name'] });
-                if (commonMenu.getAttribute('data-name') === 'barmode') {
-                    initThemeToolbar(commonMenu);
+        if (!window.theme.menuWaitObserver) {
+            window.theme.menuWaitObserver = new MutationObserver((mutations, obs) => {
+                const commonMenu = document.getElementById('commonMenu');
+                if (commonMenu) {
+                    window.theme.commonMenuObserver.observe(commonMenu, { attributes: true, attributeFilter: ['data-name'] });
+                    if (commonMenu.getAttribute('data-name') === 'barmode') {
+                        initThemeToolbar(commonMenu);
+                    }
+                    obs.disconnect();
+                    window.theme.menuWaitObserver = null;
                 }
-                obs.disconnect();
-            }
-        });
-        menuWaitObserver.observe(document.body, { childList: true, subtree: true });
+            });
+            window.theme.menuWaitObserver.observe(document.body, { childList: true, subtree: true });
+        }
     }
 }
 
 async function initThemeToolbar(commonMenu) {
-    if (document.getElementById('tsundoku-vertical-tab-button') || document.getElementById('tsundoku-theme-color-button')) return;
+    // 更严格的检查：确保按钮不存在且菜单是正确的barmode菜单
+    const existingThemeButton = document.getElementById('tsundoku-theme-color-button');
+    const existingVerticalTabButton = document.getElementById('tsundoku-vertical-tab-button');
+    
+    if ((existingThemeButton || existingVerticalTabButton) || 
+        !commonMenu || 
+        commonMenu.getAttribute('data-name') !== 'barmode') {
+        return;
+    }
 
     const menuItems = commonMenu.querySelector('.b3-menu__items');
     if (!menuItems) return;
 
+    // 检查是否已经存在我们的分割线（通过检查最后一个分割线后是否有我们的按钮）
+    const existingSeparators = menuItems.querySelectorAll('.b3-menu__separator');
+    if (existingSeparators.length > 0) {
+        const lastSeparator = existingSeparators[existingSeparators.length - 1];
+        const nextElement = lastSeparator.nextElementSibling;
+        if (nextElement && (nextElement.id === 'tsundoku-theme-color-button' || nextElement.id === 'tsundoku-vertical-tab-button')) {
+            return; // 已经添加过了
+        }
+    }
+
     // 创建分割线
     const separator = document.createElement('div');
     separator.className = 'b3-menu__separator';
+    separator.setAttribute('data-tsundoku', 'theme-separator'); // 添加标识
 
     // 创建主题切换按钮
     const themeColorButton = document.createElement('button');
@@ -882,17 +909,10 @@ async function initThemeToolbar(commonMenu) {
         verticalTabButton.querySelector('.b3-menu__accelerator').textContent = isActive ? 'ON' : 'OFF';
     };
 
-    // 添加到菜单末尾，顺序：分割线 -> 主题切换 -> 垂直页签
-    const existingSeparator = menuItems.querySelector('.b3-menu__separator');
-    if (existingSeparator) {
-        existingSeparator.before(separator);
-        separator.after(themeColorButton);
-        themeColorButton.after(verticalTabButton);
-    } else {
-        menuItems.appendChild(separator);
-        menuItems.appendChild(themeColorButton);
-        menuItems.appendChild(verticalTabButton);
-    }
+    // 添加到菜单末尾
+    menuItems.appendChild(separator);
+    menuItems.appendChild(themeColorButton);
+    menuItems.appendChild(verticalTabButton);
 }
 
 /**
@@ -1012,9 +1032,32 @@ window.destroyTheme = () => {
     if (verticalTabButton) {
         verticalTabButton.remove();
     }
+
+    // 删除我们添加的分割线
+    const themeSeparator = document.querySelector('.b3-menu__separator[data-tsundoku="theme-separator"]');
+    if (themeSeparator) {
+        themeSeparator.remove();
+    }
+
+    // 删除垂直页签相关元素
+    removeTabbarResizer();
+    const verticalTabCSS = document.getElementById('tsundoku-vertical-tab-css');
+    if (verticalTabCSS) {
+        verticalTabCSS.remove();
+    }
+
+    // 删除观察器
+    if (window.theme.commonMenuObserver) {
+        window.theme.commonMenuObserver.disconnect();
+        window.theme.commonMenuObserver = null;
+    }
+    if (window.theme.menuWaitObserver) {
+        window.theme.menuWaitObserver.disconnect();
+        window.theme.menuWaitObserver = null;
+    }
+
     // 删除列表转导图功能
     window.removeEventListener('mouseup', MenuShow);
 
     clearAllTimers();
-
 };
