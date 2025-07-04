@@ -5,6 +5,12 @@
 
 
 /* 代码块 */
+.b3-typography div.hljs,
+.protyle-wysiwyg div.hljs{
+    padding: 0.5em 1em 1.6em;
+}
+
+
 .protyle-wysiwyg .code-block[fold='1'] .hljs {
     opacity: 0;
 }
@@ -185,3 +191,20 @@
     opacity: 1;
     background: transparent;
 }
+
+/* 代码块滚动时语言和按钮固定在编辑器顶部 by JeffreyChen https://ld246.com/article/1728146248791 */
+
+
+.protyle-wysiwyg[contenteditable] .code-block .protyle-action {
+    position: sticky;
+}
+
+.protyle-wysiwyg[contenteditable] .code-block .protyle-action::after {
+    /* content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: var(--b3-protyle-code-background);
+    pointer-events: none; */
+}
+
