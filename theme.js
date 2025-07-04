@@ -7,6 +7,7 @@ window.theme = {
     isResizing: false,
     startX: 0,
     startWidth: 0,
+    originalWidth: null, // 添加原始宽度存储
     MIN_WIDTH: 150, // 最小宽度
     MAX_WIDTH: 400, // 最大宽度
     linkIconFilterInterval: null, // 链接图标过滤定时器
@@ -693,6 +694,11 @@ function initTabbarResizer() {
     const tabContainer = document.querySelector('.layout__center .layout-tab-bar');
     if (!tabContainer) return;
 
+    // 保存原始宽度（如果还没有保存）
+    if (window.theme.originalWidth === null) {
+        window.theme.originalWidth = tabContainer.style.width || '';
+    }
+
     // 创建调节器元素
     window.theme.tabbarResizer = document.createElement('div');
     window.theme.tabbarResizer.id = 'tabbar-resizer';
@@ -772,6 +778,18 @@ function removeTabbarResizer() {
     document.removeEventListener('mousemove', resizeTabbar);
     document.removeEventListener('mouseup', stopResize);
 
+    // 恢复页签容器的原始宽度
+    const tabContainer = document.querySelector('.layout__center .layout-tab-bar');
+    if (tabContainer && window.theme.originalWidth !== null) {
+        tabContainer.style.width = window.theme.originalWidth;
+        // 如果原始宽度为空，则移除width样式
+        if (window.theme.originalWidth === '') {
+            tabContainer.style.removeProperty('width');
+        }
+        // 重置原始宽度存储
+        window.theme.originalWidth = null;
+    }
+
     // 移除调节器元素
     const existingResizer = document.getElementById('tabbar-resizer');
     if (existingResizer) {
@@ -844,9 +862,9 @@ async function initThemeToolbar(commonMenu) {
     // 更严格的检查：确保按钮不存在且菜单是正确的barmode菜单
     const existingThemeButton = document.getElementById('tsundoku-theme-color-button');
     const existingVerticalTabButton = document.getElementById('tsundoku-vertical-tab-button');
-    
-    if ((existingThemeButton || existingVerticalTabButton) || 
-        !commonMenu || 
+
+    if ((existingThemeButton || existingVerticalTabButton) ||
+        !commonMenu ||
         commonMenu.getAttribute('data-name') !== 'barmode') {
         return;
     }
@@ -925,6 +943,7 @@ async function toggleVerticalTab() {
 
     if (styleElement) {
         styleElement.remove();
+        // 移除调节器并恢复宽度
         removeTabbarResizer();
         isActive = false;
     } else {
@@ -938,6 +957,7 @@ async function toggleVerticalTab() {
 
     return isActive;
 }
+
 
 /**
  * 初始化垂直页签状态
@@ -1039,7 +1059,7 @@ window.destroyTheme = () => {
         themeSeparator.remove();
     }
 
-    // 删除垂直页签相关元素
+    // 删除垂直页签相关元素并恢复宽度
     removeTabbarResizer();
     const verticalTabCSS = document.getElementById('tsundoku-vertical-tab-css');
     if (verticalTabCSS) {
