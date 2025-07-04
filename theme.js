@@ -800,15 +800,6 @@ function loadStyle(href, id = null) {
 
 
 function create_theme_button2() {
-    // 更严格的重复检查 - 检查整个文档中是否已存在这些按钮
-    if (document.getElementById('tsundoku-vertical-tab-button') || 
-        document.getElementById('tsundoku-theme-color-button') ||
-        document.querySelector('#tsundoku-vertical-tab-button') ||
-        document.querySelector('#tsundoku-theme-color-button')) {
-        console.log('主题工具栏按钮已存在，跳过添加');
-        return;
-    }
-
     const commonMenuObserver = new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {
             if (mutation.type === 'attributes' && mutation.attributeName === 'data-name') {
@@ -842,26 +833,10 @@ function create_theme_button2() {
 }
 
 async function initThemeToolbar(commonMenu) {
-    // 更严格的重复检查 - 检查整个文档中是否已存在这些按钮
-    if (document.getElementById('tsundoku-vertical-tab-button') || 
-        document.getElementById('tsundoku-theme-color-button') ||
-        document.querySelector('#tsundoku-vertical-tab-button') ||
-        document.querySelector('#tsundoku-theme-color-button')) {
-        console.log('主题工具栏按钮已存在，跳过添加');
-        return;
-    }
+    if (document.getElementById('tsundoku-vertical-tab-button') || document.getElementById('tsundoku-theme-color-button')) return;
 
     const menuItems = commonMenu.querySelector('.b3-menu__items');
     if (!menuItems) return;
-
-    // 检查菜单中是否已有相关按钮（通过类名或内容检查）
-    const existingThemeButton = menuItems.querySelector('button[id*="theme"], button .b3-menu__label:contains("切换主题")');
-    const existingVerticalButton = menuItems.querySelector('button[id*="vertical"], button .b3-menu__label:contains("垂直页签")');
-    
-    if (existingThemeButton || existingVerticalButton) {
-        console.log('菜单中已存在相关按钮，跳过添加');
-        return;
-    }
 
     // 创建分割线
     const separator = document.createElement('div');
@@ -918,8 +893,6 @@ async function initThemeToolbar(commonMenu) {
         menuItems.appendChild(themeColorButton);
         menuItems.appendChild(verticalTabButton);
     }
-    
-    console.log('主题工具栏按钮添加成功');
 }
 
 /**
@@ -1031,7 +1004,7 @@ window.destroyTheme = () => {
 
     // 删除新的主题功能按钮
     const themeColorButton = document.getElementById('tsundoku-theme-color-button');
-    if themeColorButton) {
+    if (themeColorButton) {
         themeColorButton.remove();
     }
 
@@ -1043,7 +1016,5 @@ window.destroyTheme = () => {
     window.removeEventListener('mouseup', MenuShow);
 
     clearAllTimers();
-    
-    // 重置初始化标记
-    window.theme.toolbarInitialized = false;
+
 };
