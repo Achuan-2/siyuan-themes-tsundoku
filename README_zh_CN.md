@@ -29,7 +29,7 @@
 ## 🚀最近更新
 
 
-全部更新日志请见 [CHANGELOG](./CHANGELOG.md)
+全部更新日志请见 [CHANGELOG](https://cdn.jsdelivr.net/gh/Achuan-2/siyuan-themes-tsundoku@main/CHANGELOG.md)
 
 ## 💌 缘起
 
@@ -256,104 +256,105 @@ border-bottom: none;
   <summary>标题后添加小圆点</summary>
 
 ```css
-
 :root {
-    --h1-list-graphic: #eb8383;
-	--h2-list-graphic: #ae9acb;
-	--h3-list-graphic: #63a4c1;
-	--h4-list-graphic: #71a796;
-	--h5-list-graphic: #3b51a4;
-	--h6-list-graphic: #dda36a;
+	--h1-list-graphic: var(--custom-h1-color, #0f4c81);
+	--h2-list-graphic: var(--custom-h2-color, #083256);
+	--h3-list-graphic: var(--custom-h3-color, #63a4c1);
+	--h4-list-graphic: var(--custom-h4-color, #71a796);
+	--h5-list-graphic: var(--custom-h5-color, #3b51a4);
+	--h6-list-graphic: var(--custom-h6-color, #dda36a);
 }
 
 
-.protyle-wysiwyg .h1>[spellcheck]:not(:empty)::after{
-	content:"";
-	position:absolute;
-	float:left;
-	margin-left:5px;
-	height:0.45em;
-	width:0.15em;
-	bottom:0.5em;
-	border-radius:3px;
-	background-color:var(--h1-list-graphic);
-	opacity:0.5;
-}
-.protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h1>[spellcheck]::after{
-	bottom:0.2em;
+.protyle-wysiwyg .h1>[spellcheck]:not(:empty)::after {
+	content: "";
+	position: absolute;
+	float: left;
+	margin-left: 5px;
+	height: 0.45em;
+	width: 0.15em;
+	bottom: 40%;
+	border-radius: 3px;
+	background-color: var(--h1-list-graphic);
+	opacity: 0.5;
 }
 
-.protyle-wysiwyg .h2>[spellcheck]:not(:empty)::after{
-	content:"";
-	position:absolute;
-	float:left;
-	margin-left:5px;
-	height:0.16em;
-	width:0.16em;
-	bottom:0.76em;
-	border-radius:3px;
-	background-color:var(--h2-list-graphic);
-	opacity:0.5;
+.protyle-wysiwyg [data-node-id].li>.protyle-action~.h1>[spellcheck]::after {
+	bottom: 40%;
+}
+
+.protyle-wysiwyg .h2>[spellcheck]:not(:empty)::after {
+	content: "";
+	position: absolute;
+	float: left;
+	margin-left: 5px;
+	height: 0.16em;
+	width: 0.16em;
+	bottom: 40%;
+	border-radius: 3px;
+	background-color: var(--h2-list-graphic);
+	opacity: 0.5;
 	box-shadow: 0.25em 0.25em 0 0 var(--h2-list-graphic);
 }
-.protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h2>[spellcheck]::after{
-	bottom:0.5em;
+
+.protyle-wysiwyg [data-node-id].li>.protyle-action~.h2>[spellcheck]::after {
+	bottom: 40%;
 }
 
-.protyle-wysiwyg .h3>[spellcheck]:not(:empty)::after{
-	content:"";
-	position:absolute;
-	float:left;
-	margin-left:5px;
-	height:0.16em;
-	width:0.16em;
-	bottom:0.62em;
-	border-radius:3px;
-	background-color:var(--h3-list-graphic);
-	opacity:0.5;
-	box-shadow: 0.25em 0.25em 0 0 var(--h3-list-graphic),0 0.25em 0 0 var(--h3-list-graphic);
+.protyle-wysiwyg .h3>[spellcheck]:not(:empty)::after {
+	content: "";
+	position: absolute;
+	float: left;
+	margin-left: 5px;
+	height: 0.16em;
+	width: 0.16em;
+	bottom: 40%;
+	border-radius: 3px;
+	background-color: var(--h3-list-graphic);
+	opacity: 0.5;
+	box-shadow: 0.25em 0.25em 0 0 var(--h3-list-graphic), 0 0.25em 0 0 var(--h3-list-graphic);
 }
 
-.protyle-wysiwyg .h4>[spellcheck]:not(:empty)::after{
-	content:"";
-	position:absolute;
-	float:left;
-	margin-left:5px;
-	height:0.15em;
-	width:0.15em;
-	bottom:0.68em;
-	border-radius:3px;
-	background-color:var(--h4-list-graphic);
-	opacity:0.5;
-	box-shadow: 0.25em 0.25em 0 0 var(--h4-list-graphic),0 0.25em 0 0 var(--h4-list-graphic),0.25em 0 0 0 var(--h4-list-graphic);
+.protyle-wysiwyg .h4>[spellcheck]:not(:empty)::after {
+	content: "";
+	position: absolute;
+	float: left;
+	margin-left: 5px;
+	height: 0.15em;
+	width: 0.15em;
+	bottom: 40%;
+	border-radius: 3px;
+	background-color: var(--h4-list-graphic);
+	opacity: 0.5;
+	box-shadow: 0.25em 0.25em 0 0 var(--h4-list-graphic), 0 0.25em 0 0 var(--h4-list-graphic), 0.25em 0 0 0 var(--h4-list-graphic);
 }
 
-.protyle-wysiwyg .h5>[spellcheck]:not(:empty)::after{
-	content:"";
-	position:absolute;
-	float:left;
-	margin-left:5px;
-	height:0.15em;
-	width:0.15em;
-	bottom:0.8em;
-	border-radius:3px;
-	background-color:var(--h5-list-graphic);
-	opacity:0.5;
-	box-shadow: 0.25em 0.25em 0 0 var(--h5-list-graphic),0 0.25em 0 0 var(--h5-list-graphic),0.25em 0 0 0 var(--h5-list-graphic),0 -0.25em 0 0 var(--h5-list-graphic);
+.protyle-wysiwyg .h5>[spellcheck]:not(:empty)::after {
+	content: "";
+	position: absolute;
+	float: left;
+	margin-left: 5px;
+	height: 0.15em;
+	width: 0.15em;
+	bottom: 40%;
+	border-radius: 3px;
+	background-color: var(--h5-list-graphic);
+	opacity: 0.5;
+	box-shadow: 0.25em 0.25em 0 0 var(--h5-list-graphic), 0 0.25em 0 0 var(--h5-list-graphic), 0.25em 0 0 0 var(--h5-list-graphic), 0 -0.25em 0 0 var(--h5-list-graphic);
 }
 
-.protyle-wysiwyg .h6>[spellcheck]:not(:empty)::after{
-	content:"";
-	position:absolute;
-	float:left;
-	margin-left:5px;
-	height:0.15em;
-	width:0.15em;
-	bottom:0.9em;
-	border-radius:3px;
-	background-color:var(--h6-list-graphic);
-	opacity:0.5;
-	box-shadow: 0.25em 0.25em 0 0 var(--h6-list-graphic),0 0.25em 0 0 var(--h6-list-graphic),0.25em 0 0 0 var(--h6-list-graphic),0 -0.25em 0 0 var(--h6-list-graphic),0.25em -0.25em 0 0 var(--h6-list-graphic);
+.protyle-wysiwyg .h6>[spellcheck]:not(:empty)::after {
+	content: "";
+	position: absolute;
+	float: left;
+	margin-left: 5px;
+	height: 0.15em;
+	width: 0.15em;
+	bottom: 40%;
+	border-radius: 3px;
+	background-color: var(--h6-list-graphic);
+	opacity: 0.5;
+	box-shadow: 0.25em 0.25em 0 0 var(--h6-list-graphic), 0 0.25em 0 0 var(--h6-list-graphic), 0.25em 0 0 0 var(--h6-list-graphic), 0 -0.25em 0 0 var(--h6-list-graphic), 0.25em -0.25em 0 0 var(--h6-list-graphic);
 }
 
 ```
