@@ -123,9 +123,18 @@ span[data-type='av-add-more']:hover {
     max-width: 100%;
     /* 防止图片超出容器宽度 */
 }
-
-/* 数据库预览字体减小 */
+/* -----------------数据库卡片视图--------------- */
+/* 数据库卡片界面整体缩小 */
+.av__gallery-content {
+    zoom: 0.9;
+}
+/* 标题取消margin */
 .av__gallery-content div[data-type="NodeHeading"] {
     margin: 0 !important;
-    zoom: 0.8;
+}
+/* 数据库卡片视图的图片宽度缩小 */
+.av__gallery-content div span[data-type="img"].img {
+    max-width: 50% !important;
+    zoom: 0.25;
+    display: inline-block !important;
 }
