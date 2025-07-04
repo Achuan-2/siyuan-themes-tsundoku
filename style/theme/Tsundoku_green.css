@@ -979,3 +979,6 @@ html[data-theme-mode=light] .av__panel .b3-menu__item[draggable=true] {
 }
 
 
+#layouts>div.fn__flex.fn__flex-1>div.layout__center.fn__flex-column.fn__flex-1>div>div>div.fn__flex {
+    background: var(--b3-theme-surface);
+}

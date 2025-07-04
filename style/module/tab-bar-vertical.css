@@ -1,0 +1,75 @@
+:root {
+    --custom-tab-width: 150px;
+}
+
+body:not(.body--mobile,.body--window) [data-type='wnd'][data-id]:not(.tab-horizontal) .fn__flex:not(.av__views){
+    & > .layout-tab-bar{
+	margin:0; 
+	border-bottom: none;
+    display: block;
+	flex: 1;
+    padding-left: 5px;
+    overflow: visible;
+    &.layout-tab-bar--readonly {
+        flex: initial;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .item:not(.item--readonly) {
+        margin:0 -5px 5px 0!important;
+        max-width:unset;
+        padding: 2.5px 0 ;
+        & .item__close{
+            margin-left: auto;
+        }
+        &.item--focus{
+            border-radius: 8px 0 0 8px;
+        &::after {
+            background-color: transparent;
+            top: calc(-1* var(--Sv-dock-item-radius) - 2px);
+            right: -5px; 
+            left: auto; 
+            height: calc(100% + var(--Sv-dock-item-radius)* 2 + 4px);
+            width: 12px;
+            border-radius: 0;
+            transition: var(--b3-transition);
+            background-image: var(--Sv-tab-bar-V-item-after);
+            background-size: 12px 12px, 12px 12px, calc(100% + var(--Sv-dock-item-radius)* 2 + 8px) calc(100% - var(--Sv-dock-item-radius)* 2 - 4px);
+            background-position: left bottom, left top, center right;
+            background-repeat: no-repeat;
+            box-shadow: none; 
+        }}
+        &.item--pin .item__text.fn__none{
+            display: block!important;
+        }
+        &:hover::after{
+            opacity: 0;
+        }
+        &.item--focus:hover::after{
+            opacity: 1;
+        }
+        }
+        .item--pin:not(.item--readonly) {
+            padding: 2.5px 1.5px;
+        }
+    }
+    .layout-tab-bar--readonly{
+        margin-left: 0px!important;
+    }
+}
+body:not(.body--mobile,.body--window)  .layout__center [data-type='wnd'][data-id]:not(.tab-horizontal){
+	display: flex;
+	flex-direction: row;
+    & > .fn__flex:not(.layout-tab-container) {
+        flex-direction: column-reverse;
+    }
+}
+body:not(.body--mobile,.body--window) .layout__center [data-type='wnd'][data-id]:not(.tab-horizontal)>.fn__flex>.layout-tab-bar {
+    width: var(--custom-tab-width);
+    transition: width 0.3s ease;
+}
+
+#vertical-resize-handle:hover{
+    background-color: var(--Sv-layout--resize-hover)!important;
+    transition: all 0.2s ease;
+}
