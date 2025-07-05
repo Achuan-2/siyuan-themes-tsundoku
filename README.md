@@ -1,8 +1,5 @@
 <h1 align="center">🌞Tsundoku: A Theme for SiYuan Note</h1>
 
-</a>
-</p>
-
 <p align="center">          
            <a title="Hits" target="_blank" href="https://github.com/Achuan-2/siyuan-themes-tsundoku-light"><img src="https://hits.b3log.org/Achuan-2/siyuan-themes-tsundoku-light.svg" ></a>
            <a title="GitHub release (latest by date including pre-releases)" target="_blank" href="https://github.com/Achuan-2/siyuan-themes-tsundoku/releases/latest">
@@ -14,48 +11,51 @@
           <img src="https://img.shields.io/github/last-commit/Achuan-2/siyuan-themes-tsundoku" alt="GitHub last commit">
 </p>
 
-
-
 English  | [中文](./README_zh_CN.md)  
 
 ![](preview.png)
 
->If you like this topic, welcome to [AFDIAN](https://afdian.net/a/achuan-2 )to sponsor me, it will motivate me to update and improve this theme
+> 📢 Announcement: Due to the lack of sponsorship revenue from theme development and the increasing richness of SiYuan themes, this theme has entered maintenance mode. I will no longer respond to user questions and requests, and will only make casual updates based on personal needs.
 
+---
 
-**Introduction**: [Siyuan](https://github.com/Siyuan-Note/Siyuan)  is a privacy-first personal knowledge management system, support fine-grained block-level reference and Markdown WYSIWYG. This theme is a personal original theme, specially designed for Siyuan notes.
+> If you like this theme, welcome to [buy me a snack](https://www.yuque.com/achuan-2), which will motivate me to update and improve the theme.
 
-![Light](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/1704370183771Clip_2024-01-04_20-09-39.png)
-<center>Light</center>
+**Introduction**: [SiYuan](https://github.com/siyuan-note/siyuan) is a privacy-first personal knowledge management system that supports completely offline use and end-to-end encrypted synchronization. It combines blocks, outlines, and bidirectional links to build your eternal digital garden. This theme is a personal original theme, specially designed for SiYuan notes.
 
-![Green](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/1704370137769Clip_2024-01-04_20-07-57.png)
-<center>Green</center>
+## 🚀 Recent Updates
 
-![Dark](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/1704370028776Clip_2024-01-04_20-07-02.png)
-<center>Dark</center>
-
-## 🚀 CHANGLOGS
-
-Please see [CHANGELOG](./CHANGELOG.md) for the full update log.
-
-
+For the complete update log, please see [CHANGELOG](https://cdn.jsdelivr.net/gh/Achuan-2/siyuan-themes-tsundoku@main/CHANGELOG.md)
 
 ## 💌 Origin
 
 🎉 The theme was first born on February 22, 2021.
 
-
-Tsundoku “積 ん 読” is a word in Japanese. Wikipedia explains it like this: "tsundoku is acquiring reading materials but letting them pile up in one's home without reading them. It is also used to refer to books ready. For reading later when they are on a bookshelf. "Simply put, it is the behavior of buying books but not reading.
+Tsundoku "積 ん 読" is a word in Japanese. Wikipedia explains it like this: "Tsundoku is acquiring reading materials but letting them pile up in one's home without reading them. It is also used to refer to books ready for reading later when they are on a bookshelf." Simply put, it is the behavior of buying books addictively but not reading them.
 
 > Any PKM approach that doesn't tie into execution tools is destined to languish on the back burner forever.
 
+The biggest obstacle to using a tool is "unclear requirements". If you don't know what your recording requirements are, the more functions there are, the greater the possible obstacles, and it is easy for people to get caught up in various research on functions. After using a pile of notebook software, you will understand that the most important thing to improve is not the tools you use, **but yourself**.
 
-The biggest obstacle to using a tool is "unclear requirements". If you don't know what your recording requirements are, the more functions there are, the greater the possible obstacles, and it is easy for people to get caught up in various research on functions. After using a pile of notebook software, you will understand that the most important thing to improve is not the tools you use, but yourself.
+I use this name to wake myself up, hoping to make good use of SiYuan notes, help me to be task-oriented, take notes to complete tasks and achieve goals, better master knowledge and skills, strive to do meaningful projects and become a better person. Instead of taking notes for the sake of taking notes, making the note-taking software become dust boxes that relieve knowledge anxiety and satisfy abnormal digital hoarding syndrome.
 
-I use this name to wake myself up, hoping to make good use of Siyuan notes, help me form the habit of daily recording and reviewing the answers regularly, better master knowledge and skills, strive to do meaningful projects and become a better person, instead of taking notes for the sake of taking notes, so that the note-taking software can become a dust box to relieve knowledge anxiety and satisfy abnormal digital hoarding.
+## 🐯 Theme Features
 
+- ✨ **Three-in-one theme, supporting both light mode and dark mode** (Tsundoku Light, Tsundoku Green, Tsundoku Dark)
+  - SiYuan note light mode only supports selecting light and green, dark mode only supports selecting dark theme
+  - **If both light mode and dark mode are set to use Tsundoku theme**: When switching from dark mode to light mode, it automatically changes to green theme/light theme according to the previous light mode selection; when switching from light mode to dark mode, it automatically changes to dark theme
+- 📎**Added icons to hyperlinks**: Distinguish between different local links and network links
+  ![20220131165215_2022-01-31](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220131165215_2022-01-31.png)
+- 🧊 **Callout blocks**: Add block background color to blockquote, and the style will be automatically applied
+  ![1704370779797Clip_2024-01-04_20-15-14.png](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/1704370779797Clip_2024-01-04_20-15-14.png)
 
-## 🐯 Features
+  It is recommended to use templates to add emoji and adjust title font size and bold. Here is an example:
+
+  ```markdown
+  > **💡  Title**{: style="font-size: 24px;"}
+  >
+  > Content
+  {: id="20231019114031-5bqqmpr" style="background-color: var(--b3-card-error-background); color: var(--b3-card-error-color);"}
 
 - ✨ **The theme is three-in-one, which supports both bright mode and dark mode.**（Tsundoku Light、Tsundoku Green、Tsundoku Dark）
   - Siyuan note bright mode only supports the selection of light and green, while dark mode only supports the selection of dark theme.
