@@ -91,7 +91,7 @@ I use this name to wake myself up, hoping to make good use of SiYuan notes, help
 
    | Attribute Key | Attribute Value | Function                                             | Remarks           |
    | ------------- | --------------- | ---------------------------------------------------- | ----------------- |
-   | f             | hide / 挖空   | Hollow block                                         |                   |
+   | f             | hide / 挖空     | Hollow block                                         |                   |
    | code          | output          | Code block specifically used to place output results |                   |
    | f             | kb              | Convert list to kanban board                         | Ref: Notion theme |
    | f             | dt              | Convert list to mind map                             | Ref: Notion theme |
