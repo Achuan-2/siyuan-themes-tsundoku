@@ -76,3 +76,7 @@ body:not(.body--mobile,.body--window) .layout__center [data-type='wnd'][data-id]
 #commonMenu[data-name="tabList"] .b3-menu__item:last-child{
     display: none;
 }
+
+#layouts>div.fn__flex.fn__flex-1>div.layout__center.fn__flex.fn__flex-1>div>div>div.fn__flex>ul.fn__flex.layout-tab-bar{
+    zoom: 1;
+}
