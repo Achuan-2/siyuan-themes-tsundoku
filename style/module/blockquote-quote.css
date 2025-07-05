@@ -1,0 +1,85 @@
+/* 基础引号样式 */
+.protyle-wysiwyg .bq[custom-blockquote-quote="true"]::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 100%;
+    height: 100%;
+    -webkit-mask-image: url(/appearance/themes/Tsundoku/src/quote.svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-image: url(/appearance/themes/Tsundoku/src/quote.svg);
+    mask-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-color: var(--b3-font-color3);
+    /* 默认颜色 */
+}
+
+.protyle-wysiwyg .bq[custom-blockquote-quote="true"] {
+    padding-top: 22px !important;
+}
+
+/* 不同颜色的引号 */
+.protyle-wysiwyg .bq[custom-blockquote-quote="true"][style*='background-color: var(--b3-card-error-background);']::before {
+    background-color: var(--b3-font-color1);
+}
+.protyle-wysiwyg .bq[custom-blockquote-quote="true"][style*='background-color: var(--b3-card-warning-background);']::before {
+    background-color: var(--b3-font-color2);
+}
+.protyle-wysiwyg .bq[custom-blockquote-quote="true"][style*='background-color: var(--b3-card-info-background);']::before {
+    background-color: var(--b3-font-color3);
+}
+.protyle-wysiwyg .bq[custom-blockquote-quote="true"][style*='background-color: var(--b3-card-success-background);']::before {
+    background-color: var(--b3-font-color4);
+}
+.protyle-wysiwyg .bq[custom-blockquote-quote="true"][style*='background-color: var(--b3-font-background1);']::before {
+    background-color: var(--b3-font-color1);
+}
+
+.protyle-wysiwyg .bq[custom-blockquote-quote="true"][style*='background-color: var(--b3-font-background2);']::before {
+    background-color: var(--b3-font-color2);
+}
+
+.protyle-wysiwyg .bq[custom-blockquote-quote="true"][style*='background-color: var(--b3-font-background3);']::before {
+    background-color: var(--b3-font-color3);
+}
+
+.protyle-wysiwyg .bq[custom-blockquote-quote="true"][style*='background-color: var(--b3-font-background4);']::before {
+    background-color: var(--b3-font-color4);
+}
+
+.protyle-wysiwyg .bq[custom-blockquote-quote="true"][style*='background-color: var(--b3-font-background5);']::before {
+    background-color: var(--b3-font-color5);
+}
+
+.protyle-wysiwyg .bq[custom-blockquote-quote="true"][style*='background-color: var(--b3-font-background6);']::before {
+    background-color: var(--b3-font-color6);
+}
+
+.protyle-wysiwyg .bq[custom-blockquote-quote="true"][style*='background-color: var(--b3-font-background7);']::before {
+    background-color: var(--b3-font-color7);
+}
+
+.protyle-wysiwyg .bq[custom-blockquote-quote="true"][style*='background-color: var(--b3-font-background8);']::before {
+    background-color: var(--b3-font-color8);
+}
+
+.protyle-wysiwyg .bq[custom-blockquote-quote="true"][style*='background-color: var(--b3-font-background9);']::before {
+    background-color: var(--b3-font-color9);
+}
+
+.protyle-wysiwyg .bq[custom-blockquote-quote="true"][style*='background-color: var(--b3-font-background10);']::before {
+    background-color: var(--b3-font-color10);
+}
+
+.protyle-wysiwyg .bq[custom-blockquote-quote="true"][style*='background-color: var(--b3-font-background11);']::before {
+    background-color: var(--b3-font-color11);
+}
+
+.protyle-wysiwyg .bq[custom-blockquote-quote="true"][style*='background-color: var(--b3-font-background12);']::before {
+    background-color: var(--b3-font-color12);
+}
+
+.protyle-wysiwyg .bq[custom-blockquote-quote="true"][style*='background-color: var(--b3-font-background13);']::before {
+    background-color: var(--b3-font-color13);
+}

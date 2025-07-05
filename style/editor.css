@@ -261,7 +261,7 @@
 .b3-typography .bq:before,
 .protyle-wysiwyg blockquote:before,
 .protyle-wysiwyg .bq:before {
-    display: none;
+    content: none;
 }
 
 .protyle-wysiwyg [data-node-id].bq>.bq {

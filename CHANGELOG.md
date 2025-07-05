@@ -1,3 +1,11 @@
+## v2.6.0 / 2025.07.05
+- 引述块支持设置引号样式
+  
+  ![](https://fastly.jsdelivr.net/gh/Achuan-2/PicBed/assets/PixPin_2025-07-05_10-23-56-2025-07-05.png)
+
+  ![](https://fastly.jsdelivr.net/gh/Achuan-2/PicBed/assets/PixPin_2025-07-05_10-21-24-2025-07-05.png)
+
+
 ## v2.5.9 / 2025.07.05
 - 修复垂直页签添加调整宽度调就无法点击页签切换按钮的问题
 - 添加标题圆点设置

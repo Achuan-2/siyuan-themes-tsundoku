@@ -420,7 +420,7 @@ function MenuShow() {
             if (
                 selecttype == 'NodeList' ||
                 selecttype == 'NodeTable' ||
-                // selecttype == 'NodeBlockquote' ||
+                selecttype == 'NodeBlockquote' ||
                 selecttype == 'NodeCodeBlock'
             ) {
                 // 使用 whenElementExist 等待菜单完全渲染
@@ -487,6 +487,10 @@ function SubMenu(selectid, selecttype, className = 'b3-menu__submenu') {
         node.appendChild(setCodeOutput(selectid));
         node.appendChild(cancelCodeOutput(selectid));
     }
+    if (selecttype == 'NodeBlockquote') {
+        node.appendChild(setBlockquoteQuote(selectid));
+        node.appendChild(cancelBlockquoteQuote(selectid));
+    }
     return node;
 }
 function setCodeOutput(selectid) {
@@ -497,6 +501,29 @@ function setCodeOutput(selectid) {
     button.setAttribute('custom-attr-value', 'output');
 
     button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFiles"></use></svg><span class="b3-menu__label">设置为代码输出样式</span>`;
+    button.onclick = ViewMonitor;
+    return button;
+}
+function setBlockquoteQuote(selectid) {
+    let button = document.createElement('button');
+    button.className = 'b3-menu__item';
+    button.setAttribute('data-node-id', selectid);
+    button.setAttribute('custom-attr-name', 'blockquote-quote');
+    button.setAttribute('custom-attr-value', 'true');
+
+    button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">设置为引号样式</span>`;
+    button.onclick = ViewMonitor;
+    return button;
+}
+
+function cancelBlockquoteQuote(selectid) {
+    let button = document.createElement('button');
+    button.className = 'b3-menu__item';
+    button.setAttribute('data-node-id', selectid);
+    button.setAttribute('custom-attr-name', 'blockquote-quote');
+    button.setAttribute('custom-attr-value', 'false');
+
+    button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">取消引号样式</span>`;
     button.onclick = ViewMonitor;
     return button;
 }
@@ -1510,6 +1537,8 @@ window.destroyTheme = () => {
     if (hReminderCSS) {
         hReminderCSS.remove();
     }
+
+
 
     // 删除观察器
     if (window.theme.commonMenuObserver) {
