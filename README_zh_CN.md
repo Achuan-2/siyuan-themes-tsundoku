@@ -51,6 +51,7 @@ Tsundoku “積 ん 読”是日语里的一个词，维基百科是这样解释
   - **如果明亮模式和暗黑模式都设置为使用Tsundoku主题**：从暗黑模式切换为明亮模式，根据之前的明亮模式选择自动更改为green主题/light主题；从明亮模式切换为暗黑模式，自动更改为dark主题
 - 📎**为超链接添加了icon**：区别不同的本地链接和网络链接
   ![20220131165215_2022-01-31](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/README/20220131165215_2022-01-31.png)
+- 📑 **支持垂直页签**：可以在主题设置中开启
 - 🧊 **Callout 块**：给引述块blockquote添加块背景颜色，可以充当callout块
   ![1704370779797Clip_2024-01-04_20-15-14.png](https://cdn.jsdelivr.net/gh/Achuan-2/PicBed@pic/assets/1704370779797Clip_2024-01-04_20-15-14.png)
 - 引述块支持设置引号样式
