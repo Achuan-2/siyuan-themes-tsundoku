@@ -35,7 +35,8 @@
 }
 
 /* ————————————————————对符号后文字设置格式———————————————————— */
-.protyle-wysiwyg [data-type="NodeList"][custom-f="bg"] .p {
+.protyle-wysiwyg [data-type="NodeList"][custom-f="bg"] .p,
+.protyle-wysiwyg [data-type="NodeList"][custom-f="bg"] [data-type="NodeHeading"] {
     flex: 1;
 	left:18px;
     text-align: left;
@@ -45,6 +46,7 @@
 	min-height: 30px;
 	height:auto;
     margin: 0;
+    border: none;
 }
 .protyle-wysiwyg [data-type="NodeList"][custom-f="bg"] .li>.list>.li {
     outline: none !important;
