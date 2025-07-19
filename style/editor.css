@@ -493,10 +493,6 @@ div[data-subtype='t'][data-type='NodeList'] {
     margin: 4px 0px 4px 0px;
 }
 
-.protyle-wysiwyg [data-node-id].sb[data-sb-layout='col'] .sb {
-    /* 超级块与超级块间距 */
-    margin: 0px 4px 0px 0px;
-}
 
 .protyle-wysiwyg [data-node-id].sb[data-sb-layout='col']>.sb:nth-last-child(2) {
     /* 超级块与超级块间距，最后一个超级块无右margin */
