@@ -784,13 +784,21 @@ li[data-type='navigation-file'] .counter {
 /*  ------------------------------下划线 ------------------------------ */
 
 /* 下划线加粗 */
-.b3-typography u,
+/* .b3-typography u,
 .b3-typography span[data-type~=u],
 .protyle-wysiwyg u,
 .protyle-wysiwyg span[data-type~=u] {
     border-bottom: 2px solid;
+} */
+.b3-typography u,
+.b3-typography span[data-type~=u],
+.protyle-wysiwyg u,
+.protyle-wysiwyg span[data-type~=u] {
+    text-decoration-style: wavy !important;
+    text-decoration: underline;
+    border-bottom: none;
+    text-decoration-color: var(--b3-font-color3);
 }
-
 /*  ------------------------------设置备注样式 ------------------------------ */
 .b3-typography span[data-type~='inline-memo'],
 .protyle-wysiwyg span[data-type~='inline-memo'] {
