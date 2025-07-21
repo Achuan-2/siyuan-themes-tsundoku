@@ -14,6 +14,55 @@ window.theme = {
     commonMenuObserver: null, // 菜单观察器
     menuWaitObserver: null, // 菜单等待观察器
 };
+
+// i18n
+window.theme.i18n = {
+    en: {
+        themeStyle: 'Change Block Style',
+        toMindmap: 'Convert to Mindmap',
+        toTable: 'Convert to Table',
+        toKanban: 'Convert to Kanban',
+        toList: 'Restore to List',
+        removeHeader: 'Remove Table Header',
+        defaultHeader: 'Default Table Header',
+        asCodeOutput: 'Set as Code Output',
+        cancelCodeOutput: 'Cancel Code Output Style',
+        asQuote: 'Set as Quote Style',
+        cancelQuote: 'Cancel Quote Style',
+        changeThemeColor: 'Change Theme Color',
+        verticalTabs: 'Vertical Tabs',
+        headingDots: 'Heading Dots'
+    },
+    zh: {
+        themeStyle: '主题块样式更改',
+        toMindmap: '转换为导图',
+        toTable: '转换为表格',
+        toKanban: '转换为看板',
+        toList: '恢复为列表',
+        removeHeader: '取消表头',
+        defaultHeader: '默认表头',
+        asCodeOutput: '设置为代码输出样式',
+        cancelCodeOutput: '取消代码块输出样式',
+        asQuote: '设置为引号样式',
+        cancelQuote: '取消引号样式',
+        changeThemeColor: '切换主题颜色',
+        verticalTabs: '垂直页签',
+        headingDots: '标题小圆点'
+    }
+};
+
+let lang = (window.siyuan?.config?.lang || 'en').toLowerCase();
+if (lang.startsWith('zh')) {
+    lang = 'zh';
+} else {
+    lang = 'en';
+}
+
+function t(key) {
+    return window.theme.i18n[lang][key] || window.theme.i18n['en'][key];
+}
+
+
 /* 颜色配置文件列表 */
 window.theme.lightColors = ['style/theme/Tsundoku_light.css', 'style/theme/Tsundoku_green.css'];
 window.theme.darkColors = ['style/theme/Tsundoku_dark.css'];
@@ -445,7 +494,7 @@ function ViewSelect(selectid, selecttype) {
     button.id = 'viewselect';
     button.className = 'b3-menu__item';
     button.innerHTML =
-        '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconGlobalGraph"></use></svg><span class="b3-menu__label" style="">主题块样式更改</span><svg class="b3-menu__icon b3-menu__icon--small" style="null"><use xlink:href="#iconRight"></use></svg></button>';
+        `<svg class="b3-menu__icon" style="null"><use xlink:href="#iconGlobalGraph"></use></svg><span class="b3-menu__label" style="">${t('themeStyle')}</span><svg class="b3-menu__icon b3-menu__icon--small" style="null"><use xlink:href="#iconRight"></use></svg>`;
     button.appendChild(SubMenu(selectid, selecttype));
     return button;
 }
@@ -480,7 +529,7 @@ function setCodeOutput(selectid) {
     button.setAttribute('custom-attr-name', 'code');
     button.setAttribute('custom-attr-value', 'output');
 
-    button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFiles"></use></svg><span class="b3-menu__label">设置为代码输出样式</span>`;
+    button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFiles"></use></svg><span class="b3-menu__label">${t('asCodeOutput')}</span>`;
     button.onclick = ViewMonitor;
     return button;
 }
@@ -491,7 +540,7 @@ function setBlockquoteQuote(selectid) {
     button.setAttribute('custom-attr-name', 'blockquote-quote');
     button.setAttribute('custom-attr-value', 'true');
 
-    button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">设置为引号样式</span>`;
+    button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">${t('asQuote')}</span>`;
     button.onclick = ViewMonitor;
     return button;
 }
@@ -503,7 +552,7 @@ function cancelBlockquoteQuote(selectid) {
     button.setAttribute('custom-attr-name', 'blockquote-quote');
     button.setAttribute('custom-attr-value', 'false');
 
-    button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">取消引号样式</span>`;
+    button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">${t('cancelQuote')}</span>`;
     button.onclick = ViewMonitor;
     return button;
 }
@@ -514,7 +563,7 @@ function cancelCodeOutput(selectid) {
     button.setAttribute('custom-attr-name', 'code');
     button.setAttribute('custom-attr-value', '');
 
-    button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFiles"></use></svg><span class="b3-menu__label">取消代码块输出样式</span>`;
+    button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFiles"></use></svg><span class="b3-menu__label">${t('cancelCodeOutput')}</span>`;
     button.onclick = ViewMonitor;
     return button;
 }
@@ -528,7 +577,7 @@ function GraphView(selectid) {
     button.setAttribute('custom-attr-name', 'f');
     button.setAttribute('custom-attr-value', 'dt');
 
-    button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFiles"></use></svg><span class="b3-menu__label">转换为导图</span>`;
+    button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFiles"></use></svg><span class="b3-menu__label">${t('toMindmap')}</span>`;
     button.onclick = ViewMonitor;
     return button;
 }
@@ -539,7 +588,7 @@ function TableView(selectid) {
     button.setAttribute('custom-attr-name', 'f');
     button.setAttribute('custom-attr-value', 'bg');
 
-    button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">转换为表格</span>`;
+    button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">${t('toTable')}</span>`;
     button.onclick = ViewMonitor;
     return button;
 }
@@ -550,7 +599,7 @@ function kanbanView(selectid) {
     button.setAttribute('custom-attr-name', 'f');
     button.setAttribute('custom-attr-value', 'kb');
 
-    button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconMenu"></use></svg><span class="b3-menu__label">转换为看板</span>`;
+    button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconMenu"></use></svg><span class="b3-menu__label">${t('toKanban')}</span>`;
     button.onclick = ViewMonitor;
     return button;
 }
@@ -562,7 +611,7 @@ function DefaultView(selectid) {
     button.setAttribute('custom-attr-name', 'f');
     button.setAttribute('custom-attr-value', '');
 
-    button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconList"></use></svg><span class="b3-menu__label">恢复为列表</span>`;
+    button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconList"></use></svg><span class="b3-menu__label">${t('toList')}</span>`;
     return button;
 }
 
@@ -574,7 +623,7 @@ function Removeth(selectid) {
     button.setAttribute('custom-attr-name', 't');
     button.setAttribute('custom-attr-value', 'biaotou');
 
-    button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">取消表头</span>`;
+    button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">${t('removeHeader')}</span>`;
     return button;
 }
 function Defaultth(selectid) {
@@ -583,7 +632,7 @@ function Defaultth(selectid) {
     button.setAttribute('data-node-id', selectid);
     button.setAttribute('custom-attr-name', 't');
     button.setAttribute('custom-attr-value', '');
-    button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">默认表头</span>`;
+    button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">${t('defaultHeader')}</span>`;
     button.onclick = ViewMonitor;
     return button;
 }
@@ -841,7 +890,7 @@ async function initThemeToolbar(commonMenu) {
     themeColorButton.className = 'b3-menu__item';
     themeColorButton.innerHTML = `
         <svg class="b3-menu__icon"><use xlink:href="#iconTheme"></use></svg>
-        <span class="b3-menu__label">切换主题颜色</span>
+        <span class="b3-menu__label">${t('changeThemeColor')}</span>
     `;
 
     // 只在light模式下显示主题切换按钮
@@ -862,7 +911,7 @@ async function initThemeToolbar(commonMenu) {
     verticalTabButton.className = 'b3-menu__item';
     verticalTabButton.innerHTML = `
         <svg class="b3-menu__icon"><use xlink:href="#iconLayout"></use></svg>
-        <span class="b3-menu__label">垂直页签</span>
+        <span class="b3-menu__label">${t('verticalTabs')}</span>
         <span class="b3-menu__accelerator"></span>
     `;
 
@@ -881,7 +930,7 @@ async function initThemeToolbar(commonMenu) {
     hReminderButton.className = 'b3-menu__item';
     hReminderButton.innerHTML = `
         <svg class="b3-menu__icon"><use xlink:href="#iconDot"></use></svg>
-        <span class="b3-menu__label">标题小圆点</span>
+        <span class="b3-menu__label">${t('headingDots')}</span>
         <span class="b3-menu__accelerator"></span>
     `;
 
