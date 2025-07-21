@@ -192,9 +192,18 @@ div [data-type="NodeList"][custom-f="dt"]>[data-type="NodeListItem"]>[data-type=
 	min-width:50px;
 }
 
+.list[custom-f="dt"] .li.protyle-wysiwyg--select::after {
+	background-color: transparent;
+}
+
+.list[custom-f="dt"] .li.protyle-wysiwyg--select .p {
+	background-color: var(--b3-theme-primary-lightest);
+}
+
 /*————————————————————————————————————————————————————————————————————————*/
 
 
 #preview .list[custom-f="dt"][data-node-id] .protyle-action svg {
     left: 4px;
 }
+
