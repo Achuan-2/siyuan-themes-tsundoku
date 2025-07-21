@@ -152,7 +152,6 @@ window.theme.updateStyle = function (id, href) {
 function create_theme_button() {
     // light 主题下更新样式：为了新建窗口也能自动加载样式
     let drag;
-    console.log(window.theme.clientMode);
     if (window.theme.clientMode == 'mobile') {
         drag = document.getElementsByClassName('.toolbar--border'); // 标题栏
     } else {
@@ -443,17 +442,26 @@ async function waitForMenuAndInsert(selectid, selecttype) {
         return;
     }
 
-    const separator = await whenElementExist('.b3-menu__separator[data-id="separator_5"]', menu, 2000);
-    if (!separator) {
-        console.log('未找到菜单分隔符');
-        return;
+    // 移除已存在的自定义菜单项，避免重复插入或残留
+    const oldViewSelect = menu.querySelector('#viewselect');
+    if (oldViewSelect) oldViewSelect.remove();
+
+    // 监听菜单容器变化，确保菜单每次弹出都能插入自定义项
+    if (!menu._tsundokuObserver) {
+        menu._tsundokuObserver = new MutationObserver(() => {
+            // 再次插入菜单项（如果不存在）
+            if (!menu.querySelector('#viewselect')) {
+                InsertMenuItem(selectid, selecttype);
+            }
+        });
+        menu._tsundokuObserver.observe(menu, { childList: true, subtree: false });
     }
 
     // 菜单已完全渲染，插入菜单项
     InsertMenuItem(selectid, selecttype);
 }
 
-
+;
 
 setTimeout(() => ClickMonitor(), 1000);
 
