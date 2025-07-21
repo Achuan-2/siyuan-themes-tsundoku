@@ -11,6 +11,8 @@ window.theme = {
     MIN_WIDTH: 150, // 最小宽度
     MAX_WIDTH: 400, // 最大宽度
     linkIconFilterInterval: null, // 链接图标过滤定时器
+    commonMenuObserver: null, // 菜单观察器
+    menuWaitObserver: null, // 菜单等待观察器
 };
 /* 颜色配置文件列表 */
 window.theme.lightColors = ['style/theme/Tsundoku_light.css', 'style/theme/Tsundoku_green.css'];
@@ -90,8 +92,6 @@ window.theme.loadMeta = function (attributes, position = 'afterbegin', element =
     for (let [key, value] of Object.entries(attributes)) {
         meta.setAttribute(key, value);
     }
-    // document.head.insertBefore(meta, document.head.firstChild);
-    // [Element.insertAdjacentElement() - Web API 接口参考 | MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/insertAdjacentElement)
     element.insertAdjacentElement(position, meta);
 };
 
@@ -117,7 +117,6 @@ window.theme.loadScript = function (
     if (async) script.async = true;
     if (defer) script.defer = true;
     script.src = src;
-    // document.head.appendChild(script);
     element.insertAdjacentElement(position, script);
 };
 
@@ -247,10 +246,7 @@ async function setLocalStorageVal(ikey, ival) {
     function getAppId() {
         let wsurl = window.top.siyuan.ws.ws.url;
         let appIdMatchResult = wsurl.match(new RegExp(`(\\?app=|&app=)[^&]+`, 'g'));
-        if (appIdMatchResult.length == 1) {
-            return appIdMatchResult[0].substring(5);
-        } else if (appIdMatchResult.length > 1) {
-            console.warn('正则获取appId错误', appIdMatchResult);
+        if (appIdMatchResult && appIdMatchResult.length >= 1) {
             return appIdMatchResult[0].substring(5);
         } else {
             console.error('正则获取appId错误', appIdMatchResult);
@@ -259,21 +255,12 @@ async function setLocalStorageVal(ikey, ival) {
     }
 }
 
+
 /**
  * 获取主题模式
  * @return {string} light 或 dark
  */
 window.theme.themeMode = (() => {
-    /* 根据浏览器主题判断颜色模式 */
-    // switch (true) {
-    //     case window.matchMedia('(prefers-color-scheme: light)').matches:
-    //         return 'light';
-    //     case window.matchMedia('(prefers-color-scheme: dark)').matches:
-    //         return 'dark';
-    //     default:
-    //         return null;
-    // }
-    /* 根据配置选项判断主题 */
     switch (window.siyuan.config.appearance.mode) {
         case 0:
             return 'light';
@@ -354,47 +341,9 @@ window.theme.root = (() => {
 window.theme.lute = window.Lute.New();
 
 /**
- * 等待元素存在的通用函数
- * @param {string|function} selector 选择器或返回元素的函数
- * @param {Document|Element} node 查找的根节点
- * @param {number} timeout 超时时间（毫秒）
- * @returns {Promise<Element|null>} 返回找到的元素或null
- */
-function whenElementExist(selector, node = document, timeout = 5000) {
-    return new Promise((resolve, reject) => {
-        const start = Date.now();
-        function check() {
-            let el;
-            try {
-                el = typeof selector === 'function'
-                    ? selector()
-                    : node.querySelector(selector);
-            } catch (err) {
-                return resolve(null);
-            }
-            if (el) {
-                resolve(el);
-            } else if (Date.now() - start >= timeout) {
-                resolve(null);
-            } else {
-                requestAnimationFrame(check);
-            }
-        }
-        check();
-    });
-}
-
-/* 操作 */
-
-/**
  * 获得所选择的块对应的块 ID
- * @returns {string} 块 ID
- * @returns {
- *     id: string, // 块 ID
- *     type: string, // 块类型
- *     subtype: string, // 块子类型(若没有则为 null)
- * }
- * @returns {null} 没有找到块 ID */
+ * @returns {{id: string, type: string, subtype: string}|null}
+ */
 function getBlockSelected() {
     let node_list = document.querySelectorAll('.protyle-wysiwyg--select');
     if (node_list.length === 1 && node_list[0].dataset.nodeId != null)
@@ -406,64 +355,88 @@ function getBlockSelected() {
     return null;
 }
 
-function ClickMonitor() {
-    window.addEventListener('mouseup', MenuShow);
-}
-
-function MenuShow() {
-    setTimeout(() => {
-        let selectinfo = getBlockSelected();
-        if (selectinfo) {
-            let selecttype = selectinfo.type;
-            let selectid = selectinfo.id;
-            if (
-                selecttype == 'NodeList' ||
-                selecttype == 'NodeTable' ||
-                selecttype == 'NodeBlockquote' ||
-                selecttype == 'NodeCodeBlock'
-            ) {
-                // 使用 whenElementExist 等待菜单完全渲染
-                waitForMenuAndInsert(selectid, selecttype);
-            }
-        }
-    }, 50);
-}
-
 /**
- * 等待菜单完全渲染后插入菜单项
- * @param {string} selectid 选中块的ID
- * @param {string} selecttype 选中块的类型
+ * 处理通用菜单的显示和内容
+ * @param {Element} menu_ele 通用菜单元素
  */
-async function waitForMenuAndInsert(selectid, selecttype) {
-    // 使用 whenElementExist 等待菜单和分隔符出现
-    const menu = await whenElementExist('.b3-menu__items', document, 2000);
-    if (!menu) {
-        console.log('未找到菜单容器');
+function handleCommonMenu(menu_ele) {
+    // 菜单不可见时，不执行任何操作
+    if (menu_ele.style.display === 'none' || menu_ele.classList.contains('fn__none')) {
         return;
     }
 
-    // 移除已存在的自定义菜单项，避免重复插入或残留
-    const oldViewSelect = menu.querySelector('#viewselect');
-    if (oldViewSelect) oldViewSelect.remove();
+    // 获取当前选中的块信息
+    const selectInfo = getBlockSelected();
 
-    // 监听菜单容器变化，确保菜单每次弹出都能插入自定义项
-    if (!menu._tsundokuObserver) {
-        menu._tsundokuObserver = new MutationObserver(() => {
-            // 再次插入菜单项（如果不存在）
-            if (!menu.querySelector('#viewselect')) {
-                InsertMenuItem(selectid, selecttype);
-            }
-        });
-        menu._tsundokuObserver.observe(menu, { childList: true, subtree: false });
+    // 定义允许显示自定义菜单的块类型
+    const allowedNodeTypes = ['NodeList', 'NodeTable', 'NodeBlockquote', 'NodeCodeBlock'];
+
+    // 如果有选中的块，并且块类型在允许列表中
+    if (selectInfo && allowedNodeTypes.includes(selectInfo.type)) {
+        InsertMenuItem(selectInfo.id, selectInfo.type);
     }
-
-    // 菜单已完全渲染，插入菜单项
-    InsertMenuItem(selectid, selecttype);
 }
 
-;
 
-setTimeout(() => ClickMonitor(), 1000);
+/**
+ * 初始化通用菜单的观察器
+ */
+function initCommonMenuObserver() {
+    whenElementExist('#commonMenu', menu_ele => {
+        // 创建一个 MutationObserver 的实例并定义回调函数
+        const observer = new MutationObserver((mutationsList) => {
+            for (let mutation of mutationsList) {
+                // 监听 style 和 class 属性的变化，以确定菜单是否可见
+                if (mutation.type === 'attributes' && (mutation.attributeName === 'style' || mutation.attributeName === 'class')) {
+                    handleCommonMenu(menu_ele);
+                    break;
+                }
+            }
+        });
+
+        // 观察元素的 attributes 属性变化
+        observer.observe(menu_ele, {
+            attributes: true // 只观察属性变化
+        });
+
+        // 存储观察器实例，以便之后可以断开连接
+        window.theme.customMenuObserver = observer;
+    });
+}
+
+
+/**
+ * 等待元素存在的通用函数
+ * @param {string|function} selector 选择器或返回元素的函数
+ * @param {Document|Element} node 查找的根节点
+ * @param {number} timeout 超时时间（毫秒）
+ * @returns {Promise<Element|null>} 返回找到的元素或null
+ */
+function whenElementExist(selector, callback, timeout = 5000) {
+    return new Promise((resolve, reject) => {
+        const start = Date.now();
+        function check() {
+            let el;
+            try {
+                el = typeof selector === 'function'
+                    ? selector()
+                    : document.querySelector(selector);
+            } catch (err) {
+                resolve(null);
+            }
+            if (el) {
+                if (callback) callback(el);
+                resolve(el);
+            } else if (Date.now() - start >= timeout) {
+                console.log(selector, "whenExist timeout");
+                resolve(null);
+            } else {
+                requestAnimationFrame(check);
+            }
+        }
+        check();
+    });
+}
 
 
 /****各种列表转xx的UI****/
@@ -480,7 +453,6 @@ function ViewSelect(selectid, selecttype) {
 function SubMenu(selectid, selecttype, className = 'b3-menu__submenu') {
     let node = document.createElement('div');
     node.className = className;
-    console.log(selecttype);
     if (selecttype == 'NodeList') {
         node.appendChild(GraphView(selectid));
         node.appendChild(TableView(selectid));
@@ -593,27 +565,7 @@ function DefaultView(selectid) {
     button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconList"></use></svg><span class="b3-menu__label">恢复为列表</span>`;
     return button;
 }
-function FixWidth(selectid) {
-    let button = document.createElement('button');
-    button.className = 'b3-menu__item';
-    button.onclick = ViewMonitor;
-    button.setAttribute('data-node-id', selectid);
-    button.setAttribute('custom-attr-name', 'f');
-    button.setAttribute('custom-attr-value', '');
 
-    button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">默认宽度</span>`;
-    return button;
-}
-function AutoWidth(selectid) {
-    let button = document.createElement('button');
-    button.className = 'b3-menu__item';
-    button.setAttribute('data-node-id', selectid);
-    button.setAttribute('custom-attr-name', 'f');
-    button.setAttribute('custom-attr-value', 'full');
-    button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">页面宽度</span>`;
-    button.onclick = ViewMonitor;
-    return button;
-}
 function Removeth(selectid) {
     let button = document.createElement('button');
     button.className = 'b3-menu__item';
@@ -635,54 +587,30 @@ function Defaultth(selectid) {
     button.onclick = ViewMonitor;
     return button;
 }
-function MenuSeparator(className = 'b3-menu__separator') {
-    let node = document.createElement('button');
-    node.className = className;
-    return node;
-}
-
-/* 操作 */
-
-/**
- * 获得所选择的块对应的块 ID
- * @returns {string} 块 ID
- * @returns {
- *     id: string, // 块 ID
- *     type: string, // 块类型
- *     subtype: string, // 块子类型(若没有则为 null)
- * }
- * @returns {null} 没有找到块 ID */
-function getBlockSelected() {
-    let node_list = document.querySelectorAll('.protyle-wysiwyg--select');
-    if (node_list.length === 1 && node_list[0].dataset.nodeId != null)
-        return {
-            id: node_list[0].dataset.nodeId,
-            type: node_list[0].dataset.type,
-            subtype: node_list[0].dataset.subtype,
-        };
-    return null;
-}
-
-function ClickMonitor() {
-    window.addEventListener('mouseup', MenuShow);
-}
-
 
 function InsertMenuItem(selectid, selecttype) {
-    let commonMenu = document.querySelector('.b3-menu__items');
-    let target = commonMenu?.querySelector('.b3-menu__separator[data-id="separator_5"]');
-    let selectview = commonMenu?.querySelector('[id="viewselect"]');
+    let commonMenu = document.querySelector('#commonMenu .b3-menu__items');
+    if (!commonMenu) {
+        console.log('未找到菜单容器');
+        return;
+    }
 
-    if (target && commonMenu) {
+    // 移除已存在的自定义菜单项，避免重复插入
+    const oldViewSelect = commonMenu.querySelector('#viewselect');
+    if (oldViewSelect) oldViewSelect.remove();
+
+    // 查找目标分割线
+    let target = commonMenu.querySelector('.b3-menu__separator[data-id="separator_5"]');
+
+    // 如果找到目标，就在其后插入菜单
+    if (target) {
         console.log('插入主题菜单项');
-        if (!selectview) {
-            // 在 target 元素后插入 ViewSelect
-            target.insertAdjacentElement('afterend', ViewSelect(selectid, selecttype));
-        }
+        target.insertAdjacentElement('afterend', ViewSelect(selectid, selecttype));
     } else {
         console.log('未找到菜单目标位置');
     }
 }
+
 
 function ViewMonitor(event) {
     let id = event.currentTarget.getAttribute('data-node-id');
@@ -713,8 +641,6 @@ function link_icon_filter() {
         }
     });
 }
-
-linkIconFilterInterval = setInterval(link_icon_filter, 100);
 
 
 /**---------------------------------------------------------垂直页签宽度调节-------------------------------------------------------------- */
@@ -750,7 +676,6 @@ function initTabbarResizer() {
     `;
     // 添加调节器到页签容器
     tabContainer.style.position = 'relative';
-    // tabbarResizer添加<span class="item__text"></span><span class="item__icon"></span>
     window.theme.tabbarResizer.innerHTML = `
         <span class="item__text"></span>
         <span class="item__icon"></span>
@@ -772,11 +697,8 @@ function startResize(e) {
     window.theme.isResizing = true;
     window.theme.startX = e.clientX;
 
-    // 修正选择器以获取正确的页签容器
     const tabContainer = document.querySelector('.layout__center .layout-tab-bar');
     window.theme.startWidth = tabContainer.offsetWidth;
-
-    // 添加调整中的样式
     document.body.classList.add('tabbar-resizing');
 }
 
@@ -787,17 +709,13 @@ function startResize(e) {
 function resizeTabbar(e) {
     if (!window.theme.isResizing) return;
 
-    // 修正选择器以获取正确的页签容器
     const tabContainer = document.querySelector('.layout__center .layout-tab-bar');
     if (!tabContainer) return;
 
     const deltaX = e.clientX - window.theme.startX;
     let newWidth = window.theme.startWidth + deltaX;
 
-    // 限制宽度范围
     newWidth = Math.max(window.theme.MIN_WIDTH, Math.min(newWidth, window.theme.MAX_WIDTH));
-
-    // 应用新宽度
     tabContainer.style.width = `${newWidth}px`;
 }
 
@@ -806,7 +724,6 @@ function resizeTabbar(e) {
  */
 function stopResize() {
     if (!window.theme.isResizing) return;
-
     window.theme.isResizing = false;
     document.body.classList.remove('tabbar-resizing');
 }
@@ -815,34 +732,28 @@ function stopResize() {
  * 移除垂直页签宽度调节器
  */
 function removeTabbarResizer() {
-    // 移除事件监听
     document.removeEventListener('mousemove', resizeTabbar);
     document.removeEventListener('mouseup', stopResize);
 
-    // 恢复页签容器的原始宽度
     const tabContainer = document.querySelector('.layout__center .layout-tab-bar');
     if (tabContainer && window.theme.originalWidth !== null) {
         tabContainer.style.width = window.theme.originalWidth;
-        // 如果原始宽度为空，则移除width样式
         if (window.theme.originalWidth === '') {
             tabContainer.style.removeProperty('width');
         }
-        // 重置原始宽度存储
         window.theme.originalWidth = null;
     }
 
-    // 移除调节器元素
     const existingResizer = document.getElementById('tabbar-resizer');
     if (existingResizer) {
         existingResizer.parentNode.removeChild(existingResizer);
     }
 
-    // 移除调整中的样式
     document.body.classList.remove('tabbar-resizing');
-
     window.theme.tabbarResizer = null;
     window.theme.isResizing = false;
 }
+
 function loadStyle(href, id = null) {
     let style = document.getElementById(id);
     if (style) {
@@ -914,15 +825,10 @@ async function initThemeToolbar(commonMenu) {
     const menuItems = commonMenu.querySelector('.b3-menu__items');
     if (!menuItems) return;
 
-    // 检查是否已经存在我们的分割线（通过检查最后一个分割线后是否有我们的按钮）
-    const existingSeparators = menuItems.querySelectorAll('.b3-menu__separator');
-    if (existingSeparators.length > 0) {
-        const lastSeparator = existingSeparators[existingSeparators.length - 1];
-        const nextElement = lastSeparator.nextElementSibling;
-        if (nextElement && (nextElement.id === 'tsundoku-theme-color-button' || nextElement.id === 'tsundoku-vertical-tab-button' || nextElement.id === 'tsundoku-h-reminder-button')) {
-            return; // 已经添加过了
-        }
-    }
+    // 检查是否已经存在我们的分割线
+    const existingSeparators = menuItems.querySelectorAll('.b3-menu__separator[data-tsundoku="theme-separator"]');
+    if (existingSeparators.length > 0) return; // 已经添加过了
+
 
     // 创建分割线
     const separator = document.createElement('div');
@@ -1005,7 +911,6 @@ async function toggleVerticalTab() {
 
     if (styleElement) {
         styleElement.remove();
-        // 移除调节器并恢复宽度
         removeTabbarResizer();
         isActive = false;
     } else {
@@ -1014,9 +919,7 @@ async function toggleVerticalTab() {
         isActive = true;
     }
 
-    // 保存状态到本地存储
     await setLocalStorageVal(window.theme.IDs.LOCAL_STORAGE_VERTICAL_TAB, isActive ? 'true' : 'false');
-
     return isActive;
 }
 
@@ -1025,11 +928,7 @@ async function toggleVerticalTab() {
  * 初始化垂直页签状态
  */
 async function initVerticalTabState() {
-    // 从本地存储读取状态
-    let storedState = window.siyuan?.storage[window.theme.IDs.LOCAL_STORAGE_VERTICAL_TAB];
-    if (!storedState) {
-        storedState = localStorage.getItem(window.theme.IDs.LOCAL_STORAGE_VERTICAL_TAB);
-    }
+    let storedState = window.siyuan?.storage[window.theme.IDs.LOCAL_STORAGE_VERTICAL_TAB] || localStorage.getItem(window.theme.IDs.LOCAL_STORAGE_VERTICAL_TAB);
 
     if (storedState === 'true') {
         const styleId = 'tsundoku-vertical-tab-css';
@@ -1046,23 +945,46 @@ async function initVerticalTabState() {
  * 自动初始化垂直页签（在主题启动时调用）
  */
 async function autoInitVerticalTab() {
-    // 等待页面基本元素加载完成
     await whenElementExist('.layout__center .layout-tab-bar');
-
-    // 从本地存储读取状态
-    let storedState = window.siyuan?.storage[window.theme.IDs.LOCAL_STORAGE_VERTICAL_TAB];
-    if (!storedState) {
-        storedState = localStorage.getItem(window.theme.IDs.LOCAL_STORAGE_VERTICAL_TAB);
-    }
-
+    let storedState = window.siyuan?.storage[window.theme.IDs.LOCAL_STORAGE_VERTICAL_TAB] || localStorage.getItem(window.theme.IDs.LOCAL_STORAGE_VERTICAL_TAB);
     if (storedState === 'true') {
         const styleId = 'tsundoku-vertical-tab-css';
         if (!document.getElementById(styleId)) {
             console.log('自动启用垂直页签');
             loadStyle('/appearance/themes/Tsundoku/style/module/tab-bar-vertical.css', styleId);
-            // 等待样式加载后初始化调节器
             setTimeout(initTabbarResizer, 500);
         }
+    }
+}
+
+const H_REMINDER_CSS = `
+:root {
+	--h1-list-graphic: var(--custom-h1-color, #0f4c81);
+	--h2-list-graphic: var(--custom-h2-color, #083256);
+	--h3-list-graphic: var(--custom-h3-color, #63a4c1);
+	--h4-list-graphic: var(--custom-h4-color, #71a796);
+	--h5-list-graphic: var(--custom-h5-color, #3b51a4);
+	--h6-list-graphic: var(--custom-h6-color, #dda36a);
+}
+.protyle-wysiwyg .h1>[spellcheck]:not(:empty)::after { content: ""; position: absolute; float: left; margin-left: 5px; height: 0.45em; width: 0.15em; bottom: 40%; border-radius: 3px; background-color: var(--h1-list-graphic); opacity: 0.5; }
+.protyle-wysiwyg [data-node-id].li>.protyle-action~.h1>[spellcheck]::after { bottom: 40%; }
+.protyle-wysiwyg .h2>[spellcheck]:not(:empty)::after { content: ""; position: absolute; float: left; margin-left: 5px; height: 0.16em; width: 0.16em; bottom: 40%; border-radius: 3px; background-color: var(--h2-list-graphic); opacity: 0.5; box-shadow: 0.25em 0.25em 0 0 var(--h2-list-graphic); }
+.protyle-wysiwyg [data-node-id].li>.protyle-action~.h2>[spellcheck]::after { bottom: 40%; }
+.protyle-wysiwyg .h3>[spellcheck]:not(:empty)::after { content: ""; position: absolute; float: left; margin-left: 5px; height: 0.16em; width: 0.16em; bottom: 40%; border-radius: 3px; background-color: var(--h3-list-graphic); opacity: 0.5; box-shadow: 0.25em 0.25em 0 0 var(--h3-list-graphic), 0 0.25em 0 0 var(--h3-list-graphic); }
+.protyle-wysiwyg .h4>[spellcheck]:not(:empty)::after { content: ""; position: absolute; float: left; margin-left: 5px; height: 0.15em; width: 0.15em; bottom: 40%; border-radius: 3px; background-color: var(--h4-list-graphic); opacity: 0.5; box-shadow: 0.25em 0.25em 0 0 var(--h4-list-graphic), 0 0.25em 0 0 var(--h4-list-graphic), 0.25em 0 0 0 var(--h4-list-graphic); }
+.protyle-wysiwyg .h5>[spellcheck]:not(:empty)::after { content: ""; position: absolute; float: left; margin-left: 5px; height: 0.15em; width: 0.15em; bottom: 40%; border-radius: 3px; background-color: var(--h5-list-graphic); opacity: 0.5; box-shadow: 0.25em 0.25em 0 0 var(--h5-list-graphic), 0 0.25em 0 0 var(--h5-list-graphic), 0.25em 0 0 0 var(--h5-list-graphic), 0 -0.25em 0 0 var(--h5-list-graphic); }
+.protyle-wysiwyg .h6>[spellcheck]:not(:empty)::after { content: ""; position: absolute; float: left; margin-left: 5px; height: 0.15em; width: 0.15em; bottom: 40%; border-radius: 3px; background-color: var(--h6-list-graphic); opacity: 0.5; box-shadow: 0.25em 0.25em 0 0 var(--h6-list-graphic), 0 0.25em 0 0 var(--h6-list-graphic), 0.25em 0 0 0 var(--h6-list-graphic), 0 -0.25em 0 0 var(--h6-list-graphic), 0.25em -0.25em 0 0 var(--h6-list-graphic); }
+.h-reminder-disabled .protyle-wysiwyg .h1>[spellcheck]:not(:empty)::after, .h-reminder-disabled .protyle-wysiwyg .h2>[spellcheck]:not(:empty)::after, .h-reminder-disabled .protyle-wysiwyg .h3>[spellcheck]:not(:empty)::after, .h-reminder-disabled .protyle-wysiwyg .h4>[spellcheck]:not(:empty)::after, .h-reminder-disabled .protyle-wysiwyg .h5>[spellcheck]:not(:empty)::after, .h-reminder-disabled .protyle-wysiwyg .h6>[spellcheck]:not(:empty)::after { display: none !important; }
+`;
+
+function applyHReminderStyle() {
+    const styleId = 'snippetCSS-tsundoku-h-reminder';
+    if (!document.getElementById(styleId)) {
+        const style = document.createElement('style');
+        style.id = styleId;
+        style.type = 'text/css';
+        style.textContent = H_REMINDER_CSS;
+        document.head.appendChild(style);
     }
 }
 
@@ -1078,127 +1000,11 @@ async function toggleHReminder() {
         styleElement.remove();
         isActive = false;
     } else {
-        // 创建style标签并直接写入CSS内容
-        const style = document.createElement('style');
-        style.id = styleId;
-        style.type = 'text/css';
-        style.textContent = `
-:root {
-	--h1-list-graphic: var(--custom-h1-color, #0f4c81);
-	--h2-list-graphic: var(--custom-h2-color, #083256);
-	--h3-list-graphic: var(--custom-h3-color, #63a4c1);
-	--h4-list-graphic: var(--custom-h4-color, #71a796);
-	--h5-list-graphic: var(--custom-h5-color, #3b51a4);
-	--h6-list-graphic: var(--custom-h6-color, #dda36a);
-}
-
-.protyle-wysiwyg .h1>[spellcheck]:not(:empty)::after {
-	content: "";
-	position: absolute;
-	float: left;
-	margin-left: 5px;
-	height: 0.45em;
-	width: 0.15em;
-	bottom: 40%;
-	border-radius: 3px;
-	background-color: var(--h1-list-graphic);
-	opacity: 0.5;
-}
-
-.protyle-wysiwyg [data-node-id].li>.protyle-action~.h1>[spellcheck]::after {
-	bottom: 40%;
-}
-
-.protyle-wysiwyg .h2>[spellcheck]:not(:empty)::after {
-	content: "";
-	position: absolute;
-	float: left;
-	margin-left: 5px;
-	height: 0.16em;
-	width: 0.16em;
-	bottom: 40%;
-	border-radius: 3px;
-	background-color: var(--h2-list-graphic);
-	opacity: 0.5;
-	box-shadow: 0.25em 0.25em 0 0 var(--h2-list-graphic);
-}
-
-.protyle-wysiwyg [data-node-id].li>.protyle-action~.h2>[spellcheck]::after {
-	bottom: 40%;
-}
-
-.protyle-wysiwyg .h3>[spellcheck]:not(:empty)::after {
-	content: "";
-	position: absolute;
-	float: left;
-	margin-left: 5px;
-	height: 0.16em;
-	width: 0.16em;
-	bottom: 40%;
-	border-radius: 3px;
-	background-color: var(--h3-list-graphic);
-	opacity: 0.5;
-	box-shadow: 0.25em 0.25em 0 0 var(--h3-list-graphic), 0 0.25em 0 0 var(--h3-list-graphic);
-}
-
-.protyle-wysiwyg .h4>[spellcheck]:not(:empty)::after {
-	content: "";
-	position: absolute;
-	float: left;
-	margin-left: 5px;
-	height: 0.15em;
-	width: 0.15em;
-	bottom: 40%;
-	border-radius: 3px;
-	background-color: var(--h4-list-graphic);
-	opacity: 0.5;
-	box-shadow: 0.25em 0.25em 0 0 var(--h4-list-graphic), 0 0.25em 0 0 var(--h4-list-graphic), 0.25em 0 0 0 var(--h4-list-graphic);
-}
-
-.protyle-wysiwyg .h5>[spellcheck]:not(:empty)::after {
-	content: "";
-	position: absolute;
-	float: left;
-	margin-left: 5px;
-	height: 0.15em;
-	width: 0.15em;
-	bottom: 40%;
-	border-radius: 3px;
-	background-color: var(--h5-list-graphic);
-	opacity: 0.5;
-	box-shadow: 0.25em 0.25em 0 0 var(--h5-list-graphic), 0 0.25em 0 0 var(--h5-list-graphic), 0.25em 0 0 0 var(--h5-list-graphic), 0 -0.25em 0 0 var(--h5-list-graphic);
-}
-
-.protyle-wysiwyg .h6>[spellcheck]:not(:empty)::after {
-	content: "";
-	position: absolute;
-	float: left;
-	margin-left: 5px;
-	height: 0.15em;
-	width: 0.15em;
-	bottom: 40%;
-	border-radius: 3px;
-	background-color: var(--h6-list-graphic);
-	opacity: 0.5;
-	box-shadow: 0.25em 0.25em 0 0 var(--h6-list-graphic), 0 0.25em 0 0 var(--h6-list-graphic), 0.25em 0 0 0 var(--h6-list-graphic), 0 -0.25em 0 0 var(--h6-list-graphic), 0.25em -0.25em 0 0 var(--h6-list-graphic);
-}
-
-.h-reminder-disabled .protyle-wysiwyg .h1>[spellcheck]:not(:empty)::after,
-.h-reminder-disabled .protyle-wysiwyg .h2>[spellcheck]:not(:empty)::after,
-.h-reminder-disabled .protyle-wysiwyg .h3>[spellcheck]:not(:empty)::after,
-.h-reminder-disabled .protyle-wysiwyg .h4>[spellcheck]:not(:empty)::after,
-.h-reminder-disabled .protyle-wysiwyg .h5>[spellcheck]:not(:empty)::after,
-.h-reminder-disabled .protyle-wysiwyg .h6>[spellcheck]:not(:empty)::after {
-    display: none !important;
-}
-`;
-        document.head.appendChild(style);
+        applyHReminderStyle();
         isActive = true;
     }
 
-    // 保存状态到本地存储
     await setLocalStorageVal(window.theme.IDs.LOCAL_STORAGE_H_REMINDER, isActive ? 'true' : 'false');
-
     return isActive;
 }
 
@@ -1206,131 +1012,9 @@ async function toggleHReminder() {
  * 初始化标题小圆点状态
  */
 async function initHReminderState() {
-    // 从本地存储读取状态
-    let storedState = window.siyuan?.storage[window.theme.IDs.LOCAL_STORAGE_H_REMINDER];
-    if (!storedState) {
-        storedState = localStorage.getItem(window.theme.IDs.LOCAL_STORAGE_H_REMINDER);
-    }
-
+    let storedState = window.siyuan?.storage[window.theme.IDs.LOCAL_STORAGE_H_REMINDER] || localStorage.getItem(window.theme.IDs.LOCAL_STORAGE_H_REMINDER);
     if (storedState === 'true') {
-        const styleId = 'snippetCSS-tsundoku-h-reminder';
-        if (!document.getElementById(styleId)) {
-            // 创建style标签并直接写入CSS内容
-            const style = document.createElement('style');
-            style.id = styleId;
-            style.type = 'text/css';
-            style.textContent = `
-:root {
-	--h1-list-graphic: var(--custom-h1-color, #0f4c81);
-	--h2-list-graphic: var(--custom-h2-color, #083256);
-	--h3-list-graphic: var(--custom-h3-color, #63a4c1);
-	--h4-list-graphic: var(--custom-h4-color, #71a796);
-	--h5-list-graphic: var(--custom-h5-color, #3b51a4);
-	--h6-list-graphic: var(--custom-h6-color, #dda36a);
-}
-
-.protyle-wysiwyg .h1>[spellcheck]:not(:empty)::after {
-	content: "";
-	position: absolute;
-	float: left;
-	margin-left: 5px;
-	height: 0.45em;
-	width: 0.15em;
-	bottom: 40%;
-	border-radius: 3px;
-	background-color: var(--h1-list-graphic);
-	opacity: 0.5;
-}
-
-.protyle-wysiwyg [data-node-id].li>.protyle-action~.h1>[spellcheck]::after {
-	bottom: 40%;
-}
-
-.protyle-wysiwyg .h2>[spellcheck]:not(:empty)::after {
-	content: "";
-	position: absolute;
-	float: left;
-	margin-left: 5px;
-	height: 0.16em;
-	width: 0.16em;
-	bottom: 40%;
-	border-radius: 3px;
-	background-color: var(--h2-list-graphic);
-	opacity: 0.5;
-	box-shadow: 0.25em 0.25em 0 0 var(--h2-list-graphic);
-}
-
-.protyle-wysiwyg [data-node-id].li>.protyle-action~.h2>[spellcheck]::after {
-	bottom: 40%;
-}
-
-.protyle-wysiwyg .h3>[spellcheck]:not(:empty)::after {
-	content: "";
-	position: absolute;
-	float: left;
-	margin-left: 5px;
-	height: 0.16em;
-	width: 0.16em;
-	bottom: 40%;
-	border-radius: 3px;
-	background-color: var(--h3-list-graphic);
-	opacity: 0.5;
-	box-shadow: 0.25em 0.25em 0 0 var(--h3-list-graphic), 0 0.25em 0 0 var(--h3-list-graphic);
-}
-
-.protyle-wysiwyg .h4>[spellcheck]:not(:empty)::after {
-	content: "";
-	position: absolute;
-	float: left;
-	margin-left: 5px;
-	height: 0.15em;
-	width: 0.15em;
-	bottom: 40%;
-	border-radius: 3px;
-	background-color: var(--h4-list-graphic);
-	opacity: 0.5;
-	box-shadow: 0.25em 0.25em 0 0 var(--h4-list-graphic), 0 0.25em 0 0 var(--h4-list-graphic), 0.25em 0 0 0 var(--h4-list-graphic);
-}
-
-.protyle-wysiwyg .h5>[spellcheck]:not(:empty)::after {
-	content: "";
-	position: absolute;
-	float: left;
-	margin-left: 5px;
-	height: 0.15em;
-	width: 0.15em;
-	bottom: 40%;
-	border-radius: 3px;
-	background-color: var(--h5-list-graphic);
-	opacity: 0.5;
-	box-shadow: 0.25em 0.25em 0 0 var(--h5-list-graphic), 0 0.25em 0 0 var(--h5-list-graphic), 0.25em 0 0 0 var(--h5-list-graphic), 0 -0.25em 0 0 var(--h5-list-graphic);
-}
-
-.protyle-wysiwyg .h6>[spellcheck]:not(:empty)::after {
-	content: "";
-	position: absolute;
-	float: left;
-	margin-left: 5px;
-	height: 0.15em;
-	width: 0.15em;
-	bottom: 40%;
-	border-radius: 3px;
-	background-color: var(--h6-list-graphic);
-	opacity: 0.5;
-	box-shadow: 0.25em 0.25em 0 0 var(--h6-list-graphic), 0 0.25em 0 0 var(--h6-list-graphic), 0.25em 0 0 0 var(--h6-list-graphic), 0 -0.25em 0 0 var(--h6-list-graphic), 0.25em -0.25em 0 0 var(--h6-list-graphic);
-}
-
-.h-reminder-disabled .protyle-wysiwyg .h1>[spellcheck]:not(:empty)::after,
-.h-reminder-disabled .protyle-wysiwyg .h2>[spellcheck]:not(:empty)::after,
-.h-reminder-disabled .protyle-wysiwyg .h3>[spellcheck]:not(:empty)::after,
-.h-reminder-disabled .protyle-wysiwyg .h4>[spellcheck]:not(:empty)::after,
-.h-reminder-disabled .protyle-wysiwyg .h5>[spellcheck]:not(:empty)::after,
-.h-reminder-disabled .protyle-wysiwyg .h6>[spellcheck]:not(:empty)::after {
-    display: none !important;
-}
-`;
-            document.head.appendChild(style);
-        }
+        applyHReminderStyle();
         return true;
     }
     return false;
@@ -1340,132 +1024,10 @@ async function initHReminderState() {
  * 自动初始化标题小圆点（在主题启动时调用）
  */
 async function autoInitHReminder() {
-    // 从本地存储读取状态
-    let storedState = window.siyuan?.storage[window.theme.IDs.LOCAL_STORAGE_H_REMINDER];
-    if (!storedState) {
-        storedState = localStorage.getItem(window.theme.IDs.LOCAL_STORAGE_H_REMINDER);
-    }
-
+    let storedState = window.siyuan?.storage[window.theme.IDs.LOCAL_STORAGE_H_REMINDER] || localStorage.getItem(window.theme.IDs.LOCAL_STORAGE_H_REMINDER);
     if (storedState === 'true') {
-        const styleId = 'snippetCSS-tsundoku-h-reminder';
-        if (!document.getElementById(styleId)) {
-            console.log('自动启用标题小圆点');
-            // 创建style标签并直接写入CSS内容
-            const style = document.createElement('style');
-            style.id = styleId;
-            style.type = 'text/css';
-            style.textContent = `
-:root {
-	--h1-list-graphic: var(--custom-h1-color, #0f4c81);
-	--h2-list-graphic: var(--custom-h2-color, #083256);
-	--h3-list-graphic: var(--custom-h3-color, #63a4c1);
-	--h4-list-graphic: var(--custom-h4-color, #71a796);
-	--h5-list-graphic: var(--custom-h5-color, #3b51a4);
-	--h6-list-graphic: var(--custom-h6-color, #dda36a);
-}
-
-.protyle-wysiwyg .h1>[spellcheck]:not(:empty)::after {
-	content: "";
-	position: absolute;
-	float: left;
-	margin-left: 5px;
-	height: 0.45em;
-	width: 0.15em;
-	bottom: 40%;
-	border-radius: 3px;
-	background-color: var(--h1-list-graphic);
-	opacity: 0.5;
-}
-
-.protyle-wysiwyg [data-node-id].li>.protyle-action~.h1>[spellcheck]::after {
-	bottom: 40%;
-}
-
-.protyle-wysiwyg .h2>[spellcheck]:not(:empty)::after {
-	content: "";
-	position: absolute;
-	float: left;
-	margin-left: 5px;
-	height: 0.16em;
-	width: 0.16em;
-	bottom: 40%;
-	border-radius: 3px;
-	background-color: var(--h2-list-graphic);
-	opacity: 0.5;
-	box-shadow: 0.25em 0.25em 0 0 var(--h2-list-graphic);
-}
-
-.protyle-wysiwyg [data-node-id].li>.protyle-action~.h2>[spellcheck]::after {
-	bottom: 40%;
-}
-
-.protyle-wysiwyg .h3>[spellcheck]:not(:empty)::after {
-	content: "";
-	position: absolute;
-	float: left;
-	margin-left: 5px;
-	height: 0.16em;
-	width: 0.16em;
-	bottom: 40%;
-	border-radius: 3px;
-	background-color: var(--h3-list-graphic);
-	opacity: 0.5;
-	box-shadow: 0.25em 0.25em 0 0 var(--h3-list-graphic), 0 0.25em 0 0 var(--h3-list-graphic);
-}
-
-.protyle-wysiwyg .h4>[spellcheck]:not(:empty)::after {
-	content: "";
-	position: absolute;
-	float: left;
-	margin-left: 5px;
-	height: 0.15em;
-	width: 0.15em;
-	bottom: 40%;
-	border-radius: 3px;
-	background-color: var(--h4-list-graphic);
-	opacity: 0.5;
-	box-shadow: 0.25em 0.25em 0 0 var(--h4-list-graphic), 0 0.25em 0 0 var(--h4-list-graphic), 0.25em 0 0 0 var(--h4-list-graphic);
-}
-
-.protyle-wysiwyg .h5>[spellcheck]:not(:empty)::after {
-	content: "";
-	position: absolute;
-	float: left;
-	margin-left: 5px;
-	height: 0.15em;
-	width: 0.15em;
-	bottom: 40%;
-	border-radius: 3px;
-	background-color: var(--h5-list-graphic);
-	opacity: 0.5;
-	box-shadow: 0.25em 0.25em 0 0 var(--h5-list-graphic), 0 0.25em 0 0 var(--h5-list-graphic), 0.25em 0 0 0 var(--h5-list-graphic), 0 -0.25em 0 0 var(--h5-list-graphic);
-}
-
-.protyle-wysiwyg .h6>[spellcheck]:not(:empty)::after {
-	content: "";
-	position: absolute;
-	float: left;
-	margin-left: 5px;
-	height: 0.15em;
-	width: 0.15em;
-	bottom: 40%;
-	border-radius: 3px;
-	background-color: var(--h6-list-graphic);
-	opacity: 0.5;
-	box-shadow: 0.25em 0.25em 0 0 var(--h6-list-graphic), 0 0.25em 0 0 var(--h6-list-graphic), 0.25em 0 0 0 var(--h6-list-graphic), 0 -0.25em 0 0 var(--h6-list-graphic), 0.25em -0.25em 0 0 var(--h6-list-graphic);
-}
-
-.h-reminder-disabled .protyle-wysiwyg .h1>[spellcheck]:not(:empty)::after,
-.h-reminder-disabled .protyle-wysiwyg .h2>[spellcheck]:not(:empty)::after,
-.h-reminder-disabled .protyle-wysiwyg .h3>[spellcheck]:not(:empty)::after,
-.h-reminder-disabled .protyle-wysiwyg .h4>[spellcheck]:not(:empty)::after,
-.h-reminder-disabled .protyle-wysiwyg .h5>[spellcheck]:not(:empty)::after,
-.h-reminder-disabled .protyle-wysiwyg .h6>[spellcheck]:not(:empty)::after {
-    display: none !important;
-}
-`;
-            document.head.appendChild(style);
-        }
+        console.log('自动启用标题小圆点');
+        applyHReminderStyle();
     }
 }
 
@@ -1473,8 +1035,9 @@ async function autoInitHReminder() {
 window.theme.timerIds = [];
 
 (async () => {
-    // 各种列表转 xx
-    ClickMonitor();
+    // 初始化自定义块菜单功能
+    initCommonMenuObserver();
+
     /* 创建主题按钮 */
     create_theme_button();
     create_theme_button2();
@@ -1494,59 +1057,40 @@ function clearAllTimers() {
     window.theme.timerIds.forEach(timerId => {
         clearInterval(timerId);
     });
-    // 清空数组
     window.theme.timerIds.length = 0;
 }
 
 window.destroyTheme = () => {
     // 删除主题切换按钮
     const themeButton = document.getElementById(window.theme.IDs.BUTTON_TOOLBAR_CHANGE_COLOR);
-    if (themeButton) {
-        themeButton.remove();
-    }
+    if (themeButton) themeButton.remove();
+
     // 删除主题加载的额外配色 css
     let css_link = document.getElementById(window.theme.IDs.STYLE_COLOR);
-    if (css_link) {
-        css_link.remove();
-    }
+    if (css_link) css_link.remove();
 
     // 删除新的主题功能按钮
     const themeColorButton = document.getElementById('tsundoku-theme-color-button');
-    if (themeColorButton) {
-        themeColorButton.remove();
-    }
+    if (themeColorButton) themeColorButton.remove();
 
     const verticalTabButton = document.getElementById('tsundoku-vertical-tab-button');
-    if (verticalTabButton) {
-        verticalTabButton.remove();
-    }
+    if (verticalTabButton) verticalTabButton.remove();
 
-    // 删除标题小圆点按钮
     const hReminderButton = document.getElementById('tsundoku-h-reminder-button');
-    if (hReminderButton) {
-        hReminderButton.remove();
-    }
+    if (hReminderButton) hReminderButton.remove();
 
     // 删除我们添加的分割线
     const themeSeparator = document.querySelector('.b3-menu__separator[data-tsundoku="theme-separator"]');
-    if (themeSeparator) {
-        themeSeparator.remove();
-    }
+    if (themeSeparator) themeSeparator.remove();
 
     // 删除垂直页签相关元素并恢复宽度
     removeTabbarResizer();
     const verticalTabCSS = document.getElementById('tsundoku-vertical-tab-css');
-    if (verticalTabCSS) {
-        verticalTabCSS.remove();
-    }
+    if (verticalTabCSS) verticalTabCSS.remove();
 
     // 删除标题小圆点CSS
     const hReminderCSS = document.getElementById('snippetCSS-tsundoku-h-reminder');
-    if (hReminderCSS) {
-        hReminderCSS.remove();
-    }
-
-
+    if (hReminderCSS) hReminderCSS.remove();
 
     // 删除观察器
     if (window.theme.commonMenuObserver) {
@@ -1557,9 +1101,13 @@ window.destroyTheme = () => {
         window.theme.menuWaitObserver.disconnect();
         window.theme.menuWaitObserver = null;
     }
+    // 删除自定义菜单观察器
+    if (window.theme.customMenuObserver) {
+        window.theme.customMenuObserver.disconnect();
+        window.theme.customMenuObserver = null;
+    }
 
-    // 删除列表转导图功能
-    window.removeEventListener('mouseup', MenuShow);
 
+    // 清理定时器
     clearAllTimers();
 };
