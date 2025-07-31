@@ -264,9 +264,7 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
     opacity: 0 !important;
     
 }
-.protyle-wysiwyg .code-block[custom-code="output"] .protyle-action .protyle-action__language{
-    
-}
+
 
 .protyle-wysiwyg .code-block[custom-code="output"],
 .b3-typography .code-block[custom-code="output"] {
