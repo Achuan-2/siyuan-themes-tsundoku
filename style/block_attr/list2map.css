@@ -15,7 +15,7 @@
 	width:100%-50!important;
 	overflow-x:auto;/*溢出滚动*/
 	padding-bottom:30px!important;
-	margin:10px 4px;
+	/* margin:10px 4px; */
 }
 /*子项设偏移调整*/
 .protyle-wysiwyg [data-type="NodeList"][custom-f="dt"] [data-node-id].li>[data-node-id]{
