@@ -133,7 +133,7 @@
 #preview.protyle-wysiwyg blockquote {
     padding: 2px 4px;
     /* background-color: #F0F4F9; */
-    border-left: 0.35em solid var(--b3-font-color5);
+    border-left: 0.35em solid var(--b3-font-background5);
     /* color: rgb(13, 60, 97); */
     border-radius: 0px 7px 7px 0px !important;
     margin: 0.5em 0;
