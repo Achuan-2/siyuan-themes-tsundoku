@@ -1,4 +1,20 @@
 
+
+## v2.6.4 / 2025.07.31
+- 💄 导出预览模式支持代码块输出格式
+- 💄 默认引述块样式修改为Github风格
+  使用下面样式可以恢复之前的引述块默认callout样式
+  ```
+  .b3-typography blockquote,
+  .protyle-wysiwyg [data-node-id].bq:not([style*='background-color']) {
+      border: 1px solid var(--custom-blockquote-border-color);
+      padding: 2px 4px;
+      background-color: var(--b3-card-info-background);
+      color: var(--b3-card-info-color);
+      border-radius: 7px 7px 7px 7px !important;
+  }
+  ```
+- 🐛 列表转导图，对子列表进行列表转导图，位置不对
 ## v2.6.3 / 2025.07.21
 - 💄 style(list2map.css): 优化列表转导图选中项背景颜色
 - ✨ feat(theme): 添加国际化支持
