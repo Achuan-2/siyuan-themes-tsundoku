@@ -259,11 +259,11 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
 }
 
 /* 代码块输出code output */
-.protyle-wysiwyg .code-block[custom-code="output"] .protyle-action .protyle-action__language{
+.code-block[custom-code="output"] .protyle-action .protyle-action__language{
     opacity: 0 !important;
 }
 
-.protyle-wysiwyg .code-block[custom-code="output"] {
+.code-block[custom-code="output"] {
     width: 98%;
     background-color: transparent;
     /* margin: 0 auto 1em auto !important; */
@@ -272,12 +272,12 @@ rotyle-wysiwyg [data-node-id][custom-f="20"]  div[contenteditable="true"]:after 
     margin-bottom: 1em !important;
 }
 
-.protyle-wysiwyg .code-block[custom-code="output"] .hljs{
+.code-block[custom-code="output"] .hljs{
     background-color: transparent !important;
     padding: 0.6em 1em 0.6em !important;
 
 }
 
-.protyle-wysiwyg .code-block[custom-code="output"] .hljs[contenteditable="true"]{
+.code-block[custom-code="output"] .hljs[contenteditable="true"]{
         word-break: break-all !important;
 }
