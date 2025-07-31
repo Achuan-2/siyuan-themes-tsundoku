@@ -118,9 +118,9 @@
 }
 
 /* 代码块 */
-[data-theme-mode="light"] .protyle-preview>.b3-typography .hljs {
+/* [data-theme-mode="light"] .protyle-preview>.b3-typography .hljs {
     background-color: #f8f9fa;
-}
+} */
 
 /* 表格框线 */
 [data-theme-mode="light"] .protyle-preview>.b3-typography table tr th,
