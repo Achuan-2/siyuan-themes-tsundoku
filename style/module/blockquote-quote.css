@@ -11,7 +11,7 @@
     mask-image: url(/appearance/themes/Tsundoku/src/quote.svg);
     mask-repeat: no-repeat;
     background-size: 20px 20px;
-    background-color: var(--b3-font-color3);
+    background-color: var(--b3-font-color5);
     /* 默认颜色 */
 }
 
