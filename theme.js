@@ -51,7 +51,7 @@ window.theme.i18n = {
     }
 };
 
-let lang = (window.siyuan?.config?.lang || 'en').toLowerCase();
+lang = (window.siyuan?.config?.lang || 'en').toLowerCase();
 if (lang.startsWith('zh')) {
     lang = 'zh';
 } else {
@@ -1006,7 +1006,7 @@ async function autoInitVerticalTab() {
     }
 }
 
-const H_REMINDER_CSS = `
+H_REMINDER_CSS = `
 :root {
 	--h1-list-graphic: var(--custom-h1-color, #0f4c81);
 	--h2-list-graphic: var(--custom-h2-color, #083256);
