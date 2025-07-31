@@ -269,7 +269,7 @@
 
 .protyle-wysiwyg [data-node-id].bq>.bq {
     border: none;
-    border-left: 0.3em solid var(--b3-font-color3);
+    border-left: 0.3em solid var(--b3-font-background5);
     border-radius: 0px !important;
     background: transparent !important;
 }
