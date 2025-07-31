@@ -963,6 +963,7 @@ html[data-theme-mode=light] .av__panel .b3-menu__item[draggable=true] {
 }
 
 .protyle-wysiwyg [data-node-id].bq:not([style*='background-color']) {
+    border-left: 0.35em solid var(--b3-font-color4);
     background-color: var(--b3-card-success-background);
     color: var(--b3-card-success-color);
 }
