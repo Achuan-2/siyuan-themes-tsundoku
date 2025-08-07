@@ -383,6 +383,8 @@ border-bottom: none;
 
 如果觉得主题好用，欢迎点个star或者给我买瓶饮料🙏
 
+个人时间和精力有限，优先考虑赞赏用户提的功能建议和bug反馈
+
 <div align="center">
   <img src="donate.webp" width="250" />
 </div>
