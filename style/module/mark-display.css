@@ -2,7 +2,7 @@
     color: var(--b3-protyle-inline-mark-color);
     transition: color 0.2s ease-in-out;
     background-color: var(--b3-card-success-background);
-    border-bottom: 2px solid var(--b3-font-color4);
+    border-bottom: 2px solid var(--b3-font-color4) !important;
 }
 
 /* 设置导出样式并没有用 */
