@@ -315,3 +315,8 @@
 #layouts>div.fn__flex.fn__flex-1>div.layout__center.fn__flex-column.fn__flex-1>div>div>div.fn__flex {
     background: #ECF1F4;
 }
+
+/* 导出代码块 */
+.b3-typography .code-block {
+    background-color: #F6F8FA;
+}
