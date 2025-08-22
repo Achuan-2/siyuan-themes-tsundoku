@@ -431,26 +431,50 @@ function handleCommonMenu(menu_ele) {
  * 初始化通用菜单的观察器
  */
 function initCommonMenuObserver() {
-    whenElementExist('#commonMenu', menu_ele => {
-        // 创建一个 MutationObserver 的实例并定义回调函数
-        const observer = new MutationObserver((mutationsList) => {
-            for (let mutation of mutationsList) {
-                // 监听 style 和 class 属性的变化，以确定菜单是否可见
-                if (mutation.type === 'attributes' && (mutation.attributeName === 'style' || mutation.attributeName === 'class')) {
-                    handleCommonMenu(menu_ele);
-                    break;
-                }
+    // 避免重复初始化
+    if (window.theme.menuWaitObserver) {
+        return;
+    }
+
+    // 监视属性变化的观察器
+    const attributeObserver = new MutationObserver((mutationsList) => {
+        for (let mutation of mutationsList) {
+            if (mutation.type === 'attributes' && (mutation.attributeName === 'style' || mutation.attributeName === 'class')) {
+                handleCommonMenu(mutation.target);
+                break;
             }
-        });
-
-        // 观察元素的 attributes 属性变化
-        observer.observe(menu_ele, {
-            attributes: true // 只观察属性变化
-        });
-
-        // 存储观察器实例，以便之后可以断开连接
-        window.theme.customMenuObserver = observer;
+        }
     });
+
+    // 监视DOM树变化的观察器
+    window.theme.menuWaitObserver = new MutationObserver((mutations, obs) => {
+        for (let mutation of mutations) {
+            if (mutation.addedNodes) {
+                mutation.addedNodes.forEach(node => {
+                    // 确保是元素节点
+                    if (node.nodeType === 1 && node.id === 'commonMenu') {
+                        // 开始观察新出现的 commonMenu 的属性
+                        attributeObserver.observe(node, { attributes: true });
+                        // 存储这个观察器以便后续断开
+                        window.theme.customMenuObserver = attributeObserver;
+                    }
+                });
+            }
+        }
+    });
+
+    // 启动对 document.body 的观察
+    window.theme.menuWaitObserver.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+
+    // 检查 commonMenu 是否已存在
+    const existingMenu = document.getElementById('commonMenu');
+    if (existingMenu) {
+        attributeObserver.observe(existingMenu, { attributes: true });
+        window.theme.customMenuObserver = attributeObserver;
+    }
 }
 
 
