@@ -7,6 +7,7 @@
 .protyle-wysiwyg .list[custom-f~=kb][data-node-id][data-type="NodeList"]
 {
     display: flex;
+    flex-direction: row;
 }
 .protyle-wysiwyg [data-type="NodeList"][custom-f~=kb].list[data-node-index]{
 	width:100%!important;
