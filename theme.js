@@ -432,49 +432,47 @@ function handleCommonMenu(menu_ele) {
  */
 function initCommonMenuObserver() {
     // 避免重复初始化
-    if (window.theme.menuWaitObserver) {
+    if (window.theme.commonMenuMouseUpHandler) {
         return;
     }
 
-    // 监视属性变化的观察器
-    const attributeObserver = new MutationObserver((mutationsList) => {
-        for (let mutation of mutationsList) {
-            if (mutation.type === 'attributes' && (mutation.attributeName === 'style' || mutation.attributeName === 'class')) {
-                handleCommonMenu(mutation.target);
-                break;
+    // 使用事件委托模式，监听鼠标抬起事件
+    function handleMouseUp() {
+        setTimeout(() => {
+            const selectInfo = getBlockSelected();
+            if (selectInfo) {
+                const selectType = selectInfo.type;
+                const selectId = selectInfo.id;
+                
+                // 检查是否为允许的块类型
+                const allowedNodeTypes = ['NodeList', 'NodeTable', 'NodeBlockquote', 'NodeCodeBlock'];
+                if (allowedNodeTypes.includes(selectType)) {
+                    // 等待菜单出现
+                    waitForMenuAndInsert(selectId, selectType);
+                }
             }
-        }
-    });
-
-    // 监视DOM树变化的观察器
-    window.theme.menuWaitObserver = new MutationObserver((mutations, obs) => {
-        for (let mutation of mutations) {
-            if (mutation.addedNodes) {
-                mutation.addedNodes.forEach(node => {
-                    // 确保是元素节点
-                    if (node.nodeType === 1 && node.id === 'commonMenu') {
-                        // 开始观察新出现的 commonMenu 的属性
-                        attributeObserver.observe(node, { attributes: true });
-                        // 存储这个观察器以便后续断开
-                        window.theme.customMenuObserver = attributeObserver;
-                    }
-                });
-            }
-        }
-    });
-
-    // 启动对 document.body 的观察
-    window.theme.menuWaitObserver.observe(document.body, {
-        childList: true,
-        subtree: true
-    });
-
-    // 检查 commonMenu 是否已存在
-    const existingMenu = document.getElementById('commonMenu');
-    if (existingMenu) {
-        attributeObserver.observe(existingMenu, { attributes: true });
-        window.theme.customMenuObserver = attributeObserver;
+        }, 0);
     }
+
+    // 等待菜单出现并插入自定义菜单项
+    function waitForMenuAndInsert(selectId, selectType) {
+        const checkMenu = () => {
+            const commonMenu = document.querySelector('#commonMenu');
+            if (commonMenu && commonMenu.style.display !== 'none' && !commonMenu.classList.contains('fn__none')) {
+                InsertMenuItem(selectId, selectType);
+            } else {
+                // 如果菜单还没出现，继续检查
+                requestAnimationFrame(checkMenu);
+            }
+        };
+        checkMenu();
+    }
+
+    // 添加事件监听器
+    document.addEventListener('mouseup', handleMouseUp);
+
+    // 存储事件处理器以便后续清理
+    window.theme.commonMenuMouseUpHandler = handleMouseUp;
 }
 
 
@@ -1183,4 +1181,10 @@ window.destroyTheme = () => {
 
     // 清理定时器
     clearAllTimers();
+    
+    // 清理事件监听器
+    if (window.theme.commonMenuMouseUpHandler) {
+        document.removeEventListener('mouseup', window.theme.commonMenuMouseUpHandler);
+        window.theme.commonMenuMouseUpHandler = null;
+    }
 };
