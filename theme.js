@@ -761,7 +761,12 @@ function ViewMonitor(event) {
     let attrName = 'custom-' + event.currentTarget.getAttribute('custom-attr-name');
     let attrValue = event.currentTarget.getAttribute('custom-attr-value');
     // 获取style属性
-    let style = event.currentTarget.getAttribute('style') || 'none';
+    let style = event.currentTarget.getAttribute('style');
+    let setStyle = true;
+    if (style == null) {
+        setStyle = false;
+    }
+
     let blocks = document.querySelectorAll(`.protyle-wysiwyg [data-node-id="${id}"]`);
     if (blocks) {
         blocks.forEach(block => block.setAttribute(attrName, attrValue));
@@ -785,7 +790,7 @@ function ViewMonitor(event) {
         }
     }
 
-    if (style && style !== 'none') { {
+    if (setStyle||style) { 
         attrs['style'] = style;
     }
     设置思源块属性(id, attrs);
