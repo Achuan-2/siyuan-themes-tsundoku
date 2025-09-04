@@ -541,6 +541,12 @@ function SubMenu(selectid, selecttype, className = 'b3-menu__submenu') {
     if (selecttype == 'NodeBlockquote') {
         node.appendChild(setBlockquoteQuote(selectid));
         node.appendChild(cancelBlockquoteQuote(selectid));
+        node.appendChild(setCalloutRed(selectid));
+        node.appendChild(setCalloutBlue(selectid));
+        node.appendChild(setCalloutGreen(selectid));
+        node.appendChild(setCalloutOrange(selectid));
+        node.appendChild(cancelCallout(selectid));
+        node.appendChild(cancelAllStyles(selectid));
     }
     return node;
 }
@@ -575,6 +581,74 @@ function cancelBlockquoteQuote(selectid) {
     button.setAttribute('custom-attr-value', 'false');
 
     button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">${t('cancelQuote')}</span>`;
+    button.onclick = ViewMonitor;
+    return button;
+}
+
+function setCalloutRed(selectid) {
+    let button = document.createElement('button');
+    button.className = 'b3-menu__item';
+    button.setAttribute('data-node-id', selectid);
+    button.setAttribute('style', 'background-color: var(--b3-card-error-background); color: var(--b3-card-error-color);');
+
+    button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconInfo"></use></svg><span class="b3-menu__label">Callout红色</span>`;
+    button.onclick = ViewMonitor;
+    return button;
+}
+
+function setCalloutBlue(selectid) {
+    let button = document.createElement('button');
+    button.className = 'b3-menu__item';
+    button.setAttribute('data-node-id', selectid);
+    button.setAttribute('style', 'background-color: var(--b3-card-info-background); color: var(--b3-card-info-color);');
+
+    button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconInfo"></use></svg><span class="b3-menu__label">Callout蓝色</span>`;
+    button.onclick = ViewMonitor;
+    return button;
+}
+
+function setCalloutGreen(selectid) {
+    let button = document.createElement('button');
+    button.className = 'b3-menu__item';
+    button.setAttribute('data-node-id', selectid);
+    button.setAttribute('style', 'background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);');
+
+    button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconInfo"></use></svg><span class="b3-menu__label">Callout绿色</span>`;
+    button.onclick = ViewMonitor;
+    return button;
+}
+
+function setCalloutOrange(selectid) {
+    let button = document.createElement('button');
+    button.className = 'b3-menu__item';
+    button.setAttribute('data-node-id', selectid);
+    button.setAttribute('style', 'background-color: var(--b3-card-warning-background); color: var(--b3-card-warning-color);');
+
+    button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconInfo"></use></svg><span class="b3-menu__label">Callout橙色</span>`;
+    button.onclick = ViewMonitor;
+    return button;
+}
+
+function cancelCallout(selectid) {
+    let button = document.createElement('button');
+    button.className = 'b3-menu__item';
+    button.setAttribute('data-node-id', selectid);
+    button.setAttribute('style', '');
+
+    button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconInfo"></use></svg><span class="b3-menu__label">取消Callout样式</span>`;
+    button.onclick = ViewMonitor;
+    return button;
+}
+
+function cancelAllStyles(selectid) {
+    let button = document.createElement('button');
+    button.className = 'b3-menu__item';
+    button.setAttribute('data-node-id', selectid);
+    button.setAttribute('custom-attr-name', 'blockquote-quote');
+    button.setAttribute('custom-attr-value', 'false');
+    button.setAttribute('style', '');
+
+    button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTrashcan"></use></svg><span class="b3-menu__label">取消全部样式</span>`;
     button.onclick = ViewMonitor;
     return button;
 }
@@ -675,7 +749,6 @@ function InsertMenuItem(selectid, selecttype) {
 
     // 如果找到目标，就在其后插入菜单
     if (target) {
-        console.log('插入主题菜单项');
         target.insertAdjacentElement('afterend', ViewSelect(selectid, selecttype));
     } else {
         console.log('未找到菜单目标位置');
@@ -687,12 +760,33 @@ function ViewMonitor(event) {
     let id = event.currentTarget.getAttribute('data-node-id');
     let attrName = 'custom-' + event.currentTarget.getAttribute('custom-attr-name');
     let attrValue = event.currentTarget.getAttribute('custom-attr-value');
+    // 获取style属性
+    let style = event.currentTarget.getAttribute('style') || '';
     let blocks = document.querySelectorAll(`.protyle-wysiwyg [data-node-id="${id}"]`);
     if (blocks) {
         blocks.forEach(block => block.setAttribute(attrName, attrValue));
     }
     let attrs = {};
     attrs[attrName] = attrValue;
+    
+    // 当blockquote-quote为true时，检查并设置默认样式
+    if (attrName === 'custom-blockquote-quote' && attrValue === 'true') {
+        // 检查当前块是否有style属性
+        let hasStyle = false;
+        blocks.forEach(block => {
+            if (block.hasAttribute('style') && block.getAttribute('style').trim() !== '') {
+                hasStyle = true;
+            }
+        });
+        
+        // 如果没有style属性，设置默认样式
+        if (!hasStyle && !style) {
+            style = 'background-color: var(--b3-card-info-background); color: var(--b3-card-info-color);';
+        }
+    }
+    
+
+    attrs['style'] = style;
     设置思源块属性(id, attrs);
 }
 
