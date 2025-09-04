@@ -22,7 +22,7 @@
         /* 第一个内容块：时间 */
         >.protyle-action+[data-node-id] {
             position: absolute;
-            right: calc(100% - 115px);
+            right: calc(100% - 120px);
             margin-left: 10px;
             display: flex;
             justify-content: flex-end;
