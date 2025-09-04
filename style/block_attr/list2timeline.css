@@ -20,7 +20,7 @@
         }
 
         /* 第一个内容块：时间 */
-        >.protyle-action+[data-type="NodeParagraph"] {
+        >.protyle-action+[data-node-id] {
             position: absolute;
             right: calc(100% - 115px);
             margin-left: 10px;
@@ -29,7 +29,7 @@
         }
 
         /* 内容溢出省略 */
-        >.protyle-action+[data-type="NodeParagraph"]>div[spellcheck="false"] {
+        >.protyle-action+[data-node-id]>div[spellcheck="false"] {
             overflow: hidden;
             text-overflow: ellipsis;
             display: -webkit-box;
@@ -38,7 +38,7 @@
         }
 
         /* 第二个内容块到最后一个内容块：内容 */
-        >[data-type]:not(.protyle-action+[data-type="NodeParagraph"]) {
+        >[data-type]:not(.protyle-action+[data-node-id]) {
             margin-left: 147px;
         }
 
