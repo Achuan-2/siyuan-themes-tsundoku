@@ -22,6 +22,7 @@ window.theme.i18n = {
         toMindmap: 'Convert to Mindmap',
         toTable: 'Convert to Table',
         toKanban: 'Convert to Kanban',
+        toTimeline: 'Convert to Timeline',
         toList: 'Restore to List',
         removeHeader: 'Remove Table Header',
         defaultHeader: 'Default Table Header',
@@ -38,6 +39,7 @@ window.theme.i18n = {
         toMindmap: '转换为导图',
         toTable: '转换为表格',
         toKanban: '转换为看板',
+        toTimeline: '转换为时间线',
         toList: '恢复为列表',
         removeHeader: '取消表头',
         defaultHeader: '默认表头',
@@ -527,6 +529,7 @@ function SubMenu(selectid, selecttype, className = 'b3-menu__submenu') {
     if (selecttype == 'NodeList') {
         node.appendChild(GraphView(selectid));
         node.appendChild(TableView(selectid));
+        node.appendChild(ListTimelineView(selectid));
         node.appendChild(kanbanView(selectid));
         node.appendChild(DefaultView(selectid));
     }
@@ -685,6 +688,17 @@ function TableView(selectid) {
     button.setAttribute('custom-attr-value', 'bg');
 
     button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">${t('toTable')}</span>`;
+    button.onclick = ViewMonitor;
+    return button;
+}
+function ListTimelineView(selectid) {
+    let button = document.createElement('button');
+    button.className = 'b3-menu__item';
+    button.setAttribute('data-node-id', selectid);
+    button.setAttribute('custom-attr-name', 'f');
+    button.setAttribute('custom-attr-value', 'timeline');
+
+    button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconMore"></use></svg><span class="b3-menu__label">${t('toTimeline')}</span>`;
     button.onclick = ViewMonitor;
     return button;
 }

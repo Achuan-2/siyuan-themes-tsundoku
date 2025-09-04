@@ -1,0 +1,56 @@
+/* 
+作者：Fighter93
+链接：https://ld246.com/article/1756998809429
+来源：链滴
+协议：CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/ */
+/****************************** 时间线图 ******************************/
+[data-type="NodeList"][custom-f="timeline"] {
+    overflow: hidden;
+
+    >[data-type="NodeListItem"] {
+        padding-top: 10px !important;
+        padding-bottom: 20px !important;
+
+        /* 图标 */
+        >.protyle-action {
+            top: 12px;
+            left: 105px;
+
+            scale: 1.2;
+        }
+
+        /* 第一个内容块：时间 */
+        >.protyle-action+[data-type="NodeParagraph"] {
+            position: absolute;
+            right: calc(100% - 115px);
+            margin-left: 10px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        /* 内容溢出省略 */
+        >.protyle-action+[data-type="NodeParagraph"]>div[spellcheck="false"] {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+
+        /* 第二个内容块到最后一个内容块：内容 */
+        >[data-type]:not(.protyle-action+[data-type="NodeParagraph"]) {
+            margin-left: 147px;
+        }
+
+
+    }
+
+    /* 线条 */
+    >[data-type="NodeListItem"]::before {
+        content: "";
+        top: 0;
+        left: 121.4px;
+        height: 100%;
+        border: 1px solid var(--b3-theme-on-surface) !important;
+    }
+}
