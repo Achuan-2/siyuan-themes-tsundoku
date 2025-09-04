@@ -31,11 +31,7 @@
 /* ————————————————————对所有子列表项设置格式———————————————————— */
 
 .protyle-wysiwyg [data-type="NodeList"][custom-f~=kb] .li .li{
-    border-radius: 3px;
-    padding: 0.4em 0 0.1em 0 ;
-    margin-bottom: 6px; 
 	background-color:var(--b3-theme-background);
-	box-shadow: var(--b3-point-shadow);
 }
 
 /*只处理每个列表的第一行*/
@@ -90,7 +86,7 @@
 }
 
 /* 对除了第一层之外的子列表 .protyle-action 移动 */
-.protyle-wysiwyg [data-type="NodeList"][custom-f~=kb] .li .list .protyle-action{
+.protyle-wysiwyg [data-type="NodeList"][custom-f~=kb] .li .list .li>.protyle-action{
     position: absolute;
     top: 50%;
     transform: translate(0, -50%);
