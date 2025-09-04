@@ -784,9 +784,10 @@ function ViewMonitor(event) {
             style = 'background-color: var(--b3-card-info-background); color: var(--b3-card-info-color);';
         }
     }
-    
 
-    attrs['style'] = style;
+    if (style && style !== 'none') { {
+        attrs['style'] = style;
+    }
     设置思源块属性(id, attrs);
 }
 
