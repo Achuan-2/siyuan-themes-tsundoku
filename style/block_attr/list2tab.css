@@ -22,7 +22,7 @@
 .protyle-wysiwyg [data-type="NodeList"][custom-f~=list2tab] .tab-headers {
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
+    /* align-items: flex-end; */
     flex-grow: 1;
     overflow-x: auto;
     height: var(--tab-header-height);
