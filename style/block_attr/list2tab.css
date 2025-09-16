@@ -25,7 +25,7 @@
     /* align-items: flex-end; */
     flex-grow: 1;
     overflow-x: auto;
-    height: var(--tab-header-height);
+    /* height: var(--tab-header-height); */
 }
 
 /* 标签页标题 */
@@ -33,7 +33,7 @@
     display: flex;
     align-items: center;
     height: calc(var(--tab-header-height) - 1px);
-    padding: 0 1rem;
+    padding: 0 0.5rem;
     cursor: pointer;
     border: 1px solid transparent;
     border-bottom: none;
