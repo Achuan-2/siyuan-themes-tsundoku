@@ -24,6 +24,7 @@ window.theme.i18n = {
         toKanban: 'Convert to Kanban',
         toTimeline: 'Convert to Timeline',
         toList: 'Restore to List',
+        toTab: 'Convert to Tabs',
         removeHeader: 'Remove Table Header',
         defaultHeader: 'Default Table Header',
         asCodeOutput: 'Set as Code Output',
@@ -41,6 +42,7 @@ window.theme.i18n = {
         toKanban: '转换为看板',
         toTimeline: '转换为时间线',
         toList: '恢复为列表',
+        toTab: '转换为标签页',
         removeHeader: '取消表头',
         defaultHeader: '默认表头',
         asCodeOutput: '设置为代码输出样式',
@@ -531,6 +533,7 @@ function SubMenu(selectid, selecttype, className = 'b3-menu__submenu') {
         node.appendChild(TableView(selectid));
         node.appendChild(ListTimelineView(selectid));
         node.appendChild(kanbanView(selectid));
+        node.appendChild(listTabView(selectid));
         node.appendChild(DefaultView(selectid));
     }
     if (selecttype == 'NodeTable') {
@@ -713,6 +716,19 @@ function kanbanView(selectid) {
     button.onclick = ViewMonitor;
     return button;
 }
+
+function listTabView(selectid) {
+    let button = document.createElement('button');
+    button.className = 'b3-menu__item';
+    button.setAttribute('data-node-id', selectid);
+    button.setAttribute('custom-attr-name', 'f');
+    button.setAttribute('custom-attr-value', 'list2tab');
+
+    button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconLayout"></use></svg><span class="b3-menu__label">${t('toTab')}</span>`;
+    button.onclick = ViewMonitor;
+    return button;
+}
+
 function DefaultView(selectid) {
     let button = document.createElement('button');
     button.className = 'b3-menu__item';
@@ -1216,6 +1232,83 @@ async function autoInitHReminder() {
     }
 }
 
+/**
+ * 初始化列表转标签页功能
+ */
+function initList2Tab() {
+    const lists = document.querySelectorAll('[data-type="NodeList"][custom-f~=list2tab]');
+
+    lists.forEach(list => {
+        if (list.querySelector('.tab-headers')) return;
+
+        const listId = list.dataset.nodeId;
+        const activeTabIndex = parseInt(list.getAttribute('custom-activetab') || '1', 10) - 1;
+
+        const tabHeaders = document.createElement('div');
+        tabHeaders.className = 'tab-headers';
+
+        const tabContents = document.createElement('div');
+        tabContents.className = 'tab-contents';
+
+        const listItems = list.querySelectorAll(':scope > [data-type="NodeListItem"]');
+
+        listItems.forEach((item, index) => {
+            const firstContent = item.querySelector(':scope > .protyle-action + [data-node-id]');
+            if (!firstContent) return;
+
+            const tabHeader = document.createElement('div');
+            tabHeader.className = 'tab-header';
+            if (index === activeTabIndex) tabHeader.classList.add('active');
+
+            const titleClone = firstContent.cloneNode(true);
+            tabHeader.appendChild(titleClone);
+
+            const tabContent = document.createElement('div');
+            tabContent.className = 'tab-content';
+            if (index === activeTabIndex) tabContent.classList.add('active');
+
+            // 移动除了第一个内容块之外的所有子节点到内容区
+            Array.from(item.children).forEach(child => {
+                if (child !== firstContent && !child.classList.contains('protyle-action')) {
+                    tabContent.appendChild(child);
+                }
+            });
+
+            tabHeader.addEventListener('click', () => {
+                const currentIndex = Array.from(tabHeaders.children).indexOf(tabHeader);
+                
+                tabHeaders.querySelectorAll('.tab-header').forEach(h => h.classList.remove('active'));
+                tabContents.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+                tabHeader.classList.add('active');
+                tabContents.children[currentIndex].classList.add('active');
+
+                设置思源块属性(listId, { 'custom-activetab': (currentIndex + 1).toString() });
+            });
+
+            tabHeaders.appendChild(tabHeader);
+            tabContents.appendChild(tabContent);
+        });
+
+        // 创建恢复列表按钮
+        const restoreButton = document.createElement('div');
+        restoreButton.className = 'tab-restore-button';
+        restoreButton.innerHTML = `<svg class="b3-menu__icon" style="height: 1.2em; width: 1.2em;"><use xlink:href="#iconList"></use></svg>`;
+        restoreButton.onclick = () => {
+            设置思源块属性(listId, { 'custom-f': '', 'custom-activetab': null });
+        };
+
+        const tabHeaderContainer = document.createElement('div');
+        tabHeaderContainer.className = 'tab-header-container';
+        tabHeaderContainer.appendChild(tabHeaders);
+        tabHeaderContainer.appendChild(restoreButton);
+
+        list.innerHTML = '';
+        list.appendChild(tabHeaderContainer);
+        list.appendChild(tabContents);
+    });
+}
+
 /**++++++++++++++++++++++++++++++++主题功能执行：按需调用+++++++++++++++++++++++++++ */
 window.theme.timerIds = [];
 
@@ -1232,6 +1325,13 @@ window.theme.timerIds = [];
 
     // 自动初始化标题小圆点状态
     await autoInitHReminder();
+
+    // 初始化列表转标签页功能
+    initList2Tab();
+    
+    // 添加定时器来检测新的list2tab列表
+    const list2TabInterval = setInterval(initList2Tab, 1000);
+    window.theme.timerIds.push(list2TabInterval);
 
     const linkIconFilterInterval = setInterval(link_icon_filter, 100);
     window.theme.timerIds.push(linkIconFilterInterval);
