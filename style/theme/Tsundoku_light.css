@@ -203,7 +203,7 @@
     background-color: #fff;
 }
 
-.block__popover .block__icons,
+.block__popover > .block__icons,
 .layout__dockl .layout-tab-container .block__icons,
 .layout__dockr .layout-tab-container .block__icons {
     background-color: #d5dde2;

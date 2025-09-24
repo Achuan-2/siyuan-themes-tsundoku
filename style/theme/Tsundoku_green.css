@@ -207,7 +207,7 @@ body {
 .protyle-preview,
 /* .b3-typography .code-block, */
 .layout-tab-container,
-.block__popover .block__icons,
+.block__popover > .block__icons,
 .layout-tab-container .block__icons
 .dock,
 .toolbar,
@@ -264,7 +264,7 @@ div[style='background-color: var(--b3-font-background13);'] {
     /* background-color: #c3ddc7af ; */
 }
 
-.block__popover .block__icons,
+.block__popover > .block__icons,
 .layout__dockl .layout-tab-container .block__icons,
 .layout__dockr .layout-tab-container .block__icons {
     background-color: #a7caad94 !important;
