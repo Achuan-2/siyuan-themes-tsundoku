@@ -30,7 +30,9 @@
     left: -13px !important;
     margin-top: -6px;
 }
-
+.protyle-wysiwyg div[fold='1'][data-type='NodeHeading']:hover:before{
+    display: none;
+}
 
 .protyle-wysiwyg [data-node-id][fold="1"].bq>div:not(:first-child) {
     display: none;
