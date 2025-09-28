@@ -44,6 +44,7 @@
     transition: all 0.2s ease;
     white-space: nowrap;
     flex-shrink: 0;
+    min-width: 50px;
 }
 
 .protyle-wysiwyg [data-type="NodeList"][custom-f~=list2tab] .tab-header:hover {
