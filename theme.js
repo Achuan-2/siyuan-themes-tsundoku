@@ -823,6 +823,29 @@ function ViewMonitor(event) {
     if (setStyle||style) { 
         attrs['style'] = style;
     }
+    console.log(attrName, attrValue, attrs);
+    // 特殊处理：当恢复为列表时（custom-f为空），检查是否存在标签页DOM结构
+    if (attrName === 'custom-f' && attrValue === '') {
+        console.log('准备恢复为列表');
+        const currentElement = document.querySelector(`[data-node-id="${id}"]`);
+        console.log('当前元素:', currentElement);
+        console.log('custom-f属性:', currentElement ? currentElement.getAttribute('custom-f') : 'null');
+        
+        // 直接检查是否存在标签页DOM结构，而不依赖属性判断
+        if (currentElement && currentElement.querySelector('.tab-headers')) {
+            console.log('发现标签页DOM结构，开始恢复为列表');
+            // 先执行DOM恢复，保留标签页结构以便恢复
+            restoreTabToListDOM(currentElement, id);
+            // 等待DOM恢复完成后再清除属性
+            setTimeout(() => {
+                设置思源块属性(id, attrs);
+            }, 10);
+            return; // 提前返回，避免重复调用设置属性
+        } else {
+            console.log('未发现标签页DOM结构，直接设置属性');
+        }
+    }
+    
     设置思源块属性(id, attrs);
 }
 
@@ -1233,6 +1256,126 @@ async function autoInitHReminder() {
 }
 
 /**
+ * 恢复标签页为原始列表DOM结构
+ * 逆向执行initList2Tab的转换过程
+ */
+function restoreTabToListDOM(listElement, listId) {
+    
+    const listSubtype = listElement.getAttribute('data-subtype') || 'u';
+    const tabHeaders = listElement.querySelectorAll('.tab-header');
+    const tabContents = listElement.querySelectorAll('.tab-content');
+    
+    if (!tabHeaders.length || !tabContents.length) {
+        console.log('未找到标签页结构，退出恢复');
+        return;
+    }
+    
+    
+    // 收集需要恢复的数据
+    const listItemsData = [];
+    
+    tabHeaders.forEach((header, index) => {
+        const tabContent = tabContents[index];
+        if (!tabContent) return;
+        
+        // 从tab-header中恢复第一个内容块（标题）
+        const headerFirstChild = header.firstElementChild;
+        if (!headerFirstChild) return;
+        
+        
+        // 克隆标题内容
+        const firstContent = headerFirstChild.cloneNode(true);
+        
+        // 从tab-content中收集其余子元素
+        const otherChildren = Array.from(tabContent.children).filter(child => {
+            // 排除protyle-attr中只有零宽空格的元素
+            return !(child.classList.contains('protyle-attr') && child.textContent.trim() === '\u200B');
+        });
+        
+        
+        listItemsData.push({
+            firstContent: firstContent,
+            otherChildren: otherChildren
+        });
+    });
+    
+    // 保存原始的列表属性
+    const originalAttributes = {};
+    Array.from(listElement.attributes).forEach(attr => {
+        originalAttributes[attr.name] = attr.value;
+    });
+    
+    // 清空列表并重建
+    listElement.innerHTML = '';
+    
+    // 恢复列表的原始属性
+    Object.keys(originalAttributes).forEach(name => {
+        listElement.setAttribute(name, originalAttributes[name]);
+    });
+    
+    
+    // 重建每个ListItem
+    listItemsData.forEach((itemData, index) => {
+        // 创建ListItem容器
+        const listItem = document.createElement('div');
+        listItem.setAttribute('data-marker', '*');
+        listItem.setAttribute('data-subtype', listSubtype);
+        listItem.setAttribute('data-type', 'NodeListItem');
+        listItem.className = 'li';
+        
+        // 为ListItem设置node-id和updated属性
+        // 生成符合思源格式的ID
+        const now = new Date();
+        const timestamp = now.toISOString().replace(/[-:]/g, '').split('.')[0].replace('T', '').substring(0, 14);
+        const randomPart = Math.random().toString(36).substr(2, 7);
+        const listItemId = timestamp + '-' + randomPart;
+        listItem.setAttribute('data-node-id', listItemId);
+        listItem.setAttribute('updated', timestamp);
+        
+        // 1. 添加protyle-action（原始结构中的第一个元素）
+        const protolyeAction = document.createElement('div');
+        protolyeAction.className = 'protyle-action';
+        protolyeAction.setAttribute('draggable', 'true');
+        protolyeAction.innerHTML = '<svg><use xlink:href="#iconDot"></use></svg>';
+        listItem.appendChild(protolyeAction);
+        
+        // 2. 添加第一个内容块（从tab-header恢复）
+        const firstContent = itemData.firstContent;
+        // 确保有data-node-index（如果没有的话）
+        if (!firstContent.getAttribute('data-node-index')) {
+            firstContent.setAttribute('data-node-index', '1');
+        }
+        listItem.appendChild(firstContent);
+        
+        // 3. 添加其余子元素（从tab-content恢复）
+        itemData.otherChildren.forEach(child => {
+            // 直接移动节点而不是克隆，保持原有的所有属性和状态
+            listItem.appendChild(child);
+        });
+        
+        // 4. 添加ListItem的protyle-attr
+        const listItemAttr = document.createElement('div');
+        listItemAttr.className = 'protyle-attr';
+        listItemAttr.setAttribute('contenteditable', 'false');
+        if (index === listItemsData.length - 1) {
+            listItemAttr.innerHTML = '\u200B'; // 最后一个项目添加零宽空格
+        }
+        listItem.appendChild(listItemAttr);
+        
+        listElement.appendChild(listItem);
+        
+    });
+    
+    // 添加列表的protyle-attr
+    const listAttr = document.createElement('div');
+    listAttr.className = 'protyle-attr';
+    listAttr.setAttribute('contenteditable', 'false');
+    listAttr.innerHTML = '\u200B';
+    listElement.appendChild(listAttr);
+    
+}
+
+/**
  * 初始化列表转标签页功能
  */
 function initList2Tab() {
@@ -1242,7 +1385,14 @@ function initList2Tab() {
         if (list.querySelector('.tab-headers')) return;
 
         const listId = list.dataset.nodeId;
-        const activeTabIndex = parseInt(list.getAttribute('custom-activetab') || '1', 10) - 1;
+        const activeTabAttr = parseInt(list.getAttribute('custom-activetab') || '1', 10);
+        const desiredActiveIndex = Number.isNaN(activeTabAttr) ? 0 : activeTabAttr - 1;
+
+        const listItems = Array.from(list.querySelectorAll(':scope > [data-type="NodeListItem"]'));
+        if (!listItems.length) return;
+
+        const firstBlocks = listItems.map(item => item.querySelector(':scope > .protyle-action + [data-node-id]'));
+        if (firstBlocks.some(block => !block)) return;
 
         const tabHeaders = document.createElement('div');
         tabHeaders.className = 'tab-headers';
@@ -1250,58 +1400,73 @@ function initList2Tab() {
         const tabContents = document.createElement('div');
         tabContents.className = 'tab-contents';
 
-        const listItems = list.querySelectorAll(':scope > [data-type="NodeListItem"]');
+        const tabHeaderItems = [];
+        const tabContentItems = [];
+
+        const activateTab = (targetIndex, persist = false) => {
+            if (!tabHeaderItems.length) return;
+            const safeIndex = Math.max(0, Math.min(targetIndex, tabHeaderItems.length - 1));
+            tabHeaderItems.forEach((header, idx) => header.classList.toggle('active', idx === safeIndex));
+            tabContentItems.forEach((content, idx) => content.classList.toggle('active', idx === safeIndex));
+            if (persist) {
+                设置思源块属性(listId, { 'custom-activetab': (safeIndex + 1).toString() });
+            }
+        };
 
         listItems.forEach((item, index) => {
-            const firstContent = item.querySelector(':scope > .protyle-action + [data-node-id]');
-            if (!firstContent) return;
-
+            const firstContent = firstBlocks[index];
             const tabHeader = document.createElement('div');
             tabHeader.className = 'tab-header';
-            if (index === activeTabIndex) tabHeader.classList.add('active');
 
             const titleClone = firstContent.cloneNode(true);
+            // 保留data-node-id以便在恢复时能正确还原
             tabHeader.appendChild(titleClone);
 
             const tabContent = document.createElement('div');
             tabContent.className = 'tab-content';
-            if (index === activeTabIndex) tabContent.classList.add('active');
 
-            // 移动除了第一个内容块之外的所有子节点到内容区
             Array.from(item.children).forEach(child => {
-                if (child !== firstContent && !child.classList.contains('protyle-action')) {
+                if (child !== firstContent && !(child.classList && child.classList.contains('protyle-action'))) {
                     tabContent.appendChild(child);
                 }
             });
 
-            tabHeader.addEventListener('click', () => {
-                const currentIndex = Array.from(tabHeaders.children).indexOf(tabHeader);
-                
-                tabHeaders.querySelectorAll('.tab-header').forEach(h => h.classList.remove('active'));
-                tabContents.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            const tabIndex = tabHeaderItems.length;
+            tabHeader.addEventListener('click', () => activateTab(tabIndex, true));
 
-                tabHeader.classList.add('active');
-                tabContents.children[currentIndex].classList.add('active');
-
-                设置思源块属性(listId, { 'custom-activetab': (currentIndex + 1).toString() });
-            });
-
+            tabHeaderItems.push(tabHeader);
+            tabContentItems.push(tabContent);
             tabHeaders.appendChild(tabHeader);
             tabContents.appendChild(tabContent);
         });
 
-        // 创建恢复列表按钮
-        const restoreButton = document.createElement('div');
-        restoreButton.className = 'tab-restore-button';
-        restoreButton.innerHTML = `<svg class="b3-menu__icon" style="height: 1.2em; width: 1.2em;"><use xlink:href="#iconList"></use></svg>`;
-        restoreButton.onclick = () => {
-            设置思源块属性(listId, { 'custom-f': '', 'custom-activetab': null });
-        };
+        if (!tabHeaderItems.length) return;
+
+        activateTab(desiredActiveIndex, false);
 
         const tabHeaderContainer = document.createElement('div');
         tabHeaderContainer.className = 'tab-header-container';
         tabHeaderContainer.appendChild(tabHeaders);
-        tabHeaderContainer.appendChild(restoreButton);
+        
+        // 只在非手机端显示恢复列表按钮
+        if (window.theme.clientMode !== 'mobile') {
+            // 创建恢复列表按钮
+            const restoreButton = document.createElement('div');
+            restoreButton.className = 'tab-restore-button';
+            restoreButton.innerHTML = `<svg class="b3-menu__icon" style="height: 1.2em; width: 1.2em;"><use xlink:href="#iconList"></use></svg>`;
+            restoreButton.onclick = async () => {
+                // 先清除属性，让思源停止将此视为标签页
+                await 设置思源块属性(listId, { 'custom-f': '', 'custom-activetab': null });
+                // 等待属性更新完成后再恢复DOM结构
+                setTimeout(() => {
+                    const currentList = document.querySelector(`[data-node-id="${listId}"]`);
+                    if (currentList) {
+                        restoreTabToListDOM(currentList, listId);
+                    }
+                }, 50);
+            };
+            tabHeaderContainer.appendChild(restoreButton);
+        }
 
         list.innerHTML = '';
         list.appendChild(tabHeaderContainer);
@@ -1330,7 +1495,7 @@ window.theme.timerIds = [];
     initList2Tab();
     
     // 添加定时器来检测新的list2tab列表
-    const list2TabInterval = setInterval(initList2Tab, 1000);
+    const list2TabInterval = setInterval(initList2Tab, 100);
     window.theme.timerIds.push(list2TabInterval);
 
     const linkIconFilterInterval = setInterval(link_icon_filter, 100);
