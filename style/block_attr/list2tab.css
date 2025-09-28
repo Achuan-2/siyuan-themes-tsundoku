@@ -12,7 +12,7 @@
 }
 
 /* 标签页头部容器 */
-.protyle-wysiwyg [data-type="NodeList"][custom-f~=list2tab] > .tab-header-container {
+.protyle-wysiwyg [data-type="NodeList"][custom-f~=list2tab]>.tab-header-container {
     display: flex;
     align-items: center;
     border-bottom: 1px solid var(--b3-border-color);
@@ -68,7 +68,7 @@
 }
 
 /* 标签页内容容器 */
-.protyle-wysiwyg [data-type="NodeList"][custom-f~=list2tab] > .tab-contents {
+.protyle-wysiwyg [data-type="NodeList"][custom-f~=list2tab]>.tab-contents {
     position: relative;
 }
 
@@ -82,8 +82,9 @@
 }
 
 /* 直接子项目（顶级列表项）- 转换为标签页结构 */
-.protyle-wysiwyg [data-type="NodeList"][custom-f~=list2tab] > [data-type="NodeListItem"] {
-    display: none; /* 隐藏原始列表项，通过JS转换为标签页结构 */
+.protyle-wysiwyg [data-type="NodeList"][custom-f~=list2tab]>[data-type="NodeListItem"] {
+    display: none;
+    /* 隐藏原始列表项，通过JS转换为标签页结构 */
 }
 
 /* 恢复列表按钮 */
@@ -111,7 +112,7 @@
         height: auto;
         min-height: var(--tab-header-height);
     }
-    
+
     .protyle-wysiwyg [data-type="NodeList"][custom-f~=list2tab] .tab-header {
         margin-bottom: 2px;
     }
