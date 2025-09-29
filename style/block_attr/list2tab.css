@@ -121,6 +121,7 @@
 
 /* 响应式设计 */
 @media (max-width: 768px) {
+
     .protyle-wysiwyg [data-type="NodeList"][custom-f~=list2tab] .tab-headers,
     .protyle-wysiwyg [data-type="NodeList"][custom-list2="tab"] .tab-headers {
         flex-wrap: wrap;
