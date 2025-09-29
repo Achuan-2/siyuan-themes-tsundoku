@@ -20,7 +20,7 @@
 /* 导入块自定义属性 */
 @import url('style/attr.css');
 /* 导入列表转换样式 */
-@import url('style/block_attr/list2board.css');
+@import url('style/block_attr/list2kanban.css');
 @import url('style/block_attr/list2map.css');
 @import url('style/block_attr/list2table.css');
 @import url('style/block_attr/table.css');

@@ -676,8 +676,8 @@ function GraphView(selectid) {
     let button = document.createElement('button');
     button.className = 'b3-menu__item';
     button.setAttribute('data-node-id', selectid);
-    button.setAttribute('custom-attr-name', 'f');
-    button.setAttribute('custom-attr-value', 'dt');
+    button.setAttribute('custom-attr-name', 'list2');
+    button.setAttribute('custom-attr-value', 'mindmap');
 
     button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFiles"></use></svg><span class="b3-menu__label">${t('toMindmap')}</span>`;
     button.onclick = ViewMonitor;
@@ -687,8 +687,8 @@ function TableView(selectid) {
     let button = document.createElement('button');
     button.className = 'b3-menu__item';
     button.setAttribute('data-node-id', selectid);
-    button.setAttribute('custom-attr-name', 'f');
-    button.setAttribute('custom-attr-value', 'bg');
+    button.setAttribute('custom-attr-name', 'list2');
+    button.setAttribute('custom-attr-value', 'table');
 
     button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">${t('toTable')}</span>`;
     button.onclick = ViewMonitor;
@@ -698,7 +698,7 @@ function ListTimelineView(selectid) {
     let button = document.createElement('button');
     button.className = 'b3-menu__item';
     button.setAttribute('data-node-id', selectid);
-    button.setAttribute('custom-attr-name', 'f');
+    button.setAttribute('custom-attr-name', 'list2');
     button.setAttribute('custom-attr-value', 'timeline');
 
     button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconMore"></use></svg><span class="b3-menu__label">${t('toTimeline')}</span>`;
@@ -709,8 +709,8 @@ function kanbanView(selectid) {
     let button = document.createElement('button');
     button.className = 'b3-menu__item';
     button.setAttribute('data-node-id', selectid);
-    button.setAttribute('custom-attr-name', 'f');
-    button.setAttribute('custom-attr-value', 'kb');
+    button.setAttribute('custom-attr-name', 'list2');
+    button.setAttribute('custom-attr-value', 'kanban');
 
     button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconMenu"></use></svg><span class="b3-menu__label">${t('toKanban')}</span>`;
     button.onclick = ViewMonitor;
@@ -721,8 +721,8 @@ function listTabView(selectid) {
     let button = document.createElement('button');
     button.className = 'b3-menu__item';
     button.setAttribute('data-node-id', selectid);
-    button.setAttribute('custom-attr-name', 'f');
-    button.setAttribute('custom-attr-value', 'list2tab');
+    button.setAttribute('custom-attr-name', 'list2');
+    button.setAttribute('custom-attr-value', 'tab');
 
     button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconLayout"></use></svg><span class="b3-menu__label">${t('toTab')}</span>`;
     button.onclick = ViewMonitor;
@@ -734,7 +734,7 @@ function DefaultView(selectid) {
     button.className = 'b3-menu__item';
     button.onclick = ViewMonitor;
     button.setAttribute('data-node-id', selectid);
-    button.setAttribute('custom-attr-name', 'f');
+    button.setAttribute('custom-attr-name', 'list2');
     button.setAttribute('custom-attr-value', '');
 
     button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconList"></use></svg><span class="b3-menu__label">${t('toList')}</span>`;
@@ -825,12 +825,8 @@ function ViewMonitor(event) {
     }
     console.log(attrName, attrValue, attrs);
     // 特殊处理：当恢复为列表时（custom-f为空），检查是否存在标签页DOM结构
-    if (attrName === 'custom-f' && attrValue === '') {
-        console.log('准备恢复为列表');
+    if (attrName === 'custom-list2' && attrValue === '') {
         const currentElement = document.querySelector(`[data-node-id="${id}"]`);
-        console.log('当前元素:', currentElement);
-        console.log('custom-f属性:', currentElement ? currentElement.getAttribute('custom-f') : 'null');
-
         // 直接检查是否存在标签页DOM结构，而不依赖属性判断
         if (currentElement && currentElement.querySelector('.tab-headers')) {
             console.log('发现标签页DOM结构，开始恢复为列表');
@@ -838,11 +834,11 @@ function ViewMonitor(event) {
             restoreTabToListDOM(currentElement, id);
             // 等待DOM恢复完成后再清除属性
             setTimeout(() => {
-                设置思源块属性(id, attrs);
+                设置思源块属性(id, { 'custom-f': '', 'custom-list2': '' });
             }, 10);
             return; // 提前返回，避免重复调用设置属性
         } else {
-            console.log('未发现标签页DOM结构，直接设置属性');
+            设置思源块属性(id, { 'custom-f': '' });  // 历史兼容
         }
     }
 
@@ -1379,7 +1375,7 @@ function restoreTabToListDOM(listElement, listId) {
  * 初始化列表转标签页功能
  */
 function initList2Tab() {
-    const lists = document.querySelectorAll('[data-type="NodeList"][custom-f~=list2tab]');
+    const lists = document.querySelectorAll('[data-type="NodeList"][custom-f="list2tab"],[data-type="NodeList"][custom-list2="tab"');
 
     lists.forEach(list => {
         if (list.querySelector('.tab-headers')) return;
@@ -1456,7 +1452,7 @@ function initList2Tab() {
             restoreButton.innerHTML = `<svg class="b3-menu__icon" style="height: 1.2em; width: 1.2em;"><use xlink:href="#iconList"></use></svg>`;
             restoreButton.onclick = async () => {
                 // 先清除属性，让思源停止将此视为标签页
-                await 设置思源块属性(listId, { 'custom-f': '', 'custom-activetab': null });
+                await 设置思源块属性(listId, { 'custom-f': '', 'custom-list2': '', 'custom-activetab': null });
                 // 等待属性更新完成后再恢复DOM结构
                 setTimeout(() => {
                     const currentList = document.querySelector(`[data-node-id="${listId}"]`);
