@@ -15,6 +15,7 @@ English  | [中文](./README_zh_CN.md)
 
 ![](preview.png)
 
+
 > 📢 Announcement: Due to the lack of sponsorship revenue from theme development and the increasing richness of SiYuan themes, this theme has entered maintenance mode. I will no longer respond to user questions and requests, and will only make casual updates based on personal needs.
 
 ---
@@ -26,6 +27,10 @@ English  | [中文](./README_zh_CN.md)
 ## 🚀 Recent Updates
 
 For the complete update log, please see [CHANGELOG](https://cdn.jsdelivr.net/gh/Achuan-2/siyuan-themes-tsundoku@main/CHANGELOG.md)
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Achuan-2/siyuan-themes-tsundoku&type=Date)](https://star-history.com/Achuan-2/siyuan-themes-tsundoku&Date)
 
 ## 💌 Origin
 
@@ -118,4 +123,5 @@ I use this name to wake myself up, hoping to make good use of SiYuan notes, help
 
 
 If the theme has style problems, please mention the issue in Github. Before raising issue, it is suggested to switch to the default theme, and make sure it is a unique problem of this theme.
+
 
