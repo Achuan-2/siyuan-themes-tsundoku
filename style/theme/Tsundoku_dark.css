@@ -71,6 +71,7 @@
     --b3-font-color11: #d90ec5;
     --b3-font-color12: #ef2d69;
     --b3-font-color13: #fff;
+    --b3-font-color14: #d9e0b4;
     --b3-font-background1: #ff8f894f;
     --b3-font-background2: #e2a7534a;
     --b3-font-background3: #36abf833;
@@ -84,6 +85,7 @@
     --b3-font-background11: #ad339f61;
     --b3-font-background12: #9d315291;
     --b3-font-background13: #000000;
+    --b3-font-background14: #3c4021;
     /* PDF */
     --b3-pdf-sidebar-width: 200px;
     --b3-pdf-offset: 0;

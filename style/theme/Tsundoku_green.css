@@ -81,6 +81,7 @@
     --b3-font-color11: #d447c5;
     --b3-font-color12: #ee2e68;
     --b3-font-color13: var(--b3-theme-background);
+    --b3-font-color14: #6d7c11;
     --b3-font-background1: #ffc4cb;
     --b3-font-background2: var(--b3-card-warning-background);
     --b3-font-background3: var(--b3-card-info-background);
@@ -94,6 +95,7 @@
     --b3-font-background11: #f5c7f0;
     --b3-font-background12: #FFD8E4;
     --b3-font-background13: var(--b3-theme-on-background);
+    --b3-font-background14: #f3f5e7;
     /* PDF */
     --b3-pdf-sidebar-width: 200px;
     --b3-pdf-offset: 0;
