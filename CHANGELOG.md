@@ -1,4 +1,9 @@
 
+## v2.7.2 / 20251110
+- 🔥 注释文档树区分有子文档和无子文档的样式
+- 🐛 导出 pdf 时，表格超出页面边距，显示不全 [#138](https://github.com/Achuan-2/siyuan-themes-tsundoku/issues/138)
+- 💄 style(theme): 修改 H5 和 H6 的颜色
+
 ## v2.7.1 / 20251004
 - 💄 dark主题：数据库自适应图片背景优化
 
