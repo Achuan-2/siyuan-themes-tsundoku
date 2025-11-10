@@ -31,6 +31,10 @@
 
 全部更新日志请见 [CHANGELOG](https://cdn.jsdelivr.net/gh/Achuan-2/siyuan-themes-tsundoku@main/CHANGELOG.md)
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Achuan-2/siyuan-themes-tsundoku&type=Date)](https://star-history.com/Achuan-2/siyuan-themes-tsundoku&Date)
+
 ## 💌 缘起
 
 🎉 主题最早诞生于 2021.02.22
