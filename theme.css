@@ -874,14 +874,14 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
 }
 
 /* 文档树区分有子文档和无子文档的文档 */
-.b3-list-item.b3-list-item--hide-action .b3-list-item__toggle.fn__hidden::before {
+/* .b3-list-item.b3-list-item--hide-action .b3-list-item__toggle.fn__hidden::before {
     content: '✧';
     display: block;
     position: absolute;
     visibility: visible;
     transition: var(--b3-transition);
     margin-bottom: 2px;
-}
+} */
 
 /* 取消默认的隐藏效果 */
 .file-tree--leave .b3-list-item__graphic--arrow:not(.fn__hidden) {
