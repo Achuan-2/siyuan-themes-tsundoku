@@ -176,13 +176,13 @@
     --custom-tab-border: #d3dae27c;
     --custom-tab-focus-top-border: #435f6b;
     /* 各级标题颜色 */
+    --custom-h2-border-color: #dfe0e1;
     --custom-h1-color: rgba(15, 76, 129, 1);
     --custom-h2-color: #083256;
-    --custom-h2-border-color: #dfe0e1;
     --custom-h3-color: rgba(15, 76, 129, 1);
     --custom-h4-color: #1c849e;
-    --custom-h5-color: #24ac77;
-    --custom-h6-color: var(--b3-theme-on-background);
+    --custom-h5-color: #2884c2;
+    --custom-h6-color: #6b8ba8;
     --custom-blockquote-border-color: #e8e8e8;
     --custom-blockquote-background-color: #eaf7ff59;
     --custom-tag-hover-color: #559898;
