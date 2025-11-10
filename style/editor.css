@@ -142,7 +142,6 @@
 .b3-typography h6 {
     font-size: 1.1em !important;
     color: var(--custom-h6-color) !important;
-    text-decoration: underline wavy;
 }
 
 /* 💄标题加粗样式 */
