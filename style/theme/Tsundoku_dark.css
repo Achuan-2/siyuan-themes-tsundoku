@@ -528,9 +528,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     border-top: 1px solid rgba(4, 21, 25, 0.589);
 }
 
-.file-tree [data-type='new']:hover {
-    background-color: #21324c;
-}
+
 
 /* pdf双链 */
 .protyle-wysiwyg [data-node-id] span[data-type='file-annotation-ref'] {

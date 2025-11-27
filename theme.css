@@ -303,22 +303,7 @@ body>div#action {
     margin-top: -1px;
 }
 
-/* 改变新建按钮图标 */
-.file-tree [data-type='new'] svg {
-    opacity: 0;
-}
 
-.file-tree [data-type='new'] {
-    /* background-color: #fff; */
-    background-image: url(/appearance/themes/Tsundoku/src/theme/add.svg);
-    background-size: 15px 15px;
-    background-repeat: no-repeat;
-    background-position: left 1px top 4px;
-}
-
-.file-tree [data-type='new']:hover {
-    background-color: #d3e2e671;
-}
 
 /* 调整内容中标题左侧文档图标大小 */
 .protyle-title.protyle-wysiwyg--attr span svg {

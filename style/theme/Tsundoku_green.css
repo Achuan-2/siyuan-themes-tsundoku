@@ -693,9 +693,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     color: #52968452;
 }
 
-.file-tree [data-type='new']:hover {
-    background-color: #d3e2e671;
-}
+
 
 /* pdf双链 */
 .protyle-wysiwyg [data-node-id] span[data-type='file-annotation-ref'] {
