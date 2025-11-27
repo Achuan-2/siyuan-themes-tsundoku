@@ -436,47 +436,70 @@ function handleCommonMenu(menu_ele) {
  */
 function initCommonMenuObserver() {
     // 避免重复初始化
-    if (window.theme.commonMenuMouseUpHandler) {
+    if (window.theme.commonMenuObserver) {
         return;
     }
 
-    // 使用事件委托模式，监听鼠标抬起事件
-    function handleMouseUp() {
-        setTimeout(() => {
-            const selectInfo = getBlockSelected();
-            if (selectInfo) {
-                const selectType = selectInfo.type;
-                const selectId = selectInfo.id;
+    const startCommonMenuMonitor = () => {
+        if (window.theme.commonMenuObserver) {
+            return;
+        }
+        searchCommonMenu();
+    };
 
-                // 检查是否为允许的块类型
-                const allowedNodeTypes = ['NodeList', 'NodeTable', 'NodeBlockquote', 'NodeCodeBlock'];
-                if (allowedNodeTypes.includes(selectType)) {
-                    // 等待菜单出现
-                    waitForMenuAndInsert(selectId, selectType);
+    const searchCommonMenu = () => {
+        const commonMenuElement = document.querySelector("#commonMenu");
+        if (commonMenuElement) {
+            setupCommonMenuObserver();
+        } else {
+            setTimeout(searchCommonMenu, 100);
+        }
+    };
+
+    const setupCommonMenuObserver = () => {
+        const commonMenuElement = document.querySelector("#commonMenu");
+        if (!commonMenuElement) {
+            return;
+        }
+        if (window.theme.commonMenuObserver) {
+            window.theme.commonMenuObserver.disconnect();
+        }
+        window.theme.commonMenuObserver = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.type === "attributes" && mutation.attributeName === "class") {
+                    const target = mutation.target;
+                    const oldValue = mutation.oldValue ?? "";
+                    const newValue = target.className;
+                    const hadFnNone = oldValue.includes("fn__none");
+                    const hasFnNone = newValue.includes("fn__none");
+                    if (hadFnNone && !hasFnNone) {
+                        handleCommonMenuShow();
+                    }
                 }
-            }
-        }, 0);
-    }
+            });
+        });
+        window.theme.commonMenuObserver.observe(commonMenuElement, {
+            attributes: true,
+            attributeFilter: ["class"],
+            attributeOldValue: true
+        });
+    };
 
-    // 等待菜单出现并插入自定义菜单项
-    function waitForMenuAndInsert(selectId, selectType) {
-        const checkMenu = () => {
-            const commonMenu = document.querySelector('#commonMenu');
-            if (commonMenu && commonMenu.style.display !== 'none' && !commonMenu.classList.contains('fn__none')) {
+    const handleCommonMenuShow = () => {
+        const selectInfo = getBlockSelected();
+        if (selectInfo) {
+            const selectType = selectInfo.type;
+            const selectId = selectInfo.id;
+
+            // 检查是否为允许的块类型
+            const allowedNodeTypes = ['NodeList', 'NodeTable', 'NodeBlockquote', 'NodeCodeBlock'];
+            if (allowedNodeTypes.includes(selectType)) {
                 InsertMenuItem(selectId, selectType);
-            } else {
-                // 如果菜单还没出现，继续检查
-                requestAnimationFrame(checkMenu);
             }
-        };
-        checkMenu();
-    }
+        }
+    };
 
-    // 添加事件监听器
-    document.addEventListener('mouseup', handleMouseUp);
-
-    // 存储事件处理器以便后续清理
-    window.theme.commonMenuMouseUpHandler = handleMouseUp;
+    startCommonMenuMonitor();
 }
 
 
@@ -1558,8 +1581,5 @@ window.destroyTheme = () => {
     clearAllTimers();
 
     // 清理事件监听器
-    if (window.theme.commonMenuMouseUpHandler) {
-        document.removeEventListener('mouseup', window.theme.commonMenuMouseUpHandler);
-        window.theme.commonMenuMouseUpHandler = null;
-    }
+    // 注意：MutationObserver已在上面清理
 };
