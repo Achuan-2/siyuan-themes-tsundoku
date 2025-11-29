@@ -11,8 +11,11 @@ window.theme = {
     MIN_WIDTH: 150, // 最小宽度
     MAX_WIDTH: 400, // 最大宽度
     linkIconFilterInterval: null, // 链接图标过滤定时器
-    commonMenuObserver: null, // 菜单观察器
+    commonMenuAttrObserver: null, // 菜单属性(class/style)观察器
+    commonMenuDataNameObserver: null, // 菜单 data-name 观察器（用于工具栏按钮）
     menuWaitObserver: null, // 菜单等待观察器
+    menuReplaceObserver: null, // 监测 #commonMenu 被替换的观察器
+    commonMenuMouseUpHandler: null, // 鼠标抬起事件处理器
 };
 
 // i18n
@@ -436,12 +439,12 @@ function handleCommonMenu(menu_ele) {
  */
 function initCommonMenuObserver() {
     // 避免重复初始化
-    if (window.theme.commonMenuObserver) {
+    if (window.theme.commonMenuAttrObserver) {
         return;
     }
 
     const startCommonMenuMonitor = () => {
-        if (window.theme.commonMenuObserver) {
+        if (window.theme.commonMenuAttrObserver) {
             return;
         }
         searchCommonMenu();
@@ -461,28 +464,45 @@ function initCommonMenuObserver() {
         if (!commonMenuElement) {
             return;
         }
-        if (window.theme.commonMenuObserver) {
-            window.theme.commonMenuObserver.disconnect();
+        if (window.theme.commonMenuAttrObserver) {
+            window.theme.commonMenuAttrObserver.disconnect();
         }
-        window.theme.commonMenuObserver = new MutationObserver((mutations) => {
+        window.theme.commonMenuAttrObserver = new MutationObserver((mutations) => {
             mutations.forEach((mutation) => {
-                if (mutation.type === "attributes" && mutation.attributeName === "class") {
+                if (mutation.type === "attributes" && (mutation.attributeName === "class" || mutation.attributeName === "style")) {
                     const target = mutation.target;
                     const oldValue = mutation.oldValue ?? "";
                     const newValue = target.className;
                     const hadFnNone = oldValue.includes("fn__none");
                     const hasFnNone = newValue.includes("fn__none");
                     if (hadFnNone && !hasFnNone) {
-                        handleCommonMenuShow();
+                            handleCommonMenuShow();
                     }
                 }
             });
         });
-        window.theme.commonMenuObserver.observe(commonMenuElement, {
+        // 观察class变化，捕捉菜单显示/隐藏
+        window.theme.commonMenuAttrObserver.observe(commonMenuElement, {
             attributes: true,
             attributeFilter: ["class"],
             attributeOldValue: true
         });
+
+        // 监测 #commonMenu 被替换的情况（比如菜单整元素被重建）
+        if (!window.theme.menuReplaceObserver) {
+            window.theme.menuReplaceObserver = new MutationObserver((mutations) => {
+                for (const m of mutations) {
+                    if (m.type === 'childList') {
+                        // 当 #commonMenu 被新增或移除时，重新查找并setup
+                        const cm = document.querySelector('#commonMenu');
+                        if (cm && !window.theme.commonMenuAttrObserver) {
+                            setupCommonMenuObserver();
+                        }
+                    }
+                }
+            });
+            window.theme.menuReplaceObserver.observe(document.body, { childList: true, subtree: true });
+        }
     };
 
     const handleCommonMenuShow = () => {
@@ -498,6 +518,27 @@ function initCommonMenuObserver() {
             }
         }
     };
+
+    // 添加鼠标抬起监听器，以便在菜单已打开时刷新菜单内容（比如选择变更）
+    if (!window.theme.commonMenuMouseUpHandler) {
+        window.theme.commonMenuMouseUpHandler = () => {
+            setTimeout(() => {
+                const cm = document.querySelector('#commonMenu');
+                if (!cm) return;
+                const computed = window.getComputedStyle(cm);
+                if (computed && computed.display !== 'none' && !cm.classList.contains('fn__none')) {
+                    const si = getBlockSelected();
+                    if (si) {
+                        const allowed = ['NodeList', 'NodeTable', 'NodeBlockquote', 'NodeCodeBlock'];
+                        if (allowed.includes(si.type)) {
+                            InsertMenuItem(si.id, si.type);
+                        }
+                    }
+                }
+            }, 10);
+        };
+        document.addEventListener('mouseup', window.theme.commonMenuMouseUpHandler);
+    }
 
     startCommonMenuMonitor();
 }
@@ -786,7 +827,7 @@ function Defaultth(selectid) {
     return button;
 }
 
-function InsertMenuItem(selectid, selecttype) {
+function InsertMenuItem(selectid, selecttype, attempts = 3) {
     let commonMenu = document.querySelector('#commonMenu .b3-menu__items');
     if (!commonMenu) {
         console.log('未找到菜单容器');
@@ -795,7 +836,9 @@ function InsertMenuItem(selectid, selecttype) {
 
     // 移除已存在的自定义菜单项，避免重复插入
     const oldViewSelect = commonMenu.querySelector('#viewselect');
-    if (oldViewSelect) oldViewSelect.remove();
+    if (oldViewSelect) {
+        oldViewSelect.remove();
+    }
 
     // 查找目标分割线
     let target = commonMenu.querySelector('.b3-menu__separator[data-id="separator_5"]');
@@ -1014,11 +1057,11 @@ function loadStyle(href, id = null) {
 
 function create_theme_button2() {
     // 避免重复创建观察器
-    if (window.theme.commonMenuObserver) {
+    if (window.theme.commonMenuDataNameObserver) {
         return;
     }
 
-    window.theme.commonMenuObserver = new MutationObserver((mutations) => {
+    window.theme.commonMenuDataNameObserver = new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {
             if (mutation.type === 'attributes' && mutation.attributeName === 'data-name') {
                 const commonMenu = document.getElementById('commonMenu');
@@ -1031,7 +1074,7 @@ function create_theme_button2() {
 
     const commonMenu = document.getElementById('commonMenu');
     if (commonMenu) {
-        window.theme.commonMenuObserver.observe(commonMenu, { attributes: true, attributeFilter: ['data-name'] });
+        window.theme.commonMenuDataNameObserver.observe(commonMenu, { attributes: true, attributeFilter: ['data-name'] });
         if (commonMenu.getAttribute('data-name') === 'barmode') {
             initThemeToolbar(commonMenu);
         }
@@ -1040,7 +1083,7 @@ function create_theme_button2() {
             window.theme.menuWaitObserver = new MutationObserver((mutations, obs) => {
                 const commonMenu = document.getElementById('commonMenu');
                 if (commonMenu) {
-                    window.theme.commonMenuObserver.observe(commonMenu, { attributes: true, attributeFilter: ['data-name'] });
+                    window.theme.commonMenuDataNameObserver.observe(commonMenu, { attributes: true, attributeFilter: ['data-name'] });
                     if (commonMenu.getAttribute('data-name') === 'barmode') {
                         initThemeToolbar(commonMenu);
                     }
@@ -1552,6 +1595,12 @@ window.destroyTheme = () => {
     const themeSeparator = document.querySelector('.b3-menu__separator[data-tsundoku="theme-separator"]');
     if (themeSeparator) themeSeparator.remove();
 
+    // 删除我们插入的自定义菜单项（主题块样式更改）
+    const viewSelect = document.getElementById('viewselect');
+    if (viewSelect) viewSelect.remove();
+    const insertedItems = document.querySelectorAll('.b3-menu__item[data-tsundoku-inserted="true"]');
+    insertedItems.forEach(item => item.remove());
+
     // 删除垂直页签相关元素并恢复宽度
     removeTabbarResizer();
     const verticalTabCSS = document.getElementById('tsundoku-vertical-tab-css');
@@ -1562,13 +1611,21 @@ window.destroyTheme = () => {
     if (hReminderCSS) hReminderCSS.remove();
 
     // 删除观察器
-    if (window.theme.commonMenuObserver) {
-        window.theme.commonMenuObserver.disconnect();
-        window.theme.commonMenuObserver = null;
+    if (window.theme.commonMenuAttrObserver) {
+        window.theme.commonMenuAttrObserver.disconnect();
+        window.theme.commonMenuAttrObserver = null;
+    }
+    if (window.theme.commonMenuDataNameObserver) {
+        window.theme.commonMenuDataNameObserver.disconnect();
+        window.theme.commonMenuDataNameObserver = null;
     }
     if (window.theme.menuWaitObserver) {
         window.theme.menuWaitObserver.disconnect();
         window.theme.menuWaitObserver = null;
+    }
+    if (window.theme.menuReplaceObserver) {
+        window.theme.menuReplaceObserver.disconnect();
+        window.theme.menuReplaceObserver = null;
     }
     // 删除自定义菜单观察器
     if (window.theme.customMenuObserver) {
@@ -1581,5 +1638,8 @@ window.destroyTheme = () => {
     clearAllTimers();
 
     // 清理事件监听器
-    // 注意：MutationObserver已在上面清理
+    if (window.theme.commonMenuMouseUpHandler) {
+        document.removeEventListener('mouseup', window.theme.commonMenuMouseUpHandler);
+        window.theme.commonMenuMouseUpHandler = null;
+    }
 };
