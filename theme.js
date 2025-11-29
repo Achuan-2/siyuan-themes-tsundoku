@@ -476,7 +476,7 @@ function initCommonMenuObserver() {
                     const hadFnNone = oldValue.includes("fn__none");
                     const hasFnNone = newValue.includes("fn__none");
                     if (hadFnNone && !hasFnNone) {
-                            handleCommonMenuShow();
+                        handleCommonMenuShow();
                     }
                 }
             });
