@@ -1,3 +1,5 @@
+## v2.7.6 / 20251214
+- 🎨 优化callout、代码块、blockquote、普通段落块折叠效果
 
 ## v2.7.5 / 20251214
 - 🎨 适配 v3.5.0 Callout Block [siyuan-note/siyuan#16051](https://github.com/siyuan-note/siyuan/issues/16051)
