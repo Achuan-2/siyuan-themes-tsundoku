@@ -295,7 +295,8 @@
 }
 
 /* 引述块内的代码块 */
-.bq .code-block {
+.bq .code-block,
+.protyle-wysiwyg .callout .code-block {
     background: #f6f8fa66 !important;
 }
 

@@ -975,7 +975,8 @@ html[data-theme-mode=light] .av__panel .b3-menu__item[draggable=true] {
 }
 
 /* 引述块内的代码块 */
-.bq .code-block {
+.bq .code-block,
+.protyle-wysiwyg .callout .code-block {
     background: #e2f4e43d !important;
 }
 

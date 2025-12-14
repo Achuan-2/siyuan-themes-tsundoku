@@ -837,7 +837,8 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 
 /* 引述块内的代码块 */
-.bq .code-block {
+.bq .code-block,
+.protyle-wysiwyg .callout .code-block {
     background: #0f1d2a57 !important;
 }
 

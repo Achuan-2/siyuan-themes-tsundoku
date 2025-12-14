@@ -251,7 +251,12 @@
     border: 1px solid var(--b3-callout-note);
     border-radius: 7px !important;
 }
-
+.b3-typography blockquote[data-type="callout"][data-subtype="NOTE"] blockquote:not([data-type="callout"]),
+.protyle-wysiwyg .callout[data-subtype="NOTE"]  .bq{
+    border-radius: 0px !important;
+    border-left: 0.3em solid var(--b3-callout-note) !important;
+    color: var(--b3-callout-note);
+}
 .b3-typography blockquote[data-type="callout"][data-subtype="IMPORTANT"],
 .protyle-wysiwyg .callout[data-subtype="IMPORTANT"] {
     background-color: rgba(from var(--b3-callout-important) r g b / .1);
@@ -259,11 +264,26 @@
     border-radius: 7px !important;
 }
 
+.b3-typography blockquote[data-type="callout"][data-subtype="IMPORTANT"] blockquote:not([data-type="callout"]),
+.protyle-wysiwyg .callout[data-subtype="IMPORTANT"] .bq {
+    border-radius: 0px !important;
+    border-left: 0.3em solid var(--b3-callout-important) !important;
+    color: var(--b3-callout-important);
+}
+
+
 .b3-typography blockquote[data-type="callout"][data-subtype="WARNING"],
 .protyle-wysiwyg .callout[data-subtype="WARNING"] {
     background-color: rgba(from var(--b3-callout-warning) r g b / .1);
     border: 1px solid var(--b3-callout-warning);
     border-radius: 7px !important;
+}
+
+.b3-typography blockquote[data-type="callout"][data-subtype="WARNING"] blockquote:not([data-type="callout"]),
+.protyle-wysiwyg .callout[data-subtype="WARNING"] .bq {
+    border-radius: 0px !important;
+    border-left: 0.3em solid var(--b3-callout-warning) !important;
+    color: var(--b3-callout-warning);
 }
 
 .b3-typography blockquote[data-type="callout"][data-subtype="CAUTION"],
@@ -273,6 +293,13 @@
     border-radius: 7px !important;
 }
 
+.b3-typography blockquote[data-type="callout"][data-subtype="CAUTION"] blockquote:not([data-type="callout"]),
+.protyle-wysiwyg .callout[data-subtype="CAUTION"] .bq {
+    border-radius: 0px !important;
+    border-left: 0.3em solid var(--b3-callout-caution) !important;
+    color: var(--b3-callout-caution);
+}
+
 .b3-typography blockquote[data-type="callout"][data-subtype="TIP"],
 .protyle-wysiwyg .callout[data-subtype="TIP"] {
     background-color: rgba(from var(--b3-callout-tip) r g b / .1);
@@ -280,6 +307,19 @@
     border-radius: 7px !important;
 }
 
+.b3-typography blockquote[data-type="callout"][data-subtype="TIP"] blockquote:not([data-type="callout"]),
+.protyle-wysiwyg .callout[data-subtype="TIP"] .bq {
+    border-radius: 0px !important;
+    border-left: 0.3em solid var(--b3-callout-tip) !important;
+    color: var(--b3-callout-tip);
+}
+
+/* callout的引述块 */
+.b3-typography blockquote[data-type="callout"] blockquote:not([data-type="callout"]),
+.protyle-wysiwyg .callout .bq{
+    background-color: transparent !important;
+    background-image: none !important;
+}
 /* -----------------------blockquote 引述块----------------------- */
 
 .b3-typography blockquote,
