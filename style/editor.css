@@ -243,7 +243,7 @@
 /* -----------------------callout 块----------------------- */
 /* 隐藏边框 */
 .protyle-wysiwyg .callout:before{
-        content: none;
+    content: none;
 }
 .b3-typography blockquote[data-type="callout"][data-subtype="NOTE"],
 .protyle-wysiwyg .callout[data-subtype="NOTE"] {
