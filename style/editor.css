@@ -240,6 +240,46 @@
     position: relative;
 }
 
+/* -----------------------callout 块----------------------- */
+/* 隐藏边框 */
+.protyle-wysiwyg .callout:before{
+        content: none;
+}
+.b3-typography blockquote[data-type="callout"][data-subtype="NOTE"],
+.protyle-wysiwyg .callout[data-subtype="NOTE"] {
+    background-color: rgba(from var(--b3-callout-note) r g b / .1);;
+    border: 1px solid var(--b3-callout-note);
+    border-radius: 7px !important;
+}
+
+.b3-typography blockquote[data-type="callout"][data-subtype="IMPORTANT"],
+.protyle-wysiwyg .callout[data-subtype="IMPORTANT"] {
+    background-color: rgba(from var(--b3-callout-important) r g b / .1);
+    border: 1px solid var(--b3-callout-important);
+    border-radius: 7px !important;
+}
+
+.b3-typography blockquote[data-type="callout"][data-subtype="WARNING"],
+.protyle-wysiwyg .callout[data-subtype="WARNING"] {
+    background-color: rgba(from var(--b3-callout-warning) r g b / .1);
+    border: 1px solid var(--b3-callout-warning);
+    border-radius: 7px !important;
+}
+
+.b3-typography blockquote[data-type="callout"][data-subtype="CAUTION"],
+.protyle-wysiwyg .callout[data-subtype="CAUTION"] {
+    background-color: rgba(from var(--b3-callout-caution) r g b / .1);
+    border: 1px solid var(--b3-callout-caution);
+    border-radius: 7px !important;
+}
+
+.b3-typography blockquote[data-type="callout"][data-subtype="TIP"],
+.protyle-wysiwyg .callout[data-subtype="TIP"] {
+    background-color: rgba(from var(--b3-callout-tip) r g b / .1);
+    border: 1px solid var(--b3-callout-tip);
+    border-radius: 7px !important;
+}
+
 /* -----------------------blockquote 引述块----------------------- */
 
 .b3-typography blockquote,
@@ -248,14 +288,6 @@
     padding: 2px 4px;
     border-radius: 0px 7px 7px 0px !important;
 }
-/* .b3-typography blockquote,
-.protyle-wysiwyg [data-node-id].bq:not([style*='background-color']) {
-    border: 1px solid var(--custom-blockquote-border-color);
-    padding: 2px 4px;
-    background-color: var(--b3-card-info-background);
-    color: var(--b3-card-info-color);
-    border-radius: 7px 7px 7px 7px !important;
-} */
 
 
 /* 3.1.12 引述块有了before元素 */
@@ -904,15 +936,3 @@ li[data-type='navigation-file'] .counter {
 /* ------------------------------------行内块字体样式：End-------------------------------------- */
 /* --------------------------------------------------------------------------------------------- */
 
-
-
-/* 分割线设置不要占满编辑器宽度 */
-/* .protyle-wysiwyg [data-node-id].hr {
-    display: flex;
-    justify-content: center;
-}
-
-.protyle-wysiwyg [data-node-id].hr>div {
-    width: 50%;
-    padding-left: 0%;
-} */

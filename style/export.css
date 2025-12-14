@@ -166,7 +166,7 @@
     border: none;
     border-left: 0.3em solid #2183ce;
     border-radius: 0px !important;
-    background: transparent !important;
+    /* background: transparent !important; */
 }
 
 .protyle-preview .b3-typography blockquote .hljs,
