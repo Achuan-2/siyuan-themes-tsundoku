@@ -912,23 +912,6 @@ function ViewMonitor(event) {
 }
 
 
-function link_icon_filter() {
-    let spans = document.querySelectorAll('span[data-type="a"]');
-    spans.forEach(span => {
-        const textContent = span.textContent.trim();
-        // 检查文本是否完全被方括号包裹或是否为纯数字
-        const isFullyWrappedInBrackets = /^\[.*\]$/.test(textContent);
-        const isNumber = /^\d+$/.test(textContent);
-
-        if (textContent === '*' || isFullyWrappedInBrackets || isNumber) {
-            span.setAttribute('custom-linkicon', 'false');
-        } else {
-            span.removeAttribute('custom-linkicon');
-        }
-    });
-}
-
-
 /**---------------------------------------------------------垂直页签宽度调节-------------------------------------------------------------- */
 
 /**
@@ -1559,9 +1542,6 @@ window.theme.timerIds = [];
     // 添加定时器来检测新的list2tab列表
     const list2TabInterval = setInterval(initList2Tab, 100);
     window.theme.timerIds.push(list2TabInterval);
-
-    const linkIconFilterInterval = setInterval(link_icon_filter, 100);
-    window.theme.timerIds.push(linkIconFilterInterval);
 
 })();
 
