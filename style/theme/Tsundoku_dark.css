@@ -49,13 +49,13 @@
 
     /* 卡片背景 */
     --b3-card-error-color: #fda8a2;
-    --b3-card-error-background: #ec777163;
+    --b3-card-error-background: #442724;
     --b3-card-warning-color: rgb(255, 213, 153);
     --b3-card-warning-background:   #554636 ;
     --b3-card-info-color: rgb(166, 213, 250);
     --b3-card-info-background: #28405c;
     --b3-card-success-color: rgb(183, 223, 185);
-    --b3-card-success-background: #85d0a34d;
+    --b3-card-success-background: #203027;
 
     /* 自定义文字 */
     --b3-font-color1: #f06e64;
