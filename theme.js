@@ -659,7 +659,9 @@ function setCalloutRed(selectid) {
     let button = document.createElement('button');
     button.className = 'b3-menu__item';
     button.setAttribute('data-node-id', selectid);
-    button.setAttribute('style', 'background-color: var(--b3-card-error-background); color: var(--b3-card-error-color);');
+    const styleValue = 'background-color: var(--b3-card-error-background); color: var(--b3-card-error-color);';
+    button.setAttribute('custom-style-value', styleValue);
+    button.setAttribute('style', styleValue);
 
     button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconInfo"></use></svg><span class="b3-menu__label">Callout红色</span>`;
     button.onclick = ViewMonitor;
@@ -670,7 +672,9 @@ function setCalloutBlue(selectid) {
     let button = document.createElement('button');
     button.className = 'b3-menu__item';
     button.setAttribute('data-node-id', selectid);
-    button.setAttribute('style', 'background-color: var(--b3-card-info-background); color: var(--b3-card-info-color);');
+    const styleValue = 'background-color: var(--b3-card-info-background); color: var(--b3-card-info-color);';
+    button.setAttribute('custom-style-value', styleValue);
+    button.setAttribute('style', styleValue);
 
     button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconInfo"></use></svg><span class="b3-menu__label">Callout蓝色</span>`;
     button.onclick = ViewMonitor;
@@ -681,7 +685,9 @@ function setCalloutGreen(selectid) {
     let button = document.createElement('button');
     button.className = 'b3-menu__item';
     button.setAttribute('data-node-id', selectid);
-    button.setAttribute('style', 'background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);');
+    const styleValue = 'background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);';
+    button.setAttribute('custom-style-value', styleValue);
+    button.setAttribute('style', styleValue);
 
     button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconInfo"></use></svg><span class="b3-menu__label">Callout绿色</span>`;
     button.onclick = ViewMonitor;
@@ -692,7 +698,9 @@ function setCalloutOrange(selectid) {
     let button = document.createElement('button');
     button.className = 'b3-menu__item';
     button.setAttribute('data-node-id', selectid);
-    button.setAttribute('style', 'background-color: var(--b3-card-warning-background); color: var(--b3-card-warning-color);');
+    const styleValue = 'background-color: var(--b3-card-warning-background); color: var(--b3-card-warning-color);';
+    button.setAttribute('custom-style-value', styleValue);
+    button.setAttribute('style', styleValue);
 
     button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconInfo"></use></svg><span class="b3-menu__label">Callout橙色</span>`;
     button.onclick = ViewMonitor;
@@ -703,7 +711,7 @@ function cancelCallout(selectid) {
     let button = document.createElement('button');
     button.className = 'b3-menu__item';
     button.setAttribute('data-node-id', selectid);
-    button.setAttribute('style', '');
+    button.setAttribute('custom-style-value', '');
 
     button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconInfo"></use></svg><span class="b3-menu__label">取消Callout样式</span>`;
     button.onclick = ViewMonitor;
@@ -716,7 +724,7 @@ function cancelAllStyles(selectid) {
     button.setAttribute('data-node-id', selectid);
     button.setAttribute('custom-attr-name', 'blockquote-quote');
     button.setAttribute('custom-attr-value', 'false');
-    button.setAttribute('style', '');
+    button.setAttribute('custom-style-value', '');
 
     button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTrashcan"></use></svg><span class="b3-menu__label">取消全部样式</span>`;
     button.onclick = ViewMonitor;
@@ -854,21 +862,22 @@ function InsertMenuItem(selectid, selecttype, attempts = 3) {
 
 function ViewMonitor(event) {
     let id = event.currentTarget.getAttribute('data-node-id');
-    let attrName = 'custom-' + event.currentTarget.getAttribute('custom-attr-name');
-    let attrValue = event.currentTarget.getAttribute('custom-attr-value');
-    // 获取style属性
-    let style = event.currentTarget.getAttribute('style');
-    let setStyle = true;
-    if (style == null) {
-        setStyle = false;
-    }
+    const rawAttrName = event.currentTarget.getAttribute('custom-attr-name');
+    const hasCustomAttr = rawAttrName != null;
+    const attrName = hasCustomAttr ? ('custom-' + rawAttrName) : null;
+    const attrValue = hasCustomAttr ? event.currentTarget.getAttribute('custom-attr-value') : null;
+    // 仅使用显式声明的 custom-style-value，避免菜单系统临时 style（如 max-height）污染块属性
+    const setStyle = event.currentTarget.hasAttribute('custom-style-value');
+    let style = setStyle ? (event.currentTarget.getAttribute('custom-style-value') ?? '') : null;
 
     let blocks = document.querySelectorAll(`.protyle-wysiwyg [data-node-id="${id}"]`);
-    if (blocks) {
+    if (blocks && hasCustomAttr) {
         blocks.forEach(block => block.setAttribute(attrName, attrValue));
     }
     let attrs = {};
-    attrs[attrName] = attrValue;
+    if (hasCustomAttr) {
+        attrs[attrName] = attrValue;
+    }
 
     // 当blockquote-quote为true时，检查并设置默认样式
     if (attrName === 'custom-blockquote-quote' && attrValue === 'true') {
@@ -889,6 +898,7 @@ function ViewMonitor(event) {
     if (setStyle || style) {
         attrs['style'] = style;
     }
+    if (!hasCustomAttr && !setStyle) return;
     console.log(attrName, attrValue, attrs);
     // 特殊处理：当恢复为列表时（custom-f为空），检查是否存在标签页DOM结构
     if (attrName === 'custom-list2' && attrValue === '') {
