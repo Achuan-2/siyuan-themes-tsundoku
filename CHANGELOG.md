@@ -1,3 +1,6 @@
+## v2.7.9 / 20260413
+- 🐛 列表转导图会错误添加max-height限制
+
 ## v2.7.8 / 20260121
 - 💄 Dark主题的warning和info background修改
 
