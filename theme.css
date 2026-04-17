@@ -937,13 +937,7 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
     color: var(--b3-theme-on-surface);
 }
 
-/* 取消2.7.7 更新的待办列表完成样式 */
-.protyle-wysiwyg .protyle-task--done>div:not([data-subtype='t']) {
-    /* color: var(--b3-theme-on-surface-light); */
-    /* text-decoration: line-through; */
-    text-decoration: none !important;
-    color: var(--b3-theme-on-background);
-}
+
 
 /* 取消搜索面板预览不展示link icon */
 /* #searchPreview .protyle-wysiwyg [data-node-id] span[data-type~='a']:not(:empty)::before {
