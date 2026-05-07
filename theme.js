@@ -873,7 +873,7 @@ function ViewMonitor(event) {
     const setStyle = event.currentTarget.hasAttribute('custom-style-value');
     let style = setStyle ? (event.currentTarget.getAttribute('custom-style-value') ?? '') : null;
 
-    let blocks = document.querySelectorAll(`.protyle-wysiwyg [data-node-id="${id}"]`);
+    let blocks = document.querySelectorAll(`.protyle-wysiwyg [data-node-id="${id}"][data-type]`);
     if (blocks && hasCustomAttr) {
         blocks.forEach(block => block.setAttribute(attrName, attrValue));
     }
@@ -905,12 +905,11 @@ function ViewMonitor(event) {
     console.log(attrName, attrValue, attrs);
     // 恢复为列表时，清理当前标签页实现加到原列表项上的临时 class。
     if (attrName === 'custom-list2' && attrValue === '') {
-        const currentElement = document.querySelector(`[data-node-id="${id}"]`);
-        if (currentElement) {
-            restoreTabToListDOM(currentElement);
-            currentElement.setAttribute('custom-f', '');
-            currentElement.removeAttribute('custom-activetab');
-        }
+        blocks.forEach(block => {
+            restoreTabToListDOM(block);
+            block.setAttribute('custom-f', '');
+            block.removeAttribute('custom-activetab');
+        });
         attrs['custom-f'] = '';
         attrs['custom-activetab'] = null;
     }
@@ -1308,6 +1307,8 @@ async function autoInitHReminder() {
 }
 
 const LIST2TAB_SELECTOR = '[data-type="NodeList"][custom-f~="list2tab"],[data-type="NodeList"][custom-f~="tab"],[data-type="NodeList"][custom-list2="tab"]';
+const LIST2TAB_ATTR_CLASS = 'tsundoku-list2tab-attr';
+const LIST2TAB_RESTORE_BUTTON_CLASS = 'tsundoku-list2tab-restore';
 
 function isList2TabList(listElement) {
     return listElement?.matches?.(LIST2TAB_SELECTOR);
@@ -1319,6 +1320,67 @@ function getList2TabItems(listElement) {
 
 function getList2TabTitleBlock(listItem) {
     return listItem.querySelector(':scope > .protyle-action + [data-node-id]');
+}
+
+function createList2TabRestoreButton(listElement) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = LIST2TAB_RESTORE_BUTTON_CLASS;
+    button.setAttribute('aria-label', t('toList'));
+    button.setAttribute('title', t('toList'));
+    button.setAttribute('data-node-id', listElement.dataset.nodeId);
+    button.setAttribute('custom-attr-name', 'list2');
+    button.setAttribute('custom-attr-value', '');
+    button.innerHTML = '<svg><use xlink:href="#iconList"></use></svg>';
+    button.onclick = (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        ViewMonitor(event);
+    };
+    return button;
+}
+
+function removeList2TabRestoreButton(listElement) {
+    const attrElement = listElement.querySelector(`:scope > .protyle-attr.${LIST2TAB_ATTR_CLASS}`);
+    if (!attrElement) return;
+
+    attrElement.querySelector(`:scope > .${LIST2TAB_RESTORE_BUTTON_CLASS}`)?.remove();
+    attrElement.classList.remove(LIST2TAB_ATTR_CLASS);
+
+    if (attrElement.dataset.tsundokuList2tabAttr === 'true' && !attrElement.children.length) {
+        attrElement.remove();
+    } else {
+        delete attrElement.dataset.tsundokuList2tabAttr;
+    }
+}
+
+function ensureList2TabRestoreButton(listElement) {
+    if (!listElement.dataset.nodeId || listElement.closest('#preview')) {
+        removeList2TabRestoreButton(listElement);
+        return;
+    }
+
+    let attrElement = listElement.querySelector(':scope > .protyle-attr');
+    if (!attrElement) {
+        attrElement = document.createElement('div');
+        attrElement.className = 'protyle-attr';
+        attrElement.dataset.tsundokuList2tabAttr = 'true';
+        listElement.appendChild(attrElement);
+    } else if (attrElement !== listElement.lastElementChild) {
+        listElement.appendChild(attrElement);
+    }
+
+    attrElement.classList.add(LIST2TAB_ATTR_CLASS);
+
+    let button = attrElement.querySelector(`:scope > .${LIST2TAB_RESTORE_BUTTON_CLASS}`);
+    if (!button) {
+        button = createList2TabRestoreButton(listElement);
+        attrElement.appendChild(button);
+    } else {
+        button.setAttribute('data-node-id', listElement.dataset.nodeId);
+        button.setAttribute('aria-label', t('toList'));
+        button.setAttribute('title', t('toList'));
+    }
 }
 
 function activateList2Tab(listElement, targetIndex, persist = false) {
@@ -1371,6 +1433,7 @@ function syncList2Tab(listElement) {
     const listItems = getList2TabItems(listElement);
     if (!listItems.length) return;
 
+    ensureList2TabRestoreButton(listElement);
     bindList2TabEvents(listElement);
 
     listItems.forEach((item, index) => {
@@ -1406,6 +1469,8 @@ function syncList2Tab(listElement) {
  * 恢复标签页为原始列表DOM结构
  */
 function restoreTabToListDOM(listElement) {
+    removeList2TabRestoreButton(listElement);
+
     const directListItems = getList2TabItems(listElement);
 
     if (!directListItems.length) {
@@ -1431,6 +1496,13 @@ function restoreTabToListDOM(listElement) {
  * 初始化列表转标签页功能
  */
 function initList2Tab() {
+    document.querySelectorAll(`.protyle-wysiwyg [data-type="NodeList"] > .protyle-attr.${LIST2TAB_ATTR_CLASS}`).forEach(attrElement => {
+        const listElement = attrElement.parentElement;
+        if (listElement && !isList2TabList(listElement)) {
+            removeList2TabRestoreButton(listElement);
+        }
+    });
+
     document.querySelectorAll('.protyle-wysiwyg [data-type="NodeList"]>.tab-panel').forEach(item => {
         const listElement = item.parentElement;
         if (listElement && !isList2TabList(listElement)) {
@@ -1579,6 +1651,12 @@ window.destroyTheme = () => {
         window.siyuan.eventBus.off('loaded-protyle', window.theme.list2TabLoadedProtyleHandler);
         window.theme.list2TabLoadedProtyleHandler = null;
     }
+    document.querySelectorAll(`.protyle-wysiwyg [data-type="NodeList"] > .protyle-attr.${LIST2TAB_ATTR_CLASS}`).forEach(attrElement => {
+        const listElement = attrElement.parentElement;
+        if (listElement) {
+            removeList2TabRestoreButton(listElement);
+        }
+    });
     // 删除自定义菜单观察器
     if (window.theme.customMenuObserver) {
         window.theme.customMenuObserver.disconnect();

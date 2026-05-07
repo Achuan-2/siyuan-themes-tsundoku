@@ -57,6 +57,54 @@
     display: none !important;
 }
 
+.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.protyle-attr.tsundoku-list2tab-attr {
+    order: 1;
+    position: sticky !important;
+    top: var(--tab-header-sticky-top);
+    z-index: calc(var(--tab-header-sticky-z-index) + 1);
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 34px;
+    width: 34px;
+    min-width: 34px;
+    height: calc(var(--tab-header-height) - 1px) !important;
+    margin: 0 !important;
+    margin-left: auto !important;
+    padding: 0 !important;
+    background-color: var(--tab-header-background);
+    border-bottom: 1px solid var(--b3-border-color);
+    box-sizing: border-box;
+}
+
+.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.protyle-attr.tsundoku-list2tab-attr>:not(.tsundoku-list2tab-restore) {
+    display: none !important;
+}
+
+.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"]) .tsundoku-list2tab-restore {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    margin: 0;
+    padding: 0;
+    color: var(--b3-theme-on-surface);
+    background-color: transparent;
+    border: 0;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"]) .tsundoku-list2tab-restore:hover {
+    background-color: var(--tab-header-hover-background);
+}
+
+.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"]) .tsundoku-list2tab-restore svg {
+    width: 14px;
+    height: 14px;
+}
+
 .protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel>.tab-action,
 .protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel>.tab-title {
     order: 1;
