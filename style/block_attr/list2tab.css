@@ -65,7 +65,6 @@
     z-index: var(--tab-header-sticky-z-index);
     height: calc(var(--tab-header-height) - 1px) !important;
     margin: 0 !important;
-    color: var(--b3-theme-on-background);
     background-color: var(--tab-header-background);
     border-bottom: 1px solid var(--b3-border-color);
     box-sizing: border-box;
