@@ -92,15 +92,6 @@
             height: auto;
         }
 
-        [data-node-id].code-block {
-            width: 100%;
-            overflow-x: auto;
-        }
-
-        [data-node-id].code-block .hljs {
-            max-width: 100%;
-            overflow-x: auto;
-        }
     }
 }
 
