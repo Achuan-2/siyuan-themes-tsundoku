@@ -16,6 +16,9 @@ window.theme = {
     menuWaitObserver: null, // 菜单等待观察器
     menuReplaceObserver: null, // 监测 #commonMenu 被替换的观察器
     commonMenuMouseUpHandler: null, // 鼠标抬起事件处理器
+    list2TabObserver: null, // 列表转标签页观察器
+    list2TabDebounceTimer: null, // 列表转标签页防抖定时器
+    list2TabLoadedProtyleHandler: null, // 编辑器加载后同步标签页
 };
 
 // i18n
@@ -1310,11 +1313,221 @@ async function autoInitHReminder() {
     }
 }
 
+const LIST2TAB_SELECTOR = '[data-type="NodeList"][custom-f~="list2tab"],[data-type="NodeList"][custom-f~="tab"],[data-type="NodeList"][custom-list2="tab"]';
+
+function isList2TabList(listElement) {
+    return listElement?.matches?.(LIST2TAB_SELECTOR);
+}
+
+function getList2TabItems(listElement) {
+    return Array.from(listElement.children).filter(child => child.getAttribute('data-type') === 'NodeListItem');
+}
+
+function getList2TabTitleBlock(listItem) {
+    return listItem.querySelector(':scope > .protyle-action + [data-node-id]');
+}
+
+function markList2TabUI(element) {
+    element.setAttribute('contenteditable', 'false');
+    element.setAttribute('data-tsundoku-ui', 'list2tab');
+    return element;
+}
+
+function createList2TabTitleClone(titleBlock) {
+    if (!titleBlock) {
+        const emptyTitle = document.createElement('span');
+        emptyTitle.className = 'tab-header-title tab-header-title--empty';
+        emptyTitle.dataset.empty = 'true';
+        emptyTitle.textContent = '\u00A0';
+        return markList2TabUI(emptyTitle);
+    }
+
+    const titleClone = titleBlock.cloneNode(true);
+    titleClone.classList.add('tab-header-title');
+    markList2TabUI(titleClone);
+
+    [titleClone, ...titleClone.querySelectorAll('*')].forEach(element => {
+        element.removeAttribute('data-node-id');
+        element.removeAttribute('data-node-index');
+        if (element.hasAttribute('contenteditable')) {
+            element.setAttribute('contenteditable', 'false');
+        }
+    });
+
+    if (!titleClone.textContent.trim()) {
+        titleClone.classList.add('tab-header-title--empty');
+        titleClone.dataset.empty = 'true';
+        titleClone.textContent = '\u00A0';
+    }
+
+    return titleClone;
+}
+
+function getList2TabSignature(listItems) {
+    return listItems.map((item, index) => {
+        const titleBlock = getList2TabTitleBlock(item);
+        return [
+            item.dataset.nodeId || index,
+            titleBlock?.dataset.nodeId || '',
+            titleBlock?.textContent?.trim() || ''
+        ].join(':');
+    }).join('|');
+}
+
+function ensureList2TabHeader(listElement) {
+    let tabHeaderContainer = Array.from(listElement.children).find(child => child.classList?.contains('tab-header-container'));
+    const firstListItem = getList2TabItems(listElement)[0];
+
+    if (!tabHeaderContainer) {
+        tabHeaderContainer = document.createElement('div');
+        tabHeaderContainer.className = 'protyle-attr tab-header-container';
+        if (firstListItem) {
+            listElement.insertBefore(tabHeaderContainer, firstListItem);
+        } else {
+            listElement.appendChild(tabHeaderContainer);
+        }
+    } else {
+        tabHeaderContainer.classList.add('protyle-attr');
+    }
+    markList2TabUI(tabHeaderContainer);
+
+    let tabHeaders = tabHeaderContainer.querySelector(':scope > .tab-headers');
+    if (!tabHeaders) {
+        tabHeaders = document.createElement('div');
+        tabHeaders.className = 'tab-headers';
+        tabHeaderContainer.insertBefore(tabHeaders, tabHeaderContainer.firstChild);
+    }
+    markList2TabUI(tabHeaders);
+
+    if (!tabHeaders._tsundokuTabBound) {
+        tabHeaders.addEventListener('click', (event) => {
+            const clickedTab = event.target.closest('.tab-header');
+            if (!clickedTab || !tabHeaders.contains(clickedTab)) return;
+
+            event.preventDefault();
+            event.stopPropagation();
+            activateList2Tab(listElement, Number(clickedTab.dataset.tabIndex || 0), true);
+        });
+        tabHeaders._tsundokuTabBound = true;
+    }
+
+    if (window.theme.clientMode !== 'mobile' && !tabHeaderContainer.querySelector(':scope > .tab-restore-button')) {
+        const restoreButton = document.createElement('div');
+        restoreButton.className = 'tab-restore-button';
+        restoreButton.title = t('toList');
+        markList2TabUI(restoreButton);
+        restoreButton.innerHTML = `<svg class="b3-menu__icon" style="height: 1.2em; width: 1.2em;"><use xlink:href="#iconList"></use></svg>`;
+        restoreButton.addEventListener('click', async (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            listElement.setAttribute('custom-f', '');
+            listElement.setAttribute('custom-list2', '');
+            listElement.removeAttribute('custom-activetab');
+            restoreTabToListDOM(listElement, listElement.dataset.nodeId);
+            if (listElement.dataset.nodeId) {
+                await 设置思源块属性(listElement.dataset.nodeId, { 'custom-f': '', 'custom-list2': '', 'custom-activetab': null });
+            }
+        });
+        tabHeaderContainer.appendChild(restoreButton);
+    }
+
+    return tabHeaders;
+}
+
+function rebuildList2TabHeaders(listElement, tabHeaders, listItems) {
+    tabHeaders.innerHTML = '';
+    listItems.forEach((item, index) => {
+        const titleBlock = getList2TabTitleBlock(item);
+        const tabHeader = document.createElement('div');
+        tabHeader.className = 'tab-header';
+        markList2TabUI(tabHeader);
+        tabHeader.dataset.tabIndex = index.toString();
+        tabHeader.dataset.sourceId = item.dataset.nodeId || '';
+        tabHeader.appendChild(createList2TabTitleClone(titleBlock));
+        tabHeaders.appendChild(tabHeader);
+    });
+}
+
+function activateList2Tab(listElement, targetIndex, persist = false) {
+    const listItems = getList2TabItems(listElement);
+    if (!listItems.length) return;
+
+    const safeIndex = Math.max(0, Math.min(targetIndex, listItems.length - 1));
+    const tabHeaders = listElement.querySelector(':scope > .tab-header-container > .tab-headers');
+    const headerItems = tabHeaders ? Array.from(tabHeaders.children).filter(child => child.classList.contains('tab-header')) : [];
+
+    listItems.forEach((item, index) => {
+        item.classList.add('tab-panel');
+        item.classList.toggle('active', index === safeIndex);
+        item.dataset.tabIndex = (index + 1).toString();
+    });
+
+    headerItems.forEach((header, index) => {
+        header.classList.toggle('active', index === safeIndex);
+        header.dataset.tabIndex = index.toString();
+    });
+
+    listElement._tsundokuActiveTab = safeIndex;
+
+    if (persist && listElement.dataset.nodeId) {
+        const activeTab = (safeIndex + 1).toString();
+        listElement.setAttribute('custom-activetab', activeTab);
+        设置思源块属性(listElement.dataset.nodeId, { 'custom-activetab': activeTab });
+    }
+}
+
+function syncList2Tab(listElement) {
+    const listItems = getList2TabItems(listElement);
+    if (!listItems.length) return;
+
+    Array.from(listElement.children)
+        .filter(child => child.classList?.contains('tab-contents'))
+        .forEach(child => child.remove());
+
+    const tabHeaders = ensureList2TabHeader(listElement);
+    const signature = getList2TabSignature(listItems);
+    if (tabHeaders._tsundokuSignature !== signature) {
+        rebuildList2TabHeaders(listElement, tabHeaders, listItems);
+        tabHeaders._tsundokuSignature = signature;
+    }
+
+    const activeTabAttr = parseInt(listElement.getAttribute('custom-activetab') || '', 10);
+    const activeIndex = Number.isNaN(activeTabAttr)
+        ? (listElement._tsundokuActiveTab || 0)
+        : activeTabAttr - 1;
+
+    activateList2Tab(listElement, activeIndex, false);
+}
+
+function removeDetachedList2TabUI() {
+    document.querySelectorAll('.protyle-wysiwyg .tab-header-container').forEach(container => {
+        if (container.parentElement?.getAttribute('data-type') !== 'NodeList') {
+            container.remove();
+        }
+    });
+}
+
 /**
  * 恢复标签页为原始列表DOM结构
- * 逆向执行initList2Tab的转换过程
  */
 function restoreTabToListDOM(listElement, listId) {
+    const directListItems = getList2TabItems(listElement);
+
+    if (directListItems.length) {
+        Array.from(listElement.children).forEach(child => {
+            if (child.classList?.contains('tab-header-container') || child.classList?.contains('tab-contents')) {
+                child.remove();
+            }
+        });
+
+        directListItems.forEach(item => {
+            item.classList.remove('tab-panel', 'active');
+            delete item.dataset.tabIndex;
+        });
+
+        delete listElement._tsundokuActiveTab;
+        return;
+    }
 
     const listSubtype = listElement.getAttribute('data-subtype') || 'u';
     const tabHeaders = listElement.querySelectorAll('.tab-header');
@@ -1325,28 +1538,22 @@ function restoreTabToListDOM(listElement, listId) {
         return;
     }
 
-
-    // 收集需要恢复的数据
+    // 兼容旧版破坏式转换产生的结构
     const listItemsData = [];
 
     tabHeaders.forEach((header, index) => {
         const tabContent = tabContents[index];
         if (!tabContent) return;
 
-        // 从tab-header中恢复第一个内容块（标题）
         const headerFirstChild = header.firstElementChild;
         if (!headerFirstChild) return;
 
-
-        // 克隆标题内容
         const firstContent = headerFirstChild.cloneNode(true);
+        firstContent.classList.remove('tab-header-title');
 
-        // 从tab-content中收集其余子元素
         const otherChildren = Array.from(tabContent.children).filter(child => {
-            // 排除protyle-attr中只有零宽空格的元素
             return !(child.classList.contains('protyle-attr') && child.textContent.trim() === '\u200B');
         });
-
 
         listItemsData.push({
             firstContent: firstContent,
@@ -1354,32 +1561,24 @@ function restoreTabToListDOM(listElement, listId) {
         });
     });
 
-    // 保存原始的列表属性
     const originalAttributes = {};
     Array.from(listElement.attributes).forEach(attr => {
         originalAttributes[attr.name] = attr.value;
     });
 
-    // 清空列表并重建
     listElement.innerHTML = '';
 
-    // 恢复列表的原始属性
     Object.keys(originalAttributes).forEach(name => {
         listElement.setAttribute(name, originalAttributes[name]);
     });
 
-
-    // 重建每个ListItem
     listItemsData.forEach((itemData, index) => {
-        // 创建ListItem容器
         const listItem = document.createElement('div');
         listItem.setAttribute('data-marker', '*');
         listItem.setAttribute('data-subtype', listSubtype);
         listItem.setAttribute('data-type', 'NodeListItem');
         listItem.className = 'li';
 
-        // 为ListItem设置node-id和updated属性
-        // 生成符合思源格式的ID
         const now = new Date();
         const timestamp = now.toISOString().replace(/[-:]/g, '').split('.')[0].replace('T', '').substring(0, 14);
         const randomPart = Math.random().toString(36).substr(2, 7);
@@ -1387,146 +1586,96 @@ function restoreTabToListDOM(listElement, listId) {
         listItem.setAttribute('data-node-id', listItemId);
         listItem.setAttribute('updated', timestamp);
 
-        // 1. 添加protyle-action（原始结构中的第一个元素）
         const protolyeAction = document.createElement('div');
         protolyeAction.className = 'protyle-action';
         protolyeAction.setAttribute('draggable', 'true');
         protolyeAction.innerHTML = '<svg><use xlink:href="#iconDot"></use></svg>';
         listItem.appendChild(protolyeAction);
 
-        // 2. 添加第一个内容块（从tab-header恢复）
         const firstContent = itemData.firstContent;
-        // 确保有data-node-index（如果没有的话）
         if (!firstContent.getAttribute('data-node-index')) {
             firstContent.setAttribute('data-node-index', '1');
         }
         listItem.appendChild(firstContent);
 
-        // 3. 添加其余子元素（从tab-content恢复）
         itemData.otherChildren.forEach(child => {
-            // 直接移动节点而不是克隆，保持原有的所有属性和状态
             listItem.appendChild(child);
         });
 
-        // 4. 添加ListItem的protyle-attr
         const listItemAttr = document.createElement('div');
         listItemAttr.className = 'protyle-attr';
         listItemAttr.setAttribute('contenteditable', 'false');
         if (index === listItemsData.length - 1) {
-            listItemAttr.innerHTML = '\u200B'; // 最后一个项目添加零宽空格
+            listItemAttr.innerHTML = '\u200B';
         }
         listItem.appendChild(listItemAttr);
 
         listElement.appendChild(listItem);
-
     });
 
-    // 添加列表的protyle-attr
     const listAttr = document.createElement('div');
     listAttr.className = 'protyle-attr';
     listAttr.setAttribute('contenteditable', 'false');
     listAttr.innerHTML = '\u200B';
     listElement.appendChild(listAttr);
-
 }
 
 /**
  * 初始化列表转标签页功能
  */
 function initList2Tab() {
-    const lists = document.querySelectorAll('[data-type="NodeList"][custom-f="list2tab"],[data-type="NodeList"][custom-list2="tab"');
+    removeDetachedList2TabUI();
 
-    lists.forEach(list => {
-        if (list.querySelector('.tab-headers')) return;
+    document.querySelectorAll('.protyle-wysiwyg [data-type="NodeList"]>.tab-header-container').forEach(container => {
+        const listElement = container.parentElement;
+        if (listElement && !isList2TabList(listElement)) {
+            restoreTabToListDOM(listElement, listElement.dataset.nodeId);
+        }
+    });
 
-        const listId = list.dataset.nodeId;
-        const activeTabAttr = parseInt(list.getAttribute('custom-activetab') || '1', 10);
-        const desiredActiveIndex = Number.isNaN(activeTabAttr) ? 0 : activeTabAttr - 1;
+    document.querySelectorAll(LIST2TAB_SELECTOR).forEach(syncList2Tab);
+}
 
-        const listItems = Array.from(list.querySelectorAll(':scope > [data-type="NodeListItem"]'));
-        if (!listItems.length) return;
+function scheduleList2TabInit(delay = 120) {
+    if (window.theme.list2TabDebounceTimer) {
+        clearTimeout(window.theme.list2TabDebounceTimer);
+    }
 
-        const firstBlocks = listItems.map(item => item.querySelector(':scope > .protyle-action + [data-node-id]'));
-        if (firstBlocks.some(block => !block)) return;
+    window.theme.list2TabDebounceTimer = setTimeout(() => {
+        window.theme.list2TabDebounceTimer = null;
+        initList2Tab();
+    }, delay);
+}
 
-        const tabHeaders = document.createElement('div');
-        tabHeaders.className = 'tab-headers';
+function initList2TabObserver() {
+    if (window.theme.list2TabObserver) return;
 
-        const tabContents = document.createElement('div');
-        tabContents.className = 'tab-contents';
-
-        const tabHeaderItems = [];
-        const tabContentItems = [];
-
-        const activateTab = (targetIndex, persist = false) => {
-            if (!tabHeaderItems.length) return;
-            const safeIndex = Math.max(0, Math.min(targetIndex, tabHeaderItems.length - 1));
-            tabHeaderItems.forEach((header, idx) => header.classList.toggle('active', idx === safeIndex));
-            tabContentItems.forEach((content, idx) => content.classList.toggle('active', idx === safeIndex));
-            if (persist) {
-                设置思源块属性(listId, { 'custom-activetab': (safeIndex + 1).toString() });
-            }
-        };
-
-        listItems.forEach((item, index) => {
-            const firstContent = firstBlocks[index];
-            const tabHeader = document.createElement('div');
-            tabHeader.className = 'tab-header';
-
-            const titleClone = firstContent.cloneNode(true);
-            // 保留data-node-id以便在恢复时能正确还原
-            tabHeader.appendChild(titleClone);
-
-            const tabContent = document.createElement('div');
-            tabContent.className = 'tab-content';
-
-            Array.from(item.children).forEach(child => {
-                if (child !== firstContent && !(child.classList && child.classList.contains('protyle-action'))) {
-                    tabContent.appendChild(child);
-                }
-            });
-
-            const tabIndex = tabHeaderItems.length;
-            tabHeader.addEventListener('click', () => activateTab(tabIndex, true));
-
-            tabHeaderItems.push(tabHeader);
-            tabContentItems.push(tabContent);
-            tabHeaders.appendChild(tabHeader);
-            tabContents.appendChild(tabContent);
+    window.theme.list2TabObserver = new MutationObserver((mutations) => {
+        const shouldSync = mutations.some(mutation => {
+            const target = mutation.target.nodeType === 3 ? mutation.target.parentElement : mutation.target;
+            if (!target?.closest?.('.protyle-wysiwyg')) return false;
+            if (target.closest('.tab-header-container')) return false;
+            if (mutation.type === 'childList' || mutation.type === 'characterData') return true;
+            return ['custom-f', 'custom-list2', 'custom-activetab', 'updated'].includes(mutation.attributeName);
         });
 
-        if (!tabHeaderItems.length) return;
-
-        activateTab(desiredActiveIndex, false);
-
-        const tabHeaderContainer = document.createElement('div');
-        tabHeaderContainer.className = 'tab-header-container';
-        tabHeaderContainer.appendChild(tabHeaders);
-
-        // 只在非手机端显示恢复列表按钮
-        if (window.theme.clientMode !== 'mobile') {
-            // 创建恢复列表按钮
-            const restoreButton = document.createElement('div');
-            restoreButton.className = 'tab-restore-button';
-            restoreButton.innerHTML = `<svg class="b3-menu__icon" style="height: 1.2em; width: 1.2em;"><use xlink:href="#iconList"></use></svg>`;
-            restoreButton.onclick = async () => {
-                // 先清除属性，让思源停止将此视为标签页
-                await 设置思源块属性(listId, { 'custom-f': '', 'custom-list2': '', 'custom-activetab': null });
-                // 等待属性更新完成后再恢复DOM结构
-                setTimeout(() => {
-                    const currentList = document.querySelector(`[data-node-id="${listId}"]`);
-                    if (currentList) {
-                        restoreTabToListDOM(currentList, listId);
-                    }
-                }, 50);
-            };
-            tabHeaderContainer.appendChild(restoreButton);
+        if (shouldSync) {
+            scheduleList2TabInit();
         }
-
-        list.innerHTML = '';
-        list.appendChild(tabHeaderContainer);
-        list.appendChild(tabContents);
     });
+
+    window.theme.list2TabObserver.observe(document.body, {
+        childList: true,
+        subtree: true,
+        characterData: true,
+        attributes: true,
+        attributeFilter: ['custom-f', 'custom-list2', 'custom-activetab', 'updated']
+    });
+
+    if (window.siyuan?.eventBus?.on) {
+        window.theme.list2TabLoadedProtyleHandler = () => scheduleList2TabInit(200);
+        window.siyuan.eventBus.on('loaded-protyle', window.theme.list2TabLoadedProtyleHandler);
+    }
 }
 
 /**++++++++++++++++++++++++++++++++主题功能执行：按需调用+++++++++++++++++++++++++++ */
@@ -1548,10 +1697,7 @@ window.theme.timerIds = [];
 
     // 初始化列表转标签页功能
     initList2Tab();
-
-    // 添加定时器来检测新的list2tab列表
-    const list2TabInterval = setInterval(initList2Tab, 100);
-    window.theme.timerIds.push(list2TabInterval);
+    initList2TabObserver();
 
 })();
 
@@ -1616,6 +1762,18 @@ window.destroyTheme = () => {
     if (window.theme.menuReplaceObserver) {
         window.theme.menuReplaceObserver.disconnect();
         window.theme.menuReplaceObserver = null;
+    }
+    if (window.theme.list2TabObserver) {
+        window.theme.list2TabObserver.disconnect();
+        window.theme.list2TabObserver = null;
+    }
+    if (window.theme.list2TabDebounceTimer) {
+        clearTimeout(window.theme.list2TabDebounceTimer);
+        window.theme.list2TabDebounceTimer = null;
+    }
+    if (window.theme.list2TabLoadedProtyleHandler && window.siyuan?.eventBus?.off) {
+        window.siyuan.eventBus.off('loaded-protyle', window.theme.list2TabLoadedProtyleHandler);
+        window.theme.list2TabLoadedProtyleHandler = null;
     }
     // 删除自定义菜单观察器
     if (window.theme.customMenuObserver) {
