@@ -8,6 +8,8 @@
     --tab-header-hover-background: var(--b3-list-hover);
     --tab-header-active-background: var(--b3-theme-background);
     --tab-content-padding: 16px;
+    --tab-header-sticky-top: 0px;
+    --tab-header-sticky-z-index: 4;
 }
 
 /*————————————————————列表转标签页————————————————————*/
@@ -19,7 +21,7 @@
     background-color: var(--b3-theme-background);
     border: 5px solid var(--tab-container-border-color);
     border-radius: 8px;
-    overflow: hidden;
+    overflow: visible;
     box-sizing: border-box;
 }
 
@@ -30,6 +32,9 @@
 
 /* 标签页头部容器 */
 .protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-header-container {
+    position: sticky;
+    top: var(--tab-header-sticky-top);
+    z-index: var(--tab-header-sticky-z-index);
     display: flex;
     align-items: center;
     min-width: 0;
@@ -39,7 +44,9 @@
 }
 
 .protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-header-container.protyle-attr {
-    position: static !important;
+    position: sticky !important;
+    top: var(--tab-header-sticky-top) !important;
+    z-index: var(--tab-header-sticky-z-index) !important;
     float: none !important;
     display: flex !important;
     flex-direction: row !important;
@@ -50,6 +57,10 @@
     padding: 0 !important;
     opacity: 1 !important;
     pointer-events: auto !important;
+}
+
+#preview .protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-header-container {
+    position: static !important;
 }
 
 .protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"]) .tab-headers {
