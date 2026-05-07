@@ -903,22 +903,16 @@ function ViewMonitor(event) {
     }
     if (!hasCustomAttr && !setStyle) return;
     console.log(attrName, attrValue, attrs);
-    // 特殊处理：当恢复为列表时（custom-f为空），检查是否存在标签页DOM结构
+    // 恢复为列表时，清理当前标签页实现加到原列表项上的临时 class。
     if (attrName === 'custom-list2' && attrValue === '') {
         const currentElement = document.querySelector(`[data-node-id="${id}"]`);
-        // 直接检查是否存在标签页DOM结构，而不依赖属性判断
-        if (currentElement && currentElement.querySelector('.tab-headers')) {
-            console.log('发现标签页DOM结构，开始恢复为列表');
-            // 先执行DOM恢复，保留标签页结构以便恢复
-            restoreTabToListDOM(currentElement, id);
-            // 等待DOM恢复完成后再清除属性
-            setTimeout(() => {
-                设置思源块属性(id, { 'custom-f': '', 'custom-list2': '' });
-            }, 10);
-            return; // 提前返回，避免重复调用设置属性
-        } else {
-            设置思源块属性(id, { 'custom-f': '' });  // 历史兼容
+        if (currentElement) {
+            restoreTabToListDOM(currentElement);
+            currentElement.setAttribute('custom-f', '');
+            currentElement.removeAttribute('custom-activetab');
         }
+        attrs['custom-f'] = '';
+        attrs['custom-activetab'] = null;
     }
 
     设置思源块属性(id, attrs);
@@ -1327,144 +1321,16 @@ function getList2TabTitleBlock(listItem) {
     return listItem.querySelector(':scope > .protyle-action + [data-node-id]');
 }
 
-function markList2TabUI(element) {
-    element.setAttribute('contenteditable', 'false');
-    element.setAttribute('data-tsundoku-ui', 'list2tab');
-    return element;
-}
-
-function createList2TabTitleClone(titleBlock) {
-    if (!titleBlock) {
-        const emptyTitle = document.createElement('span');
-        emptyTitle.className = 'tab-header-title tab-header-title--empty';
-        emptyTitle.dataset.empty = 'true';
-        emptyTitle.textContent = '\u00A0';
-        return markList2TabUI(emptyTitle);
-    }
-
-    const titleClone = titleBlock.cloneNode(true);
-    titleClone.classList.add('tab-header-title');
-    markList2TabUI(titleClone);
-
-    [titleClone, ...titleClone.querySelectorAll('*')].forEach(element => {
-        element.removeAttribute('data-node-id');
-        element.removeAttribute('data-node-index');
-        if (element.hasAttribute('contenteditable')) {
-            element.setAttribute('contenteditable', 'false');
-        }
-    });
-
-    if (!titleClone.textContent.trim()) {
-        titleClone.classList.add('tab-header-title--empty');
-        titleClone.dataset.empty = 'true';
-        titleClone.textContent = '\u00A0';
-    }
-
-    return titleClone;
-}
-
-function getList2TabSignature(listItems) {
-    return listItems.map((item, index) => {
-        const titleBlock = getList2TabTitleBlock(item);
-        return [
-            item.dataset.nodeId || index,
-            titleBlock?.dataset.nodeId || '',
-            titleBlock?.textContent?.trim() || ''
-        ].join(':');
-    }).join('|');
-}
-
-function ensureList2TabHeader(listElement) {
-    let tabHeaderContainer = Array.from(listElement.children).find(child => child.classList?.contains('tab-header-container'));
-    const firstListItem = getList2TabItems(listElement)[0];
-
-    if (!tabHeaderContainer) {
-        tabHeaderContainer = document.createElement('div');
-        tabHeaderContainer.className = 'protyle-attr tab-header-container';
-        if (firstListItem) {
-            listElement.insertBefore(tabHeaderContainer, firstListItem);
-        } else {
-            listElement.appendChild(tabHeaderContainer);
-        }
-    } else {
-        tabHeaderContainer.classList.add('protyle-attr');
-    }
-    markList2TabUI(tabHeaderContainer);
-
-    let tabHeaders = tabHeaderContainer.querySelector(':scope > .tab-headers');
-    if (!tabHeaders) {
-        tabHeaders = document.createElement('div');
-        tabHeaders.className = 'tab-headers';
-        tabHeaderContainer.insertBefore(tabHeaders, tabHeaderContainer.firstChild);
-    }
-    markList2TabUI(tabHeaders);
-
-    if (!tabHeaders._tsundokuTabBound) {
-        tabHeaders.addEventListener('click', (event) => {
-            const clickedTab = event.target.closest('.tab-header');
-            if (!clickedTab || !tabHeaders.contains(clickedTab)) return;
-
-            event.preventDefault();
-            event.stopPropagation();
-            activateList2Tab(listElement, Number(clickedTab.dataset.tabIndex || 0), true);
-        });
-        tabHeaders._tsundokuTabBound = true;
-    }
-
-    if (window.theme.clientMode !== 'mobile' && !tabHeaderContainer.querySelector(':scope > .tab-restore-button')) {
-        const restoreButton = document.createElement('div');
-        restoreButton.className = 'tab-restore-button';
-        restoreButton.title = t('toList');
-        markList2TabUI(restoreButton);
-        restoreButton.innerHTML = `<svg class="b3-menu__icon" style="height: 1.2em; width: 1.2em;"><use xlink:href="#iconList"></use></svg>`;
-        restoreButton.addEventListener('click', async (event) => {
-            event.preventDefault();
-            event.stopPropagation();
-            listElement.setAttribute('custom-f', '');
-            listElement.setAttribute('custom-list2', '');
-            listElement.removeAttribute('custom-activetab');
-            restoreTabToListDOM(listElement, listElement.dataset.nodeId);
-            if (listElement.dataset.nodeId) {
-                await 设置思源块属性(listElement.dataset.nodeId, { 'custom-f': '', 'custom-list2': '', 'custom-activetab': null });
-            }
-        });
-        tabHeaderContainer.appendChild(restoreButton);
-    }
-
-    return tabHeaders;
-}
-
-function rebuildList2TabHeaders(listElement, tabHeaders, listItems) {
-    tabHeaders.innerHTML = '';
-    listItems.forEach((item, index) => {
-        const titleBlock = getList2TabTitleBlock(item);
-        const tabHeader = document.createElement('div');
-        tabHeader.className = 'tab-header';
-        markList2TabUI(tabHeader);
-        tabHeader.dataset.tabIndex = index.toString();
-        tabHeader.dataset.sourceId = item.dataset.nodeId || '';
-        tabHeader.appendChild(createList2TabTitleClone(titleBlock));
-        tabHeaders.appendChild(tabHeader);
-    });
-}
-
 function activateList2Tab(listElement, targetIndex, persist = false) {
     const listItems = getList2TabItems(listElement);
     if (!listItems.length) return;
 
     const safeIndex = Math.max(0, Math.min(targetIndex, listItems.length - 1));
-    const tabHeaders = listElement.querySelector(':scope > .tab-header-container > .tab-headers');
-    const headerItems = tabHeaders ? Array.from(tabHeaders.children).filter(child => child.classList.contains('tab-header')) : [];
 
     listItems.forEach((item, index) => {
         item.classList.add('tab-panel');
         item.classList.toggle('active', index === safeIndex);
         item.dataset.tabIndex = (index + 1).toString();
-    });
-
-    headerItems.forEach((header, index) => {
-        header.classList.toggle('active', index === safeIndex);
-        header.dataset.tabIndex = index.toString();
     });
 
     listElement._tsundokuActiveTab = safeIndex;
@@ -1476,20 +1342,57 @@ function activateList2Tab(listElement, targetIndex, persist = false) {
     }
 }
 
+function bindList2TabEvents(listElement) {
+    if (listElement._tsundokuTabBound) return;
+
+    listElement.addEventListener('click', (event) => {
+        if (!isList2TabList(listElement)) return;
+
+        const item = event.target.closest('[data-type="NodeListItem"]');
+        if (!item || item.parentElement !== listElement) return;
+
+        const titleBlock = getList2TabTitleBlock(item);
+        const action = item.querySelector(':scope > .protyle-action');
+        const isTabTrigger = (titleBlock && (event.target === titleBlock || titleBlock.contains(event.target))) ||
+            (action && (event.target === action || action.contains(event.target)));
+        if (!isTabTrigger) return;
+
+        const listItems = getList2TabItems(listElement);
+        const tabIndex = listItems.indexOf(item);
+        if (tabIndex >= 0) {
+            activateList2Tab(listElement, tabIndex, true);
+        }
+    }, true);
+
+    listElement._tsundokuTabBound = true;
+}
+
 function syncList2Tab(listElement) {
     const listItems = getList2TabItems(listElement);
     if (!listItems.length) return;
 
-    Array.from(listElement.children)
-        .filter(child => child.classList?.contains('tab-contents'))
-        .forEach(child => child.remove());
+    bindList2TabEvents(listElement);
 
-    const tabHeaders = ensureList2TabHeader(listElement);
-    const signature = getList2TabSignature(listItems);
-    if (tabHeaders._tsundokuSignature !== signature) {
-        rebuildList2TabHeaders(listElement, tabHeaders, listItems);
-        tabHeaders._tsundokuSignature = signature;
-    }
+    listItems.forEach((item, index) => {
+        item.classList.add('tab-panel');
+        item.dataset.tabIndex = (index + 1).toString();
+
+        const action = item.querySelector(':scope > .protyle-action');
+        if (action) {
+            action.classList.add('tab-action');
+        }
+
+        const titleBlock = getList2TabTitleBlock(item);
+        item.querySelectorAll(':scope > .tab-title').forEach(block => {
+            if (block !== titleBlock) {
+                block.classList.remove('tab-title');
+            }
+        });
+        item.classList.toggle('tab-panel--empty-title', !titleBlock);
+        if (titleBlock) {
+            titleBlock.classList.add('tab-title');
+        }
+    });
 
     const activeTabAttr = parseInt(listElement.getAttribute('custom-activetab') || '', 10);
     const activeIndex = Number.isNaN(activeTabAttr)
@@ -1499,137 +1402,39 @@ function syncList2Tab(listElement) {
     activateList2Tab(listElement, activeIndex, false);
 }
 
-function removeDetachedList2TabUI() {
-    document.querySelectorAll('.protyle-wysiwyg .tab-header-container').forEach(container => {
-        if (container.parentElement?.getAttribute('data-type') !== 'NodeList') {
-            container.remove();
-        }
-    });
-}
-
 /**
  * 恢复标签页为原始列表DOM结构
  */
-function restoreTabToListDOM(listElement, listId) {
+function restoreTabToListDOM(listElement) {
     const directListItems = getList2TabItems(listElement);
 
-    if (directListItems.length) {
-        Array.from(listElement.children).forEach(child => {
-            if (child.classList?.contains('tab-header-container') || child.classList?.contains('tab-contents')) {
-                child.remove();
-            }
-        });
-
-        directListItems.forEach(item => {
-            item.classList.remove('tab-panel', 'active');
-            delete item.dataset.tabIndex;
-        });
-
-        delete listElement._tsundokuActiveTab;
+    if (!directListItems.length) {
         return;
     }
 
-    const listSubtype = listElement.getAttribute('data-subtype') || 'u';
-    const tabHeaders = listElement.querySelectorAll('.tab-header');
-    const tabContents = listElement.querySelectorAll('.tab-content');
+    directListItems.forEach(item => {
+        item.classList.remove('tab-panel', 'tab-panel--empty-title', 'active');
+        delete item.dataset.tabIndex;
 
-    if (!tabHeaders.length || !tabContents.length) {
-        console.log('未找到标签页结构，退出恢复');
-        return;
-    }
-
-    // 兼容旧版破坏式转换产生的结构
-    const listItemsData = [];
-
-    tabHeaders.forEach((header, index) => {
-        const tabContent = tabContents[index];
-        if (!tabContent) return;
-
-        const headerFirstChild = header.firstElementChild;
-        if (!headerFirstChild) return;
-
-        const firstContent = headerFirstChild.cloneNode(true);
-        firstContent.classList.remove('tab-header-title');
-
-        const otherChildren = Array.from(tabContent.children).filter(child => {
-            return !(child.classList.contains('protyle-attr') && child.textContent.trim() === '\u200B');
-        });
-
-        listItemsData.push({
-            firstContent: firstContent,
-            otherChildren: otherChildren
-        });
-    });
-
-    const originalAttributes = {};
-    Array.from(listElement.attributes).forEach(attr => {
-        originalAttributes[attr.name] = attr.value;
-    });
-
-    listElement.innerHTML = '';
-
-    Object.keys(originalAttributes).forEach(name => {
-        listElement.setAttribute(name, originalAttributes[name]);
-    });
-
-    listItemsData.forEach((itemData, index) => {
-        const listItem = document.createElement('div');
-        listItem.setAttribute('data-marker', '*');
-        listItem.setAttribute('data-subtype', listSubtype);
-        listItem.setAttribute('data-type', 'NodeListItem');
-        listItem.className = 'li';
-
-        const now = new Date();
-        const timestamp = now.toISOString().replace(/[-:]/g, '').split('.')[0].replace('T', '').substring(0, 14);
-        const randomPart = Math.random().toString(36).substr(2, 7);
-        const listItemId = timestamp + '-' + randomPart;
-        listItem.setAttribute('data-node-id', listItemId);
-        listItem.setAttribute('updated', timestamp);
-
-        const protolyeAction = document.createElement('div');
-        protolyeAction.className = 'protyle-action';
-        protolyeAction.setAttribute('draggable', 'true');
-        protolyeAction.innerHTML = '<svg><use xlink:href="#iconDot"></use></svg>';
-        listItem.appendChild(protolyeAction);
-
-        const firstContent = itemData.firstContent;
-        if (!firstContent.getAttribute('data-node-index')) {
-            firstContent.setAttribute('data-node-index', '1');
+        const action = item.querySelector(':scope > .protyle-action');
+        if (action) {
+            action.classList.remove('tab-action');
         }
-        listItem.appendChild(firstContent);
 
-        itemData.otherChildren.forEach(child => {
-            listItem.appendChild(child);
-        });
-
-        const listItemAttr = document.createElement('div');
-        listItemAttr.className = 'protyle-attr';
-        listItemAttr.setAttribute('contenteditable', 'false');
-        if (index === listItemsData.length - 1) {
-            listItemAttr.innerHTML = '\u200B';
-        }
-        listItem.appendChild(listItemAttr);
-
-        listElement.appendChild(listItem);
+        item.querySelectorAll(':scope > .tab-title').forEach(block => block.classList.remove('tab-title'));
     });
 
-    const listAttr = document.createElement('div');
-    listAttr.className = 'protyle-attr';
-    listAttr.setAttribute('contenteditable', 'false');
-    listAttr.innerHTML = '\u200B';
-    listElement.appendChild(listAttr);
+    delete listElement._tsundokuActiveTab;
 }
 
 /**
  * 初始化列表转标签页功能
  */
 function initList2Tab() {
-    removeDetachedList2TabUI();
-
-    document.querySelectorAll('.protyle-wysiwyg [data-type="NodeList"]>.tab-header-container').forEach(container => {
-        const listElement = container.parentElement;
+    document.querySelectorAll('.protyle-wysiwyg [data-type="NodeList"]>.tab-panel').forEach(item => {
+        const listElement = item.parentElement;
         if (listElement && !isList2TabList(listElement)) {
-            restoreTabToListDOM(listElement, listElement.dataset.nodeId);
+            restoreTabToListDOM(listElement);
         }
     });
 
@@ -1654,7 +1459,6 @@ function initList2TabObserver() {
         const shouldSync = mutations.some(mutation => {
             const target = mutation.target.nodeType === 3 ? mutation.target.parentElement : mutation.target;
             if (!target?.closest?.('.protyle-wysiwyg')) return false;
-            if (target.closest('.tab-header-container')) return false;
             if (mutation.type === 'childList' || mutation.type === 'characterData') return true;
             return ['custom-f', 'custom-list2', 'custom-activetab', 'updated'].includes(mutation.attributeName);
         });
