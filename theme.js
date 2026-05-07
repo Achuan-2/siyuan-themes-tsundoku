@@ -1308,7 +1308,7 @@ async function autoInitHReminder() {
 
 const LIST2TAB_SELECTOR = '[data-type="NodeList"][custom-f~="list2tab"],[data-type="NodeList"][custom-f~="tab"],[data-type="NodeList"][custom-list2="tab"]';
 const LIST2TAB_ATTR_CLASS = 'tsundoku-list2tab-attr';
-const LIST2TAB_RESTORE_BUTTON_CLASS = 'tsundoku-list2tab-restore';
+const LIST2TAB_RESTORE_BADGE_CLASS = 'tsundoku-list2tab-restore';
 
 function isList2TabList(listElement) {
     return listElement?.matches?.(LIST2TAB_SELECTOR);
@@ -1322,32 +1322,109 @@ function getList2TabTitleBlock(listItem) {
     return listItem.querySelector(':scope > .protyle-action + [data-node-id]');
 }
 
-function createList2TabRestoreButton(listElement) {
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.className = LIST2TAB_RESTORE_BUTTON_CLASS;
-    button.setAttribute('aria-label', t('toList'));
-    button.setAttribute('title', t('toList'));
-    button.setAttribute('data-node-id', listElement.dataset.nodeId);
-    button.setAttribute('custom-attr-name', 'list2');
-    button.setAttribute('custom-attr-value', '');
-    button.innerHTML = '<svg><use xlink:href="#iconList"></use></svg>';
-    button.onclick = (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        ViewMonitor(event);
-    };
-    return button;
+function cleanupList2TabDOMById(blockId) {
+    const blocks = document.querySelectorAll(`.protyle-wysiwyg [data-node-id="${blockId}"][data-type="NodeList"]`);
+    blocks.forEach(block => {
+        restoreTabToListDOM(block);
+        block.setAttribute('custom-list2', '');
+        block.setAttribute('custom-f', '');
+        block.removeAttribute('custom-activetab');
+    });
+}
+
+function handleList2TabRestoreBadgeClick(event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    const listElement = event.currentTarget.closest('[data-type="NodeList"]');
+    const blockId = listElement?.dataset?.nodeId;
+    if (!blockId) return;
+
+    cleanupList2TabDOMById(blockId);
+    设置思源块属性(blockId, {
+        'custom-list2': '',
+        'custom-f': '',
+        'custom-activetab': null
+    });
+}
+
+function createList2TabRestoreBadge() {
+    const badge = document.createElement('div');
+    badge.className = `protyle-attr--memo ariaLabel ${LIST2TAB_RESTORE_BADGE_CLASS}`;
+    badge.setAttribute('aria-label', t('toList'));
+    badge.setAttribute('data-position', 'north');
+    badge.setAttribute('contenteditable', 'false');
+    badge.innerHTML = '<svg><use xlink:href="#iconList"></use></svg>';
+    badge.addEventListener('click', handleList2TabRestoreBadgeClick, true);
+    badge._tsundokuList2TabRestoreBound = true;
+    return badge;
+}
+
+function updateList2TabRestoreBadge(badge) {
+    badge.classList.remove('protyle-attr--name', 'protyle-attr--alias');
+    badge.classList.add('protyle-attr--memo', 'ariaLabel', LIST2TAB_RESTORE_BADGE_CLASS);
+    badge.setAttribute('aria-label', t('toList'));
+    badge.setAttribute('data-position', 'north');
+    badge.setAttribute('contenteditable', 'false');
+    badge.removeAttribute('title');
+    badge.removeAttribute('data-node-id');
+    badge.removeAttribute('custom-attr-name');
+    badge.removeAttribute('custom-attr-value');
+    const iconUse = badge.querySelector(':scope > svg use');
+    const iconHref = iconUse?.getAttribute('href') || iconUse?.getAttribute('xlink:href');
+    if (iconHref !== '#iconList') {
+        badge.innerHTML = '<svg><use xlink:href="#iconList"></use></svg>';
+    }
+
+    if (!badge._tsundokuList2TabRestoreBound) {
+        badge.addEventListener('click', handleList2TabRestoreBadgeClick, true);
+        badge._tsundokuList2TabRestoreBound = true;
+    }
+}
+
+function ensureProtyleAttrZeroWidthSpace(attrElement) {
+    const hasZeroWidthSpace = Array.from(attrElement.childNodes).some(node => {
+        return node.nodeType === 3 && node.nodeValue.includes('\u200B');
+    });
+    if (!hasZeroWidthSpace) {
+        attrElement.appendChild(document.createTextNode('\u200B'));
+    }
+}
+
+function insertList2TabRestoreBadge(attrElement, badge) {
+    const zeroWidthNode = Array.from(attrElement.childNodes).find(node => {
+        return node.nodeType === 3 && node.nodeValue.includes('\u200B');
+    });
+    if (zeroWidthNode) {
+        attrElement.insertBefore(badge, zeroWidthNode);
+    } else {
+        attrElement.appendChild(badge);
+        ensureProtyleAttrZeroWidthSpace(attrElement);
+    }
 }
 
 function removeList2TabRestoreButton(listElement) {
-    const attrElement = listElement.querySelector(`:scope > .protyle-attr.${LIST2TAB_ATTR_CLASS}`);
-    if (!attrElement) return;
+    const attrElement = Array.from(listElement.children).find(child => {
+        return child.classList?.contains('protyle-attr') &&
+            child.querySelector(`:scope > .${LIST2TAB_RESTORE_BADGE_CLASS}`);
+    });
+    if (!attrElement) {
+        const legacyAttrElement = listElement.querySelector(`:scope > .protyle-attr.${LIST2TAB_ATTR_CLASS}`);
+        if (legacyAttrElement) {
+            legacyAttrElement.classList.remove(LIST2TAB_ATTR_CLASS);
+            if (legacyAttrElement.dataset.tsundokuList2tabAttr === 'true' && !legacyAttrElement.children.length) {
+                legacyAttrElement.remove();
+            } else {
+                delete legacyAttrElement.dataset.tsundokuList2tabAttr;
+            }
+        }
+        return;
+    }
 
-    attrElement.querySelector(`:scope > .${LIST2TAB_RESTORE_BUTTON_CLASS}`)?.remove();
+    attrElement.querySelector(`:scope > .${LIST2TAB_RESTORE_BADGE_CLASS}`)?.remove();
     attrElement.classList.remove(LIST2TAB_ATTR_CLASS);
 
-    if (attrElement.dataset.tsundokuList2tabAttr === 'true' && !attrElement.children.length) {
+    if ((attrElement._tsundokuList2TabAttrCreated || attrElement.dataset.tsundokuList2tabAttr === 'true') && !attrElement.children.length) {
         attrElement.remove();
     } else {
         delete attrElement.dataset.tsundokuList2tabAttr;
@@ -1361,26 +1438,59 @@ function ensureList2TabRestoreButton(listElement) {
     }
 
     let attrElement = listElement.querySelector(':scope > .protyle-attr');
+    let badge = attrElement?.querySelector?.(`:scope > .${LIST2TAB_RESTORE_BADGE_CLASS}`) || null;
     if (!attrElement) {
         attrElement = document.createElement('div');
         attrElement.className = 'protyle-attr';
-        attrElement.dataset.tsundokuList2tabAttr = 'true';
-        listElement.appendChild(attrElement);
-    } else if (attrElement !== listElement.lastElementChild) {
+        attrElement.setAttribute('contenteditable', 'false');
+        attrElement._tsundokuList2TabAttrCreated = true;
         listElement.appendChild(attrElement);
     }
 
-    attrElement.classList.add(LIST2TAB_ATTR_CLASS);
+    attrElement.classList.remove(LIST2TAB_ATTR_CLASS);
+    delete attrElement.dataset.tsundokuList2tabAttr;
+    attrElement.setAttribute('contenteditable', 'false');
 
-    let button = attrElement.querySelector(`:scope > .${LIST2TAB_RESTORE_BUTTON_CLASS}`);
-    if (!button) {
-        button = createList2TabRestoreButton(listElement);
-        attrElement.appendChild(button);
+    if (!badge || badge.tagName === 'BUTTON') {
+        const newBadge = createList2TabRestoreBadge();
+        if (badge) {
+            badge.replaceWith(newBadge);
+        } else {
+            insertList2TabRestoreBadge(attrElement, newBadge);
+        }
+        badge = newBadge;
     } else {
-        button.setAttribute('data-node-id', listElement.dataset.nodeId);
-        button.setAttribute('aria-label', t('toList'));
-        button.setAttribute('title', t('toList'));
+        updateList2TabRestoreBadge(badge);
     }
+
+    ensureProtyleAttrZeroWidthSpace(attrElement);
+}
+
+function markList2TabActiveAttrChange(listElement, activeTab) {
+    listElement._tsundokuSkipActiveTabSync = activeTab;
+    if (listElement._tsundokuSkipActiveTabSyncTimer) {
+        clearTimeout(listElement._tsundokuSkipActiveTabSyncTimer);
+    }
+    listElement._tsundokuSkipActiveTabSyncTimer = setTimeout(() => {
+        delete listElement._tsundokuSkipActiveTabSync;
+        delete listElement._tsundokuSkipActiveTabSyncTimer;
+    }, 500);
+}
+
+function shouldSkipList2TabMutation(mutation, target) {
+    if (mutation.type !== 'attributes' || mutation.attributeName !== 'custom-activetab') {
+        return false;
+    }
+    if (target?._tsundokuSkipActiveTabSync !== target.getAttribute('custom-activetab')) {
+        return false;
+    }
+
+    if (target._tsundokuSkipActiveTabSyncTimer) {
+        clearTimeout(target._tsundokuSkipActiveTabSyncTimer);
+    }
+    delete target._tsundokuSkipActiveTabSync;
+    delete target._tsundokuSkipActiveTabSyncTimer;
+    return true;
 }
 
 function activateList2Tab(listElement, targetIndex, persist = false) {
@@ -1399,6 +1509,7 @@ function activateList2Tab(listElement, targetIndex, persist = false) {
 
     if (persist && listElement.dataset.nodeId) {
         const activeTab = (safeIndex + 1).toString();
+        markList2TabActiveAttrChange(listElement, activeTab);
         listElement.setAttribute('custom-activetab', activeTab);
         设置思源块属性(listElement.dataset.nodeId, { 'custom-activetab': activeTab });
     }
@@ -1496,7 +1607,8 @@ function restoreTabToListDOM(listElement) {
  * 初始化列表转标签页功能
  */
 function initList2Tab() {
-    document.querySelectorAll(`.protyle-wysiwyg [data-type="NodeList"] > .protyle-attr.${LIST2TAB_ATTR_CLASS}`).forEach(attrElement => {
+    document.querySelectorAll(`.protyle-wysiwyg [data-type="NodeList"] > .protyle-attr > .${LIST2TAB_RESTORE_BADGE_CLASS}, .protyle-wysiwyg [data-type="NodeList"] > .protyle-attr.${LIST2TAB_ATTR_CLASS}`).forEach(element => {
+        const attrElement = element.classList.contains('protyle-attr') ? element : element.parentElement;
         const listElement = attrElement.parentElement;
         if (listElement && !isList2TabList(listElement)) {
             removeList2TabRestoreButton(listElement);
@@ -1531,6 +1643,7 @@ function initList2TabObserver() {
         const shouldSync = mutations.some(mutation => {
             const target = mutation.target.nodeType === 3 ? mutation.target.parentElement : mutation.target;
             if (!target?.closest?.('.protyle-wysiwyg')) return false;
+            if (shouldSkipList2TabMutation(mutation, target)) return false;
             if (mutation.type === 'childList' || mutation.type === 'characterData') return true;
             return ['custom-f', 'custom-list2', 'custom-activetab', 'updated'].includes(mutation.attributeName);
         });
@@ -1651,7 +1764,8 @@ window.destroyTheme = () => {
         window.siyuan.eventBus.off('loaded-protyle', window.theme.list2TabLoadedProtyleHandler);
         window.theme.list2TabLoadedProtyleHandler = null;
     }
-    document.querySelectorAll(`.protyle-wysiwyg [data-type="NodeList"] > .protyle-attr.${LIST2TAB_ATTR_CLASS}`).forEach(attrElement => {
+    document.querySelectorAll(`.protyle-wysiwyg [data-type="NodeList"] > .protyle-attr > .${LIST2TAB_RESTORE_BADGE_CLASS}, .protyle-wysiwyg [data-type="NodeList"] > .protyle-attr.${LIST2TAB_ATTR_CLASS}`).forEach(element => {
+        const attrElement = element.classList.contains('protyle-attr') ? element : element.parentElement;
         const listElement = attrElement.parentElement;
         if (listElement) {
             removeList2TabRestoreButton(listElement);
