@@ -992,3 +992,28 @@ li[data-type='navigation-file'] .counter {
 /* ------------------------------------行内块字体样式：End-------------------------------------- */
 /* --------------------------------------------------------------------------------------------- */
 
+
+
+/* --------数据库字段名称与内容横排显示：https: //ld246.com/article/1763222562394------ */
+
+/* 看板视图：字段名与值在同一排，顶部对齐 */
+.av__gallery-field {
+    display: flex;
+    padding: 1px 0;
+}
+
+/* 字段名宽度随内容，不抢占空间 */
+.av__gallery-field>.av__gallery-name {
+    /* 完全清除固定宽度相关样式 */
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+
+    margin-right: 4px;
+    /* 与内容留点间距 */
+}
+
+/* 内容区占剩余宽度 */
+.av__gallery-field>.av__cell {
+    flex: 1 1 0;
+}
