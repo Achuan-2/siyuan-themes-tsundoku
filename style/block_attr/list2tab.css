@@ -188,11 +188,7 @@
     display: none;
 }
 
-/* 代码块和图片不撑破标签页内容 */
-.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"]) .code-block {
-    width: calc(100% - 12px);
-    max-width: 100%;
-}
+
 
 .protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"]) .img,
 .protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"]) .img img {
