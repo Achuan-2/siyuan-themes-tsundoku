@@ -112,6 +112,7 @@
 }
 
 .protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel>.tab-action {
+    position: relative !important;
     left: auto !important;
     right: auto !important;
     float: none !important;
@@ -124,6 +125,11 @@
     padding: 0 !important;
     transform: none !important;
     opacity: 1 !important;
+}
+
+.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel[fold="1"]>.tab-action::after {
+    left: 50% !important;
+    right: auto !important;
 }
 
 .protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel>.tab-action svg {
