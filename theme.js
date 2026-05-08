@@ -1439,12 +1439,20 @@ function updateList2TabHeaderAreaHeight(listElement) {
 
         const activeContentHeight = getList2TabActiveContentElements(listElement).reduce((height, element) => {
             const rect = element.getBoundingClientRect();
-            if (!rect.height || !element.getClientRects().length) return height;
-            return Math.max(height, rect.height);
+            if (!rect.height || !element.getClientRects().length) {
+                element.style.transform = '';
+                return height;
+            }
+            element.style.transform = `translateY(${height}px)`;
+            // 添加 8px 的行距以模拟原生的段落间距
+            return height + Math.ceil(rect.height) + 0;
         }, 0);
 
-        if (activeContentHeight > 0) {
-            listElement.style.setProperty('--tsundoku-list2tab-active-content-height', `${Math.ceil(activeContentHeight)}px`);
+        // 如果有内容，减去最后一次多加的 8px
+        const totalHeight = activeContentHeight > 0 ? activeContentHeight - 0 : 0;
+
+        if (totalHeight > 0) {
+            listElement.style.setProperty('--tsundoku-list2tab-active-content-height', `${totalHeight}px`);
         } else {
             listElement.style.removeProperty('--tsundoku-list2tab-active-content-height');
         }
@@ -1641,7 +1649,11 @@ function markList2TabItemClasses(item) {
         titleBlock.classList.add('tab-title');
     }
 
-    getList2TabContentBlocks(item).forEach(child => child.classList.add('tab-content'));
+    getList2TabContentBlocks(item).forEach(child => {
+        child.classList.add('tab-content');
+        child.style.marginTop = ''; // Reset on mark
+    });
+
     item.classList.toggle('tab-panel--empty-title', !titleBlock);
 }
 
