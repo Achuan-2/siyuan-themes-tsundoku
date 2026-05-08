@@ -1311,6 +1311,7 @@ const LIST2TAB_SELECTOR = '[data-type="NodeList"][custom-f~="list2tab"],[data-ty
 const LIST2TAB_ATTR_CLASS = 'tsundoku-list2tab-attr';
 const LIST2TAB_RESTORE_BADGE_CLASS = 'tsundoku-list2tab-restore';
 const LIST2TAB_HEADER_CLASS = 'tsundoku-list2tab-header';
+const LIST2TAB_CONTENT_CLASS = 'tsundoku-list2tab-content';
 
 function isList2TabList(listElement) {
     return listElement?.matches?.(LIST2TAB_SELECTOR);
@@ -1334,6 +1335,10 @@ function getList2TabTitleBlock(listItem) {
     const header = getList2TabHeader(listItem);
     return header?.querySelector(':scope > .protyle-action + [data-node-id], :scope > [data-node-id]') ||
         listItem.querySelector(':scope > .protyle-action + [data-node-id]');
+}
+
+function getList2TabContent(listItem) {
+    return listItem.querySelector(`:scope > .${LIST2TAB_CONTENT_CLASS}`);
 }
 
 function ensureList2TabHeader(listItem) {
@@ -1370,6 +1375,29 @@ function ensureList2TabHeader(listItem) {
     return header;
 }
 
+function ensureList2TabContent(listItem) {
+    let content = getList2TabContent(listItem);
+    if (!content) {
+        content = document.createElement('div');
+        content.className = LIST2TAB_CONTENT_CLASS;
+        const attrElement = Array.from(listItem.children).find(child => child.classList?.contains('protyle-attr'));
+        listItem.insertBefore(content, attrElement || null);
+    } else {
+        content.classList.add(LIST2TAB_CONTENT_CLASS);
+    }
+
+    Array.from(listItem.children).forEach(child => {
+        if (child === content ||
+            child.classList?.contains(LIST2TAB_HEADER_CLASS) ||
+            child.classList?.contains('protyle-attr')) {
+            return;
+        }
+        content.appendChild(child);
+    });
+
+    return content;
+}
+
 function unwrapList2TabHeader(listItem) {
     const header = getList2TabHeader(listItem);
     if (!header) return;
@@ -1389,22 +1417,24 @@ function unwrapList2TabHeader(listItem) {
     header.remove();
 }
 
-function getList2TabRestoreAttrElement(listElement) {
-    return Array.from(listElement.children).find(child => {
-        return child.classList?.contains('protyle-attr') &&
-            child.querySelector(`:scope > .${LIST2TAB_RESTORE_BADGE_CLASS}`);
-    });
+function unwrapList2TabContent(listItem) {
+    const content = getList2TabContent(listItem);
+    if (!content) return;
+
+    while (content.firstChild) {
+        listItem.insertBefore(content.firstChild, content);
+    }
+    content.remove();
 }
 
 function getList2TabHeaderAreaElements(listElement) {
-    const headerElements = getList2TabItems(listElement)
+    return getList2TabItems(listElement)
         .map(item => getList2TabHeader(item))
         .filter(Boolean);
-    const restoreAttrElement = getList2TabRestoreAttrElement(listElement);
-    if (restoreAttrElement) {
-        headerElements.push(restoreAttrElement);
-    }
-    return headerElements;
+}
+
+function getList2TabActiveContent(listElement) {
+    return listElement.querySelector(`:scope > .tab-panel.active > .${LIST2TAB_CONTENT_CLASS}`);
 }
 
 function updateList2TabHeaderAreaHeight(listElement) {
@@ -1423,6 +1453,14 @@ function updateList2TabHeaderAreaHeight(listElement) {
         } else {
             listElement.style.removeProperty('--tsundoku-list2tab-header-area-height');
         }
+
+        const activeContent = getList2TabActiveContent(listElement);
+        const activeContentHeight = activeContent?.getBoundingClientRect?.().height || 0;
+        if (activeContentHeight > 0) {
+            listElement.style.setProperty('--tsundoku-list2tab-active-content-height', `${Math.ceil(activeContentHeight)}px`);
+        } else {
+            listElement.style.removeProperty('--tsundoku-list2tab-active-content-height');
+        }
     };
 
     if (typeof requestAnimationFrame === 'function') {
@@ -1437,91 +1475,25 @@ function observeList2TabResize(listElement) {
 
     if (!window.theme.list2TabResizeObserver) {
         window.theme.list2TabResizeObserver = new ResizeObserver(entries => {
-            entries.forEach(entry => updateList2TabHeaderAreaHeight(entry.target));
+            entries.forEach(entry => {
+                const target = entry.target;
+                const listElement = isList2TabList(target)
+                    ? target
+                    : target.closest?.(LIST2TAB_SELECTOR);
+                if (listElement) {
+                    updateList2TabHeaderAreaHeight(listElement);
+                }
+            });
         });
     }
 
     window.theme.list2TabResizeObserver.observe(listElement);
-}
-
-function cleanupList2TabDOMById(blockId) {
-    const blocks = document.querySelectorAll(`.protyle-wysiwyg [data-node-id="${blockId}"][data-type="NodeList"]`);
-    blocks.forEach(block => {
-        restoreTabToListDOM(block);
-        block.setAttribute('custom-list2', '');
-        block.setAttribute('custom-f', '');
-        block.removeAttribute('custom-activetab');
+    getList2TabHeaderAreaElements(listElement).forEach(element => {
+        window.theme.list2TabResizeObserver.observe(element);
     });
-}
-
-function handleList2TabRestoreBadgeClick(event) {
-    event.preventDefault();
-    event.stopPropagation();
-
-    const listElement = event.currentTarget.closest('[data-type="NodeList"]');
-    const blockId = listElement?.dataset?.nodeId;
-    if (!blockId) return;
-
-    cleanupList2TabDOMById(blockId);
-    设置思源块属性(blockId, {
-        'custom-list2': '',
-        'custom-f': '',
-        'custom-activetab': null
-    });
-}
-
-function createList2TabRestoreBadge() {
-    const badge = document.createElement('div');
-    badge.className = `protyle-attr--memo ariaLabel ${LIST2TAB_RESTORE_BADGE_CLASS}`;
-    badge.setAttribute('aria-label', t('toList'));
-    badge.setAttribute('data-position', 'north');
-    badge.setAttribute('contenteditable', 'false');
-    badge.innerHTML = '<svg><use xlink:href="#iconList"></use></svg>';
-    badge.addEventListener('click', handleList2TabRestoreBadgeClick, true);
-    badge._tsundokuList2TabRestoreBound = true;
-    return badge;
-}
-
-function updateList2TabRestoreBadge(badge) {
-    badge.classList.remove('protyle-attr--name', 'protyle-attr--alias');
-    badge.classList.add('protyle-attr--memo', 'ariaLabel', LIST2TAB_RESTORE_BADGE_CLASS);
-    badge.setAttribute('aria-label', t('toList'));
-    badge.setAttribute('data-position', 'north');
-    badge.setAttribute('contenteditable', 'false');
-    badge.removeAttribute('title');
-    badge.removeAttribute('data-node-id');
-    badge.removeAttribute('custom-attr-name');
-    badge.removeAttribute('custom-attr-value');
-    const iconUse = badge.querySelector(':scope > svg use');
-    const iconHref = iconUse?.getAttribute('href') || iconUse?.getAttribute('xlink:href');
-    if (iconHref !== '#iconList') {
-        badge.innerHTML = '<svg><use xlink:href="#iconList"></use></svg>';
-    }
-
-    if (!badge._tsundokuList2TabRestoreBound) {
-        badge.addEventListener('click', handleList2TabRestoreBadgeClick, true);
-        badge._tsundokuList2TabRestoreBound = true;
-    }
-}
-
-function ensureProtyleAttrZeroWidthSpace(attrElement) {
-    const hasZeroWidthSpace = Array.from(attrElement.childNodes).some(node => {
-        return node.nodeType === 3 && node.nodeValue.includes('\u200B');
-    });
-    if (!hasZeroWidthSpace) {
-        attrElement.appendChild(document.createTextNode('\u200B'));
-    }
-}
-
-function insertList2TabRestoreBadge(attrElement, badge) {
-    const zeroWidthNode = Array.from(attrElement.childNodes).find(node => {
-        return node.nodeType === 3 && node.nodeValue.includes('\u200B');
-    });
-    if (zeroWidthNode) {
-        attrElement.insertBefore(badge, zeroWidthNode);
-    } else {
-        attrElement.appendChild(badge);
-        ensureProtyleAttrZeroWidthSpace(attrElement);
+    const activeContent = getList2TabActiveContent(listElement);
+    if (activeContent) {
+        window.theme.list2TabResizeObserver.observe(activeContent);
     }
 }
 
@@ -1551,41 +1523,6 @@ function removeList2TabRestoreButton(listElement) {
     } else {
         delete attrElement.dataset.tsundokuList2tabAttr;
     }
-}
-
-function ensureList2TabRestoreButton(listElement) {
-    if (!listElement.dataset.nodeId || listElement.closest('#preview')) {
-        removeList2TabRestoreButton(listElement);
-        return;
-    }
-
-    let attrElement = listElement.querySelector(':scope > .protyle-attr');
-    let badge = attrElement?.querySelector?.(`:scope > .${LIST2TAB_RESTORE_BADGE_CLASS}`) || null;
-    if (!attrElement) {
-        attrElement = document.createElement('div');
-        attrElement.className = 'protyle-attr';
-        attrElement.setAttribute('contenteditable', 'false');
-        attrElement._tsundokuList2TabAttrCreated = true;
-        listElement.appendChild(attrElement);
-    }
-
-    attrElement.classList.remove(LIST2TAB_ATTR_CLASS);
-    delete attrElement.dataset.tsundokuList2tabAttr;
-    attrElement.setAttribute('contenteditable', 'false');
-
-    if (!badge || badge.tagName === 'BUTTON') {
-        const newBadge = createList2TabRestoreBadge();
-        if (badge) {
-            badge.replaceWith(newBadge);
-        } else {
-            insertList2TabRestoreBadge(attrElement, newBadge);
-        }
-        badge = newBadge;
-    } else {
-        updateList2TabRestoreBadge(badge);
-    }
-
-    ensureProtyleAttrZeroWidthSpace(attrElement);
 }
 
 function markList2TabActiveAttrChange(listElement, activeTab) {
@@ -1628,6 +1565,8 @@ function activateList2Tab(listElement, targetIndex, persist = false) {
     });
 
     listElement._tsundokuActiveTab = safeIndex;
+    observeList2TabResize(listElement);
+    updateList2TabHeaderAreaHeight(listElement);
 
     if (persist && listElement.dataset.nodeId) {
         const activeTab = (safeIndex + 1).toString();
@@ -1668,7 +1607,7 @@ function syncList2Tab(listElement) {
     const listItems = getList2TabItems(listElement);
     if (!listItems.length) return;
 
-    ensureList2TabRestoreButton(listElement);
+    removeList2TabRestoreButton(listElement);
     bindList2TabEvents(listElement);
 
     listItems.forEach((item, index) => {
@@ -1676,6 +1615,7 @@ function syncList2Tab(listElement) {
         item.dataset.tabIndex = (index + 1).toString();
 
         ensureList2TabHeader(item);
+        ensureList2TabContent(item);
 
         const action = getList2TabAction(item);
         if (action) {
@@ -1711,6 +1651,7 @@ function restoreTabToListDOM(listElement) {
     removeList2TabRestoreButton(listElement);
     window.theme.list2TabResizeObserver?.unobserve?.(listElement);
     listElement.style.removeProperty('--tsundoku-list2tab-header-area-height');
+    listElement.style.removeProperty('--tsundoku-list2tab-active-content-height');
 
     const directListItems = getList2TabItems(listElement);
 
@@ -1728,6 +1669,7 @@ function restoreTabToListDOM(listElement) {
         }
 
         item.querySelectorAll(`:scope > .tab-title, :scope > .${LIST2TAB_HEADER_CLASS} > .tab-title`).forEach(block => block.classList.remove('tab-title'));
+        unwrapList2TabContent(item);
         unwrapList2TabHeader(item);
     });
 

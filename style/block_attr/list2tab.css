@@ -11,6 +11,7 @@
     --tab-header-sticky-top: 0px;
     --tab-header-sticky-z-index: 4;
     --tsundoku-list2tab-header-area-height: calc(var(--tab-header-height) - 1px);
+    --tsundoku-list2tab-active-content-height: 0px;
 }
 
 /*————————————————————列表转标签页————————————————————*/
@@ -30,6 +31,8 @@
     border-radius: 8px;
     overflow: visible;
     box-sizing: border-box;
+    position: relative;
+    min-height: calc(var(--tsundoku-list2tab-header-area-height) + var(--tsundoku-list2tab-active-content-height));
 }
 
 /* 标签页头部悬浮时不显示思源的块 hover 高亮 */
@@ -44,14 +47,21 @@
 
 /* 非破坏式面板：复用原始顶级列表项，圆点和标题块组成一个不可拆分的 Tab 头 */
 .protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>[data-type="NodeListItem"] {
-    display: contents !important;
-    margin: 0;
+    order: 1;
+    display: flex !important;
+    position: static !important;
+    flex: 0 1 auto;
+    min-width: min(100%, 108px);
+    max-width: min(100%, calc(28px + 18rem));
+    height: calc(var(--tab-header-height) - 1px) !important;
+    margin: 0 !important;
     background-color: transparent;
     box-sizing: border-box;
+    overflow: visible;
 }
 
 .protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>[data-type="NodeListItem"].active {
-    display: contents !important;
+    display: flex !important;
 }
 
 .protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.protyle-attr,
@@ -61,56 +71,13 @@
     display: none !important;
 }
 
-.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.protyle-attr:has(>.tsundoku-list2tab-restore) {
-    order: 1;
-    position: static !important;
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    gap: 2px;
-    flex: 0 0 auto;
-    min-width: 34px;
-    height: calc(var(--tab-header-height) - 1px) !important;
-    margin: 0 !important;
-    margin-left: auto !important;
-    padding: 0 3px !important;
-    background-color: var(--tab-header-background);
-    border-bottom: 1px solid var(--b3-border-color);
-    box-sizing: border-box;
-}
-
-.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"]) .tsundoku-list2tab-restore {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    width: 28px;
-    height: 28px;
-    margin: 0;
-    padding: 0 !important;
-    color: var(--b3-theme-on-surface);
-    background-color: transparent;
-    border: 0;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"]) .tsundoku-list2tab-restore:hover {
-    background-color: var(--tab-header-hover-background);
-}
-
-.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"]) .tsundoku-list2tab-restore svg {
-    width: 14px;
-    height: 14px;
-}
-
 .protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel>.tsundoku-list2tab-header {
-    order: 1;
-    position: static !important;
+    position: static;
     display: flex !important;
     align-items: stretch;
-    flex: 0 1 auto;
-    min-width: min(100%, 108px);
-    max-width: min(100%, calc(28px + 18rem));
+    flex: 1 1 auto;
+    width: 100%;
+    min-width: 0;
     height: calc(var(--tab-header-height) - 1px) !important;
     margin: 0 !important;
     background-color: var(--tab-header-background);
@@ -187,6 +154,12 @@
     background-color: var(--tab-header-hover-background);
 }
 
+.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel.tab-panel--empty-title {
+    flex-basis: 44px;
+    width: 44px !important;
+    min-width: 44px;
+}
+
 .protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel.tab-panel--empty-title>.tsundoku-list2tab-header {
     flex-basis: 44px;
     width: 44px !important;
@@ -199,14 +172,17 @@
     min-width: 44px;
 }
 
-.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel:not(.active)>:not(.tsundoku-list2tab-header):not(.tab-action):not(.tab-title):not(.protyle-attr) {
+.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel:not(.active)>.tsundoku-list2tab-content {
     display: none !important;
 }
 
-.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel.active>:not(.tsundoku-list2tab-header):not(.tab-action):not(.tab-title):not(.protyle-attr) {
+.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel.active>.tsundoku-list2tab-content {
     order: 2;
+    position: absolute;
+    top: var(--tsundoku-list2tab-header-area-height);
+    right: 0;
+    left: 0;
     margin-left: 0;
-    flex: 0 0 100%;
     width: 100%;
     max-width: 100%;
     min-width: 0;
