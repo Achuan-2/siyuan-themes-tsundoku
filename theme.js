@@ -1312,6 +1312,7 @@ const LIST2TAB_ATTR_CLASS = 'tsundoku-list2tab-attr';
 const LIST2TAB_RESTORE_BADGE_CLASS = 'tsundoku-list2tab-restore';
 const LIST2TAB_HEADER_CLASS = 'tsundoku-list2tab-header';
 const LIST2TAB_CONTENT_CLASS = 'tsundoku-list2tab-content';
+const LIST2TAB_PERSIST_DELAY = 800;
 
 function isList2TabList(listElement) {
     return listElement?.matches?.(LIST2TAB_SELECTOR);
@@ -1521,6 +1522,39 @@ function markList2TabActiveAttrChange(listElement, activeTab) {
     }, 500);
 }
 
+function getList2TabStorageKey(listElement) {
+    return listElement?.dataset?.nodeId ? `tsundoku-list2tab-active-${listElement.dataset.nodeId}` : '';
+}
+
+function getStoredList2TabActiveTab(listElement) {
+    const storageKey = getList2TabStorageKey(listElement);
+    if (!storageKey) return '';
+    return localStorage.getItem(storageKey) || '';
+}
+
+function persistList2TabActiveTab(listElement, activeTab) {
+    const storageKey = getList2TabStorageKey(listElement);
+    if (storageKey) {
+        localStorage.setItem(storageKey, activeTab);
+    }
+
+    if (!listElement.dataset.nodeId) return;
+
+    markList2TabActiveAttrChange(listElement, activeTab);
+    listElement.setAttribute('custom-activetab', activeTab);
+
+    if (listElement._tsundokuList2TabPersistTimer) {
+        clearTimeout(listElement._tsundokuList2TabPersistTimer);
+    }
+
+    listElement._tsundokuList2TabPersistTimer = setTimeout(async () => {
+        if (!listElement.isConnected) return;
+
+        await 设置思源块属性(listElement.dataset.nodeId, { 'custom-activetab': activeTab });
+        scheduleList2TabInit(0);
+    }, LIST2TAB_PERSIST_DELAY);
+}
+
 function shouldSkipList2TabMutation(mutation, target) {
     if (mutation.type !== 'attributes' || mutation.attributeName !== 'custom-activetab') {
         return false;
@@ -1554,9 +1588,7 @@ function activateList2Tab(listElement, targetIndex, persist = false) {
 
     if (persist && listElement.dataset.nodeId) {
         const activeTab = (safeIndex + 1).toString();
-        markList2TabActiveAttrChange(listElement, activeTab);
-        listElement.setAttribute('custom-activetab', activeTab);
-        设置思源块属性(listElement.dataset.nodeId, { 'custom-activetab': activeTab });
+        persistList2TabActiveTab(listElement, activeTab);
     }
 }
 
@@ -1627,10 +1659,11 @@ function syncList2Tab(listElement) {
         markList2TabItemClasses(item);
     });
 
+    const storedActiveTab = parseInt(getStoredList2TabActiveTab(listElement) || '', 10);
     const activeTabAttr = parseInt(listElement.getAttribute('custom-activetab') || '', 10);
-    const activeIndex = Number.isNaN(activeTabAttr)
-        ? (listElement._tsundokuActiveTab || 0)
-        : activeTabAttr - 1;
+    const activeIndex = Number.isNaN(storedActiveTab)
+        ? (Number.isNaN(activeTabAttr) ? (listElement._tsundokuActiveTab || 0) : activeTabAttr - 1)
+        : storedActiveTab - 1;
 
     activateList2Tab(listElement, activeIndex, false);
     observeList2TabResize(listElement);
@@ -1717,7 +1750,7 @@ function initList2TabObserver() {
         });
 
         if (shouldSync) {
-            scheduleList2TabInit();
+            scheduleList2TabInit(0);
         }
     });
 
@@ -1730,7 +1763,7 @@ function initList2TabObserver() {
     });
 
     if (window.siyuan?.eventBus?.on) {
-        window.theme.list2TabLoadedProtyleHandler = () => scheduleList2TabInit(200);
+        window.theme.list2TabLoadedProtyleHandler = () => scheduleList2TabInit(50);
         window.siyuan.eventBus.on('loaded-protyle', window.theme.list2TabLoadedProtyleHandler);
     }
 }
