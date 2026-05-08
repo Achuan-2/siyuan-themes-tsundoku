@@ -10,6 +10,7 @@
     --tab-content-padding: 16px;
     --tab-header-sticky-top: 0px;
     --tab-header-sticky-z-index: 4;
+    --tsundoku-list2tab-header-area-height: calc(var(--tab-header-height) - 1px);
 }
 
 /*————————————————————列表转标签页————————————————————*/
@@ -21,7 +22,10 @@
     align-items: stretch;
     align-content: flex-start;
     /* width: 100% !important; */
-    background-color: var(--b3-theme-surface);
+    background-color: var(--b3-theme-background);
+    background-image: linear-gradient(to bottom,
+            var(--tab-header-background) 0 var(--tsundoku-list2tab-header-area-height),
+            var(--b3-theme-background) var(--tsundoku-list2tab-header-area-height) 100%);
     border: 5px solid var(--tab-container-border-color);
     border-radius: 8px;
     overflow: visible;
@@ -34,15 +38,15 @@
 }
 
 .protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel.protyle-wysiwyg--hl:not(.protyle-wysiwyg--select):after,
-.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel>.tab-title.protyle-wysiwyg--hl:not(.protyle-wysiwyg--select):after {
+.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel>.tsundoku-list2tab-header>.tab-title.protyle-wysiwyg--hl:not(.protyle-wysiwyg--select):after {
     display: none !important;
 }
 
-/* 非破坏式面板：复用原始顶级列表项，圆点和标题块就是 Tab 头 */
+/* 非破坏式面板：复用原始顶级列表项，圆点和标题块组成一个不可拆分的 Tab 头 */
 .protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>[data-type="NodeListItem"] {
     display: contents !important;
     margin: 0;
-    background-color: var(--b3-theme-background);
+    background-color: transparent;
     box-sizing: border-box;
 }
 
@@ -99,19 +103,25 @@
     height: 14px;
 }
 
-.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel>.tab-action,
-.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel>.tab-title {
+.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel>.tsundoku-list2tab-header {
     order: 1;
     position: static !important;
+    display: flex !important;
+    align-items: stretch;
+    flex: 0 1 auto;
+    min-width: min(100%, 108px);
+    max-width: min(100%, calc(28px + 18rem));
     height: calc(var(--tab-header-height) - 1px) !important;
     margin: 0 !important;
     background-color: var(--tab-header-background);
     border-bottom: 1px solid var(--b3-border-color);
+    border-right: 1px solid var(--b3-theme-background);
     box-sizing: border-box;
     cursor: pointer;
+    overflow: hidden;
 }
 
-.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel>.tab-action {
+.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel>.tsundoku-list2tab-header>.tab-action {
     position: relative !important;
     left: auto !important;
     right: auto !important;
@@ -122,68 +132,78 @@
     flex: 0 0 28px;
     width: 28px !important;
     min-width: 28px;
+    height: 100% !important;
+    margin: 0 !important;
     padding: 0 !important;
+    background-color: transparent;
+    border: 0;
     transform: none !important;
     opacity: 1 !important;
 }
 
-.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel[fold="1"]>.tab-action::after {
+.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel[fold="1"]>.tsundoku-list2tab-header>.tab-action::after {
     left: 50% !important;
     right: auto !important;
 }
 
-.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel>.tab-action svg {
+.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel>.tsundoku-list2tab-header>.tab-action svg {
     width: 14px;
     height: 14px;
 }
 
-.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel>.tab-title {
+.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel>.tsundoku-list2tab-header>.tab-title {
     display: flex !important;
     align-items: center;
-    flex: 0 0 auto;
-    min-width: 80px;
-    max-width: 18rem;
+    flex: 1 1 auto;
+    min-width: 0;
+    height: 100% !important;
+    margin: 0 !important;
     padding: 0 1rem 0 .25rem !important;
+    background-color: transparent;
+    border: 0;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    border-right: 1px solid var(--b3-theme-background);
     border-radius: 0;
+    box-sizing: border-box;
 }
 
-.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel>.tab-title>[spellcheck] {
+.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel>.tsundoku-list2tab-header>.tab-title>[spellcheck] {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
-.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel:first-of-type>.tab-action {
+.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel:first-of-type>.tsundoku-list2tab-header {
     border-radius: var(--tab-border-radius) 0 0 0;
 }
 
-.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel.active>.tab-action,
-.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel.active>.tab-title {
+.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel.active>.tsundoku-list2tab-header {
     background-color: var(--tab-header-active-background);
     border-bottom-color: var(--tab-header-active-background);
 }
 
-.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel:not(.active)>.tab-action:hover,
-.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel:not(.active)>.tab-title:hover {
+.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel:not(.active)>.tsundoku-list2tab-header:hover {
     background-color: var(--tab-header-hover-background);
 }
 
-.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel.tab-panel--empty-title>.tab-action {
+.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel.tab-panel--empty-title>.tsundoku-list2tab-header {
     flex-basis: 44px;
     width: 44px !important;
     min-width: 44px;
-    border-right: 1px solid var(--b3-theme-background);
 }
 
-.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel:not(.active)>:not(.tab-action):not(.tab-title):not(.protyle-attr) {
+.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel.tab-panel--empty-title>.tsundoku-list2tab-header>.tab-action {
+    flex-basis: 44px;
+    width: 44px !important;
+    min-width: 44px;
+}
+
+.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel:not(.active)>:not(.tsundoku-list2tab-header):not(.tab-action):not(.tab-title):not(.protyle-attr) {
     display: none !important;
 }
 
-.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel.active>:not(.tab-action):not(.tab-title):not(.protyle-attr) {
+.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel.active>:not(.tsundoku-list2tab-header):not(.tab-action):not(.tab-title):not(.protyle-attr) {
     order: 2;
     margin-left: 0;
     flex: 0 0 100%;
@@ -192,12 +212,13 @@
     min-width: 0;
     padding-right: var(--tab-content-padding);
     padding-left: var(--tab-content-padding);
-    background-color: var(--b3-theme-background);
+    background-color: transparent;
     box-sizing: border-box;
 }
 
-#preview .protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel>.tab-action,
-#preview .protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel>.tab-title {
+#preview .protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel>.tsundoku-list2tab-header,
+#preview .protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel>.tsundoku-list2tab-header>.tab-action,
+#preview .protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel>.tsundoku-list2tab-header>.tab-title {
     position: static !important;
 }
 
