@@ -167,11 +167,78 @@
     height: auto !important;
     margin: 0 !important;
     padding-right: var(--tab-content-padding);
+    padding-bottom: var(--tab-content-padding);
     padding-left: var(--tab-content-padding);
     background-color: transparent;
     box-sizing: border-box;
     cursor: auto;
     overflow: visible;
+}
+
+/* 思源重渲染后、JS 重新补 class 前，先保持页签头形态，避免闪出完整列表 */
+.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>[data-type="NodeListItem"]:not(.tab-panel):not(.tsundoku-list2tab-header) {
+    order: 1;
+    position: static !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center;
+    flex: 0 1 auto;
+    min-width: min(100%, 108px);
+    max-width: min(100%, calc(28px + 18rem));
+    height: calc(var(--tab-header-height) - 1px) !important;
+    min-height: calc(var(--tab-header-height) - 1px) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: var(--tab-header-background);
+    border-bottom: 1px solid var(--b3-border-color);
+    border-right: 1px solid var(--b3-theme-background);
+    box-sizing: border-box;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>[data-type="NodeListItem"]:not(.tab-panel):not(.tsundoku-list2tab-header)>:not(.protyle-action):not(.protyle-attr) {
+    display: none !important;
+}
+
+.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>[data-type="NodeListItem"]:not(.tab-panel):not(.tsundoku-list2tab-header)>.protyle-action {
+    position: relative !important;
+    top: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    float: none !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 28px;
+    align-self: stretch;
+    width: 28px !important;
+    min-width: 28px;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: transparent;
+    border: 0;
+    transform: none !important;
+    opacity: 1 !important;
+}
+
+.protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>[data-type="NodeListItem"]:not(.tab-panel):not(.tsundoku-list2tab-header)>.protyle-action+[data-node-id] {
+    display: flex !important;
+    align-items: center;
+    flex: 1 1 auto;
+    align-self: stretch;
+    min-width: 0;
+    height: 100% !important;
+    line-height: normal;
+    margin: 0 !important;
+    padding: 0 1rem 0 .25rem !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    box-sizing: border-box;
 }
 
 #preview .protyle-wysiwyg [data-type="NodeList"]:is([custom-f~=list2tab], [custom-f~=tab], [custom-list2="tab"])>.tab-panel,
