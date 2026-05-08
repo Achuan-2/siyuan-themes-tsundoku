@@ -1318,88 +1318,43 @@ function isList2TabList(listElement) {
 }
 
 function getList2TabItems(listElement) {
-    return Array.from(listElement.children).filter(child => child.getAttribute('data-type') === 'NodeListItem');
+    return Array.from(listElement.children).filter(child => {
+        return child.getAttribute('data-type') === 'NodeListItem' &&
+            !child.classList?.contains(LIST2TAB_HEADER_CLASS);
+    });
 }
 
-function getList2TabHeader(listItem) {
+function getList2TabInlineHeader(listItem) {
     return listItem.querySelector(`:scope > .${LIST2TAB_HEADER_CLASS}`);
 }
 
 function getList2TabAction(listItem) {
-    const header = getList2TabHeader(listItem);
-    return header?.querySelector(':scope > .protyle-action') ||
-        listItem.querySelector(':scope > .protyle-action');
+    return listItem.querySelector(':scope > .protyle-action');
 }
 
 function getList2TabTitleBlock(listItem) {
-    const header = getList2TabHeader(listItem);
-    return header?.querySelector(':scope > .protyle-action + [data-node-id], :scope > [data-node-id]') ||
-        listItem.querySelector(':scope > .protyle-action + [data-node-id]');
+    return listItem.querySelector(':scope > .protyle-action + [data-node-id]');
 }
 
 function getList2TabContent(listItem) {
     return listItem.querySelector(`:scope > .${LIST2TAB_CONTENT_CLASS}`);
 }
 
-function ensureList2TabHeader(listItem) {
-    let header = getList2TabHeader(listItem);
+function getList2TabContentBlocks(listItem) {
     const action = getList2TabAction(listItem);
     const titleBlock = getList2TabTitleBlock(listItem);
 
-    if (!action && !titleBlock) {
-        header?.remove();
-        return null;
-    }
-
-    if (!header) {
-        header = document.createElement('div');
-        header.className = LIST2TAB_HEADER_CLASS;
-        const anchor = action?.parentElement === listItem
-            ? action
-            : (titleBlock?.parentElement === listItem ? titleBlock : listItem.firstChild);
-        listItem.insertBefore(header, anchor || null);
-    } else {
-        header.classList.add(LIST2TAB_HEADER_CLASS);
-    }
-
-    if (action && action.parentElement !== header) {
-        header.insertBefore(action, header.firstChild);
-    }
-    if (titleBlock && titleBlock.parentElement !== header) {
-        header.appendChild(titleBlock);
-    }
-    if (action && titleBlock && action.nextElementSibling !== titleBlock) {
-        header.insertBefore(action, titleBlock);
-    }
-
-    return header;
-}
-
-function ensureList2TabContent(listItem) {
-    let content = getList2TabContent(listItem);
-    if (!content) {
-        content = document.createElement('div');
-        content.className = LIST2TAB_CONTENT_CLASS;
-        const attrElement = Array.from(listItem.children).find(child => child.classList?.contains('protyle-attr'));
-        listItem.insertBefore(content, attrElement || null);
-    } else {
-        content.classList.add(LIST2TAB_CONTENT_CLASS);
-    }
-
-    Array.from(listItem.children).forEach(child => {
-        if (child === content ||
-            child.classList?.contains(LIST2TAB_HEADER_CLASS) ||
-            child.classList?.contains('protyle-attr')) {
-            return;
-        }
-        content.appendChild(child);
+    return Array.from(listItem.children).filter(child => {
+        return child !== action &&
+            child !== titleBlock &&
+            !child.classList?.contains('protyle-attr') &&
+            !child.classList?.contains(LIST2TAB_HEADER_CLASS) &&
+            !child.classList?.contains(LIST2TAB_CONTENT_CLASS);
     });
-
-    return content;
 }
 
 function unwrapList2TabHeader(listItem) {
-    const header = getList2TabHeader(listItem);
+    const header = getList2TabInlineHeader(listItem);
     if (!header) return;
 
     const action = header.querySelector(':scope > .protyle-action');
@@ -1421,20 +1376,47 @@ function unwrapList2TabContent(listItem) {
     const content = getList2TabContent(listItem);
     if (!content) return;
 
+    const attrElement = Array.from(listItem.children).find(child => child.classList?.contains('protyle-attr'));
     while (content.firstChild) {
-        listItem.insertBefore(content.firstChild, content);
+        listItem.insertBefore(content.firstChild, attrElement || null);
     }
     content.remove();
 }
 
-function getList2TabHeaderAreaElements(listElement) {
-    return getList2TabItems(listElement)
-        .map(item => getList2TabHeader(item))
-        .filter(Boolean);
+function cleanupList2TabGeneratedDOM(listElement) {
+    getList2TabItems(listElement).forEach(item => {
+        unwrapList2TabHeader(item);
+        unwrapList2TabContent(item);
+    });
+
+    Array.from(listElement.children).forEach(child => {
+        if (child.classList?.contains(LIST2TAB_HEADER_CLASS)) {
+            child.remove();
+        }
+    });
+
+    Array.from(listElement.children).forEach(child => {
+        if (!child.classList?.contains(LIST2TAB_CONTENT_CLASS)) return;
+
+        const tabIndex = parseInt(child.dataset.tabIndex || '', 10);
+        const targetItem = getList2TabItems(listElement)[tabIndex - 1];
+        if (targetItem) {
+            const attrElement = Array.from(targetItem.children).find(itemChild => itemChild.classList?.contains('protyle-attr'));
+            while (child.firstChild) {
+                targetItem.insertBefore(child.firstChild, attrElement || null);
+            }
+        }
+        child.remove();
+    });
 }
 
-function getList2TabActiveContent(listElement) {
-    return listElement.querySelector(`:scope > .tab-panel.active > .${LIST2TAB_CONTENT_CLASS}`);
+function getList2TabHeaderAreaElements(listElement) {
+    return getList2TabItems(listElement);
+}
+
+function getList2TabActiveContentElements(listElement) {
+    const activeItem = getList2TabItems(listElement).find(item => item.classList.contains('active'));
+    return activeItem ? Array.from(activeItem.children).filter(child => child.classList?.contains('tab-content')) : [];
 }
 
 function updateList2TabHeaderAreaHeight(listElement) {
@@ -1454,8 +1436,12 @@ function updateList2TabHeaderAreaHeight(listElement) {
             listElement.style.removeProperty('--tsundoku-list2tab-header-area-height');
         }
 
-        const activeContent = getList2TabActiveContent(listElement);
-        const activeContentHeight = activeContent?.getBoundingClientRect?.().height || 0;
+        const activeContentHeight = getList2TabActiveContentElements(listElement).reduce((height, element) => {
+            const rect = element.getBoundingClientRect();
+            if (!rect.height || !element.getClientRects().length) return height;
+            return Math.max(height, rect.height);
+        }, 0);
+
         if (activeContentHeight > 0) {
             listElement.style.setProperty('--tsundoku-list2tab-active-content-height', `${Math.ceil(activeContentHeight)}px`);
         } else {
@@ -1491,10 +1477,9 @@ function observeList2TabResize(listElement) {
     getList2TabHeaderAreaElements(listElement).forEach(element => {
         window.theme.list2TabResizeObserver.observe(element);
     });
-    const activeContent = getList2TabActiveContent(listElement);
-    if (activeContent) {
-        window.theme.list2TabResizeObserver.observe(activeContent);
-    }
+    getList2TabActiveContentElements(listElement).forEach(element => {
+        window.theme.list2TabResizeObserver.observe(element);
+    });
 }
 
 function removeList2TabRestoreButton(listElement) {
@@ -1561,7 +1546,6 @@ function activateList2Tab(listElement, targetIndex, persist = false) {
     listItems.forEach((item, index) => {
         item.classList.add('tab-panel');
         item.classList.toggle('active', index === safeIndex);
-        item.dataset.tabIndex = (index + 1).toString();
     });
 
     listElement._tsundokuActiveTab = safeIndex;
@@ -1585,11 +1569,9 @@ function bindList2TabEvents(listElement) {
         const item = event.target.closest('[data-type="NodeListItem"]');
         if (!item || item.parentElement !== listElement) return;
 
-        const header = getList2TabHeader(item);
         const titleBlock = getList2TabTitleBlock(item);
         const action = getList2TabAction(item);
-        const isTabTrigger = (header && (event.target === header || header.contains(event.target))) ||
-            (titleBlock && (event.target === titleBlock || titleBlock.contains(event.target))) ||
+        const isTabTrigger = (titleBlock && (event.target === titleBlock || titleBlock.contains(event.target))) ||
             (action && (event.target === action || action.contains(event.target)));
         if (!isTabTrigger) return;
 
@@ -1603,7 +1585,37 @@ function bindList2TabEvents(listElement) {
     listElement._tsundokuTabBound = true;
 }
 
+function markList2TabItemClasses(item) {
+    unwrapList2TabHeader(item);
+    unwrapList2TabContent(item);
+
+    const action = getList2TabAction(item);
+    const titleBlock = getList2TabTitleBlock(item);
+
+    Array.from(item.children).forEach(child => {
+        child.classList.remove('tab-content');
+        if (child !== action) {
+            child.classList.remove('tab-action');
+        }
+        if (child !== titleBlock) {
+            child.classList.remove('tab-title');
+        }
+    });
+
+    if (action) {
+        action.classList.add('tab-action');
+    }
+    if (titleBlock) {
+        titleBlock.classList.add('tab-title');
+    }
+
+    getList2TabContentBlocks(item).forEach(child => child.classList.add('tab-content'));
+    item.classList.toggle('tab-panel--empty-title', !titleBlock);
+}
+
 function syncList2Tab(listElement) {
+    cleanupList2TabGeneratedDOM(listElement);
+
     const listItems = getList2TabItems(listElement);
     if (!listItems.length) return;
 
@@ -1612,26 +1624,7 @@ function syncList2Tab(listElement) {
 
     listItems.forEach((item, index) => {
         item.classList.add('tab-panel');
-        item.dataset.tabIndex = (index + 1).toString();
-
-        ensureList2TabHeader(item);
-        ensureList2TabContent(item);
-
-        const action = getList2TabAction(item);
-        if (action) {
-            action.classList.add('tab-action');
-        }
-
-        const titleBlock = getList2TabTitleBlock(item);
-        item.querySelectorAll(`:scope > .tab-title, :scope > .${LIST2TAB_HEADER_CLASS} > .tab-title`).forEach(block => {
-            if (block !== titleBlock) {
-                block.classList.remove('tab-title');
-            }
-        });
-        item.classList.toggle('tab-panel--empty-title', !titleBlock);
-        if (titleBlock) {
-            titleBlock.classList.add('tab-title');
-        }
+        markList2TabItemClasses(item);
     });
 
     const activeTabAttr = parseInt(listElement.getAttribute('custom-activetab') || '', 10);
@@ -1652,6 +1645,7 @@ function restoreTabToListDOM(listElement) {
     window.theme.list2TabResizeObserver?.unobserve?.(listElement);
     listElement.style.removeProperty('--tsundoku-list2tab-header-area-height');
     listElement.style.removeProperty('--tsundoku-list2tab-active-content-height');
+    cleanupList2TabGeneratedDOM(listElement);
 
     const directListItems = getList2TabItems(listElement);
 
@@ -1661,14 +1655,15 @@ function restoreTabToListDOM(listElement) {
 
     directListItems.forEach(item => {
         item.classList.remove('tab-panel', 'tab-panel--empty-title', 'active');
-        delete item.dataset.tabIndex;
 
         const action = getList2TabAction(item);
         if (action) {
             action.classList.remove('tab-action');
         }
 
-        item.querySelectorAll(`:scope > .tab-title, :scope > .${LIST2TAB_HEADER_CLASS} > .tab-title`).forEach(block => block.classList.remove('tab-title'));
+        item.querySelectorAll(':scope > .tab-title, :scope > .tab-content').forEach(block => {
+            block.classList.remove('tab-title', 'tab-content');
+        });
         unwrapList2TabContent(item);
         unwrapList2TabHeader(item);
     });
