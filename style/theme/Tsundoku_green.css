@@ -1,8 +1,7 @@
 :root {
     /* 主色 */
+    --b3-body-background: #b6cfbb;
     /* 高亮 */
-    /* 菜单高亮、样式高亮、错误提示，确定删除 */
-    /* 动态加载调圆点、设置按钮圆点、打开图片的关闭按钮 */
     --b3-theme-primary: #6bb481;
     /* 设置按钮长条 */
     --b3-theme-primary-light: #6ab4806e;
@@ -16,7 +15,7 @@
     --b3-theme-background: #d5ead8;
     /* 面包屑和标签页 */
     --b3-theme-surface: #bcd7bf;
-    --b3-theme-surface-light: rgba(243, 243, 243, 0.86);
+    --b3-theme-surface-light: rgb(213 241 215 / 86%);
     --b3-theme-surface-lighter: #b2bfb4;
     --b3-theme-error: #ec8d8e;
 
@@ -25,10 +24,11 @@
     --b3-theme-on-secondary: #fff;
     --b3-theme-on-background: #202124;
     --b3-theme-background-light: #8ca98fad;
+
     /* 主要图标颜色 */
     --b3-theme-on-surface: #5f6368;
     --b3-theme-on-error: #fff;
-
+    
     /* 顶部工具栏 */
     --b3-toolbar-background: #bcd8bf;
     --b3-toolbar-blur-background: #bcd8bf;
@@ -197,24 +197,15 @@
     --custom-tag-hover-color: #3eadad;
     --custom-link-bottom-color: #4576a1;
 }
-body {
-    background-color: transparent;
-}
+
 .render-node[data-subtype='graphviz'] .graph > polygon {
     fill: transparent;
 }
 /* 背景纸张纹理 */
-#status,
 .protyle,
 .protyle-preview,
-/* .b3-typography .code-block, */
-.layout-tab-container,
-.block__popover > .block__icons,
-.layout-tab-container .block__icons
-.dock,
-.toolbar,
-.layout-tab-bar,
-.layout-tab-bar .item,
+.block__popover>.block__icons,
+.layout-tab-container .block__icons .layout-tab-bar,
 .layout__center,
 .b3-dialog__container,
 .b3-tab-container,
@@ -226,9 +217,8 @@ body {
 .b3-card__actions,
 .config-account__center--text,
 .protyle-wysiwyg [data-node-id] span[data-type='tag'],
-/* .protyle-wysiwyg .code-block, */
-div[style*="background-color: var" ],
-span[data-type="strong"][style*="background-color: var" ],
+div[style*="background-color: var"],
+span[data-type="strong"][style*="background-color: var"],
 .protyle-toolbar,
 span[data-type="mark"],
 .emojis,
@@ -254,21 +244,10 @@ div[style='background-color: var(--b3-font-background13);'] {
     background-image: none;
 }
 
-/* 主要背景色 */
-.status,
-.dock {
-    /* 侧边栏更改 */
-    background-color: #b6cfbb;
-}
 
-.layout-tab-container {
-    background-color: #c7dfca;
-    /* background-color: #c3ddc7af ; */
-}
 
-.block__popover > .block__icons,
-.layout__dockl .layout-tab-container .block__icons,
-.layout__dockr .layout-tab-container .block__icons {
+
+.block__popover > .block__icons {
     background-color: #a7caad94 !important;
 }
 
@@ -508,11 +487,6 @@ div[data-subtype='t'][data-type='NodeList'] {
     transition: all 0.1s ease-in-out;
 }
 
-.b3-dialog__container .b3-list--background .b3-list-item--focus {
-    background-color: #bfdcc2 !important;
-    /* border-radius: 16px 10% 10% 16px; */
-    /* border-radius: 10%; */
-}
 /* 调整设置的select按钮 */
 .b3-tab-container .b3-select {
     background-color: #548a7744;
@@ -579,25 +553,12 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 /* ----------------------------标签页、页签样式 Start----------------------------------------- */
 
-.layout-tab-bar {
-    background-color: #add4b1a9;
-}
+
 
 .b3-dialog__container .layout-tab-bar {
     background-color: var(--b3-theme-background);
 }
 
-/* 已打开的标签页 */
-.layout-tab-bar .item--focus,
-.layout__wnd--active .layout-tab-bar .item--focus {
-    border-radius: 7px 7px 0px 0px;
-    border: 0px solid transparent;
-    border-top: 0px solid transparent;
-    font-weight: 400;
-    font-size: 15px;
-    background-color: #d3e6d6;
-    color: var(--b3-menu-highlight-focus-color);
-}
 
 .layout__wnd--active .layout-tab-bar .item--focus > .item__text {
     color: var(--b3-menu-highlight-focus-color);
@@ -616,10 +577,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 .layout__wnd--active .layout-tab-bar .item--focus {
     box-shadow: inherit;
 }
-/* 如果页签文字太长避免出现隐藏掉的文字 */
-.layout-tab-bar .item__text {
-    padding: 4px 0px 0px 8px;
-}
+
 /* ----------------------------标签页、页签样式 END----------------------------------------- */
 
 .protyle-preview__action {
@@ -832,9 +790,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     background-color: #bbd5be;
 }
 
-.fn__flex-column.fn__flex-1 {
-    background-color: #c7dfca;
-}
+
 .file-tree {
     background-image: url(/appearance/themes/Tsundoku/src/background/paper.png);
 }
@@ -874,9 +830,6 @@ div[data-subtype='t'][data-type='NodeList'] {
     min-width: 100px;
 }
 
-.toolbar {
-    background-color: var(--b3-toolbar-background);
-}
 
 #notionToolbar .toolbar__item:hover {
     background-color: #b1cfb5;

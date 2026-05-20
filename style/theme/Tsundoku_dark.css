@@ -3,6 +3,7 @@
 
 :root {
     /* 主色 */
+    --b3-body-background: #031c25;
     --b3-theme-primary: #3b7085;
     --b3-theme-primary-light: #417b92;
     --b3-theme-primary-lighter: #5b96af;
@@ -193,23 +194,10 @@ span[data-type='text'][style='background-color: var(--b3-font-background13);'] {
     color: #c9d1d9 !important;
 }
 
-/* 主要背景色 */
-.status,
-.dock {
-    background-color: #031c25;
-}
 
-.toolbar {
-    background-color: var(--b3-toolbar-background);
-}
 
-.layout-tab-container {
-    background-color: #16232f;
-}
 
-.block__popover > .block__icons,
-.layout__dockr .layout-tab-container .block__icons,
-.layout__dockl .layout-tab-container .block__icons {
+.block__popover > .block__icons{
     background-color: #041f29 !important;
 }
 
@@ -374,9 +362,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     transform: scale(1.1);
 }
 
-.b3-dialog__container .b3-list--background .b3-list-item--focus {
-    background-color: #293241 !important;
-}
+
 
 /* 调整设置的select按钮 */
 .b3-tab-container .b3-select {
@@ -455,17 +441,6 @@ div[data-subtype='t'][data-type='NodeList'] {
 
 /* ----------------------------标签页、页签样式 Start----------------------------------------- */
 
-/* 已打开的标签页 */
-.layout-tab-bar .item--focus,
-.layout__wnd--active .layout-tab-bar .item--focus {
-    border-radius: 7px 7px 0px 0px;
-    border: 0px solid transparent;
-    border-top: 0px solid transparent;
-    font-weight: 400;
-    font-size: 15px;
-    background-color: #16232f;
-    color: var(--b3-menu-highlight-focus-color);
-}
 
 /* ----------------------------标签页、页签样式 END----------------------------------------- */
 
@@ -638,10 +613,6 @@ div[data-subtype='t'][data-type='NodeList'] {
     border-right: 2px solid #000000;
 }
 
-.fn__flex-column.fn__flex-1 {
-    background-color: #16232f;
-    /* 这个颜色不错？ */
-}
 
 /* 前进后退disable颜色更改 */
 .toolbar__item--disabled,
@@ -716,9 +687,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     background-color: black;
 }
 
-.layout-tab-container {
-    background-color: #031c25;
-}
+
 
 .protyle-toolbar {
     background-color: #2d3245;

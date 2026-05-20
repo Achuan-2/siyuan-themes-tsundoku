@@ -184,6 +184,11 @@
     fill: transparent;
 }
 
+/* body渐变色取消 */
+body {
+    background-image: none !important;
+}
+
 /* ----------------------导出样式------------------- */
 
 /* 导出pdf右侧的面板 */
@@ -476,18 +481,7 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
     font-size: 50%;
 }
 
-/* 去除dock栏的边框 */
-.dock#dockLeft {
-    border-right: 0px solid var(--b3-border-color);
-}
 
-.dock#dockRight {
-    border-left: 0px solid var(--b3-border-color);
-}
-
-.b3-dialog__container .layout-tab-bar {
-    background-color: var(--b3-theme-surface);
-}
 
 /* 聚焦面包屑高亮 */
 .protyle-breadcrumb__item:hover,
@@ -547,12 +541,6 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
     color: var(--b3-menu-highlight-color);
 }
 
-.b3-list--background .b3-list-item--focus {
-    background-color: var(--b3-menu-highlight-background) !important;
-    /* border-radius: 0% 6px 6px 0%; */
-    color: var(--b3-menu-highlight-focus-color);
-    font-weight: bold;
-}
 
 .b3-list--background .b3-list-item--focus .b3-list-item__text {
     color: var(--b3-menu-highlight-focus-color);
@@ -663,9 +651,7 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
     transition: all 0.1s ease-in-out;
 }
 
-.b3-dialog__container .b3-list--background .b3-list-item--focus {
-    background-color: #d8e0e5c7 !important;
-}
+
 
 /* 调整设置的select按钮 */
 .b3-select {
@@ -738,20 +724,7 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
     background-color: transparent;
 }
 
-/* 如果页签文字太长避免出现隐藏掉的文字 */
-.layout-tab-bar .item__text {
-    padding: 4px 0px 0px 8px;
-}
 
-/* 调整标签页 */
-.layout-tab-bar .item__text {
-    /* 超出显示省略号 */
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    mask-image: none;
-    -webkit-mask-image: none;
-}
 
 /* 钉住添加图标 */
 .item.item--pin::before {
@@ -763,54 +736,6 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
     font-size: 0.7em;
     opacity: 0.7;
 }
-
-/* ----------------------------标签页、页签样式 Start----------------------------------------- */
-
-.layout-tab-bar {
-    background-color: var(--b3-theme-surface);
-
-}
-#layouts>div.fn__flex.fn__flex-1>div.layout__center.fn__flex.fn__flex-1>div>div>div.fn__flex>ul.fn__flex.layout-tab-bar{
-    zoom: 0.85;
-}
-
-.b3-dialog__container .layout-tab-bar {
-    background-color: transparent;
-}
-
-/* 已打开的标签页 */
-.layout-tab-bar .item--focus,
-.layout__wnd--active .layout-tab-bar .item--focus {
-    border-radius: 7px 7px 0px 0px;
-    border: 0px solid transparent;
-    border-top: 0px solid transparent;
-    font-weight: 400;
-    font-size: 15px;
-    color: var(--b3-menu-highlight-focus-color);
-}
-
-.layout__wnd--active .layout-tab-bar .item--focus>.item__text {
-    color: var(--b3-menu-highlight-focus-color);
-}
-
-
-
-.b3-dialog__container .layout-tab-bar .item--focus {
-    box-shadow: none !important;
-}
-
-/* hover页签背景色 */
-.layout-tab-bar .item:hover:not(.item--focus):not(.item--readonly) {
-    background-color: var(--custom-tab-hover-background);
-}
-
-/* siyuan 1.9.6增加的标签页focus shadow取消 */
-.layout__wnd--active .layout-tab-bar .item--focus {
-    box-shadow: inherit;
-}
-
-/* ----------------------------标签页、页签样式 END----------------------------------------- */
-
 
 .protyle-breadcrumb {
     background-color: transparent;
@@ -838,8 +763,7 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
     transition: all 0.1s ease-in-out;
 }
 
-/* dock栏和顶部图标放大动效 */
-.dock--vertical .dock__item:hover svg,
+/* 顶部图标放大动效 */
 .toolbar__item:hover svg {
     transform: scale(1.1);
     transition: all 0.1s ease-in-out;
@@ -849,7 +773,6 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
     transform: scale(0.9) !important;
 }
 
-.dock--vertical .dock__item svg,
 .toolbar__item svg,
 .block__icon svg {
     transition: all 0.1s ease-in-out;
@@ -973,10 +896,7 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
 }
 
 
-#dockBottom,
-#status {
-    border-top: none;
-}
+
 
 /* .export-img.protyle-wysiwyg span[data-type~='code']{
     margin: 0;
@@ -987,26 +907,6 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
 /* 自定义属性 */
 [data-key='dialog-attr'] .fn__flex-1:has(.custom-attr[data-type='NodeAttributeView']) {
     background-color: var(--b3-theme-background);
-}
-
-/* 集市样式调整 */
-#configBazaarReadme .item__side {
-    padding: 16px;
-    justify-content: center;
-}
-
-#configBazaarReadme .item__side>div:last-child {
-    flex-grow: 0;
-}
-
-#configBazaarReadme .item__side>div:first-child {
-    position: absolute;
-    top: 16px;
-}
-
-#configBazaarReadme .item__main {
-    margin-left: 0;
-    padding: 0;
 }
 
 
@@ -1036,15 +936,7 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
     mask-repeat: no-repeat;
 }
 
-/* 减少使用边框 */
-.toolbar,
-.dock,
-.status {
-    border-left: none !important;
-    border-right: none !important;
-    border-top: none !important;
-    border-bottom: none !important;
-}
+
 
 
 /* 文档图标取消圆角 */
@@ -1059,10 +951,5 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
     background-color: transparent;
 }
 
-
-/* 页签关闭按钮的右padding调小 */
-.layout-tab-bar .item__close {
-    padding: 13px 1px 13px 0;
-}
 
 

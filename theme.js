@@ -1307,12 +1307,12 @@ async function autoInitHReminder() {
     }
 }
 
-const LIST2TAB_SELECTOR = '[data-type="NodeList"][custom-f~="list2tab"],[data-type="NodeList"][custom-f~="tab"],[data-type="NodeList"][custom-list2="tab"]';
-const LIST2TAB_ATTR_CLASS = 'tsundoku-list2tab-attr';
-const LIST2TAB_RESTORE_BADGE_CLASS = 'tsundoku-list2tab-restore';
-const LIST2TAB_HEADER_CLASS = 'tsundoku-list2tab-header';
-const LIST2TAB_CONTENT_CLASS = 'tsundoku-list2tab-content';
-const LIST2TAB_PERSIST_DELAY = 800;
+LIST2TAB_SELECTOR = '[data-type="NodeList"][custom-f~="list2tab"],[data-type="NodeList"][custom-f~="tab"],[data-type="NodeList"][custom-list2="tab"]';
+LIST2TAB_ATTR_CLASS = 'tsundoku-list2tab-attr';
+LIST2TAB_RESTORE_BADGE_CLASS = 'tsundoku-list2tab-restore';
+LIST2TAB_HEADER_CLASS = 'tsundoku-list2tab-header';
+LIST2TAB_CONTENT_CLASS = 'tsundoku-list2tab-content';
+LIST2TAB_PERSIST_DELAY = 800;
 
 function isList2TabList(listElement) {
     return listElement?.matches?.(LIST2TAB_SELECTOR);
