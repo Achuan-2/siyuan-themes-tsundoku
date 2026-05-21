@@ -39,6 +39,7 @@ window.theme.i18n = {
         asQuote: 'Set as Quote Style',
         cancelQuote: 'Cancel Quote Style',
         changeThemeColor: 'Change Theme Color',
+        paperTexture: 'Paper Texture',
         verticalTabs: 'Vertical Tabs',
         headingDots: 'Heading Dots'
     },
@@ -57,6 +58,7 @@ window.theme.i18n = {
         asQuote: '设置为引号样式',
         cancelQuote: '取消引号样式',
         changeThemeColor: '切换主题颜色',
+        paperTexture: '背景纹理',
         verticalTabs: '垂直页签',
         headingDots: '标题小圆点'
     }
@@ -83,6 +85,7 @@ window.theme.IDs = {
     STYLE_COLOR: 'Tsundoku-theme-css',
     BUTTON_TOOLBAR_CHANGE_COLOR: 'Tsundoku-theme-button',
     LOCAL_STORAGE_COLOR_HREF: 'tsundoku-color-href',
+    LOCAL_STORAGE_GREEN_PAPER_TEXTURE: 'tsundoku-green-paper-texture',
     LOCAL_STORAGE_VERTICAL_TAB: 'tsundoku-vertical-tab', // 添加垂直页签状态存储key
     LOCAL_STORAGE_H_REMINDER: 'tsundoku-h-reminder', // 添加标题小圆点状态存储key
 };
@@ -226,7 +229,10 @@ function create_theme_button() {
         // window.theme.themeMode 如果是dark就不要创建按钮了，直接用dark主题
         if (window.theme.themeMode === 'dark') {
             const color = window.theme.darkColors[0];
-            window.theme.updateStyle(window.theme.IDs.STYLE_COLOR, `${THEME_ROOT}${color}`);
+            const color_href = `${THEME_ROOT}${color}`;
+            window.theme.currentColorHref = color_href;
+            window.theme.updateStyle(window.theme.IDs.STYLE_COLOR, color_href);
+            applyGreenPaperTextureState(color_href);
             return;
         }
 
@@ -235,7 +241,7 @@ function create_theme_button() {
         window.theme.iter = window.theme.Iterator(colors_href);
         var color_href = window.siyuan?.storage[window.theme.IDs.LOCAL_STORAGE_COLOR_HREF];
         if (!color_href) {
-            localStorage.getItem(window.theme.IDs.LOCAL_STORAGE_COLOR_HREF);
+            color_href = localStorage.getItem(window.theme.IDs.LOCAL_STORAGE_COLOR_HREF);
         }
         if (color_href) {
             // 将迭代器调整为当前配色
@@ -250,7 +256,9 @@ function create_theme_button() {
         }
 
         /* 加载配色文件 */
+        window.theme.currentColorHref = color_href;
         window.theme.updateStyle(window.theme.IDs.STYLE_COLOR, color_href);
+        applyGreenPaperTextureState(color_href);
     }
 
 }
@@ -313,6 +321,55 @@ async function setLocalStorageVal(ikey, ival) {
             return '';
         }
     }
+}
+
+function isGreenThemeColorHref(colorHref = window.theme.currentColorHref) {
+    return typeof colorHref === 'string' && colorHref.includes('Tsundoku_green.css');
+}
+
+function isGreenThemeActive(colorHref = window.theme.currentColorHref) {
+    return window.theme.themeMode === 'light' && isGreenThemeColorHref(colorHref);
+}
+
+function isGreenPaperTextureEnabled() {
+    const key = window.theme.IDs.LOCAL_STORAGE_GREEN_PAPER_TEXTURE;
+    const storedState = window.siyuan?.storage?.[key] ?? localStorage.getItem(key);
+    return storedState !== 'false';
+}
+
+function updateGreenPaperTextureButton(isGreenTheme = isGreenThemeActive(), isEnabled = isGreenPaperTextureEnabled()) {
+    const paperTextureButton = document.getElementById('tsundoku-paper-texture-button');
+    if (!paperTextureButton) return;
+
+    paperTextureButton.style.display = isGreenTheme ? '' : 'none';
+    const accelerator = paperTextureButton.querySelector('.b3-menu__accelerator');
+    if (accelerator) {
+        accelerator.textContent = isEnabled ? 'ON' : 'OFF';
+    }
+}
+
+function applyGreenPaperTextureState(colorHref = window.theme.currentColorHref, isEnabled = isGreenPaperTextureEnabled()) {
+    const isGreenTheme = isGreenThemeActive(colorHref);
+    document.documentElement.classList.toggle('tsundoku-paper-texture-off', isGreenTheme && !isEnabled);
+    updateGreenPaperTextureButton(isGreenTheme, isEnabled);
+    return isEnabled;
+}
+
+async function toggleGreenPaperTexture() {
+    const key = window.theme.IDs.LOCAL_STORAGE_GREEN_PAPER_TEXTURE;
+    const isEnabled = !isGreenPaperTextureEnabled();
+    const storedValue = isEnabled ? 'true' : 'false';
+
+    localStorage.setItem(key, storedValue);
+    if (window.siyuan?.storage != undefined) {
+        window.siyuan.storage[key] = storedValue;
+    }
+    if (window.top.siyuan.storage != undefined) {
+        window.top.siyuan.storage[key] = storedValue;
+    }
+    applyGreenPaperTextureState(window.theme.currentColorHref, isEnabled);
+    await setLocalStorageVal(key, storedValue);
+    return isEnabled;
 }
 
 
@@ -1089,10 +1146,11 @@ function create_theme_button2() {
 async function initThemeToolbar(commonMenu) {
     // 更严格的检查：确保按钮不存在且菜单是正确的barmode菜单
     const existingThemeButton = document.getElementById('tsundoku-theme-color-button');
+    const existingPaperTextureButton = document.getElementById('tsundoku-paper-texture-button');
     const existingVerticalTabButton = document.getElementById('tsundoku-vertical-tab-button');
     const existingHReminderButton = document.getElementById('tsundoku-h-reminder-button');
 
-    if ((existingThemeButton || existingVerticalTabButton || existingHReminderButton) ||
+    if ((existingThemeButton || existingPaperTextureButton || existingVerticalTabButton || existingHReminderButton) ||
         !commonMenu ||
         commonMenu.getAttribute('data-name') !== 'barmode') {
         return;
@@ -1126,11 +1184,32 @@ async function initThemeToolbar(commonMenu) {
             const color_href = window.theme.iter.next().value;
             localStorage.setItem(window.theme.IDs.LOCAL_STORAGE_COLOR_HREF, color_href);
             setLocalStorageVal(window.theme.IDs.LOCAL_STORAGE_COLOR_HREF, color_href);
+            window.theme.currentColorHref = color_href;
             window.theme.updateStyle(window.theme.IDs.STYLE_COLOR, color_href);
+            applyGreenPaperTextureState(color_href);
         };
     } else {
         themeColorButton.style.display = 'none';
     }
+
+    // 创建绿色主题背景纹理开关，仅在绿色主题下显示
+    const paperTextureButton = document.createElement('button');
+    paperTextureButton.id = 'tsundoku-paper-texture-button';
+    paperTextureButton.className = 'b3-menu__item';
+    paperTextureButton.innerHTML = `
+        <svg class="b3-menu__icon"><use xlink:href="#iconImage"></use></svg>
+        <span class="b3-menu__label">${t('paperTexture')}</span>
+        <span class="b3-menu__accelerator"></span>
+    `;
+
+    const isPaperTextureActive = isGreenPaperTextureEnabled();
+    paperTextureButton.style.display = isGreenThemeActive() ? '' : 'none';
+    paperTextureButton.querySelector('.b3-menu__accelerator').textContent = isPaperTextureActive ? 'ON' : 'OFF';
+
+    paperTextureButton.onclick = async () => {
+        const isActive = await toggleGreenPaperTexture();
+        paperTextureButton.querySelector('.b3-menu__accelerator').textContent = isActive ? 'ON' : 'OFF';
+    };
 
     // 创建垂直页签按钮
     const verticalTabButton = document.createElement('button');
@@ -1173,8 +1252,10 @@ async function initThemeToolbar(commonMenu) {
     // 添加到菜单末尾
     menuItems.appendChild(separator);
     menuItems.appendChild(themeColorButton);
+    menuItems.appendChild(paperTextureButton);
     menuItems.appendChild(verticalTabButton);
     menuItems.appendChild(hReminderButton);
+    applyGreenPaperTextureState();
 }
 
 /**
@@ -1822,6 +1903,10 @@ window.destroyTheme = () => {
     // 删除新的主题功能按钮
     const themeColorButton = document.getElementById('tsundoku-theme-color-button');
     if (themeColorButton) themeColorButton.remove();
+
+    const paperTextureButton = document.getElementById('tsundoku-paper-texture-button');
+    if (paperTextureButton) paperTextureButton.remove();
+    document.documentElement.classList.remove('tsundoku-paper-texture-off');
 
     const verticalTabButton = document.getElementById('tsundoku-vertical-tab-button');
     if (verticalTabButton) verticalTabButton.remove();

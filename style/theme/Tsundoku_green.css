@@ -937,3 +937,47 @@ html[data-theme-mode=light] .av__panel .b3-menu__item[draggable=true] {
 #layouts>div.fn__flex.fn__flex-1>div.layout__center.fn__flex-column.fn__flex-1>div>div>div.fn__flex {
     background: var(--b3-theme-surface);
 }
+
+/* 绿色主题：关闭背景纸张纹理 */
+html.tsundoku-paper-texture-off .protyle,
+html.tsundoku-paper-texture-off .protyle-preview,
+html.tsundoku-paper-texture-off .block__popover>.block__icons,
+html.tsundoku-paper-texture-off .layout-tab-container .block__icons .layout-tab-bar,
+html.tsundoku-paper-texture-off .layout__center,
+html.tsundoku-paper-texture-off .b3-dialog__container,
+html.tsundoku-paper-texture-off .b3-tab-container,
+html.tsundoku-paper-texture-off .search__header .b3-text-filed--text,
+html.tsundoku-paper-texture-off .b3-text-filed,
+html.tsundoku-paper-texture-off .b3-tab-container .b3-select,
+html.tsundoku-paper-texture-off .b3-card,
+html.tsundoku-paper-texture-off .b3-card__info,
+html.tsundoku-paper-texture-off .b3-card__actions,
+html.tsundoku-paper-texture-off .config-account__center--text,
+html.tsundoku-paper-texture-off .protyle-wysiwyg [data-node-id] span[data-type='tag'],
+html.tsundoku-paper-texture-off div[style*="background-color: var"],
+html.tsundoku-paper-texture-off span[data-type="strong"][style*="background-color: var"],
+html.tsundoku-paper-texture-off .protyle-toolbar,
+html.tsundoku-paper-texture-off span[data-type="mark"],
+html.tsundoku-paper-texture-off .emojis,
+html.tsundoku-paper-texture-off .vis-network,
+html.tsundoku-paper-texture-off .layout__empty,
+html.tsundoku-paper-texture-off .b3-list--background .b3-list-item--focus,
+html.tsundoku-paper-texture-off .b3-list--files .b3-list-item--focus:not(.dragover),
+html.tsundoku-paper-texture-off .b3-switch:after,
+html.tsundoku-paper-texture-off .protyle-wysiwyg code:not(.hljs),
+html.tsundoku-paper-texture-off .textLayer,
+html.tsundoku-paper-texture-off .block__content,
+html.tsundoku-paper-texture-off .config__tab-container,
+html.tsundoku-paper-texture-off::-webkit-scrollbar-thumb,
+html.tsundoku-paper-texture-off ::-webkit-scrollbar-thumb,
+html.tsundoku-paper-texture-off .protyle-wysiwyg table tr th,
+html.tsundoku-paper-texture-off .b3-typography table tr th,
+html.tsundoku-paper-texture-off .b3-typography code:not(.hljs),
+html.tsundoku-paper-texture-off .b3-typography span[data-type~='code'],
+html.tsundoku-paper-texture-off .protyle-wysiwyg span[data-type~='code'],
+html.tsundoku-paper-texture-off .file-tree,
+html.tsundoku-paper-texture-off .av__row--header,
+html.tsundoku-paper-texture-off .b3-typography blockquote,
+html.tsundoku-paper-texture-off .protyle-wysiwyg [data-node-id].bq:not([style*='background-color']) {
+    background-image: none !important;
+}
