@@ -15,8 +15,8 @@
     --b3-theme-background: #d5ead8;
     /* 面包屑和标签页 */
     --b3-theme-surface: #bcd7bf;
-    --b3-theme-surface-light: rgb(213 241 215 / 86%);
-    --b3-theme-surface-lighter: #b2bfb4;
+    --b3-theme-surface-light: #bdd1c0;
+    --b3-theme-surface-lighter: #bad1bd;
     --b3-theme-error: #ec8d8e;
 
     /* 文字颜色 */
@@ -44,8 +44,7 @@
     --b3-scroll-color: rgba(5, 50, 80, 0.2);
 
     /* 列表 */
-    /* --b3-list-hover: rgba(0, 0, 0, 0.05); */
-    --b3-list-hover: transparent;
+    --b3-list-hover: #8dba794f;
     /* 页签 */
     --b3-tab-background: #e7edf0;
     --b3-tab-background-hover: #dee4e8;
