@@ -658,14 +658,6 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
     background-color: #d8e0e5;
 }
 
-.b3-select option {
-    background-color: #f3f5f7;
-    border-radius: 10%;
-}
-
-.b3-select option:hover {
-    background-color: #dfe6ea !important;
-}
 
 /* 设置/搜索弹窗的链接 */
 .b3-dialog__container a {
