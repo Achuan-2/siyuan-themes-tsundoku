@@ -341,11 +341,7 @@ body>div#action {
 }
 
 /* ----------optimize-custom-emoji ---END---------*/
-/* 块标提示不被窗口线遮挡 */
-.protyle-gutters {
-    /* 块标移动增加过渡 */
-    transition: all 200ms ease-out;
-}
+
 
 /* -------------------主题增强面板区分度-------------------- */
 .block__logo {
