@@ -192,14 +192,18 @@
 .b3-typography .table table td,
 .protyle-wysiwyg .table table th,
 .protyle-wysiwyg .table table td {
-    background-color: transparent !important;
+    background-color: transparent;
 }
 
 .b3-typography table th,
 .b3-typography table td,
 .protyle-wysiwyg table th,
 .protyle-wysiwyg table td {
-    background-color: transparent !important;
+    background-color: transparent;
+}
+.b3-typography table tr:nth-child(even) td,
+.protyle-wysiwyg table tr:nth-child(even) td{
+    background-color: transparent;
 }
 
 .protyle-wysiwyg table tr th,
