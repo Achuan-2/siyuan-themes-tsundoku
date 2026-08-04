@@ -181,42 +181,6 @@
 
 /* -------------------------------表格样式------------------------------------- */
 
-/* 表格背景设置 */
-
-.b3-typography table,
-.protyle-wysiwyg table {
-    border-collapse: collapse;
-}
-
-.b3-typography .table table th,
-.b3-typography .table table td,
-.protyle-wysiwyg .table table th,
-.protyle-wysiwyg .table table td {
-    background-color: transparent;
-}
-
-.b3-typography table th,
-.b3-typography table td,
-.protyle-wysiwyg table th,
-.protyle-wysiwyg table td {
-    background-color: transparent;
-}
-.b3-typography table tr:nth-child(even) td,
-.protyle-wysiwyg table tr:nth-child(even) td{
-    background-color: transparent;
-}
-
-.protyle-wysiwyg table tr th,
-.b3-typography table tr th {
-    border-collapse: collapse;
-    border: 1px solid var(--b3-table-border-color);
-}
-
-.b3-typography table tr td,
-.protyle-wysiwyg table tr td {
-    border: 1px solid var(--b3-table-border-color);
-}
-
 /* 表格文字换行 */
 .protyle-wysiwyg div.table[data-node-id] table {
     word-wrap: break-word;
