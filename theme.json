@@ -2,7 +2,7 @@
   "name": "Tsundoku",
   "author": "Achuan-2",
   "url": "https://github.com/Achuan-2/siyuan-themes-tsundoku",
-  "version": "2.7.16",
+  "version": "2.7.17",
   "minAppVersion": "3.7.0",
   "displayName": {
     "default": "Tsundoku",
@@ -16,10 +16,6 @@
     "default": "README.md",
     "zh_CN": "README_zh_CN.md"
   },
-  "i18n": [
-    "en_US",
-    "zh_CN"
-  ],
   "funding": {
     "openCollective": "",
     "patreon": "",
