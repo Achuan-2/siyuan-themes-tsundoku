@@ -29,7 +29,7 @@
 /* 导出样式 */
 @import url('style/export.css');
 /* 搜索样式 */
-@import url('style/module/ctrlp.css');
+/* @import url('style/module/ctrlp.css'); */
 /* 引述块引号样式 */
 @import url('style/module/blockquote-quote.css');
 :root {
@@ -189,25 +189,7 @@ body {
     background-image: none !important;
 }
 
-/* ----------------------导出样式------------------- */
 
-/* 导出pdf右侧的面板 */
-body>#action {
-    width: 200px;
-    background: #dde4e873;
-    padding: 16px;
-    position: fixed;
-    right: 0;
-    top: 0;
-    overflow: auto;
-    bottom: 0;
-}
-
-.protyle-preview__action button,
-.protyle-preview__action button.protyle-preview__action--current,
-.protyle-preview__action button:hover {
-    background-color: transparent;
-}
 
 /* --------------------------------------------------------------------------------------------- */
 /* ------------------------------------基本外观设置：Start-------------------------------------- */
@@ -257,10 +239,7 @@ body {
     word-break: break-all !important;
 }
 
-/* 导出pdf右侧选项背景 */
-body>div#action {
-    background: var(--b3-theme-background) !important;
-}
+
 
 /* Optimize the style of closed notebooks */
 .file-tree__close>li {
