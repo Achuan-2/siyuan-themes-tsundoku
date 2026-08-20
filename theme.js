@@ -11,11 +11,15 @@ window.theme = {
     MIN_WIDTH: 150, // 最小宽度
     MAX_WIDTH: 400, // 最大宽度
     linkIconFilterInterval: null, // 链接图标过滤定时器
-    commonMenuAttrObserver: null, // 菜单属性(class/style)观察器
-    commonMenuDataNameObserver: null, // 菜单 data-name 观察器（用于工具栏按钮）
+    commonMenuAttrObserver: null, // 菜单属性(class/style)及内容观察器
+    commonMenuDataNameObserver: null, // 菜单 data-name 观察器（保持兼容）
     menuWaitObserver: null, // 菜单等待观察器
-    menuReplaceObserver: null, // 监测 #commonMenu 被替换的观察器
-    commonMenuMouseUpHandler: null, // 鼠标抬起事件处理器
+    menuReplaceObserver: null, // 监测 #commonMenu 被替换或重构的观察器
+    commonMenuMouseUpHandler: null, // 菜单相关事件监听器
+    interactionTrackerHandler: null, // 交互目标跟踪事件监听器
+    observedCommonMenuElement: null, // 当前正在观察的菜单 DOM 节点
+    lastInteractedElement: null, // 最近交互的目标节点
+    menuCheckTimers: [], // 菜单检查定时器队列
     list2TabObserver: null, // 列表转标签页观察器
     list2TabResizeObserver: null, // 列表转标签页尺寸观察器
     list2TabDebounceTimer: null, // 列表转标签页防抖定时器
@@ -458,17 +462,94 @@ window.theme.root = (() => {
 window.theme.lute = window.Lute.New();
 
 /**
+ * 尝试从指定 DOM 节点解析出目标可转换的块信息
+ * @param {Element|Node} node
+ * @returns {{id: string, type: string, subtype: string}|null}
+ */
+function resolveTargetBlock(node) {
+    if (!node) return null;
+    const el = node.nodeType === 1 ? node : node.parentElement;
+    if (!el || !(el instanceof Element)) return null;
+
+    const allowedNodeTypes = ['NodeList', 'NodeTable', 'NodeBlockquote', 'NodeCodeBlock'];
+
+    // 1. 如果本身就是目标类型且有 data-node-id
+    const selfType = el.getAttribute('data-type');
+    const selfId = el.getAttribute('data-node-id');
+    if (selfId && allowedNodeTypes.includes(selfType)) {
+        return {
+            id: selfId,
+            type: selfType,
+            subtype: el.getAttribute('data-subtype') || ''
+        };
+    }
+
+    // 2. 如果是 NodeListItem 或在 NodeListItem 内部，优先获取所属的 NodeList
+    const listItem = el.closest?.('[data-type="NodeListItem"]');
+    if (listItem) {
+        const list = listItem.closest?.('[data-type="NodeList"]');
+        if (list && list.getAttribute('data-node-id')) {
+            return {
+                id: list.getAttribute('data-node-id'),
+                type: 'NodeList',
+                subtype: list.getAttribute('data-subtype') || ''
+            };
+        }
+    }
+
+    // 3. 向上查找最近的目标父级块容器（如 NodeBlockquote, NodeTable, NodeCodeBlock, NodeList）
+    for (const targetType of allowedNodeTypes) {
+        const parentBlock = el.closest?.(`[data-type="${targetType}"]`);
+        if (parentBlock && parentBlock.getAttribute('data-node-id')) {
+            return {
+                id: parentBlock.getAttribute('data-node-id'),
+                type: targetType,
+                subtype: parentBlock.getAttribute('data-subtype') || ''
+            };
+        }
+    }
+
+    return null;
+}
+
+/**
  * 获得所选择的块对应的块 ID
  * @returns {{id: string, type: string, subtype: string}|null}
  */
 function getBlockSelected() {
-    let node_list = document.querySelectorAll('.protyle-wysiwyg--select');
-    if (node_list.length === 1 && node_list[0].dataset.nodeId != null)
-        return {
-            id: node_list[0].dataset.nodeId,
-            type: node_list[0].dataset.type,
-            subtype: node_list[0].dataset.subtype,
-        };
+    // 1. 优先检查当前有 .protyle-wysiwyg--select 的选块
+    const selectedNodes = document.querySelectorAll('.protyle-wysiwyg--select');
+    for (const node of selectedNodes) {
+        const target = resolveTargetBlock(node);
+        if (target) return target;
+    }
+
+    // 2. 检查高亮选块 .protyle-wysiwyg--hl
+    const hlNodes = document.querySelectorAll('.protyle-wysiwyg--hl');
+    for (const node of hlNodes) {
+        const target = resolveTargetBlock(node);
+        if (target) return target;
+    }
+
+    // 3. 检查最近交互/点击的元素（如 gutter 按钮、右键菜单目标、点击位置）
+    if (window.theme.lastInteractedElement) {
+        const target = resolveTargetBlock(window.theme.lastInteractedElement);
+        if (target) return target;
+    }
+
+    // 4. 检查当前光标 Selection 所在的节点
+    const sel = window.getSelection();
+    if (sel && sel.anchorNode) {
+        const target = resolveTargetBlock(sel.anchorNode);
+        if (target) return target;
+    }
+
+    // 5. 检查当前激活聚焦的元素
+    if (document.activeElement) {
+        const target = resolveTargetBlock(document.activeElement);
+        if (target) return target;
+    }
+
     return null;
 }
 
@@ -477,39 +558,172 @@ function getBlockSelected() {
  * @param {Element} menu_ele 通用菜单元素
  */
 function handleCommonMenu(menu_ele) {
-    // 菜单不可见时，不执行任何操作
-    if (menu_ele.style.display === 'none' || menu_ele.classList.contains('fn__none')) {
+    if (!menu_ele || menu_ele.style.display === 'none' || menu_ele.classList.contains('fn__none')) {
+        return;
+    }
+    if (menu_ele.getAttribute('data-name') === 'barmode') {
         return;
     }
 
-    // 获取当前选中的块信息
     const selectInfo = getBlockSelected();
-
-    // 定义允许显示自定义菜单的块类型
     const allowedNodeTypes = ['NodeList', 'NodeTable', 'NodeBlockquote', 'NodeCodeBlock'];
-
-    // 如果有选中的块，并且块类型在允许列表中
     if (selectInfo && allowedNodeTypes.includes(selectInfo.type)) {
         InsertMenuItem(selectInfo.id, selectInfo.type);
     }
 }
 
+/**
+ * 初始化用户交互跟踪器（捕捉右键、点击、拖拽手柄的目标块）
+ */
+function initInteractionTracker() {
+    if (window.theme.interactionTrackerHandler) return;
+
+    window.theme.interactionTrackerHandler = (e) => {
+        if (!e.target) return;
+        // 如果交互发生在菜单内部，不覆盖之前记录的目标块
+        if (e.target.closest?.('#commonMenu') || e.target.closest?.('.b3-menu')) {
+            return;
+        }
+        window.theme.lastInteractedElement = e.target;
+    };
+
+    document.addEventListener('mousedown', window.theme.interactionTrackerHandler, true);
+    document.addEventListener('contextmenu', window.theme.interactionTrackerHandler, true);
+    document.addEventListener('pointerdown', window.theme.interactionTrackerHandler, true);
+}
+
+/**
+ * 初始化通用菜单事件监听器
+ */
+function initCommonMenuEvents() {
+    if (window.theme.commonMenuMouseUpHandler) return;
+
+    window.theme.commonMenuMouseUpHandler = () => {
+        scheduleCommonMenuCheck();
+    };
+
+    document.addEventListener('mouseup', window.theme.commonMenuMouseUpHandler, true);
+    document.addEventListener('contextmenu', window.theme.commonMenuMouseUpHandler, true);
+    document.addEventListener('keyup', (e) => {
+        if (['Escape', 'F10', 'ContextMenu', '/'].includes(e.key)) {
+            scheduleCommonMenuCheck();
+        }
+    }, true);
+}
+
+const handleCommonMenuShow = () => {
+    const commonMenu = document.getElementById('commonMenu');
+    if (!commonMenu) return;
+
+    if (commonMenu.style.display === 'none' || commonMenu.classList.contains('fn__none')) {
+        return;
+    }
+
+    if (commonMenu.getAttribute('data-name') === 'barmode') {
+        initThemeToolbar(commonMenu);
+        return;
+    }
+
+    const selectInfo = getBlockSelected();
+    if (selectInfo) {
+        const selectType = selectInfo.type;
+        const selectId = selectInfo.id;
+        const allowedNodeTypes = ['NodeList', 'NodeTable', 'NodeBlockquote', 'NodeCodeBlock'];
+        if (allowedNodeTypes.includes(selectType)) {
+            InsertMenuItem(selectId, selectType);
+        }
+    }
+};
+
+/**
+ * 安排多次检查以应对思源异步渲染和块选择延迟
+ */
+function scheduleCommonMenuCheck() {
+    if (window.theme.menuCheckTimers) {
+        window.theme.menuCheckTimers.forEach(t => clearTimeout(t));
+    }
+    window.theme.menuCheckTimers = [];
+
+    [0, 30, 80, 160, 300].forEach(delay => {
+        const timer = setTimeout(() => {
+            handleCommonMenuShow();
+        }, delay);
+        window.theme.menuCheckTimers.push(timer);
+    });
+}
+
+let isInjectingMenu = false;
+
+function setupCommonMenuObserver() {
+    const commonMenuElement = document.querySelector("#commonMenu");
+    if (!commonMenuElement) {
+        return;
+    }
+
+    if (window.theme.observedCommonMenuElement === commonMenuElement) {
+        return;
+    }
+
+    if (window.theme.commonMenuAttrObserver) {
+        window.theme.commonMenuAttrObserver.disconnect();
+        window.theme.commonMenuAttrObserver = null;
+    }
+
+    window.theme.observedCommonMenuElement = commonMenuElement;
+    window.theme.commonMenuAttrObserver = new MutationObserver((mutations) => {
+        if (isInjectingMenu) return;
+
+        let shouldCheck = false;
+        let isBarMode = false;
+
+        for (const mutation of mutations) {
+            if (mutation.type === "attributes") {
+                if (mutation.attributeName === "class" || mutation.attributeName === "style") {
+                    shouldCheck = true;
+                }
+                if (mutation.attributeName === "data-name") {
+                    if (commonMenuElement.getAttribute('data-name') === 'barmode') {
+                        isBarMode = true;
+                    } else {
+                        shouldCheck = true;
+                    }
+                }
+            } else if (mutation.type === "childList") {
+                shouldCheck = true;
+            }
+        }
+
+        if (isBarMode) {
+            initThemeToolbar(commonMenuElement);
+        }
+
+        if (shouldCheck) {
+            scheduleCommonMenuCheck();
+        }
+    });
+
+    window.theme.commonMenuAttrObserver.observe(commonMenuElement, {
+        attributes: true,
+        attributeFilter: ["class", "style", "data-name"],
+        childList: true,
+        subtree: true
+    });
+
+    if (!commonMenuElement.classList.contains('fn__none') && commonMenuElement.style.display !== 'none') {
+        if (commonMenuElement.getAttribute('data-name') === 'barmode') {
+            initThemeToolbar(commonMenuElement);
+        } else {
+            scheduleCommonMenuCheck();
+        }
+    }
+}
 
 /**
  * 初始化通用菜单的观察器
  */
 function initCommonMenuObserver() {
-    // 避免重复初始化
-    if (window.theme.commonMenuAttrObserver) {
-        return;
-    }
-
-    const startCommonMenuMonitor = () => {
-        if (window.theme.commonMenuAttrObserver) {
-            return;
-        }
-        searchCommonMenu();
-    };
+    initInteractionTracker();
+    initCommonMenuEvents();
 
     const searchCommonMenu = () => {
         const commonMenuElement = document.querySelector("#commonMenu");
@@ -520,88 +734,27 @@ function initCommonMenuObserver() {
         }
     };
 
-    const setupCommonMenuObserver = () => {
-        const commonMenuElement = document.querySelector("#commonMenu");
-        if (!commonMenuElement) {
-            return;
-        }
-        if (window.theme.commonMenuAttrObserver) {
-            window.theme.commonMenuAttrObserver.disconnect();
-        }
-        window.theme.commonMenuAttrObserver = new MutationObserver((mutations) => {
-            mutations.forEach((mutation) => {
-                if (mutation.type === "attributes" && (mutation.attributeName === "class" || mutation.attributeName === "style")) {
-                    const target = mutation.target;
-                    const oldValue = mutation.oldValue ?? "";
-                    const newValue = target.className;
-                    const hadFnNone = oldValue.includes("fn__none");
-                    const hasFnNone = newValue.includes("fn__none");
-                    if (hadFnNone && !hasFnNone) {
-                        handleCommonMenuShow();
-                    }
-                }
-            });
-        });
-        // 观察class变化，捕捉菜单显示/隐藏
-        window.theme.commonMenuAttrObserver.observe(commonMenuElement, {
-            attributes: true,
-            attributeFilter: ["class"],
-            attributeOldValue: true
-        });
+    searchCommonMenu();
 
-        // 监测 #commonMenu 被替换的情况（比如菜单整元素被重建）
-        if (!window.theme.menuReplaceObserver) {
-            window.theme.menuReplaceObserver = new MutationObserver((mutations) => {
-                for (const m of mutations) {
-                    if (m.type === 'childList') {
-                        // 当 #commonMenu 被新增或移除时，重新查找并setup
-                        const cm = document.querySelector('#commonMenu');
-                        if (cm && !window.theme.commonMenuAttrObserver) {
-                            setupCommonMenuObserver();
-                        }
-                    }
-                }
-            });
-            window.theme.menuReplaceObserver.observe(document.body, { childList: true, subtree: true });
-        }
-    };
-
-    const handleCommonMenuShow = () => {
-        const selectInfo = getBlockSelected();
-        if (selectInfo) {
-            const selectType = selectInfo.type;
-            const selectId = selectInfo.id;
-
-            // 检查是否为允许的块类型
-            const allowedNodeTypes = ['NodeList', 'NodeTable', 'NodeBlockquote', 'NodeCodeBlock'];
-            if (allowedNodeTypes.includes(selectType)) {
-                InsertMenuItem(selectId, selectType);
+    // 持续监听 document.body 变化，防止 #commonMenu 被重建或替换
+    if (!window.theme.menuReplaceObserver) {
+        window.theme.menuReplaceObserver = new MutationObserver(() => {
+            const cm = document.querySelector('#commonMenu');
+            if (cm && window.theme.observedCommonMenuElement !== cm) {
+                setupCommonMenuObserver();
             }
-        }
-    };
-
-    // 添加鼠标抬起监听器，以便在菜单已打开时刷新菜单内容（比如选择变更）
-    if (!window.theme.commonMenuMouseUpHandler) {
-        window.theme.commonMenuMouseUpHandler = () => {
-            setTimeout(() => {
-                const cm = document.querySelector('#commonMenu');
-                if (!cm) return;
-                const computed = window.getComputedStyle(cm);
-                if (computed && computed.display !== 'none' && !cm.classList.contains('fn__none')) {
-                    const si = getBlockSelected();
-                    if (si) {
-                        const allowed = ['NodeList', 'NodeTable', 'NodeBlockquote', 'NodeCodeBlock'];
-                        if (allowed.includes(si.type)) {
-                            InsertMenuItem(si.id, si.type);
-                        }
-                    }
-                }
-            }, 10);
-        };
-        document.addEventListener('mouseup', window.theme.commonMenuMouseUpHandler);
+        });
+        window.theme.menuReplaceObserver.observe(document.body, { childList: true, subtree: true });
     }
 
-    startCommonMenuMonitor();
+    // 监听思源全局事件（如果有）
+    if (window.siyuan?.eventBus?.on) {
+        window.siyuan.eventBus.on('loaded-protyle', scheduleCommonMenuCheck);
+        window.siyuan.eventBus.on('open-menu-block', scheduleCommonMenuCheck);
+        window.siyuan.eventBus.on('open-menu-protyle', scheduleCommonMenuCheck);
+        window.siyuan.eventBus.on('open-menu-common', scheduleCommonMenuCheck);
+        window.siyuan.eventBus.on('click-editorcontent', scheduleCommonMenuCheck);
+    }
 }
 
 
@@ -896,27 +1049,82 @@ function Defaultth(selectid) {
     return button;
 }
 
-function InsertMenuItem(selectid, selecttype, attempts = 3) {
-    let commonMenu = document.querySelector('#commonMenu .b3-menu__items');
+function InsertMenuItem(selectid, selecttype) {
+    const commonMenu = document.querySelector('#commonMenu .b3-menu__items');
     if (!commonMenu) {
-        console.log('未找到菜单容器');
-        return;
+        return false;
+    }
+
+    const menuRoot = document.getElementById('commonMenu');
+    if (menuRoot && menuRoot.getAttribute('data-name') === 'barmode') {
+        return false;
     }
 
     // 移除已存在的自定义菜单项，避免重复插入
     const oldViewSelect = commonMenu.querySelector('#viewselect');
     if (oldViewSelect) {
+        if (oldViewSelect.dataset.nodeId === selectid && oldViewSelect.dataset.nodeType === selecttype) {
+            return true;
+        }
         oldViewSelect.remove();
     }
 
-    // 查找目标分割线
-    let target = commonMenu.querySelector('.b3-menu__separator[data-id="separator_5"]');
+    const viewSelectButton = ViewSelect(selectid, selecttype);
+    viewSelectButton.dataset.nodeId = selectid;
+    viewSelectButton.dataset.nodeType = selecttype;
 
-    // 如果找到目标，就在其后插入菜单
-    if (target) {
-        target.insertAdjacentElement('afterend', ViewSelect(selectid, selecttype));
-    } else {
-        console.log('未找到菜单目标位置');
+    isInjectingMenu = true;
+    try {
+        // 1. 查找已知分隔线
+        const separators = ['separator_5', 'separator_4', 'separator_3', 'separator_2', 'separator_1', 'separator_0'];
+        let target = null;
+        for (const sep of separators) {
+            target = commonMenu.querySelector(`.b3-menu__separator[data-id="${sep}"]`);
+            if (target) break;
+        }
+
+        if (target) {
+            target.insertAdjacentElement('afterend', viewSelectButton);
+            return true;
+        }
+
+        // 2. 查找功能按钮锚点（type/attr/copy 等）
+        const anchorBtn = commonMenu.querySelector('button[data-id="type"]') ||
+                          commonMenu.querySelector('button[data-id="attr"]') ||
+                          commonMenu.querySelector('button[data-id="copy"]');
+        if (anchorBtn) {
+            const nextElem = anchorBtn.nextElementSibling;
+            if (nextElem && nextElem.classList.contains('b3-menu__separator')) {
+                nextElem.insertAdjacentElement('afterend', viewSelectButton);
+            } else {
+                anchorBtn.insertAdjacentElement('afterend', viewSelectButton);
+            }
+            return true;
+        }
+
+        // 3. 查找任意分隔线
+        const allSeparators = commonMenu.querySelectorAll('.b3-menu__separator');
+        if (allSeparators.length > 0) {
+            const sepTarget = allSeparators[Math.min(allSeparators.length - 1, 3)];
+            sepTarget.insertAdjacentElement('afterend', viewSelectButton);
+            return true;
+        }
+
+        // 4. 查找 delete 或 readonly 项前插入
+        const deleteBtn = commonMenu.querySelector('button[data-id="delete"]') ||
+                          commonMenu.querySelector('.b3-menu__item--readonly');
+        if (deleteBtn) {
+            commonMenu.insertBefore(viewSelectButton, deleteBtn);
+            return true;
+        }
+
+        // 5. 兜底直接追加到末尾
+        commonMenu.appendChild(viewSelectButton);
+        return true;
+    } finally {
+        setTimeout(() => {
+            isInjectingMenu = false;
+        }, 0);
     }
 }
 
@@ -933,7 +1141,13 @@ function ViewMonitor(event) {
 
     let blocks = document.querySelectorAll(`.protyle-wysiwyg [data-node-id="${id}"][data-type]`);
     if (blocks && hasCustomAttr) {
-        blocks.forEach(block => block.setAttribute(attrName, attrValue));
+        blocks.forEach(block => {
+            if (attrValue === '' || attrValue === null) {
+                block.removeAttribute(attrName);
+            } else {
+                block.setAttribute(attrName, attrValue);
+            }
+        });
     }
     let attrs = {};
     if (hasCustomAttr) {
@@ -958,6 +1172,15 @@ function ViewMonitor(event) {
 
     if (setStyle || style) {
         attrs['style'] = style;
+        if (blocks) {
+            blocks.forEach(block => {
+                if (style) {
+                    block.setAttribute('style', style);
+                } else {
+                    block.removeAttribute('style');
+                }
+            });
+        }
     }
     if (!hasCustomAttr && !setStyle) return;
     console.log(attrName, attrValue, attrs);
@@ -1103,43 +1326,9 @@ function loadStyle(href, id = null) {
 
 
 function create_theme_button2() {
-    // 避免重复创建观察器
-    if (window.theme.commonMenuDataNameObserver) {
-        return;
-    }
-
-    window.theme.commonMenuDataNameObserver = new MutationObserver((mutations) => {
-        mutations.forEach((mutation) => {
-            if (mutation.type === 'attributes' && mutation.attributeName === 'data-name') {
-                const commonMenu = document.getElementById('commonMenu');
-                if (commonMenu && commonMenu.getAttribute('data-name') === 'barmode') {
-                    initThemeToolbar(commonMenu);
-                }
-            }
-        });
-    });
-
     const commonMenu = document.getElementById('commonMenu');
-    if (commonMenu) {
-        window.theme.commonMenuDataNameObserver.observe(commonMenu, { attributes: true, attributeFilter: ['data-name'] });
-        if (commonMenu.getAttribute('data-name') === 'barmode') {
-            initThemeToolbar(commonMenu);
-        }
-    } else {
-        if (!window.theme.menuWaitObserver) {
-            window.theme.menuWaitObserver = new MutationObserver((mutations, obs) => {
-                const commonMenu = document.getElementById('commonMenu');
-                if (commonMenu) {
-                    window.theme.commonMenuDataNameObserver.observe(commonMenu, { attributes: true, attributeFilter: ['data-name'] });
-                    if (commonMenu.getAttribute('data-name') === 'barmode') {
-                        initThemeToolbar(commonMenu);
-                    }
-                    obs.disconnect();
-                    window.theme.menuWaitObserver = null;
-                }
-            });
-            window.theme.menuWaitObserver.observe(document.body, { childList: true, subtree: true });
-        }
+    if (commonMenu && commonMenu.getAttribute('data-name') === 'barmode') {
+        initThemeToolbar(commonMenu);
     }
 }
 
@@ -1950,6 +2139,8 @@ window.destroyTheme = () => {
         window.theme.menuReplaceObserver.disconnect();
         window.theme.menuReplaceObserver = null;
     }
+    window.theme.observedCommonMenuElement = null;
+
     if (window.theme.list2TabObserver) {
         window.theme.list2TabObserver.disconnect();
         window.theme.list2TabObserver = null;
@@ -1966,6 +2157,10 @@ window.destroyTheme = () => {
         window.siyuan.eventBus.off('loaded-protyle', window.theme.list2TabLoadedProtyleHandler);
         window.theme.list2TabLoadedProtyleHandler = null;
     }
+    if (window.theme.menuCheckTimers) {
+        window.theme.menuCheckTimers.forEach(t => clearTimeout(t));
+        window.theme.menuCheckTimers = [];
+    }
     document.querySelectorAll(`.protyle-wysiwyg [data-type="NodeList"] > .protyle-attr > .${LIST2TAB_RESTORE_BADGE_CLASS}, .protyle-wysiwyg [data-type="NodeList"] > .protyle-attr.${LIST2TAB_ATTR_CLASS}`).forEach(element => {
         const attrElement = element.classList.contains('protyle-attr') ? element : element.parentElement;
         const listElement = attrElement.parentElement;
@@ -1979,13 +2174,19 @@ window.destroyTheme = () => {
         window.theme.customMenuObserver = null;
     }
 
-
     // 清理定时器
     clearAllTimers();
 
     // 清理事件监听器
     if (window.theme.commonMenuMouseUpHandler) {
-        document.removeEventListener('mouseup', window.theme.commonMenuMouseUpHandler);
+        document.removeEventListener('mouseup', window.theme.commonMenuMouseUpHandler, true);
+        document.removeEventListener('contextmenu', window.theme.commonMenuMouseUpHandler, true);
         window.theme.commonMenuMouseUpHandler = null;
+    }
+    if (window.theme.interactionTrackerHandler) {
+        document.removeEventListener('mousedown', window.theme.interactionTrackerHandler, true);
+        document.removeEventListener('contextmenu', window.theme.interactionTrackerHandler, true);
+        document.removeEventListener('pointerdown', window.theme.interactionTrackerHandler, true);
+        window.theme.interactionTrackerHandler = null;
     }
 };
