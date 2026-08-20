@@ -15,6 +15,7 @@ window.theme = {
     commonMenuDataNameObserver: null, // 菜单 data-name 观察器（保持兼容）
     menuWaitObserver: null, // 菜单等待观察器
     menuReplaceObserver: null, // 监测 #commonMenu 被替换或重构的观察器
+    mobileMenuObserver: null, // 移动端菜单观察器
     commonMenuMouseUpHandler: null, // 菜单相关事件监听器
     interactionTrackerHandler: null, // 交互目标跟踪事件监听器
     observedCommonMenuElement: null, // 当前正在观察的菜单 DOM 节点
@@ -342,14 +343,19 @@ function isGreenPaperTextureEnabled() {
 }
 
 function updateGreenPaperTextureButton(isGreenTheme = isGreenThemeActive(), isEnabled = isGreenPaperTextureEnabled()) {
-    const paperTextureButton = document.getElementById('tsundoku-paper-texture-button');
-    if (!paperTextureButton) return;
+    const buttons = document.querySelectorAll('#tsundoku-paper-texture-button, #tsundoku-mobile-paper-texture-button');
+    const targetDisplay = isGreenTheme ? '' : 'none';
+    const targetText = isEnabled ? 'ON' : 'OFF';
 
-    paperTextureButton.style.display = isGreenTheme ? '' : 'none';
-    const accelerator = paperTextureButton.querySelector('.b3-menu__accelerator');
-    if (accelerator) {
-        accelerator.textContent = isEnabled ? 'ON' : 'OFF';
-    }
+    buttons.forEach(paperTextureButton => {
+        if (paperTextureButton.style.display !== targetDisplay) {
+            paperTextureButton.style.display = targetDisplay;
+        }
+        const accelerator = paperTextureButton.querySelector('.b3-menu__accelerator');
+        if (accelerator && accelerator.textContent !== targetText) {
+            accelerator.textContent = targetText;
+        }
+    });
 }
 
 function applyGreenPaperTextureState(colorHref = window.theme.currentColorHref, isEnabled = isGreenPaperTextureEnabled()) {
@@ -1447,6 +1453,131 @@ async function initThemeToolbar(commonMenu) {
     applyGreenPaperTextureState();
 }
 
+let isInjectingMobileMenu = false;
+
+/**
+ * 注入移动端菜单的主题配置按钮（放置于 mobileMenuSettingsAndHelp 分组顶部）
+ */
+function injectMobileThemeButtons() {
+    if (isInjectingMobileMenu) return;
+
+    // 仅在亮色模式下支持切换主题配色
+    if (window.theme.themeMode !== 'light' || !window.theme.iter) {
+        return;
+    }
+
+    const menuSettings = document.getElementById('menuSettings');
+    if (!menuSettings) return;
+
+    // 已注入则直接返回，避免重复操作与 observer 循环
+    if (document.getElementById('tsundoku-mobile-theme-color-button')) {
+        return;
+    }
+
+    isInjectingMobileMenu = true;
+    try {
+        const themeColorButton = document.createElement('div');
+        themeColorButton.id = 'tsundoku-mobile-theme-color-button';
+        themeColorButton.className = 'b3-menu__item';
+        themeColorButton.innerHTML = `
+        <svg class="b3-menu__icon"><use xlink:href="#iconTheme"></use></svg>
+        <span class="b3-menu__label">${t('changeThemeColor')}</span>
+    `;
+
+        themeColorButton.onclick = (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            if (window.theme.themeMode === 'light' && window.theme.iter) {
+                const color_href = window.theme.iter.next().value;
+                localStorage.setItem(window.theme.IDs.LOCAL_STORAGE_COLOR_HREF, color_href);
+                setLocalStorageVal(window.theme.IDs.LOCAL_STORAGE_COLOR_HREF, color_href);
+                window.theme.currentColorHref = color_href;
+                window.theme.updateStyle(window.theme.IDs.STYLE_COLOR, color_href);
+                applyGreenPaperTextureState(color_href);
+            }
+        };
+
+        const paperTextureButton = document.createElement('div');
+        paperTextureButton.id = 'tsundoku-mobile-paper-texture-button';
+        paperTextureButton.className = 'b3-menu__item';
+        paperTextureButton.innerHTML = `
+        <svg class="b3-menu__icon"><use xlink:href="#iconImage"></use></svg>
+        <span class="b3-menu__label">${t('paperTexture')}</span>
+        <span class="b3-menu__accelerator"></span>
+    `;
+
+        const isPaperTextureActive = isGreenPaperTextureEnabled();
+        paperTextureButton.style.display = isGreenThemeActive() ? '' : 'none';
+        const accelerator = paperTextureButton.querySelector('.b3-menu__accelerator');
+        if (accelerator) {
+            accelerator.textContent = isPaperTextureActive ? 'ON' : 'OFF';
+        }
+
+        paperTextureButton.onclick = async (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            const isActive = await toggleGreenPaperTexture();
+            const acc = paperTextureButton.querySelector('.b3-menu__accelerator');
+            if (acc) {
+                acc.textContent = isActive ? 'ON' : 'OFF';
+            }
+        };
+
+        // 放在 mobileMenuSettingsAndHelp group 顶部（即 menuSettings 之前）
+        menuSettings.insertAdjacentElement('beforebegin', themeColorButton);
+        themeColorButton.insertAdjacentElement('afterend', paperTextureButton);
+        applyGreenPaperTextureState();
+    } finally {
+        isInjectingMobileMenu = false;
+    }
+}
+
+/**
+ * 初始化移动端右侧菜单观察器
+ */
+function initMobileMenuObserver() {
+    const setupMobileMenu = (menuElement) => {
+        if (!menuElement) return;
+
+        injectMobileThemeButtons();
+
+        if (window.theme.mobileMenuObserver) {
+            window.theme.mobileMenuObserver.disconnect();
+            window.theme.mobileMenuObserver = null;
+        }
+
+        window.theme.mobileMenuObserver = new MutationObserver(() => {
+            if (isInjectingMobileMenu) return;
+            // 仅在 menuSettings 存在且自定义按钮缺失时注入
+            if (document.getElementById('menuSettings') && !document.getElementById('tsundoku-mobile-theme-color-button')) {
+                injectMobileThemeButtons();
+            }
+        });
+
+        window.theme.mobileMenuObserver.observe(menuElement, {
+            childList: true,
+            subtree: true
+        });
+    };
+
+    const menuElement = document.getElementById('menu');
+    if (menuElement) {
+        setupMobileMenu(menuElement);
+    } else {
+        whenElementExist('#menu', (el) => {
+            setupMobileMenu(el);
+        });
+    }
+
+    if (window.siyuan?.eventBus?.on) {
+        window.siyuan.eventBus.on('loaded-protyle', () => {
+            if (document.getElementById('menuSettings') && !document.getElementById('tsundoku-mobile-theme-color-button')) {
+                injectMobileThemeButtons();
+            }
+        });
+    }
+}
+
 /**
  * 切换垂直页签状态
  */
@@ -1491,6 +1622,7 @@ async function initVerticalTabState() {
  * 自动初始化垂直页签（在主题启动时调用）
  */
 async function autoInitVerticalTab() {
+    if (window.theme.clientMode === 'mobile') return;
     await whenElementExist('.layout__center .layout-tab-bar');
     let storedState = window.siyuan?.storage[window.theme.IDs.LOCAL_STORAGE_VERTICAL_TAB] || localStorage.getItem(window.theme.IDs.LOCAL_STORAGE_VERTICAL_TAB);
     if (storedState === 'true') {
@@ -2056,6 +2188,7 @@ window.theme.timerIds = [];
 (async () => {
     // 初始化自定义块菜单功能
     initCommonMenuObserver();
+    initMobileMenuObserver();
 
     /* 创建主题按钮 */
     create_theme_button();
@@ -2084,6 +2217,13 @@ window.destroyTheme = () => {
     // 删除主题切换按钮
     const themeButton = document.getElementById(window.theme.IDs.BUTTON_TOOLBAR_CHANGE_COLOR);
     if (themeButton) themeButton.remove();
+
+    // 删除移动端主题功能按钮
+    const mobileThemeColorButton = document.getElementById('tsundoku-mobile-theme-color-button');
+    if (mobileThemeColorButton) mobileThemeColorButton.remove();
+
+    const mobilePaperTextureButton = document.getElementById('tsundoku-mobile-paper-texture-button');
+    if (mobilePaperTextureButton) mobilePaperTextureButton.remove();
 
     // 删除主题加载的额外配色 css
     let css_link = document.getElementById(window.theme.IDs.STYLE_COLOR);
@@ -2123,6 +2263,10 @@ window.destroyTheme = () => {
     if (hReminderCSS) hReminderCSS.remove();
 
     // 删除观察器
+    if (window.theme.mobileMenuObserver) {
+        window.theme.mobileMenuObserver.disconnect();
+        window.theme.mobileMenuObserver = null;
+    }
     if (window.theme.commonMenuAttrObserver) {
         window.theme.commonMenuAttrObserver.disconnect();
         window.theme.commonMenuAttrObserver = null;
