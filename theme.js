@@ -21,6 +21,8 @@ window.theme = {
     interactionTrackerHandler: null, // 交互目标跟踪事件监听器
     observedCommonMenuElement: null, // 当前正在观察的菜单 DOM 节点
     lastInteractedElement: null, // 最近交互的目标节点
+    currentMenuBlock: null, // 当前菜单关联的块节点
+    eventBusHandlers: null, // 思源事件总线监听器
     menuCheckTimers: [], // 菜单检查定时器队列
     list2TabObserver: null, // 列表转标签页观察器
     list2TabResizeObserver: null, // 列表转标签页尺寸观察器
@@ -469,14 +471,83 @@ window.theme.root = (() => {
 window.theme.lute = window.Lute.New();
 
 /**
+ * 移除可能残留在任何菜单中的主题块样式菜单项
+ */
+function removeViewSelectMenuItem() {
+    const existingButtons = document.querySelectorAll('#viewselect');
+    existingButtons.forEach(btn => btn.remove());
+}
+
+/**
+ * 判断当前 commonMenu 是否为一个合法的块级主上下文菜单（排除文档菜单、子菜单、树菜单等）
+ * @param {HTMLElement} commonMenu
+ * @returns {boolean}
+ */
+function isBlockMainMenu(commonMenu) {
+    if (!commonMenu || commonMenu.style.display === 'none' || commonMenu.classList.contains('fn__none')) {
+        return false;
+    }
+
+    const dataName = commonMenu.getAttribute('data-name');
+    // 明确排除非块级菜单（顶栏工具栏、页签列表、搜索面板、文档树、大纲等）
+    const nonBlockDataNames = ['barmode', 'tabList', 'search', 'tree', 'workspace', 'dock', 'navigation', 'backlink', 'bookmark', 'tag', 'outline'];
+    if (dataName && nonBlockDataNames.includes(dataName)) {
+        return false;
+    }
+
+    // 排除文档块菜单（文档顶部图标 / 标题菜单），文档菜单具有 export、history、docAttr、docCopy、openBy、deleteDoc 等文档专属操作
+    const docMenuMarker = commonMenu.querySelector('button[data-id="export"], button[data-id="history"], button[data-id="docAttr"], button[data-id="docCopy"], button[data-id="openBy"], button[data-id="deleteDoc"]');
+    if (docMenuMarker) {
+        return false;
+    }
+
+    // 排除嵌入在子菜单内部的容器
+    const rootItems = commonMenu.querySelector(':scope > .b3-menu__items') || commonMenu.querySelector('.b3-menu__items');
+    if (!rootItems || rootItems.closest('.b3-menu__submenu')) {
+        return false;
+    }
+
+    // 块级菜单必须包含至少一个核心块级功能项（如转换为 type、自定义属性 attr、转为子文档 subDoc、折叠 fold、复制协议 copyProtocol/copyID/copyBlockRef、删除 delete 等）
+    const blockMenuMarker = rootItems.querySelector(
+        'button[data-id="type"], button[data-id="attr"], button[data-id="subDoc"], button[data-id="fold"], button[data-id="unfold"], button[data-id="copyProtocol"], button[data-id="copyID"], button[data-id="copyBlockRef"]'
+    );
+    if (!blockMenuMarker) {
+        // 如果没有上述典型特征，检查是否有标准分隔线与删除/复制按钮的组合
+        const hasBlockSeparators = rootItems.querySelector('.b3-menu__separator[data-id^="separator_"]');
+        const hasDeleteOrCopy = rootItems.querySelector('button[data-id="delete"], button[data-id="copy"], button[data-id="cut"]');
+        if (!hasBlockSeparators || !hasDeleteOrCopy) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+/**
  * 尝试从指定 DOM 节点解析出目标可转换的块信息
  * @param {Element|Node} node
  * @returns {{id: string, type: string, subtype: string}|null}
  */
 function resolveTargetBlock(node) {
     if (!node) return null;
-    const el = node.nodeType === 1 ? node : node.parentElement;
+    let el = node.nodeType === 1 ? node : node.parentElement;
     if (!el || !(el instanceof Element)) return null;
+
+    // 如果是块标 gutter 内部元素，尝试根据关联属性查找编辑器内对应块
+    if (el.closest('.protyle-gutters')) {
+        const gutterNodeId = el.getAttribute('data-node-id') || el.closest('[data-node-id]')?.getAttribute('data-node-id');
+        if (gutterNodeId) {
+            const blockInEditor = document.querySelector(`.protyle-wysiwyg [data-node-id="${gutterNodeId}"]`);
+            if (blockInEditor) {
+                el = blockInEditor;
+            }
+        }
+    }
+
+    // 必须位于编辑器内容区 .protyle-wysiwyg 内
+    if (!el.closest('.protyle-wysiwyg')) {
+        return null;
+    }
 
     const allowedNodeTypes = ['NodeList', 'NodeTable', 'NodeBlockquote', 'NodeCodeBlock'];
 
@@ -520,41 +591,45 @@ function resolveTargetBlock(node) {
 }
 
 /**
- * 获得所选择的块对应的块 ID
+ * 获得当前菜单所针对的有效块信息
  * @returns {{id: string, type: string, subtype: string}|null}
  */
 function getBlockSelected() {
-    // 1. 优先检查当前有 .protyle-wysiwyg--select 的选块
-    const selectedNodes = document.querySelectorAll('.protyle-wysiwyg--select');
-    for (const node of selectedNodes) {
-        const target = resolveTargetBlock(node);
+    // 1. 优先使用 open-menu-block 事件传递的精确块节点
+    if (window.theme.currentMenuBlock && window.theme.currentMenuBlock.isConnected) {
+        const target = resolveTargetBlock(window.theme.currentMenuBlock);
         if (target) return target;
     }
 
-    // 2. 检查高亮选块 .protyle-wysiwyg--hl
-    const hlNodes = document.querySelectorAll('.protyle-wysiwyg--hl');
-    for (const node of hlNodes) {
-        const target = resolveTargetBlock(node);
-        if (target) return target;
+    // 2. 检查选块 .protyle-wysiwyg--select（点击块标或选块时思源添加）
+    const selectedNodes = document.querySelectorAll('.protyle-wysiwyg .protyle-wysiwyg--select');
+    if (selectedNodes.length > 0) {
+        for (const node of selectedNodes) {
+            const target = resolveTargetBlock(node);
+            if (target) return target;
+        }
+        // 如果有显式选块但都不是允许的主题块类型（如段落、标题等），则直接返回 null，不进行错误回退
+        return null;
     }
 
-    // 3. 检查最近交互/点击的元素（如 gutter 按钮、右键菜单目标、点击位置）
-    if (window.theme.lastInteractedElement) {
-        const target = resolveTargetBlock(window.theme.lastInteractedElement);
-        if (target) return target;
+    // 3. 检查高亮选块 .protyle-wysiwyg--hl
+    const hlNodes = document.querySelectorAll('.protyle-wysiwyg .protyle-wysiwyg--hl');
+    if (hlNodes.length > 0) {
+        for (const node of hlNodes) {
+            const target = resolveTargetBlock(node);
+            if (target) return target;
+        }
+        return null;
     }
 
-    // 4. 检查当前光标 Selection 所在的节点
-    const sel = window.getSelection();
-    if (sel && sel.anchorNode) {
-        const target = resolveTargetBlock(sel.anchorNode);
-        if (target) return target;
-    }
-
-    // 5. 检查当前激活聚焦的元素
-    if (document.activeElement) {
-        const target = resolveTargetBlock(document.activeElement);
-        if (target) return target;
+    // 4. 检查最近交互目标（如直接右键点击块内容），仅当交互发生在编辑器内部或块标时有效
+    if (window.theme.lastInteractedElement && window.theme.lastInteractedElement.isConnected) {
+        const inWysiwyg = window.theme.lastInteractedElement.closest('.protyle-wysiwyg');
+        const inGutters = window.theme.lastInteractedElement.closest('.protyle-gutters');
+        if (inWysiwyg || inGutters) {
+            const target = resolveTargetBlock(window.theme.lastInteractedElement);
+            if (target) return target;
+        }
     }
 
     return null;
@@ -565,18 +640,7 @@ function getBlockSelected() {
  * @param {Element} menu_ele 通用菜单元素
  */
 function handleCommonMenu(menu_ele) {
-    if (!menu_ele || menu_ele.style.display === 'none' || menu_ele.classList.contains('fn__none')) {
-        return;
-    }
-    if (menu_ele.getAttribute('data-name') === 'barmode') {
-        return;
-    }
-
-    const selectInfo = getBlockSelected();
-    const allowedNodeTypes = ['NodeList', 'NodeTable', 'NodeBlockquote', 'NodeCodeBlock'];
-    if (selectInfo && allowedNodeTypes.includes(selectInfo.type)) {
-        InsertMenuItem(selectInfo.id, selectInfo.type);
-    }
+    handleCommonMenuShow();
 }
 
 /**
@@ -620,25 +684,28 @@ function initCommonMenuEvents() {
 
 const handleCommonMenuShow = () => {
     const commonMenu = document.getElementById('commonMenu');
-    if (!commonMenu) return;
-
-    if (commonMenu.style.display === 'none' || commonMenu.classList.contains('fn__none')) {
+    if (!commonMenu || commonMenu.style.display === 'none' || commonMenu.classList.contains('fn__none')) {
         return;
     }
 
     if (commonMenu.getAttribute('data-name') === 'barmode') {
+        removeViewSelectMenuItem();
         initThemeToolbar(commonMenu);
         return;
     }
 
+    // 必须为合法的块级主菜单，非块菜单（如文档菜单、子菜单、添加到数据库菜单等）立即清理
+    if (!isBlockMainMenu(commonMenu)) {
+        removeViewSelectMenuItem();
+        return;
+    }
+
     const selectInfo = getBlockSelected();
-    if (selectInfo) {
-        const selectType = selectInfo.type;
-        const selectId = selectInfo.id;
-        const allowedNodeTypes = ['NodeList', 'NodeTable', 'NodeBlockquote', 'NodeCodeBlock'];
-        if (allowedNodeTypes.includes(selectType)) {
-            InsertMenuItem(selectId, selectType);
-        }
+    const allowedNodeTypes = ['NodeList', 'NodeTable', 'NodeBlockquote', 'NodeCodeBlock'];
+    if (selectInfo && allowedNodeTypes.includes(selectInfo.type)) {
+        InsertMenuItem(selectInfo.id, selectInfo.type);
+    } else {
+        removeViewSelectMenuItem();
     }
 };
 
@@ -680,6 +747,13 @@ function setupCommonMenuObserver() {
     window.theme.commonMenuAttrObserver = new MutationObserver((mutations) => {
         if (isInjectingMenu) return;
 
+        // 如果菜单隐藏或关闭，立即清理状态并移除自定义菜单项
+        if (commonMenuElement.classList.contains('fn__none') || commonMenuElement.style.display === 'none') {
+            window.theme.currentMenuBlock = null;
+            removeViewSelectMenuItem();
+            return;
+        }
+
         let shouldCheck = false;
         let isBarMode = false;
 
@@ -701,6 +775,7 @@ function setupCommonMenuObserver() {
         }
 
         if (isBarMode) {
+            removeViewSelectMenuItem();
             initThemeToolbar(commonMenuElement);
         }
 
@@ -718,6 +793,7 @@ function setupCommonMenuObserver() {
 
     if (!commonMenuElement.classList.contains('fn__none') && commonMenuElement.style.display !== 'none') {
         if (commonMenuElement.getAttribute('data-name') === 'barmode') {
+            removeViewSelectMenuItem();
             initThemeToolbar(commonMenuElement);
         } else {
             scheduleCommonMenuCheck();
@@ -754,13 +830,42 @@ function initCommonMenuObserver() {
         window.theme.menuReplaceObserver.observe(document.body, { childList: true, subtree: true });
     }
 
-    // 监听思源全局事件（如果有）
+    // 监听思源全局事件
     if (window.siyuan?.eventBus?.on) {
-        window.siyuan.eventBus.on('loaded-protyle', scheduleCommonMenuCheck);
-        window.siyuan.eventBus.on('open-menu-block', scheduleCommonMenuCheck);
-        window.siyuan.eventBus.on('open-menu-protyle', scheduleCommonMenuCheck);
-        window.siyuan.eventBus.on('open-menu-common', scheduleCommonMenuCheck);
-        window.siyuan.eventBus.on('click-editorcontent', scheduleCommonMenuCheck);
+        window.theme.eventBusHandlers = {
+            loadedProtyle: () => scheduleCommonMenuCheck(),
+            openMenuBlock: ({ detail }) => {
+                const blockEl = detail?.element || detail?.blockElements?.[0];
+                if (blockEl) {
+                    window.theme.currentMenuBlock = blockEl;
+                }
+                scheduleCommonMenuCheck();
+            },
+            openMenuDoc: () => {
+                window.theme.currentMenuBlock = null;
+                removeViewSelectMenuItem();
+            },
+            openMenuTree: () => {
+                window.theme.currentMenuBlock = null;
+                removeViewSelectMenuItem();
+            },
+            openMenuProtyle: ({ detail }) => {
+                if (!detail?.element && !detail?.blockElements?.length) {
+                    window.theme.currentMenuBlock = null;
+                }
+                scheduleCommonMenuCheck();
+            },
+            openMenuCommon: () => scheduleCommonMenuCheck(),
+            clickEditorContent: () => scheduleCommonMenuCheck(),
+        };
+
+        window.siyuan.eventBus.on('loaded-protyle', window.theme.eventBusHandlers.loadedProtyle);
+        window.siyuan.eventBus.on('open-menu-block', window.theme.eventBusHandlers.openMenuBlock);
+        window.siyuan.eventBus.on('open-menu-doc', window.theme.eventBusHandlers.openMenuDoc);
+        window.siyuan.eventBus.on('open-menu-tree', window.theme.eventBusHandlers.openMenuTree);
+        window.siyuan.eventBus.on('open-menu-protyle', window.theme.eventBusHandlers.openMenuProtyle);
+        window.siyuan.eventBus.on('open-menu-common', window.theme.eventBusHandlers.openMenuCommon);
+        window.siyuan.eventBus.on('click-editorcontent', window.theme.eventBusHandlers.clickEditorContent);
     }
 }
 
@@ -1057,17 +1162,22 @@ function Defaultth(selectid) {
 }
 
 function InsertMenuItem(selectid, selecttype) {
-    const commonMenu = document.querySelector('#commonMenu .b3-menu__items');
-    if (!commonMenu) {
-        return false;
-    }
-
     const menuRoot = document.getElementById('commonMenu');
-    if (menuRoot && menuRoot.getAttribute('data-name') === 'barmode') {
+    if (!menuRoot || menuRoot.style.display === 'none' || menuRoot.classList.contains('fn__none')) {
         return false;
     }
 
-    // 移除已存在的自定义菜单项，避免重复插入
+    if (menuRoot.getAttribute('data-name') === 'barmode') {
+        return false;
+    }
+
+    // 只插入到根菜单项容器中，绝不插入到子菜单中
+    const commonMenu = menuRoot.querySelector(':scope > .b3-menu__items') || menuRoot.querySelector('.b3-menu__items');
+    if (!commonMenu || commonMenu.closest('.b3-menu__submenu')) {
+        return false;
+    }
+
+    // 移除已存在的自定义菜单项，若已匹配当前块则无需重新插入
     const oldViewSelect = commonMenu.querySelector('#viewselect');
     if (oldViewSelect) {
         if (oldViewSelect.dataset.nodeId === selectid && oldViewSelect.dataset.nodeType === selecttype) {
@@ -1082,7 +1192,19 @@ function InsertMenuItem(selectid, selecttype) {
 
     isInjectingMenu = true;
     try {
-        // 1. 查找已知分隔线
+        // 1. 优先插入到 "转换为" (button[data-id="type"]) 或其后的分割线之后
+        const typeBtn = commonMenu.querySelector('button[data-id="type"]');
+        if (typeBtn) {
+            const nextElem = typeBtn.nextElementSibling;
+            if (nextElem && nextElem.classList.contains('b3-menu__separator')) {
+                nextElem.insertAdjacentElement('afterend', viewSelectButton);
+            } else {
+                typeBtn.insertAdjacentElement('afterend', viewSelectButton);
+            }
+            return true;
+        }
+
+        // 2. 查找已知标准分隔线 (如 separator_5, separator_4 等)
         const separators = ['separator_5', 'separator_4', 'separator_3', 'separator_2', 'separator_1', 'separator_0'];
         let target = null;
         for (const sep of separators) {
@@ -1095,9 +1217,8 @@ function InsertMenuItem(selectid, selecttype) {
             return true;
         }
 
-        // 2. 查找功能按钮锚点（type/attr/copy 等）
-        const anchorBtn = commonMenu.querySelector('button[data-id="type"]') ||
-                          commonMenu.querySelector('button[data-id="attr"]') ||
+        // 3. 查找功能按钮锚点（attr/copy 等）
+        const anchorBtn = commonMenu.querySelector('button[data-id="attr"]') ||
                           commonMenu.querySelector('button[data-id="copy"]');
         if (anchorBtn) {
             const nextElem = anchorBtn.nextElementSibling;
@@ -1109,25 +1230,14 @@ function InsertMenuItem(selectid, selecttype) {
             return true;
         }
 
-        // 3. 查找任意分隔线
-        const allSeparators = commonMenu.querySelectorAll('.b3-menu__separator');
-        if (allSeparators.length > 0) {
-            const sepTarget = allSeparators[Math.min(allSeparators.length - 1, 3)];
-            sepTarget.insertAdjacentElement('afterend', viewSelectButton);
-            return true;
-        }
-
-        // 4. 查找 delete 或 readonly 项前插入
-        const deleteBtn = commonMenu.querySelector('button[data-id="delete"]') ||
-                          commonMenu.querySelector('.b3-menu__item--readonly');
+        // 4. 查找 delete 按钮前插入
+        const deleteBtn = commonMenu.querySelector('button[data-id="delete"]');
         if (deleteBtn) {
             commonMenu.insertBefore(viewSelectButton, deleteBtn);
             return true;
         }
 
-        // 5. 兜底直接追加到末尾
-        commonMenu.appendChild(viewSelectButton);
-        return true;
+        return false;
     } finally {
         setTimeout(() => {
             isInjectingMenu = false;
@@ -2302,6 +2412,17 @@ window.destroyTheme = () => {
         window.siyuan.eventBus.off('loaded-protyle', window.theme.list2TabLoadedProtyleHandler);
         window.theme.list2TabLoadedProtyleHandler = null;
     }
+    if (window.siyuan?.eventBus?.off && window.theme.eventBusHandlers) {
+        window.siyuan.eventBus.off('loaded-protyle', window.theme.eventBusHandlers.loadedProtyle);
+        window.siyuan.eventBus.off('open-menu-block', window.theme.eventBusHandlers.openMenuBlock);
+        window.siyuan.eventBus.off('open-menu-doc', window.theme.eventBusHandlers.openMenuDoc);
+        window.siyuan.eventBus.off('open-menu-tree', window.theme.eventBusHandlers.openMenuTree);
+        window.siyuan.eventBus.off('open-menu-protyle', window.theme.eventBusHandlers.openMenuProtyle);
+        window.siyuan.eventBus.off('open-menu-common', window.theme.eventBusHandlers.openMenuCommon);
+        window.siyuan.eventBus.off('click-editorcontent', window.theme.eventBusHandlers.clickEditorContent);
+        window.theme.eventBusHandlers = null;
+    }
+    window.theme.currentMenuBlock = null;
     if (window.theme.menuCheckTimers) {
         window.theme.menuCheckTimers.forEach(t => clearTimeout(t));
         window.theme.menuCheckTimers = [];
