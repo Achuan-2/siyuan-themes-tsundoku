@@ -479,7 +479,7 @@ function removeViewSelectMenuItem() {
 }
 
 /**
- * 判断当前 commonMenu 是否为一个合法的块级主上下文菜单（排除文档菜单、子菜单、树菜单等）
+ * 判断当前 commonMenu 是否为思源明确标记的块级上下文菜单
  * @param {HTMLElement} commonMenu
  * @returns {boolean}
  */
@@ -488,39 +488,8 @@ function isBlockMainMenu(commonMenu) {
         return false;
     }
 
-    const dataName = commonMenu.getAttribute('data-name');
-    // 明确排除非块级菜单（顶栏工具栏、页签列表、搜索面板、文档树、大纲等）
-    const nonBlockDataNames = ['barmode', 'tabList', 'search', 'tree', 'workspace', 'dock', 'navigation', 'backlink', 'bookmark', 'tag', 'outline'];
-    if (dataName && nonBlockDataNames.includes(dataName)) {
-        return false;
-    }
-
-    // 排除文档块菜单（文档顶部图标 / 标题菜单），文档菜单具有 export、history、docAttr、docCopy、openBy、deleteDoc 等文档专属操作
-    const docMenuMarker = commonMenu.querySelector('button[data-id="export"], button[data-id="history"], button[data-id="docAttr"], button[data-id="docCopy"], button[data-id="openBy"], button[data-id="deleteDoc"]');
-    if (docMenuMarker) {
-        return false;
-    }
-
-    // 排除嵌入在子菜单内部的容器
-    const rootItems = commonMenu.querySelector(':scope > .b3-menu__items') || commonMenu.querySelector('.b3-menu__items');
-    if (!rootItems || rootItems.closest('.b3-menu__submenu')) {
-        return false;
-    }
-
-    // 块级菜单必须包含至少一个核心块级功能项（如转换为 type、自定义属性 attr、转为子文档 subDoc、折叠 fold、复制协议 copyProtocol/copyID/copyBlockRef、删除 delete 等）
-    const blockMenuMarker = rootItems.querySelector(
-        'button[data-id="type"], button[data-id="attr"], button[data-id="subDoc"], button[data-id="fold"], button[data-id="unfold"], button[data-id="copyProtocol"], button[data-id="copyID"], button[data-id="copyBlockRef"]'
-    );
-    if (!blockMenuMarker) {
-        // 如果没有上述典型特征，检查是否有标准分隔线与删除/复制按钮的组合
-        const hasBlockSeparators = rootItems.querySelector('.b3-menu__separator[data-id^="separator_"]');
-        const hasDeleteOrCopy = rootItems.querySelector('button[data-id="delete"], button[data-id="copy"], button[data-id="cut"]');
-        if (!hasBlockSeparators || !hasDeleteOrCopy) {
-            return false;
-        }
-    }
-
-    return true;
+    // 采用正向白名单：思源新增的其他菜单类型默认不会注入主题块样式菜单。
+    return ['block-single', 'block-multi'].includes(commonMenu.getAttribute('data-name'));
 }
 
 /**
