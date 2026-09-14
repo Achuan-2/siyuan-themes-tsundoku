@@ -926,10 +926,11 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
 .protyle-wysiwyg [data-type="NodeTabs"] > .tabs-header {
     position: sticky !important;
     top: 0;
-    /* 防止滚动内容透过标题栏 */
     background-color: var(--b3-theme-background);
 }
-
+.protyle-wysiwyg [data-type="NodeTabs"][data-tabs-orientation="horizontal"]  >.tabs-header{
+    z-index: 10;
+}
 /* 左侧页签栏是网格项，取消纵向拉伸后才能随文档滚动吸顶 */
 .protyle-wysiwyg [data-type="NodeTabs"][data-tabs-orientation="vertical"] > .tabs-header {
     align-self: start;
