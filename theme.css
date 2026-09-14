@@ -931,6 +931,10 @@ body>div.b3-dialog--open>div>div.b3-dialog__container>div:nth-child(3)>div>div.f
 .protyle-wysiwyg [data-type="NodeTabs"][data-tabs-orientation="horizontal"]  >.tabs-header{
     z-index: 10;
 }
+/* 重命名编辑层由页签正文绝对定位到标题栏，需要高于吸顶标题栏 */
+.protyle-wysiwyg [data-type="NodeTabs"][data-tabs-orientation="horizontal"] > .tab-item > .tabs-title-editor {
+    z-index: 11;
+}
 /* 左侧页签栏是网格项，取消纵向拉伸后才能随文档滚动吸顶 */
 .protyle-wysiwyg [data-type="NodeTabs"][data-tabs-orientation="vertical"] > .tabs-header {
     align-self: start;
