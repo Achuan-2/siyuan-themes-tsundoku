@@ -195,7 +195,7 @@
 .b3-typography span[data-type~=strong],
 .protyle-wysiwyg strong,
 .protyle-wysiwyg span[data-type~=strong] {
-    font-weight: bold;
+    font-weight: bold !important;
     color: inherit;
 }
 
