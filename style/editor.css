@@ -589,7 +589,7 @@ div[data-subtype='t'][data-type='NodeList'] {
     border-radius: 0.2em;
     color: #5f6368;
     font-family: inherit;
-    font-size: 0.8em;
+    font-size: 1em;
     line-height: 1;
     pointer-events: none;
 }
