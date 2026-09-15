@@ -473,13 +473,6 @@
     top: 0.5em;
 }
 
-/* 取消2.7.7 更新的待办列表完成样式 */
-.protyle-wysiwyg .protyle-task--done>div:not([data-subtype='t']) {
-    /* color: var(--b3-theme-on-surface-light); */
-    /* text-decoration: line-through; */
-    text-decoration: none !important;
-    color: var(--b3-theme-on-background);
-}
 /* 复选框选中 */
 .protyle-task--done>.protyle-action--task:before {
     content: '\2713';
@@ -511,11 +504,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 }
 
 /* 调整透明度 */
-.protyle-task--done {
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out;
-}
-
+.protyle-task--done,
 .protyle-task--done .protyle-task--done {
     opacity: 1;
     transition: opacity 0.5s ease-in-out;
@@ -524,6 +513,55 @@ div[data-subtype='t'][data-type='NodeList'] {
 .protyle-task--done div[data-type='NodeParagraph'],
 .protyle-task--done .protyle-action--task {
     opacity: 1;
+}
+
+/* 覆盖思源原生的非默认任务图标，继续使用主题任务状态样式 */
+.protyle-wysiwyg .li[data-task]:not([data-task=" "]):not([data-task="x"]):not([data-task="X"])>.protyle-action--task>svg {
+    opacity: 0 !important;
+}
+
+.protyle-wysiwyg .li[data-task]:not([data-task=" "]):not([data-task="x"]):not([data-task="X"])>.protyle-action--task:before {
+    content: var(--task-marker, attr(data-task)) !important;
+    display: inline-block !important;
+    box-sizing: content-box !important;
+    width: 1em !important;
+    height: 1em !important;
+    top: 0.65em !important;
+    left: auto !important;
+    transform: none !important;
+    font-family: inherit !important;
+    font-size: 0.8em !important;
+    line-height: 1em !important;
+    border: 1.7px solid currentColor !important;
+    border-radius: 0.2em !important;
+    color: var(--tsundoku-task-status-color, inherit) !important;
+    border-color: var(--tsundoku-task-status-color, currentColor) !important;
+    background-color: transparent !important;
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+}
+
+.protyle-wysiwyg .li[data-task="/"]>.protyle-action--task {
+    --tsundoku-task-status-color: var(--b3-card-warning-color);
+}
+
+.protyle-wysiwyg .li[data-task="/"]>.protyle-action--task:before {
+    content: '/' !important;
+}
+
+/* 仅放弃状态使用删除线 */
+.protyle-wysiwyg .li[data-task]:not([data-task="-"])>div:not([data-subtype='t']) {
+    text-decoration: none !important;
+    color: var(--b3-theme-on-background) !important;
+    opacity: 1 !important;
+}
+
+.protyle-wysiwyg .li[data-task="-"]>.protyle-action--task {
+    --tsundoku-task-status-color: var(--b3-card-error-color);
+}
+
+.protyle-wysiwyg .li[data-task="-"]>.protyle-action--task:before {
+    content: '-' !important;
 }
 
 /* ------------------------------超级块------------------------------ */
