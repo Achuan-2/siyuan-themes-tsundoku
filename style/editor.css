@@ -564,6 +564,61 @@ div[data-subtype='t'][data-type='NodeList'] {
     content: '-' !important;
 }
 
+/* 页签块任务状态沿用主题任务列表样式 */
+.protyle-wysiwyg .tabs-task {
+    position: relative;
+}
+
+.protyle-wysiwyg .tabs-task>svg,
+.protyle-wysiwyg .tabs-task--custom>span {
+    display: none !important;
+}
+
+.protyle-wysiwyg .tabs-task:before {
+    content: attr(data-task);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    border: 1.7px solid #5f6368;
+    border-radius: 0.2em;
+    color: #5f6368;
+    font-family: inherit;
+    font-size: 0.8em;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.protyle-wysiwyg .tabs-task[data-task=" "]:not([aria-disabled="true"]):hover:before {
+    content: '\2713';
+    color: #436681;
+}
+
+.protyle-wysiwyg .tabs-task[data-task="x"]:before,
+.protyle-wysiwyg .tabs-task[data-task="X"]:before {
+    content: '\2713';
+    border-color: #289aa2;
+    color: #289aa2;
+    font-weight: bold;
+}
+
+.protyle-wysiwyg .tabs-task[data-task="/"]:before {
+    content: '/';
+    border-color: var(--b3-card-warning-color);
+    color: var(--b3-card-warning-color);
+}
+
+.protyle-wysiwyg .tabs-task[data-task="-"]:before {
+    content: '-';
+    border-color: var(--b3-card-error-color);
+    color: var(--b3-card-error-color);
+}
+
 /* ------------------------------超级块------------------------------ */
 /* 调整超级块的块间距 */
 /* 调整超级块的块间距 */
