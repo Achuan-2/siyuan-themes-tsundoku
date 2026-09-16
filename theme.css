@@ -29,7 +29,7 @@
 /* 导出样式 */
 @import url('style/export.css');
 /* 搜索样式 */
-/* @import url('style/module/ctrlp.css'); */
+@import url('style/module/ctrlp.css');
 /* 引述块引号样式 */
 @import url('style/module/blockquote-quote.css');
 :root {

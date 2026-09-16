@@ -34,6 +34,10 @@
 	margin-right:2px;
 	content: "📄";
 }
+/* 标签元信息没有路径提示，使用 # 前缀。 */
+.fn__flex-column #searchList .b3-list-item[data-type='search-item']>.b3-list-item__meta--ellipsis:not([aria-label])::before{
+	content: "#";
+}
 .fn__flex-column #searchList>.b3-list-item+div [data-type='search-item'] .b3-list-item__graphic{
 	height: 10px;
     width: 10px;
@@ -112,6 +116,13 @@
 	display: block;/*保持搜索结果空格*/
 }
 
+/* 数据库块只展示三行摘要，避免搜索结果被完整内容撑高。 */
+#searchList [data-type="search-item"][data-node-type="NodeAttributeView"]>.b3-list-item__text{
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	overflow: hidden !important;
+}
 
 
 .search__list{
@@ -175,4 +186,8 @@
 	border:none;
 	padding: 3px 5px;
 	background-color: var(--S-list-background);
+}
+
+.b3-menu[data-name="barmode"] .b3-menu__items--menu{
+	max-height: inherit !important;
 }
