@@ -18,6 +18,8 @@
     border-bottom: 2px solid rgba(15, 76, 129, 1);
     text-align: center;
     color: rgba(15, 76, 129, 1);
+    margin: 0 !important;
+    padding: 0 !important;
 
 }
 
