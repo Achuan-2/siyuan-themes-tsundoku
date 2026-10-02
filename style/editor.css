@@ -808,9 +808,17 @@ li[data-type='navigation-file'] .counter {
     padding: 0em 0.375em 0.08em;
     margin: 0em 0.25em;
 }
-
+/* 大纲标签 */
+.b3-list-item[data-treetype=outline]>.b3-list-item__text span[data-type~=tag] {
+    color: var(--b3-protyle-inline-tag-color);
+    background-color: var(--b3-protyle-inline-tag-background);
+    border-radius: 0.3em;
+    padding: 0em 0.375em 0.08em;
+    margin: 0em 0.25em;
+}
 /* 标签#号 */
-.protyle-wysiwyg [data-node-id] span[data-type~='tag']:not(:empty)::before {
+.protyle-wysiwyg [data-node-id] span[data-type~='tag']:not(:empty)::before,
+.b3-list-item[data-treetype=outline]>.b3-list-item__text span[data-type~=tag]::before {
     content: '#';
 }
 
