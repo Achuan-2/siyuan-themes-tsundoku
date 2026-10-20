@@ -379,12 +379,7 @@
     box-shadow: 1px 1px 5px 5px rgba(6, 6, 6, 10%);
 }
 
-/* 图片大小调整手柄 */
-.protyle-wysiwyg [data-node-id] .img .protyle-action__drag {
-    height: 50%;
-    top: 25%;
-    background: var(--b3-theme-surface);
-}
+
 
 /* 去除图片后的多余空行 CSS片段 */
 :is(.b3-typography, .protyle-wysiwyg) .img:not([style]) {

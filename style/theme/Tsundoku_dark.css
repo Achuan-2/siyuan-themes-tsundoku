@@ -459,12 +459,6 @@ div[data-subtype='t'][data-type='NodeList'] {
     background-color: #204343;
 }
 
-/* 图片大小调整手柄 */
-.protyle-wysiwyg [data-node-id] .img .protyle-action__drag {
-    height: 50%;
-    background: #5dd3bf;
-    top: 25%;
-}
 
 /* 调整kbd */
 .b3-typography kbd,

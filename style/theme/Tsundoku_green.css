@@ -606,13 +606,7 @@ div[data-subtype='t'][data-type='NodeList'] {
 .protyle-wysiwyg--hl:after {
     background-color: #228be629;
 }
-/* 图片大小调整手柄 */
 
-.protyle-wysiwyg [data-node-id] .img .protyle-action__drag {
-    height: 50%;
-    top: 25%;
-    background: #b4f0d7;
-}
 
 /* 工具栏样式 */
 .protyle-toolbar {
